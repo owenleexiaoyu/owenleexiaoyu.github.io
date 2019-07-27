@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            秋招面试题汇总 | 
+        
+        海树
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/fish.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content=",面经">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="海树">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/11/09/interview-experience-collection/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="海树">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/11/09/interview-experience-collection/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="秋招面试题汇总 | 海树">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="面经"> 
+
+    
+        <meta property="article:published_time" content="Fri Nov 09 2018 23:23:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Nov 09 2018 23:07:32 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/11/09/interview-experience-collection/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/11/09/interview-experience-collection/index.html",
+    "headline": "秋招面试题汇总",
+    "datePublished": "Fri Nov 09 2018 23:23:00 GMT+0800",
+    "dateModified": "Fri Nov 09 2018 23:07:32 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",面经",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Bilibili（获得Offer）"><span class="post-toc-number">1.</span> <span class="post-toc-text">Bilibili（获得Offer）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Bilibili-一面"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Bilibili 一面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Bilibili-二面"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Bilibili 二面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Keep"><span class="post-toc-number">2.</span> <span class="post-toc-text">Keep</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Keep-一面"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Keep 一面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Keep-二面"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Keep 二面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#腾讯"><span class="post-toc-number">3.</span> <span class="post-toc-text">腾讯</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#腾讯提前批一面"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">腾讯提前批一面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#腾讯一面"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">腾讯一面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结-2"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#今日头条（获得Offer，最终去向）"><span class="post-toc-number">4.</span> <span class="post-toc-text">今日头条（获得Offer，最终去向）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#头条一面"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">头条一面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#头条二面"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">头条二面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#头条三面"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">头条三面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结-3"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">总结</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#百度（获得Offer）"><span class="post-toc-number">5.</span> <span class="post-toc-text">百度（获得Offer）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#百度一面"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">百度一面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#百度二面"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">百度二面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#百度三面"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">百度三面</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#总结-4"><span class="post-toc-number">5.4.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://image.wufazhuce.com/Fi4MSwyXsv34xgLDYmIWfBl7m_BY)">
+    
+            <p class="article-headline-p">
+                秋招面试题汇总
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/icon.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Owen Lee</strong>
+        <span>11月 09, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/面经/">面经</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/11/09/interview-experience-collection/" class="leancloud-views_num" data-flag-title="秋招面试题汇总">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=秋招面试题汇总&url=http://yoursite.com/2018/11/09/interview-experience-collection/index.html&pic=http://yoursite.com/img/fish.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=秋招面试题汇总&url=http://yoursite.com/2018/11/09/interview-experience-collection/index.html&via=Owen Lee" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/11/09/interview-experience-collection/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/11/09/interview-experience-collection/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=海树&title=秋招面试题汇总&summary=&pics=http://yoursite.com/img/fish.png&url=http://yoursite.com/2018/11/09/interview-experience-collection/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h3 id="Bilibili（获得Offer）"><a href="#Bilibili（获得Offer）" class="headerlink" title="Bilibili（获得Offer）"></a>Bilibili（获得Offer）</h3><h4 id="Bilibili-一面"><a href="#Bilibili-一面" class="headerlink" title="Bilibili 一面"></a>Bilibili 一面</h4><ol>
+<li>Activity的生命周期</li>
+<li>Activity 内存不足被回收时的生命周期</li>
+<li>Looper的工作原理</li>
+<li>Android 程序执行的内存使用情况</li>
+<li>GC是如何实现的</li>
+<li>涉及Native层的内存如何管理</li>
+<li>JNI的工作原理</li>
+<li>编译原理：一个CPP文件如何变成汇编语言，变成机器码，Java的代码呢？</li>
+<li>拿到一个Jar包如何加log，用反射吗？反射了解过吗？</li>
+<li>Android P的API了解过吗？</li>
+<li>面向切面编程？</li>
+<li>Android 如何处理UI和耗时操作，有哪些方式并简述各自特点和原理</li>
+<li>OOM产生的原因是什么？如何避免？</li>
+</ol>
+<h4 id="Bilibili-二面"><a href="#Bilibili-二面" class="headerlink" title="Bilibili 二面"></a>Bilibili 二面</h4><ol>
+<li>比较详细的聊项目经历</li>
+<li>如果你身边有个朋友想要学Android，你会建议他怎样来学。</li>
+</ol>
+<p>后面比较玄学，没有聊技术，谈了一下人生，就过了，美滋滋。</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>B站的整个面试过程是比较玄学的，一面的时间是9月29号，那时候我还没怎么复习好，很多知识点都没看过去。一面时候的问题除了几个比较常见的，还有像Android P的新特性、Native层的内存管理等几个问题我其实都没答上来。当时面完就觉得凉了，也没抱希望。过了两个星期，突然发来二面的通知，当时觉得特别不可思议。二面的时候，面试官是B站整个移动端的架构负责人，先是和我聊项目，这一块聊的还是比较深入的，比如项目中讲到了一个迷宫类的游戏，就问到了一个就是如何用算法去实现一个迷宫，当然我对这些算法都不了解，也回答的似是而非。但是面试官好像特别看好我，对我这块卡得不严，就说让我回去了解了解这方面的算法。单纯技术的话，二面是基本没问，后面问了一些实习的事，做的项目，然后问能不能去B站实习。最后给了一个比较肯定的回复，说会尽快发offer。这过程我其实是比较蒙的，因为自己觉得B站这边并没有表现的很好。后面了薪资的时候，提到了大疆和头条两个package比较高的Offer，B站这边给的薪资也很可观，但是更想去头条就拒掉了这边。</p>
+<h3 id="Keep"><a href="#Keep" class="headerlink" title="Keep"></a>Keep</h3><h4 id="Keep-一面"><a href="#Keep-一面" class="headerlink" title="Keep 一面"></a>Keep 一面</h4><ol>
+<li>Java 的集合类用过哪些？ArrayList 是用什么来实现的？添加一个元素有哪些操作？扩容会扩容到原来的多少？添加一个元素的时间复杂度是多少？</li>
+<li>如何判断一个链表是循环链表？如何计算循环链表的环的节点数？（快慢指针）</li>
+<li>synchronized 关键字和volatile 关键字有什么区别？</li>
+<li>ThreadLocal 的作用？</li>
+<li>Android 的Thread、Handler、Looper是如何工作的？一个线程可以有几个Looper？可以没有Looper吗？一个线程可以有多少个Handler？</li>
+<li>TCP 连接的三次握手和四次挥手的过程</li>
+<li>Activity的生命周期有哪些？Activity A 跳转到 Activity B 的过程中，两个Activity的生命周期调用流程。</li>
+<li>Service 有几种启动方式？如果一个Service既start，又bind，这时候调用stopService()，Service会不会销毁。</li>
+<li>Activity 和Fragment 之间如何互相调用对方的方法。</li>
+<li>快速排序的时间复杂度是多少？写一个快速排序。</li>
+</ol>
+<h4 id="Keep-二面"><a href="#Keep-二面" class="headerlink" title="Keep 二面"></a>Keep 二面</h4><ol>
+<li>介绍项目经历</li>
+<li>讲一下 Java 的集合类</li>
+<li>Activity的启动模式有哪些？</li>
+<li>自定义一个FrameLayout 来实现LinearLayout。</li>
+<li>Android 中实现异步的方式有哪些？</li>
+<li>Handler 出现内存泄漏的原因。</li>
+<li>什么是内存泄漏？</li>
+<li>IntentService的使用场景，有什么好处？HandlerThread 的作用。</li>
+<li>ListView 中的缓存机制。</li>
+<li>用到了哪些Android的图片加载库，之间有什么区别？</li>
+</ol>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>Keep 最后是止于二面，二面面完后我其实心里有点数，可能就到此为止了。一面的时候，所问到的问题其实都是比较常见的，答得很顺利。记得在编程题的环节，面试官让我手写一个快排，其实原理都懂，之前复习的时候也专门练过一次，但是有段时间没看了，在写的时候对边界条件一直没考虑清楚，写了挺久都没写出来。估计面试官也是看我其他问题答得比较顺畅才给我过的吧。二面时，有几个问题对我来说有点偏，平时都没怎么注意，在复习的时候也没好好看，比如那个如何自定义一个FrameLayout 来实现LinearLayout、ListView的缓存机制（现在面试问ListView的比较少了，所以一直没细看这部分）。所以二面有些问题回答的就比较糟糕，最后二面面试官没有一面面试官那么仁慈了，就没有过。据说今年Keep 给的薪资也是比较高的，遗憾。</p>
+<h3 id="腾讯"><a href="#腾讯" class="headerlink" title="腾讯"></a>腾讯</h3><h4 id="腾讯提前批一面"><a href="#腾讯提前批一面" class="headerlink" title="腾讯提前批一面"></a>腾讯提前批一面</h4><ol>
+<li>JVM中的内存类型有哪些？</li>
+<li>Object类中wait()、notify()、notifyAll()的区别联系。</li>
+<li>Activity A 跳转到Activity B 时，如果A的onStop() 方法在B的onResume() 方法之前会发生什么。启动模式会不会对这个过程造成影响。</li>
+<li>Handler 内存泄漏的原因是什么？</li>
+<li>询问学校项目的经历和实习中的任务。</li>
+</ol>
+<h4 id="腾讯一面"><a href="#腾讯一面" class="headerlink" title="腾讯一面"></a>腾讯一面</h4><p>腾讯的一面全程一个 Android 的问题都没问，问的基本上都是 C++ 和 Java 的知识。唉，心里苦啊。</p>
+<ol>
+<li>自我介绍，介绍项目。</li>
+<li>C++ 和 Java 有什么区别？</li>
+<li>C++ 中的 const 关键字有什么用法？static 关键字有什么用法？</li>
+<li>说一下 Java 的垃圾回收机制。</li>
+<li>C++ 和 Java 在继承上有什么区别？</li>
+<li>用过哪些开源库？选择一个开源库的理由有哪些？</li>
+<li>一个算法题：找出一个字符串中不重复的最长子串。</li>
+</ol>
+<h4 id="总结-2"><a href="#总结-2" class="headerlink" title="总结"></a>总结</h4><p>还是太菜了，从实习到秋招，一共面了三次腾讯，就没有挺过一面的。而且有两次，都感觉很难受，因为面试问得大部分问题是 C++ 的问题，话说我面的是 Android  开发啊，这不是难为我这个彩笔吗。还有一次倒是集中于 Java 和 Android，但是问到的问题我答得都很差，也就没有后续了，想想还是很难受的。</p>
+<h3 id="今日头条（获得Offer，最终去向）"><a href="#今日头条（获得Offer，最终去向）" class="headerlink" title="今日头条（获得Offer，最终去向）"></a>今日头条（获得Offer，最终去向）</h3><h4 id="头条一面"><a href="#头条一面" class="headerlink" title="头条一面"></a>头条一面</h4><ol>
+<li>计算机网络的整体结构</li>
+<li>TCP 的建立连接和断开连接的过程，这个过程中的状态转换。</li>
+<li>介绍一下HTTP，有哪些方法？GET和POST有什么区别？使用场景有什么区别？有哪些Header？和缓存相关的Header的作用是什么？</li>
+<li>说一下 JVM 的内存模型。</li>
+<li>初学 Android 需要掌握哪些知识？</li>
+<li>说一下 Android 的事件分发机制。</li>
+<li>Bitmap、Cannvas、Paint、Drawable有什么区别和联系？</li>
+<li>手写二叉树的中序遍历。</li>
+<li>对一个搜索关键字，进行高亮的需求，如何进行实现？如果有多个关键字重复高亮怎么处理？</li>
+</ol>
+<h4 id="头条二面"><a href="#头条二面" class="headerlink" title="头条二面"></a>头条二面</h4><ol>
+<li>HTTPS  的建立连接的过程？为什么后面用对称加密？</li>
+<li>Java 的finalize 方法如何调用？为什么要设计这个方法。</li>
+<li>Java 中的优先队列</li>
+<li>Java 的HashMap的实现原理？如何扩容？和Hashtable的区别？CurrentHashMap的原理，有什么特点？</li>
+<li>Android 的四大组件的介绍，Service是运行在主线程还是在子线程？Service可不可以有UI？四大组件中有哪些可以跨进程？进程的优先级有哪些？</li>
+<li>Content Provider 如何设置访问权限？</li>
+<li>如何解决滑动冲突？</li>
+<li>Android 跨进程通信的方式有哪些？Binder的实现原理是什么？AIDL和Binder有什么区别？</li>
+<li>UI 卡顿如何进行优化？</li>
+<li>如何进行异步通信，了解过这方面的开源库吗？</li>
+<li>编程：二叉树的中序遍历</li>
+<li>死锁是怎么产生的？</li>
+</ol>
+<h4 id="头条三面"><a href="#头条三面" class="headerlink" title="头条三面"></a>头条三面</h4><ol>
+<li>项目介绍，问了很多关于项目的细节。</li>
+<li>Android Activity 的启动模式。</li>
+<li>Android 开发者可以使用的异步处理方式有哪些？（Handler、AsyncTask、HandlerThread、IntentService）IntentService和Service有什么区别？</li>
+<li>项目中用到的网络库，RxVolley和Volley的区别。</li>
+</ol>
+<h4 id="总结-3"><a href="#总结-3" class="headerlink" title="总结"></a>总结</h4><p>头条这次能获得 Offer，其实也有一些运气成分在其中。首先是一位学长给了我一个白金内推码，免去了笔试，不然以头条的笔试难度，还真不一定能过。其次是面试时间比较晚，所以准备的时间比较充足。记得第一次通知我面试是在 9 月中旬，当时确实时间冲突，另外对自己也不自信，所以看到可以后延面试轮次，就换到了 9 月底。结果那天前面排的人很多，面试官面不过来，就把我调到了 10 月 13 号的场次，也是幸运地争取到了一些时间。很多的机缘巧合加在一起，我在 10 月 13 号参加了头条的面试。</p>
+<p>面试过程总的来说要求还是比较严的，特别是三面，后面会细说。在面头条的前几天，刚和大疆那边聊完薪资，给的挺多的，超出了我原本的预期，答应了大疆的Offer。所以面试那天的心态是很放松的，我觉得这也是其中一个因素。记得更早前面美团时，因为是第一次线下面试，紧张的不得了，很多明明知道的东西也没有很好地回答上，最后毫无疑问被淘汰了。而这次算是抱着试试即可的心态，没过还有大疆呢，在回答问题的时候比较放松，思路、逻辑包括表达可能会更好一些。</p>
+<p>还有一个比较意外的小插曲是一面二面都有一道编程题，巧的是竟然考到了同一个知识点：二叉树的遍历。一面面试官让我写一个非递归形式的二叉树中序遍历，这个当时还是思考了一会，还好思路都还是记得，花了五六分钟写出来。二面的时候面试官让我写一个二叉树的深度遍历，那我当然是要发挥代码复用的优良传统啊，所以在假装深思一下后，很快就写出来了，二面也就过了。</p>
+<p>二面其实有些问题我觉得是挺深入的了，都问到了跨进程通信的实现方式了，其实这个问题我也不怎么会，只答上来几种实现的方式，但对于底层原理也回答不上来，好在面试官也没特别揪着这个问题。</p>
+<p>头条的三面是我经历过最严格的也是最惊险的一次终面了。之前面过的美团、大疆，之后面的B站、百度，终面的时候虽说会对项目的细节包括自己对计算机领域的认知、个人的规划等等展开提问，但都没有一次想头条的三面这样给我这么大的压力。原因在于他对项目的细节抠的太细了。我简历上写了两个在学校做的项目，说实话，这两个项目委实没有什么亮点，并且由于时间久远，一些细节都记不清了。但是面试官非常仔细地让我介绍了项目，并且对项目一些点展开提问，关键是问到的这些点正是这个项目本身的局限之处，我也不能很好的解释，这让我真的非常紧张，只能是尽量去解释当时的考虑。总之，三面的项目提问真的是我遇过的最细致的。所以，<strong>在制作简历的时候，一定要保证对简历上写的每项内容都有十足的把握</strong>，不会被面试官一深挖就崩。不要追求简历的丰富好看而强加没有把握的内容。后面的问到技术的时候，因为还是在Android开发这一块，反而压力小了很多，回答的也还好。三面结束过了一会，接到HR的电话说三面过了，心里非常开心。</p>
+<h3 id="百度（获得Offer）"><a href="#百度（获得Offer）" class="headerlink" title="百度（获得Offer）"></a>百度（获得Offer）</h3><h4 id="百度一面"><a href="#百度一面" class="headerlink" title="百度一面"></a>百度一面</h4><ol>
+<li>自我介绍，介绍项目经历。</li>
+<li>Activity的生命周期，各个生命周期的作用是什么？可以在onCreate中弹出一个Dialog吗？Dialog是被添加到哪里呢？弹出 Dialog 后生命周期会怎么变化？Activity之间是怎么传递数据的？可不可以传图片数据？Fragment怎么传数据？</li>
+<li>Android 的事件传递（拦截）机制是怎样的？</li>
+<li>自定义View的步骤？如何让TextView的文字居中，如何在TextView中添加图片？添加了图片后图片是否会居中呢？如何实现让图片也居中？自己实现过哪些自定义控件？实现的思路是怎样的？</li>
+<li>Broadcast Recevicer是做什么的？它的底层是如何实现的？如果让你写一个本地的广播系统你会怎么实现？</li>
+<li>Java 的集合类用过哪些？LinkedHashMap用过吗？HashMap是如何实现的？介绍一下CurrentHashMap，TreeMap。</li>
+<li>Http 302 的状态码表示什么意思？你在项目中是如何实现网络连接的？有用到什么开源库吗？</li>
+<li>编程题：如何判断一个字符是一个合法的IP地址？</li>
+<li>你觉得你还有什么方面比较突出的可以跟我说的？</li>
+</ol>
+<h4 id="百度二面"><a href="#百度二面" class="headerlink" title="百度二面"></a>百度二面</h4><ol>
+<li>接触Android多久了？介绍一下你做的项目？你在里面做了什么？</li>
+<li>自定义控件需要注意哪些问题？</li>
+<li>Java中final的使用场景有哪些？作用分别是什么？</li>
+<li>面向对象的特性有哪些？Java如何实现这些特性？</li>
+<li>有几种创建线程的方式？之间有什么区别？</li>
+<li>线程的同步如何来实现？</li>
+<li>死锁是怎么形成的？如何来预防死锁的发生？</li>
+<li>计算机网络中OSI七层模型是哪七层？应用层的协议有哪些？（HTTP、FTP、SMTP、POP3）POP3和SMTP是什么协议？（邮件）HTTP和HTTPS的区别是什么？SSL协议是什么样的协议？HTTPS中用到了哪几种加密方式？</li>
+<li>用过哪些开源库？（答了Volley、Picasso、OKhttp、Retrofit）了解过源码吗？（答看过Volley的）画一下Volley的整体结构。OkHttp为什么这么多人用？优点在哪里？</li>
+<li>HashMap的实现原理？</li>
+</ol>
+<h4 id="百度三面"><a href="#百度三面" class="headerlink" title="百度三面"></a>百度三面</h4><ol>
+<li>自我介绍。详细介绍项目，在其中的工作。在项目中投入的精力、时间等。项目的立意是怎么来的？为什么要做这个项目？有老师介入项目吗？</li>
+<li>你最近看了什么书，和技术有关的？给你印象最深的是什么？有哪些收获？</li>
+<li>学过哪几种语言？如果让你学一门新的语言，你多久能掌握它？（答两周掌握语法结构）如果我给你一周时间，让你去学习Go这门语言，一周后写线上业务，你会怎么学？</li>
+<li>讲一下Android中的消息机制。它有哪些优缺点？</li>
+<li>设计模式了解过吗？用过哪些设计模式？工厂模式的类图画一下？</li>
+<li>在开发中有遇到过OOM的问题吗？如何来避免OOM的出现？（答到了使用缓存）缓存是用在什么样的场景中，是为了解决什么问题？LRU算法是一个什么算法？</li>
+<li>Java的GC了解过吗？虚拟机是如何实现垃圾回收的？有哪些回收方式？</li>
+<li>你觉得你在开发的哪些层面表现比较好？是UI层、还是逻辑层？你最近做过的自定义控件有哪些？最有难度的是哪个？</li>
+<li>了解过哪些开源库？（答的Volley）有看过源码吗？它的设计里有哪些优秀的地方？</li>
+<li>对百度有哪些了解？对魏则西事件怎么看？（后来主管还对这个事件做了一些解释）</li>
+<li>在哪里实习？实习主要做哪些工作？公司有给你发offer吗？</li>
+<li>还参加了哪些公司的招聘？手里有哪些offer？如果我们这边也给你offer，你会怎么选？</li>
+<li>有什么问题想问我的？</li>
+</ol>
+<h4 id="总结-4"><a href="#总结-4" class="headerlink" title="总结"></a>总结</h4><p>收到百度面试通知是在10月10日，面试安排在10月21日。这期间，收到了头条、B站的Offer，最后选择了头条，和头条签了两方。之后，拒掉了之前海投的一些公司的面试，像贝壳、快手，但还是决定来试试百度。毕竟BAT是每个IT人的梦想，阿里错过了内推网申，腾讯不管是提前批还是正式流程都倒在了一面上，百度是最后一个机会。其实有点衡量衡量自己的水平的意思，看看能不能够得到BAT的门槛。</p>
+<p>百度的面试流程也是三轮，并且是现场随机分配空闲的面试官。每个面试官有自己专门负责的方向和轮次，比如IOS一面，Android二面这些。一面过了就去看哪位二面的面试官空闲，然后直接开始面。</p>
+<p>一面二面大部分问题都还是比较常见的，这里就不细说了，值得一提的是三轮面试都提到了一个内容：开源库。三位面试官都问了我平常开发中用过哪些开源库，像一面二面的面试官是很明显的想问我OkHttp的内容，但是我OkHttp原理的东西不懂，还停留在用的阶段，所以没有正面的回答他们，重点说了自己看过源码的Volley这个网络库。然后像三面的时候就问到有没有看过开源库的源码，能从中学到哪些优秀的东西，要求还是有点的。</p>
+<p>在一面的时候，面试官问我“你觉得你还有哪些方面比较突出的可以和我说的”，三面的时候，面试官问：你觉得你在Android 开发的哪个方面比较有优势？为什么？这两个问题我觉得其实难度比那些技术问题还要难上一些，因为它是一个半主观的问题，要如何表达自己的优势，同时避免过度吹嘘，又如何证明自己具备这些优势。就感觉既考验你的实际水平，又考验你的表达能力。</p>
+<p>还想说一下三面的过程，三面的面试官真的是非常Nice。上来先自我介绍，说了自己的名字，工作的部门（百度网盘的技术主管），是我面试这么多次第一次知道面试官的名字，感觉还是很不一样的。在比如OOM的问题上，我本来对这块不熟悉的，如果他深究下去是肯定会很尴尬的。但是后面他给我一些引导，就慢慢回答到缓存，包括LRU算法，还给我循序渐进的解释LRU算法。后面面试官问我怎么看待魏则西事件，说实话我是绝对没想过会被问到这个问题，因为它无疑是百度的一个软肋，而现在面试官直接摊开来问我怎么看，让我着实感到意外。我对于这个事件确实也有一些想要说的实话吧，反正就一股脑的说出来了，大意是搜索对于现在的人们过于重要，百度既然做了这个领域，就必须有这个社会责任感。说完后，面试官非常认可，也和我非常开诚布公吧，说道这个事件确实是百度的一个痛点，他们也非常正视这个事情，解释了这些事情背后的一些原因。百度的三面和B站的二面算是体验最好的终面了。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/11/14/notes-1-for-learn-financial-management-with-qianqian/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/11/09/fragment-to-fragment-in-activity/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/daily_pic.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/icon.jpg" alt="Owen Lee's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        2924354040@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:2924354040@qq.com" target="_blank" title="给我发邮件">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        给我发邮件
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">19</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/07/">七月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">18</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">8</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/想法/">想法<span class="sidebar_archives-count">24</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术/">技术<span class="sidebar_archives-count">27</span></a></li><li><a class="sidebar_archives-link" href="/categories/笔试面试/">笔试面试<span class="sidebar_archives-count">29</span></a></li><li><a class="sidebar_archives-link" href="/categories/译文/">译文<span class="sidebar_archives-count">8</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/2017/10/20/about-me/" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline/" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery/" title="图库">
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">103</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/owenleexiaoyu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/xiao-yu-7-94/activities" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>海树
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz', 'hGgJDQbyDLHvM3UMFXuJyYNU');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

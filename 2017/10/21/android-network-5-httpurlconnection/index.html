@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Android 网络编程系列（五）使用 HttpUrlConnection | 
+        
+        海树
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/fish.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content=",Android 网络编程">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="海树">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2017/10/21/android-network-5-httpurlconnection/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="海树">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2017/10/21/android-network-5-httpurlconnection/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Android 网络编程系列（五）使用 HttpUrlConnection | 海树">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="Android 网络编程"> 
+
+    
+        <meta property="article:published_time" content="Sat Oct 21 2017 19:22:00 GMT+0800">
+        <meta property="article:modified_time" content="Tue Nov 06 2018 19:41:00 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2017/10/21/android-network-5-httpurlconnection/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2017/10/21/android-network-5-httpurlconnection/index.html",
+    "headline": "Android 网络编程系列（五）使用 HttpUrlConnection",
+    "datePublished": "Sat Oct 21 2017 19:22:00 GMT+0800",
+    "dateModified": "Tue Nov 06 2018 19:41:00 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Android 网络编程",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HttpUrlConnection-用法"><span class="post-toc-number">2.</span> <span class="post-toc-text">HttpUrlConnection 用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取到-HttpUrlConnection-对象"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">获取到 HttpUrlConnection 对象</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#进行全局的网络设置并建立-Http-连接"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">进行全局的网络设置并建立 Http 连接</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#进行数据处理"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">进行数据处理</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#关闭连接"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">关闭连接</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实例一：获取网站源码"><span class="post-toc-number">3.</span> <span class="post-toc-text">实例一：获取网站源码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实例二：下载文件"><span class="post-toc-number">4.</span> <span class="post-toc-text">实例二：下载文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将-HttpUrlConnection-封装成工具类"><span class="post-toc-number">5.</span> <span class="post-toc-text">将 HttpUrlConnection 封装成工具类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结束语"><span class="post-toc-number">6.</span> <span class="post-toc-text">结束语</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://image.wufazhuce.com/FqcoLETqyqG2MdZ7gtryKosMGUve)">
+    
+            <p class="article-headline-p">
+                Android 网络编程系列（五）使用 HttpUrlConnection
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/icon.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Owen Lee</strong>
+        <span>10月 21, 2017</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android-网络编程/">Android 网络编程</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2017/10/21/android-network-5-httpurlconnection/" class="leancloud-views_num" data-flag-title="Android 网络编程系列（五）使用 HttpUrlConnection">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Android 网络编程系列（五）使用 HttpUrlConnection&url=http://yoursite.com/2017/10/21/android-network-5-httpurlconnection/index.html&pic=http://yoursite.com/img/fish.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Android 网络编程系列（五）使用 HttpUrlConnection&url=http://yoursite.com/2017/10/21/android-network-5-httpurlconnection/index.html&via=Owen Lee" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/10/21/android-network-5-httpurlconnection/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/10/21/android-network-5-httpurlconnection/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=海树&title=Android 网络编程系列（五）使用 HttpUrlConnection&summary=&pics=http://yoursite.com/img/fish.png&url=http://yoursite.com/2017/10/21/android-network-5-httpurlconnection/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在我们的应用中支持网络功能是绝对有必要的，大部分的应用程序都需要从服务器获取网络数据然后显示在界面中。前两篇文章我们介绍了 WebView 的一些用法和知识点。但是并非所有的网络功能都能通过 Webview 来实现，比如我们从服务器获取一段 json 数据，其中包含了我们想要的信息，这时候，我们就不能使用Webview 了，而是需要直接获取到一个 Http 请求的响应数据。我们可以使用 HttpUrlConnection 或者其他的第三方网络框架来实现网络访问。</p>
+<p>在 Android 6.0 之前，原生的有两种方式可以进行网络请求，HttpClient 和 HttpUrlConnection，HttpClient 的 API 多而复杂，拓展困难，因此这种方式在 Android 6.0 之后就被官方移除了。HttpUrlConnection 的 API 简单，体积较小，非常适合 Android 开发，也是官方推荐的网络请求方式。我们这篇文章就来看看 HttpUrlConnection 的相关知识。</p>
+<h3 id="HttpUrlConnection-用法"><a href="#HttpUrlConnection-用法" class="headerlink" title="HttpUrlConnection 用法"></a>HttpUrlConnection 用法</h3><p>使用 HttpUrlConnection 来进行网络请求大致上可以分为4个步骤：</p>
+<ol>
+<li>获取到 HttpUrlConnection 对象</li>
+<li>进行全局的网络设置并建立 Http 连接</li>
+<li>进行数据处理</li>
+<li>关闭连接</li>
+</ol>
+<p>我们依次来看看这些步骤中需要做哪些工作：</p>
+<h4 id="获取到-HttpUrlConnection-对象"><a href="#获取到-HttpUrlConnection-对象" class="headerlink" title="获取到 HttpUrlConnection 对象"></a>获取到 HttpUrlConnection 对象</h4><p>使用 URL 对象的 openConnection（）方法获取到 HttpUrlConnection 对象，这个对象是我们进行网络请求的核心。</p>
+<p>网络请求在响应时间上具有很大的不确定性，如果将网络请求放在主线程中执行时，过长的耗时操作会阻塞主线程，导致程序卡死。因此，网络请求都应该放在子线程中执行。</p>
+<p>如以下示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">URL url = new URL(&quot;http://lixiaoyu.cc&quot;);</span><br><span class="line">HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span><br></pre></td></tr></table></figure>
+
+<h4 id="进行全局的网络设置并建立-Http-连接"><a href="#进行全局的网络设置并建立-Http-连接" class="headerlink" title="进行全局的网络设置并建立 Http 连接"></a>进行全局的网络设置并建立 Http 连接</h4><p>获取到 HttpUrlConnection 对象后，就可以调用这个对象的一些方法，进行一些网络设置，比如设置连接超时时间，读取超时时间，网络请求方式等。如以下代码所示：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//设置网络请求方式，如GET、POST、HEAD等</span><br><span class="line">conn.setRequestMethod(&quot;GET&quot;);</span><br><span class="line"></span><br><span class="line">//设置连接超时时间</span><br><span class="line">conn.setConnectTimeout(8000);</span><br><span class="line"></span><br><span class="line">//设置读取超时时间</span><br><span class="line">conn.setReadTimeout(8000);</span><br><span class="line"></span><br><span class="line">//设置Http请求头部</span><br><span class="line">conn.setRequestProperty(&quot;Accept-Encoding&quot;, &quot;identity&quot;);</span><br><span class="line"></span><br><span class="line">//设置可以读取输入流</span><br><span class="line">conn.setDoInput(true);</span><br><span class="line"></span><br><span class="line">//设置可以读取输出流，在使用POST向服务器提交数据时必须要将该方法设置为true</span><br><span class="line">conn.setDoOutput(true);</span><br><span class="line"></span><br><span class="line">//进行Http连接，必须写在setDoInput（）方法后面</span><br><span class="line">conn.connect();</span><br></pre></td></tr></table></figure>
+
+<h4 id="进行数据处理"><a href="#进行数据处理" class="headerlink" title="进行数据处理"></a>进行数据处理</h4><p>进行数据处理包括两个方面，一个是从服务器读取相应数据，一个是向服务器发送数据（POST 方法会用到），分别对应之前的 setDoInput() 和 setDoOutput() 方法。</p>
+<p><strong>从服务器读取数据</strong></p>
+<p>先来看看从服务器读取数据，通过调用 HttpUrlConnection 对象的一些方法可以获取到服务器发送给客户端的相应信息，如状态码、响应内容长度、包含了响应内容的输入流等等。如以下示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//获取响应状态码，如 200 表示成功等</span><br><span class="line">int responseCode = conn.getResponseCode();</span><br><span class="line"></span><br><span class="line">//获取包含响应内容的输入流</span><br><span class="line">InputStream in = conn.getInputStream();</span><br><span class="line"></span><br><span class="line">//获取响应内容长度</span><br><span class="line">int contentLength = conn.getContentLength();</span><br></pre></td></tr></table></figure>
+
+<p>在获取输入流之后，就可以利用 Java 中的 IO 流的知识对该输入流进行流处理，从而得到我们想要的数据。（这部分代码在完整示例代码中给出）</p>
+<p><strong>向服务器提交数据</strong></p>
+<p>我们常常使用 POST 方法向服务器提交一个表单，在向服务器提交数据时，需要先通过 HttpUrlConnection 对象的 getOutputStream() 方法获取到输出流对象，在通过输出流对象的 write() 方法向服务器写数据。POST 方法的每条数据都以键值对的形式提交，数据之间用 “&amp;” 进行分隔。如以下示例代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//将网络请求方法改为 POST</span><br><span class="line">conn.setRequestMethod(&quot;POST&quot;);</span><br><span class="line">//设置支持输出流</span><br><span class="line">conn.setDoOutput(true);</span><br><span class="line">//获取 HttpUrlConnection 的输出流对象</span><br><span class="line">OutputStream out = conn.getOutputStream();</span><br><span class="line">//给这个输出流添加一个处理流，方便操作</span><br><span class="line">DataOutputStream dos = new DataOutputStream(out);</span><br><span class="line">//使用 writeBytes() 方法将数据提交到服务器</span><br><span class="line">dos.writeBytes(&quot;username=admin&amp;password=123456&quot;);</span><br><span class="line">//进行 Http 连接</span><br><span class="line">conn.connect();</span><br></pre></td></tr></table></figure>
+
+<h4 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a>关闭连接</h4><p>在我们完成了所有数据写入和读取的流操作后，应该调用 disconnect() 方法关闭 Http 连接。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//关闭 Http 连接</span><br><span class="line">conn.disconnect();</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例一：获取网站源码"><a href="#实例一：获取网站源码" class="headerlink" title="实例一：获取网站源码"></a>实例一：获取网站源码</h3><p>在 layout 文件中放置一个 Button 和一个 TextView，我们希望点击 Button 后，获取到某个网站的 HTML 源码，并以文本的形式展示在 TextView 中。这个实例较为简单，就直接将代码贴出，关键部分会有注释。</p>
+<p>layout 文件中，Button 指定了一个名为 getCode 的 onClick（）方法，可以直接在 Activity 中实现这个方法，进行 Button 的点击事件监听。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;LinearLayout</span><br><span class="line">    android:layout_width=&quot;match_parent&quot;</span><br><span class="line">    android:layout_height=&quot;match_parent&quot;</span><br><span class="line">    android:orientation=&quot;vertical&quot;&gt;</span><br><span class="line">    &lt;Button</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;wrap_content&quot;</span><br><span class="line">        android:onClick=&quot;getCode&quot;</span><br><span class="line">        android:text=&quot;获取网页源代码&quot;/&gt;</span><br><span class="line">    &lt;TextView</span><br><span class="line">        android:id=&quot;@+id/main_content&quot;</span><br><span class="line">        android:layout_width=&quot;match_parent&quot;</span><br><span class="line">        android:layout_height=&quot;match_parent&quot;/&gt;</span><br><span class="line">&lt;/LinearLayout&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在 Activity 中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">//处理 Button 的点击事件</span><br><span class="line">public void getCode(View view) &#123;</span><br><span class="line">    new Thread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            try &#123;</span><br><span class="line">		        URL url = new URL(&quot;http://lixiaoyu.cc&quot;);</span><br><span class="line">                //获取 HttpURLConnection 对象</span><br><span class="line">                HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span><br><span class="line"></span><br><span class="line">                //设置请求方法为 GET</span><br><span class="line">                conn.setRequestMethod(&quot;GET&quot;);</span><br><span class="line">                //设置连接超时时间为 8 秒</span><br><span class="line">                conn.setConnectTimeout(8000);</span><br><span class="line">                //设置读取超时时间为 8 秒</span><br><span class="line">                conn.setReadTimeout(8000);</span><br><span class="line">                //支持输入流</span><br><span class="line">                conn.setDoInput(true);</span><br><span class="line"></span><br><span class="line">                //获取响应状态码</span><br><span class="line">                int responseCode = conn.getResponseCode();</span><br><span class="line">                Log.i(TAG, &quot;responseCode=&quot; + responseCode);</span><br><span class="line">                //获取输入流</span><br><span class="line">                InputStream in = conn.getInputStream();</span><br><span class="line">                //将输入流封装成 BufferedReader</span><br><span class="line">                BufferedReader reader = new BufferedReader(new InputStreamReader(in));</span><br><span class="line">                StringBuffer sb = new StringBuffer();</span><br><span class="line">                String line;</span><br><span class="line">                while ((line = reader.readLine()) != null) &#123;</span><br><span class="line">                    sb.append(line);</span><br><span class="line">                &#125;</span><br><span class="line">                //将 StringBuffer 的数据转化成 String，在主线程中设置到 TextView 上</span><br><span class="line">                showCode(sb.toString());</span><br><span class="line">	        &#125; catch (MalformedURLException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; catch (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">private void showCode(final String s) &#123;</span><br><span class="line">    //必须在主线程中操作 UI</span><br><span class="line">    runOnUiThread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            tvCode.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>程序运行的结果如图所示：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwyktl6ssmj30c00lctda.jpg" alt></p>
+<h3 id="实例二：下载文件"><a href="#实例二：下载文件" class="headerlink" title="实例二：下载文件"></a>实例二：下载文件</h3><p>在上篇 WebView 的文章中讲到在 Webview 下载文件可以有两种方式，一时通过隐式 Intent 调用系统浏览器进行下载，一种是拿到文件的 URL 后自己创建线程进行下载，上篇文章中只介绍了第一种方法，这里就介绍第二种方法的实现。其实原理非常简单，就是在获取到文件 URL 后，使用 HttpUrlConnection 进行网络请求，通过其对象的输入流读取到该文件的二进制数据，将二进制数据保存为相应格式的文件即可。</p>
+<p>完整代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line">public class WebActivity extends AppCompatActivity &#123;</span><br><span class="line">    private WebView mWebView;</span><br><span class="line">    private String mUrl = null;</span><br><span class="line">    private static final String TAG = &quot;WebActivity&quot;;</span><br><span class="line">    @Override</span><br><span class="line">    protected void onCreate(@Nullable Bundle savedInstanceState) &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_haha);</span><br><span class="line">        mWebView = (WebView) findViewById(R.id.webview);</span><br><span class="line">        mWebView.getSettings().setJavaScriptEnabled(true);</span><br><span class="line">        //加载豌豆荚应用市场的网页</span><br><span class="line">        mWebView.loadUrl(&quot;http://wandoujia.com&quot;);</span><br><span class="line">        mWebView.setWebViewClient(new WebViewClient() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public boolean shouldOverrideUrlLoading(WebView view, String url) &#123;</span><br><span class="line">                view.loadUrl(url);</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        //设置下载监听器</span><br><span class="line">        mWebView.setDownloadListener(new DownloadListener() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void onDownloadStart(String url, String s1, String s2, String s3, long l) &#123;</span><br><span class="line">                //如果URL以“.apk”结尾，就进行下载</span><br><span class="line">                if (url.endsWith(&quot;.apk&quot;)) &#123;</span><br><span class="line">                    mUrl = url;</span><br><span class="line">                    //程序运行在Android 6.0以上的系统中，所以在读写SD卡时需要动态申请权限</span><br><span class="line">                    if(ContextCompat.checkSelfPermission(WebActivity.this,</span><br><span class="line">                            Manifest.permission.WRITE_EXTERNAL_STORAGE)</span><br><span class="line">                            != PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">                        ActivityCompat.requestPermissions(WebActivity.this,</span><br><span class="line">                                new String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;, 1);</span><br><span class="line">                    &#125;else&#123;</span><br><span class="line">                        //如果已经申请该权限，则直接下载</span><br><span class="line">                        downloadApk(mUrl);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 下载Apk文件的方法</span><br><span class="line">     * @param url</span><br><span class="line">     */</span><br><span class="line">    private void downloadApk(final String url) &#123;</span><br><span class="line">        new Thread(new Runnable() &#123;</span><br><span class="line">            @Override</span><br><span class="line">            public void run() &#123;</span><br><span class="line">                //获取SD卡的目录</span><br><span class="line">                File sdCard = Environment.getExternalStorageDirectory();</span><br><span class="line">                //通过URL拿到apk文件名</span><br><span class="line">                String apkName = url.substring(url.lastIndexOf(&quot;/&quot;));</span><br><span class="line">                //在SD卡的根目录下新建一个文件</span><br><span class="line">                File apkFile = new File(sdCard, apkName);</span><br><span class="line">                try &#123;</span><br><span class="line">                    if (!apkFile.exists())&#123;</span><br><span class="line">                        apkFile.createNewFile();</span><br><span class="line">                    &#125;else&#123;</span><br><span class="line">                        apkFile.delete();</span><br><span class="line">                        apkFile.createNewFile();</span><br><span class="line">                    &#125;</span><br><span class="line">                    FileOutputStream fos = new FileOutputStream(apkFile);</span><br><span class="line">                    HttpURLConnection conn = (HttpURLConnection) (new URL(url)).openConnection();</span><br><span class="line">                    conn.setRequestMethod(&quot;GET&quot;);</span><br><span class="line">                    conn.setDoInput(true);</span><br><span class="line">                    conn.setConnectTimeout(80000);</span><br><span class="line">                    conn.setReadTimeout(80000);</span><br><span class="line">                    conn.connect();</span><br><span class="line">                    InputStream in = conn.getInputStream();</span><br><span class="line">                    //新建一个byte数组buffer，将输入流中读到的数据写入buffer中</span><br><span class="line">                    byte [] buffer = new byte[1024 * 1024];</span><br><span class="line">                    //每次读到的数据长度</span><br><span class="line">                    int len;</span><br><span class="line">                    while ((len = in.read(buffer)) != -1) &#123;</span><br><span class="line">                        //将每次读取到的数据写入SD卡中的文件里</span><br><span class="line">                        fos.write(buffer,0,len);</span><br><span class="line">                    &#125;</span><br><span class="line">                    Log.i(&quot;TAG&quot;, &quot;download success&quot;);</span><br><span class="line">                &#125; catch (FileNotFoundException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; catch (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 权限申请的回调函数</span><br><span class="line">     * @param requestCode</span><br><span class="line">     * @param permissions</span><br><span class="line">     * @param grantResults</span><br><span class="line">     */</span><br><span class="line">    @Override</span><br><span class="line">    public void onRequestPermissionsResult(int requestCode,</span><br><span class="line">                                           @NonNull String[] permissions,</span><br><span class="line">                                           @NonNull int[] grantResults) &#123;</span><br><span class="line">        switch (requestCode)&#123;</span><br><span class="line">            case 1:</span><br><span class="line">                if (grantResults.length &gt; 0 &amp;&amp;</span><br><span class="line">                        grantResults[0] == PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">                    //用户已同意该权限的申请</span><br><span class="line">                    if (mUrl != null)&#123;</span><br><span class="line">                        downloadApk(mUrl);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;else&#123;</span><br><span class="line">                    //用户拒绝了权限的申请</span><br><span class="line">                    Toast.makeText(this, &quot;你拒绝了权限申请&quot;, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">                break;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="将-HttpUrlConnection-封装成工具类"><a href="#将-HttpUrlConnection-封装成工具类" class="headerlink" title="将 HttpUrlConnection 封装成工具类"></a>将 HttpUrlConnection 封装成工具类</h3><p>每次有网络请求时，如果都使用上面的方式来实现，效率显然是极低的，因为每次我们都要把所有的代码都再写一遍。更好的想法就是将网络请求封装成一个工具类，每次要用的时候直接调用这个工具类的相关方法。我对 HttpUrlConnection 进行了一个简单的封装。</p>
+<p>在 HttpUtils 这个工具类中，提供了四个 public 的静态方法：</p>
+<blockquote>
+<p>String httpGet(String url)<br>String httpGet(String url, HttpCallback callback)<br>String httpPost(String url, List&lt; PostParam &gt; paramList)<br>String httpGet(String url, List&lt; PostParam &gt; paramList, HttpCallback callback)</p>
+</blockquote>
+<p>前两个是 GET 方法，后两个是 POST 方法。具体的区别请看代码以及注释。</p>
+<p>HttpUtils 类：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br></pre></td><td class="code"><pre><span class="line">public class HttpUtils &#123;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * GET 方法，返回字符串类型的响应内容,返回值为空表示失败，不为空表示成功了</span><br><span class="line">     * @param url 网址</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    @Nullable</span><br><span class="line">    public static String httpGet(String url)&#123;</span><br><span class="line">        HttpResponse response = baseGet(url);</span><br><span class="line">        if(response.getCode() == 200)&#123;</span><br><span class="line">            //成功</span><br><span class="line">            Log.i(TAG, &quot;httpGet: 成功&quot;);</span><br><span class="line">            return response.getContent();</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            //失败</span><br><span class="line">            Log.i(TAG, &quot;httpGet: 失败---&quot; + response.getCode());</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * GET方法，使用一个回调接口，成功则回调onSuccess方法，失败则回调onError方法</span><br><span class="line">     * @param url 网址</span><br><span class="line">     * @param callback 回调接口</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    @Nullable</span><br><span class="line">    public static String httpGet(String url, HttpCallback callback)&#123;</span><br><span class="line">        HttpResponse response = baseGet(url);</span><br><span class="line">        if(response.getCode() == 200)&#123;</span><br><span class="line">            //成功</span><br><span class="line">            Log.i(TAG, &quot;httpGet: 成功&quot;);</span><br><span class="line">            callback.onSuccess(response.getContent());</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            //失败</span><br><span class="line">            Log.i(TAG, &quot;httpGet: 失败---&quot; + response.getCode());</span><br><span class="line">            callback.onError(response.getCode(), new Exception());</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 基础的GET实现，不对外公布此方法，仅仅是被上面两个方法调用</span><br><span class="line">     * 返回的HttpResponse类，包含状态码和响应内容。</span><br><span class="line">     * @param url 网址</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private static HttpResponse baseGet(String url)&#123;</span><br><span class="line">        HttpURLConnection conn = getHttpUrlConnection(url);</span><br><span class="line">        HttpResponse response = new HttpResponse();</span><br><span class="line">        BufferedReader reader;</span><br><span class="line">        try &#123;</span><br><span class="line">            //设置请求方式</span><br><span class="line">            conn.setRequestMethod(&quot;GET&quot;);</span><br><span class="line">            //建立连接</span><br><span class="line">            conn.connect();</span><br><span class="line">            //获取状态码</span><br><span class="line">            response.setCode(conn.getResponseCode());</span><br><span class="line">            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));</span><br><span class="line">            StringBuffer sb = new StringBuffer();</span><br><span class="line">            String line;</span><br><span class="line">            while ((line = reader.readLine()) != null)&#123;</span><br><span class="line">                sb.append(line);</span><br><span class="line">            &#125;</span><br><span class="line">            //获取响应内容</span><br><span class="line">            response.setContent(sb.toString());</span><br><span class="line">            //关闭流</span><br><span class="line">            reader.close();</span><br><span class="line">            //关闭连接</span><br><span class="line">            conn.disconnect();</span><br><span class="line">        &#125; catch (ProtocolException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return response;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * POST 方法，返回字符串类型的响应内容,返回值为空表示失败，不为空表示成功了</span><br><span class="line">     * @param url  网址</span><br><span class="line">     * @param paramList Post提交的参数列表，键值对形式</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    @Nullable</span><br><span class="line">    public static String httpPost(String url, List&lt;PostParam&gt; paramList)&#123;</span><br><span class="line">        HttpResponse response = basePost(url, paramList);</span><br><span class="line">        if(response.getCode() == 200)&#123;</span><br><span class="line">            //成功</span><br><span class="line">            Log.i(TAG, &quot;httpPost: 成功&quot;);</span><br><span class="line">            return response.getContent();</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            //失败</span><br><span class="line">            Log.i(TAG, &quot;httpPost: 失败---&quot; + response.getCode());</span><br><span class="line">            return null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * POST方法，使用一个回调接口，成功则回调onSuccess方法，失败则回调onError方法</span><br><span class="line">     * @param url 网址</span><br><span class="line">     * @param paramList post提交的参数列表</span><br><span class="line">     * @param callback 回调接口</span><br><span class="line">     * @return 返回值无意义</span><br><span class="line">     */</span><br><span class="line">    @Nullable</span><br><span class="line">    public static String httpPost(String url, List&lt;PostParam&gt; paramList, HttpCallback callback)&#123;</span><br><span class="line">        HttpResponse response = basePost(url, paramList);</span><br><span class="line">        if(response.getCode() == 200)&#123;</span><br><span class="line">            //成功</span><br><span class="line">            Log.i(TAG, &quot;httpPost: 成功&quot;);</span><br><span class="line">            callback.onSuccess(response.getContent());</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            //失败</span><br><span class="line">            Log.i(TAG, &quot;httpPost: 失败---&quot; + response.getCode());</span><br><span class="line">            callback.onError(response.getCode(), new Exception());</span><br><span class="line">        &#125;</span><br><span class="line">        return null;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 基础的POST实现，不对外公布此方法，只被上面两个POST方法调用</span><br><span class="line">     * @param url 网址</span><br><span class="line">     * @param paramList 提交的参数列表</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private static HttpResponse basePost(String url, List&lt;PostParam&gt; paramList)&#123;</span><br><span class="line">        HttpURLConnection conn = getHttpUrlConnection(url);</span><br><span class="line">        HttpResponse response = new HttpResponse();</span><br><span class="line">        String post = parseParamList(paramList);</span><br><span class="line">        BufferedReader reader;</span><br><span class="line">        try &#123;</span><br><span class="line">            //设置请求方式</span><br><span class="line">            conn.setRequestMethod(&quot;POST&quot;);</span><br><span class="line">            //获取输出流并转化为处理流</span><br><span class="line">            DataOutputStream dos = new DataOutputStream(conn.getOutputStream());</span><br><span class="line">            //写入参数</span><br><span class="line">            dos.writeUTF(post);</span><br><span class="line">            //建立连接</span><br><span class="line">            conn.connect();</span><br><span class="line">            //获取状态码</span><br><span class="line">            response.setCode(conn.getResponseCode());</span><br><span class="line">            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));</span><br><span class="line">            StringBuffer sb = new StringBuffer();</span><br><span class="line">            String line;</span><br><span class="line">            while ((line = reader.readLine()) != null)&#123;</span><br><span class="line">                sb.append(line);</span><br><span class="line">            &#125;</span><br><span class="line">            //获取响应内容</span><br><span class="line">            response.setContent(sb.toString());</span><br><span class="line">            //关闭流</span><br><span class="line">            reader.close();</span><br><span class="line">            //关闭连接</span><br><span class="line">            conn.disconnect();</span><br><span class="line">        &#125; catch (ProtocolException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return response;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 将参数列表转化成一段字符串</span><br><span class="line">     * @param paramList</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    @NonNull</span><br><span class="line">    private static String parseParamList(@NonNull List&lt;PostParam&gt; paramList)&#123;</span><br><span class="line">        StringBuffer sb = new StringBuffer();</span><br><span class="line">        for (PostParam param :</span><br><span class="line">                paramList) &#123;</span><br><span class="line">            if(sb == null)&#123;</span><br><span class="line">                sb.append(param.toString());</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                sb.append(&quot;&amp;&quot;+param.toString());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 获取HttpUrlConnection对象，并进行基础网络设置</span><br><span class="line">     * @param url</span><br><span class="line">     * @return</span><br><span class="line">     */</span><br><span class="line">    private static HttpURLConnection getHttpUrlConnection(String url)&#123;</span><br><span class="line">        HttpURLConnection conn = null;</span><br><span class="line">        try &#123;</span><br><span class="line">            //获取HttpURLConnection对象</span><br><span class="line">            URL mUrl = new URL(url);</span><br><span class="line">            conn = (HttpURLConnection) mUrl.openConnection();</span><br><span class="line">            //进行一些通用设置</span><br><span class="line">            conn.setConnectTimeout(80000);</span><br><span class="line">            conn.setReadTimeout(80000);</span><br><span class="line">            conn.setRequestProperty(&quot;Conection&quot;,&quot;Keep-Alive&quot;);</span><br><span class="line">            conn.setDoInput(true);</span><br><span class="line">            conn.setDoOutput(true);</span><br><span class="line">        &#125; catch (MalformedURLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; catch (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        return conn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 回调接口，有两个方法，分别在成功和失败时回调</span><br><span class="line">     */</span><br><span class="line">    public interface HttpCallback&#123;</span><br><span class="line">        void onSuccess(String response);</span><br><span class="line">        void onError(int responseCode, Exception e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * Post提交的参数类</span><br><span class="line">     * 包含String类型的name和String类型的value</span><br><span class="line">     */</span><br><span class="line">    public class PostParam&#123;</span><br><span class="line">        private String name;</span><br><span class="line">        private String value;</span><br><span class="line">        public PostParam(String name, String value)&#123;</span><br><span class="line">            this.name = name;</span><br><span class="line">            this.value = value;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public String getName() &#123;</span><br><span class="line">            return name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public String getValue() &#123;</span><br><span class="line">            return value;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        @Override</span><br><span class="line">        public String toString() &#123;</span><br><span class="line">            return name+&quot;=&quot;+value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>HttpResponse 类</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 包含网络请求的响应状态码和响应内容</span><br><span class="line"> */</span><br><span class="line">public class HttpResponse &#123;</span><br><span class="line">    private int code;</span><br><span class="line">    private String content;</span><br><span class="line"></span><br><span class="line">    public int getCode() &#123;</span><br><span class="line">        return code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setCode(int code) &#123;</span><br><span class="line">        this.code = code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public String getContent() &#123;</span><br><span class="line">        return content;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void setContent(String content) &#123;</span><br><span class="line">        this.content = content;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>有了这个工具类，我们实现实例一的功能，就可以这样来写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public void getCode(View view) &#123;</span><br><span class="line">    new Thread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            String url = &quot;http://www.cnmooc.org&quot;;</span><br><span class="line">            String response = HttpUtils.httpGet(url);</span><br><span class="line">            if(response != null)&#123;</span><br><span class="line">                showCode(response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br><span class="line">private void showCode(final String s) &#123;</span><br><span class="line">    //必须在主线程中操作UI</span><br><span class="line">    runOnUiThread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            Log.i(TAG, &quot;run: code---&gt;&quot;+s);</span><br><span class="line">            tvCode.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>或者使用带回调接口的GET方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">public void getCode(View view) &#123;</span><br><span class="line">    new Thread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            String url = &quot;http://www.cnmooc.org&quot;;</span><br><span class="line">	        HttpUtils.httpGet(url, new HttpUtils.HttpCallback() &#123;</span><br><span class="line">                @Override</span><br><span class="line">                public void onSuccess(String response) &#123;</span><br><span class="line">                    showCode(response);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                @Override</span><br><span class="line">                public void onError(int responseCode, Exception e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">	    &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br><span class="line">private void showCode(final String s) &#123;</span><br><span class="line">    //必须在主线程中操作UI</span><br><span class="line">    runOnUiThread(new Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        public void run() &#123;</span><br><span class="line">            Log.i(TAG, &quot;run: code---&gt;&quot;+s);</span><br><span class="line">            tvCode.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>这篇文章中对 HttpUrlConnection 的用法、使用示例以及如何封装一个简单的 Http 工具类做了一个介绍，对于了解 HttpUrlConnection 的相关内容还是有所帮助的。接下来是学习一些第三方网络框架的使用和原理，下篇文章应该是关于 Volley 的一些使用介绍，敬请期待。</p>
+<p>再见。</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>这篇文章的参考资料主要有：</p>
+<blockquote>
+<p>郭霖《第一行代码（第二版）》</p>
+</blockquote>
+<blockquote>
+<p>郭霖：Android 访问网络，使用 HttpURLConnection 还是 HttpClient？<br><a href="http://blog.csdn.net/guolin_blog/article/details/12452307" target="_blank" rel="noopener">http://blog.csdn.net/guolin_blog/article/details/12452307</a></p>
+</blockquote>
+<blockquote>
+<p>刘望舒：Android 网络编程（二）HttpClient 与 HttpURLConnection<br><a href="http://liuwangshu.cn/application/network/2-httpclienthttp-urlconnection.html" target="_blank" rel="noopener">http://liuwangshu.cn/application/network/2-httpclienthttp-urlconnection.html</a></p>
+</blockquote>
+<p>感恩。</p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2017/10/22/android-permission/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2017/10/20/about-me/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/daily_pic.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/icon.jpg" alt="Owen Lee's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        2924354040@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:2924354040@qq.com" target="_blank" title="给我发邮件">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        给我发邮件
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">19</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/07/">七月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">18</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">8</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/想法/">想法<span class="sidebar_archives-count">24</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术/">技术<span class="sidebar_archives-count">27</span></a></li><li><a class="sidebar_archives-link" href="/categories/笔试面试/">笔试面试<span class="sidebar_archives-count">29</span></a></li><li><a class="sidebar_archives-link" href="/categories/译文/">译文<span class="sidebar_archives-count">8</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/2017/10/20/about-me/" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline/" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery/" title="图库">
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">103</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/owenleexiaoyu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/xiao-yu-7-94/activities" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>海树
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz', 'hGgJDQbyDLHvM3UMFXuJyYNU');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

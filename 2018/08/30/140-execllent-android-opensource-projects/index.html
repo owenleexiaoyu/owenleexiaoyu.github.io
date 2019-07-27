@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            140 款 Android 开源优秀项目源码 | 
+        
+        海树
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/fish.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content=",Android">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="海树">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/08/30/140-execllent-android-opensource-projects/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="海树">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/08/30/140-execllent-android-opensource-projects/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="140 款 Android 开源优秀项目源码 | 海树">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="Android"> 
+
+    
+        <meta property="article:published_time" content="Thu Aug 30 2018 19:07:00 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 30 2018 16:26:24 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/08/30/140-execllent-android-opensource-projects/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/08/30/140-execllent-android-opensource-projects/index.html",
+    "headline": "140 款 Android 开源优秀项目源码",
+    "datePublished": "Thu Aug 30 2018 19:07:00 GMT+0800",
+    "dateModified": "Thu Aug 30 2018 16:26:24 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Android",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://image.wufazhuce.com/FrVnC4yjwexE6iKmsH2QBmWwCgop)">
+    
+            <p class="article-headline-p">
+                140 款 Android 开源优秀项目源码
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/icon.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Owen Lee</strong>
+        <span>8月 30, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/Android/">Android</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/08/30/140-execllent-android-opensource-projects/" class="leancloud-views_num" data-flag-title="140 款 Android 开源优秀项目源码">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=140 款 Android 开源优秀项目源码&url=http://yoursite.com/2018/08/30/140-execllent-android-opensource-projects/index.html&pic=http://yoursite.com/img/fish.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=140 款 Android 开源优秀项目源码&url=http://yoursite.com/2018/08/30/140-execllent-android-opensource-projects/index.html&via=Owen Lee" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/30/140-execllent-android-opensource-projects/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/08/30/140-execllent-android-opensource-projects/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=海树&title=140 款 Android 开源优秀项目源码&summary=&pics=http://yoursite.com/img/fish.png&url=http://yoursite.com/2018/08/30/140-execllent-android-opensource-projects/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>BeautifulRefreshLayout-漂亮的美食下拉刷新<br><a href="https://github.com/android-cjj/BeautifulRefreshLayout/tree/BeautifulRefreshForFood" target="_blank" rel="noopener">https://github.com/android-cjj/BeautifulRefreshLayout/tree/BeautifulRefreshForFood</a></p>
+<p>Material Design-动画风格的选项卡tab切换功能<br><a href="https://github.com/neokree/MaterialTabs" target="_blank" rel="noopener">https://github.com/neokree/MaterialTabs</a></p>
+<p>TwinklingRefreshLayout-支持下拉刷新和上拉加载的RefreshLayout,自带越界回弹效果<br><a href="https://github.com/lcodecorex/TwinklingRefreshLayout" target="_blank" rel="noopener">https://github.com/lcodecorex/TwinklingRefreshLayout</a></p>
+<p>DialogLoadding-Android开发之常用的loading等待效果实现，仿微博等待动画。两种实现方式详解<br><a href="https://github.com/QQ986945193/DialogLoadding" target="_blank" rel="noopener">https://github.com/QQ986945193/DialogLoadding</a></p>
+<p>owspace-完整高仿单读的APP，模仿得非常精美，基于MVP+Dagger2+Retrofit2.0+Rxjava<br><a href="https://github.com/babylikebird/owspace" target="_blank" rel="noopener">https://github.com/babylikebird/owspace</a></p>
+<p>GSYVideoPlayer-android视频播放器，支持基本的拖动，声音、亮度调节，支持边播边缓存<br><a href="https://github.com/CarGuo/GSYVideoPlayer" target="_blank" rel="noopener">https://github.com/CarGuo/GSYVideoPlayer</a></p>
+<p>NumberKeyboard-仿造android端闲鱼发布选择价格数字键盘自定义数字键盘<br><a href="https://github.com/xuejinwei/NumberKeyboard" target="_blank" rel="noopener">https://github.com/xuejinwei/NumberKeyboard</a></p>
+<p>SwipeRecyclerView-自定义下拉刷新上拉加载控件SwipeRefreshLayout+recyclerView<br><a href="https://github.com/niniloveyou/SwipeRecyclerView" target="_blank" rel="noopener">https://github.com/niniloveyou/SwipeRecyclerView</a></p>
+<p>FloatingView-android能够让View执行漂亮的漂浮动画的库<br><a href="https://github.com/UFreedom/FloatingView" target="_blank" rel="noopener">https://github.com/UFreedom/FloatingView</a></p>
+<p>TyperEditText-Android仿业问打字机效果，很炫酷<br><a href="https://github.com/andyxialm/TyperEditText" target="_blank" rel="noopener">https://github.com/andyxialm/TyperEditText</a></p>
+<p>CircularMenu-android自动绘制遥控器界面CircularMenu<br><a href="https://github.com/sungerk/CircularMenu/" target="_blank" rel="noopener">https://github.com/sungerk/CircularMenu/</a></p>
+<p>ConnectListView-ConnectListView联动,listView三级联动<br><a href="https://github.com/maning0303/ConnectListView" target="_blank" rel="noopener">https://github.com/maning0303/ConnectListView</a></p>
+<p>DylanStepCount-Android精准计步器(小米,魅族,华为上可用)<br><a href="https://github.com/linglongxin24/DylanStepCount" target="_blank" rel="noopener">https://github.com/linglongxin24/DylanStepCount</a></p>
+<p>MultiType-FilePicker-MultiType-FilePicker-android一款轻量级的文件选择器,支持多种文件类型<br><a href="https://github.com/fishwjy/MultiType-FilePicker" target="_blank" rel="noopener">https://github.com/fishwjy/MultiType-FilePicker</a></p>
+<p>SuperTextView-一个功能强大的TextView,可以满足日常大部分布局方式<br><a href="https://github.com/lygttpod/SuperTextView" target="_blank" rel="noopener">https://github.com/lygttpod/SuperTextView</a></p>
+<p>Android-SpinKit-Android-SpinKit多个漂亮的加载效果<br><a href="https://github.com/ybq/Android-SpinKit" target="_blank" rel="noopener">https://github.com/ybq/Android-SpinKit</a></p>
+<p>PullToRefreshAndLoadMore-一个轻量下拉刷新上拉加载更多控件，已封装ListView<br><a href="https://github.com/woxingxiao/PullToRefreshAndLoadMore" target="_blank" rel="noopener">https://github.com/woxingxiao/PullToRefreshAndLoadMore</a></p>
+<p>BluetoothHelper-安卓蓝牙操作库，把蓝牙请求封装像Http一样<br><a href="https://github.com/a-voyager/BluetoothHelper" target="_blank" rel="noopener">https://github.com/a-voyager/BluetoothHelper</a></p>
+<p>Luban-android最接近微信朋友圈的图片压缩算法<br><a href="https://github.com/Curzibn/Luban" target="_blank" rel="noopener">https://github.com/Curzibn/Luban</a></p>
+<p>CBDialog-android一个快速创建对话框的工具类库<br><a href="https://github.com/yilylong/CBDialog" target="_blank" rel="noopener">https://github.com/yilylong/CBDialog</a></p>
+<p>UserGuideView-androidy应用实现用户指引view<br><a href="https://github.com/yilylong/UserGuideView" target="_blank" rel="noopener">https://github.com/yilylong/UserGuideView</a></p>
+<p>okhttp一个让网络请求更简单的框架<br><a href="https://github.com/jeasonlzy/okhttp-OkGo" target="_blank" rel="noopener">https://github.com/jeasonlzy/okhttp-OkGo</a></p>
+<p>TwinklingRefreshLayout-下拉刷新和上拉加载的RefreshLayout,自带越界回弹效果,支持RecyclerView,AbsListView,ScrollView,WebView<br><a href="https://github.com/lcodecorex/TwinklingRefreshLayout" target="_blank" rel="noopener">https://github.com/lcodecorex/TwinklingRefreshLayout</a></p>
+<p>StickerCamera-android一款集成了相机,图片裁剪,给图片贴贴图打标签的APP<br><a href="https://github.com/Skykai521/StickerCamera" target="_blank" rel="noopener">https://github.com/Skykai521/StickerCamera</a></p>
+<p>AndroidFire-一款新闻阅读App框架基于Material Desig<br><a href="https://github.com/jaydenxiao2016/AndroidFire" target="_blank" rel="noopener">https://github.com/jaydenxiao2016/AndroidFire</a></p>
+<p>ViewPagerCards-android ViewPagerCards卡片切换效果源码<br><a href="https://github.com/rubensousa/ViewPagerCards" target="_blank" rel="noopener">https://github.com/rubensousa/ViewPagerCards</a></p>
+<p>Douya-Material Design 的豆芽客户端完整源码<br><a href="https://github.com/DreaminginCodeZH/Douya" target="_blank" rel="noopener">https://github.com/DreaminginCodeZH/Douya</a></p>
+<p>RestAPP-android网易云音乐界面源码<br><a href="https://github.com/sakurajiang/RestAPP" target="_blank" rel="noopener">https://github.com/sakurajiang/RestAPP</a></p>
+<p>huabanDemo-android 应用material design版的花瓣网App<br><a href="https://github.com/LiCola/huabanDemo" target="_blank" rel="noopener">https://github.com/LiCola/huabanDemo</a></p>
+<p>slidingtutorial-android-slidingtutorial-android创建视差效果引导页的库自定义强使用简单<br><a href="https://github.com/Cleveroad/slidingtutorial-android" target="_blank" rel="noopener">https://github.com/Cleveroad/slidingtutorial-android</a></p>
+<p>DropDownMenu-android实用的多条件筛选菜单,非popupWindow实现无卡顿<br><a href="https://github.com/dongjunkun/DropDownMenu" target="_blank" rel="noopener">https://github.com/dongjunkun/DropDownMenu</a></p>
+<p>CouponView-android开发半圆锯齿背景虚线边框组合实现简单优惠券效果<br><a href="https://github.com/dongjunkun/CouponView" target="_blank" rel="noopener">https://github.com/dongjunkun/CouponView</a></p>
+<p>Tuikan-一款集知乎头条,美图，视频于一体的休闲阅读app源码<br><a href="https://github.com/homcin/Tuikan" target="_blank" rel="noopener">https://github.com/homcin/Tuikan</a></p>
+<p>UPMiss-andoorid一个完整的生日管理App<br><a href="https://github.com/qiujuer/UPMiss" target="_blank" rel="noopener">https://github.com/qiujuer/UPMiss</a></p>
+<p>DropDownMenu-android完整的筛选器解决方案DropDownMenu<br><a href="https://github.com/baiiu/DropDownMenu" target="_blank" rel="noopener">https://github.com/baiiu/DropDownMenu</a></p>
+<p>StepView-android物流跟踪指示器StepView<br><a href="https://github.com/baoyachi/StepView" target="_blank" rel="noopener">https://github.com/baoyachi/StepView</a></p>
+<p>StylishMusicPlayer-一个超棒的Android Music Player源码<br><a href="https://github.com/ryanhoo/StylishMusicPlayer" target="_blank" rel="noopener">https://github.com/ryanhoo/StylishMusicPlayer</a></p>
+<p>MaterialTabs-Material Design动画风格的选项卡tab切换功能<br><a href="https://github.com/neokree/MaterialTabs" target="_blank" rel="noopener">https://github.com/neokree/MaterialTabs</a></p>
+<p>GankWithZhihu-阅读类App（MVP + RxJava + Retrofit）<br><a href="https://github.com/Werb/GankWithZhihu" target="_blank" rel="noopener">https://github.com/Werb/GankWithZhihu</a></p>
+<p>MyCalendarDemo-一款Android日历提醒软件<br><a href="https://github.com/Werb/MyCalendarDemo" target="_blank" rel="noopener">https://github.com/Werb/MyCalendarDemo</a></p>
+<p>MaterialHome-基于Material Design的图书展示类完整app采用的是MD设计风格<br><a href="https://github.com/hymanme/MaterialHome" target="_blank" rel="noopener">https://github.com/hymanme/MaterialHome</a></p>
+<p>UpdateDemo-android app自动检测更新库<br><a href="https://github.com/hugeterry/UpdateDemo" target="_blank" rel="noopener">https://github.com/hugeterry/UpdateDemo</a></p>
+<p>TaoSchool-android一款基于Material Desgin设计的APP<br><a href="https://github.com/Hankkin/TaoSchool" target="_blank" rel="noopener">https://github.com/Hankkin/TaoSchool</a></p>
+<p>RecyclerViewCardGallery-android使用RecyclerView实现Gallery画廊效果<br><a href="https://github.com/huazhiyuan2008/RecyclerViewCardGallery/" target="_blank" rel="noopener">https://github.com/huazhiyuan2008/RecyclerViewCardGallery/</a></p>
+<p>CKCamera-android一个拍照并裁剪拍出照片的项目<br><a href="https://github.com/ChrisKyle/CKCamera" target="_blank" rel="noopener">https://github.com/ChrisKyle/CKCamera</a></p>
+<p>SuperIndicator-android SuperIndicator 广告轮播源码<br><a href="https://github.com/hejunlin2013/SuperIndicator" target="_blank" rel="noopener">https://github.com/hejunlin2013/SuperIndicator</a></p>
+<p>SignUpAnimation-android一个绚丽的注册动画界面<br><a href="https://github.com/qike2015/SignUpAnimation" target="_blank" rel="noopener">https://github.com/qike2015/SignUpAnimation</a></p>
+<p>XRecyclerView-andorid RecyclerView下拉刷新，上拉加载更多<br><a href="https://github.com/jianghejie/XRecyclerView" target="_blank" rel="noopener">https://github.com/jianghejie/XRecyclerView</a></p>
+<p>AutoInstaller-android应用自动下载静默安装<br><a href="https://github.com/a-voyager/AutoInstaller" target="_blank" rel="noopener">https://github.com/a-voyager/AutoInstaller</a></p>
+<p>SeatTable-android在线电影票选座Demo<br><a href="https://github.com/qifengdeqingchen/SeatTable" target="_blank" rel="noopener">https://github.com/qifengdeqingchen/SeatTable</a></p>
+<p>android-adDialog-android一个简单强大的广告活动弹窗控件<br><a href="https://github.com/yipianfengye/android-adDialog" target="_blank" rel="noopener">https://github.com/yipianfengye/android-adDialog</a></p>
+<p>Android-FilePicker-android图片和文档选择器<br><a href="https://github.com/DroidNinja/Android-FilePicker" target="_blank" rel="noopener">https://github.com/DroidNinja/Android-FilePicker</a></p>
+<p>ViewPagerCards-android卡片切换效果ViewPagerCards<br><a href="https://github.com/rubensousa/ViewPagerCards/" target="_blank" rel="noopener">https://github.com/rubensousa/ViewPagerCards/</a></p>
+<p>CoCoin-一款完整的记账app(附带源码)<br><a href="https://github.com/Nightonke/CoCoin" target="_blank" rel="noopener">https://github.com/Nightonke/CoCoin</a></p>
+<p>AndroidReview-一款面向Android开发者的一款面试复习App<br><a href="https://github.com/envyfan/AndroidReview" target="_blank" rel="noopener">https://github.com/envyfan/AndroidReview</a></p>
+<p>Douya-开源Material Design豆瓣客户端源码<br><a href="https://github.com/DreaminginCodeZH/Douya" target="_blank" rel="noopener">https://github.com/DreaminginCodeZH/Douya</a></p>
+<p>android脑筋急转弯（完整数据版）源码<br><a href="http://pan.baidu.com/s/1c17AWXM" target="_blank" rel="noopener">http://pan.baidu.com/s/1c17AWXM</a>  zkw6</p>
+<p>DateScroller-探索日期滚轮控件的源码<br><a href="https://github.com/SpikeKing/DateScroller" target="_blank" rel="noopener">https://github.com/SpikeKing/DateScroller</a></p>
+<p>ZLayoutManager-五行代码实现 炫动滑动 卡片层叠布局，仿探探、人人影视订阅界面 简单&amp;优雅：LayoutManager+ItemTouchHelper<br><a href="https://github.com/mcxtzhang/ZLayoutManager" target="_blank" rel="noopener">https://github.com/mcxtzhang/ZLayoutManager</a></p>
+<p>RNPolymerPo-基于 React Native 的 Android 企业级应用 Demo。<br><a href="https://github.com/yanbober/RNPolymerPo" target="_blank" rel="noopener">https://github.com/yanbober/RNPolymerPo</a></p>
+<p>BoomMenu-漂亮的菜单弹出控件 BoomMenu<br><a href="https://github.com/Nightonke/BoomMenu" target="_blank" rel="noopener">https://github.com/Nightonke/BoomMenu</a></p>
+<p>MobileSafe-MobileSafe 是一个下载过两万并且非常适合初学者学习的项目(没错就是黑马手机卫士)<br><a href="https://github.com/JessYanCoding/MobileSafe" target="_blank" rel="noopener">https://github.com/JessYanCoding/MobileSafe</a></p>
+<p>KuaiChuan-仿茄子快传的一款文件传输应用<br><a href="https://github.com/mayubao/KuaiChuan" target="_blank" rel="noopener">https://github.com/mayubao/KuaiChuan</a></p>
+<p>SImageView-一个实用方便的图片控件SImageView<br><a href="https://github.com/suzeyu1992/SImageView" target="_blank" rel="noopener">https://github.com/suzeyu1992/SImageView</a></p>
+<p>WowSplash-不规则扩散的splash<br><a href="https://github.com/githubwing/WowSplash" target="_blank" rel="noopener">https://github.com/githubwing/WowSplash</a></p>
+<p>android-FancyBehaviorDemo-使用 CoordinatorLayout 实现复杂联动效果<br><a href="https://github.com/unixzii/android-FancyBehaviorDemo" target="_blank" rel="noopener">https://github.com/unixzii/android-FancyBehaviorDemo</a></p>
+<p>LbaizxfPulltoRefresh-仿健客、京东、天猫下拉刷新加载动画实现<br><a href="https://github.com/leibing8912/LbaizxfPulltoRefresh" target="_blank" rel="noopener">https://github.com/leibing8912/LbaizxfPulltoRefresh</a></p>
+<p>ZoomHeader-饿了么是怎么让Image变成详情页的<br><a href="https://github.com/githubwing/ZoomHeader" target="_blank" rel="noopener">https://github.com/githubwing/ZoomHeader</a></p>
+<p>XDroid-轻量级Android快速开发框架<br><a href="https://github.com/limedroid/XDroid" target="_blank" rel="noopener">https://github.com/limedroid/XDroid</a></p>
+<p>CustomTextLayout-Android自定义组合控件（标题栏+组合布局）非常强大<br><a href="https://github.com/ithedan/CustomTextLayout" target="_blank" rel="noopener">https://github.com/ithedan/CustomTextLayout</a></p>
+<p>QQ-高仿腾讯QQ，代码十分优雅<br><a href="https://github.com/HuTianQi/QQ" target="_blank" rel="noopener">https://github.com/HuTianQi/QQ</a></p>
+<p>YingBeautyNote-订个小目标，写个印象笔记<br><a href="https://github.com/HuTianQi/YingBeautyNote" target="_blank" rel="noopener">https://github.com/HuTianQi/YingBeautyNote</a></p>
+<p>ZuiMeiTAG-用recyclerView实现最美应用底栏<br><a href="https://github.com/huage2580/ZuiMeiTAG" target="_blank" rel="noopener">https://github.com/huage2580/ZuiMeiTAG</a></p>
+<p>ZuiMeiTAG-深入探索通知与插件的实时刷新<br><a href="https://github.com/SpikeKing/TimerAppWidget" target="_blank" rel="noopener">https://github.com/SpikeKing/TimerAppWidget</a></p>
+<p>AnimationMenu-android 软软的动画弹出菜单，基于Facebook的Rebuond<br><a href="https://github.com/CarGuo/AnimationMenu" target="_blank" rel="noopener">https://github.com/CarGuo/AnimationMenu</a></p>
+<p>WaveView-高仿百度外卖个人中心，让你的界面和我一起浪起来<br><a href="https://github.com/1139618418/WaveView" target="_blank" rel="noopener">https://github.com/1139618418/WaveView</a></p>
+<p>shopcar-仿饿了么购物车下单效果<br><a href="https://github.com/917386389/shopcar" target="_blank" rel="noopener">https://github.com/917386389/shopcar</a></p>
+<p>RxJavaRetrofitOkhttpMvp-时下流行的RxJava+Retrofit+Okhttp+Mvp封装的一个demo<br><a href="https://github.com/gslovemy/RxJavaRetrofitOkhttpMvp" target="_blank" rel="noopener">https://github.com/gslovemy/RxJavaRetrofitOkhttpMvp</a></p>
+<p>BitmapWaveView-安卓自定义View在bitmap中玩转大波浪进度<br><a href="https://github.com/AndroidMsky/BitmapWaveView" target="_blank" rel="noopener">https://github.com/AndroidMsky/BitmapWaveView</a></p>
+<p>Android-PickerView-Library-Android高仿ios pickerView<br><a href="https://github.com/Airsaid/Android-PickerView-Library" target="_blank" rel="noopener">https://github.com/Airsaid/Android-PickerView-Library</a></p>
+<p>CustomNavigatorBar-Android通用标题栏组合控件<br><a href="https://github.com/wangluAndroid/CustomNavigatorBar" target="_blank" rel="noopener">https://github.com/wangluAndroid/CustomNavigatorBar</a></p>
+<p>SwipeDelMenuLayout-史上最简单，一步集成侧滑(删除)菜单，高仿QQ、IOS<br><a href="https://github.com/mcxtzhang/SwipeDelMenuLayout" target="_blank" rel="noopener">https://github.com/mcxtzhang/SwipeDelMenuLayout</a></p>
+<p>DragFooterView-向左拖拽跳转至“更多页面”的通用控件<br><a href="https://github.com/uin3566/DragFooterView" target="_blank" rel="noopener">https://github.com/uin3566/DragFooterView</a></p>
+<p>VRefreshLayout-Android下拉刷新控件之header置顶显示效果<br><a href="https://github.com/ileelay/VRefreshLayout" target="_blank" rel="noopener">https://github.com/ileelay/VRefreshLayout</a></p>
+<p>TransitionHelper-两步实现类似格瓦拉的转场动画<br><a href="https://github.com/ImmortalZ/TransitionHelper" target="_blank" rel="noopener">https://github.com/ImmortalZ/TransitionHelper</a></p>
+<p>DialogFragment-自定义对话框应该这样写<br><a href="https://github.com/GitPhoenix/DialogFragment" target="_blank" rel="noopener">https://github.com/GitPhoenix/DialogFragment</a></p>
+<p>RefreshLayout-RefreshLayout让你半小时以内完成一个列表界面<br><a href="https://github.com/gengqiquan/RefreshLayout" target="_blank" rel="noopener">https://github.com/gengqiquan/RefreshLayout</a></p>
+<p>SwipeCardRecyclerView-如何利用RecyclerView打造炫酷滑动卡片<br><a href="https://github.com/HalfStackDeveloper/SwipeCardRecyclerView" target="_blank" rel="noopener">https://github.com/HalfStackDeveloper/SwipeCardRecyclerView</a></p>
+<p>LookLook-一个小时打造新闻app<br><a href="https://github.com/xinghongfei/LookLook" target="_blank" rel="noopener">https://github.com/xinghongfei/LookLook</a></p>
+<p>JPTabBar-一款强大的Android底部导航<br><a href="https://github.com/peng8350/JPTabBar" target="_blank" rel="noopener">https://github.com/peng8350/JPTabBar</a></p>
+<p>ByeBurger-炫酷：一句代码实现标题栏、导航栏滑动隐藏，ByeBurger库的使用和实现<br><a href="https://github.com/githubwing/ByeBurger" target="_blank" rel="noopener">https://github.com/githubwing/ByeBurger</a></p>
+<p>CommonRecycler-通用 RecylerAdapter，内置 XRecyclerView，兼容上下拉与动画，高复用，一个 Adapter 通用所有页面，支持空页面，懒人专属<br><a href="https://github.com/CarGuo/CommonRecycler" target="_blank" rel="noopener">https://github.com/CarGuo/CommonRecycler</a></p>
+<p>FreeBook-先定一个小目标!比如说先用MVP和快速开发框架打造一个免费下载小说的app老司机来手把手教你半天搞定<br><a href="https://github.com/80945540/FreeBook" target="_blank" rel="noopener">https://github.com/80945540/FreeBook</a></p>
+<p>IjkPlayerView-基于ijkplayer的视频播放器，仿Bilibili客户端，集成沉浸式全屏、弹幕、触屏控制、视频源切换等功能<br><a href="https://github.com/Rukey7/IjkPlayerView" target="_blank" rel="noopener">https://github.com/Rukey7/IjkPlayerView</a></p>
+<p>CoolImageView-非常酷的图片组件，类似腾讯 QQ 可以让 imageview 的图片背景上下移动，或左右移动<br><a href="https://github.com/HuTianQi/CoolImageView" target="_blank" rel="noopener">https://github.com/HuTianQi/CoolImageView</a></p>
+<p>AWelcomeVideoPager-ndroid酷炫欢迎页播放视频,仿蚂蜂窝自由行和慕课网<br><a href="https://github.com/linglongxin24/WelcomeVideoPager" target="_blank" rel="noopener">https://github.com/linglongxin24/WelcomeVideoPager</a></p>
+<p>validateui-一个表单验证的lib<br><a href="https://github.com/LongMaoC/validateui" target="_blank" rel="noopener">https://github.com/LongMaoC/validateui</a></p>
+<p>CollapseView-Android仿安居客房源详情页图片显示<br><a href="https://github.com/xiaoqiAndroid/CollapseView/tree/master" target="_blank" rel="noopener">https://github.com/xiaoqiAndroid/CollapseView/tree/master</a></p>
+<p>HintPopupWindow-比QQ更炫酷的’选项弹窗’动画<br><a href="https://github.com/Zhaoss/HintPopupWindow" target="_blank" rel="noopener">https://github.com/Zhaoss/HintPopupWindow</a></p>
+<p>RecyclerViewDemo2- 精通RecyclerView：打造ListView、GridView、瀑布流；学会添加分割线、 添加删除动画 、Item点击事件<br><a href="https://github.com/linglongxin24/RecyclerViewDemo2" target="_blank" rel="noopener">https://github.com/linglongxin24/RecyclerViewDemo2</a></p>
+<p>TinderStackView-Android高仿「陌陌」的点点效果<br><a href="https://github.com/Mersens/TinderStackView" target="_blank" rel="noopener">https://github.com/Mersens/TinderStackView</a></p>
+<p>MvpDemo-优雅的构建Android项目之 MVP开发模式<br><a href="https://github.com/PandaQAQ/MvpDemo" target="_blank" rel="noopener">https://github.com/PandaQAQ/MvpDemo</a></p>
+<p>Material Animations -演示View的平移、缩放动画，activity进入和退出动画，界面间元素共享，并且开发者在README中，对动画原理进行了精讲，是学习动画很好的项目，项目代码量比较少，也很适合新手学习。<br><a href="https://github.com/lgvalle/Material-Animations" target="_blank" rel="noopener">https://github.com/lgvalle/Material-Animations</a></p>
+<p>Meizhi-每天推送一张妹子图、一个小视频和一系列程序员精选文章，数据来源于代码家的干货集中营。唯一不足就是视频解析还有bug，声音视频无法同步，希望能尽快修复。<br><a href="https://github.com/drakeet/Meizhi" target="_blank" rel="noopener">https://github.com/drakeet/Meizhi</a></p>
+<p>android-UniversalMusicPlayer-这个开源项目展示了如何实现一个横跨各种Android平台的音乐播放器，包括手机，平板，汽车，手表，电视等。Google官方推出，跨平台开发必看项目。<br><a href="https://github.com/googlesamples/android-UniversalMusicPlayer" target="_blank" rel="noopener">https://github.com/googlesamples/android-UniversalMusicPlayer</a></p>
+<p>plaid-由谷歌工程师开发，展示Google Material风格设计，项目代码量大，但是结构清晰，还是很好理解的。<br><a href="https://github.com/nickbutcher/plaid" target="_blank" rel="noopener">https://github.com/nickbutcher/plaid</a></p>
+<p>CalendarView-Android 滚轮日期选择自定义View<br><a href="https://github.com/chenpengfei88/CalendarView" target="_blank" rel="noopener">https://github.com/chenpengfei88/CalendarView</a></p>
+<p>AndroidMVPSample-一套完整的Android通用框架<br><a href="https://github.com/WuXiaolong/AndroidMVPSample" target="_blank" rel="noopener">https://github.com/WuXiaolong/AndroidMVPSample</a></p>
+<p>CoordinatorLayoutTest-高仿支付宝9.9.2版本生活模块界面来讲解CoordinatorLayout，AppBarLayout，CollapsingToolbarLayout<br><a href="https://github.com/jack921/CoordinatorLayoutTest" target="_blank" rel="noopener">https://github.com/jack921/CoordinatorLayoutTest</a></p>
+<p>SideSlip_PullToRefresh-Android 集成了RecyclerView 刷新加载，及侧滑菜单的 PullToRefresh<br><a href="https://github.com/lvfaqiang/SideSlip_PullToRefresh" target="_blank" rel="noopener">https://github.com/lvfaqiang/SideSlip_PullToRefresh</a></p>
+<p>SideSlip_PullToRefresh-通用Android标题栏控件<br><a href="https://github.com/xiaohaibin/CustomTitileBar" target="_blank" rel="noopener">https://github.com/xiaohaibin/CustomTitileBar</a></p>
+<p>CalendarView-Android 自定义价格日历控件<br><a href="https://github.com/yissan/CalendarView" target="_blank" rel="noopener">https://github.com/yissan/CalendarView</a></p>
+<p>ZhiHuDaily-纸飞机-采用MVP架构，集合了知乎日报、果壳精选和豆瓣一刻的综合性阅读客户端<br><a href="https://github.com/marktony/ZhiHuDaily" target="_blank" rel="noopener">https://github.com/marktony/ZhiHuDaily</a></p>
+<p>ZhiHuDaily-仅2步实现 拜拜 汉堡导航栏效果~ 全新底部导航交互(滑动隐藏)<br><a href="https://github.com/githubwing/ByeBurger" target="_blank" rel="noopener">https://github.com/githubwing/ByeBurger</a></p>
+<p>FloatBubbleView-Android：会呼吸的悬浮气泡<br><a href="https://github.com/IamXiaRui/Android_5.0_ViewDemo/tree/master/FloatBubbleView" target="_blank" rel="noopener">https://github.com/IamXiaRui/Android_5.0_ViewDemo/tree/master/FloatBubbleView</a></p>
+<p>ByeBurger-极其简便的快速实现滑动隐藏标题栏和导航栏<br><a href="https://github.com/githubwing/ByeBurger" target="_blank" rel="noopener">https://github.com/githubwing/ByeBurger</a></p>
+<p>NotificationUtil-全新的Android通知栏,已抛弃setLatestEventInfo,兼容高版本<br><a href="https://github.com/linglongxin24/NotificationUtil" target="_blank" rel="noopener">https://github.com/linglongxin24/NotificationUtil</a></p>
+<p>LauncherView-十分钟搞定酷炫动画，Android自定义 View 入门<br><a href="https://github.com/diamondlin2016/LauncherView" target="_blank" rel="noopener">https://github.com/diamondlin2016/LauncherView</a></p>
+<p>LiveShow-使用MVP+RxJava制作的笑话APP<br><a href="https://github.com/GaoGersy/LiveShow" target="_blank" rel="noopener">https://github.com/GaoGersy/LiveShow</a></p>
+<p>ChargeProgress-android 自定义view+属性动画实现充电进度条功能<br><a href="https://github.com/crazyandcoder/ChargeProgress" target="_blank" rel="noopener">https://github.com/crazyandcoder/ChargeProgress</a></p>
+<p>Notes-炫酷的ViewPager动画效果<br><a href="https://github.com/Elder-Wu/Notes" target="_blank" rel="noopener">https://github.com/Elder-Wu/Notes</a></p>
+<p>ElasticLayout-超轻量！安卓实现多item抽屉效果动画<br><a href="https://github.com/AndroidMsky/ElasticLayout" target="_blank" rel="noopener">https://github.com/AndroidMsky/ElasticLayout</a></p>
+<p>SuperTextView-SuperTextView 一款强大的android TextView<br><a href="https://github.com/lygttpod/SuperTextView" target="_blank" rel="noopener">https://github.com/lygttpod/SuperTextView</a></p>
+<p>SuperTextView-自定义LayoutManager实现一个展示文章的View，支持拖动插入以及相应的动画展示<br><a href="https://github.com/rantianhua/AssembleEssay" target="_blank" rel="noopener">https://github.com/rantianhua/AssembleEssay</a></p>
+<p>VideoRecord-Android 拍摄（横 \ 竖屏）视频的懒人之路<br><a href="https://github.com/CarGuo/VideoRecord" target="_blank" rel="noopener">https://github.com/CarGuo/VideoRecord</a></p>
+<p>Telegram-著名IM应用Telegram源码<br><a href="https://github.com/DrKLO/Telegram" target="_blank" rel="noopener">https://github.com/DrKLO/Telegram</a></p>
+<p>Notes-自定义View系列：未读消息数角标<br><a href="https://github.com/Elder-Wu/Notes" target="_blank" rel="noopener">https://github.com/Elder-Wu/Notes</a></p>
+<p>BeautifulWords-Android开源实战：使用MVP+Retrofit开发一款文字阅读APP<br><a href="https://github.com/zuiwuyuan/BeautifulWords" target="_blank" rel="noopener">https://github.com/zuiwuyuan/BeautifulWords</a></p>
+<p>Notes-自定义ViewPager——左右无限循环，带指示器<br><a href="https://github.com/Elder-Wu/Notes" target="_blank" rel="noopener">https://github.com/Elder-Wu/Notes</a></p>
+<p>Myprogress-安卓Android多阶段进度条progress bar附带动画效果<br><a href="https://github.com/AndroidMsky/Myprogress" target="_blank" rel="noopener">https://github.com/AndroidMsky/Myprogress</a></p>
+<p>SpannableStringBiulderTest-直接拿去用！几种常见Dialog，懒人必收<br><a href="https://github.com/weavey/NormalSelectDialog" target="_blank" rel="noopener">https://github.com/weavey/NormalSelectDialog</a></p>
+<p>SpannableStringBiulderTest-【Android】强大的SpannableStringBuilder<br><a href="https://github.com/Gavin-ZYX/SpannableStringBiulderTest" target="_blank" rel="noopener">https://github.com/Gavin-ZYX/SpannableStringBiulderTest</a></p>
+<p>Ghost-微影，一款纯粹的在线视频App，基于Material Design + MVP + RxJava + Retrofit + Realm + Glide<br><a href="https://github.com/GeekGhost/Ghost" target="_blank" rel="noopener">https://github.com/GeekGhost/Ghost</a></p>
+<p>SwipeRecyclerView-自定义下拉刷新上拉加载控件（SwipeRefreshLayout + recyclerView）<br><a href="https://github.com/niniloveyou/SwipeRecyclerView" target="_blank" rel="noopener">https://github.com/niniloveyou/SwipeRecyclerView</a></p>
+<p>ViewDragHelperDemo-Android自定义ViewGroup神器-ViewDragHelper<br><a href="https://github.com/hiphonezhu/Android-Demos/tree/master/ViewDragHelperDemo" target="_blank" rel="noopener">https://github.com/hiphonezhu/Android-Demos/tree/master/ViewDragHelperDemo</a></p>
+<p>UserDefinedProgressBar-好玩的动画加载和自定义ProgressBar<br><a href="https://github.com/junmei520/UserDefinedProgressBar" target="_blank" rel="noopener">https://github.com/junmei520/UserDefinedProgressBar</a></p>
+<p>MPermissionUtils-Android6.0 运行时权限 超轻量级工具类<br><a href="https://github.com/Airsaid/MPermissionUtils" target="_blank" rel="noopener">https://github.com/Airsaid/MPermissionUtils</a></p>
+<p>EmptyLayout-Android通用的EmptyLayout-展示不用状态的界面<br><a href="https://github.com/yewei02538/EmptyLayout" target="_blank" rel="noopener">https://github.com/yewei02538/EmptyLayout</a></p>
+<p>NestFullListView-【Android】ListView、RecyclerView、ScrollView里嵌套ListView 相对优雅的解决方案:NestFullListView<br><a href="https://github.com/mcxtzhang/NestFullListView" target="_blank" rel="noopener">https://github.com/mcxtzhang/NestFullListView</a></p>
+<p>WindowMenuDemo-Android仿Qzone底部导航栏加号弹出菜单<br><a href="https://github.com/MjCodeTinker/WindowMenuDemo" target="_blank" rel="noopener">https://github.com/MjCodeTinker/WindowMenuDemo</a></p>
+<p>SmileRefresh-微笑下拉刷新。这是在 SwipeRefreshLayout基础上修改的下拉刷新库。<br><a href="https://github.com/songixan/SmileRefresh" target="_blank" rel="noopener">https://github.com/songixan/SmileRefresh</a></p>
+<p>MyCartDemo-Android自定义View–自己撸一个柱状图也没那么难<br><a href="https://github.com/Hankkin/MyCartDemo" target="_blank" rel="noopener">https://github.com/Hankkin/MyCartDemo</a></p>
+<p>MDStudySamples-Android TabLayout 分分钟打造一个滑动标签页<br><a href="https://github.com/Mike-bel/MDStudySamples" target="_blank" rel="noopener">https://github.com/Mike-bel/MDStudySamples</a></p>
+<p>WingUE-基本特效：饿了么丝滑无缝过度搜索栏的实现<br><a href="https://github.com/githubwing/WingUE" target="_blank" rel="noopener">https://github.com/githubwing/WingUE</a></p>
+<p>史上最牛逼的音乐播放器—仿网易云音乐（已开源）<br><a href="https://github.com/aa112901/remusic" target="_blank" rel="noopener">https://github.com/aa112901/remusic</a></p>
+<p>GABottleLoading-贝塞尔风暴 － 超炫GABottleLoading效果<br><a href="https://github.com/Ajian-studio/GABottleLoading" target="_blank" rel="noopener">https://github.com/Ajian-studio/GABottleLoading</a></p>
+<p>PathAnimView-【注释张豪华版 Path酷炫动画】极速get花式Path （支付宝支付成功动画）<br><a href="https://github.com/mcxtzhang/PathAnimView" target="_blank" rel="noopener">https://github.com/mcxtzhang/PathAnimView</a></p>
+<p>Material Design : 带动画的标题栏<br><a href="https://github.com/shiguiyou/MaterialDemo/tree/master" target="_blank" rel="noopener">https://github.com/shiguiyou/MaterialDemo/tree/master</a></p>
+<p>MultiTypeAdapter-优雅的实现多类型列表的Adapter<br><a href="https://github.com/LiHongHui6/MultiTypeAdapter" target="_blank" rel="noopener">https://github.com/LiHongHui6/MultiTypeAdapter</a></p>
+<p>AnimationPlayer-探索View动画和属性动画<br><a href="https://github.com/SpikeKing/AnimationPlayer" target="_blank" rel="noopener">https://github.com/SpikeKing/AnimationPlayer</a></p>
+<p>AnimShopButton-仿饿了么加入购物车旋转控件 - 自带闪转腾挪动画 的按钮<br><a href="https://github.com/mcxtzhang/AnimShopButton" target="_blank" rel="noopener">https://github.com/mcxtzhang/AnimShopButton</a></p>
+<p>YinyuetaiPlayer-高仿音悦台播放页面交互效果<br><a href="https://github.com/oubowu/YinyuetaiPlayer" target="_blank" rel="noopener">https://github.com/oubowu/YinyuetaiPlayer</a></p>
+<p>AndroidAnimationExercise-Android 动画实战 - 仿微博雷达功能<br><a href="https://github.com/REBOOTERS/AndroidAnimationExercise" target="_blank" rel="noopener">https://github.com/REBOOTERS/AndroidAnimationExercise</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/08/30/meituan-interview-experience/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/08/30/computer-network-7-three-and-four-way-handshake/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/daily_pic.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/icon.jpg" alt="Owen Lee's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        2924354040@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:2924354040@qq.com" target="_blank" title="给我发邮件">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        给我发邮件
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">19</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/07/">七月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">18</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">8</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/想法/">想法<span class="sidebar_archives-count">24</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术/">技术<span class="sidebar_archives-count">27</span></a></li><li><a class="sidebar_archives-link" href="/categories/笔试面试/">笔试面试<span class="sidebar_archives-count">29</span></a></li><li><a class="sidebar_archives-link" href="/categories/译文/">译文<span class="sidebar_archives-count">8</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/2017/10/20/about-me/" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline/" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery/" title="图库">
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">103</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/owenleexiaoyu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/xiao-yu-7-94/activities" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>海树
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz', 'hGgJDQbyDLHvM3UMFXuJyYNU');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

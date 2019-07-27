@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            数据结构与算法——用 Java 实现排序算法 | 
+        
+        海树
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/fish.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content=",数据结构与算法">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="海树">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/09/12/data-struture-sort/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="海树">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/09/12/data-struture-sort/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="数据结构与算法——用 Java 实现排序算法 | 海树">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="数据结构与算法"> 
+
+    
+        <meta property="article:published_time" content="Wed Sep 12 2018 21:06:00 GMT+0800">
+        <meta property="article:modified_time" content="Wed Nov 07 2018 16:48:56 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/09/12/data-struture-sort/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/09/12/data-struture-sort/index.html",
+    "headline": "数据结构与算法——用 Java 实现排序算法",
+    "datePublished": "Wed Sep 12 2018 21:06:00 GMT+0800",
+    "dateModified": "Wed Nov 07 2018 16:48:56 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",数据结构与算法",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-直接插入排序"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 直接插入排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-折半插入排序"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 折半插入排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-希尔排序"><span class="post-toc-number">3.</span> <span class="post-toc-text">3. 希尔排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-冒泡排序"><span class="post-toc-number">4.</span> <span class="post-toc-text">4. 冒泡排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-快速排序"><span class="post-toc-number">5.</span> <span class="post-toc-text">5. 快速排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#6-简单选择排序"><span class="post-toc-number">6.</span> <span class="post-toc-text">6. 简单选择排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#7-堆排序"><span class="post-toc-number">7.</span> <span class="post-toc-text">7. 堆排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#8-归并排序"><span class="post-toc-number">8.</span> <span class="post-toc-text">8. 归并排序</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#各类排序算法性能比较"><span class="post-toc-number">9.</span> <span class="post-toc-text">各类排序算法性能比较</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#参考资料"><span class="post-toc-number">10.</span> <span class="post-toc-text">参考资料</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://image.wufazhuce.com/FlqR0LW7KiHs618Adnikw6XZQaXw)">
+    
+            <p class="article-headline-p">
+                数据结构与算法——用 Java 实现排序算法
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/icon.jpg" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Owen Lee</strong>
+        <span>9月 12, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+        <i class="material-icons" role="presentation">bookmark</i>
+        <span class="visuallyhidden">bookmark</span>
+    </button>
+    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
+        <li class="mdl-menu__item">
+        <a class="post_tag-link" href="/tags/数据结构与算法/">数据结构与算法</a>
+    </ul>
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+    <!-- Leancloud Views -->
+        <a class="post_share-link" href="#">
+            <li class="mdl-menu__item">
+                <span id="/2018/09/12/data-struture-sort/" class="leancloud-views_num" data-flag-title="数据结构与算法——用 Java 实现排序算法">
+     &nbsp;浏览量
+</span>
+
+            </li>
+        </a>
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=数据结构与算法——用 Java 实现排序算法&url=http://yoursite.com/2018/09/12/data-struture-sort/index.html&pic=http://yoursite.com/img/fish.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=数据结构与算法——用 Java 实现排序算法&url=http://yoursite.com/2018/09/12/data-struture-sort/index.html&via=Owen Lee" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/09/12/data-struture-sort/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/09/12/data-struture-sort/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=海树&title=数据结构与算法——用 Java 实现排序算法&summary=&pics=http://yoursite.com/img/fish.png&url=http://yoursite.com/2018/09/12/data-struture-sort/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h4 id="1-直接插入排序"><a href="#1-直接插入排序" class="headerlink" title="1. 直接插入排序"></a>1. 直接插入排序</h4><p>直接插入排序由 n-1 趟排序组成。第 p 趟排序后保证第 0 个位置到第 p 个位置的元素为有序。第 p+1 趟是将第 p+1 个位置上的元素插入到前面的有序序列中。</p>
+<p><strong>算法描述：</strong></p>
+<p>进行第 p+1 趟排序时，要将 data[p+1] 插入到前面的有序序列中，首先用一个临时变量 temp 保存 data[p+1]，然后将 temp 和 data[p] 比较，如果 temp 更小，则将 data[p] 移动到 data[p+1]，继续将 temp 与 data[p-1] 进行比较，如果 temp 更小，则将 data[p-1] 移动到 data[p]，重复这个过程，直到 temp 不小于 data[i]（或者 data[0]…data[p] 都向后移动），则将temp的值赋给data[i+1]。</p>
+<p><strong>图解示意：</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzl7kamwjj319u110434.jpg" alt="ss"></p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 插入排序</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span> [] data)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt; data.length;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> temp = data[i];</span><br><span class="line">		<span class="keyword">int</span> j;</span><br><span class="line">		<span class="keyword">for</span>(j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; data[j] &gt; temp;j--)&#123;</span><br><span class="line">			data[j+<span class="number">1</span>] = data[j];</span><br><span class="line">		&#125;</span><br><span class="line">		data[j+<span class="number">1</span>] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
+<p>直接插入排序主要应用比较和移动两种操作。</p>
+<p>从空间上看，它需要 1 个元素的辅助空间，用于位置交换，空间复杂度为<strong>O(1)</strong>。</p>
+<p>从时间上看，遍历一遍的时间复杂度是 O(n)，需要遍历 n-1 次，因此时间复杂度是 <strong>O(n^2)</strong>。</p>
+<p>由于直接插入排序的元素移动是顺序的，所以该算法是<strong>稳定</strong>的。</p>
+<h4 id="2-折半插入排序"><a href="#2-折半插入排序" class="headerlink" title="2. 折半插入排序"></a>2. 折半插入排序</h4><p>我们知道，在直接插入排序中，进行第 p+1 趟排序时，要将 data[p+1] 插入到前面的有序序列中。因为前面是排好序的有序序列，所以可以用折半查找（二分法）来确定最后 temp 所在的位置。</p>
+<p>使用折半查找可以大大提高查找速度。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzl7xdsxjj309m0bpwfk.jpg" alt="jyt"></p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public static void halfInsertSort(int [] data)&#123;</span><br><span class="line">	int left,right,mid;</span><br><span class="line">	for(int i = 1;i&lt;data.length;i++)&#123;</span><br><span class="line">		int temp = data[i];</span><br><span class="line">		left = 0;</span><br><span class="line">		right = i -1;</span><br><span class="line">		while(left &lt;= right)&#123;</span><br><span class="line">			mid = (left+right)/2;</span><br><span class="line">			if(data[mid]&gt;temp)&#123;</span><br><span class="line">				right = mid - 1;</span><br><span class="line">			&#125;else&#123;</span><br><span class="line">				left = mid + 1;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		for(int j = i-1;j &gt;= left;j--)&#123;</span><br><span class="line">			data[j+1] = data[j];</span><br><span class="line">		&#125;</span><br><span class="line">		data[left] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
+<p>空间复杂度为 <strong>O(1)</strong>。</p>
+<p>折半查找只是减少了比较次数，但是元素的移动次数不变，折半插入排序平均时间复杂度为 <strong>O(n^2)</strong>。</p>
+<p>是<strong>稳定</strong>的排序算法。</p>
+<h4 id="3-希尔排序"><a href="#3-希尔排序" class="headerlink" title="3. 希尔排序"></a>3. 希尔排序</h4><p>希尔排序的实质是分组插入排序。</p>
+<p>该方法的基本思想是：先将整个待排元素序列分割成若干个子序列（由相隔某个「增量」的元素组成的）分别进行直接插入排序，然后依次缩减增量再进行排序，待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。因为直接插入排序在元素基本有序的情况下（接近最好情况），效率是很高的，因此希尔排序在时间效率上比前两种方法有较大提高。</p>
+<p><strong>图解示意：</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzl8d0sb6j315i17agxk.jpg" alt="sda"></p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static void shellSort(int [] data)&#123;</span><br><span class="line">	int d = data.length / 2;</span><br><span class="line">	while(d &gt;= 1)&#123;</span><br><span class="line">		for(int k = 0; k &lt;d;k++)&#123;</span><br><span class="line">			for(int i = k+d;i&lt;data.length;i += d)&#123;</span><br><span class="line">				int temp = data[i];</span><br><span class="line">				int j = i - d;</span><br><span class="line">				while(j&gt;=k &amp;&amp; data[j]&gt;temp)&#123;</span><br><span class="line">					data[j+d] = data[j];</span><br><span class="line">					j -= d;</span><br><span class="line">				&#125;</span><br><span class="line">				data[j+d] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		d = d/2;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
+<p>希尔排序的时间复杂度大致为 <strong>O(n^1.3)</strong>。</p>
+<p>希尔排序<strong>不是稳定的</strong>。</p>
+<h4 id="4-冒泡排序"><a href="#4-冒泡排序" class="headerlink" title="4. 冒泡排序"></a>4. 冒泡排序</h4><p>冒泡排序的基本思想是，对相邻的元素进行两两比较，顺序相反则进行交换，这样，每一趟会将最小或最大的元素“浮”到顶端，最终达到完全有序。</p>
+<p>对于一个长度为n的序列，需要执行n-1趟排序。</p>
+<p><strong>图解示意：</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzl8xriitj30rw0qmgpl.jpg" alt="gsdgs"></p>
+<p><strong>代码实现：</strong></p>
+<p>在冒泡排序的过程中，如果某一趟执行完毕，没有做任何一次交换操作，比如数组[5,4,1,2,3]，执行了两次冒泡，也就是两次外循环之后，分别将5和4调整到最终位置[1,2,3,4,5]。此时，再执行第三次循环后，一次交换都没有做，这就说明剩下的序列已经是有序的，排序操作也就可以完成了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public static void bubbleSort(int [] data)&#123;</span><br><span class="line">	int n = data.length;</span><br><span class="line">	for(int i = 0; i&lt;n-1;i++)&#123;</span><br><span class="line">		//设定一个是否交换标记，若为false</span><br><span class="line">		//则表示此次循环没有进行交换，也就是待排序列已经有序，排序已然完成。</span><br><span class="line">		boolean flag = false;</span><br><span class="line">		for(int j = 0;j&lt;n-1-i;j++)&#123;</span><br><span class="line">			if(data[j+1] &lt; data[j])&#123;</span><br><span class="line">				int temp = data[j];</span><br><span class="line">				data[j] = data[j+1];</span><br><span class="line">				data[j+1] = temp;</span><br><span class="line">				flag = true;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if(!flag)&#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
+<p>冒泡排序的效率和待排序列的初始顺序有关，如果若原数组本身就是有序的（这是最好情况），仅需 n-1 次比较就可完成，不用交换；若是倒序，比较次数为 n-1+n-2+…+1=n(n-1)/2，交换次数和比较次数等值。所以，其时间复杂度依然为 <strong>O(n^2)</strong>。</p>
+<p>冒泡排序只进行元素间的顺序移动，所以是<strong>稳定</strong>的排序算法。</p>
+<h4 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5. 快速排序"></a>5. 快速排序</h4><p>快速排序和希尔排序一样，都是基于”分治法“思想的。快速排序可谓是名副其实，在实际应用中，它几乎是最快的排序算法。</p>
+<p><strong>算法步骤：</strong></p>
+<p>快速排序算法主要由以下 3 个步骤组成：</p>
+<ol>
+<li><p><strong>分割：</strong>取序列中的一个元素为轴元素，将序列分为 3 段，使得所有小于或等于轴的元素放在轴的左边，大于轴的元素放在轴的右边。此时，轴元素已经在序列的正确位置了。</p>
+</li>
+<li><p><strong>分治：</strong>对轴元素左边和右边的序列递归调用1过程，分别对左边和右边元素进行排序。</p>
+</li>
+<li><p><strong>合并：</strong>对于快排来说，所有元素都已被放在正确的位置，因此合并过程不需要其他操作。</p>
+</li>
+</ol>
+<p><strong>图解示意：</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzla7ispaj30f70gotdh.jpg" alt="enter image description here"></p>
+<p><strong>算法实现1：</strong></p>
+<p>快排可以有两种具体的实现方式，一种是左右交替赋值，一种是左右同时交换。下面分别来看看：</p>
+<p>左右交替赋值是，首先用一个临时变量对轴元素进行备份。取 i，j 两个指针，初始值是待排序列两端的下标，i 指向序列最左端下标，j 指向序列最右端下标。在整个排序过程中保证 i 不大于 j。</p>
+<p>然后开始移动：</p>
+<p>首先从 j 所指位置向左搜索，找到第一个小于或等于轴的元素，把这个元素移动到 i 的位置上。</p>
+<p>再从 i 所指位置向右搜索，找到第一个大于轴的元素，把这个元素移动到 j 的位置上。</p>
+<p>（这就是左右交替赋值）</p>
+<p>重复上述过程，直到 i = j，最后把轴元素放在 i 所指位置。<br>这时，i 位置就是轴元素的正确位置，之后对 i 位置左右两边使用递归，对左右序列分别排序。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlaovdikj322k2wkthy.jpg" alt="her"></p>
+<p><strong>代码实现1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 快速排序算法实现1：左右交替赋值</span><br><span class="line"> * @param data</span><br><span class="line"> * @param left</span><br><span class="line"> * @param right</span><br><span class="line"> * @return</span><br><span class="line"> */</span><br><span class="line">public static void quickSort1(int [] data, int left, int right)&#123;</span><br><span class="line">	//递归结束条件</span><br><span class="line">	if(left &gt;= right)&#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	//存储轴元素的值</span><br><span class="line">	int temp = data[left];</span><br><span class="line">	int i = left;</span><br><span class="line">	int j = right;</span><br><span class="line">	</span><br><span class="line">	while(i &lt; j)&#123;</span><br><span class="line">		while(i &lt; j &amp;&amp; data[j] &gt; temp)&#123;</span><br><span class="line">			j--;</span><br><span class="line">		&#125;</span><br><span class="line">		data[i] = data[j];</span><br><span class="line">		while(i &lt; j &amp;&amp; data[i] &lt;= temp)&#123;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">		data[j] = data[i];</span><br><span class="line">	&#125;</span><br><span class="line">	//将轴元素移动到正确的位置</span><br><span class="line">	data[i] = temp;</span><br><span class="line">	//使用递归分别对轴元素左右两边的序列进行快速排序</span><br><span class="line">	quickSort1(data, left, i-1);</span><br><span class="line">	quickSort1(data, i+1, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>算法实现2：</strong></p>
+<p>第二种实现，是左右同时交换。</p>
+<p>先从右往左找一个小于或等于轴的元素，再从左往右找一个大于轴的元素，然后交换他们。</p>
+<p>具体过程如下图所示，非常清晰易懂：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlb65idhj30b403k74g.jpg" alt="enter image description here"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlbibyv6j309q040aa9.jpg" alt="enter image description here"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlbve58tj309q03zmxc.jpg" alt="enter image description here"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlc8fyz4j309q04ht8w.jpg" alt="enter image description here"></p>
+<p>上面过程完成后，轴元素放在正确的位置上了，之后就和方法 1 一样，使用递归对轴左右两边进行排序。</p>
+<p><strong>代码实现2：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 快速排序算法实现2：左右同时交换</span><br><span class="line"> * @param data</span><br><span class="line"> * @param left</span><br><span class="line"> * @param right</span><br><span class="line"> */</span><br><span class="line">public static void quickSort2(int [] data, int left, int right)&#123;</span><br><span class="line">	//如果left指针大于right指针，则已经有序，直接返回</span><br><span class="line">	if(left &gt; right)&#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	//存储轴元素</span><br><span class="line">	int temp = data[left];</span><br><span class="line">	int i = left;</span><br><span class="line">	int j = right;</span><br><span class="line">	while(i != j)&#123;</span><br><span class="line">		while(i &lt; j &amp;&amp; data[j]&gt;temp)</span><br><span class="line">			j--;</span><br><span class="line">		while(i &lt; j &amp;&amp; data[i] &lt;= temp)</span><br><span class="line">			i++;</span><br><span class="line">		if(i &lt; j)&#123;</span><br><span class="line">			int t = data[i];</span><br><span class="line">			data[i] = data[j];</span><br><span class="line">			data[j] = t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//将轴元素移动到正确的位置</span><br><span class="line">	data[left] = data[i];</span><br><span class="line">	data[i] = temp;</span><br><span class="line">	//使用递归分别对轴元素左右两边的序列进行快速排序</span><br><span class="line">	quickSort2(data, left, i-1);</span><br><span class="line">	quickSort2(data, i+1, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
+<p>快速排序的最坏情况是输入序列有序时，每次分割都将轴元素划分在序列的一端。最坏情况下，快速排序和直接插入排序、冒泡排序一样差，最坏的时间复杂度是 <strong>O(n^2)</strong>。</p>
+<p>最好情况是每次分割都是最平衡的，也就是每次分割后左右两个序列的长度基本一致，最好的时间复杂度是 <strong>O(nlogn)</strong>。</p>
+<p>快速排序算法的空间开销主要是递归调用时所使用的栈，与递归调用的栈的深度成正比，故最好的空间复杂度为 <strong>O(logn)</strong>，最坏的空间复杂度为 <strong>O(n)</strong>。</p>
+<p>快速排序是一种<strong>不稳定</strong>的算法。</p>
+<h4 id="6-简单选择排序"><a href="#6-简单选择排序" class="headerlink" title="6. 简单选择排序"></a>6. 简单选择排序</h4><p>简单选择排序是最简单直观的一种排序算法，基本思想是<strong>在当前待排序列中选取最小的元素作为待排序列的第 1 个元素</strong>。对于 n 个元素的序列，需要经过 n-1 次的选择。</p>
+<p><strong>图解示意：</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlcoy6mwj31t02nkwjf.jpg" alt="fdgd"></p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void selectSort(int [] data)&#123;</span><br><span class="line">	for(int i = 0;i &lt; data.length - 1;i++)&#123;</span><br><span class="line">		int minIndex = i;</span><br><span class="line">		for(int j = i+1;j&lt;data.length;j++)&#123;</span><br><span class="line">			if(data[j] &lt; data[minIndex])&#123;</span><br><span class="line">				minIndex = j;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		if(minIndex != i)&#123;</span><br><span class="line">			int temp = data[i];</span><br><span class="line">			data[i] = data[minIndex];</span><br><span class="line">			data[minIndex] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
+<p>简单选择排序的时间复杂度是 O(n^2)，空间复杂度为 O(1)。</p>
+<p>简单选择排序算法是<strong>不稳定</strong>的。</p>
+<h4 id="7-堆排序"><a href="#7-堆排序" class="headerlink" title="7. 堆排序"></a>7. 堆排序</h4><p>堆排序是利用<strong>堆</strong>这种数据结构而设计的一种排序算法，堆排序是一种选择排序。</p>
+<p>堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右孩子结点的值，称为最大堆（大顶堆）；或者每个结点的值都小于或等于其左右孩子结点的值，称为最小堆（小顶堆）。</p>
+<p><img src="http://opgrjw8x2.bkt.clouddn.com/18-9-7/60558209.jpg" alt="34"></p>
+<p>完全二叉树可以使用数组来进行存储。对堆中的结点按层进行编号，将这种逻辑结构映射到数组中。</p>
+<p><img src="http://opgrjw8x2.bkt.clouddn.com/18-9-7/86172292.jpg" alt="56"></p>
+<p>堆排序算法就是用最大堆来得到最大元素，也就是堆根节点的值。</p>
+<p>具体步骤为：</p>
+<p><strong>1. 将给定无序序列构造成一个最大堆（一般升序采用最大堆，降序采用最小堆)。</strong>                                               </p>
+<p>a. 假设给定无序序列结构如下</p>
+<p><img src="http://opgrjw8x2.bkt.clouddn.com/18-9-7/46197694.jpg" alt="enter image description here"></p>
+<p>b. 从最后一个非叶子结点开始（叶结点自然不用调整）从左至右，从下至上进行调整。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzld5nmj3j31ds0lkn0v.jpg" alt="sds"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzldhg626j31ao0jeacb.jpg" alt="jy"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzldwno7ij31bs0ia41a.jpg" alt="dfd"></p>
+<p>此时，我们就将一个无序序列构造成了一个最大堆，最大堆的根节点的值是序列中的最大值。</p>
+<p><strong>2. 将堆顶元素与末尾元素进行交换，使末尾元素最大。然后继续调整堆，再将堆顶元素与末尾元素交换，得到第二大元素。</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzleaf6vpj31e00i6act.jpg" alt="ssd"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlep02inj31as0hgq5m.jpg" alt="ss"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlf3w9vyj31ay0huwge.jpg" alt="sdsa"></p>
+<p><strong>3. 继续进行调整，交换，如此反复进行，最终使得整个序列有序。</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlfio9gsj30lq0j8wfl.jpg" alt="bs"></p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 堆排序算法</span><br><span class="line"> * @param data</span><br><span class="line"> */</span><br><span class="line">public static void heapSort(int [] data)&#123;</span><br><span class="line">	buidHeap(data);</span><br><span class="line">	for(int i = data.length-1;i&gt;0;i--)&#123;</span><br><span class="line">		int temp = data[0];</span><br><span class="line">		data[0] = data[i];</span><br><span class="line">		data[i] = temp;</span><br><span class="line">		adjustHeap(data, 0, i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 构建最大堆</span><br><span class="line"> * @param data</span><br><span class="line"> */</span><br><span class="line">public static void buidHeap(int [] data)&#123;</span><br><span class="line">	for(int i = data.length/2 -1;i &gt;= 0;i--)&#123;</span><br><span class="line">		adjustHeap(data, i, data.length);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 调整堆</span><br><span class="line"> * @param data</span><br><span class="line"> * @param i</span><br><span class="line"> * @param length</span><br><span class="line"> */</span><br><span class="line">public static void adjustHeap(int [] data, int i, int length)&#123;</span><br><span class="line">	int left = 2*i+1;</span><br><span class="line">	int right = 2*i+2;</span><br><span class="line">	int minIndex = i;</span><br><span class="line">	//和左孩子进行比较</span><br><span class="line">	if(left &lt; length &amp;&amp; data[minIndex] &lt;data[left])&#123;</span><br><span class="line">		minIndex = left;</span><br><span class="line">	&#125;</span><br><span class="line">	//和右孩子进行比较</span><br><span class="line">	if(right &lt; length &amp;&amp; data[minIndex] &lt; data[right])&#123;</span><br><span class="line">		minIndex = right;</span><br><span class="line">	&#125;</span><br><span class="line">	//判断是否需要调整</span><br><span class="line">	if(minIndex != i)&#123;</span><br><span class="line">		int temp = data[minIndex];</span><br><span class="line">		data[minIndex] = data[i];</span><br><span class="line">		data[i] = temp;</span><br><span class="line">		adjustHeap(data, minIndex, length); //递归对子节点进行调整</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
+<p>堆排序的最坏，最好，平均时间复杂度均为 <strong>O(nlogn)</strong>。</p>
+<p>堆排序是<strong>不稳定</strong>排序。</p>
+<p><strong>海量数据的 Top N 排序中可以使用堆排序</strong></p>
+<h4 id="8-归并排序"><a href="#8-归并排序" class="headerlink" title="8. 归并排序"></a>8. 归并排序</h4><p>归并排序和快速排序类似，都是利用分治思想设计的排序算法。与快排不同的是，归并排序使问题的划分策略尽可能简单，着重于合并两个已排好序的序列。</p>
+<p>如果一个序列只有一个元素，则它是有序的，不用执行任何操作。否则，归并排序按照如下递归步骤进行排序：</p>
+<ol>
+<li>先把序列划分为长度基本相等的子序列</li>
+<li>对每个子序列归并排序</li>
+<li>把排好序的子序列合并为最后的结果</li>
+</ol>
+<p>第3步将两个子序列合并为一个有序序列，就是归并过程。假设有子序列 A、B，将其合并为序列 C。用到的方法很简单：把 A、B 的最小元素进行比较，把其中较小的作为 C 的第一个元素；在 A、B 剩余元素中继续挑选最小的元素进行比较，确定 C 的第二个元素，依次类推，直到 A 或 B 的所有元素都被添加到 C 中，此时将余下的元素直接添加到 C 的最后面，就可以完成对 A、B 的归并。</p>
+<p>由于 A 和 B 都已经排好序了，每次挑选最小元素时，只需要比较 A 和 B 最前面的元素即可。</p>
+<p><strong>图解示意：</strong></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlg2n004j31d411m0z8.jpg" alt="here"></p>
+<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlgiy0nxj31bc15wn33.jpg" alt="eddd"></p>
+<p><strong>代码实现：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 归并排序</span><br><span class="line"> * @param data</span><br><span class="line"> */</span><br><span class="line">public static void mergeSort(int [] data)&#123;</span><br><span class="line">	mergeSort(data, 0, data.length - 1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 利用递归进行序列划分</span><br><span class="line"> * @param data</span><br><span class="line"> * @param left</span><br><span class="line"> * @param right</span><br><span class="line"> */</span><br><span class="line">private static void mergeSort(int [] data, int left, int right)&#123;</span><br><span class="line">	if(left &lt; right)&#123;</span><br><span class="line">		int mid = (left + right)/2;</span><br><span class="line">		mergeSort(data, left, mid);</span><br><span class="line">		mergeSort(data, mid+1, right);</span><br><span class="line">		merge(data, left, mid, right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 将两个子序列归并</span><br><span class="line"> * @param data</span><br><span class="line"> * @param left</span><br><span class="line"> * @param mid</span><br><span class="line"> * @param right</span><br><span class="line"> */</span><br><span class="line">private static void merge(int[] data, int left, int mid, int right) &#123;</span><br><span class="line">	int len1 = mid - left + 1;</span><br><span class="line">	int len2 = right - mid;</span><br><span class="line">	</span><br><span class="line">	int [] a = new int [len1];      //临时数组用于存放左边数据</span><br><span class="line">	int [] b = new int [len2];      //临时数据用于存放左边数据</span><br><span class="line">	</span><br><span class="line">	for(int i = 0; i&lt;len1;i++)&#123;</span><br><span class="line">		a[i] = data[left+i];</span><br><span class="line">	&#125;</span><br><span class="line">	for(int i = 0;i&lt;len2;i++)&#123;</span><br><span class="line">		b[i] = data[mid+1+i];</span><br><span class="line">	&#125;</span><br><span class="line">	int i = 0;</span><br><span class="line">	int j = 0;</span><br><span class="line">	int k;</span><br><span class="line">	for(k = left; k &lt; right;k++)&#123;</span><br><span class="line">		if(i == len1 || j == len2)&#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">		if(a[i] &lt;= b[j])&#123;</span><br><span class="line">			data[k] = a[i++];</span><br><span class="line">		&#125;else&#123;</span><br><span class="line">			data[k] = b[j++];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	//如果左边还有数据，则加到data的后面</span><br><span class="line">	while(i &lt; len1)&#123;</span><br><span class="line">		data[k++] = a[i++];	</span><br><span class="line">	&#125;</span><br><span class="line">	//如果右边还有数据，则加到data的后面</span><br><span class="line">	while(j &lt; len2)&#123;</span><br><span class="line">		data[k++] = b[j++];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
+<p>归并排序的最坏情况下的时间复杂度为 <strong>O(nlogn)</strong>，在执行归并过程中，需要额外 <strong>O(n)</strong> 的辅助空间。</p>
+<p>归并排序是一个<strong>稳定</strong>的算法。</p>
+<p>由于需要额外申请辅助空间，实际应用中，归并排序的效果往往没有快速排序好。</p>
+<h4 id="各类排序算法性能比较"><a href="#各类排序算法性能比较" class="headerlink" title="各类排序算法性能比较"></a>各类排序算法性能比较</h4><p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlgv293rj328c10479i.jpg" alt="gs"></p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://blog.csdn.net/guoweimelon/article/details/50904206" target="_blank" rel="noopener">经典排序算法（4）——折半插入排序算法详解</a></p>
+<p><a href="https://www.cnblogs.com/chengxiao/p/6104371.html" target="_blank" rel="noopener">图解排序算法(二)之希尔排序</a></p>
+<p><a href="https://blog.csdn.net/MoreWindows/article/details/6668714" target="_blank" rel="noopener">白话经典算法系列之三 希尔排序的实现</a></p>
+<p><a href="https://www.cnblogs.com/chengxiao/p/6103002.html" target="_blank" rel="noopener">图解排序算法(一)之3种简单排序(选择，冒泡，直接插入)</a></p>
+<p><a href="https://www.cnblogs.com/chengxiao/p/6129630.html" target="_blank" rel="noopener">图解排序算法(三)之堆排序</a> </p>
+<p><a href="https://www.cnblogs.com/chengxiao/p/6194356.html" target="_blank" rel="noopener">图解排序算法(四)之归并排序</a></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/09/20/10-ways-to-get-rid-of-mediocrity/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/09/06/learn-design-pattern-5-abstract-factory/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/daily_pic.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/icon.jpg" alt="Owen Lee's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        2924354040@qq.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:2924354040@qq.com" target="_blank" title="给我发邮件">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        给我发邮件
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/05/">五月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/11/">十一月 2018<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/09/">九月 2018<span class="sidebar_archives-count">19</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/07/">七月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/06/">六月 2018<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">三月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/11/">十一月 2017<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">18</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/09/">九月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">8</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                分类
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/想法/">想法<span class="sidebar_archives-count">24</span></a></li><li><a class="sidebar_archives-link" href="/categories/技术/">技术<span class="sidebar_archives-count">27</span></a></li><li><a class="sidebar_archives-link" href="/categories/笔试面试/">笔试面试<span class="sidebar_archives-count">29</span></a></li><li><a class="sidebar_archives-link" href="/categories/译文/">译文<span class="sidebar_archives-count">8</span></a>
+            </ul>
+        </li>
+        
+            <li class="divider"></li>
+        
+    
+
+    <!-- Pages  -->
+    
+        <li>
+            <a href="/2017/10/20/about-me/" title="关于我">
+                
+                关于我
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/tags/" title="标签云">
+                
+                标签云
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/timeline/" title="时间轴">
+                
+                时间轴
+            </a>
+        </li>
+        
+    
+        <li>
+            <a href="/gallery/" title="图库">
+                
+                图库
+            </a>
+        </li>
+        
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                文章总数
+                <span class="sidebar-badge">103</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/owenleexiaoyu" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+        <a href="https://www.zhihu.com/people/xiao-yu-7-94/activities" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-zhihu">
+                <span class="visuallyhidden">Zhihu</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;2016&nbsp;-<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>海树
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz', 'hGgJDQbyDLHvM3UMFXuJyYNU');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',true);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
