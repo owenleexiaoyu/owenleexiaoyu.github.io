@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sun Oct 22 2017 12:10:00 GMT+0800">
-        <meta property="article:modified_time" content="Tue Nov 06 2018 19:39:36 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 29 2019 21:11:19 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/10/22/android-permission/index.html",
     "headline": "Android 6.0 动态申请权限",
     "datePublished": "Sun Oct 22 2017 12:10:00 GMT+0800",
-    "dateModified": "Tue Nov 06 2018 19:39:36 GMT+0800",
+    "dateModified": "Thu Aug 29 2019 21:11:19 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -494,10 +494,10 @@
 <h3 id="普通权限和危险权限"><a href="#普通权限和危险权限" class="headerlink" title="普通权限和危险权限"></a>普通权限和危险权限</h3><p>在推出动态权限的概念时，Google 将我们手机上所用到的权限按照对用户的安全性划分程两类，普通权限和危险权限。普通权限是指不涉及用户个人隐私信息的权限，如网络权限、手机震动权限等。危险权限即那些涉及用户隐私信息的权限，如获取手机联系人权限、打电话权限、定位权限等。普通权限只需要在 AndroidManifest.xml 文件中进行申明即可，危险权限则需要动态申请。毕竟如果所有的权限都要动态申请的话，也太麻烦了。</p>
 <p>Android 中的危险权限共有 24 个，分为 9 组，其余的都是普通权限。</p>
 <p>下图列出了所有的危险权限：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwykrwhkigj30p30kp3zw.jpg" alt></p>
+<p><img src="https://i.loli.net/2019/08/29/DsAb7XYfOte9yzV.jpg" alt="img1"></p>
 <p>当用户动态授权了某一个权限组中的一个危险权限，同组的所有危险权限都会自动被授权。免去了重复申请的繁杂。</p>
 <h3 id="动态申请权限过程"><a href="#动态申请权限过程" class="headerlink" title="动态申请权限过程"></a>动态申请权限过程</h3><p>动态申请危险权限的过程如以下流程图所示：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwyks4wx5hj30pj0ihab5.jpg" alt></p>
+<p><img src="https://i.loli.net/2019/08/29/K7xFEtO6ywiBYTu.jpg" alt="img2"></p>
 <p>下面我们以打电话为例，用代码来看看每步的内容。假设页面上有一个按钮，点击按钮就可以拨打电话，我们可以用隐式 Intent 来实现直接拨打电话的功能，不过需要 CALL_PHONE 这个权限的支持，而这个权限是一个危险权限。</p>
 <ol>
 <li>在 AndroidManifest.xml 文件中申明权限。这个步骤还是必须的，因为我们的应用需要适配 6.0 以下版本的机型。</li>

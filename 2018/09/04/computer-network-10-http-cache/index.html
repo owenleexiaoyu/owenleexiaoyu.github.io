@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Tue Sep 04 2018 18:07:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Nov 07 2018 16:56:00 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 29 2019 21:28:59 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/09/04/computer-network-10-http-cache/index.html",
     "headline": "计算机网络面试（10）HTTP 的缓存机制",
     "datePublished": "Tue Sep 04 2018 18:07:00 GMT+0800",
-    "dateModified": "Wed Nov 07 2018 16:56:00 GMT+0800",
+    "dateModified": "Thu Aug 29 2019 21:28:59 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -496,7 +496,7 @@
 <li>缓存过期策略</li>
 <li>缓存对比策略</li>
 </ul>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlntz4mrj309308ha9y.jpg" alt="s"></p>
+<p><img src="https://i.loli.net/2019/08/29/zQFbXDKeiyVpxdJ.jpg" alt="img1.png"></p>
 <h4 id="缓存存储策略"><a href="#缓存存储策略" class="headerlink" title="缓存存储策略"></a>缓存存储策略</h4><p>用来确定 HTTP 响应内容是否可以被客户端缓存，以及可以被哪些客户端缓存。</p>
 <p><strong>这个策略的作用只有一个，用于决定 HTTP 响应内容是否可缓存到客户端</strong></p>
 <p>缓存存储策略的主体内容是 <strong>Cache-control</strong> 这个头部。它的值主要有以下几种：</p>
@@ -548,7 +548,7 @@ Expires：当前客户端时间 + maxAge 。</code></pre><p>而 Cache-Control：
 <p>当客户端发送第一次请求时服务端会下发当前请求资源的标识码 Etag，下次再请求时，客户端则会通过 header 里的 If-None-Match 将这个标识码 Etag 带上，服务端将客户端传来的 Etag 与最新的资源 Etag 做对比，判断客户端缓存数据是否仍有效，如果一样，则表示资源没有更新，本地缓存仍然有效，返回304。</p>
 <p>客户端检测到数据过期或浏览器刷新后，往往会重新发起一个 HTTP 请求到服务器，服务器此时并不急于返回数据，而是看请求头有没有带标识（ If-Modified-Since、If-None-Match）过来，如果判断标识仍然有效，则返回 304 告诉客户端取本地缓存数据来用即可（这里要注意的是你必须要在首次响应时输出相应的头信息（Last-Modified、ETag）到客户端）。至此我们就明白了上面所说的本地缓存数据即使被认为过期，并不等于数据从此就没用了的道理了。</p>
 <p><strong>下面将缓存策略三要素和常用的几个缓存头（项）结合一起，让大家更清晰的认识到它们之间的关系：</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlo71bmqj30be0bswem.jpg" alt="1"></p>
+<p><img src="https://i.loli.net/2019/08/29/wkB1cMrKjhRCetL.jpg" alt="img2.png"></p>
 <p><strong>PS：作者原文中还结合了两个题目进行说明，特别能够帮助理解</strong></p>
 <p>原文地址为：<a href="https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/qOMO0LIdA47j3RjhbCWUEQ</a></p>
 <p>其他参考资料：</p>

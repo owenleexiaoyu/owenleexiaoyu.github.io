@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Tue Sep 04 2018 16:07:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Nov 07 2018 16:58:26 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 29 2019 21:27:48 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/09/04/computer-network-8-tcp-reliable-transmission/index.html",
     "headline": "计算机网络面试（8）TCP 可靠传输",
     "datePublished": "Tue Sep 04 2018 16:07:00 GMT+0800",
-    "dateModified": "Wed Nov 07 2018 16:58:26 GMT+0800",
+    "dateModified": "Thu Aug 29 2019 21:27:48 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -501,18 +501,18 @@
 <h4 id="重传机制"><a href="#重传机制" class="headerlink" title="重传机制"></a>重传机制</h4><h5 id="超时重传"><a href="#超时重传" class="headerlink" title="超时重传"></a>超时重传</h5><p>为了保证数据一定被接收到，就必须妥善处理超时，对于超时没得到响应，则最好的办法是重新发送。<br>首先将数据拷贝到发送缓冲区，每个包在发送时都会启动一个定时器，如果定时器超时前收到了对方应答，则发送成功，清除缓冲区，否则重传数据包，直到达到最大次数。<br>TCP 在每次发包时都会计算往返时间极其偏差，通过这个记录可以大致判断双方的网络情况从而确定超时时间。通常刚开始超时时间较长（如 6s），而后可能到 0.5s 这样较小的时间。</p>
 <h5 id="快重传"><a href="#快重传" class="headerlink" title="快重传"></a>快重传</h5><p>超时重传是等到超时还未收到接收方的回复，才开始进行重传。而快重传的设计思路是：如果发送方收到3个重复的接收方的 ACK，就可以判断有报文段丢失，此时就可以立即重传丢失的报文段，而不用等到设置的超时时间到了才开始重传，提高了重传的效率。</p>
 <p>比如：假设发送方仍然发送 1、2、3、4、5 共 5 份数据；接收方先收到 Seq 1，回 Ack 2；然后 Seq 2 因网络原因丢失了，正常收到 Seq 3，继续回 Ack 2；后面 Seq 4 和 Seq 5 都到了，最后一个可能被丢了的包还是 Seq 2，继续回 Ack 2；现在，发送方已经连续收到4次（大于等于3次）相同的 Ack（即 Ack 2），知道最大序号的未收到包是 Seq 2，于是重传 Seq 2，并清空 Ack 2 的计数器；最后，接收方收到了 Seq 2，查看窗口发现 Seq 3、4、5 都收到了，回 Ack 6。示意图如下：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlpasqqdj30ci0830sp.jpg" alt="1"></p>
+<p><img src="https://i.loli.net/2019/08/29/Pu6FKmEitjZRxQY.jpg" alt="img1.png"></p>
 <h4 id="流量控制（滑动窗口）"><a href="#流量控制（滑动窗口）" class="headerlink" title="流量控制（滑动窗口）"></a>流量控制（滑动窗口）</h4><p>一般来说，我们都希望数据传输得更快一些。但如果发送法把数据发送得过快，接收方可能就来不及接收，就会造成数据丢失。<strong>流量控制，就是让发送方的发送速率不要太快，要让接收方来得及接收。</strong></p>
 <p>TCP 利用滑动窗口机制来实现对发送方的流量控制。滑动窗口本质上是为了在通信过程中同步收发双方的速率。通过发送端的发送窗口和接收端的接收窗口来保证发送的可靠性，同时协调发送的速度。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlpk967wj30ir0en0u5.jpg" alt="2"></p>
+<p><img src="https://i.loli.net/2019/08/29/2POXhMULcWgwsI4.jpg" alt="img2.png"></p>
 <p>对于发送端来说，整个窗口分为下面四段，一是已经发送也收到确认回复的；二是已经发送但尚未收到回复的；三是允许发送但还没有发送的；四是不允许发送的</p>
 <p>同理，对于接收方来说，整个窗口分为三段，一是已经接收并且已经回复ACK的；二是已经接收的；三是不能接收的</p>
 <p>而所谓的滑动，则是将窗口从上一次收到的连续 ACK 的位置整个划到下一次收到连续 ACK 的位置而已。注意连续二字，不连续则不能算作已经接收完毕。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlptrrzkj30f905rgmx.jpg" alt="3"></p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlq7qmxqj30gh0mvdm0.jpg" alt="4"></p>
+<p><img src="https://i.loli.net/2019/08/29/7xsYUQzEFXcNiVr.jpg" alt="img3.png"></p>
+<p><img src="https://i.loli.net/2019/08/29/Od729oEVQbXyCsS.jpg" alt="img4.png"></p>
 <h4 id="拥塞控制"><a href="#拥塞控制" class="headerlink" title="拥塞控制"></a>拥塞控制</h4><p>拥塞控制的起因是，作为 TCP 本身虽然已经有了各种校验和检测方法保证通信双方能否互相通信并且能够同步双方的情况了。但是它还忽略了一个关键因素 — <strong>网络状况</strong>。网络是通路，如果这个通路太拥挤，应该适当减少发送，而如果这个通路比较宽松，则可以适当增加发送。<br>TCP 的拥塞控制包括：慢启动，拥塞避免，拥塞发生，快速恢复。</p>
 <p>关于<strong>慢启动和拥塞避免</strong>请看下图：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlqjt44zj30rs0fiwen.jpg" alt="5"></p>
+<p><img src="https://i.loli.net/2019/08/29/Eyt9T46oZv3JCQI.jpg" alt="img5.png"></p>
 <p>一开始使用慢启动，即拥塞窗口设为 1，然后拥塞窗口指数增长到慢开始的门限值（ssthresh=16），则切换为拥塞避免,即加法增长，这样增长到一定程度，导致网络拥塞，则此时会把拥塞窗口重新降为 1，即重新慢开始，同时调整新的慢开始门限值为 12，之后以此类推。</p>
 
             

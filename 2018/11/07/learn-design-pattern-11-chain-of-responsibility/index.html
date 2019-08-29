@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Nov 07 2018 10:34:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Nov 07 2018 17:12:18 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 29 2019 21:56:14 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/11/07/learn-design-pattern-11-chain-of-responsibility/index.html",
     "headline": "学学设计模式（11）责任链模式",
     "datePublished": "Wed Nov 07 2018 10:34:00 GMT+0800",
-    "dateModified": "Wed Nov 07 2018 17:12:18 GMT+0800",
+    "dateModified": "Thu Aug 29 2019 21:56:14 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -490,14 +490,14 @@
             <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>责任链模式是一种对象的行为模式。在责任链模式里，很多对象由每一个对象对其下家的引用而连接起来形成一条链。请求在这个链上传递，直到链上的某一个对象决定处理此请求。发出这个请求的客户端并不知道链上的哪一个对象最终处理这个请求，这使得系统可以在不影响客户端的情况下动态地重新组织和分配责任。</p>
 <h4 id="击鼓传花"><a href="#击鼓传花" class="headerlink" title="击鼓传花"></a>击鼓传花</h4><p>击鼓传花是一种热闹而又紧张的饮酒游戏。在酒宴上宾客依次坐定位置，由一人击鼓，击鼓的地方与传花的地方是分开的，以示公正。开始击鼓时，花束就开始依次传递，鼓声一落，如果花束在某人手中，则该人就得饮酒。</p>
 <p>比如说，贾母、贾赦、贾政、贾宝玉和贾环是五个参加击鼓传花游戏的传花者，他们组成一个环链。击鼓者将花传给贾母，开始传花游戏。花由贾母传给贾赦，由贾赦传给贾政，由贾政传给贾宝玉，又贾宝玉传给贾环，由贾环传回给贾母，如此往复，如下图所示。当鼓声停止时，手中有花的人就得执行酒令。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlyghr4ej30ff04qdfu.jpg" alt="hdfh"></p>
+<p><img src="https://i.loli.net/2019/08/29/kTqHnoJZcO8NaUb.jpg" alt="img1.png"></p>
 <p>击鼓传花便是责任链模式的应用。责任链可能是一条直线、一个环链或者一个树结构的一部分。</p>
 <h4 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h4><p>责任链模式中有如下角色：</p>
 <ul>
 <li>抽象处理者（Handler）角色：定义出一个处理请求的接口。如果需要，接口可以定义出一个方法以设定和返回对下家的引用。这个角色通常由一个Java抽象类或者Java接口实现。上图中 Handler 类的聚合关系给出了具体子类对下家的引用，抽象方法 handleRequest() 规范了子类处理请求的操作。</li>
 <li>具体处理者（ConcreteHandler）角色：具体处理者接到请求后，可以选择将请求处理掉，或者将请求传给下家。由于具体处理者持有对下家的引用，因此，如果需要，具体处理者可以访问下家。</li>
 </ul>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlyug3fxj30ep074t8n.jpg" alt="sgd"></p>
+<p><img src="https://i.loli.net/2019/08/29/tPTXyZiOdjJoqYD.jpg" alt="img2.png"></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>我们以一个实际的应用场景来看看代码如何实现责任链模式：</p>
 <p><strong>场景：申请聚餐费用。</strong></p>
 <p>很多公司都有这样的福利，就是项目组可以向公司申请一些聚餐费用，用于聚餐活动。</p>
@@ -507,7 +507,7 @@
 <p>可以使用责任链模式来实现上述功能：当某人提出聚餐费用申请的请求后，该请求会在<strong>项目经理→部门经理→总经理</strong>这样一条领导处理链上进行传递，发出请求的人并不知道谁会来处理他的请求，每个领导会根据自己的职责范围，来判断是处理请求还是把请求交给更高级别的领导，只要有领导处理了，传递就结束了。</p>
 <p>需要把每位领导的处理独立出来，实现成单独的职责处理对象，然后为它们提供一个公共的、抽象的父职责对象，这样就可以在客户端来动态地组合职责链，实现不同的功能要求了。</p>
 <p>这个场景的类图如下：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlz9rhntj30i007ljre.jpg" alt="gkgh"></p>
+<p><img src="https://i.loli.net/2019/08/29/ykfeSTUMmwDNGz8.jpg" alt="img3.png"></p>
 <p>代码如下：</p>
 <p><strong>抽象处理者角色：</strong></p>
 <pre><code>public abstract class Handler {
@@ -654,7 +654,7 @@ public class GeneralManager extends Handler {
         System.out.println(&quot;test6 = &quot; + test6);
     }
 }</code></pre><p>运行结果如下：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlzrt4d8j30p706pweq.jpg" alt="khjg"></p>
+<p><img src="https://i.loli.net/2019/08/29/dXTPeECYIWQjVGo.jpg" alt="img4.png"></p>
 <h4 id="纯的与不纯的责任链模式"><a href="#纯的与不纯的责任链模式" class="headerlink" title="纯的与不纯的责任链模式"></a>纯的与不纯的责任链模式</h4><p>一个纯的责任链模式要求一个具体的处理者对象只能在两个行为中选择一个：一是承担责任，而是把责任推给下家。不允许出现某一个具体处理者对象在承担了一部分责任后又把责任向下传的情况。</p>
 <p>在一个纯的责任链模式里面，一个请求必须被某一个处理者对象所接收；在一个不纯的责任链模式里面，一个请求可以最终不被任何接收端对象所接收。</p>
 <p>纯的责任链模式的实际例子很难找到，一般看到的例子均是不纯的责任链模式的实现。有些人认为不纯的责任链根本不是责任链模式，这也许是有道理的。但是在实际的系统里，纯的责任链很难找到。如果坚持责任链不纯便不是责任链模式，那么责任链模式便不会有太大意义了。</p>

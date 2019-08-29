@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Sep 20 2018 20:34:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Nov 07 2018 16:36:26 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 29 2019 21:52:31 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/09/20/learn-design-pattern-7-adapter/index.html",
     "headline": "学学设计模式（7）适配器模式",
     "datePublished": "Thu Sep 20 2018 20:34:00 GMT+0800",
-    "dateModified": "Wed Nov 07 2018 16:36:26 GMT+0800",
+    "dateModified": "Thu Aug 29 2019 21:52:31 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -499,12 +499,12 @@
 <li>Client：客户类</li>
 </ul>
 <p><strong>类图：</strong></p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzl37lzadj30k408pglz.jpg" alt="ds"></p>
+<p><img src="https://i.loli.net/2019/08/29/vyl8tO9JsumnNdw.jpg" alt="img1.png"></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>以手机充电器的例子来看看代码该如何实现：</p>
 <p><strong>场景：</strong></p>
 <p>现在主流的手机充电器口主要包含 Mini Usb、Micro Usb和 Lightning 三种。其中 Mini Usb 广泛出现在读卡器、 MP3、数码相机以及移动硬盘上。由于 Micro Usb 比 Mini Usb 更薄，所以广泛应用于手机上，常见于安卓手机。还有一个比较常见的充电器口就是苹果手机常用的 Lightning。</p>
 <p>当然，特定型号的手机只能使用特定型号的充电器充电。比如 Iphone6 手机只能使用 Lightning 接口的充电器进行充电。但是，如果我们身边只有一条安卓的 Micro Usb 充电器线的话，我们能不能为苹果手机充电呢？答案是肯定的，只要有一个适配器就可以了。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzl3vd33aj308c08caa1.jpg" alt="sd"></p>
+<p><img src="https://i.loli.net/2019/08/29/DARLHqdmykY8XZ6.jpg" alt="img2.png"></p>
 <p>现在我们就来定义这样一个适配器：</p>
 <p>首先定义两个接口：</p>
 <pre><code>/**

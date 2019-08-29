@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Aug 15 2018 22:12:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Nov 07 2018 00:14:56 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 29 2019 21:20:37 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/08/15/computer-network-3-transport-layer/index.html",
     "headline": "计算机网络面试（3）运输层概述",
     "datePublished": "Wed Aug 15 2018 22:12:00 GMT+0800",
-    "dateModified": "Wed Nov 07 2018 00:14:56 GMT+0800",
+    "dateModified": "Thu Aug 29 2019 21:20:37 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -492,16 +492,16 @@
 <p>在一台主机中经常有多个进程同时分别和另一台主机的进程进行通信。例如在上网浏览网页的同时还在发送邮件。这表明运输层有一个很重要的功能——<strong>复用</strong>和<strong>分用</strong>。</p>
 <p><strong>复用</strong>是指在发送方不同的进程都可以使用同一个运输层协议传输数据（需要加上适当的首部）。</p>
 <p><strong>分用</strong>是指接收方的运输层在剥去报文的首部后能够把这些数据正确交付目的进程。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwyspyrq2nj30fi0abjty.jpg" alt="yunshu"></p>
+<p><img src="https://i.loli.net/2019/08/29/tRg6xK9BHd8VGiM.jpg" alt="img1"></p>
 <p>上图中两个运输层之间有一个双向粗箭头，写明「运输层提供进程间的逻辑通信」。<strong>「逻辑通信」</strong>是指：从应用层来看，只要把应用层报文交给运输层就可以传输到对方的运输层，好像这种通信就是沿水平方向直接传输数据，但事实上，数据传输是沿着图中的虚线方向（经过多个层次）传送的。</p>
 <p>从 IP 层来说，通信的两端是两台主机。但是，真正进行通信的实体是主机中的进程，是这台主机中的一个进程与另一台主机中的一个进程进行数据交换。IP 协议能够将分组从发送方主机送到目标方主机，但是这个分组还停留在主机的网络层而没有交付主机的应用进程。从运输层来说，通信的真正端点不是主机而是主机中的进程。</p>
 <p>从此可以看出网络层和运输层有明显的区别。网络层为主机之间提供逻辑通信，而运输层为主机的进程之间提供端到端的逻辑通信。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwysq8rq9oj30cb07k0tv.jpg" alt="qubie"></p>
+<p><img src="https://i.loli.net/2019/08/29/NrnsVI3vAGb1H7f.jpg" alt="img2"></p>
 <h4 id="运输层的两个主要协议"><a href="#运输层的两个主要协议" class="headerlink" title="运输层的两个主要协议"></a>运输层的两个主要协议</h4><p>运输层主要有两个协议，TCP 协议和 UDP 协议，都是互联网的正式标准。</p>
 <p><strong>用户数据报协议（UDP， User Datagram Protocol）</strong>在传送数据之间不需要先建立连接。目的主机的运输层在收到 UDP 报文后，不需要给出任何确认。虽然 UDP 不提供可靠交付，但在某些情况下却是一种最有效的通信方式。</p>
 <p><strong>传输控制协议（TCP，Transmission Control Protocol）</strong>则提供面向连接的服务，在传送数据之前必须先建立连接，数据传送结束后要释放连接。TCP 不提供广播或多播服务，由于 TCP 要提供可靠的、面向连接的运输服务，因此不可避免地增加了许多的开销，如确认、流量控制、计时器以及连接管理等。这不仅使协议数据单元的首部增大很多，还要占用许多的处理机资源。</p>
 <p>下图列出了一些应用层协议使用的运输层协议：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwysqkxmjlj30dv0azq55.jpg" alt="sd"></p>
+<p><img src="https://i.loli.net/2019/08/29/QP8JAxmiHowfkXv.jpg" alt="img3"></p>
 <h4 id="运输层的端口"><a href="#运输层的端口" class="headerlink" title="运输层的端口"></a>运输层的端口</h4><p>之前提到运输层的复用和分用功能，这个功能就是利用端口来进行实现的。在 TCP 和 UDP 的首部中，会有源端口和目的端口两个字段，当运输层收到网络层交上来的运输层保温时，就能够根据其首部中的端口号把数据交付应用层的目的应用进程。</p>
 <p>运输层用一个 16 位端口号标志一个端口，可以允许有 65535 个不同的端口号。</p>
 <p>端口号分为两大类：</p>

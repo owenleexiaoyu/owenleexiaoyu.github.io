@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Thu Sep 06 2018 18:34:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Nov 07 2018 16:51:12 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 29 2019 21:49:48 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/09/06/learn-design-pattern-4-factory-mathod/index.html",
     "headline": "学学设计模式（4）工厂方法模式",
     "datePublished": "Thu Sep 06 2018 18:34:00 GMT+0800",
-    "dateModified": "Wed Nov 07 2018 16:51:12 GMT+0800",
+    "dateModified": "Thu Aug 29 2019 21:49:48 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -497,7 +497,7 @@
 <li>Factory：抽象工厂</li>
 <li>ConcreteFactory：具体工厂</li>
 </ul>
-<h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlir086bj30pk0bmq37.jpg" alt="1"></p>
+<h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="https://i.loli.net/2019/08/29/7qvoQOJCthMaSwD.jpg" alt="img1.png"></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>还是以水果的例子来看看代码：</p>
 <pre><code>//抽象产品：Fruit
 public abstract class Fruit {
@@ -612,7 +612,7 @@ public class Test {
 </ul>
 <h4 id="Android-中工厂方法的应用"><a href="#Android-中工厂方法的应用" class="headerlink" title="Android 中工厂方法的应用"></a>Android 中工厂方法的应用</h4><p><strong>Java中的集合框架</strong></p>
 <p>在 Android 开发中会用到很多数据结构，比如 ArrayList，HashMap 等。先来看下 Java 中 Collection 部分的类集框架的简要 UML 图。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwzlj7u6ylj30j40d50sr.jpg" alt="2"></p>
+<p><img src="https://i.loli.net/2019/08/29/utGvVliJX6o7Ew9.jpg" alt="img2.png"></p>
 <p>我们知道 Iterator 是迭代器，用来遍历一个集合中的元素。而不同的数据结构遍历的方式是不一样的，所以迭代器的实现也是不同的。使用工厂方法模式将迭代器的具体类型延迟到具体容器类中，比较灵活，容易扩展。</p>
 <p>List和Set继承自Collection接口，Collection接口继承于Iterable接口。</p>
 <pre><code>public interface Iterable&lt;T&gt; {

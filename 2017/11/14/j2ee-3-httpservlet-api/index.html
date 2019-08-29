@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Tue Nov 14 2017 22:34:00 GMT+0800">
-        <meta property="article:modified_time" content="Tue Nov 06 2018 19:59:28 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 29 2019 21:39:12 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/11/14/j2ee-3-httpservlet-api/index.html",
     "headline": "Java EE 学习笔记（3）HttpServlet 详解",
     "datePublished": "Tue Nov 14 2017 22:34:00 GMT+0800",
-    "dateModified": "Tue Nov 06 2018 19:59:28 GMT+0800",
+    "dateModified": "Thu Aug 29 2019 21:39:12 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -629,7 +629,7 @@ public void init()
     &lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre><p>网页中有一个表单，其中有用户名和密码的输入框和登录按钮。效果如图：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwylchl5avj30ag0273yb.jpg" alt="h"></p>
+<p><img src="https://i.loli.net/2019/08/29/y7Isnjph5KebAOg.jpg" alt="img1.png"></p>
 <p><strong>2.</strong>新建 LoginServlet，继承自 HttpServlet。获取到登录的用户名和密码，打印在控制台上，并在页面中显示欢迎语。代码如下：</p>
 <pre><code>public class LoginServlet extends HttpServlet{
     @Override
@@ -653,7 +653,7 @@ public void init()
         &lt;url-pattern&gt;/login&lt;/url-pattern&gt;
     &lt;/servlet-mapping&gt;</code></pre><p>这里需要注意的一个地方在于 url-pattern 的值需要和 HTML 文件里 form 表单的 action 的值一致，否则无法映射成功。</p>
 <p><strong>4.</strong>运行。我们将项目运行起来，在 HTML 页面中输入用户名 Owen，密码 123456，点击登录。实际效果如图：</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwylcswzeij30ty09sjs7.jpg" alt="jhfg"></p>
+<p><img src="https://i.loli.net/2019/08/29/A69rVXcFdWOhomI.jpg" alt="img2.png"></p>
 <h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>这篇笔记介绍了 HttpServlet 的相关方法，用源码解释了一些现象，并实现了一个简易的用户登录示例。这篇笔记就到这里，下篇笔记见。</p>
 
             

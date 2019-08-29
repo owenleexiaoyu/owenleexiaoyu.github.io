@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Wed Aug 15 2018 22:07:00 GMT+0800">
-        <meta property="article:modified_time" content="Wed Nov 07 2018 00:17:10 GMT+0800">
+        <meta property="article:modified_time" content="Thu Aug 29 2019 21:17:56 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/08/15/computer-network-2-architecture/index.html",
     "headline": "计算机网络面试（2）计算机网络体系结构",
     "datePublished": "Wed Aug 15 2018 22:07:00 GMT+0800",
-    "dateModified": "Wed Nov 07 2018 00:17:10 GMT+0800",
+    "dateModified": "Thu Aug 29 2019 21:17:56 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -493,7 +493,7 @@
 <p>OSI 是法律上的国际计算机网络标准，但是却没有投入应用。互联网并未采用 OSI 标准，它是基于 TCP/IP 四层模型的。</p>
 <h4 id="TCP-IP-体系结构"><a href="#TCP-IP-体系结构" class="headerlink" title="TCP/IP 体系结构"></a>TCP/IP 体系结构</h4><p>TCP/IP 协议族将计算机网络自上而下分为四层，每一层都有专门的协议。包括：应用层、运输层、网际层、网络接口层。它是事实上的国际标准。</p>
 <h4 id="五层协议"><a href="#五层协议" class="headerlink" title="五层协议"></a>五层协议</h4><p>TCP/IP 是一个四层的体系结构，在学习计算机网络知识时，为了将概念阐述清楚，结合了 OSI 和 TCP/IP 各自的优点，折中采用了五层协议的体系结构。包括：应用层、运输层、网络层、数据链路层、物理层。（实际应用的还是 TCP/IP 的四层模型）</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwysswjf5hj30gd09ejt5.jpg" alt="osi"></p>
+<p><img src="https://i.loli.net/2019/08/29/bWIqxYKJtyNUg7n.jpg" alt="osi"></p>
 <p>下面主要基于五层协议的体系结构来介绍一下各层的主要作用。</p>
 <h4 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h4><p>应用层是体系结构中的最高层，任务是通过应用进程间的交互来完成特定的网络应用。应用层协议定义的是应用进程间通信的通信和交互的规则。应用层的主要协议有 <strong>HTTP、FTP、Telnet、SMTP、POP3</strong> 等。应用层交互的数据被称为<strong>报文</strong>。</p>
 <h4 id="运输层"><a href="#运输层" class="headerlink" title="运输层"></a>运输层</h4><p>运输层的任务是负责向两台主机的进程之间的通信提供<strong>通用的数据传输服务</strong>。应用进程利用该服务传送应用层报文。通用的是指这种服务并不针对某个特定的网络应用，而是多种应用可以使用同一个运输层服务。</p>
@@ -505,7 +505,7 @@
 <h4 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h4><p>网络层决定如何将数据从发送方路由到接收方。通过综合考虑发送优先权、网络拥塞程度、服务质量以及可选路由的花费来决定从一个网络中的结点到另一个结点的最佳路径。网络层的协议是 <strong>IP 协议</strong>，数据传输单位称为 <strong>IP 数据报</strong>。</p>
 <h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><p>负责将 IP 数据报封装成合适在物理网络上传输的<strong>帧</strong>格式并传输，或将从物理网络接收到的帧解封，取出 IP 数据报交给网络层。</p>
 <h4 id="物理层"><a href="#物理层" class="headerlink" title="物理层"></a>物理层</h4><p>负责将比特流在结点间传输，即负责物理传输。该层的协议既与链路有关也与传输介质有关。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006g8PWvly1fwyss6gpcgj30cv07fq3r.jpg" alt="tcpip"></p>
+<p><img src="https://i.loli.net/2019/08/29/7bZRAQUDz2I38gt.jpg" alt="tcpip"></p>
 <h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>这篇文章的主要内容是介绍了计算机网络的整体体系结构，并对五层体系的每一层都做了简单的介绍。通过这篇文章，对计算机网络的整体构成想必会有更具象的了解。</p>
 
             
