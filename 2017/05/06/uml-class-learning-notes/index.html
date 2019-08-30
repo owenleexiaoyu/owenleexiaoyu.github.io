@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sat May 06 2017 16:40:25 GMT+0800">
-        <meta property="article:modified_time" content="Wed May 22 2019 14:34:26 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 30 2019 11:49:25 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/05/06/uml-class-learning-notes/index.html",
     "headline": "UML类图学习笔记",
     "datePublished": "Sat May 06 2017 16:40:25 GMT+0800",
-    "dateModified": "Wed May 22 2019 14:34:26 GMT+0800",
+    "dateModified": "Fri Aug 30 2019 11:49:25 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -498,16 +498,19 @@
 <blockquote>
 <p>其中默认权限在Java中表示该属性或方法只能被同一包下的类访问。</p>
 </blockquote>
-<p>下面是一个类的UML图的示例：<br><img src="http://opgrjw8x2.bkt.clouddn.com/17-5-6/44132689-file_1494000713842_15a2a.png" alt="|center"></p>
-<h4 id="2-接口"><a href="#2-接口" class="headerlink" title="2. 接口"></a><strong>2. 接口</strong></h4><p>接口其实也是一种特殊的类，因此接口的UML图和类的UML图极为相似，第一部分是接口的名称，<strong>必须用斜体表示，顶端要用&lt;&lt; interface &gt;&gt;修饰</strong>。第二部分是接口中的常量。第三部分是方法（操作）。由于接口中的常量和方法都是public的权限，所以在常量和方法名之前都要用加号（+）进行修饰。下面是接口UML图示例：<br><img src="http://opgrjw8x2.bkt.clouddn.com/17-5-6/65394048-file_1494001417183_aebc.png" alt="|center"></p>
-<h4 id="3-注释"><a href="#3-注释" class="headerlink" title="3. 注释"></a><strong>3. 注释</strong></h4><p>UML中用一个右上方带卷角的长方形表示注释，并且用<strong>虚线</strong>将注释与其所注释的内容相连接。实例如图所示：<br><img src="http://opgrjw8x2.bkt.clouddn.com/17-5-6/31194674-file_1494002049620_17f02.png" alt="|center"></p>
-<h4 id="4-继承关系"><a href="#4-继承关系" class="headerlink" title="4.继承关系"></a><strong>4.继承关系</strong></h4><p>在UML中用<strong>连接两个类的带空心三角形的实线</strong>表示继承关系，起始端是子类，终点端是父类，通常父类在上，子类在下。示例如图所示：<br><img src="http://opgrjw8x2.bkt.clouddn.com/17-5-6/28337036-file_1494037513572_e3ca.png" alt="|center"><br>所表示的Java代码为：</p>
+<p>下面是一个类的UML图的示例：</p>
+<p><img src="https://i.loli.net/2019/08/30/73Tj6dQwu9MPkcp.png" alt="35.png"></p>
+<h4 id="2-接口"><a href="#2-接口" class="headerlink" title="2. 接口"></a><strong>2. 接口</strong></h4><p>接口其实也是一种特殊的类，因此接口的UML图和类的UML图极为相似，第一部分是接口的名称，<strong>必须用斜体表示，顶端要用&lt;&lt; interface &gt;&gt;修饰</strong>。第二部分是接口中的常量。第三部分是方法（操作）。由于接口中的常量和方法都是public的权限，所以在常量和方法名之前都要用加号（+）进行修饰。下面是接口UML图示例：</p>
+<p><img src="https://i.loli.net/2019/08/30/P4xWBQFZAXle39m.png" alt="38.png"></p>
+<h4 id="3-注释"><a href="#3-注释" class="headerlink" title="3. 注释"></a><strong>3. 注释</strong></h4><p>UML中用一个右上方带卷角的长方形表示注释，并且用<strong>虚线</strong>将注释与其所注释的内容相连接。实例如图所示：</p>
+<p><img src="https://i.loli.net/2019/08/30/N4tsBTjMYuv6Vna.png" alt="41.png"></p>
+<h4 id="4-继承关系"><a href="#4-继承关系" class="headerlink" title="4.继承关系"></a><strong>4.继承关系</strong></h4><p>在UML中用<strong>连接两个类的带空心三角形的实线</strong>表示继承关系，起始端是子类，终点端是父类，通常父类在上，子类在下。示例如图所示：<br><img src="https://i.loli.net/2019/08/30/OQepTK6WIsbqGZ3.png" alt="44.png"><br>所表示的Java代码为：</p>
 <pre><code>public class Father{
     ...
 } 
 class Son extends Father{
     ...
-}</code></pre><h4 id="5-实现关系"><a href="#5-实现关系" class="headerlink" title="5.实现关系"></a><strong>5.实现关系</strong></h4><p>一个类实现了一个接口，则该类与该接口之间就是实现关系，在UML中用<strong>带空心三角形的虚线</strong>连接类与接口，起始端是类，终点端是接口。示例如图：<br><img src="http://opgrjw8x2.bkt.clouddn.com/17-5-6/29615208-file_1494037850940_4d0e.png" alt="|center"><br>所表示的Java代码为：</p>
+}</code></pre><h4 id="5-实现关系"><a href="#5-实现关系" class="headerlink" title="5.实现关系"></a><strong>5.实现关系</strong></h4><p>一个类实现了一个接口，则该类与该接口之间就是实现关系，在UML中用<strong>带空心三角形的虚线</strong>连接类与接口，起始端是类，终点端是接口。示例如图：<br><img src="https://i.loli.net/2019/08/30/t2Kqjy6mdePg19O.png" alt="56.png"><br>所表示的Java代码为：</p>
 <pre><code>public interface A{
     void method();
 }
@@ -515,7 +518,7 @@ class B implements A{
     public void method(){
         ...
     }
-}</code></pre><h4 id="6-依赖关系"><a href="#6-依赖关系" class="headerlink" title="6.依赖关系"></a><strong>6.依赖关系</strong></h4><p>如果B类作为参数被A类中的某个方法中使用，则A类和B类的关系就是依赖关系，即A依赖于B。在UML中用<strong>带箭头的虚线</strong>连接具有依赖关系的两个类，虚线起始端是A，终点端是B。示例如图：<br><img src="http://opgrjw8x2.bkt.clouddn.com/17-5-6/68746971-file_1494042954996_160b4.png" alt="|center"><br>表示的Java代码为：</p>
+}</code></pre><h4 id="6-依赖关系"><a href="#6-依赖关系" class="headerlink" title="6.依赖关系"></a><strong>6.依赖关系</strong></h4><p>如果B类作为参数被A类中的某个方法中使用，则A类和B类的关系就是依赖关系，即A依赖于B。在UML中用<strong>带箭头的虚线</strong>连接具有依赖关系的两个类，虚线起始端是A，终点端是B。示例如图：<br><img src="https://i.loli.net/2019/08/30/Ofo34MFc1jalH95.png" alt="69.png"><br>表示的Java代码为：</p>
 <pre><code>public class Person{
     public void work(Bus bus){
         bus.drive();
@@ -525,11 +528,14 @@ public class Bus{
     public void drive(){
         ...
     }
-}</code></pre><h4 id="7-关联关系"><a href="#7-关联关系" class="headerlink" title="7.关联关系"></a><strong>7.关联关系</strong></h4><p>如果B类作为A类的一个属性存在，则A、B之间具有关联关系，称A关联于B。在UML中用<strong>带箭头的实线</strong>连接两个具有关联关系的类。起始端是A类，终端是B类。关联关系有三种类型，单向关联，双向关联，自关联。<br>三种关联的UML图：<br><img src="http://opgrjw8x2.bkt.clouddn.com/17-5-6/37629725-file_1494045014149_dda3.png" alt="|center"></p>
+}</code></pre><h4 id="7-关联关系"><a href="#7-关联关系" class="headerlink" title="7.关联关系"></a><strong>7.关联关系</strong></h4><p>如果B类作为A类的一个属性存在，则A、B之间具有关联关系，称A关联于B。在UML中用<strong>带箭头的实线</strong>连接两个具有关联关系的类。起始端是A类，终端是B类。关联关系有三种类型，单向关联，双向关联，自关联。<br>三种关联的UML图：</p>
+<p><img src="https://i.loli.net/2019/08/30/cWesIZOa4yGnH8v.png" alt="86.png"></p>
 <h4 id="8-聚合关系"><a href="#8-聚合关系" class="headerlink" title="8.聚合关系"></a><strong>8.聚合关系</strong></h4><p>聚合关系是关联关系的一种（弱关联），与关联不同的是聚合体现的是整体和个体的关系，这里的整体和个体是可以分离的个体可以独立于整体而存在，例如火车站中的火车。二者是has-a的关系。</p>
-<p>在UML中用<strong>带空心菱形头和箭头的实线</strong>表示聚合关系。菱形头指向整体，箭头指向个体。示例如图：<br><img src="http://opgrjw8x2.bkt.clouddn.com/17-5-6/75122623-file_1494048547361_de74.png" alt="|center"></p>
+<p>在UML中用<strong>带空心菱形头和箭头的实线</strong>表示聚合关系。菱形头指向整体，箭头指向个体。示例如图：</p>
+<p><img src="https://i.loli.net/2019/08/30/M7N5adgfqlcmIrj.png" alt="91.png"></p>
 <h4 id="9-组合关系"><a href="#9-组合关系" class="headerlink" title="9.组合关系"></a><strong>9.组合关系</strong></h4><p>组合关系也是关联关系中的一种（强关联），是一种contains-a的关系，一旦整体对象不存在，部分对象也不会存在，部分和整体有着相同的生命周期。代码上表示为A类中的成员变量是B类的申明的对象，B的对象在A对象创建时被创建。</p>
-<p>在UML中用带实心菱形和箭头的实线表示组合关系。菱形头指向A类，箭头指向B类。示例如图：<br><img src="http://opgrjw8x2.bkt.clouddn.com/17-5-6/60950819-file_1494048631556_1086a.png" alt="|center"></p>
+<p>在UML中用带实心菱形和箭头的实线表示组合关系。菱形头指向A类，箭头指向B类。示例如图：</p>
+<p><img src="https://i.loli.net/2019/08/30/8Ft4q79xmdGvhXE.png" alt="96.png"></p>
 
             
         </div>

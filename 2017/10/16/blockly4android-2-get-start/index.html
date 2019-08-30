@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Mon Oct 16 2017 21:20:00 GMT+0800">
-        <meta property="article:modified_time" content="Thu Aug 29 2019 21:13:22 GMT+0800">
+        <meta property="article:modified_time" content="Fri Aug 30 2019 11:29:16 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2017/10/16/blockly4android-2-get-start/index.html",
     "headline": "Blockly4Android 开发指南（2）开始使用 Blockly",
     "datePublished": "Mon Oct 16 2017 21:20:00 GMT+0800",
-    "dateModified": "Thu Aug 29 2019 21:13:22 GMT+0800",
+    "dateModified": "Fri Aug 30 2019 11:29:16 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -524,7 +524,7 @@ compile &#39;com.android.support:recyclerview-v7:26.0.1&#39;
 compile &#39;com.android.support:support-v4:26.0.1&#39;
 compile &#39;com.google.blockly.android:blocklylib-vertical:0.9-beta.20171003&#39;</code></pre><p>（译者注：其实关键的依赖只有最后那个 Blockly 库，其他依赖在创建工程的过程中基本都已经导入了）</p>
 <blockquote>
-<p><img src="http://opgrjw8x2.bkt.clouddn.com/17-10-16/85592324.jpg" alt> 请注意：在 JCenter 网站的 <a href="https://bintray.com/bintray/jcenter?filterByPkgName=blocklylib-core" target="_blank" rel="noopener"><strong>blocklylib-core</strong></a> 和 <a href="https://bintray.com/bintray/jcenter?filterByPkgName=blocklylib-vertical" target="_blank" rel="noopener"><strong>blocklylib-vertical</strong></a> 中查看依赖的最新版本。</p>
+<p><img src="https://i.loli.net/2019/08/30/8gYSm73q5VULt4f.png" alt="a.png"><br>请注意：在 JCenter 网站的 <a href="https://bintray.com/bintray/jcenter?filterByPkgName=blocklylib-core" target="_blank" rel="noopener"><strong>blocklylib-core</strong></a> 和 <a href="https://bintray.com/bintray/jcenter?filterByPkgName=blocklylib-vertical" target="_blank" rel="noopener"><strong>blocklylib-vertical</strong></a> 中查看依赖的最新版本。</p>
 </blockquote>
 <h3 id="实现基类-Activity"><a href="#实现基类-Activity" class="headerlink" title="实现基类 Activity"></a>实现基类 Activity</h3><p>最简单的开发一个 Android Blockly Activity 的方法就是区继承 <a href="https://github.com/google/blockly-android/blob/master/blocklylib-core/src/main/java/com/google/blockly/android/AbstractBlocklyActivity.java" target="_blank" rel="noopener"><strong>AbstractBlocklyActivity</strong></a>，我们强烈推荐在你第一个 Blockly  应用中使用它。这个类有如下几个抽象方法需要你来覆盖，这些抽象方法的具体实现你可以参考 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/java/com/google/blockly/android/demo/SimpleActivity.java" target="_blank" rel="noopener"><strong>SimpleActivity</strong></a>。</p>
 <h4 id="getToolboxContentsXmlPath"><a href="#getToolboxContentsXmlPath" class="headerlink" title="getToolboxContentsXmlPath()"></a>getToolboxContentsXmlPath()</h4><p>getToolboxContentsXmlPath() 返回 assets/ 目录下定义工具箱（toolbox）内容的 XML 文件路径。</p>
@@ -532,7 +532,7 @@ compile &#39;com.google.blockly.android:blocklylib-vertical:0.9-beta.20171003&#3
 protected String getToolboxContentsXmlPath() {
     return &quot;default/toolbox.xml&quot;;
 }</code></pre><blockquote>
-<p><img src="http://opgrjw8x2.bkt.clouddn.com/17-10-16/85592324.jpg" alt> 请注意：想了解关于工具箱（toolbox）的更多内容，请参阅「<a href="https://developers.google.cn/blockly/guides/configure/android/toolbox" target="_blank" rel="noopener">填充工具箱</a>」</p>
+<p><img src="https://i.loli.net/2019/08/30/8gYSm73q5VULt4f.png" alt="a.png"> 请注意：想了解关于工具箱（toolbox）的更多内容，请参阅「<a href="https://developers.google.cn/blockly/guides/configure/android/toolbox" target="_blank" rel="noopener">填充工具箱</a>」</p>
 </blockquote>
 <h4 id="getBlockDefinitionsJsonPaths"><a href="#getBlockDefinitionsJsonPaths" class="headerlink" title="getBlockDefinitionsJsonPaths()"></a>getBlockDefinitionsJsonPaths()</h4><p>getBlockDefinitionsJsonPaths() 返回 assets/ 目录下定义块（Block）的 .json 文件路径，以下代码实现了导入Blockly库中提供的默认块（Block）。</p>
 <pre><code>@Override
@@ -551,7 +551,7 @@ protected List&lt;String&gt; getBlockDefinitionsJsonPaths() {
 protected List&lt;String&gt; getGeneratorsJsPaths() {
     return JAVASCRIPT_GENERATORS;
 }</code></pre><blockquote>
-<p><img src="http://opgrjw8x2.bkt.clouddn.com/17-10-16/85592324.jpg" alt> 请注意：在「<a href="https://developers.google.cn/blockly/guides/configure/android/custom-generators" target="_blank" rel="noopener">自定义生成器</a>」中了解更多关于生成器（generators）内容。</p>
+<p><img src="https://i.loli.net/2019/08/30/8gYSm73q5VULt4f.png" alt="a.png"> 请注意：在「<a href="https://developers.google.cn/blockly/guides/configure/android/custom-generators" target="_blank" rel="noopener">自定义生成器</a>」中了解更多关于生成器（generators）内容。</p>
 </blockquote>
 <h4 id="getCodeGenerationCallback"><a href="#getCodeGenerationCallback" class="headerlink" title="getCodeGenerationCallback()"></a>getCodeGenerationCallback()</h4><p>getCodeGenerationCallback() 返回将生成的代码返回给应用的回调，这个方法在用户点击标题栏（actionbar）中的 run/play 按钮时被调用。</p>
 <pre><code>CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
