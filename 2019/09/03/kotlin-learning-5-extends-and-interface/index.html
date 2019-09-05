@@ -45,7 +45,7 @@
     
     <title>
         
-            归档 | 
+            Kotlin 修炼手册（5）继承与接口 | 
         
         海树
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content>
+    <meta name="keywords" content=",Kotlin">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?VbSuLZyOpxJuf3o2tYEOVg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night.min.css?QlnGZk/a4+d8XbwtXBDPiA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -223,7 +226,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="海树">
-    <meta name="msapplication-starturl" content="http://yoursite.com/archives/page/10/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2019/09/03/kotlin-learning-5-extends-and-interface/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="海树">
@@ -238,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/archives/page/10/">
+    <meta property="og:url" content="http://yoursite.com/2019/09/03/kotlin-learning-5-extends-and-interface/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | 海树">
+    <meta property="og:title" content="Kotlin 修炼手册（5）继承与接口 | 海树">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="Kotlin"> 
 
+    
+        <meta property="article:published_time" content="Tue Sep 03 2019 21:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Tue Sep 03 2019 21:31:11 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/page/10/index.html">
+        <link rel="canonical" href="http://yoursite.com/2019/09/03/kotlin-learning-5-extends-and-interface/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2019/09/03/kotlin-learning-5-extends-and-interface/index.html",
+    "headline": "Kotlin 修炼手册（5）继承与接口",
+    "datePublished": "Tue Sep 03 2019 21:00:00 GMT+0800",
+    "dateModified": "Tue Sep 03 2019 21:31:11 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Kotlin",
+    "description": "",
+}
+</script>
 
 
     
@@ -404,25 +440,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
+        <div class="post-header_info with-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
             <span class="name-span">Owen Lee</span>
@@ -430,609 +470,290 @@
 
         <!-- Custom thumbnail -->
         <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fj06el5x-lNvctTaQp_DT8mDd715">
+            <img src="http://image.wufazhuce.com/Ftysoa87DRo7bDQJ5sYXQqqhvpm9">
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/23/blockly4android-7-custom-blocks-overview/">Blockly4Android 开发指南（7）自定义块概述</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                申明本指南翻译自 Google Blockly 官方文档。
 
-这篇文档针对于...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/23/blockly4android-7-custom-blocks-overview/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Blockly4Android/">Blockly4Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 23, 2017
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                Kotlin 修炼手册（5）继承与接口
+            </p>
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>这篇的内容还是和类有关，介绍 Kotlin 中继承和接口。</p>
+<h4 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h4><p>Kotlin 中所有类都继承自 <code>Any</code> 类，是所有类的超类，类似于 Java 中的 <code>Object</code>。</p>
+<p>Any 默认提供三个函数：</p>
+<pre><code>equals()
+hashCode()
+toString()</code></pre><p>默认的类都是不可被继承的，类似于 Java 中的 <code>final</code> 类。</p>
+<p>要让类可以被继承，需要加 <code>open</code> 关键字修饰。</p>
+<pre><code>open class Base{}</code></pre><p><strong>构造函数</strong></p>
+<p>如果子类有主构造函数，则基类必须在主构造函数中立即初始化。</p>
+<pre><code class="kotlin">open class Person(var name: String, var age: Int) {
+    var mName = name
+    var mAge = age
+}
+
+class Student(name: String, age: Int, var no: String, var score: Int) : Person(name, age) {
+    var mNo = no
+    var mScore = score
+}
+
+fun main(args: Array&lt;String&gt;) {
+    val s = Student(&quot;Owen&quot;,23, &quot;12138&quot;,100)
+    println(&quot;学生名字：${s.mName}&quot;)
+    println(&quot;学生年龄：${s.mAge}&quot;)
+    println(&quot;学生学号：${s.mNo}&quot;)
+    println(&quot;学生成绩：${s.mScore}&quot;)
+}
+
+// 运行结果
+学生名字：Owen
+学生年龄：23
+学生学号：12138
+学生成绩：100</code></pre>
+<p>如果子类没有主构造函数，则必须在每一个次级构造函数中需要使用 <code>super</code> 关键字调用基类的构造函数，或者使用 <code>this</code> 关键字调用子类另一个构造函数，初始化基类时，可以调用基类不同的构造函数。</p>
+<pre><code class="kotlin">open class Person(name: String) {
+    var mName = name
+    var mAge: Int = 0
+
+    init {
+        println(&quot;-----这是基类的主构造函数----&quot;)
+    }
+
+    constructor(name: String, age: Int) : this(name) {
+        mAge = age
+        println(&quot;-----这是基类的次级构造函数----&quot;)
+    }
+}
+
+class Student : Person {
+    var mNo: String = &quot;&quot;
+    var mScore: Int = 0
+
+    constructor(name: String, age: Int, no: String) : super(name, age) {
+        mNo = no
+        println(&quot;-----这是子类的三个参数的次级构造函数----&quot;)
+    }
+
+    constructor(name: String, age: Int, no: String, score: Int) : this(name, age, no) {
+        mScore = score
+        println(&quot;-----这是子类的四个参数的次级构造函数----&quot;)
+    }
+}
+
+fun main(args: Array&lt;String&gt;) {
+    val s = Student(&quot;Owen&quot;, 23, &quot;70&quot;, 100)
+    println(&quot;学生名字：${s.mName}&quot;)
+    println(&quot;学生年龄：${s.mAge}&quot;)
+    println(&quot;学生学号：${s.mNo}&quot;)
+    println(&quot;学生成绩：${s.mScore}&quot;)
+}
+//运行结果
+-----这是基类的主构造函数----
+-----这是基类的次级构造函数----
+-----这是子类的三个参数的次级构造函数----
+-----这是子类的四个参数的次级构造函数----
+学生名字：Owen
+学生年龄：23
+学生学号：70
+学生成绩：100</code></pre>
+<p><strong>函数重写</strong></p>
+<p>在基类中，函数默认为 <code>final</code> 修饰，不可被重写。如果允许子类重写，需要手动添加 <code>open</code> 关键字进行修饰，子类重写函数使用 <code>override</code> 关键字。</p>
+<pre><code class="kotlin">open class Person {
+    open fun study() {
+        println(&quot;我毕业了&quot;)
+    }
+}
+class StudentA : Person() {
+    override fun study() {
+        println(&quot;我在读大学&quot;)
+    }
+}
+fun main() {
+    val s = Student()
+    s.study() 
+}
+//输出结果
+我在读大学</code></pre>
+<p>子类可以用一个函数重写父类和接口中的多个同名函数。如果要调用父类或接口的函数实现，需要用 <code>super</code> 关键字来显式调用。</p>
+<pre><code class="kotlin">open class A {
+    open fun f() {
+        println(&quot;A:f&quot;)
+    }
+}
+
+interface B {
+    fun f() {
+        println(&quot;B:f&quot;)
+    }
+}
+
+class C : A(), B {
+    override fun f() {
+        super&lt;A&gt;.f()  //调用父类A中f（）的实现，也可以选择不调用
+        super&lt;B&gt;.f()  //调用接口B中f（）的实现，也可以选择不调用
+        println(&quot;C:f&quot;)
+    }
+}
+
+fun main() {
+    val c = C()
+    c.f()
+}
+
+//运行结果
+A:f
+B:f
+C:f</code></pre>
+<p><strong>属性重写</strong></p>
+<p>Kotlin 中支持对属性进行重写，属性重写用 <code>override</code> 关键字。基类中被重写的属性需要用 <code>open</code> 关键字修饰，不能为 private。</p>
+<pre><code class="kotlin">open class A {
+    open var property: String = &quot;a&quot;
+}
+
+class B : A() {
+    override var property: String = &quot;b&quot;
+}
+
+fun main() {
+    val b = B()
+    println(b.property)
+}
+//运行结果
+b</code></pre>
+<p>可以使用一个 var 属性重写一个 val，但是反过来不行（可变比不可变的范围更大）。val 属性本身定义了 getter 方法，重写为 var 属性会在子类中额外声明一个 setter 方法。（机制类似于子类不能将 public 的方法重写为 private 的，范围不能缩小，只能变大）</p>
+<p>可以在子类的主构造函数中使用 override 关键字作为属性声明的一部分。</p>
+<pre><code class="kotlin">interface Foo{
+    val count :Int
+}
+
+class Bar1(override val count: Int):Foo{
+
+}
+
+class Bar2:Foo{
+    override val count: Int = 0
+        get() = field
+}
+
+fun main(){
+    val bar1 = Bar1(4)
+    println(bar1.count)
+    val bar2 = Bar2()
+    println(bar2.count)
+}</code></pre>
+<p>子类继承父类时，不能有跟父类同名的变量，除非父类中该变量为 private，或者父类中该变量为 open 并且子类用 override 关键字重写。</p>
+<h4 id="Kotlin-接口"><a href="#Kotlin-接口" class="headerlink" title="Kotlin 接口"></a>Kotlin 接口</h4><p>Kotlin 接口与 Java8 类似，使用 interface 关键字，允许方法有默认实现。</p>
+<pre><code class="kotlin">interface MyInterface {
+    fun b()   //未实现
+    fun f() { //已实现
+        println(&quot;MyInterface:f&quot;)
+    }
+}</code></pre>
+<p>一个类可以实现一个或多个接口。多个接口中有同名方法时，和前面提到的类和接口中又同名方法的处理是一样的。</p>
+<p>接口中的属性只能是抽象的，<code>不允许</code> 初始化值，接口不会保存属性值，实现接口时，<code>必须</code> 重写属性。</p>
+<pre><code class="kotlin">interface MyInterface {
+    var name :String // 属性，抽象的
+    fun b()
+    fun f() {
+        println(&quot;MyInterface:f&quot;)
+    }
+}
+
+class Child : MyInterface {
+    override var name: String = &quot;owen&quot;
+    override fun b() {
+        println(&quot;Child:b&quot;)
+    }
+}
+
+fun main() {
+    val c = Child()
+    c.b()
+    c.f()
+    println(c.name)
+}</code></pre>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://www.runoob.com/kotlin/kotlin-extend.html" target="_blank" rel="noopener">Kotlin 继承</a><br><a href="https://www.runoob.com/kotlin/kotlin-interface.html" target="_blank" rel="noopener">Kotlin 接口</a><br><a href="https://juejin.im/post/5a6303fb51882573467d0fbc" target="_blank" rel="noopener">Kotlin——中级篇（四）：继承类详解</a></p>
+
+            
         </div>
-    </div>
+    
 </div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
 
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FiBzmwDotMhGiJjSuqi1Lg5h_Zjm">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/22/two-things-about-writing-and-blog/">记两件小事</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                一些碎碎念今年5月份，我重新建起了自己的博客网站，准备好好地经营阅读和写作，然而...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/22/two-things-about-writing-and-blog/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 22, 2017
-            </div>
-            <div class="post_entry-footer-comment">
                 
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2019/09/05/kotlin-learning-6-companion-object/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/09/02/kotlin-learning-4-class-and-object/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FhiVdSeYEo8Pu7yS2Gu-GwnaKkvR">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/22/blockly4android-6-customize-activity-layout/">Blockly4Android 开发指南（6）自定义 Activity 布局</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                申明本指南翻译自 Google Blockly 官方文档。
-
-默认情况下，
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/22/blockly4android-6-customize-activity-layout/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Blockly4Android/">Blockly4Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 22, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FprUVlnmAbwkEPOgYnufP2AsYXyP">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/22/blockly4android-5-use-custom-js-generators/">Blockly4Android 开发指南（5）使用自定义 JavaScript 生成器</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                申明本指南翻译自 Google Blockly 官方文档。
-
- 生成器将块转...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/22/blockly4android-5-use-custom-js-generators/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Blockly4Android/">Blockly4Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 22, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FqCW8TpOXYXPPWbSvx9185vjf34Y">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/22/android-permission/">Android 6.0 动态申请权限</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言在 Android 6.0 之前，我们进行权限申请只需要在 AndroidManifest.x...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/22/android-permission/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 22, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FqcoLETqyqG2MdZ7gtryKosMGUve">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/21/android-network-5-httpurlconnection/">Android 网络编程系列（五）使用 HttpUrlConnection</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言在我们的应用中支持网络功能是绝对有必要的，大部分的应用程序都需要从服务器获取网络数据然后显示在...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/21/android-network-5-httpurlconnection/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android-网络编程/">Android 网络编程</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 21, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FuBI0qoaF1rXYUv7z4eXWs5nyXKZ">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/20/about-me/">关于我</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                毕业后2019年6月毕业，目前在字节跳动做Android开发，正在努力变强。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/20/about-me/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 20, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fri24Znzymu84n6uJSv3IqjiPosq">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/19/know-about-recyclerview/">认识更强大的滚动控件—— RecyclerView</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言既然在 Android 中已经有了 ListView 和 GridView 这样的控件，那么我...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/19/know-about-recyclerview/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 19, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FnXUInbqgzohGsWF32O6KjTUBsW8">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/19/blockly4android-4-toolbox/">Blockly4Android 开发指南（4）工具箱</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                申明本指南翻译自 Google Blockly 官方文档。
-
-工具箱是用户可...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/19/blockly4android-4-toolbox/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Blockly4Android/">Blockly4Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 19, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FlDFgAFVicIwfqO4cCeQFPB5LLSd">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/19/android-network-4-webview-more/">Android 网络编程系列（四）WebView 详解</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言在上一篇关于WebView的文章中，介绍了 WebView 的基本使用方法、WebView 页...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/19/android-network-4-webview-more/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android-网络编程/">Android 网络编程</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 19, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/archives/page/9/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/archives/page/11/">11</a><a class="page-number" href="/archives/page/12/">12</a><a class="extend next" rel="next" href="/archives/page/11/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-</div>
 
 
                     
@@ -1190,6 +911,10 @@
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -1202,6 +927,11 @@
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
