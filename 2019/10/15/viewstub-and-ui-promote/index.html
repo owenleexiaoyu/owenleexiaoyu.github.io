@@ -45,7 +45,7 @@
     
     <title>
         
-            归档 | 
+            ViewStub 使用与布局优化技巧 | 
         
         海树
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content>
+    <meta name="keywords" content=",Android">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?VbSuLZyOpxJuf3o2tYEOVg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night.min.css?QlnGZk/a4+d8XbwtXBDPiA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -223,7 +226,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="海树">
-    <meta name="msapplication-starturl" content="http://yoursite.com/archives/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2019/10/15/viewstub-and-ui-promote/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="海树">
@@ -238,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/archives/">
+    <meta property="og:url" content="http://yoursite.com/2019/10/15/viewstub-and-ui-promote/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | 海树">
+    <meta property="og:title" content="ViewStub 使用与布局优化技巧 | 海树">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="Android"> 
 
+    
+        <meta property="article:published_time" content="Tue Oct 15 2019 20:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Tue Oct 15 2019 21:37:26 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/index.html">
+        <link rel="canonical" href="http://yoursite.com/2019/10/15/viewstub-and-ui-promote/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2019/10/15/viewstub-and-ui-promote/index.html",
+    "headline": "ViewStub 使用与布局优化技巧",
+    "datePublished": "Tue Oct 15 2019 20:00:00 GMT+0800",
+    "dateModified": "Tue Oct 15 2019 21:37:26 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Android",
+    "description": "",
+}
+</script>
 
 
     
@@ -404,25 +440,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
+        <div class="post-header_info with-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
             <span class="name-span">Owen Lee</span>
@@ -434,601 +474,228 @@
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/10/15/viewstub-and-ui-promote/">ViewStub 使用与布局优化技巧</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言最近在需求中使用到了 ViewStub 来动态加载布局，所以总结一下 ViewStub 的使用...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/10/15/viewstub-and-ui-promote/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 15, 2019
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                ViewStub 使用与布局优化技巧
+            </p>
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>最近在需求中使用到了 ViewStub 来动态加载布局，所以总结一下 ViewStub 的使用和常用的布局优化技巧。</p>
+<h4 id="ViewStub"><a href="#ViewStub" class="headerlink" title="ViewStub"></a>ViewStub</h4><p>当界面中有些子布局需要满足某些条件才展示时，通常我们会采用将这个子布局的 visibility 设为 gone 或 invisible，隐藏这个布局；当条件满足时，设为 visible，让其显示。这样操作比较简单，但是性能表现一般。因为即使 View 隐藏了，还是在布局中，仍会被父容器绘制，仍会创建对象和实例化、设置属性。</p>
+<p>Android 中提供了一个轻量级的控件——ViewStub，它是一个不可见的，大小为 0 的视图，可以在运行时动态加载布局资源。当 ViewStub 被设为 Visible 或者调用 inflate方法时，填充资源，然后 ViewStub 本身就被该布局资源替换掉，ViewStub 被从 ViewTree 中移除。这个资源布局在加载时会使用 ViewStub 中定义的 layout 属性去覆盖原来的对应属性，比如 width、height、margin 等。可以通过 inflatedId 属性来定义或重写被填充布局的 id。</p>
+<p>下面简单写了一个示例，来演示 ViewStub 的使用，代码如下：</p>
+<p>Activity 的代码：</p>
+<pre><code>class StubAcitivity : AppCompatActivity() {
+
+    lateinit var viewStub: ViewStub
+    var inflatedView: View? = null
+    var stubImageView: ImageView? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_stub)
+        viewStub = findViewById(R.id.view_stub)
+    }
+
+    fun showViewStub(view: View) {
+        try {
+            inflatedView = viewStub.inflate()
+        } catch (e: Exception) {
+            viewStub.visibility = View.VISIBLE
+        }
+
+        stubImageView = inflatedView?.findViewById(R.id.stub_img) as ImageView
+        stubImageView?.setImageResource(R.mipmap.ic_launcher)
+    }
+
+    fun changeViewStub(view: View) {
+        stubImageView?.setImageResource(R.drawable.android10)
+    }
+
+    fun hideViewStub(view: View) {
+        viewStub.visibility = View.INVISIBLE
+    }
+}</code></pre><p>Activity 对应的布局文件：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout 
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot; 
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
+        &lt;Button
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:text=&quot;显示ViewStub&quot;
+            android:onClick=&quot;showViewStub&quot;/&gt;
+
+        &lt;Button
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:text=&quot;更改ViewStub&quot;
+            android:onClick=&quot;changeViewStub&quot;
+            android:layout_marginLeft=&quot;20dp&quot;
+            android:layout_marginRight=&quot;20dp&quot;/&gt;
+
+        &lt;Button
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_weight=&quot;1&quot;
+            android:text=&quot;隐藏ViewStub&quot;
+            android:onClick=&quot;hideViewStub&quot;/&gt;
+    &lt;/LinearLayout&gt;
+
+    &lt;ViewStub
+        android:id=&quot;@+id/view_stub&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout=&quot;@layout/layout_stub&quot;/&gt;
+&lt;/LinearLayout&gt;</code></pre><p>ViewStub 引用的 layout 布局文件：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout 
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:orientation=&quot;vertical&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/stub_img&quot;
+        android:layout_width=&quot;300dp&quot;
+        android:layout_height=&quot;300dp&quot;/&gt;
+&lt;/LinearLayout&gt;</code></pre><p>效果如下：</p>
+<p><img src="https://i.loli.net/2019/10/15/GvakQmqE1cC6NIJ.gif" alt="img1"></p>
+<p>下面来总结下 ViewStub 的使用方式：</p>
+<ol>
+<li><p>使用 layout 属性引用填充的布局文件，不能在 xml 中通过加子控件的方式添加，它是自闭合的（以<code>/&gt;</code>结尾）。</p>
+</li>
+<li><p>调用方式和普通的 View 一样，在调用 inflate 方法时，返回被填充的 View，可以对 View 中的控件再进行处理，如果不用处理时，可以直接使用 setVisibility 方法。</p>
+</li>
+<li><p>inflate 方法只能被调用一次，再次调用时会抛出异常，因为在第一次 inflate 之后，ViewStub 被从视图树中移除，就获取不到他的父布局，而在 inflate 方法中需要获取父布局，所以会出错。因此通常需要加 try-catch 进行处理，在 catch 中使用 setVisibility 方法来显示填充的布局。setVisibility 方法中使用了弱引用，可以避免异常抛出。</p>
+</li>
+<li><p>可以在 ViewStub 中重写填充布局的 layout_ 开头的属性，比如 width、height、layout_margin 等，非 layout 的属性不能重写，并且重写 margin 等属性，必须要先重写 width 和 height 这两个属性，不然不会生效。</p>
+</li>
+<li><p>在 ViewStub 所加载的布局中不可以使用 merge 标签的，因此有可能导致加载出来的布局存在着多余的嵌套结构。</p>
+</li>
+</ol>
+<h4 id="其他的布局优化技巧"><a href="#其他的布局优化技巧" class="headerlink" title="其他的布局优化技巧"></a>其他的布局优化技巧</h4><p><strong>使用 include 标签进行布局文件重用</strong></p>
+<p>include 标签是很常用的一个标签，它使用 layout 属性引用另一个布局文件，将其添加到 include 标签所在的父容器中。开发中可以把一些公共的布局提取成一个单独的文件，然后使用 include 标签引用，来减少重复编写布局的工作。同样可以在 include 标签中对引用布局的根节点属性进行重写。</p>
+<pre><code>&lt;include
+    android:layout_width = &quot;match_parent&quot;
+    android:layout_height = &quot;wrap_content&quot;
+    android:layout=&quot;@layout/title_bar&quot;/&gt;</code></pre><p><strong>使用 merge 标签减少布局嵌套</strong></p>
+<p>我们知道 Android 中 View 的布局嵌套的越多，绘制时间就会越长，性能也越差，所以在<code>编写布局时要尽量减少布局的嵌套层次</code>。</p>
+<p>include 标签也有一个缺点，就是可能产生多余的嵌套层次。比如：</p>
+<p>activity.xml</p>
+<pre><code>&lt;LinearLayout&gt;
+    &lt;include layout=&quot;@layout/my_layout&quot;/&gt;
+&lt;/LinearLayout&gt;</code></pre><p>my_layout.xml</p>
+<pre><code>&lt;LinearLayout&gt;
+    &lt;TextView/&gt;
+&lt;/LinearLayout&gt;</code></pre><p>那么最终结果是：</p>
+<pre><code>&lt;LinearLayout&gt;
+    &lt;LinearLayout&gt;
+        &lt;TextView/&gt;
+    &lt;/LinearLayout&gt;
+&lt;/LinearLayout&gt;</code></pre><p>其中第二个 LinearLayout 就是产生的多余嵌套了。</p>
+<p>这时候可以使用 merge 标签来配合 include 减少嵌套层次。</p>
+<p>my_layout.xml</p>
+<pre><code>&lt;merge&gt;
+    &lt;TextView/&gt;
+&lt;/merge&gt;</code></pre><p>那么结果是：</p>
+<pre><code>&lt;LinearLayout&gt;
+    &lt;TextView/&gt;
+&lt;/LinearLayout&gt;</code></pre><p>其实 merge 就是将其中的子控件直接填充到 include 所在的位置。这样就不会存在多余的嵌套层次了。</p>
+<p>使用 merge 标签需要注意以下几点：</p>
+<ol>
+<li>merge 标签必须是布局文件的根节点</li>
+<li>merge 不是View，通过LayoutInflater.inflate来加载布局时，第二个参数必须选择一个父容器，第三个参数必须为 true，必须要给 merge 标签下的子View指定一个父节点。</li>
+<li>对 merge 标签设置的属性无效</li>
+</ol>
+<p><strong>尽可能让布局扁平，减少布局嵌套</strong></p>
+<p>优先使用 ConstraintLayout（首选）或 RelativeLayout 来编写布局，可以有效地降低布局的嵌套层次。使用 LinearLayout、FrameLayout 会有比较多的布局嵌套。</p>
+<p><strong>避免使用 layout_weight属性</strong></p>
+<p>layout_weight 属性经常被使用在需要几个控件几等分父布局时，是比较实用的一个属性。但是对每个设置了这个属性的布局、控件，系统都会执行两次测量过程，在一些需要重复渲染布局的场合（RecyclerView中）会变得严重。因此要避免使用这个属性，相同效果可以改用 ConstraintLayout 或 RelativeLayout 来实现。</p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://www.jianshu.com/p/175096cd89ac" target="_blank" rel="noopener">ViewStub–使用介绍</a></p>
+<p><a href="https://blog.csdn.net/guolin_blog/article/details/43376527" target="_blank" rel="noopener">Android最佳性能实践(四)——布局优化技巧</a></p>
+<p><a href="https://www.jianshu.com/p/69e1a3743960" target="_blank" rel="noopener">Android 布局优化 Merge的使用</a></p>
+<p><a href="http://sr1.me/best-practice-for-android-ui" target="_blank" rel="noopener">Android最佳实践之UI篇</a></p>
+
+            
         </div>
-    </div>
+    
 </div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
 
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FmD7ikmfvGysRZ-P66hxqdbL3B7B">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/10/15/useage-of-spannablestringbuilder/">SpannableStringBuilder 的使用</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言最近在做需求的时候，经常会有一个文本内，需要单独高亮其中一部分，并且支持这部分的单独点击事件。...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/10/15/useage-of-spannablestringbuilder/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 15, 2019
-            </div>
-            <div class="post_entry-footer-comment">
                 
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/10/15/useage-of-spannablestringbuilder/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FuvZooY9ju4EBqPEzS0q7SCq0JPt">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/10/08/kotlin-learning-7-extension-function/">Kotlin 修炼手册（7）Kotlin的扩展</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                在 Java 中，想要扩展类的功能，但是又不想直接改原来的类时，一般会采用继承、组合（装饰者模式）等方式来实现。而 Kotlin 中支持对类的属性和函数进行扩展，在类外增加原来类的属性和函数，可以方便地实现在原来的类上添加新功能...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/10/08/kotlin-learning-7-extension-function/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 08, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FhlqOmGFxCVM6gMHrKIK4vswcEJ2">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/09/05/kotlin-learning-6-companion-object/">Kotlin 修炼手册（6）伴生对象</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言这篇文章来写一下 Kotlin 中的伴生对象。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/09/05/kotlin-learning-6-companion-object/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                9月 05, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Ftysoa87DRo7bDQJ5sYXQqqhvpm9">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/09/03/kotlin-learning-5-extends-and-interface/">Kotlin 修炼手册（5）继承与接口</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言这篇的内容还是和类有关，介绍 Kotlin 中继承和接口。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/09/03/kotlin-learning-5-extends-and-interface/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                9月 03, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FiZQAehJYmoY4A9ekDTPG17yI6zK">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/09/02/kotlin-learning-4-class-and-object/">Kotlin 修炼手册（4）类与对象</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言在面向对象编程中，类与对象是非常重要的概念，这篇文章来写一下 Kotlin 中的类与对象。
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/09/02/kotlin-learning-4-class-and-object/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                9月 02, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fo73PeXzQM8V4mKTFI_GMqubGM3N">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/08/31/tour-in-shanghai/">上海一日游</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                2019 年 8 月 31 日 多云
-来上海挺长时间了，一直没出去逛过。一个朋友也在上海工作，叫我一块出去玩，便欣然同意，今天两个人在上海几个地方逛了一整天。
-中国馆...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/08/31/tour-in-shanghai/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/千字文计划/">千字文计划</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 31, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fihwff2hBN2dbFs52li2KFIojrwz">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/08/30/kotlin-learning-3-condition-and-loop/">Kotlin 修炼手册（3）分支、循环、关键字</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言这篇主要记一下 Kotlin 中的分支（条件判断）、循环以及常用的一些关键字。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/08/30/kotlin-learning-3-condition-and-loop/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fh_Xln4IU23GQfYr_AHGrKvBIAHE">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/08/30/change-blog-image-hostage/">博客图床转移</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                这几天在回头看自己博客的时候，发现很多图片都加载不出来了。这个情况之前出现过一次，上次是因为七牛云的图床用的一直是测试域名，然后七牛云突然说这个测试域名不能用了（鄙视），然后就只能重新找图床，当时选择了新浪微博图床，想着这下大公...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/08/30/change-blog-image-hostage/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Python/">Python</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fjflzycq9MpEMOd-ROiNHDNz2hQy">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/08/29/night-thought-6-restless-when-nothing-to-do/">杂想·坐立不安，这几天摸鱼的感受</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                背景事情是这样的，上周被安排了一个比较棘手的需求，坑很多，做了 4 天后，服务器端支持不了，所以 ...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/08/29/night-thought-6-restless-when-nothing-to-do/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/工作杂想/">工作杂想</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 29, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/12/">12</a><a class="extend next" rel="next" href="/archives/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-</div>
 
 
                     
@@ -1186,6 +853,10 @@
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -1198,6 +869,11 @@
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
