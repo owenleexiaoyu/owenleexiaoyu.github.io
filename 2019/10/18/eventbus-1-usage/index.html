@@ -45,7 +45,7 @@
     
     <title>
         
-            归档 | 
+            EventBus 的使用 | 
         
         海树
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content>
+    <meta name="keywords" content=",Android">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?VbSuLZyOpxJuf3o2tYEOVg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night.min.css?QlnGZk/a4+d8XbwtXBDPiA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -223,7 +226,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="海树">
-    <meta name="msapplication-starturl" content="http://yoursite.com/archives/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2019/10/18/eventbus-1-usage/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="海树">
@@ -238,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/archives/">
+    <meta property="og:url" content="http://yoursite.com/2019/10/18/eventbus-1-usage/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | 海树">
+    <meta property="og:title" content="EventBus 的使用 | 海树">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="Android"> 
 
+    
+        <meta property="article:published_time" content="Fri Oct 18 2019 12:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Oct 18 2019 14:16:58 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/index.html">
+        <link rel="canonical" href="http://yoursite.com/2019/10/18/eventbus-1-usage/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2019/10/18/eventbus-1-usage/index.html",
+    "headline": "EventBus 的使用",
+    "datePublished": "Fri Oct 18 2019 12:00:00 GMT+0800",
+    "dateModified": "Fri Oct 18 2019 14:16:58 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Android",
+    "description": "",
+}
+</script>
 
 
     
@@ -404,25 +440,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
+        <div class="post-header_info with-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
             <span class="name-span">Owen Lee</span>
@@ -434,603 +474,306 @@
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/10/18/eventbus-1-usage/">EventBus 的使用</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言EventBus 是一个非常优秀的 Android 事件总线框架，可以用来简化组件间通信与数据...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/10/18/eventbus-1-usage/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 18, 2019
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                EventBus 的使用
+            </p>
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>EventBus 是一个非常优秀的 Android 事件总线框架，可以用来简化组件间通信与数据传输，比如 Activity 之间、Fragment 之间、子线程与 UI 线程间等等情况。它基于发布/订阅模式，实现业务代码的解耦，提高了开发的效率。</p>
+<p>最近在做需求时也使用到了 EventBus 3.0，在使用粘性事件时也遇到一些问题，这篇文章来简单总结一下 EventBus 的使用。</p>
+<h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>EventBus 主要由三个元素构成：</p>
+<ul>
+<li>事件（Event）</li>
+<li>发布者（Publisher）</li>
+<li>接收者（Subscriber）</li>
+</ul>
+<p>事件（Event）可以是任何类型。可以分为普通事件和粘性事件（StickyEvent），粘性事件文章后面会单独介绍。</p>
+<p>事件发布者（Publisher），可以在任意线程的任意位置调用 post 方法送事件。</p>
+<p>事件订阅者/事件接收者（Subscriber），在需要接收事件的位置（通常是 Activity、Fragment，随业务决定），创建一个方法接收事件进行处理，EventBus 3.0 之后方法名可以任意指定，不过需要添加  <code>@Subscribe</code> 注解，注解中可以指定线程模型、是否支持粘性事件、优先级。</p>
+<h4 id="简单用法"><a href="#简单用法" class="headerlink" title="简单用法"></a>简单用法</h4><p>可以通过以下几个步骤来快速上手使用 EventBus：</p>
+<p><strong>0. 添加依赖</strong></p>
+<p>在 gradle 中添加对 EventBus 的依赖：</p>
+<pre><code>implementation &#39;org.greenrobot:eventbus:3.1.1&#39;</code></pre><p><strong>1. 定义一个事件</strong> </p>
+<p>一般来说我们根据业务来定义事件，为了意思明确再加上 Event，表明这是个 EventBus 的事件，比如 LoginEvent、LogoutEvent，分别对应在登陆后、登出后发送的事件。</p>
+<p>我们这里可以定义一个携带一个 String 变量的 StringEvent：</p>
+<pre><code>class StringEvent{
+    public String msg;
+    public StringEvent(String msg){
+        this.msg = msg;
+    }
+}</code></pre><p><strong>2. 注册、注销 EventBus</strong></p>
+<p>订阅者需要在总线中注册/注销。只有注册后，订阅者才能正常接收到事件。通常我们都在 Activity、Fragment 中订阅事件，需要在生命周期回调函数中做这步。</p>
+<ul>
+<li>Activity：在 onCreate 中注册，在 onDestory 中注销。</li>
+</ul>
+<pre><code>Override protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.activity_main);
+    EventBus.getDefault().register(this);
+}</code></pre><pre><code>@Override protected void onDestroy() {
+    super.onDestroy();
+    EventBus.getDefault().unregister(this);
+}</code></pre><ul>
+<li>Fragment：在 onCreateView 中注册，在 onDestoryView 中注销。</li>
+</ul>
+<pre><code>public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    EventBus.getDefault().register(this);
+    return super.onCreateView(inflater, container, savedInstanceState);
+}</code></pre><pre><code>@Override public void onDestroyView() {
+    super.onDestroyView();
+    EventBus.getDefault().unregister(this);
+}</code></pre><p>EventBus 的官方文档中推荐在 onStart 和 onStop 中进行注册和注销，提到这个时期对绝大多数情况适用。在开发过程中也会遇到在 onStart 注册偏晚造成接收不到事件的情形，所以也可以把注册时机稍微提前。</p>
+<p><strong>3. 发送事件</strong></p>
+<p>发送事件非常简单，只需要调用一个 post 方法即可。</p>
+<pre><code>EventBus.getDefault().post(new StringEvent(&quot;hello&quot;));</code></pre><p><strong>4. 处理事件</strong></p>
+<p>在 Activity 或 Fragment 中定义一个方法，方法名可以任意指定，参数为要接收的 Event 对象，需要加上 <code>@Subscribe</code> 注解。注解中可以添加线程模型、是否支持粘性事件、优先级属性。其中线程模型是必需的，默认值为 POSTING，线程模型的概念在示例之后进行介绍。</p>
+<pre><code>@Subscribe   //这里没有指定线程模型，使用默认值
+public void onStringEvent(StringEvent event) {
+    //业务逻辑
+}</code></pre><p><strong>完整示例代码</strong></p>
+<p>下面贴一个简单的示例代码，结合演示效果应该比较好理解。</p>
+<p>MainActivity</p>
+<pre><code>public class MainActivity extends AppCompatActivity {
+
+    private TextView mTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        EventBus.getDefault().register(this);
+
+        mTextView = findViewById(R.id.textview);
+
+        new Thread(new Runnable() {
+            @Override public void run() {
+                try {
+                    Thread.sleep(3000);
+                    EventBus.getDefault().post(new StringEvent(&quot;我接收到事件了&quot;));
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onStringEvent(StringEvent event) {
+        mTextView.setText(event.text);
+    }
+
+    @Override protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+}</code></pre><p>activity_main.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RelativeLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    tools:context=&quot;.MainActivity&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;初始文案&quot;
+        android:layout_centerInParent=&quot;true&quot;
+        android:textSize=&quot;20sp&quot;
+        android:id=&quot;@+id/textview&quot;/&gt;
+&lt;/RelativeLayout&gt;</code></pre><p>代码的逻辑非常简单，在 MainActivity 中有一个TextView，有个初始文案，创建了一个子线程，在3s后发送一个事件，接受到事件后修改TextView的内容。</p>
+<p>效果如图：</p>
+<p><img src="https://i.loli.net/2019/10/16/J9sMgXwHxAOe5Ea.gif" alt="img1"></p>
+<h4 id="线程模型"><a href="#线程模型" class="headerlink" title="线程模型"></a>线程模型</h4><p>这部分来介绍以下 EventBus 的几种线程模型，线程模型是用来指定订阅者在什么线程中处理这个事件。</p>
+<p>有如下几种线程模型：</p>
+<ol>
+<li>ThreadMode.POSTING</li>
+</ol>
+<p>默认的线程模型，订阅者会在发布事件的同一个线程里被调用。事件传递是同步完成的，事件发布后，所有的订阅者都会接收到事件，因为没有切换线程，所以开销最小。如果是简单的任务，这种模型最为推荐。</p>
+<pre><code>@Subscribe(threadMode = ThreadMode.POSTING)
+public void onMessage(MessageEvent event) {
+    log(event.message);
+}</code></pre><ol start="2">
+<li>ThreadMode: MAIN</li>
+</ol>
+<p>订阅者将在 Android 的主线程（UI 线程）中调用。 如果发布事件的线程是主线程，那么就和 POSTING 是一样的。 使用这个模式的事件处理不能有耗时操作，必须快速返回，否则容易阻塞主线程，造成 ANR。 </p>
+<pre><code>@Subscribe(threadMode = ThreadMode.MAIN)
+public void onMessage(MessageEvent event) {
+    textText.setText(event.message);
+}</code></pre><ol start="3">
+<li>ThreadMode: MAIN_ORDERED</li>
+</ol>
+<p>这个模型下，订阅者同样会在 Android 主线程被调用。与 MAIN 不同的是，订阅者处理接收该事件是串行的，第二个订阅者需要在第一个订阅者处理完后才会接收到事件，所以被称为 ordered。这个模型同样要避免阻塞主线程。</p>
+<pre><code>@Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
+public void onMessage(MessageEvent event) {
+    textText.setText(event.message);
+}</code></pre><ol start="4">
+<li>ThreadMode: BACKGROUND</li>
+</ol>
+<p>从名字可以看出，这个模型是在后台处理事件。如果在子线程中发布事件，则会在那个子线程中调用订阅者，进行处理；如果在主线程中发布事件，则会新创建一个子线程，然后在子线程中处理。</p>
+<pre><code>@Subscribe(threadMode = ThreadMode.BACKGROUND)
+public void onMessage(MessageEvent event){
+    saveToDisk(event.message);
+}</code></pre><ol start="5">
+<li>ThreadMode: ASYNC</li>
+</ol>
+<p>在这个模型下，总是会在一个新的线程中取处理事件，这个线程独立于发布线程和主线程。如果在事件处理方法中有耗时操作，如网络请求等等，采用这种模型。 EventBus 使用了线程池来重用线程，节省开销。</p>
+<pre><code>@Subscribe(threadMode = ThreadMode.ASYNC)
+public void onMessage(MessageEvent event){
+    backend.send(event.message);
+}</code></pre><h4 id="粘性事件（StickyEvent）"><a href="#粘性事件（StickyEvent）" class="headerlink" title="粘性事件（StickyEvent）"></a>粘性事件（StickyEvent）</h4><p>普通事件必须要订阅者先注册，然后发送事件，才能被订阅者接收到。有的情况下，我们希望即使先发送事件，再注册，订阅者也能接收到。EventBus 提供了粘性事件来满足这种情形。</p>
+<p>在发布事件时，改用 postSticky 方法来发送一个粘性事件。</p>
+<pre><code>EventBus.getDefault().postSticky(new StringEvent(&quot;Hello World!&quot;));</code></pre><p>然后在订阅者接收事件方法的 @Subscribe 注解中加上<code>sticky=true</code>，表示支持接收粘性事件。</p>
+<pre><code>@Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
+public void onStringEvent(StringEvent event) {   
+    mTextView.setText(event.message);
+}</code></pre><p>下面同样写一个比较简单的示例来演示一下粘性事件的用法：</p>
+<p>MainActivity：</p>
+<pre><code>public class MainActivity extends AppCompatActivity {
+
+    private TextView mTextView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        getSupportActionBar().setTitle(&quot;MainActivity&quot;);
+        mTextView = findViewById(R.id.textview);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void onStringEvent(StringEvent event) {
+        mTextView.setText(event.text);
+    }
+
+    @Override protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
+
+    public void register(View view) {
+        EventBus.getDefault().register(this);
+    }
+
+    public void toSecondActivity(View view) {
+        startActivity(new Intent(MainActivity.this, SecondActivity.class));
+    }
+}</code></pre><p>SecondActivity</p>
+<pre><code>public class SecondActivity extends AppCompatActivity {
+    @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_second);
+        getSupportActionBar().setTitle(&quot;SecondActivity&quot;);
+    }
+
+    public void sendEvent(View view){
+        EventBus.getDefault().post(new StringEvent(&quot;OWEN&quot;));
+        finish();
+    }
+
+    public void sendStickyEvent(View view){
+        EventBus.getDefault().postSticky(new StringEvent(&quot;Sticky OWEN&quot;));
+        finish();
+    }
+}</code></pre><p><strong>效果演示：</strong></p>
+<p><img src="https://i.loli.net/2019/10/18/X3qVtEc2iz6G4Rn.gif" alt="img2"></p>
+<p>代码的逻辑非常简单，MainActivity 中没有在 onCreate 中注册 EventBus，而是将它放在了一个按钮的点击事件中。</p>
+<p>演示中一共发送三次事件：</p>
+<ol>
+<li>未注册时，从 SecondActivity 发送普通事件，发现 TextView 文字没有变化；</li>
+<li>未注册时，从 SecondActivity 发送 Sticky 事件，回到 MainActivity 中点击注册 EventBus，发现这时文字变化了。</li>
+<li>注册后，从 SecondActivity 发送普通事件，发现文字再次变化。</li>
+</ol>
+<p>这就是 Sticky 事件的作用，先发送事件，再注册订阅者，也可以接受到事件。</p>
+<p><strong>使用注意</strong></p>
+<p>发送的粘性事件会保存在一个 map 中，这样才能实现后订阅也能接收到的功能，同时会保留最后一个粘性事件。对于某些只处理一次的事件，会造成重复处理最后一个粘性事件的情况，有时这是不符合预期的，需要在处理完粘性事件后手动将其删除，使用 <code>removeStickyEvent</code> 方法。</p>
+<pre><code>StringEvent stickyEvent = EventBus.getDefault().getStickyEvent(StringEvent.class);
+// 判断此粘性事件是否存在
+if(stickyEvent != null) {
+    // 若粘性事件存在，将其删除
+    EventBus.getDefault().removeStickyEvent(stickyEvent);
+}</code></pre><h4 id="ProGuard-混淆规则"><a href="#ProGuard-混淆规则" class="headerlink" title="ProGuard 混淆规则"></a>ProGuard 混淆规则</h4><pre><code>-keepattributes *Annotation*
+-keepclassmembers class ** {
+    @org.greenrobot.eventbus.Subscribe &lt;methods&gt;;
+}
+-keep enum org.greenrobot.eventbus.ThreadMode { *; }
+
+# Only required if you use AsyncExecutor
+-keepclassmembers class * extends org.greenrobot.eventbus.util.ThrowableFailureEvent {
+    &lt;init&gt;(java.lang.Throwable);
+}</code></pre>
+            
         </div>
-    </div>
+    
 </div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
 
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FvApNt8i9-HsFnQVuLLKC2pod6PD">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/10/15/ten-steps-learning-notes/">十步学习法笔记</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                来自《软技能：代码之外的生存指南》，作者：约翰·Z·森梅兹。
-这本书更关注程序员的职业发展、个人影响力、学习成长、生产力提升、理财、健身、精神健康等方面。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/10/15/ten-steps-learning-notes/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/学习/">学习</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 15, 2019
-            </div>
-            <div class="post_entry-footer-comment">
                 
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/10/15/ten-steps-learning-notes/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FuR1aijLdZMXfDTjVHNHQFKXnXoV">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/10/15/viewstub-and-ui-promote/">ViewStub 使用与布局优化技巧</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言最近在需求中使用到了 ViewStub 来动态加载布局，所以总结一下 ViewStub 的使用...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/10/15/viewstub-and-ui-promote/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 15, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FmD7ikmfvGysRZ-P66hxqdbL3B7B">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/10/15/useage-of-spannablestringbuilder/">SpannableStringBuilder 的使用</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言最近在做需求的时候，经常会有一个文本内，需要单独高亮其中一部分，并且支持这部分的单独点击事件。...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/10/15/useage-of-spannablestringbuilder/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 15, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FuvZooY9ju4EBqPEzS0q7SCq0JPt">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/10/08/kotlin-learning-7-extension-function/">Kotlin 修炼手册（7）Kotlin的扩展</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                在 Java 中，想要扩展类的功能，但是又不想直接改原来的类时，一般会采用继承、组合（装饰者模式）等方式来实现。而 Kotlin 中支持对类的属性和函数进行扩展，在类外增加原来类的属性和函数，可以方便地实现在原来的类上添加新功能...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/10/08/kotlin-learning-7-extension-function/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 08, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FhlqOmGFxCVM6gMHrKIK4vswcEJ2">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/09/05/kotlin-learning-6-companion-object/">Kotlin 修炼手册（6）伴生对象</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言这篇文章来写一下 Kotlin 中的伴生对象。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/09/05/kotlin-learning-6-companion-object/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                9月 05, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Ftysoa87DRo7bDQJ5sYXQqqhvpm9">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/09/03/kotlin-learning-5-extends-and-interface/">Kotlin 修炼手册（5）继承与接口</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言这篇的内容还是和类有关，介绍 Kotlin 中继承和接口。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/09/03/kotlin-learning-5-extends-and-interface/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                9月 03, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FiZQAehJYmoY4A9ekDTPG17yI6zK">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/09/02/kotlin-learning-4-class-and-object/">Kotlin 修炼手册（4）类与对象</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言在面向对象编程中，类与对象是非常重要的概念，这篇文章来写一下 Kotlin 中的类与对象。
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/09/02/kotlin-learning-4-class-and-object/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                9月 02, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fo73PeXzQM8V4mKTFI_GMqubGM3N">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/08/31/tour-in-shanghai/">上海一日游</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                2019 年 8 月 31 日 多云
-来上海挺长时间了，一直没出去逛过。一个朋友也在上海工作，叫我一块出去玩，便欣然同意，今天两个人在上海几个地方逛了一整天。
-中国馆...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/08/31/tour-in-shanghai/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/千字文计划/">千字文计划</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/随笔/">随笔</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 31, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fihwff2hBN2dbFs52li2KFIojrwz">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2019/08/30/kotlin-learning-3-condition-and-loop/">Kotlin 修炼手册（3）分支、循环、关键字</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言这篇主要记一下 Kotlin 中的分支（条件判断）、循环以及常用的一些关键字。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2019/08/30/kotlin-learning-3-condition-and-loop/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Kotlin/">Kotlin</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2019
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/13/">13</a><a class="extend next" rel="next" href="/archives/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-</div>
 
 
                     
@@ -1188,6 +931,10 @@
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -1200,6 +947,11 @@
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
