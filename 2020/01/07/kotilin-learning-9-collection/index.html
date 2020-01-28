@@ -45,6 +45,8 @@
     
     <title>
         
+            Kotlin 修炼手册（9）集合 | 
+        
         海树
     </title>
 
@@ -54,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content>
+    <meta name="keywords" content=",Kotlin">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -81,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?VbSuLZyOpxJuf3o2tYEOVg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night.min.css?QlnGZk/a4+d8XbwtXBDPiA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -221,7 +226,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="海树">
-    <meta name="msapplication-starturl" content="http://yoursite.com/page/7/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2020/01/07/kotilin-learning-9-collection/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="海树">
@@ -236,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/page/7/">
+    <meta property="og:url" content="http://yoursite.com/2020/01/07/kotilin-learning-9-collection/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="海树">
+    <meta property="og:title" content="Kotlin 修炼手册（9）集合 | 海树">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="Kotlin"> 
 
+    
+        <meta property="article:published_time" content="Tue Jan 07 2020 12:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jan 07 2020 15:05:55 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -250,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/page/7/index.html">
+        <link rel="canonical" href="http://yoursite.com/2020/01/07/kotilin-learning-9-collection/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2020/01/07/kotilin-learning-9-collection/index.html",
+    "headline": "Kotlin 修炼手册（9）集合",
+    "datePublished": "Tue Jan 07 2020 12:00:00 GMT+0800",
+    "dateModified": "Tue Jan 07 2020 15:05:55 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Kotlin",
+    "description": "",
+}
+</script>
 
 
     
@@ -402,25 +440,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
+        <div class="post-header_info with-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
             <span class="name-span">Owen Lee</span>
@@ -428,601 +470,272 @@
 
         <!-- Custom thumbnail -->
         <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FmzXd1BqHxapZZz23OX4vicMXj2z">
+            <img src="http://image.wufazhuce.com/Fp9GB2xdIXBbasqQvrSy6v1zOMCx">
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/30/toolbar-set-back-button/">Toolbar设置返回按钮</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                1. 使用系统自带的返回按钮样式
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/30/toolbar-set-back-button/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2018
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                Kotlin 修炼手册（9）集合
+            </p>
+            <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>Kotlin 中没有真正实现任何集合类，是使用类型别名为原来 Java 的集合类指定了一个 kotlin 包下的别名。Kotlin 的集合也是派生自 Collection 和 Map 两个接口。</p>
+<p>Kotlin 中的集合分为可变集合（Mutable）和不可变集合两大类。只有可变集合才能添加、删除、修改元素，不可变集合只能读取元素。</p>
+<h4 id="Kotlin-集合继承树结构"><a href="#Kotlin-集合继承树结构" class="headerlink" title="Kotlin 集合继承树结构"></a>Kotlin 集合继承树结构</h4><p>Collection 集合体系的简单的继承树如下图：</p>
+<p><img src="https://i.loli.net/2020/01/07/QYEi4ZLzP8gls2m.png" alt="image1"></p>
+<p>Map 集合体系的继承树如下：</p>
+<p><img src="https://i.loli.net/2020/01/07/oIHk7ELpMGsFxPN.png" alt="image2"></p>
+<h4 id="Set-的使用"><a href="#Set-的使用" class="headerlink" title="Set 的使用"></a>Set 的使用</h4><p><strong>创建</strong></p>
+<p>可以用以下函数来创建 Set 集合：</p>
+<pre><code>setOf() // 返回不可变的Set集合，元素顺序按添加顺序排列
+mutableSetOf() // 返回可变的Set集合，元素顺序按添加顺序排列
+hashSetOf() // 返回可变的HashSet集合, 不保证元素顺序
+linkedSetOf() // 返回可变的LinkedHashSet集合，元素顺序按添加顺序排列
+sortedSetOf() // 返回可变的TreeSet集合，元素按从小到达排列</code></pre><p>setOf()、mutableSetOf()、linkedSetOf() 创建的 Set 集合都能维护元素的顺序，只有 hashSetOf() 创建的 Set 集合是无序的。</p>
+<p><strong>处理（操作）</strong></p>
+<p>有一些通用的处理函数放在最后一个部分单独来讲，这里写一下 Set 特有的处理：</p>
+<pre><code>set1 intersect set2  // 取交集
+set1 union set2 // 取并集
+set1 + set2 // 集合相加，相当于取并集
+set1 - set2 // 集合相减，在set1中减去set1和set2公共的元素</code></pre><p>示例：</p>
+<pre><code>fun main() {
+    val set1 = setOf(&quot;Kotlin&quot;, &quot;Java&quot;, &quot;Go&quot;, &quot;Python&quot;)
+    val set2 = setOf(&quot;Kotlin&quot;, &quot;C&quot;, &quot;NodeJs&quot;, &quot;Java&quot;)
+
+    println(set1 intersect set2)
+    println(set1 union  set2)
+    println(set1 + set2)
+    println(set1 - set2)
+}
+// 运行结果
+[Kotlin, Java]
+[Kotlin, Java, Go, Python, C, NodeJs]
+[Kotlin, Java, Go, Python, C, NodeJs]
+[Go, Python]</code></pre><p><strong>遍历</strong></p>
+<ul>
+<li>for-in 循环遍历</li>
+<li>forEach() 函数遍历</li>
+<li>使用索引遍历</li>
+</ul>
+<p>示例：</p>
+<pre><code>fun main() {
+    val set1 = hashSetOf(&quot;Kotlin&quot;, &quot;Java&quot;, &quot;Go&quot;, &quot;Python&quot;)
+
+    // ---- for-in遍历 ----
+    for (e in set1) {
+        print(&quot;$e &quot;)
+    }
+
+    println(&quot;\n==================&quot;)
+
+    // ---- forEach()遍历 ----
+    set1.forEach({ print(&quot;$it &quot;) })
+
+    println(&quot;\n==================&quot;)
+
+    // ---- 使用索引遍历 ----
+    for (i in set1.indices) {
+        print(&quot;${set1.elementAt(i)} &quot;)
+    }
+}
+// 运行结果
+Go Java Kotlin Python 
+==================
+Go Java Kotlin Python 
+==================
+Go Java Kotlin Python</code></pre><p><strong>增删（MutableSet）</strong></p>
+<pre><code>// 增加单个元素
+add(element: E)
+// 添加批量元素
+addAll(elements: Collection&lt;E&gt;)
+
+// 删除单个元素
+remove(element: E)
+// 删除批量元素
+removeAll(elements: Collection&lt;E&gt;) 
+// 只保留set集合与elements中的共有元素
+retainAll(elements: Collection&lt;E&gt;)
+// 清空集合
+clear()</code></pre><p>Set 和 MutableSet 都包含一个 <code>iterator()</code> 方法，不可变 Set 返回的是 Iterator 对象，该对象只有 <code>hasNext()</code> 和 <code>next()</code> 两个方法，可变 Set 返回的是 MutableIterator 对象，除了 hasNext() 和 next() 外，还有一个 <code>remove()</code> 方法，可用于在遍历时删除元素。</p>
+<p>示例：</p>
+<pre><code>fun main() {
+    val set = hashSetOf(&quot;Kotlin&quot;, &quot;Java&quot;, &quot;Go&quot;, &quot;Python&quot;)
+    val itr = set.iterator()
+    while (itr.hasNext()) {
+        val e = itr.next()
+        if (e.length &lt; 3) {
+            itr.remove()
+        }
+    }
+    println(set)
+}
+// 运行结果
+[Java, Kotlin, Python]</code></pre><h4 id="List-的使用"><a href="#List-的使用" class="headerlink" title="List 的使用"></a>List 的使用</h4><p>比较简单，就随便写一下：</p>
+<pre><code>// 创建不可变的List
+listOf()
+// 创建不可变的元素不为null的List（自动过滤到传入的null）
+listOfNotNull()
+// 创建可变的List
+mutableListOf()
+// 创建可变的ArrayList
+arrayListOf()</code></pre><pre><code>// 获取index索引的元素，带operator修饰符，可以使用[]
+get(index: Int)
+// 返回元素所在的索引，不存在返回-1
+indexOf(element: E)
+// 返回元素在List中最后一次出现位置的索引
+lastIndexOf(element: E)
+// 返回子集
+subList(start: Int, end: Int)</code></pre><h4 id="Map的使用"><a href="#Map的使用" class="headerlink" title="Map的使用"></a>Map的使用</h4><p>Map 集合用于存储键值对。</p>
+<pre><code>// 创建不可变的Map集合
+mapOf()
+// 创建可变的Map集合
+mutableMapOf()
+// 创建可变的HashMap集合
+hashMapOf()
+// 创建可变的LinkedHashMap集合
+linkedMapOf()
+// 创建可变的TreeMap集合
+sortedMapOf()</code></pre><p>示例：</p>
+<pre><code>fun main() {
+    // 使用 to 建立 key 和 value 的关系
+    val map = mapOf(&quot;Java&quot; to 4, &quot;Kotlin&quot; to 5, &quot;G0&quot; to 2)
+    val map2 = mutableMapOf(&quot;Java&quot; to 4, &quot;Kotlin&quot; to 5, &quot;G0&quot; to 2)
+    map2[&quot;Python&quot;] = 6
+    println(map2)
+}</code></pre><p><strong>遍历</strong></p>
+<ul>
+<li>使用 entries 属性</li>
+<li>先遍历 map 的 key，再通过 key 取 value</li>
+<li>使用解构</li>
+<li>使用 forEach + Lambda 表达式</li>
+</ul>
+<p>示例：</p>
+<pre><code>fun main() {
+    var map = mapOf(&quot;Kotlin&quot; to 32, &quot;Java&quot; to 55, &quot;Python&quot; to 41)
+
+    // 方法一：使用entries属性
+    for (en in map.entries) {
+        println(&quot;key=${en.key}, value=${en.value}&quot;)
+    }
+
+    // 方法二：先遍历map的key，通过key取value
+    for (key in map.keys) {
+        println(&quot;key=${key}, value=${map[key]}&quot;)
+    }
+
+    // 方法三：使用解构
+    for ((key, value) in map) {
+        println(&quot;key=$key, value=$value&quot;)
+    }
+
+    // 方法四：使用forEach+Lambda表达式
+    map.forEach { println(&quot;key=${it.key}, value=${it.value}&quot;) }
+}</code></pre><p><strong>增删（Mutable）</strong></p>
+<pre><code>// 清空所有的键值对
+clear()
+// 删除键值对
+remove(key: K)
+// 放入键值对，如果已有该key，会覆盖原来的value
+put(key: K, value: V)
+// 批量放入
+putAll(from: Map&lt;out K, V&gt;)</code></pre><p>另外，MutableMap 还提供了一个 set(key, value) 方法来放入键值对，用 operator 修饰，可以通过 <code>[]</code> 来放入键值对。</p>
+<h4 id="常见的数组、集合处理函数"><a href="#常见的数组、集合处理函数" class="headerlink" title="常见的数组、集合处理函数"></a>常见的数组、集合处理函数</h4><ul>
+<li>all(predicate: (T) -&gt; Boolean)</li>
+</ul>
+<p>所有元素都满足该表达式，返回 true，否则返回 false。</p>
+<ul>
+<li>any(predicate: (T) -&gt; Boolean)</li>
+</ul>
+<p>任一元素满足该表达式，就返回 true，都不满足，返回 false。</p>
+<ul>
+<li>cantains(element: T)</li>
+</ul>
+<p>是否包含元素 element</p>
+<ul>
+<li>first | last(predicate: (T) -&gt; Boolean)</li>
+</ul>
+<p>获取第一个或最后一个满足条件的元素</p>
+<ul>
+<li>indexOfFirst | indexOfLast(predicate: (T) -&gt; Boolean)</li>
+</ul>
+<p>获取第一个或最后一个满足条件的元素的索引</p>
+<ul>
+<li>max | min() </li>
+</ul>
+<p>按照自然排序规则（要求元素必须实现 Comparable 接口）找出最大值或最小值</p>
+<p>还有很多，这里不一一列举。</p>
+
+            
         </div>
-    </div>
+    
 </div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
 
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FoscD3oIYvVl1q9E2Cmsrz-IqQZ0">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/30/meituan-interview-experience/">美团秋招面经</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言同学帮我内推了美团新零售的Android开发岗，昨天晚上去公司面试，一共面了3轮技术面，也不知...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/30/meituan-interview-experience/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/面经/">面经</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2018
-            </div>
-            <div class="post_entry-footer-comment">
                 
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2019/12/30/gtd-learning-note/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FrVnC4yjwexE6iKmsH2QBmWwCgop">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/30/140-execllent-android-opensource-projects/">140 款 Android 开源优秀项目源码</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                BeautifulRefreshLayout-漂亮的美食下拉刷新
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/30/140-execllent-android-opensource-projects/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android/">Android</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FkLM1eJH209S21sA5iMJ8fkc_0gP">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/30/computer-network-7-three-and-four-way-handshake/">计算机网络面试（7）TCP 三次握手与四次挥手</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                三次握手三次握手(Three-way Handshake)，是指建立一个 TCP 连接...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/30/computer-network-7-three-and-four-way-handshake/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FtT0TpGXAnUQO_-M5mF4J2lrFda8">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/30/computer-network-6-tcp-header/">计算机网络面试（6）TCP 首部</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                TCP 的全部功能都体现在它首部中各字段的作用，因此，只有弄清TCP首部各字段的作用才能掌握 TCP 的工作原理。
-TCP 报文段首部的前 20 字节是固定的，后面有 4n 字节是根据需要而增加的，因此 TCP 首...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/30/computer-network-6-tcp-header/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FsnY4rvyNlS1N9B1T-yZzjFgk2Ax">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/30/computer-network-5-tcp-overview/">计算机网络面试（5）TCP 协议概述</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                TCP 的特点1. 面向连接
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/30/computer-network-5-tcp-overview/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FlgLQDp--BARTUqmnxVRoLPBWIbQ">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/30/computer-network-4-udp/">计算机网络面试（4）UDP 协议</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                UDP 概述用户数据报协议 UDP 只在 IP 协议的服务上增加了很少的功...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/30/computer-network-4-udp/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 30, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fig6cdpoYAOyrJ-y7SUq95JaRjAB">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/15/computer-network-3-transport-layer/">计算机网络面试（3）运输层概述</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言上篇文章对计算机网络的体系结构做了简单介绍，这篇文章的主题是介绍五层体系中的运输层。至于更加底...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/15/computer-network-3-transport-layer/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 15, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FhhYAe88vaXZjUO9Kaltjj1l9I1N">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/15/computer-network-2-architecture/">计算机网络面试（2）计算机网络体系结构</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言上篇文章简单介绍了一些计算机网络的基本概念。这篇文章就主要讲一下计算机网络的体系结构。...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/15/computer-network-2-architecture/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/计算机网络/">计算机网络</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 15, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FuVFTtUh8_DXz0lL8IpQubxEtDU4">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/08/13/android-network-8-http-and-https/">Android 网络编程——HTTP 与 HTTPS</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                前言HTTP 协议是最常见的一种网络协议，它以明文方式进行数据传输，不提供任何的加密措施，如果攻击...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/08/13/android-network-8-http-and-https/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Android-网络编程/">Android 网络编程</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 13, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/page/6/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/8/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-</div>
 
 
                     
@@ -1180,6 +893,10 @@ TCP 报文段首部的前 20 字节是固定的，后面有 4n 字节是根据�
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -1192,6 +909,11 @@ TCP 报文段首部的前 20 字节是固定的，后面有 4n 字节是根据�
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
