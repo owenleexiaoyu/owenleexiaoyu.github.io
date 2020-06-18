@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            实现一个 MVP 框架 | 
+        
+        海树
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/fish.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content=",Android">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?VbSuLZyOpxJuf3o2tYEOVg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night.min.css?QlnGZk/a4+d8XbwtXBDPiA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+        
+            <link rel="stylesheet" href="/css/fontawesome.min.css">
+        
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="海树">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2019/05/10/mvp-framework-implemence/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="海树">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2019/05/10/mvp-framework-implemence/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="实现一个 MVP 框架 | 海树">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content>
+    <meta property="og:article:tag" content="Android"> 
+
+    
+        <meta property="article:published_time" content="Fri May 10 2019 21:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Thu May 16 2019 10:27:42 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2019/05/10/mvp-framework-implemence/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2019/05/10/mvp-framework-implemence/index.html",
+    "headline": "实现一个 MVP 框架",
+    "datePublished": "Fri May 10 2019 21:00:00 GMT+0800",
+    "dateModified": "Thu May 16 2019 10:27:42 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Android",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Isolation" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;海树
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="海树">
+                海树
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                我心有猛虎  细嗅蔷薇香
+            
+        
+        </p>
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+                <span class="header-nav-item">
+                    <a href="/2017/10/20/about-me/" title="关于我">
+                        <span>关于我</span>
+                    </a>
+                </span>
+            
+                <span class="header-nav-item">
+                    <a href="/tags/" title="标签云">
+                        <span>标签云</span>
+                    </a>
+                </span>
+            
+                <span class="header-nav-item">
+                    <a href="/timeline/" title="时间轴">
+                        <span>时间轴</span>
+                    </a>
+                </span>
+            
+                <span class="header-nav-item">
+                    <a href="/gallery/" title="图库">
+                        <span>图库</span>
+                    </a>
+                </span>
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/owenleexiaoyu" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+</div>
+
+    </div>
+</header>
+
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+
+                    <!-- Post TOC -->
+
+    
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info with-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
+            <span class="name-span">Owen Lee</span>
+        </div>
+
+        <!-- Custom thumbnail -->
+        <div class="post_thumbnail-custom">
+            <img src="http://image.wufazhuce.com/FmIMiZkb91qepjnqAKyekOe_ZXOi">
+    
+        </div>
+
+
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                实现一个 MVP 框架
+            </p>
+            <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在 WanAndroid 这个项目中用到了目前 Android 开发中比较流行的 MVP + Retrofit + RxJava 这样的组合进行开发，今天这篇文章就来复盘一下项目中 MVP 这部分的实践。因为之前看了很多关于 MVP 的博客，各有各的实现方式。我结合了Google MVP 示例 和一些其他的博客，在项目中实现了自己的 MVP 框架，目前在项目里用得还是比较稳定的，因此把这个框架的实现方式记录下来，方便以后的开发。</p>
+<h4 id="MVC-和-MVP-的对比"><a href="#MVC-和-MVP-的对比" class="headerlink" title="MVC 和 MVP 的对比"></a>MVC 和 MVP 的对比</h4><p>既然要用 MVP，不得不提的一点就是它和 MVC 架构模式之间的对比，以及各自的优缺点。MVC 模式指的是比较传统的 Model - View - Controller 这样的架构，Model 表示数据层，用于数据的获取和加工；View 表示界面层，用相应控件来展示数据；Controller 表示控制层，是数据层和界面层之间的桥梁，Controller 控制数据和界面之间的对应关系，以及处理相关的事件逻辑。在 Android 开发中，Activity 或 Fragment 通常承担的是 Controller 的角色，但是它同时也承担了 View 的角色，我们在 Activity（或 Fragment） 中来初始化控件，为控件加载数据，处理控件的点击等事件，并将逻辑代码都写在Activity（或 Fragment）中，这样就导致 Activity（或 Fragment）异常臃肿，耦合严重。所以在这样的情况下出现了 MVP 模式，MVP 模式（Model - View - Presenter）是 MVC 模式的一个变种，它将Activity 中的业务逻辑全部分离出来，让 Activity 只做 UI 逻辑的处理，所有跟 Android API 无关的业务逻辑由 Presenter 层来完成。</p>
+<p>在MVP模式下，Activity 或 Fragment 作为 View 层，只负责处理 UI，没有实际的逻辑代码。Model 层还是用于数据的获取及加工。Presenter 层用于连接Model层和View层的业务处理层，既能调用 UI 逻辑，又能请求数据，该层为纯 Java 类，不涉及任何Android API。三层之间的调用顺序为View → Presenter → Model。</p>
+<p>MVP 模式的缺点是会增加代码量，需要额外写很多的类和接口。</p>
+<p><img src="https://i.loli.net/2019/05/11/5cd6b6395d16d.png" alt="image"></p>
+<h4 id="框架实现"><a href="#框架实现" class="headerlink" title="框架实现"></a>框架实现</h4><h5 id="基类实现"><a href="#基类实现" class="headerlink" title="基类实现"></a>基类实现</h5><p>首先需要实现 Model、View、Presenter 各自的基类，用于提供最底层的抽象方法。</p>
+<p><strong>BaseModel</strong></p>
+<pre><code>public interface BaseModel {
+}</code></pre><p><strong>BaseView</strong></p>
+<pre><code>public interface BaseView{
+    /**
+     * 展示加载进度
+     */
+    void showLoading();
+
+
+    /**
+     * 隐藏加载进度
+     */
+    void hideLoading();
+}</code></pre><p>这里提供了两个方法，可以用来在页面加载时显示进度条和隐藏进度条。</p>
+<pre><code>public abstract class BasePresenter&lt;V extends BaseView&gt; {
+
+    protected Reference&lt;V&gt; mViewRef;//View 接口类型的弱引用
+
+    public void attachView(V view){
+        mViewRef = new WeakReference&lt;&gt;(view);
+    }
+
+    protected V getView(){
+        return mViewRef.get();
+    }
+
+    public boolean isViewAttached(){
+        return mViewRef != null &amp;&amp; mViewRef.get() != null;
+    }
+
+    public void detachView(){
+        if(mViewRef != null){
+            mViewRef.clear();
+            mViewRef = null;
+        }
+    }
+
+    public abstract  void start();
+}</code></pre><p>BasePresenter 中有一个 BaseView 子类的对象作为成员变量，attachView() 方法用来关联具体的 View 实现类，也就是 Activity 或者 Fragment，这里对它进行一个弱引用的封装，避免内存泄漏的问题。</p>
+<p><strong>BaseActivity</strong></p>
+<p>Fragment 相关的基类设计和 Activity 是类似的，这里就以 Activity 为例。BaseActivity 是在开发过程中必须的一个基类，这个类中封装了一些最为基础的功能，为每一个子类 Activity 提供服务。这里简单贴一下项目中写的 BaseActivity 的实现：</p>
+<pre><code>/**
+ * 基类Activity，处理一些公共逻辑
+ */
+public abstract class BaseActivity extends AppCompatActivity {
+
+    private Unbinder unbinder;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(attachLayout());
+        unbinder = ButterKnife.bind(this);
+        initData();
+        initView();
+    }
+
+    /**
+     * 解绑ButterKnife
+     */
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (unbinder != null &amp;&amp; unbinder != Unbinder.EMPTY) {
+            unbinder.unbind();
+            unbinder = null;
+        }
+    }
+
+    /**
+     * 初始化数据
+     */
+    protected abstract void initData();
+
+    /**
+     * 初始化View控件
+     */
+    protected abstract void initView();
+
+    /**
+     * 加载布局文件
+     *
+     * @return
+     */
+    protected abstract int attachLayout();
+
+    /**
+     * 处理返回按钮事件
+     *
+     * @param item
+     * @return
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+        }
+        return true;
+    }
+
+    /**
+     * 判断用户是否登录
+     *
+     * @return
+     */
+    protected boolean isLogined() {
+        return new DataManager().getLoginState();
+    }
+}</code></pre><p>这里介绍一下类中的一些方法，在 BaseActivity 中用到了 ButterKnife 框架，在 onCreate() 方法中进行了 ButterKnife 的绑定，在 onDestroy() 方法中进行解绑，这样在具体的 Activity 中就无需重复的绑定和解绑，可以直接使用 @BindView 等注解。</p>
+<p>另外在 BaseActivity 中定义了3个抽象方法：</p>
+<ul>
+<li>initData()：进行数据的初始化</li>
+<li>initView()：进行控件的初始化</li>
+<li>attachLayout()：绑定布局文件</li>
+</ul>
+<p>这三个抽象方法主要是用来规范 Activity 的初始化工作，让代码更加公整。</p>
+<p>至于对返回按钮的处理和判断用户是否登录这些功能，要看具体的项目来定，这里不细说。</p>
+<p><strong>MVPBaseActivity</strong></p>
+<p>为了应用 MVP 模式，添加了一个 MVPBaseActivity，这个类和 BaseActivity 作用类似，在其基础上加入了 View 和 Presenter 的互相关联。我的考虑是，在项目中，有些界面逻辑非常简单，没有必要使用 MVP 模式（减少代码量），用 MVC 模式即可，这时候就可以让 Activity 继承 BaseActivity。对于业务逻辑复杂的界面，就可以继承 MVPBaseActivity，使用 MVP 模式来进行业务解耦。</p>
+<pre><code>public abstract class MVPBaseActivity&lt;P extends BasePresenter&gt;
+        extends BaseActivity implements BaseView{
+
+    protected P mPresenter;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        mPresenter = createPresenter();
+        mPresenter.attachView(this);
+        super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mPresenter.detachView();
+    }
+
+    protected abstract P createPresenter();
+}</code></pre><p>MVPBaseActivity 继承自 BaseActivity，在它的基础上添加了对 MVP 的支持，主要实现是添加了一个 BasePresenter 子类的泛型对象作为成员变量，然后在 onCreate() 方法中进行 Presenter 和 View 的绑定，在 onDestroy() 方法中解除绑定。</p>
+<h5 id="具体业务实现"><a href="#具体业务实现" class="headerlink" title="具体业务实现"></a>具体业务实现</h5><p>实现了所有的基类后，就可以针对具体业务来应用 MVP 模式了，设想这样一个简单的首页逻辑，在 App 首页可以用一个列表展示所有文章，可以点击列表中的按钮来收藏文章和取消收藏文章，点击列表项还可以打开文章的详情页。我们需要实现的类有以下几个：</p>
+<p><strong>HomeContract</strong></p>
+<pre><code>public interface HomeContract {
+    interface Model extends BaseModel{
+        Observable&lt;Optional&lt;ArticlePage&gt;&gt; getArticleList(int page);
+        Observable&lt;Optional&lt;String&gt;&gt; collectArticle(int articleId);
+        Observable&lt;Optional&lt;String&gt;&gt; unCollectArticle(int articleId);
+    }
+
+    interface View extends BaseView{
+
+        /**
+         * 显示文章列表
+         * @param articles
+         */
+        void showArticleList(List&lt;ArticlePage.Article&gt; articles);
+
+        /**
+         * 显示收藏文章
+         * @param position
+         * @param success
+         */
+        void showCollectArticle(boolean success, int position);
+
+        /**
+         * 显示取消收藏
+         * @param position
+         * @param success
+         */
+        void showCancelCollectArticle(boolean success, int position);
+
+        /**
+         * 显示打开文章详情
+         * @param article
+         */
+        void showOpenArticleDetail(ArticlePage.Article article);
+    }
+
+    abstract class Presenter extends BasePresenter&lt;View&gt;{
+
+        /**
+         * 获取文章列表
+         */
+        public abstract void getArticleList();
+
+        /**
+         * 打开文章详情页
+         * @param article
+         */
+        public abstract void openArticleDetail(ArticlePage.Article article);
+
+
+        /**
+         * 收藏文章
+         * @param position
+         * @param article
+         */
+        public abstract void collectArticle(int position, ArticlePage.Article article);
+
+        /**
+         * 取消收藏文章
+         * @param position
+         * @param article
+         */
+        public abstract void cancelCollectArticle(int position, ArticlePage.Article article);
+
+    }
+}</code></pre><p>HomeContract 是个契约接口，它是 Google 给的 MVP 示例中的写法，将 MVP 中三个部分的抽象定义都约束在一个接口中。这样写的好处我觉得主要是让代码结构更加清晰，并且可以减少不必要的类文件（三个类文件放到一个中）。在契约接口中有三个子接口（Presenter 是抽象类），在子接口中分别定义了各自的方法定义，然后创建具体的实现类来实现这些接口。这样一个 MVP 框架就写好了。下面看看实际如何利用框架来实现业务功能：</p>
+<p><strong>HomeModel</strong></p>
+<p>HomeModel 是 HomeContract.Model 的实现类，用来发送请求获取数据。</p>
+<pre><code>public class HomeModel implements HomeContract.Model{
+
+    private WanAndroidService mService;
+
+    public HomeModel(){
+        mService = RetrofitHelper.getInstance().getWanAndroidService();
+    }
+
+    @Override
+    public Observable&lt;Optional&lt;ArticlePage&gt;&gt; getArticleList(int page) {
+        return BaseModelFactory.compose(mService.getArticleList(page, null));
+    }
+
+    @Override
+    public Observable&lt;Optional&lt;String&gt;&gt; collectArticle(int articleId) {
+        return BaseModelFactory.compose(mService.collectArticle(articleId));
+    }
+
+    @Override
+    public Observable&lt;Optional&lt;String&gt;&gt; unCollectArticle(int articleId) {
+        return BaseModelFactory.compose(mService.unCollectArticleFromArticleList(articleId));
+    }
+}</code></pre><p>在项目中用到了 Retrofit 来封装网络请求，并使用 RxJava 实现异步，后续文章会具体介绍这方面的实现。</p>
+<p><strong>HomePresenter</strong></p>
+<p>HomePresenter 继承自 HomeContract.Presenter，是负责逻辑的具体实现类。</p>
+<pre><code>public class HomePresenter extends HomeContract.Presenter {
+
+    private HomeModel homeModel;
+
+    private int mCurrentPage = 0;
+
+    public HomePresenter(){
+        this.homeModel = new HomeModel();
+    }
+
+
+    @Override
+    public void getArticleList() {
+        mCurrentPage = 0;
+        getTopArticles();
+        homeModel.getArticleList(mCurrentPage).subscribe(new Consumer&lt;Optional&lt;ArticlePage&gt;&gt;() {
+            @Override
+            public void accept(Optional&lt;ArticlePage&gt; articlePage) throws Exception {
+                getView().showArticleList(articlePage.getIncludeNull().getArticleList());
+            }
+        });
+
+    }
+
+    @Override
+    public void loadMoreArticle() {
+        mCurrentPage++;
+        homeModel.getArticleList(mCurrentPage).subscribe(new Consumer&lt;Optional&lt;ArticlePage&gt;&gt;() {
+            @Override
+            public void accept(Optional&lt;ArticlePage&gt; articlePage) throws Exception {
+                getView().showLoadMore(articlePage.getIncludeNull().getArticleList(), true);
+            }
+        }, new Consumer&lt;Throwable&gt;() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                ToastUtil.showToast(&quot;获取文章列表数据失败&quot;);
+            }
+        });
+    }
+
+    @Override
+    public void openArticleDetail(ArticlePage.Article article) {
+        getView().showOpenArticleDetail(article);
+    }
+
+    @Override
+    public void collectArticle(final int position, ArticlePage.Article article) {
+        homeModel.collectArticle(article.getId()).subscribe(new Consumer&lt;Optional&lt;String&gt;&gt;() {
+            @Override
+            public void accept(Optional&lt;String&gt; s) throws Exception {
+                getView().showCollectArticle(true, position);
+            }
+        }, new Consumer&lt;Throwable&gt;() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                getView().showCollectArticle(false, position);
+            }
+        });
+    }
+
+    @Override
+    public void cancelCollectArticle(final int position, ArticlePage.Article article) {
+        homeModel.unCollectArticle(article.getId()).subscribe(new Consumer&lt;Optional&lt;String&gt;&gt;() {
+            @Override
+            public void accept(Optional&lt;String&gt; s) throws Exception {
+                getView().showCancelCollectArticle(true, position);
+            }
+        }, new Consumer&lt;Throwable&gt;() {
+            @Override
+            public void accept(Throwable throwable) throws Exception {
+                getView().showCancelCollectArticle(false, position);
+            }
+        });
+    }
+
+    @Override
+    public void start() {
+        mCurrentPage = 0;
+        getArticleList();
+    }
+}</code></pre><p>HomePresenter 中有一个 HomeModel 的成员变量，用于调用 Model 层的方法。</p>
+<p><strong>HomeFragment</strong></p>
+<pre><code>public class HomeFragment extends MVPBaseFragment&lt;HomeContract.Presenter&gt; implements HomeContract.View{
+
+    @BindView(R.id.fhome_smart_refresh)
+    SmartRefreshLayout mSmartRefreshLayout;
+    com.youth.banner.Banner mBanner;
+    @BindView(R.id.fhome_recyclerview)
+    RecyclerView mRecyclerView;
+
+    private ArticleAdapter mAdapter;
+    public static HomeFragment newInstance(){
+        return new HomeFragment();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mPresenter.start();
+    }
+
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initView(View view) {
+
+        //初始化Adapter
+        mAdapter = new ArticleAdapter(R.layout.item_recyclerview_article,
+                new ArrayList&lt;ArticlePage.Article&gt;(0));
+        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ArticlePage.Article article = mAdapter.getData().get(position);
+                mPresenter.openArticleDetail(article);
+            }
+        });
+        mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
+            @Override
+            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+                    //如果文章已经被收藏了，就取消收藏，如果没有收藏，就收藏
+                if(mAdapter.getItem(position).isCollect()){
+                    mPresenter.cancelCollectArticle(position, mAdapter.getItem(position));
+                }else{
+                    mPresenter.collectArticle(position, mAdapter.getItem(position));
+                }
+            }
+        });
+
+        //设置RecyclerView的Adapter和布局管理器
+        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        //设置SmartRefreshLayout的Header
+        mSmartRefreshLayout.setRefreshHeader(new MaterialHeader(getActivity()));
+        //设置下拉刷新的监听器
+        mSmartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshLayout) {
+                mPresenter.getArticleList();
+            }
+        });
+
+    @Override
+    protected int attachLayout() {
+        return R.layout.fragment_home;
+    }
+
+    @Override
+    public void showArticleList(List&lt;ArticlePage.Article&gt; articles) {
+        mAdapter.addData(articles);
+        mSmartRefreshLayout.finishRefresh();
+    }
+
+
+    @Override
+    public void showCollectArticle(boolean success, int position) {
+        if(success){
+            ToastUtil.showToast(&quot;收藏文章成功&quot;);
+            mAdapter.getData().get(position).setCollect(true);
+            mAdapter.notifyDataSetChanged();
+        }else{
+            ToastUtil.showToast(&quot;收藏文章失败&quot;);
+        }
+    }
+
+    @Override
+    public void showCancelCollectArticle(boolean success, int position) {
+        if(success){
+            ToastUtil.showToast(&quot;取消收藏文章成功&quot;);
+            mAdapter.getData().get(position).setCollect(false);
+            mAdapter.notifyDataSetChanged();
+        }else{
+            ToastUtil.showToast(&quot;取消收藏文章失败&quot;);
+        }
+    }
+
+    @Override
+    public void showOpenArticleDetail(ArticlePage.Article article) {
+        //携带Title和URL跳转到ArticleDetailActivity
+        ArticleDetailActivity.actionStart(getActivity(),
+                article.getTitle(), article.getLink());
+    }
+
+    @Override
+    public void showLoading() {
+
+    }
+
+    @Override
+    public void hideLoading() {
+
+    }
+
+    @Override
+    protected HomeContract.Presenter createPresenter() {
+        return new HomePresenter();
+    }
+}</code></pre><p>在 HomeFragment 中，需要在 createPresenter() 方法中返回一个对应的 HomePresenter 对象，用于和 HomeFragment 绑定。</p>
+<h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>关于项目中 MVP 框架的内容就是这些，MVP 和 Retrofit、 RxJava 组合的剩余部分内容之后文章中再来介绍。</p>
+
+            
+        </div>
+    
+</div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2019/05/10/efficient-learning-note-2/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/12/31/summary-of-2018/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+    <!-- Leancloud -->
+    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+    <script>
+        AV.initialize('kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz', 'hGgJDQbyDLHvM3UMFXuJyYNU');
+    </script>
+    <script type="text/ls-javascript" id="leancloud-views-script">
+    function showTime(Counter) {
+        var query = new AV.Query(Counter);
+        $('.leancloud-views_num').each(function() {
+            var url = $(this).attr('id').trim();
+            query.equalTo('url', url);
+            query.find({
+                success: function(results) {
+                    if (results.length === 0) {
+                        var content = '0 ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                        return;
+                    }
+                    for (var i = 0; i < results.length; i++) {
+                        var object = results[i];
+                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    }
+                },
+                error: function(object, error) {
+                    console.log('Error: ' + error.code + ' ' + error.message);
+                }
+            });
+        });
+    }
+
+    function addCount(Counter) {
+      var Counter = AV.Object.extend('Counter');
+      url = $('.leancloud-views_num').attr('id').trim();
+      title = $('.leancloud-views_num').attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+      query.equalTo('url', url);
+      query.find({
+          success: function(results) {
+            if (results.length > 0) {
+                var counter = results[0];
+                counter.fetchWhenSave(true);
+                counter.increment('time');
+                counter.save(null, {
+                    success: function(counter) {
+                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
+                        $(document.getElementById(url)).text(content);
+                    },
+                    error: function(counter, error) {
+                        console.log('Failed to save Visitor num, with error message: ' + error.message);
+                    }
+                });
+            } else {
+              var newcounter = new Counter();
+              newcounter.set('title', title);
+              newcounter.set('url', url);
+              newcounter.set('time', 1);
+              newcounter.save(null, {
+                  success: function(newcounter) {
+                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
+                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
+                      $(document.getElementById(url)).text(content);
+                  },
+                  error: function(newcounter, error) {
+                      console.log('Failed to create');
+                  }
+              });
+            }
+        },
+        error: function(error) {
+            console.log('Error:' + error.code + ' ' + error.message);
+        }
+      });
+    }
+    $(function() {
+        var Counter = AV.Object.extend('Counter');
+        if ($('.leancloud-views_num').length === 1) {
+            addCount(Counter);
+        } else if ($('.post-title-link').length > 1) {
+            showTime(Counter);
+        }
+    });
+</script>
+
+
+
+
+
+
+   
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
