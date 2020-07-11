@@ -250,7 +250,7 @@
 
     
         <meta property="article:published_time" content="Sun Jul 05 2020 20:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Mon Jul 06 2020 00:06:17 GMT+0800">
+        <meta property="article:modified_time" content="Sat Jul 11 2020 13:24:36 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -273,7 +273,7 @@
     "mainEntityOfPage": "http://yoursite.com/2020/07/05/kotlin-learning-10-higher-older-function-lambda/index.html",
     "headline": "Kotlin 修炼手册（10）高阶函数与 Lambda",
     "datePublished": "Sun Jul 05 2020 20:00:00 GMT+0800",
-    "dateModified": "Mon Jul 06 2020 00:06:17 GMT+0800",
+    "dateModified": "Sat Jul 11 2020 13:24:36 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -494,7 +494,7 @@
 <li>高阶函数</li>
 <li>局部函数</li>
 <li>匿名函数</li>
-<li>Lambda 表达式</li>
+<li>Lambda表达式</li>
 </ol>
 <h3 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h3><p>在 Kotlin 中，函数是一等公民，函数也有自己的类型。函数可以用来定义变量，可以作为函数的形参，还可以作为函数的返回值。</p>
 <p>Kotlin 中每个函数都有自己特定的类型，函数的类型由<code>形参列表</code>，<code>-&gt;</code>，和<code>返回值类型</code>组成。</p>
@@ -741,7 +741,7 @@ fun main() {
     }
 }</code></pre>
 <p>当一个函数既有有可变长参数和函数参数时，应该将函数参数放在最后一个，这样 Lambda 表达式移到括号外面，就可以不用使用命名参数了。</p>
-<p>Lambda 执行体中最后一行代码的值会自动作为 Lambda 表达式的返回值，不需要使用 return 关键字。如果在 Lambda 中使用 return，它不是返回 Lambda 表达式，而是返回它所在的函数，这样的 return 语句被称为 <strong>非局部返回</strong>。这是 Lambda 表达式和匿名函数的一个主要区别，匿名函数的 return 用于返回该函数本身。</p>
+<p>Lambda 执行体中最后一行代码的值会自动作为 Lambda 表达式的返回值，不需要使用 return 关键字。所以通常的高阶函数（非内联）中的lambda是不允许有return。使用 inline 关键字修饰的高阶函数在 Lambda 表达式中可以使用 return，但是它不是返回 Lambda 表达式，而是返回它所在的函数，这样的 return 语句被称为 <strong>非局部返回</strong>。而匿名函数的 return 用于返回该函数本身。</p>
 <pre><code class="kotlin">// Lambda
 fun main(){
     val list = listOf&lt;Int&gt;(1, 3, 5, 7, 9)
@@ -766,7 +766,7 @@ item is : 3
 item is : 5
 item is : 7
 item is : 9</code></pre>
-<p>上述例子可以看出，Lambda 中的 return 用来返回了它所在的函数（main），所以程序直接结束，只能打印出第一个 item。</p>
+<p>上述例子可以看出，Lambda 中的 return 用来返回了它所在的函数（main），所以程序直接结束，只能打印出第一个 item。（forEach函数是内联函数）</p>
 <p>如果想要在 Lambda 表达式中使用 return 并达到和匿名函数一样的效果，可以使用限定返回的语法：</p>
 <pre><code class="kotlin">// Lambda
 fun main(){
@@ -832,6 +832,14 @@ item is : 9</code></pre>
             <!-- Post Prev & Next Nav -->
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
+    
+        <a href="/2020/07/11/kotlin-learning-11-inline-function/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
     
 
     <!-- Section Spacer -->
