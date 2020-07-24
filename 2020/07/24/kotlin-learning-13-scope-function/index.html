@@ -45,7 +45,7 @@
     
     <title>
         
-            所有标签 | 
+            Kotlin 修炼手册（13）作用域函数 | 
         
         海树
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content>
+    <meta name="keywords" content=",Kotlin">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?VbSuLZyOpxJuf3o2tYEOVg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night.min.css?QlnGZk/a4+d8XbwtXBDPiA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -223,7 +226,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="海树">
-    <meta name="msapplication-starturl" content="http://yoursite.com/tags/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2020/07/24/kotlin-learning-13-scope-function/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="海树">
@@ -238,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/tags/">
+    <meta property="og:url" content="http://yoursite.com/2020/07/24/kotlin-learning-13-scope-function/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="所有标签 | 海树">
+    <meta property="og:title" content="Kotlin 修炼手册（13）作用域函数 | 海树">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="Kotlin"> 
 
+    
+        <meta property="article:published_time" content="Fri Jul 24 2020 18:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Jul 24 2020 18:19:09 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/tags/index.html">
+        <link rel="canonical" href="http://yoursite.com/2020/07/24/kotlin-learning-13-scope-function/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2020/07/24/kotlin-learning-13-scope-function/index.html",
+    "headline": "Kotlin 修炼手册（13）作用域函数",
+    "datePublished": "Fri Jul 24 2020 18:00:00 GMT+0800",
+    "dateModified": "Fri Jul 24 2020 18:19:09 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Kotlin",
+    "description": "",
+}
+</script>
 
 
     
@@ -406,60 +442,412 @@
 
                     <!-- Post TOC -->
 
+    
+
+
 
 <!-- Layouts -->
 
-    <!-- Tags Cloud -->
-    <style>
-    #bottom{
-        position: relative;
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info with-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
+            <span class="name-span">Owen Lee</span>
+        </div>
+
+        <!-- Custom thumbnail -->
+        <div class="post_thumbnail-custom">
+            <img src="http://image.wufazhuce.com/FuxK9V4l-tzRH9yl9xp547U7g0-r">
+    
+        </div>
+
+
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                Kotlin 修炼手册（13）作用域函数
+            </p>
+            <p>这篇文章来介绍下 Kotlin 标准库中提供的作用域函数。它们的唯一目的是 <strong>在对象的上下文中执行代码块</strong>。当对一个对象调用这样的函数并提供一个 Lambda 表达式时，会形成一个临时作用域。在这个作用域中，可以不用通过对象名来访问该对象。共有以下五种：</p>
+<ul>
+<li>let</li>
+<li>with</li>
+<li>apply</li>
+<li>run</li>
+<li>also</li>
+</ul>
+<p>先举个例子：</p>
+<pre><code class="kotlin">
+const val MALE = 0
+const val FEMALE = 1
+
+class Person {
+    var name: String? = null
+    var age: Int = 0
+    var sex: Int = MALE
+    override fun toString(): String {
+        return &quot;[name=$name, age=$age, sex=${if (sex == MALE) &quot;MALE&quot; else &quot;FEMALE&quot;}]&quot;
+    }
+}
+
+fun main() {
+    val p = Person()
+    p.name = &quot;owen&quot;
+    p.age = 18
+    p.sex = MALE
+    println(p)
+
+    val p2 = Person().apply { // 调用了 apply 函数
+        name = &quot;Tom&quot;
+        age = 23
+        sex = FEMALE
+    }
+    println(p2)
+}
+// 运行结果
+[name=owen, age=18, sex=MALE]
+[name=Tom, age=23, sex=FEMALE]</code></pre>
+<p>从这个简单的例子可以看出使用作用域函数的优点：</p>
+<ol>
+<li>省略了 <code>变量名.</code>，在变量名较长且需要设置很多属性时，可以节省一些代码量。</li>
+<li>代码比较清晰，更有语义性，很容易看出 <code>{}</code> 中的代码是给这个变量设置的。</li>
+</ol>
+<p>官方文档中也提到：</p>
+<blockquote>
+<p>作用域函数没有引入任何新的技术，但是它们可以使你的代码更加简洁易读。</p>
+</blockquote>
+<p>这五个作用域函数本质上非常相似，所以了解它们之间的区别很重要，每个作用域函数之间有两个主要区别：</p>
+<ul>
+<li>引用上下文对象的方式（<strong>it</strong> or <strong>this</strong>）</li>
+<li>返回值（<strong>上下文对象</strong> or <strong>Lambda 表达式结果</strong>）</li>
+</ul>
+<p>先列一张表来有个更直观的感受：</p>
+<table>
+<thead>
+<tr>
+<th>作用域函数</th>
+<th>引用上下文对象方式</th>
+<th>返回值</th>
+<th>是否是扩展函数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>run(拓展函数型)</td>
+<td>this</td>
+<td>Lambda 表达式结果</td>
+<td>是</td>
+</tr>
+<tr>
+<td>run（非拓展函数型）</td>
+<td>-</td>
+<td>Lambda 表达式结果</td>
+<td>不是，调用无需上下文对象</td>
+</tr>
+<tr>
+<td>with</td>
+<td>this</td>
+<td>Lambda 表达式结果</td>
+<td>不是，把上下文对象当作参数</td>
+</tr>
+<tr>
+<td>apply</td>
+<td>this</td>
+<td>上下文对象</td>
+<td>是</td>
+</tr>
+<tr>
+<td>let</td>
+<td>it</td>
+<td>Lambda 表达式结果</td>
+<td>是</td>
+</tr>
+<tr>
+<td>also</td>
+<td>it</td>
+<td>上下文对象</td>
+<td>是</td>
+</tr>
+</tbody></table>
+<h3 id="引用上下文对象方式"><a href="#引用上下文对象方式" class="headerlink" title="引用上下文对象方式"></a>引用上下文对象方式</h3><p>引用上下文对象的方式有两种，it 和 this。this 表示 Lambda 表达式的接受者，it 表示 Lambda 表达式的参数。它们的主要区别主要在于 this 在没有歧义的情况下可以省略，it 不能省略。</p>
+<h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><p>run、with 以及 apply 通过关键字 this 引用上下文对象。因此在 Lambda 表达式中可以像在普通的类函数中一样访问上下文对象。在大多数场景下，可以省略 this 来简化代码。因此，对于主要对上下文对象成员进行操作（调用对象的函数或者给对象属性赋值），建议将上下文对象作为接收者，即选用 run、with  或者 apply。</p>
+<pre><code class="kotlin">fun main() {
+    val p = Person().apply {
+        name = &quot;owen&quot;
+        age = 18
+        city = &quot;上海&quot;
+    }
+    println(p)
+
+    val nextYearAge = Person().run {
+        name = &quot;tom&quot;
+        age = 22
+        city = &quot;北京&quot;
+        println(this)
+        age + 1
+    }
+    println(&quot;nextYearAge = $nextYearAge&quot;)
+
+    with(Person()) {
+        name = &quot;sam&quot;
+        age = 30
+        city = &quot;深圳&quot;
+        println(this)
+    }
+}
+// 运行结果
+Person(name=owen, age=18, city=上海)
+Person(name=tom, age=22, city=北京)
+nextYearAge = 23
+Person(name=sam, age=30, city=深圳)</code></pre>
+<h4 id="it"><a href="#it" class="headerlink" title="it"></a>it</h4><p>let 及 also 将上下文对象作为 Lambda 表达式参数。如果没有指定参数名，对象可以用隐式默认名称 it 访问。it 比 this 简短，带有 it 的表达式通常更容易阅读。然而，当调用对象函数或属性时，不能像 this 这样直接省略。因此，当上下文对象在 Lambda 中主要用作函数的 <strong>参数</strong> 时，使用 it 作为上下文对象会更好。若在代码块中使用多个变量，则 it 也更好。</p>
+<pre><code class="kotlin">const val MALE = 0
+const val FEMALE = 1
+
+class Person {
+    var name: String? = null
+    var age: Int = 0
+    var sex: Int = MALE
+
+    override fun toString(): String {
+        return &quot;[name=$name, age=$age, sex=${if (sex == MALE) &quot;MALE&quot; else &quot;FEMALE&quot;}]&quot;
     }
 
-    @media screen and (max-width: 480px) {
-        .material-tagscloud{
-            margin: 6em 2em 0;
+    fun sayHi(){
+        println(&quot;$name says Hi&quot;)
+    }
+}
+
+fun main() {
+    val p:Person? = Person()
+    p?.let {
+        it.name = &quot;Owen&quot;
+        it.age = 15
+        it.sex = MALE
+        println(it)
+    }
+
+    Person().also {
+        it.name = &quot;Sam&quot;
+        println(it)
+    }.sayHi()
+}
+// 运行结果
+[name=Owen, age=15, sex=MALE]
+[name=Sam, age=0, sex=MALE]
+Sam says Hi</code></pre>
+<h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回值也有两种，返回上下文对象本身，或者 Lambda 表达式的结果（Lambda 表达式最后一行的值）。</p>
+<h4 id="上下文对象"><a href="#上下文对象" class="headerlink" title="上下文对象"></a>上下文对象</h4><p>apply 和 also 返回的是上下文对象本身，因此可以作为辅助步骤包含在调用链中：可以继续在同一个对象上进行链式函数调用。</p>
+<p>例如：</p>
+<pre><code class="kotlin">fun main() {
+    val list = mutableListOf&lt;Int&gt;()
+    list.also {
+        println(&quot;填充数据&quot;)
+    }.apply {
+        add(4)
+        add(3)
+        add(6)
+    }.also {
+        println(&quot;排序&quot;)
+    }.sort()
+    println(list)
+}
+// 运行结果
+填充数据
+排序
+[3, 4, 6]</code></pre>
+<h4 id="Lambda-表达式结果"><a href="#Lambda-表达式结果" class="headerlink" title="Lambda 表达式结果"></a>Lambda 表达式结果</h4><p>let、run 及 with 返回 lambda 表达式的结果。所以，在需要使用其结果给一个变量赋值，或者在需要对其结果进行链式操作等情况下，可以使用它们。</p>
+<pre><code class="kotlin">fun main() {
+    val nums = mutableListOf(&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;)
+    val count = nums.run {
+        add(&quot;Four&quot;)
+        add(&quot;Five&quot;)
+        count {
+            it.endsWith(&quot;e&quot;)
         }
     }
-
-    .material-tagscloud a{
-        text-decoration:none;
-        padding: 1px 9px;
-        margin: 9px 1px;
-        line-height: 40px;
-        white-space: nowrap;
-        transition: .6s;
-        opacity: .85;
+    println(&quot;以 e 结尾的单词数量是：$count&quot;)
+}</code></pre>
+<p>下面来看下这几个函数典型用法：</p>
+<h3 id="典型使用场景"><a href="#典型使用场景" class="headerlink" title="典型使用场景"></a>典型使用场景</h3><h4 id="let"><a href="#let" class="headerlink" title="let"></a>let</h4><p>let 经常用来替代重复的 <code>?.</code>，对于一个可空变量，我们需要使用 ?. 来调用对应的函数，但每次安全调用就显得多余，也增加了不必要的非空判断，这时候就可以使用 <code>?.let</code> 在 Lambda 表达式中执行操作，在 Lambda 表达式中，变量就肯定不为空了。</p>
+<p>如这个例子，p2 为空时，Lambda 表达式中的代码不会执行：</p>
+<pre><code class="kotlin">fun main() {
+    val p:Person? = Person()
+    p?.let {
+        it.name = &quot;Owen&quot;
+        it.age = 15
+        it.sex = MALE
+        println(it)
     }
-
-    .material-tagscloud a:hover{
-        transition: .6s;
-        opacity: 1;
-        background: #FAFAFA;
-        box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+    val p2: Person? = null
+    p2?.let {
+        it.name = &quot;Tom&quot;
+        it.age = 22
+        it.sex = FEMALE
+        println(it)
     }
-</style>
+}
+// 运行结果
+[name=Owen, age=15, sex=MALE]</code></pre>
+<p>let 函数源码：</p>
+<pre><code class="kotlin">public inline fun &lt;T, R&gt; T.let(block: (T) -&gt; R): R {
+    return block(this)
+}</code></pre>
+<h4 id="with"><a href="#with" class="headerlink" title="with"></a>with</h4><p>with 不是一个拓展函数，它接收两个参数，第一个参数是上下文对象，第二个参数是 Lambda 表达式。可以理解为： 对于这个对象，执行以下操作。</p>
+<p>with 函数源码：</p>
+<pre><code class="kotlin">public inline fun &lt;T, R&gt; with(receiver: T, block: T.() -&gt; R): R {
+    return receiver.block()
+}</code></pre>
+<h4 id="run"><a href="#run" class="headerlink" title="run"></a>run</h4><p>run 有两种用法，一种是作为拓展函数，常用在当 Lambda 表达式中同时包含对象初始化和返回值计算的场景。</p>
+<p>拓展函数型 run 函数源码：</p>
+<pre><code class="kotlin">public inline fun &lt;T, R&gt; T.run(block: T.() -&gt; R): R {
+    return block()
+}</code></pre>
+<p>另一种是类似于 with，用作非拓展函数，可以在需要表达式的地方执行一个由多个语句组成的代码块。</p>
+<p>非拓展函数型 run 函数源码：</p>
+<pre><code class="kotlin">public inline fun &lt;R&gt; run(block: () -&gt; R): R {
+    return block()
+}</code></pre>
+<h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><p>对于不返回值且主要在接收者（this）对象的成员上运行的代码块使用 apply。apply 的常见情况是对象配置。这样的调用可以理解为：将以下赋值操作应用于该对象。</p>
+<p>apply 函数源码：</p>
+<pre><code class="kotlin">public inline fun &lt;T&gt; T.apply(block: T.() -&gt; Unit): T {
+    block()
+    return this
+}</code></pre>
+<h4 id="also"><a href="#also" class="headerlink" title="also"></a>also</h4><p>also 对于执行一些将上下文对象作为参数的操作很有用。对于需要引用对象而不是其属性与函数的操作，请使用 also。可以理解为：并且用该对象执行以下操作（附加效果）。</p>
+<p>also 函数源码：</p>
+<pre><code class="kotlin">public inline fun &lt;T&gt; T.also(block: (T) -&gt; Unit): T {
+    block(this)
+    return this
+}</code></pre>
+<h3 id="其他标准函数"><a href="#其他标准函数" class="headerlink" title="其他标准函数"></a>其他标准函数</h3><p>标准库中还提供了两个函数：takeIf 和 takeUnless，这两个函数可以<strong>将对象的状态检查嵌入到调用链中</strong>。</p>
+<h4 id="takeIf"><a href="#takeIf" class="headerlink" title="takeIf"></a>takeIf</h4><p>takeIf 作用的对象如果满足 Lambda 表达式的结果，则返回这个对象，否则返回 null。</p>
+<p>takeIf 函数源码：</p>
+<pre><code class="kotlin">public inline fun &lt;T&gt; T.takeIf(predicate: (T) -&gt; Boolean): T? {
+    return if (predicate(this)) this else null
+}</code></pre>
+<h4 id="takeUnless"><a href="#takeUnless" class="headerlink" title="takeUnless"></a>takeUnless</h4><p>takeUnless 和 takeIf 正好相反，当不满足条件时，返回对象，满足条件时，返回 null。</p>
+<p>takeUnless 源码：</p>
+<pre><code class="kotlin">public inline fun &lt;T&gt; T.takeUnless(predicate: (T) -&gt; Boolean): T? {
+    return if (!predicate(this)) this else null
+}</code></pre>
+<p>当在 takeIf 和 takeUnless 之后调用其他函数，需要进行空检查或者使用 <code>?.</code>，因为它们的返回值是可空的。</p>
+<p>takeIf 及 takeUnless 与作用域函数一起特别好用，比如 在takeIf 或者 takeUnless 后接 let。</p>
+<p>看如下例子对比：</p>
+<pre><code class="Kotlin">// 不使用 takeIf 和 let
+fun displaySubstringPosition(input: String, sub: String) {
+    val index = input.indexOf(sub)
+    if (index &gt;= 0) {
+        println(&quot;在【$input】中找到了【$sub】&quot;)
+        println(&quot;子串开始位置为：$index&quot;)
+    }
+}
+fun main() {
+    displaySubstringPosition(&quot;HelloWorld&quot;, &quot;ll&quot;)
+    displaySubstringPosition(&quot;HelloWorld&quot;, &quot;lf&quot;)
+}
+// 运行结果
+在【HelloWorld】中找到了【ll】
+子串开始位置为：2</code></pre>
+<pre><code class="kotlin">// 使用 takeIf 和 let
+fun displaySubstringPosition2(input: String, sub: String) {
+    input.indexOf(sub).takeIf { it &gt;= 0 }?.let {
+        println(&quot;在【$input】中找到了【$sub】&quot;)
+        println(&quot;子串开始位置为：$it&quot;)
+    }
+}
+fun main() {
+    displaySubstringPosition2(&quot;HelloWorld&quot;, &quot;ld&quot;)
+    displaySubstringPosition2(&quot;HelloWorld&quot;, &quot;lf&quot;)
+}
+// 运行结果
+在【HelloWorld】中找到了【ld】
+子串开始位置为：8</code></pre>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.kotlincn.net/docs/reference/scope-functions.html" target="_blank" rel="noopener">作用域函数</a></p>
+<p><a href="https://juejin.im/post/5d71d1ddf265da03a53a5a0f" target="_blank" rel="noopener">玩转kotlin的作用域函数</a></p>
+<p><a href="https://www.ituring.com.cn/book/2744" target="_blank" rel="noopener">《Android 第一行代码（第三版）》</a></p>
+<p><a href="https://www.phei.com.cn/module/goods/wssd_content.jsp?bookid=51362" target="_blank" rel="noopener">疯狂 Kotlin 讲义</a></p>
 
-<div class=" material-tagscloud">
-    <div class="material-post mdl-grid">
-        <a href="/tags/Android/" style="font-size: 32.08px; color: #2e2e2e">Android</a> <a href="/tags/Android-Studio/" style="font-size: 16px; color: #757575">Android Studio</a> <a href="/tags/Android-网络编程/" style="font-size: 24.77px; color: #4e4e4e">Android 网络编程</a> <a href="/tags/Blockly4Android/" style="font-size: 26.23px; color: #484848">Blockly4Android</a> <a href="/tags/Git/" style="font-size: 16px; color: #757575">Git</a> <a href="/tags/J2EE/" style="font-size: 20.38px; color: #626262">J2EE</a> <a href="/tags/Kotlin/" style="font-size: 29.15px; color: #3b3b3b">Kotlin</a> <a href="/tags/Python/" style="font-size: 18.92px; color: #686868">Python</a> <a href="/tags/java/" style="font-size: 35px; color: #212121">java</a> <a href="/tags/作品集/" style="font-size: 17.46px; color: #6f6f6f">作品集</a> <a href="/tags/剑指Offer/" style="font-size: 20.38px; color: #626262">剑指Offer</a> <a href="/tags/千字文计划/" style="font-size: 18.92px; color: #686868">千字文计划</a> <a href="/tags/学习/" style="font-size: 18.92px; color: #686868">学习</a> <a href="/tags/工作杂想/" style="font-size: 23.31px; color: #555">工作杂想</a> <a href="/tags/年终总结/" style="font-size: 18.92px; color: #686868">年终总结</a> <a href="/tags/数据结构与算法/" style="font-size: 16px; color: #757575">数据结构与算法</a> <a href="/tags/理财/" style="font-size: 21.85px; color: #5b5b5b">理财</a> <a href="/tags/知识体系/" style="font-size: 16px; color: #757575">知识体系</a> <a href="/tags/算法/" style="font-size: 20.38px; color: #626262">算法</a> <a href="/tags/计划/" style="font-size: 17.46px; color: #6f6f6f">计划</a> <a href="/tags/计算机网络/" style="font-size: 27.69px; color: #414141">计算机网络</a> <a href="/tags/设计模式/" style="font-size: 30.62px; color: #343434">设计模式</a> <a href="/tags/诗歌/" style="font-size: 21.85px; color: #5b5b5b">诗歌</a> <a href="/tags/随笔/" style="font-size: 33.54px; color: #272727">随笔</a> <a href="/tags/面经/" style="font-size: 20.38px; color: #626262">面经</a>
-    </div>
+            
+        </div>
+    
 </div>
 
 
-<script type="text/ls-javascript" id="page-tagcloud-script">
-    var adjustFooter = function() {
-        if( ($('#bottom').offset().top + $('#bottom').outerHeight() ) < $(window).height() ) {
-            var footerBottom = $(window).height() - $('#bottom').outerHeight() - $('#bottom').offset().top;
-            $('#bottom').css('bottom', '-' + footerBottom + 'px');
-        }
-    };
+                
+                    <!-- Paradox Post Info -->
+                    
+                
 
-    $(document).ready(function() {
-        adjustFooter();
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
     });
 </script>
 
+                
+            </div>
 
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/07/15/night-thought-7-talk-with-yonghao/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
 
 
 
@@ -618,6 +1006,10 @@
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -630,6 +1022,11 @@
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
