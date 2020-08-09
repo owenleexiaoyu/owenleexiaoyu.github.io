@@ -45,7 +45,7 @@
     
     <title>
         
-            归档 | 
+            Kotlin 修练手册（14）委托 | 
         
         海树
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content>
+    <meta name="keywords" content=",Kotlin">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -83,6 +83,9 @@
         <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
 
         
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?VbSuLZyOpxJuf3o2tYEOVg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night.min.css?QlnGZk/a4+d8XbwtXBDPiA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
             
         
 
@@ -223,7 +226,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="海树">
-    <meta name="msapplication-starturl" content="http://yoursite.com/archives/page/10/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2020/08/09/kotlin-learning-14-delegate/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="海树">
@@ -238,13 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/archives/page/10/">
+    <meta property="og:url" content="http://yoursite.com/2020/08/09/kotlin-learning-14-delegate/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | 海树">
+    <meta property="og:title" content="Kotlin 修练手册（14）委托 | 海树">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    
+    <meta property="og:article:tag" content="Kotlin"> 
 
+    
+        <meta property="article:published_time" content="Sun Aug 09 2020 10:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Sun Aug 09 2020 10:05:14 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -252,13 +258,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/page/10/index.html">
+        <link rel="canonical" href="http://yoursite.com/2020/08/09/kotlin-learning-14-delegate/index.html">
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2020/08/09/kotlin-learning-14-delegate/index.html",
+    "headline": "Kotlin 修练手册（14）委托",
+    "datePublished": "Sun Aug 09 2020 10:00:00 GMT+0800",
+    "dateModified": "Sun Aug 09 2020 10:05:14 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Owen Lee",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/icon.jpg"
+        },
+        "description": "我心有猛虎  细嗅蔷薇香"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "海树",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": ",Kotlin",
+    "description": "",
+}
+</script>
 
 
     
@@ -404,25 +440,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
+        <div class="post-header_info with-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
             <span class="name-span">Owen Lee</span>
@@ -430,600 +470,338 @@
 
         <!-- Custom thumbnail -->
         <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Ft7U7DhjVg4j2Q9cbRcZOw5wOdPn">
+            <img src="http://image.wufazhuce.com/Fm4tlRpAT6acCsuvzitFHIYhWpF4">
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/13/java-interview-9-mutithread/">Java 笔试面试（9）多线程</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                Java 笔试面试（9）多线程
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/13/java-interview-9-mutithread/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 13, 2018
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                Kotlin 修练手册（14）委托
+            </p>
+            <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>这篇文章来记录下学习 Kotlin 中委托这部分知识的笔记。内容主要包含：</p>
+<ul>
+<li>类委托</li>
+<li>属性委托</li>
+<li>标准委托函数</li>
+</ul>
+<h4 id="什么是委托（Delegate）"><a href="#什么是委托（Delegate）" class="headerlink" title="什么是委托（Delegate）"></a>什么是委托（Delegate）</h4><p>先来谈谈什么是委托。委托，指的是委托模式，是软件设计模式中的一项基本技巧，是替代继承的一种很好的方式。委托模式中，有两个对象参与处理同一个请求，接受请求的对象将请求委托给另一个对象来处理。特点是接受请求的对象持有了真正处理请求的对象的引用。委托模式和 <a href="https://lixiaoyu.cc/2018/11/07/learn-design-pattern-12-proxy/" target="_blank" rel="noopener">代理模式</a> 结构很像。代理模式更注重过程，而委托模式更注重结果。</p>
+<p>委托模式中有三种角色：</p>
+<ul>
+<li>约束：形式是接口或抽象类，定义了需要被代理的业务，满足面向接口编程；</li>
+<li>被委托者：真正的业务逻辑执行者；</li>
+<li>委托者：负责对请求的接收，将约束定义的业务委托给具体的被委托者。</li>
+</ul>
+<p><img src="https://i.loli.net/2020/08/09/gky5JVu7OM1XEUY.png" alt="image1"></p>
+<p>Kotlin 直接通过 <strong><code>by</code></strong> 关键字来支持委托模式，优雅简洁。</p>
+<h3 id="类委托"><a href="#类委托" class="headerlink" title="类委托"></a>类委托</h3><p>类委托就是说 <strong>一个类中定义的方法实际是调用另一个类的对象的方法来实现的</strong>。</p>
+<p>下面以一个具体的例子来介绍下 Kotlin 中类委托的写法（该例子来自参考资料 2，清晰易懂）：</p>
+<p>很多年轻人喜欢打英雄联盟，这个游戏是有等级划分的，对多数玩家来说想要上到钻石段位比较难，就随之诞生了游戏代练一职，帮玩家上分，这其中就体现了委托模式的思想，玩家委托代练打排位，玩家不关心代练打排位的过程，只关注最后是否成功晋级的结果。</p>
+<p>首先我们定义一个约束，包含了需要委托的业务，这里的就是打排位和晋级。</p>
+<pre><code class="kotlin">// 接口：约束，定义了需要代理的逻辑
+interface IGamePlayer {
+    // 打排位赛
+    fun rank()
+    // 晋级
+    fun update()
+}</code></pre>
+<p>然后我们定义被委托者，也就是游戏代练。</p>
+<pre><code class="kotlin">// 被委托者（游戏代练）
+class RealGamePlayer(val name: String) : IGamePlayer {
+
+    override fun rank() {
+        println(&quot;$name 打排位赛&quot;)
+    }
+
+    override fun update() {
+        println(&quot;$name 晋级&quot;)
+    }
+
+}</code></pre>
+<p>上面代码中定义了 RealGamePlayer，有个属性是 name，同时实现了约束接口 IGamePlayer，并实现了接口中定义的业务方法。</p>
+<p>接下来是委托者：</p>
+<pre><code class="kotlin">// 委托者
+class DelegateGamePlayer(private val player: IGamePlayer) : IGamePlayer by player</code></pre>
+<p>可以看到，我们定义了一个 DelegateGamePlayer，同样实现了 IGamePlayer，并且通过构造函数传入了一个被委托对象 player。Kotlin 委托用 by 修饰，by 后面就是被委托的对象，可以是一个表达式，所以上例通过 <code>by player</code> 把 DelegateGamePlayer 的所有方法委托给了 player。</p>
+<p>最后写一些测试代码：</p>
+<pre><code class="kotlin">fun main() {
+    val realGamePlayer = RealGamePlayer(&quot;张三&quot;)
+    val delegateGamePlayer = DelegateGamePlayer(realGamePlayer)
+    delegateGamePlayer.rank()
+    delegateGamePlayer.update()
+}
+// 运行结果
+张三 打排位
+张三 晋级</code></pre>
+<p>以上就是类委托的使用，两个对象参与处理一个请求，这个请求是约束中的定义的业务方法。委托类（DelegateGamePlayer）和被委托类（RealGamePlayer）都要实现约束接口（IGamePlayer）。</p>
+<p>如果委托者中重写了约束中的方法实现，那么这个方法不会委托给被委托者。</p>
+<p>我们修改一下 DelegateGamePlayer：</p>
+<pre><code class="kotlin">class DelegateGamePlayer(private val player: IGamePlayer) : IGamePlayer by player {
+    override fun update() {
+        println(&quot;玩家升级了&quot;)
+    }
+}
+
+fun main() {
+    val realGamePlayer = RealGamePlayer(&quot;张三&quot;)
+    val delegateGamePlayer = DelegateGamePlayer(realGamePlayer)
+    delegateGamePlayer.rank()
+    delegateGamePlayer.update()
+}
+
+// 运行结果
+张三 打排位赛
+玩家升级了</code></pre>
+<h3 id="属性委托"><a href="#属性委托" class="headerlink" title="属性委托"></a>属性委托</h3><p>属性委托指的是一个类的某个属性值不是在类中直接进行定义，而是将其托付给一个代理类，从而实现对该类的属性统一管理。</p>
+<p>属性委托的格式是：</p>
+<pre><code class="kotlin">val / var &lt;属性名&gt;: &lt;类型&gt; by &lt;表达式&gt;</code></pre>
+<ul>
+<li>val / var：属性是可变还是只读</li>
+<li>属性名：属性的名称</li>
+<li>类型：属性的数据类型</li>
+<li>表达式：委托代理类</li>
+</ul>
+<p>前面提到，委托中有个角色是约束，里面定义了代理的业务。类委托中通常是个接口，那属性委托呢？其实也是有约束的，被代理的逻辑就是这个属性的 <code>getter / setter</code> 方法，因此被委托类需要提供 <code>setValue/getValue</code> 的方法。如果是 val 属性，则只需要提供 <code>getValue</code>。</p>
+<p>我们看一个示例：</p>
+<pre><code class="kotlin">class Test {
+    // 属性委托
+    var prop: String by Delegate()
+}
+
+
+class Delegate {
+    operator fun getValue(thisRef: Any?, property: KProperty&lt;*&gt;): String {
+        return &quot;对象为：$thisRef，委托的属性为：$property&quot;
+    }
+
+    operator fun setValue(thisRef: Any?, property: KProperty&lt;*&gt;, value: String) {
+        println(&quot;$value 被赋值给对象 $thisRef 的 $property 属性&quot;)
+    }
+}
+
+fun main() {
+    println(Test().prop)
+    Test().prop = &quot;Hello World&quot;
+}
+
+// 运行结果
+对象为：cc.lixiaoyu.hellokotlin.Test@1a93a7ca，委托的属性为：var cc.lixiaoyu.hellokotlin.Test.prop: kotlin.String
+
+Hello World 被赋值给对象 cc.lixiaoyu.hellokotlin.Test@693fe6c9 的 var cc.lixiaoyu.hellokotlin.Test.prop: kotlin.String 属性</code></pre>
+<p>从上面的代码中可以看出一个属性委托的被委托类是怎么写的，下面来解释下 getValue 和 setValue 中出现的参数：</p>
+<ul>
+<li><p><strong>thisRef</strong>：指的是这个属性所在的对象，必须和这个属性所在类的类型相同或者是它的父类。</p>
+</li>
+<li><p><strong>property</strong>：指的是这个属性，它的类型必须是 <code>KProperty&lt;*&gt;</code> 或者 <code>KProperty&lt;*&gt; 的父类</code>。</p>
+</li>
+<li><p><strong>value</strong>：指的是给属性赋的值，必须和属性的类型相同或者是属性类型的子类。</p>
+</li>
+</ul>
+<p>这样固定的写法，如果每次都要手写还是比较麻烦的，我们很自然能想到写一个接口，被代理类只需要实现这个接口就可以了。Kotlin 标注库中也确实提供了这样的接口：<code>ReadOnlyProperty</code> 和 <code>ReadWriteProperty</code>。</p>
+<pre><code class="kotlin">interface ReadOnlyProperty&lt;in R, out T&gt; {
+    operator fun getValue(thisRef: R, property: KProperty&lt;*&gt;): T
+}
+
+interface ReadWriteProperty&lt;in R, T&gt; {
+    operator fun getValue(thisRef: R, property: KProperty&lt;*&gt;): T
+    operator fun setValue(thisRef: R, property: KProperty&lt;*&gt;, value: T)
+}</code></pre>
+<p>被委托类实现其中一个接口就可以了，val 属性实现ReadOnlyProperty，var属性实现ReadWriteProperty。</p>
+<p>上面的 Delegate 类可以改写成这样：</p>
+<pre><code class="kotlin">class Delegate : ReadWriteProperty&lt;Any, String&gt; {
+    override fun getValue(thisRef: Any, property: KProperty&lt;*&gt;): String {
+        return &quot;对象为：$thisRef，委托的属性为：$property&quot;
+    }
+    override fun setValue(thisRef: Any, property: KProperty&lt;*&gt;, value: String) {
+        println(&quot;$value 被赋值给对象 $thisRef 的 $property 属性&quot;)
+    }
+}</code></pre>
+<h3 id="Kotlin-标准库中的委托"><a href="#Kotlin-标准库中的委托" class="headerlink" title="Kotlin 标准库中的委托"></a>Kotlin 标准库中的委托</h3><p>Kotlin 标准库中提供了几种委托，比如：</p>
+<ul>
+<li>延迟属性（lazy properties）：属性的值只在首次访问时计算；</li>
+<li>可观察属性（observable properties）：监听器会收到这个属性值变化的通知；</li>
+<li>把属性存储在映射（map）中</li>
+<li>Not Null：用于无法在初始化时就确定属性值的情况</li>
+</ul>
+<p>下面分别来看看：</p>
+<h4 id="延迟属性-lazy"><a href="#延迟属性-lazy" class="headerlink" title="延迟属性 lazy"></a>延迟属性 lazy</h4><p><code>lazy()</code> 接受一个 Lambda 并返回一个 <code>Lazy&lt;T&gt;</code> 实例的函数，返回的实例可以作为实现延迟属性的委托：第一次调用 get() 会执行已传递给 lazy() 的 Lambda 并记录结果， 后续调用 get() 只是返回记录的结果。</p>
+<pre><code class="kotlin">val lazyValue:String by lazy {
+    println(&quot;computed&quot;) // 第一次调用执行，第二次调用不执行
+    &quot;Hello&quot;
+}
+
+fun main() {
+    println(lazyValue) // 第一次执行
+    println(lazyValue) // 第二次执行
+}
+
+// 运行结果
+computed
+Hello
+Hello</code></pre>
+<p>lazy 延迟初始化也可以接受参数，标准库中提供了下面三种：</p>
+<pre><code class="kotlin">public enum class LazyThreadSafetyMode {
+
+    /**
+     * 添加同步锁，使 lazy 延迟初始化线程安全
+     */
+    SYNCHRONIZED,
+
+    /**
+     * 初始化的 Lambda 表达式可以在同一时间被多次调用，但是只有第一个返回的值作为初始化的值
+     */
+    PUBLICATION,
+
+    /**
+     * 没有同步锁，多线程访问时候，初始化的值是未知的，非线程安全。
+     * 一般情况下，不推荐使用这种方式，除非你能保证初始化和属性始终在同一个线程
+     */
+    NONE,
+}</code></pre>
+<p>lazy 函数默认的模式是 LazyThreadSafetyMode.SYNCHRONIZED。</p>
+<h4 id="可观察属性-observable"><a href="#可观察属性-observable" class="headerlink" title="可观察属性 observable"></a>可观察属性 observable</h4><p>observable 可以用于实现观察者模式。<code>Delegates.observable()</code> 函数接受两个参数：第一个是 <code>初始值</code>，第二个是属性值变化事件的 <code>响应器（监听器）</code>。在属性赋值后会执行事件的响应器，它有三个参数：<code>被赋值的属性</code>、<code>旧值</code> 和 <code>新值</code>：</p>
+<pre><code class="kotlin">class User {
+    var name : String by Delegates.observable(&quot;初始值&quot;) {
+        property, oldValue, newValue -&gt;
+        println(&quot;属性是：$property，旧值是：$oldValue，新值是：$newValue&quot;)
+    }
+}
+
+fun main() {
+    val user = User()
+    user.name = &quot;第一次赋值&quot;
+    user.name = &quot;第二次赋值&quot;
+}
+// 运行结果
+属性是：var cc.lixiaoyu.hellokotlin.User.name: kotlin.String，旧值是：初始值，新值是：第一次赋值
+属性是：var cc.lixiaoyu.hellokotlin.User.name: kotlin.String，旧值是：第一次赋值，新值是：第二次赋值</code></pre>
+<h4 id="vetoable"><a href="#vetoable" class="headerlink" title="vetoable"></a>vetoable</h4><p><code>vetoable</code> 和 observable 一样，可以观察属性值的变化，并且 vetoable 可以通过处理器函数来决定属性值是否生效。</p>
+<p>我们声明一个 Int 类型的属性 vetoableValue，如果新值比旧值大，则赋值给属性，否则不赋值。</p>
+<pre><code class="kotlin">var vetoableValue: Int by Delegates.vetoable(0) { _, oldValue, newValue -&gt;
+    println(&quot;$oldValue -&gt; $newValue&quot;)
+    newValue &gt; oldValue
+}
+
+fun main() {
+    println(&quot;vetoableValue=$vetoableValue&quot;)
+    vetoableValue = 10
+    println(&quot;vetoableValue=$vetoableValue&quot;)
+    vetoableValue = 5
+    println(&quot;vetoableValue=$vetoableValue&quot;)
+    vetoableValue = 20
+    println(&quot;vetoableValue=$vetoableValue&quot;)
+}
+
+// 运行结果
+vetoableValue=0
+0 -&gt; 10
+vetoableValue=10
+10 -&gt; 5
+vetoableValue=10 // 10 -&gt; 5 的赋值没有生效
+10 -&gt; 20
+vetoableValue=20</code></pre>
+<h4 id="属性存储在映射中"><a href="#属性存储在映射中" class="headerlink" title="属性存储在映射中"></a>属性存储在映射中</h4><p>一个常见的用例是在一个映射（map）里存储属性的值。 这经常出现在像解析 JSON 或者做其他”动态”事情的应用中。 在这种情况下，你可以使用映射实例自身作为委托来实现委托属性。</p>
+<p>比如下面这个例子：</p>
+<pre><code class="kotlin">class User(val map: Map&lt;String, Any?&gt;) {
+    val name: String by map
+    val age: Int by map
+}
+fun main() {
+    val user = User(mapOf(
+        &quot;name&quot; to &quot;Owen&quot;,
+        &quot;age&quot; to 18
+    ))
+    println(&quot;name=${user.name}, age=${user.age}&quot;)
+}
+// 运行结果
+name=Owen, age=18</code></pre>
+<p>如果是 var 属性，需要把 Map 换成 MutableMap。</p>
+<h4 id="Not-Null"><a href="#Not-Null" class="headerlink" title="Not Null"></a>Not Null</h4><p><code>Delegates.notNull</code> 适用于那些无法在初始化阶段就确定属性值的场合。如果属性在赋值前被访问会抛出异常。</p>
+<pre><code class="kotlin">var notNullValue: String by Delegates.notNull()
+
+fun main() {
+    notNullValue = &quot;hello&quot;
+    println(notNullValue)
+}
+
+// 运行结果
+hello</code></pre>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.runoob.com/kotlin/kotlin-delegated.html" target="_blank" rel="noopener">kotlin 委托【菜鸟教程】</a></p>
+<p><a href="https://juejin.im/post/5e1288d86fb9a048217a19d9" target="_blank" rel="noopener">一文彻底搞懂 Kotlin 中的委托</a></p>
+<p><a href="https://www.kotlincn.net/docs/reference/delegation.html" target="_blank" rel="noopener">委托【Kotlin 中文站】</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/45040290" target="_blank" rel="noopener">如何正确地使用 Kotlin 的属性代理</a></p>
+
+            
         </div>
-    </div>
+    
 </div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
 
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/Fi8XSRZCdEi-67YEpZAPF0KRsr6X">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/13/java-interview-8-collections/">Java 笔试面试（8）容器</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                Java 笔试面试（8）容器
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/13/java-interview-8-collections/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 13, 2018
-            </div>
-            <div class="post_entry-footer-comment">
                 
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <div id="comment" style='padding:10px;' class="vcomment"></div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+<script>
+    var GUEST_INFO = ['nick','mail','link'];
+    var guest_info = ''.split(',').filter(function(item){
+        return GUEST_INFO.indexOf(item) > -1
+    });
+    var notify = 'false' == true;
+    var verify = 'false' == true;
+    new Valine({
+        el: '.vcomment',
+        notify: notify,
+        verify: verify,
+        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
+        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
+        placeholder: "来啊，快活啊~~",
+        pageSize:'',
+        avatar:'',
+        lang:''
+    });
+</script>
+
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/07/24/kotlin-learning-13-scope-function/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FnyLk2nHjYAKDF4gY9ca6hYpuJKe">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/13/java-interview-7-memory-manage/">Java 笔试面试（7）Java平台与内存管理</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/13/java-interview-7-memory-manage/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 13, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FhvurE6je5Hrp_JfWE_h0p7gFJpg">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/12/java-interview-6-exception/">Java 笔试面试（6）异常处理</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                Java 笔试面试（6）异常处...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/12/java-interview-6-exception/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 12, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FiLQswZdFss6oWiwwOVCOAMFG_d_">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/12/java-interview-5-string-and-array/">Java 笔试面试（5）字符串与数组</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                Java 笔试面试...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/12/java-interview-5-string-and-array/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 12, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FjOMdD_CvegIc0l5DNzFaVN3d8Vj">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/12/java-interview-4-basic-data-types/">Java 笔试面试（4）基本数据类型与运算</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                1. Java基本数据类型Java一...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/12/java-interview-4-basic-data-types/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 12, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FhqXuQ0uP8FqDpSB1x5NRP4J3kgi">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/12/java-interview-3-keywords/">Java 笔试面试（3）关键字</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/12/java-interview-3-keywords/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 12, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FlrbgZBTmUlzeigMz8DXIsWN2MXf">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/11/java-interview-2-oop/">Java 笔试面试（2）面向对象</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                1. 面向对象与面向过程的区别...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/11/java-interview-2-oop/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 11, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FnYP0tkaMwoXPJ7UkTG3yVwRRGlk">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/10/target-on-offer-4/">剑指Offer系列（4）</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                19. 顺时针打印矩阵描述：输入一个矩阵...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/10/target-on-offer-4/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 10, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FgL14C_rTVr1e-uEJeFPGRE1qFyp">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/06/08/target-on-offer-3/">剑指Offer系列（3）</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                13. 调整数组...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/06/08/target-on-offer-3/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/剑指Offer/">剑指Offer</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/算法/">算法</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 08, 2018
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/archives/page/9/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/8/">8</a><a class="page-number" href="/archives/page/9/">9</a><span class="page-number current">10</span><a class="page-number" href="/archives/page/11/">11</a><a class="page-number" href="/archives/page/12/">12</a><a class="page-number" href="/archives/page/14/">14</a><a class="extend next" rel="next" href="/archives/page/11/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_forward</i></button></a>
-        </nav>
-    
-
-    
-</div>
 
 
                     
@@ -1181,6 +959,10 @@
 <!-- Import prettify js  -->
 
     
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
 
 
 
@@ -1193,6 +975,11 @@
     });
 
     
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
         
     
     
