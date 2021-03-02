@@ -45,7 +45,7 @@
     
     <title>
         
-            2020 年终总结与 2021 展望 | 
+            Kotlin 修炼手册（16）泛型 | 
         
         海树
     </title>
@@ -56,7 +56,7 @@
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content=",总结">
+    <meta name="keywords" content=",Kotlin">
     <meta name="theme-color" content="#0097A7">
 
     <!-- Disable Fucking Bloody Baidu Tranformation -->
@@ -226,7 +226,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="海树">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2021/01/03/summary-of-2020/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2021/03/02/kotlin-learning-16-generic/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="海树">
@@ -241,16 +241,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2021/01/03/summary-of-2020/">
+    <meta property="og:url" content="http://yoursite.com/2021/03/02/kotlin-learning-16-generic/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="2020 年终总结与 2021 展望 | 海树">
+    <meta property="og:title" content="Kotlin 修炼手册（16）泛型 | 海树">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content>
-    <meta property="og:article:tag" content="总结"> 
+    <meta property="og:article:tag" content="Kotlin"> 
 
     
-        <meta property="article:published_time" content="Sun Jan 03 2021 11:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Sun Jan 03 2021 11:43:15 GMT+0800">
+        <meta property="article:published_time" content="Tue Mar 02 2021 10:00:00 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 02 2021 22:43:39 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -258,7 +258,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2021/01/03/summary-of-2020/index.html">
+        <link rel="canonical" href="http://yoursite.com/2021/03/02/kotlin-learning-16-generic/index.html">
     
 
     <!-- Structured-data for SEO -->
@@ -270,10 +270,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2021/01/03/summary-of-2020/index.html",
-    "headline": "2020 年终总结与 2021 展望",
-    "datePublished": "Sun Jan 03 2021 11:00:00 GMT+0800",
-    "dateModified": "Sun Jan 03 2021 11:43:15 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2021/03/02/kotlin-learning-16-generic/index.html",
+    "headline": "Kotlin 修炼手册（16）泛型",
+    "datePublished": "Tue Mar 02 2021 10:00:00 GMT+0800",
+    "dateModified": "Tue Mar 02 2021 22:43:39 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Owen Lee",
@@ -291,7 +291,7 @@
             "url": "/img/favicon.png"
         }
     },
-    "keywords": ",总结",
+    "keywords": ",Kotlin",
     "description": "",
 }
 </script>
@@ -462,15 +462,14 @@
     <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post-header_info with-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
             <span class="name-span">Owen Lee</span>
         </div>
 
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://image.wufazhuce.com/FjNb3tSrJFtROK4Rltb5n7KVEjEz">
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
     
         </div>
 
@@ -485,199 +484,339 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                2020 年终总结与 2021 展望
+                Kotlin 修炼手册（16）泛型
             </p>
-            <h2 id="历史总结"><a href="#历史总结" class="headerlink" title="历史总结"></a>历史总结</h2><ul>
-<li>毕业一周年小结</li>
+            <p>这篇文章来写一下 Kotlin 中的泛型。</p>
+<h2 id="章节大纲"><a href="#章节大纲" class="headerlink" title="章节大纲"></a>章节大纲</h2><ul>
+<li>泛型是什么</li>
+<li>Java 中的泛型</li>
+<li>Kotlin 中的泛型</li>
 </ul>
-<p><a href="https://lixiaoyu.cc/2020/06/30/summary-of-first-year-after-graduation/" target="_blank" rel="noopener">https://lixiaoyu.cc/2020/06/30/summary-of-first-year-after-graduation/</a></p>
-<ul>
-<li>2019 年版本</li>
-</ul>
-<p><a href="https://lixiaoyu.cc/2019/12/29/summary-of-2019/" target="_blank" rel="noopener">https://lixiaoyu.cc/2019/12/29/summary-of-2019/</a></p>
-<ul>
-<li>2018 年版本</li>
-</ul>
-<p><a href="https://lixiaoyu.cc/2018/12/31/summary-of-2018/" target="_blank" rel="noopener">https://lixiaoyu.cc/2018/12/31/summary-of-2018/</a></p>
-<p>如果看完了之前的总结，你会大抵了解我，一个平凡但幸运的人。</p>
-<h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>2020 年真的是非常特殊的一年，如果让我用一个词来概括过去的一年的话，我会选择『变化』。新冠病毒的全球肆虐给整个世界都造成了极大变化。大到世界格局，如西方政局动荡，地缘政治兴起；小到每个人的日常生活，比如口罩成为生活中必不可少的物品，互联网更加渗透到生活的各个方面。对我而言，这一年同样有很大的变化。</p>
-<h2 id="2020-回顾"><a href="#2020-回顾" class="headerlink" title="2020 回顾"></a>2020 回顾</h2><p>先来回顾下这一年的我的一些经历，主要是工作和生活这两个部分。</p>
-<h3 id="工作"><a href="#工作" class="headerlink" title="工作"></a>工作</h3><p>工作上，2020 年相较 19 年在业绩上有一些进步。刚进公司时，在团队里只是一个小透明，做的也只是一些小需求，记得有次团建，和 PM、UI 互相认脸熟，一些同学承接了已经有比较有代表性的需求了，一提大家就知道，而我却没啥能拿出手的，好像有点尴尬。后来因为机缘巧合，转到现在所在的业务线，当时团队还是很小，算是经历了筚路蓝缕的开拓阶段，所以在现在的团队中和其他成员相比占据了一些先发优势，也就有机会去做一些稍大的、有挑战一些的需求。上半年，主要在做所在业务的代码组件化，下半年，主要在做 TT 和抖音两个产品中特定功能的代码重写。得益于有了这几个稍大的项目，获得了一次 Spots Bonus 的荣誉，得到了一些鼓励。上半年的绩效也是超出预期，不出意外的话，今年的绩效会比去年好一些。以上是工作中做的好的部分。</p>
-<p>做的不好的地方也是挺多的。第一点是效率问题，回顾自工作以来，自己工作效率还是比较低的，每天好像需要忙很多事，但一天下来又好像重要的事情都进展缓慢，自己啥都没干呢，一天就没了。有很多时间被浪费在了刷手机、回消息、吃东西、发呆上，常常没有一块集中的时间用来好好 coding。之前看到有位同事整理了自己一两个月的每日时间分布，并统计成图表，用来展示自己花在开会、思考等等方面的时间。当时第一感受就是太厉害了，这怎么可能统计的出来，但是却实实在在做到了，我在想明年也可以挑一个月来实践一番。</p>
-<p>第二点其实也和时间有关，就是在时间的分配上做的还是不好。做事总喜欢赶 ddl，明明一个需求的时间还是挺宽裕的，前几天就随便做做，把大头工作推到快截止的时候。虽然前面几天好过了，但是后面面对一些 bug 或者突发事情加塞的时候，总是会一个头两个大。这一点其实组里有个同事就做的很好，他做的需求往往 bug 数很少，因为前期调研的很充分，并且进度也是尽可能往前赶，所以有比较充足的时间面对后续的事情。最近一个需求，我的 bug 是最多的，比其他两位同事加起来还多，总让人觉得很不好意思。所以这里也要向优秀的人看齐，提高对自己的要求和标准。</p>
-<p>第三点是还不够有 OwnerShip，对自己负责的业务 handle 得还不够。最近一年做了组件化，所以是几个业务组件的 Owner，这时候就需要帮一些同事 review 代码，我觉得我还是挺偷懒的，通常都是顺手点了，也没怎么很仔细的看，这个就不是很好。之前就出过一次，有问题的代码在我眼皮底下过了一遍，也没发现理应发现的问题，上线后就出问题了，所以还是应该要对自己负责的东西做到足够了解，并且足够认真负责。</p>
-<p>第四点是有的时候思维还不跟不太上。印象比较深的是在需求评审会上，我总是比较沉默的一个，对评审的需求挺少能敏锐地抓住比如一些漏洞或者不合理的地方。有位工作经验和我相仿的同事，就是比较严谨和细致的，常常可以快速抓住重点，提出问题。这里也可以好好向他学习，没有这种敏锐的目光或者经验，就早点做好准备，把一些重要的需求提前看看，这样肯定会好很多。</p>
-<h3 id="生活"><a href="#生活" class="headerlink" title="生活"></a>生活</h3><p>生活上大致从日常生活和感情生活这两个方面来谈谈。</p>
-<p>日常生活方面，其实有些乏善可陈，自己大概是那种比较无聊的人，周末大部分时间都是比较咸鱼的状态，既不怎么出去玩，也没好好看书学习。将很多时间还是花在了一些没啥意义的事情上面，比如玩手机、刷 B 站上没啥营养的视频、看网络小说打发时间等等。这部分实在没啥可取之处。</p>
-<p>可即使在这样的日常中，还有一个人在一直陪着我，度过了一整个 2020。和小萌是去年 11 月份认识的，距今已经快 400 天了。在网易云交友程序上，我们被愚蠢的 AI 匹配上了，音乐相似度达 93%。我问她，你叫什么，她说：“你就叫我行者吧。”，我回道：“大师兄，师傅被妖怪抓走啦”，开始了我们两个人的缘分。在一起的 200 多天里，有见面时的欣喜，有拥抱时的甜蜜，有分别时的不舍，有异地时的思念，也有吵架时的难受与崩溃。凡此总总，酸甜苦辣，构成了我们两个人这一年以来的恋爱时光。大概来说，这是个螺旋上升的过程，有曲折，有艰难，但是在往更加美好的未来发展。</p>
-<p><strong>2020 很难，有你很暖。</strong></p>
-<h2 id="拔掉-Flag"><a href="#拔掉-Flag" class="headerlink" title="拔掉 Flag"></a>拔掉 Flag</h2><p>这一章节，对过去一年的 OKR 总结打分。</p>
+<h2 id="泛型是什么"><a href="#泛型是什么" class="headerlink" title="泛型是什么"></a>泛型是什么</h2><p>我们知道在 ArrayList 集合中，是用了一个 Object 数组来存储数据，这样就可以存储所有的类型。这样的设计在使用时会出现一个问题，就是我们不能保证里面每个 item 都是同一种数据类型。</p>
+<pre><code class="java">public class ArrayList {
+    private Object[] array;
+    private int size;
+    public void add(Object e) {...}
+    public void remove(int index) {...}
+    public Object get(int index) {...}
+}</code></pre>
+<p>比如我们有这样的代码：</p>
+<pre><code class="plain">ArrayList list = new ArrayList();
+list.add(&quot;abc&quot;);
+list.add(123);
+item1 = (String)list.get(0)
+item2 = (String)list.get(1)</code></pre>
+<p>在获取下标为 1 的 item 并强转成 String 类型时，就会出现数据类型转化错误。<br>为了解决这个问题，我们可以给存储 String 类型定义一个专门的 ArrayList：</p>
+<pre><code class="java">public class StringArrayList {
+    private String[] array;
+    private int size;
+    public void add(String e) {...}
+    public void remove(int index) {...}
+    public String get(int index) {...}
+}</code></pre>
+<p>这样在编译时，list.add(123) 就会直接报错，可以保证 ArrayList 中都是同一种类型。<br>同样地，想要一个只存储 Integer、Float、Person（自定义的类）类型的数据时，就需要再定义一个 IntegerArrayList、FloatArrayList、PersonArrayList，而这显然是不切实际的。</p>
+<p>在这种情况下，泛型就出现了。</p>
+<p><strong>那什么是泛型呢？</strong></p>
+<p>泛型是指<code>参数化类型</code>，把具体的类型泛化，定义时用符号来指代类型，实际使用时再传入确定的类型。泛型其实就是定义了一种<strong>模板</strong>来适应任意类型，它的好处就是在使用时不必做类型强制转换，它通过编译器对类型进行检查保证。泛型可以用在类、接口、方法中，分别被称为泛型类，泛型接口、泛型方法。</p>
+<p>再来看前面的例子，我们给 ArrayList 加上泛型 E：</p>
+<pre><code class="java">public class ArrayList&lt;E&gt; {
+    private Object[] array;
+    private int size;
+    public void add(E e) {...}
+    public void remove(int index) {...}
+    public E get(int index) {...}
+}</code></pre>
+<p>在使用时，存储 String 和 Integer 类型的数据：</p>
+<pre><code class="java">// 只存储 String 类型
+ArrayList&lt;String&gt; stringList = new ArrayList&lt;&gt;();
+stringList.add(&quot;abc&quot;);  // OK 
+stringList.add(123);    // 编译器会报错
+item1 = stringList.get(0) // 这里不需要强制类型转换
+// 只存储 Integer 类型
+ArrayList&lt;Integer&gt; intList = new ArrayList&lt;&gt;();
+intList.add(&quot;abc&quot;);  // 编译器会报错
+intList.add(123);    // OK
+item2 = intList.get(0) // 这里不需要强制类型转换</code></pre>
+<h2 id="Java-中的泛型"><a href="#Java-中的泛型" class="headerlink" title="Java 中的泛型"></a>Java 中的泛型</h2><h3 id="泛型的使用"><a href="#泛型的使用" class="headerlink" title="泛型的使用"></a>泛型的使用</h3><h4 id="泛型类"><a href="#泛型类" class="headerlink" title="泛型类"></a>泛型类</h4><p>泛型用于类的定义中，被称为泛型类。通过泛型可以完成对一组类的操作对外开放相同的接口。最典型的就是各种容器类，如：List、Set、Map。</p>
+<p>例如下面这个简单的泛型类：</p>
+<pre><code class="java">//此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示泛型
+//在实例化泛型类时，必须指定T的具体类型
+public class Generic&lt;T&gt; { 
+    // key这个成员变量的类型为T,T的类型由外部指定  
+    private T key;
+    public Generic(T key) { //泛型构造方法形参key的类型也为T，T的类型由外部指定
+        this.key = key;
+    }
+    public T getKey(){ //泛型方法getKey的返回值类型为T，T的类型由外部指定
+        return key;
+    }
+}</code></pre>
+<p>定义的泛型类，<strong>并不一定要传入泛型类型实参</strong>。在使用泛型的时候如果传入泛型实参，则会根据传入的泛型实参做相应的限制，这时泛型才会起到本应起到的限制作用。如果不传入泛型类型实参的话，在泛型类中使用泛型的方法或成员变量定义的类型可以为任何的类型。比如：</p>
+<pre><code class="java">Generic generic = new Generic(&quot;111111&quot;);
+Generic generic1 = new Generic(4444);
+Generic generic2 = new Generic(55.55);
+Generic generic3 = new Generic(false);
+System.out.println(&quot;key is &quot; + generic.getKey());
+System.out.println(&quot;key is &quot; + generic1.getKey());
+System.out.println(&quot;key is &quot; + generic2.getKey());
+System.out.println(&quot;key is &quot; + generic3.getKey());
+// 运行结果为
+key is 111111
+key is 4444
+key is 55.55
+key is false</code></pre>
+<blockquote>
+<p>注意：泛型的类型参数只能是类类型，不能是基本数据类型，如果是 int、float，需要变成相应的装箱类。</p>
+</blockquote>
+<h4 id="泛型接口"><a href="#泛型接口" class="headerlink" title="泛型接口"></a>泛型接口</h4><p>泛型还可以用在接口上，称为泛型接口，定义及使用和泛型类基本相同。</p>
+<p>例如，<code>Arrays.sort(Object[])</code>可以对任意数组进行排序，但待排序的元素必须实现<code>Comparable&lt;T&gt;</code>这个泛型接口：</p>
+<pre><code class="java">public interface Comparable&lt;T&gt; {
+    /**
+     * 返回负数: 当前实例比参数o小
+     * 返回 0: 当前实例与参数o相等
+     * 返回正数: 当前实例比参数o大
+     */
+    int compareTo(T o);
+}</code></pre>
+<h4 id="泛型方法"><a href="#泛型方法" class="headerlink" title="泛型方法"></a>泛型方法</h4><p>泛型方法是在调用方法的时候指明泛型的具体类型。</p>
+<p>看下面这个例子：</p>
+<pre><code class="java">/**
+ * 泛型方法的基本介绍
+ * @param tClass 传入的泛型实参
+ * @return T 返回值为T类型
+ * 说明：
+ *     1）public 与 返回值中间的 &lt;T&gt; 非常重要，可以理解为声明此方法为泛型方法。
+ *     2）只有声明了&lt;T&gt;的方法才是泛型方法，泛型类中的使用了泛型的成员方法并不是泛型方法。
+ *     3）&lt;T&gt;表明该方法将使用泛型类型T，此时才可以在方法中使用泛型类型T。
+ *     4）与泛型类的定义一样，此处T可以随便写为任意标识，常见的如T、E、K、V等形式的参数常用于表示泛型。
+ */
+public &lt;T&gt; T genericMethod(Class&lt;T&gt; tClass)throws InstantiationException, IllegalAccessException {
+    T instance = tClass.newInstance();
+    return instance;
+}</code></pre>
+<p>再来看一个更全的例子：</p>
+<pre><code class="java">public class GenericTest {
+   //这个类是个泛型类，在上面已经介绍过
+   public class Generic&lt;T&gt;{     
+        private T key;
+        public Generic(T key) {
+            this.key = key;
+        }
+        // 虽然在方法中使用了泛型，但是这并不是一个泛型方法。
+        // 这只是类中一个普通的成员方法，只不过他的返回值是在声明泛型类已经声明过的泛型
+        // 所以在这个方法中才可以继续使用 T 这个泛型。
+        public T getKey(){
+            return key;
+        }
+        /**
+         * 这个方法是有问题的，编译器会给我们提示这样的错误信息&quot;cannot reslove symbol E&quot;
+         * 因为在类的声明中并未声明泛型E，所以在使用E做形参和返回值类型时，编译器会无法识别。
+        public E setKey(E key){
+             this.key = key
+        }
+        */
+    }
+    /** 
+     * 这才是一个真正的泛型方法。
+     * 首先在public与返回值之间的&lt;E&gt;必不可少，这表明这是一个泛型方法，并且声明了一个泛型E
+     * 这个E可以出现在这个泛型方法的任意位置.
+     * 泛型的数量也可以为任意多个 
+     *    如：public &lt;T,K&gt; K showKeyName(Generic&lt;T&gt; container){
+     *        ...
+     *        }
+     */
+    public &lt;E&gt; E show(E e){
+        System.out.println(e.toString());
+        return e;
+    }
+    //这也不是一个泛型方法，这就是一个普通的方法，只是使用了Generic&lt;Number&gt;这个泛型类做形参而已。
+    public void showKeyValue1(Generic&lt;Number&gt; obj){
+        Log.d(&quot;泛型测试&quot;,&quot;key value is &quot; + obj.getKey());
+    }
+    //这也不是一个泛型方法，这也是一个普通的方法，只不过使用了泛型通配符?
+    //同时这也印证了泛型通配符章节所描述的，?是一种类型实参，可以看做为Number等所有类的父类
+    public void showKeyValue2(Generic&lt;?&gt; obj){
+        Log.d(&quot;泛型测试&quot;,&quot;key value is &quot; + obj.getKey());
+    }
+     /**
+     * 这个方法是有问题的，编译器会为我们提示错误信息：&quot;UnKnown class &#39;E&#39; &quot;
+     * 虽然我们声明了&lt;T&gt;,表明了这是一个可以处理泛型的泛型方法。
+     * 但是只声明了泛型类型T，并未声明泛型类型E，因此编译器并不知道该如何处理E这个类型。
+    public &lt;T&gt; T showKeyName(Generic&lt;E&gt; container){
+        ...
+    }  
+    */
+    /**
+     * 这个方法也是有问题的，编译器会为我们提示错误信息：&quot;UnKnown class &#39;T&#39; &quot;
+     * 对于编译器来说T这个类型并未项目中声明过，因此编译也不知道该如何编译这个类。
+     * 所以这也不是一个正确的泛型方法声明。
+    public void showkey(T genericObj){
+    }
+    */
+}</code></pre>
+<h3 id="泛型的特性"><a href="#泛型的特性" class="headerlink" title="泛型的特性"></a>泛型的特性</h3><p><strong>泛型只在编译阶段有效</strong></p>
+<pre><code class="java">List&lt;String&gt; stringArrayList = new ArrayList&lt;String&gt;();
+List&lt;Integer&gt; integerArrayList = new ArrayList&lt;Integer&gt;();
+Class classStringArrayList = stringArrayList.getClass();
+Class classIntegerArrayList = integerArrayList.getClass();
+if(classStringArrayList.equals(classIntegerArrayList)){
+    System.out.println(&quot;类型相同&quot;);
+}
+// 运行结果
+类型相同 </code></pre>
+<p>Java 中的泛型，只在编译阶段有效。在编译过程中，正确检验泛型结果后，会将泛型的相关信息擦除，并且在对象进入和离开方法的边界处添加类型检查和类型转换的方法。泛型信息不会进入到运行时阶段。<br><strong>Java 中的泛型具有「不可变性 Invariance」</strong>。来看这样一个例子：</p>
+<pre><code class="plain">List&lt;View&gt; viewList = new List&lt;TextView&gt;(); // 这里的赋值操作会失败</code></pre>
+<p>Java 里面认为 <code>List&lt;TextView&gt;</code> 和 <code>List&lt;View&gt;</code> 类型并不一致，也就是说，子类的泛型（List&lt; Button&gt;）不属于泛型（List&lt; TextView&gt;）的子类。<br>正是因为有编译期类型擦除，所以为了保证类型安全，不允许这样赋值。</p>
+<h3 id="泛型上下界和通配符"><a href="#泛型上下界和通配符" class="headerlink" title="泛型上下界和通配符"></a>泛型上下界和通配符</h3><p>前面提到，Java 的泛型具有不可变性，子类的泛型不属于泛型的子类。</p>
+<p>使用泛型时，可以为传入的泛型类型实参进行上下边界的限制，这样就可以突破上述不可变性的限制，但同时在使用上也会有新的限制。</p>
+<h4 id="上边界"><a href="#上边界" class="headerlink" title="上边界"></a>上边界</h4><p>为泛型添加上边界，即传入的类型实参必须是指定类型或指定类型的子类型：用 <strong>&lt;? extends 指定类型&gt;</strong> 表示，可以使泛型具有 <strong>「协变性 Covariance」</strong></p>
+<p>例如上面的例子：</p>
+<pre><code class="java">List&lt;? extends View&gt; viewList = new List&lt;TextView&gt;(); // 这样的赋值是可以的</code></pre>
 <blockquote>
 <ol>
-<li>技术的持续精进</li>
+<li>这里的 ? 是通配符，表示是个不确定的类型</li>
+<li>这里的 extends 限制了类型的上界，但和类继承的 extends 有些区别：<ul>
+<li>包含定义上界类型本身</li>
+<li>上界类型可以是接口</li>
+</ul>
+</li>
 </ol>
-<ul>
-<li>Android 基本开发知识深入学习</li>
-<li>学好 Kotlin</li>
-<li>学习跨端开发：Flutter</li>
-<li>新技术，难技术的理解：Jetpack，组件化，插件化，热修复等。</li>
-<li>多写代码，维护自己的 Github</li>
-</ul>
 </blockquote>
-<ul>
-<li>Android 知识这一年一直没有很大的长进，还是停留在之前的水准，把新版的《第一行代码》看完了，也没有好好的巩固。<strong>0.3 分</strong></li>
-<li>Kotlin 这一年学了挺久，还不算学好，没有到运用自如的地步，也还有些既定的知识点还没来得及学习。<strong>0.5 分</strong></li>
-<li>Dart 和 Flutter 其实内心一直想学，但是看了一点点放弃了，Dart 语言写了一篇博客还没写完。我觉得这个还是未来很不错的一个方向，新的一年要安排起来。<strong>0.2 分</strong></li>
-<li>新技术这块，进展也比较少，之前有闹过一个笑话，问一个同事问题，被反问为啥不用 XXX，当时觉得好尴尬，因为自己都没听过这个东西。包括组件化做了一段时间，还没有沉淀成一套知识体系。<strong>0.2 分</strong></li>
-<li>很久没写自己的代码了，之前以为买了新电脑会更勤奋，后来好像也就那样。<strong>0.1 分</strong></li>
-<li>这个 O 平均分：<strong>0.26 分</strong></li>
-</ul>
+<p>有协变性的泛型只能作为生产者，也就是只能读，不能写。</p>
+<p>看下面的例子：</p>
+<pre><code class="java">List&lt;? extends View&gt; viewList = new List&lt;TextView&gt;(); // 这样的赋值是可以的
+View v = viewList.get(0); // 可以读取
+viewList.add(new TextView()); // 报错，不可以写入</code></pre>
+<p>因为有上界限制，viewList 里的元素一定是 View 或 View 的子类型，根据多态的特性，是可以赋值给父类的引用的，所以读取操作没有问题。<br>在 add 时，因为 List&lt;? extends View&gt; 代表一个不确定的类型，有可能是 List<view> 也可能是 List<textview>，所以在添加时，编译器无法确定是否满足类型安全，所以直接报错。</textview></view></p>
+<h4 id="下边界"><a href="#下边界" class="headerlink" title="下边界"></a>下边界</h4><p>为泛型添加下边界，即传入的类型实参必须是指定类型或指定类型的父类型：用<strong>&lt;? super 指定类型&gt;</strong>表示，可以使泛型具有<strong>「逆变性 Contravariance」。</strong></p>
+<p>例如：</p>
+<pre><code class="java">List&lt;? super TextView&gt; tvList = new ArrayList&lt;TextView&gt;(); // 本身
+List&lt;? super TextView&gt; tvList = new ArrayList&lt;View&gt;();  // 直接父类
+List&lt;? super TextView&gt; tvList = new ArrayList&lt;Object&gt;();  // 间接父类</code></pre>
+<p>有逆变性的泛型一般用来作为消费者，只能写，不能读。（这里的不能读是指<code>不能类型安全地读取出来</code>，拿到的都是 Object 对象，要类型强转也是可以的）</p>
+<pre><code class="java">List&lt;? super TextView&gt; tvList = new ArrayList&lt;View&gt;(); // 这样的赋值是可以的
+Object o = viewList.get(0); // get() 获取到的是Object类型的对象
+viewList.add(new View());   // add操作可以</code></pre>
+<h4 id="泛型通配符"><a href="#泛型通配符" class="headerlink" title="泛型通配符"></a>泛型通配符</h4><p>类型通配符一般是使用 <code>?</code> 代替具体的类型参数。例如 List&lt;?&gt; 在逻辑上是 List&lt; String&gt;, List&lt; Integer&gt; 等所有 List&lt;具体类型实参&gt; 的父类。<code>?</code> 的含义其实是 <code>? extends Object</code>。</p>
 <blockquote>
-<ol start="2">
-<li>提升个人形象</li>
-</ol>
-<ul>
-<li>健身健身</li>
-<li>痘痘治理</li>
-</ul>
+<p>注意：这里的 ? 是类型实参，而不是类型形参，也就是说，这里的 ? 和 String、Integer、Person 等是一样的，是一种真实的类型。</p>
 </blockquote>
+<pre><code class="java">public class GenericTest {
+    public static void main(String[] args) {
+        List&lt;String&gt; name = new ArrayList&lt;String&gt;();
+        List&lt;Integer&gt; age = new ArrayList&lt;Integer&gt;();
+        List&lt;Number&gt; number = new ArrayList&lt;Number&gt;();
+
+        name.add(&quot;icon&quot;);
+        age.add(18);
+        number.add(314);
+
+        getData(name);
+        getData(age);
+        getData(number);
+
+   }
+
+   public static void getData(List&lt;?&gt; data) {
+      System.out.println(&quot;data :&quot; + data.get(0));
+   }
+}
+// 运行结果
+data :icon
+data :18
+data :314</code></pre>
+<h2 id="Kotlin-中的泛型"><a href="#Kotlin-中的泛型" class="headerlink" title="Kotlin 中的泛型"></a>Kotlin 中的泛型</h2><p>Kotlin 中的泛型用法和 Java 基本是一样的。</p>
+<h4 id="泛型类-1"><a href="#泛型类-1" class="headerlink" title="泛型类"></a>泛型类</h4><pre><code class="java">class Box&lt;T&gt;(t: T) {
+    var value: T = t
+}</code></pre>
+<h4 id="泛型方法-1"><a href="#泛型方法-1" class="headerlink" title="泛型方法"></a>泛型方法</h4><p>类型参数 <strong><t></t></strong> 要放在函数名的前面</p>
+<pre><code class="java">fun &lt;T&gt; boxIn(value: T) = Box(value)
+// 以下都是合法语句
+val box4 = boxIn&lt;Int&gt;(1)
+val box5 = boxIn(1)     // 👈 编译器会进行类型推断</code></pre>
+<h4 id="泛型上边界"><a href="#泛型上边界" class="headerlink" title="泛型上边界"></a>泛型上边界</h4><p>Kotlin 中上边界用 <code>out</code> 关键字表示，对应 Java 中的 <code>? extends</code>，具有协变性，用于生产者，只能读不能写，只能用作输出，可以作为返回值类型但是无法作为入参的类型。</p>
+<pre><code class="java">val tvList: List&lt;out TextView&gt; = ArrayList&lt;Button&gt;() // 👈 out</code></pre>
+<p>以一个生产者为例子：</p>
+<pre><code class="java">class Producer&lt;T&gt; {
+    fun produce(): T {
+        ...
+    }
+}
+val producer: Producer&lt;out TextView&gt; = Producer&lt;Button&gt;()
+val textView: TextView = producer.produce() // 👈 相当于 &#39;List&#39; 的 `get`</code></pre>
+<h4 id="泛型下边界"><a href="#泛型下边界" class="headerlink" title="泛型下边界"></a>泛型下边界</h4><p>Kotlin 中下边界用 <code>in</code> 关键字表示，对应 Java 中的 <code>? super</code>， 使泛型具有逆变性，用于消费者，只能写不能读，只能用作输入，可以作为入参的类型但是无法作为返回值的类型。</p>
+<pre><code class="java">val tvList: List&lt;in TextView&gt; = ArrayList&lt;View&gt;() // 👈 in</code></pre>
+<p>以一个消费者为例子：</p>
+<pre><code class="java">class Consumer&lt;T&gt; {
+    fun consume(t: T) {
+        ...
+    }
+}
+val consumer: Consumer&lt;in Button&gt; = Consumer&lt;TextView&gt;()
+consumer.consume(Button(context)) // 👈 相当于 &#39;List&#39; 的 &#39;add&#39;</code></pre>
+<h4 id="声明处的-in-和-out"><a href="#声明处的-in-和-out" class="headerlink" title="声明处的 in 和 out"></a>声明处的 in 和 out</h4><p>在前面的例子中，在声明 Producer 的时候已经确定了泛型 T 只会作为输出来用，但是每次都需要在使用的时候加上 <code>out TextView</code> 来支持协变，写起来很麻烦。Kotlin 提供了另一种写法：</p>
+<p>在声明类的时候，给泛型符号加上 <code>out</code> 关键字，表明泛型参数 T 只会用来输出，在使用的时候就不用额外加 out 了。</p>
+<pre><code class="java">//             👇
+class Producer&lt;out T&gt; {
+    fun produce(): T {
+        ...
+    }
+}
+val producer: Producer&lt;TextView&gt; = Producer&lt;Button&gt;() // 👈 这里不写 out 也不会报错
+val producer: Producer&lt;out TextView&gt; = Producer&lt;Button&gt;() // 👈 out 可以写但没必要</code></pre>
+<p>与 out 一样，可以在声明类的时候，给泛型参数加上 <code>in</code> 关键字，来表明这个泛型参数 T 只用来输入。</p>
+<pre><code class="java">//             👇
+class Consumer&lt;in T&gt; {
+    fun consume(t: T) {
+        ...
+    }
+}
+val consumer: Consumer&lt;Button&gt; = Consumer&lt;TextView&gt;() // 👈 这里不写 in 也不会报错
+val consumer: Consumer&lt;in Button&gt; = Consumer&lt;TextView&gt;() // 👈 in 可以写但没必要</code></pre>
+<h4 id="泛型通配符-1"><a href="#泛型通配符-1" class="headerlink" title="泛型通配符"></a>泛型通配符</h4><p>前面提到 Java 中单个 <code>?</code> 号能作为泛型通配符使用，相当于 <code>? extends Object</code>。</p>
+<p>它在 Kotlin 中有等效的写法：<code>*</code> 号，相当于 <code>out Any</code>。</p>
+<pre><code class="java">var list: List&lt;*&gt;</code></pre>
+<h4 id="where-关键字"><a href="#where-关键字" class="headerlink" title="where 关键字"></a>where 关键字</h4><p>上面提到 Java 中泛型上边界用 extends 关键字，如果同时有多个上界时，用 <code>&amp;</code>。</p>
+<pre><code class="java">//                            👇 T 的类型必须同时是 Animal 和 Food 的子类型
+class Monster&lt;T extends Animal &amp; Food&gt;{ 
+}</code></pre>
+<p>在 Kotlin 中的等效写法是使用 <code>where</code> 关键字：</p>
+<pre><code class="java">//                👇
+class Monster&lt;T&gt; where T: Animal, T: Food { 
+}</code></pre>
+<h4 id="reified-关键字"><a href="#reified-关键字" class="headerlink" title="reified 关键字"></a>reified 关键字</h4><p>在 Java 中因为在编译期间类型被擦除了，所以在运行期不能获取泛型的确切类型。比如在运行期不能检查一个对象是否是泛型 T 的实例。</p>
+<pre><code class="java">&lt;T&gt; void printIfTypeMatch(Object item) {
+    if (item instanceof T) { // 👈 IDE 会提示错误，illegal generic type for instanceof
+        System.out.println(item);
+    }
+}</code></pre>
+<p>在 Kotlin 中同样不行：</p>
+<pre><code class="java">fun &lt;T&gt; printIfTypeMatch(item: Any) {
+    if (item is T) { // 👈 IDE 会提示错误，Cannot check for instance of erased type: T
+        println(item)
+    }
+}</code></pre>
+<p>这个问题，在 Java 中的解决方案通常是额外传递一个 <code>Class&lt;T&gt;</code> 类型的参数，然后通过 <code>Class#isInstance</code> 方法来检查：</p>
+<pre><code class="java">&lt;T&gt; void check(Object item, Class&lt;T&gt; type) {
+    if (type.isInstance(item)) {
+        //      👆
+        System.out.println(item);
+    }
+}</code></pre>
+<p>Kotlin 中同样可以这么解决，不过还有一个更方便的做法：使用关键字 <code>reified</code> 配合 <code>inline</code> 来解决：</p>
+<pre><code class="plain">inline fun &lt;reified T&gt; printIfTypeMatch(item: Any) {
+    if (item is T) { // 👈 这里就不会在提示错误了
+        println(item)
+    }
+}</code></pre>
+<p>这里的原理是：</p>
 <ul>
-<li>健身这块，是花了一些时间的。和小萌刚开始的时候，早上会约好一起起来跑步，为了第一次面基也进行了突击跑步，所以有段时间感觉自己瘦了，哈哈。后面工作上事情多了起来、天气转凉后就没动了。<strong>0.4 分</strong></li>
-<li>痘痘治理也有些效果，专门去医院看了皮肤科，买了一些药膏和口服的药，有段时间痘痘确实变得很少，皮肤变得不错，后面没有维护好，主要是熬夜，又有些劣化。<strong>0.4 分</strong></li>
-<li>新的一年这两项还是重点，这个 O 平均分：<strong>0.4 分</strong></li>
+<li>inline 内联方法会把这个方法代码复制到调用处进行替换，这时候编译器知道当前的方法中泛型对应的具体类型是什么</li>
+<li>reified 关键字就是让编译器把泛型替换为具体类型，从而达到不被擦除的目的</li>
 </ul>
-<blockquote>
-<ol start="3">
-<li>丰富输入</li>
-</ol>
-<ul>
-<li>多读技术书籍，多读技术博客</li>
-<li>多读有价值的文学作品：小说、传记等，目标 20 本；不看网文</li>
-<li>英语学习，开言英语上面的课程坚持学习，同时增加英文阅读，多查英文文档、资料</li>
-</ul>
-</blockquote>
-<ul>
-<li>技术书今年买了很多本，但看了比较多的应该是《第一行代码》《疯狂 Kotlin 讲义》，其他的大多只是翻了翻。技术博客倒是常看，不过比较零散一些，用来了解居多，新的一年还是要以看书为准。<strong>0.3 分</strong></li>
-<li>文学作品这一年看的还算可以，应该有十几本的样子，比如紫金陈的《推理之王》系列，东野圭吾的《伽利略》系列等。网文作为消遣也看了一些。<strong>0.5 分</strong></li>
-<li>英语学习这块还是草率了，没怎么坚持，开言英语上的课程也过期了。<strong>0.2 分</strong></li>
-<li>这个 O 的平均分：<strong>0.33 分</strong></li>
-</ul>
-<blockquote>
-<ol start="4">
-<li>多产出，多沉淀</li>
-</ol>
-<ul>
-<li>技术博客 &gt; 40</li>
-<li>其他博客（感受、生活记录） &gt; 10</li>
-</ul>
-</blockquote>
-<ul>
-<li>数了一下，写了 9 篇技术，学习类的博客；4 篇生活、感想类博客。感觉目标定的有点激进，新的一年可以适当降低目标，以两周产出一篇技术博客来算，20～25 篇是个较为合理的数字。</li>
-<li>这个 O 的平均分：<strong>(9+4) / 50 = 0.26 分</strong></li>
-</ul>
-<blockquote>
-<ol start="5">
-<li>兴趣培养</li>
-</ol>
-<ul>
-<li>学习摄影，多拍照片，找几本关于摄影基础知识的书学习下</li>
-<li>学习理财知识，找一些资料进行系统学习</li>
-<li>好好玩游戏，吃鸡不重要，重要的是陪你跑毒的伙伴</li>
-<li>多出去走走，别总宅</li>
-</ul>
-</blockquote>
-<ul>
-<li>摄影一直没有找书或者教程来看，拍照也是随便拍拍。<strong>0.2 分</strong></li>
-<li>理财知识最近有开始看，看了《工薪族财务自由指南》《小狗钱钱》，开始了理财之路，还有很多东西要学，之后好好整理这块的概念和知识。<strong>0.5 分</strong></li>
-<li>《绝地求生》基本上荒废了，一个是自己的技术实在是太菜了，一段时间不玩就见人发怵，枪也压不住；再一个是也没其他朋友还继续玩这游戏了，慢慢地也就不玩了。It’s the end of an era.<strong>0.3 分</strong></li>
-<li>这个 O 的平均分：<strong>0.33 分</strong></li>
-</ul>
-<blockquote>
-<ol start="6">
-<li>完成必要任务</li>
-</ol>
-<ul>
-<li>考驾照</li>
-<li>办理居住证</li>
-</ul>
-</blockquote>
-<ul>
-<li>驾照已经从大连转到了太仓，预计过年前就可以学出来。<strong>0.5 分</strong></li>
-<li>居住证因为房东家里有些特殊情况，所以一直没办成功。<strong>0.2 分</strong></li>
-<li>这个 O 的平均分：<strong>0.35 分</strong></li>
-</ul>
-<blockquote>
-<ol start="7">
-<li>培养优秀的习惯，提高自驱力、自控力</li>
-</ol>
-<ul>
-<li>早睡早起</li>
-<li>不拖延，有事及时处理</li>
-<li>使用 GTD 时间管理法则管理自己的工作、学习，提高效率</li>
-</ul>
-</blockquote>
-<ul>
-<li>早睡早起这块做的挺不好的，晚睡已经养成了一定生物钟，早睡睡不着，而且总是刷刷手机就不知不觉到了挺晚。不过这个还是很重要的，为了我的头发，必须早睡早起。新的一年，要制定可执行的作息，既保证休息，又有时间来学习充电。<strong>0.3 分</strong></li>
-<li>这个之前也有提到，拖延症还是挺严重，新的一年要看一本这方面的书并付诸行动来改善。<strong>0.3 分</strong></li>
-<li>使用 GTD，这个倒是有在用微软 Todo 来管理日常的任务，不过这个也有些缺陷，就是那个扫房子效应，倾向于去做更容易的事情，应该要有更能提示优先级的能力。<strong>0.5 分</strong></li>
-<li>这个 O 的平均分：<strong>0.36 分</strong></li>
-</ul>
-<h2 id="2021-展望"><a href="#2021-展望" class="headerlink" title="2021 展望"></a>2021 展望</h2><p>对明年的展望其实还是从工作和生活两个方面来说。工作上，整体目标是要在团队内承担更多的责任，扩大影响力；逐渐培养高效积极的工作方式和节奏；寻求更大的发展空间和更高的业绩产出；提高自我要求，持续且硬核地提升技术。</p>
-<p>生活上，整体目标是：好好经营和小萌的感情，多关心她多爱护她，不要让她难过，多创造在一起的机会；多锻炼身体，培养健康的生活作息，调节好和工作的平衡；多外出走走，发现生活的美好。</p>
-<blockquote>
-<p>写在新年之后：<br>这篇年终总结竟然新年之后才堪堪写完，在新年时也看了很多朋友在朋友圈发的总结，感觉大家总体上 2020 都挺压抑，期待 2021 能开启新的美好的生活。我自然也是类似的，希望 2021 我们所有人都一扫 2020 的颓靡，新的一年万事顺遂、平安喜乐。Enjoy every day in our life, Make every morning counts.</p>
-</blockquote>
-<h2 id="2021-年度-OKR"><a href="#2021-年度-OKR" class="headerlink" title="2021 年度 OKR"></a>2021 年度 OKR</h2><p>去年的 OKR 完成度也还行吧，但新的一年这些 O 还是可以继续努力的。所以有些 O 还是会保留。</p>
-<ol>
-<li><strong>好好和小萌谈恋爱</strong></li>
-</ol>
-<ul>
-<li>希望吵架次数 &lt; 2</li>
-<li>希望见面次数 &gt; 5</li>
-</ul>
-<ol start="2">
-<li><strong>个人技术的持续精进</strong></li>
-</ol>
-<ul>
-<li>按照规划完成海树计划，构建起完整的 Android 知识体系</li>
-<li>学完扔物线高级 Android 工程师课程</li>
-<li>将  Android 知识体系做成自己 Github 上的项目</li>
-<li>完成玩 Android 项目的 Java MVP 版本的代码编写（完善新需求）和 Kotlin MVVM 版本的代码重构</li>
-<li>学习 Dart 和 Flutter，完成一个 Flutter 版的玩 Android 项目 和 Flutter 版抖音项目</li>
-<li>技术相关博客产出 20～25，并保证一定的质量</li>
-</ul>
-<ol start="3">
-<li><strong>强健体魄、改善作息与习惯</strong></li>
-</ol>
-<ul>
-<li>记录每日作息，12 点前入睡比例 &gt; 80%，工作日（含工作周日） 7 点前起床比例 &gt; 80%</li>
-<li>跑步天数 &gt; 100 天，里程 &gt; 300 公里</li>
-<li>干掉拖延症，今日事今日毕</li>
-<li>提高工作和生活效率，1 月份核对每日工作和生活时间配比，以最直观的方式查看自己一天时间流向，一个月后进行复盘，第二个月针对复盘结果来专门改进，对比前后效率。</li>
-</ul>
-<ol start="4">
-<li><strong>调节工作与技术学习，丰富精神世界</strong></li>
-</ol>
-<ul>
-<li>小说等文学作品阅读数 &gt; 20，每本书看完后记录，写个小读后感，不限文体，200 字以内</li>
-<li>记录生活中值得纪念的事，这类博客数 &gt; 10 篇</li>
-<li>了解海内外时事</li>
-</ul>
-<ol start="5">
-<li><strong>学习并开始理财</strong></li>
-</ol>
-<ul>
-<li>阅读理财类书籍（计入上一点的阅读数）及网络资料，了解理财相关概念，整理相关笔记</li>
-<li>核对 2020 年个人总支出，制定 2021 年预算，使用新的记账软件进行记账</li>
-<li>给自己购买保险，给父母购买保险</li>
-<li>开始理财，结合预算，分配收入中储蓄和开支比例，每月定投</li>
-</ul>
-<h2 id="2021-xm-展望"><a href="#2021-xm-展望" class="headerlink" title="2021 xm 展望"></a>2021 xm 展望</h2><p>☺ 能力范围内和啸宇多见几面</p>
-<p>☺ 找到一份实习</p>
-<p>☺ 找到一份工作</p>
-<p>2021 很关键的一年，会有很多愿望。</p>
-<p>想和啸宇一步一步走过去。</p>
-<p>加油吧！</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://kaixue.io/kotlin-generics/" target="_blank" rel="noopener">Kotlin 的泛型 - 扔物线</a></p>
+<p><a href="https://www.runoob.com/kotlin/kotlin-generics.html" target="_blank" rel="noopener">Kotlin 泛型 - 菜鸟教程</a></p>
+<p><a href="https://blog.csdn.net/s10461/article/details/53941091" target="_blank" rel="noopener">java 泛型详解-绝对是对泛型方法讲解最详细的，没有之一</a></p>
 
             
         </div>
@@ -723,21 +862,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2021/03/02/kotlin-learning-16-generic/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2020/08/30/kotlin-learning-15-dsl/" id="post_nav-older" class="next-content">
+        <a href="/2021/01/03/summary-of-2020/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
