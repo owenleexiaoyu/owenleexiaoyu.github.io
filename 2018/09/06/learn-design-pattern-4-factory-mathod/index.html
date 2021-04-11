@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（4）工厂方法模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -383,77 +377,9 @@
 </ul>
 <h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="https://i.loli.net/2019/08/29/7qvoQOJCthMaSwD.jpg" alt="img1.png"></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>还是以水果的例子来看看代码：</p>
-<pre><code>//抽象产品：Fruit
-public abstract class Fruit {
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象产品：Fruit</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Fruit</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//--------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//具体产品：Apple、Banana</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">extends</span> <span class="title">Fruit</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃了一个苹果"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Banana</span> <span class="keyword">extends</span> <span class="title">Fruit</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃了一个香蕉"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//-------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//抽象的工厂类（接口实现）IFactory</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IFactory</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function">Fruit <span class="title">createFruit</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//--------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//每个具体产品都对应一个具体的工厂类AppleFactory、BananaFactory</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppleFactory</span> <span class="keyword">implements</span> <span class="title">IFactory</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Fruit <span class="title">createFruit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Apple();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BananaFactory</span> <span class="keyword">implements</span> <span class="title">IFactory</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Fruit <span class="title">createFruit</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Banana();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//---------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//main方法中调用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">		Fruit f1 = <span class="keyword">new</span> AppleFactory().createFruit();</span><br><span class="line">		f1.eat();</span><br><span class="line">		Fruit f2 = <span class="keyword">new</span> BananaFactory().createFruit();</span><br><span class="line">		f2.eat();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public abstract void eat();
-
-}
-
-//--------------------------
-
-//具体产品：Apple、Banana
-public class Apple extends Fruit{
-
-    @Override
-    public void eat() {
-        System.out.println(&quot;吃了一个苹果&quot;);
-    }
-
-}
-public class Banana extends Fruit{
-
-    @Override
-    public void eat() {
-        System.out.println(&quot;吃了一个香蕉&quot;);
-    }
-
-}
-
-//-------------------------------
-
-//抽象的工厂类（接口实现）IFactory
-public interface IFactory {
-
-    Fruit createFruit();
-
-}
-
-//--------------------------
-
-//每个具体产品都对应一个具体的工厂类AppleFactory、BananaFactory
-
-public class AppleFactory implements IFactory{
-
-    public Fruit createFruit() {
-
-        return new Apple();
-    }
-
-}
-
-public class BananaFactory implements IFactory{
-
-    public Fruit createFruit() {
-        return new Banana();
-    }
-
-}
-
-//---------------------------
-
-//main方法中调用
-public class Test {
-
-    public static void main(String[] args) {
-
-        Fruit f1 = new AppleFactory().createFruit();
-        f1.eat();
-        Fruit f2 = new BananaFactory().createFruit();
-        f2.eat();
-    }
-
-}</code></pre><blockquote>
+<blockquote>
 <p>执行结果如下：<br>吃了一个苹果<br>吃了一个香蕉</p>
 </blockquote>
 <p>和简单工厂模式进行比较，最大的区别是：<strong>工厂方法模式在设计上完全完全符合「开闭原则」。</strong></p>
@@ -499,75 +425,19 @@ public class Test {
 <p><img src="https://i.loli.net/2019/08/29/utGvVliJX6o7Ew9.jpg" alt="img2.png"></p>
 <p>我们知道 Iterator 是迭代器，用来遍历一个集合中的元素。而不同的数据结构遍历的方式是不一样的，所以迭代器的实现也是不同的。使用工厂方法模式将迭代器的具体类型延迟到具体容器类中，比较灵活，容易扩展。</p>
 <p>List和Set继承自Collection接口，Collection接口继承于Iterable接口。</p>
-<pre><code>public interface Iterable&lt;T&gt; {
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Iterable</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function">Iterator&lt;T&gt; <span class="title">iterator</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//省略部分代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    Iterator&lt;T&gt; iterator();
-
-    //省略部分代码
-}</code></pre><p>所以List和Set接口也会继承该方法。然后我们常用的两个间接实现类ArrayList和HashSet中的iterator方法就给我们构造并返回了一个迭代器对象。</p>
+<p>所以List和Set接口也会继承该方法。然后我们常用的两个间接实现类ArrayList和HashSet中的iterator方法就给我们构造并返回了一个迭代器对象。</p>
 <p>ArrayList 类中 iterator() 方法的实现：</p>
-<pre><code>Override 
-public Iterator&lt;E&gt; iterator() {
-    return new ArrayListIterator();
-}</code></pre><p>ArrayListIterator类型定义如下：</p>
-<pre><code>private class ArrayListIterator implements Iterator&lt;E&gt; {
-    /** Number of elements remaining in this iteration */
-    private int remaining = size;
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Override </span><br><span class="line"><span class="function"><span class="keyword">public</span> Iterator&lt;E&gt; <span class="title">iterator</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ArrayListIterator();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /** Index of element that remove() would remove, or -1 if no such elt */
-    private int removalIndex = -1;
+<p>ArrayListIterator类型定义如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayListIterator</span> <span class="title">implements</span> <span class="title">Iterator</span>&lt;E&gt; &#123;</span></span><br><span class="line">    <span class="comment">/** Number of elements remaining in this iteration */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> remaining = size;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Index of element that remove() would remove, or -1 if no such elt */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> removalIndex = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** The expected modCount value */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> expectedModCount = modCount;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> boolean <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> remaining != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @SuppressWarnings(<span class="string">"unchecked"</span>) <span class="function"><span class="keyword">public</span> E <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        ArrayList&lt;E&gt; ourList = ArrayList.<span class="keyword">this</span>;</span><br><span class="line">        <span class="keyword">int</span> rem = remaining;</span><br><span class="line">        <span class="keyword">if</span> (ourList.modCount != expectedModCount) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (rem == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NoSuchElementException();</span><br><span class="line">        &#125;</span><br><span class="line">        remaining = rem - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> (E) ourList.<span class="built_in">array</span>[removalIndex = ourList.size - rem];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">remove</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Object[] a = <span class="built_in">array</span>;</span><br><span class="line">        <span class="keyword">int</span> removalIdx = removalIndex;</span><br><span class="line">        <span class="keyword">if</span> (modCount != expectedModCount) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ConcurrentModificationException();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (removalIdx &lt; <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalStateException();</span><br><span class="line">        &#125;</span><br><span class="line">        System.arraycopy(a, removalIdx + <span class="number">1</span>, a, removalIdx, remaining);</span><br><span class="line">        a[--size] = null;  <span class="comment">// Prevent memory leak</span></span><br><span class="line">        removalIndex = <span class="number">-1</span>;</span><br><span class="line">        expectedModCount = ++modCount;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /** The expected modCount value */
-    private int expectedModCount = modCount;
+<p>这个类实现了Iterator接口，接口的定义如下：</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public<span class="built_in"> interface </span>Iterator&lt;E&gt; &#123;</span><br><span class="line"></span><br><span class="line">    boolean hasNext();</span><br><span class="line"></span><br><span class="line">    E next();</span><br><span class="line"></span><br><span class="line">   <span class="built_in"> default </span>void <span class="builtin-name">remove</span>() &#123;</span><br><span class="line">        throw new UnsupportedOperationException(<span class="string">"remove"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="built_in"> default </span>void forEachRemaining(Consumer&lt;? super E&gt; action) &#123;</span><br><span class="line">        Objects.requireNonNull(action);</span><br><span class="line">        <span class="keyword">while</span> (hasNext())</span><br><span class="line">            action.accept(next());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public boolean hasNext() {
-        return remaining != 0;
-    }
-
-    @SuppressWarnings(&quot;unchecked&quot;) public E next() {
-        ArrayList&lt;E&gt; ourList = ArrayList.this;
-        int rem = remaining;
-        if (ourList.modCount != expectedModCount) {
-            throw new ConcurrentModificationException();
-        }
-        if (rem == 0) {
-            throw new NoSuchElementException();
-        }
-        remaining = rem - 1;
-        return (E) ourList.array[removalIndex = ourList.size - rem];
-    }
-
-    public void remove() {
-        Object[] a = array;
-        int removalIdx = removalIndex;
-        if (modCount != expectedModCount) {
-            throw new ConcurrentModificationException();
-        }
-        if (removalIdx &lt; 0) {
-            throw new IllegalStateException();
-        }
-        System.arraycopy(a, removalIdx + 1, a, removalIdx, remaining);
-        a[--size] = null;  // Prevent memory leak
-        removalIndex = -1;
-        expectedModCount = ++modCount;
-    }
-}</code></pre><p>这个类实现了Iterator接口，接口的定义如下：</p>
-<pre><code>public interface Iterator&lt;E&gt; {
-
-    boolean hasNext();
-
-    E next();
-
-    default void remove() {
-        throw new UnsupportedOperationException(&quot;remove&quot;);
-    }
-
-    default void forEachRemaining(Consumer&lt;? super E&gt; action) {
-        Objects.requireNonNull(action);
-        while (hasNext())
-            action.accept(next());
-    }
-}</code></pre><p>基本的结构分析完了，接下来对号入座，看一看具体是如何实现工厂方法模式的。</p>
+<p>基本的结构分析完了，接下来对号入座，看一看具体是如何实现工厂方法模式的。</p>
 <p><strong>Iterator————&gt;Product；ArrayListIteratorr————&gt;ConcreteProduct。</strong></p>
 <p><strong>Iterable/List————&gt;Factory；ArrayList————&gt;ConcreteFactory。</strong></p>
 <p>工厂方法使一个类的实例化延迟到子类，对应着将迭代器 Iterator 的创建从 List 延迟到了ArrayList。这就是工厂方法模式。</p>
@@ -598,7 +468,7 @@ public Iterator&lt;E&gt; iterator() {
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -735,9 +605,9 @@ public Iterator&lt;E&gt; iterator() {
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -830,9 +700,6 @@ public Iterator&lt;E&gt; iterator() {
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

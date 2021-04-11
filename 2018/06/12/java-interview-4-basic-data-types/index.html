@@ -316,7 +316,7 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>Java 笔试面试（4）基本数据类型与运算</h1>
@@ -328,12 +328,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -376,54 +370,26 @@
 <p>Java语言提供了对这些基本数据类型的包装类（见上表）。</p>
 <h4 id="2-void-amp-Void"><a href="#2-void-amp-Void" class="headerlink" title="2. void&amp;Void"></a>2. void&amp;Void</h4><p>除了这8中基本数据类型，Java中还存在一中基本数据类型void（包装类：java.long.Void）,但是无法对它直接进行操作。</p>
 <p>void是一个关键字，表示函数的没有返回值。</p>
-<pre><code>public final
-class Void {
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">final</span></span><br><span class="line"><span class="keyword">class</span> <span class="keyword">Void</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * The &#123;@code Class&#125; object representing the pseudo-type corresponding to</span></span><br><span class="line"><span class="comment">     * the keyword &#123;@code void&#125;.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    @SuppressWarnings(<span class="string">"unchecked"</span>)</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">Class</span>&lt;<span class="keyword">Void</span>&gt; TYPE = (<span class="keyword">Class</span>&lt;<span class="keyword">Void</span>&gt;) <span class="keyword">Class</span>.getPrimitiveClass(<span class="string">"void"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * The Void class cannot be instantiated.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">Void</span>() &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * The {@code Class} object representing the pseudo-type corresponding to
-     * the keyword {@code void}.
-     */
-    @SuppressWarnings(&quot;unchecked&quot;)
-    public static final Class&lt;Void&gt; TYPE = (Class&lt;Void&gt;) Class.getPrimitiveClass(&quot;void&quot;);
-
-    /*
-     * The Void class cannot be instantiated.
-     */
-    private Void() {}
-}</code></pre><p>Void是一个不可变类，不能被继承。构造函数为private，不能被实例化。Void作为函数的返回结果表示函数返回null(除了null不能返回其它类型)。</p>
+<p>Void是一个不可变类，不能被继承。构造函数为private，不能被实例化。Void作为函数的返回结果表示函数返回null(除了null不能返回其它类型)。</p>
 <h4 id="3-基本类型的包装类"><a href="#3-基本类型的包装类" class="headerlink" title="3. 基本类型的包装类"></a>3. 基本类型的包装类</h4><p>包装类的作用：</p>
 <p>a. 作为和基本数据类型对应的类类型存在，方便涉及到对象的操作（List的add（）方法不能传入基本数据类型）。<br>b. 包含每种基本数据类型的相关属性如最大值、最小值等，以及相关的操作方法。</p>
 <p>自动装箱、拆箱：</p>
 <p>JDK自从1.5(5.0)版本以后，引入了自动拆装箱的语法，也就是在进行基本数据类型和对应的包装类转换时，系统将自动进行，这将大大方便程序员的代码书写。</p>
 <p>下面是一道笔试题：</p>
-<pre><code>public class Test {
-    public static void main(String[] args) {
-        Integer v1 = 10;
-        Integer v2 = 10;
-        Integer v3 = new Integer(10);
-        Integer v4 = 128;
-        Integer v5 = 128;
-        Integer v6 = Integer.valueOf(10);
-        Boolean b1 = true;
-        Boolean b2 = true;
-        System.out.println(&quot;v1==v2?&quot;+(v1 == v2));
-        System.out.println(&quot;v1==v3?&quot;+(v1 == v3));
-        System.out.println(&quot;v4==v5?&quot;+(v4 == v5));
-        System.out.println(&quot;v1==v6?&quot;+(v1 == v6));
-        System.out.println(&quot;b1==b2?&quot;+(b1 == b2));
-    }
-}</code></pre><blockquote>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Test &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Integer <span class="built_in">v1</span> = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">		Integer v2 = <span class="number">10</span><span class="comment">;</span></span><br><span class="line">		Integer v3 = new Integer(<span class="number">10</span>)<span class="comment">;</span></span><br><span class="line">		Integer v4 = <span class="number">128</span><span class="comment">;</span></span><br><span class="line">		Integer v5 = <span class="number">128</span><span class="comment">;</span></span><br><span class="line">		Integer v6 = Integer.valueOf(<span class="number">10</span>)<span class="comment">;</span></span><br><span class="line">		<span class="keyword">Boolean </span><span class="keyword">b1 </span>= true<span class="comment">;</span></span><br><span class="line">		<span class="keyword">Boolean </span><span class="keyword">b2 </span>= true<span class="comment">;</span></span><br><span class="line">		System.out.println(<span class="string">"v1==v2?"</span>+(<span class="built_in">v1</span> == v2))<span class="comment">;</span></span><br><span class="line">		System.out.println(<span class="string">"v1==v3?"</span>+(<span class="built_in">v1</span> == v3))<span class="comment">;</span></span><br><span class="line">		System.out.println(<span class="string">"v4==v5?"</span>+(v4 == v5))<span class="comment">;</span></span><br><span class="line">		System.out.println(<span class="string">"v1==v6?"</span>+(<span class="built_in">v1</span> == v6))<span class="comment">;</span></span><br><span class="line">		System.out.println(<span class="string">"b1==b2?"</span>+(<span class="keyword">b1 </span>== <span class="keyword">b2));</span></span><br><span class="line"><span class="keyword">	</span>&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>运行结果：</p>
 <p>v1==v2?true<br>v1==v3?false<br>v4==v5?false<br>v1==v6?true<br>b1==b2?true</p>
 </blockquote>
 <p>引用类型使用==进行比较时，只有当二者指向同一个对象时，才会返回true，否则即使值相等也返回false。</p>
 <p>Java为了获得更高的执行效率，在某些类的设计中引入了缓存机制。</p>
 <p>请看Integer的部分源码：</p>
-<pre><code>static final Integer[]cache=new Integer[-(-128)+127+1];  
-static{  
-for(int i=0;i&lt;cache.length;i++)  
-   cache[i]=new Integer[i-128);  
-}</code></pre><blockquote>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> Integer[]cache=<span class="keyword">new</span> Integer[-(<span class="number">-128</span>)+<span class="number">127</span>+<span class="number">1</span>];  </span><br><span class="line"><span class="keyword">static</span>&#123;  </span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;cache.length;i++)  </span><br><span class="line">   cache[i]=<span class="keyword">new</span> Integer[i<span class="number">-128</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>来源于：<a href="https://blog.csdn.net/Bettarwang/article/details/26166405" target="_blank" rel="noopener">https://blog.csdn.net/Bettarwang/article/details/26166405</a></p>
 <p>系统把-128<del>127之间的整数装箱成Integer实例，并通过cache数组进行缓存，所以只要是-128</del>127之间的Integer类型变量，其指向的对象都是cache数组成员，从而只要有两个值相同且在-128~127之间的Integer变量，它们指向的对象就是同一个，故采用==进行比较时也返回true.Boolean的情形与之类似。对于在这范围之外的int值，则直接用Integer i = new Integer(i1);指向的就不是同一个对象了。</p>
 </blockquote>
@@ -432,14 +398,9 @@ for(int i=0;i&lt;cache.length;i++)
 <p>ceil方法是向上取整，Math.ceil(a);表示取大于a的最小整数值。</p>
 <p>floor方法是向下取整，Math.floor(a);表示取小于a的最大整数值。</p>
 <h4 id="5-i与i"><a href="#5-i与i" class="headerlink" title="5. ++i与i++"></a>5. ++i与i++</h4><p>它们的不同之处在于i++是在程序执行结束进行自增，++i是在程序开始执行前进行自增。（看++的位置）</p>
-<pre><code>public static void main(String[] args) {
-    int i = 1;
-    System.out.println(i+++i++);
-    System.out.println(&quot;i=&quot;+i);
-    System.out.println(i+++++i);
-    System.out.println(i+++i+++i++);
-    System.out.println(&quot;i=&quot;+i);
-}</code></pre><blockquote>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">1</span>;</span><br><span class="line">	System.out.<span class="built_in">println</span>(i+++i++);</span><br><span class="line">	System.out.<span class="built_in">println</span>(<span class="string">"i="</span>+i);</span><br><span class="line">	System.out.<span class="built_in">println</span>(i+++++i);</span><br><span class="line">	System.out.<span class="built_in">println</span>(i+++i+++i++);</span><br><span class="line">	System.out.<span class="built_in">println</span>(<span class="string">"i="</span>+i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>运行结果为：<br>3<br>i=3<br>8<br>i=5<br>18<br>i=8</p>
 </blockquote>
 
@@ -466,7 +427,7 @@ for(int i=0;i&lt;cache.length;i++)
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -603,7 +564,7 @@ for(int i=0;i&lt;cache.length;i++)
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -696,9 +657,6 @@ for(int i=0;i&lt;cache.length;i++)
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

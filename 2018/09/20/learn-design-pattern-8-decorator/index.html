@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（8）装饰者模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -388,120 +382,9 @@
 <p><img src="https://i.loli.net/2019/08/29/P1TwIDlrde7SnLM.jpg" alt="img1.png"></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>我们以一个示例来看看装饰者模式的代码该如何实现：</p>
 <p>装饰者模式为已有类动态附加额外的功能就像 LOL、王者荣耀等类 Dota 游戏中，英雄升级一样。每次英雄升级都会附加一个额外技能点学习技能。具体的英雄就是 ConcreteComponent，技能栏就是装饰器 Decorator，每个技能就是 ConcreteDecorator。</p>
-<pre><code>//Component 英雄接口 
-public interface Hero {
-    //学习技能
-    void learnSkills();
-}
-//ConcreteComponent 具体英雄盲僧
-public class BlindMonk implements Hero {
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Component 英雄接口 </span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Hero</span> </span>&#123;</span><br><span class="line">    <span class="comment">//学习技能</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">learnSkills</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ConcreteComponent 具体英雄盲僧</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BlindMonk</span> <span class="keyword">implements</span> <span class="title">Hero</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlindMonk</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">learnSkills</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(name + <span class="string">"学习了以上技能！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Decorator 技能栏</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Skills</span> <span class="keyword">implements</span> <span class="title">Hero</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//持有一个英雄对象接口</span></span><br><span class="line">    <span class="keyword">private</span> Hero hero;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Skills</span><span class="params">(Hero hero)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.hero = hero;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">learnSkills</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(hero != <span class="keyword">null</span>)</span><br><span class="line">            hero.learnSkills();</span><br><span class="line">    &#125;    </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ConreteDecorator 技能：Q</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Skill_Q</span> <span class="keyword">extends</span> <span class="title">Skills</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String skillName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Skill_Q</span><span class="params">(Hero hero,String skillName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(hero);</span><br><span class="line">        <span class="keyword">this</span>.skillName = skillName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">learnSkills</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"学习了技能Q:"</span> +skillName);</span><br><span class="line">        <span class="keyword">super</span>.learnSkills();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ConreteDecorator 技能：W</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Skill_W</span> <span class="keyword">extends</span> <span class="title">Skills</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String skillName;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Skill_W</span><span class="params">(Hero hero,String skillName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(hero);</span><br><span class="line">        <span class="keyword">this</span>.skillName = skillName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">learnSkills</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"学习了技能W:"</span> + skillName);</span><br><span class="line">        <span class="keyword">super</span>.learnSkills();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ConreteDecorator 技能：E</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Skill_E</span> <span class="keyword">extends</span> <span class="title">Skills</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String skillName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Skill_E</span><span class="params">(Hero hero,String skillName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(hero);</span><br><span class="line">        <span class="keyword">this</span>.skillName = skillName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">learnSkills</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"学习了技能E:"</span>+skillName);</span><br><span class="line">        <span class="keyword">super</span>.learnSkills();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//ConreteDecorator 技能：R</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Skill_R</span> <span class="keyword">extends</span> <span class="title">Skills</span></span>&#123;    </span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String skillName;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Skill_R</span><span class="params">(Hero hero,String skillName)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(hero);</span><br><span class="line">        <span class="keyword">this</span>.skillName = skillName;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">learnSkills</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"学习了技能R:"</span> +skillName );</span><br><span class="line">        <span class="keyword">super</span>.learnSkills();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//客户端：召唤师</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Player</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//选择英雄</span></span><br><span class="line">        Hero hero = <span class="keyword">new</span> BlindMonk(<span class="string">"李青"</span>);</span><br><span class="line">        </span><br><span class="line">        Skills skills = <span class="keyword">new</span> Skills(hero);</span><br><span class="line">        Skills r = <span class="keyword">new</span> Skill_R(skills,<span class="string">"猛龙摆尾"</span>);</span><br><span class="line">        Skills e = <span class="keyword">new</span> Skill_E(r,<span class="string">"天雷破/摧筋断骨"</span>);</span><br><span class="line">        Skills w = <span class="keyword">new</span> Skill_W(e,<span class="string">"金钟罩/铁布衫"</span>);</span><br><span class="line">        Skills q = <span class="keyword">new</span> Skill_Q(w,<span class="string">"天音波/回音击"</span>);</span><br><span class="line">        <span class="comment">//学习技能</span></span><br><span class="line">        q.learnSkills();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    private String name;
-
-    public BlindMonk(String name) {
-        this.name = name;
-    }
-
-    @Override
-    public void learnSkills() {
-        System.out.println(name + &quot;学习了以上技能！&quot;);
-    }
-}
-//Decorator 技能栏
-public class Skills implements Hero{
-
-    //持有一个英雄对象接口
-    private Hero hero;
-
-    public Skills(Hero hero) {
-        this.hero = hero;
-    }
-
-    @Override
-    public void learnSkills() {
-        if(hero != null)
-            hero.learnSkills();
-    }    
-}
-//ConreteDecorator 技能：Q
-public class Skill_Q extends Skills{
-
-    private String skillName;
-
-    public Skill_Q(Hero hero,String skillName) {
-        super(hero);
-        this.skillName = skillName;
-    }
-
-    @Override
-    public void learnSkills() {
-        System.out.println(&quot;学习了技能Q:&quot; +skillName);
-        super.learnSkills();
-    }
-}
-//ConreteDecorator 技能：W
-public class Skill_W extends Skills{
-
-    private String skillName;
-
-    public Skill_W(Hero hero,String skillName) {
-        super(hero);
-        this.skillName = skillName;
-    }
-
-    @Override
-    public void learnSkills() {
-        System.out.println(&quot;学习了技能W:&quot; + skillName);
-        super.learnSkills();
-    }
-}
-//ConreteDecorator 技能：E
-public class Skill_E extends Skills{
-
-    private String skillName;
-
-    public Skill_E(Hero hero,String skillName) {
-        super(hero);
-        this.skillName = skillName;
-    }
-
-    @Override
-    public void learnSkills() {
-        System.out.println(&quot;学习了技能E:&quot;+skillName);
-        super.learnSkills();
-    }
-}
-//ConreteDecorator 技能：R
-public class Skill_R extends Skills{    
-
-    private String skillName;
-
-    public Skill_R(Hero hero,String skillName) {
-        super(hero);
-        this.skillName = skillName;
-    }
-
-    @Override
-    public void learnSkills() {
-        System.out.println(&quot;学习了技能R:&quot; +skillName );
-        super.learnSkills();
-    }
-}
-//客户端：召唤师
-public class Player {
-    public static void main(String[] args) {
-        //选择英雄
-        Hero hero = new BlindMonk(&quot;李青&quot;);
-
-        Skills skills = new Skills(hero);
-        Skills r = new Skill_R(skills,&quot;猛龙摆尾&quot;);
-        Skills e = new Skill_E(r,&quot;天雷破/摧筋断骨&quot;);
-        Skills w = new Skill_W(e,&quot;金钟罩/铁布衫&quot;);
-        Skills q = new Skill_Q(w,&quot;天音波/回音击&quot;);
-        //学习技能
-        q.learnSkills();
-    }
-}</code></pre><p>执行结果：</p>
+<p>执行结果：</p>
 <blockquote>
 <p>学习了技能Q:天音波/回音击<br>学习了技能W:金钟罩/铁布衫<br>学习了技能E:天雷破/摧筋断骨<br>学习了技能R:猛龙摆尾<br>李青学习了以上技能！</p>
 </blockquote>
@@ -553,7 +436,7 @@ public class Player {
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -690,9 +573,9 @@ public class Player {
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -785,9 +668,6 @@ public class Player {
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

@@ -316,7 +316,7 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>Java 笔试面试（5）字符串与数组</h1>
@@ -328,12 +328,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -374,36 +368,21 @@
 <li>String s = new String(“abc”); 会在堆中创建一个字符串对象。</li>
 <li>String s = “abc”; JVM中存在一个字符串池，其中保存着很多String对象，可以被共享使用。当使用这种方式创建一个字符串时，会首先在字符串常量池中查找是否已经有相同的字符串对象，判断依据是String.equals() 方法的返回值，如果有，则直接获取其引用，如果没有，则先创建这个字符串对象，再把它加入到字符串池中，再将它的引用返回。</li>
 </ol>
-<pre><code>String s1 = &quot;abc&quot;;
-String s2 = &quot;abc&quot;;
-String s3 = new String(&quot;abc&quot;);
-String s4 = new String(&quot;abc&quot;);</code></pre><p>用图来表示：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">String</span> s1 = <span class="string">"abc"</span>;</span><br><span class="line"><span class="keyword">String</span> s2 = <span class="string">"abc"</span>;</span><br><span class="line"><span class="keyword">String</span> s3 = <span class="keyword">new</span> <span class="keyword">String</span>(<span class="string">"abc"</span>);</span><br><span class="line"><span class="keyword">String</span> s4 = <span class="keyword">new</span> <span class="keyword">String</span>(<span class="string">"abc"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>用图来表示：</p>
 <p><img src="https://i.loli.net/2018/11/06/5be18b4e3311c.jpg" alt="68842064.jpg"></p>
 <h4 id="2-、equals（）、hashCode（）"><a href="#2-、equals（）、hashCode（）" class="headerlink" title="2. ==、equals（）、hashCode（）"></a>2. ==、equals（）、hashCode（）</h4><p><strong>==</strong><br>==运算符用于比较两个变量的值是否相等，即用于比较变量对应的内存中所存储的数值是否相同。</p>
 <p>对于基本数据类型，==直接比较它们的值是否相同。</p>
 <p>对于引用类型，==比较两个引用是否指向同一个对象（是否指向同一块存储空间）。</p>
 <p>==不能够比较两个对象的内容是否相同。</p>
 <p><strong>equals()</strong><br>equals() 是Object类提供的方法之一，每个Java类都继承自Object，所以每个类都有equals() 方法。Object类中的equals() 方法是直接使用<strong>==</strong>运算符来比较两个对象的，所以在没有覆盖euqals()的情况下，equals() 和”等等”运算符一样，比较的是引用。</p>
-<pre><code>Object类中的equals()方法
-boolean equals(Object o){
-    return this == o;
-}</code></pre><p>equals() 方法的特殊之处在于它可以被覆盖，可以通过覆盖的方法让他比较数据内容。例如String类的equals() 是比较堆里的内容是否相同。</p>
-<pre><code>我们创建Student类，学生用Id唯一标识一个学生，如果两个学生对象的Id一样，即就是同一个学生对象
-class Student{
-    int id;
-    String name;
-    @Override
-    boolean equals(Object o){
-        if(o == this){
-            return true;
-        }
-        if(o instanceof Student){
-            Student s = (Student)o;
-            return this.id == s.id;
-        }
-        return false;
-    }
-}</code></pre><p><strong>hashCode()</strong></p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Object</span>类中的equals()方法</span><br><span class="line"><span class="built_in">boolean</span> equals(<span class="keyword">Object</span> o)&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">this</span> == o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>equals() 方法的特殊之处在于它可以被覆盖，可以通过覆盖的方法让他比较数据内容。例如String类的equals() 是比较堆里的内容是否相同。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">我们创建Student类，学生用Id唯一标识一个学生，如果两个学生对象的Id一样，即就是同一个学生对象</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span></span>&#123;</span><br><span class="line">	int id;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	boolean equals(Object o)&#123;</span><br><span class="line">		<span class="keyword">if</span>(o == <span class="keyword">this</span>)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(o instanceof Student)&#123;</span><br><span class="line">			Student s = (Student)o;</span><br><span class="line">			<span class="keyword">return</span> <span class="keyword">this</span>.id == s.id;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>hashCode()</strong></p>
 <p>以下内容来源于：<a href="https://github.com/helen-x/AndroidInterview/blob/master/java/%5BJava%5D%20Hashcode%E7%9A%84%E4%BD%9C%E7%94%A8.md" target="_blank" rel="noopener">Java中hashCode的作用</a></p>
 <ol>
 <li><p>hashCode的存在主要是用于查找的快捷性，如Hashtable，HashMap等，hashCode是用来在散列存储结构中确定对象的存储地址的；</p>
@@ -510,7 +489,7 @@ class Student{
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -647,7 +626,7 @@ class Student{
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -740,9 +719,6 @@ class Student{
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

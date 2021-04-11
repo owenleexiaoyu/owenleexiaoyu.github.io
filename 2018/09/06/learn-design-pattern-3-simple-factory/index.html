@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（3）简单工厂模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -383,60 +377,9 @@
 </ul>
 <h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="https://i.loli.net/2019/08/29/pstP7Qhmg6eSlVZ.jpg" alt="img1.png"></p>
 <h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>以一个水果类为示例看看简单工厂模式如何实现：</p>
-<pre><code>//抽象产品类：Fruit
-public abstract class Fruit {
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象产品类：Fruit</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Fruit</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//----------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//具体的产品类：Apple，Banana</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Apple</span> <span class="keyword">extends</span> <span class="title">Fruit</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃了一个苹果"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Banana</span> <span class="keyword">extends</span> <span class="title">Fruit</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"吃了一个香蕉"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//-----------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//工厂类：FruitFactory</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FruitFactory</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Fruit <span class="title">createFruit</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		Fruit fruit = <span class="keyword">null</span>;</span><br><span class="line">		<span class="keyword">switch</span>(name)&#123;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">"apple"</span>:</span><br><span class="line">			fruit = <span class="keyword">new</span> Apple();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">case</span> <span class="string">"banana"</span>:</span><br><span class="line">			fruit = <span class="keyword">new</span> Banana();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> fruit;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Fruit f1 = FruitFactory.createFruit(<span class="string">"apple"</span>);</span><br><span class="line">		f1.eat();</span><br><span class="line">		Fruit f2 = FruitFactory.createFruit(<span class="string">"banana"</span>);</span><br><span class="line">		f2.eat();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public abstract void eat();
-
-}
-
-//----------------------------
-
-//具体的产品类：Apple，Banana
-public class Apple extends Fruit{
-
-    @Override
-    public void eat() {
-        System.out.println(&quot;吃了一个苹果&quot;);
-    }
-
-}
-
-public class Banana extends Fruit{
-
-    @Override
-    public void eat() {
-        System.out.println(&quot;吃了一个香蕉&quot;);
-    }
-
-}
-
-//-----------------------------
-
-//工厂类：FruitFactory
-
-public class FruitFactory {
-
-    public static Fruit createFruit(String name){
-        Fruit fruit = null;
-        switch(name){
-        case &quot;apple&quot;:
-            fruit = new Apple();
-            break;
-        case &quot;banana&quot;:
-            fruit = new Banana();
-            break;
-        }
-        return fruit;
-    }
-
-    public static void main(String[] args) {
-        Fruit f1 = FruitFactory.createFruit(&quot;apple&quot;);
-        f1.eat();
-        Fruit f2 = FruitFactory.createFruit(&quot;banana&quot;);
-        f2.eat();
-    }
-}</code></pre><blockquote>
+<blockquote>
 <p>运行结果是：<br>吃了一个苹果<br>吃了一个香蕉</p>
 </blockquote>
 <h4 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h4><ul>
@@ -468,14 +411,9 @@ public class FruitFactory {
 <p>有时候，为了简化简单工厂模式，可以将抽象产品类和工厂类合并，将静态工厂方法移至抽象产品类中。</p>
 <p>Fragment 的创建使用简单工厂方法没有抽象产品类，所以工厂类放到了实现产品类中。</p>
 <p>在 Android Studio 中输入 newInstance 会自动补全 Fragment 的简单工厂方法。</p>
-<pre><code>public static TasksFragment newInstance() {
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> TasksFragment <span class="keyword">new</span><span class="type">Instance</span>() &#123;</span><br><span class="line"></span><br><span class="line">    Bundle args = <span class="keyword">new</span> <span class="type">Bundle</span>();</span><br><span class="line"></span><br><span class="line">    TasksFragment fragment = <span class="keyword">new</span> <span class="type">TasksFragment</span>();</span><br><span class="line">    fragment.setArguments(args);</span><br><span class="line">    <span class="keyword">return</span> fragment;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    Bundle args = new Bundle();
-
-    TasksFragment fragment = new TasksFragment();
-    fragment.setArguments(args);
-    return fragment;
-}</code></pre><p>使用静态工厂方法，将外部传入的参数可以通过 Fragment.setArgument 保存在它自己身上，这样我们可以在 Fragment.onCreate(…) 调用的时候将这些参数取出来。</p>
+<p>使用静态工厂方法，将外部传入的参数可以通过 Fragment.setArgument 保存在它自己身上，这样我们可以在 Fragment.onCreate(…) 调用的时候将这些参数取出来。</p>
 <p><strong>这样写有什么好处呢？</strong></p>
 <ul>
 <li><p>避免了在创建 Fragment 的时候无法在类外部知道所需参数的问题。</p>
@@ -510,7 +448,7 @@ public class FruitFactory {
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -647,9 +585,9 @@ public class FruitFactory {
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -742,9 +680,6 @@ public class FruitFactory {
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

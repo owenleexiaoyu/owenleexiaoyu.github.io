@@ -316,7 +316,7 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>Java 笔试面试（3）关键字</h1>
@@ -328,12 +328,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -376,29 +370,9 @@
 <p>final类：不允许被继承，所有的方法都不能被重写。（一些比较基本的类或防止扩展类无意间破坏原来方法实现的类都应该用final修饰，如String、StringBuffer）一个类不能既被声明成abstract又被声明成final。</p>
 <p>finally：<br>finally是异常处理的一部分，不管try语句块中有没有异常发生，finally中的语句都会被执行（在try或catch语句块中的return语句执行之前执行）。</p>
 <p>如果finally语句块有return语句，try语句块和catch语句块中的return语句会失效。<br>示例：</p>
-<pre><code>public class Test {
-    public static void main(String[] args) {
-        System.out.println(test(null) + &quot;,&quot; + test(&quot;0&quot;) + &quot;,&quot; + test(&quot;&quot;));
-    }
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(test(<span class="literal">null</span>) + <span class="string">","</span> + test(<span class="string">"0"</span>) + <span class="string">","</span> + test(<span class="string">""</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">test</span>(<span class="params">String str</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> str.charAt(<span class="number">0</span>) - <span class="string">'0'</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NullPointerException e1) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (StringIndexOutOfBoundsException e2) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e3) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">4</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public static int test(String str) {
-        try {
-            return str.charAt(0) - &#39;0&#39;;
-        } catch (NullPointerException e1) {
-
-            return 1;
-        } catch (StringIndexOutOfBoundsException e2) {
-
-            return 2;
-        } catch (Exception e3) {
-
-            return 3;
-        } finally {
-            return 4;
-        }
-
-    }
-}</code></pre><blockquote>
+<blockquote>
 <p><strong>答案是：4，4，4</strong><br>执行结果：<br>java.lang.NullPointerException<br>  at cn.test.example.Test.test(Test.java:14)<br>  at cn.test.example.Test.main(Test.java:9)<br>java.lang.StringIndexOutOfBoundsException: String index out of range: 0<br>  at java.lang.String.charAt(String.java:646)<br>  at cn.test.example.Test.test(Test.java:14)<br>  at cn.test.example.Test.main(Test.java:9)<br>4,4,4</p>
 </blockquote>
 <p><strong>finalize</strong><br>finalize是Object类中的一个方法，在垃圾回收器执行时会调用被回收对象的finalize（）方法，可以覆盖这个方法实现对其他资源的回收，如关闭文件等。需要注意的是：一旦垃圾回收器准备好释放对象占用的内存，会首先调用其finalize（）方法，并且在下一次垃圾回收动作发生时，才会真正回收对象占用的内存。</p>
@@ -415,18 +389,9 @@
 <h4 id="4-instanceof"><a href="#4-instanceof" class="headerlink" title="4. instanceof"></a>4. instanceof</h4><p>是一个二元运算符，判断一个对象是否是一个类（或接口、抽象类、父类）的实例，返回值为boolean类型。</p>
 <h4 id="5-switch"><a href="#5-switch" class="headerlink" title="5. switch"></a>5. switch</h4><p>switch用于多分支选择，switch(exp)中的exp只支持int类型（byte、short、char能自动转化为int类型，所以也支持）和枚举类型。如果一定要使用long、float、double作exp，则一定要将其强制转化为int类型才行。</p>
 <p>在Java 7中，switch开始支持String。</p>
-<pre><code>public void test(String exp){
-    switch(exp){
-        case &quot;a&quot;:
-            System.out.println(&quot;a&quot;);
-            break;
-        case &quot;b&quot;:
-            System.out.println(&quot;b&quot;);
-            break;
-        default:
-            System.out.println(&quot;default&quot;);
-    }
-}</code></pre><p>switch对String的支持，其实还是int类型的匹配。它的实现原理是：通过对case后面的String对象调用hashCode()方法，得到一个int类型的hash值，用这个hash值来唯一标识这个case。匹配时，首先调用exp的hashCode()方法，得到一个hash值，再用这个hash值去依次匹配各个case的hash值，如果没有匹配成功，则说明不存在，如果匹配成功，接着会调用String.equals() 方法进行匹配（<strong>这里是为了进行安全检查，因为存在hash冲突的情况</strong>）。由此可以看出，exp不能为空，case 子句中的字符串也不能为空。</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> test(<span class="keyword">String</span> <span class="built_in">exp</span>)&#123;</span><br><span class="line">    <span class="keyword">switch</span>(<span class="built_in">exp</span>)&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"a"</span>:</span><br><span class="line">        	System.out.<span class="built_in">println</span>(<span class="string">"a"</span>);</span><br><span class="line">        	<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"b"</span>:</span><br><span class="line">        	System.out.<span class="built_in">println</span>(<span class="string">"b"</span>);</span><br><span class="line">        	<span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">        	System.out.<span class="built_in">println</span>(<span class="string">"default"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>switch对String的支持，其实还是int类型的匹配。它的实现原理是：通过对case后面的String对象调用hashCode()方法，得到一个int类型的hash值，用这个hash值来唯一标识这个case。匹配时，首先调用exp的hashCode()方法，得到一个hash值，再用这个hash值去依次匹配各个case的hash值，如果没有匹配成功，则说明不存在，如果匹配成功，接着会调用String.equals() 方法进行匹配（<strong>这里是为了进行安全检查，因为存在hash冲突的情况</strong>）。由此可以看出，exp不能为空，case 子句中的字符串也不能为空。</p>
 
 
         <hr>
@@ -451,7 +416,7 @@
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -588,7 +553,7 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -681,9 +646,6 @@
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

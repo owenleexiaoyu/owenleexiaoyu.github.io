@@ -316,7 +316,7 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>Java 笔试面试（6）异常处理</h1>
@@ -328,12 +328,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -370,64 +364,28 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <h3 id="Java-笔试面试（6）异常处理"><a href="#Java-笔试面试（6）异常处理" class="headerlink" title="Java 笔试面试（6）异常处理"></a>Java 笔试面试（6）异常处理</h3><h4 id="1-finally的代码何时执行？"><a href="#1-finally的代码何时执行？" class="headerlink" title="1. finally的代码何时执行？"></a>1. finally的代码何时执行？</h4><p>问题描述：try{}里有一个return语句，那么在这个try后面的finally{}中的代码是否为执行？如果会，是在return之前还是在return之后？</p>
-<pre><code>public class Test {
-    public static int testFinally(){
-        try{
-            return 1;
-        }catch(Exception e){
-            return 0;
-        }finally{
-            System.out.println(&quot;execute finally&quot;);    
-        }
-    }
-    public static void main(String[] args) {
-        System.out.println(testFinally());
-    }
-}</code></pre><blockquote>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">testFinally</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(<span class="string">"execute finally"</span>);	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(testFinally());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>运行结果：<br>execute finally<br>1</p>
 </blockquote>
 <p><strong>说明finally{}中代码执行了，并且是在try{}中return语句之前执行。</strong></p>
-<pre><code>//在finally代码块中加入return
-public class Test {
-    public static int testFinally(){
-        try{
-            return 1;
-        }catch(Exception e){
-            return 0;
-        }finally{
-            System.out.println(&quot;execute finally&quot;);    
-            return 3;
-        }
-    }
-    public static void main(String[] args) {
-        System.out.println(testFinally());
-    }
-}</code></pre><blockquote>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在finally代码块中加入return</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">testFinally</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(<span class="string">"execute finally"</span>);	</span><br><span class="line">			<span class="keyword">return</span> <span class="number">3</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(testFinally());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>运行结果：<br>execute finally<br>3</p>
 </blockquote>
 <p><strong>说明当finally{}中有return时，会把try{}中的return给覆盖掉。</strong></p>
 <p>不会执行finally语句块的情况：</p>
 <ol>
 <li>程序在进入try{}之前就出现异常</li>
-<li>程序在try{}中强制退出时不会执行finally中的代码：<pre><code>public class Test {
- public static int testFinally(){
-     try{
-         System.out.println(&quot;try block&quot;);
-         System.exit(0);
-     }catch(Exception e){
-         System.out.println(&quot;catch block&quot;);
-     }finally{
-         System.out.println(&quot;finally block&quot;);    
-     }
- }
- public static void main(String[] args) {
-     System.out.println(testFinally());
- }
-}</code></pre><blockquote>
-<p>运行结果：<br>try block</p>
-</blockquote>
+<li>程序在try{}中强制退出时不会执行finally中的代码：<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Test</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">testFinally</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">try</span>&#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(<span class="string">"try block"</span>);</span><br><span class="line">			System.exit(<span class="number">0</span>);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(<span class="string">"catch block"</span>);</span><br><span class="line">		&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">			System.<span class="keyword">out</span>.println(<span class="string">"finally block"</span>);	</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(testFinally());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
+<blockquote>
+<p>运行结果：<br>try block</p>
+</blockquote>
 <p>上例在try{}中调用System.exit(0)强制退出了程序，因此导致finally{}中代码没有被执行。</p>
 <h4 id="2-异常综述"><a href="#2-异常综述" class="headerlink" title="2. 异常综述"></a>2. 异常综述</h4><p><img src="https://i.loli.net/2018/11/06/5be18b79e73ef.jpg" alt="98062763.jpg"></p>
 <p>Java标准库内建了一些通用的异常，这些类以Throwable为顶层父类。</p>
@@ -476,7 +434,7 @@ public class Test {
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -613,7 +571,7 @@ public class Test {
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -706,9 +664,6 @@ public class Test {
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

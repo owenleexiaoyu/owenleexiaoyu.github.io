@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（12）代理模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -381,46 +375,18 @@
 </ul>
 <p><img src="https://i.loli.net/2019/08/29/e3rxHQuUdhR9qj7.jpg" alt="img1.png"></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p><strong>抽象主题类：</strong></p>
-<pre><code>public abstract class Subject {
-    public abstract void request();
-}</code></pre><p><strong>真实主题类：</strong></p>
-<pre><code>public class RealSubject extends Subject{
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Subject</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">request</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @Override
-    public void request() {
-        System.out.println(&quot;请求&quot;);
-    }
-}</code></pre><p><strong>代理类：</strong></p>
-<pre><code>public class Proxy extends Subject {
+<p><strong>真实主题类：</strong></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">RealSubject</span> <span class="keyword">extends</span> <span class="title">Subject</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	public void request() &#123;</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"请求"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    private Subject realSubject = new RealSubject();
-    /**
-     * 请求前的一些操作
-     */
-    public void preRequest(){
-        System.out.println(&quot;请求前的一些操作&quot;);
-    }
-    /**
-     * 请求后的一些操作
-     */
-    public void postRequest(){
-        System.out.println(&quot;请求后的一些操作&quot;);
-    }
-    @Override
-    public void request() {
-        preRequest();
-        realSubject.request();
-        postRequest();
-    }
-}</code></pre><p><strong>客户端：</strong></p>
-<pre><code>public class Client {
+<p><strong>代理类：</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Proxy</span> <span class="title">extends</span> <span class="title">Subject</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> Subject realSubject = <span class="keyword">new</span> RealSubject();</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 请求前的一些操作</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preRequest</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"请求前的一些操作"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 请求后的一些操作</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postRequest</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"请求后的一些操作"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	@Override</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">request</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		preRequest();</span><br><span class="line">		realSubject.request();</span><br><span class="line">		postRequest();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public static void main(String[] args) {
-        Subject proxy = new Proxy();
-        proxy.request();
-    }
+<p><strong>客户端：</strong></p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public class<span class="built_in"> Client </span>&#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Subject<span class="built_in"> proxy </span>= new Proxy();</span><br><span class="line">        proxy.request();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-}</code></pre><p><strong>运行结果如下：</strong></p>
+<p><strong>运行结果如下：</strong></p>
 <blockquote>
 <p>请求前的一些操作<br>请求<br>请求后的一些操作</p>
 </blockquote>
@@ -466,7 +432,7 @@
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -603,9 +569,9 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -698,9 +664,6 @@
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

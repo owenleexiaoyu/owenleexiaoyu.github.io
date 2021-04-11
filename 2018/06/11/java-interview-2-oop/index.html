@@ -316,7 +316,7 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>Java 笔试面试（2）面向对象</h1>
@@ -328,12 +328,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -400,43 +394,15 @@
 <li>覆盖（垂直的） 运行时多态</li>
 </ol>
 <p>子类可以覆盖父类的方法，因此相同的方法在子类和父类中有着不同的表现形式。Java中，基类的引用变量不仅可以指向基类的实例对象，还可以指向其子类的实例对象。同样接口的引用变量也可以指向其实现类的实例对象。而程序调用的方法是运行时才动态绑定的，即内存中那个实例对象的方法，而不是引用变量的类型所定义的方法。</p>
-<pre><code>class Base{
-    public Base(){
-        g();
-    }
-    public void f(){
-        System.out.println(&quot;Base f()&quot;);
-    }
-    public void g(){
-        System.out.println(&quot;Base g()&quot;);
-    }
-}
-class Sub extends Base{
-    public void f(){
-        System.out.println(&quot;Sub f()&quot;);
-    }
-    public void g(){
-        System.out.println(&quot;Sub g()&quot;);
-    }
-    public static void main(String [] args){
-        Base a = new Sub();
-        a.f();
-        a.g();
-    }
-}</code></pre><blockquote>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Base</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		g();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"Base f()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">g</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"Base g()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">Sub</span> <span class="title">extends</span> <span class="title">Base</span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"Sub f()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">g</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"Sub g()"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String [] args</span>)</span>&#123;</span><br><span class="line">		Base a = <span class="keyword">new</span> Sub();</span><br><span class="line">		a.f();</span><br><span class="line">		a.g();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>程序运行的结果为：<br>Sub g（）<br>Sub f（）<br>Sub g（）<br>子类的f（）和g（）方法与父类中同名，会覆盖父类中的方法。在实例化Sub的对象时，会调用父类的构造函数，在构造函数中执行g（）方法，由于多态，会调用子类的g（）方法，而不是父类的g（）方法。</p>
 </blockquote>
 <p><strong>只有类中的方法有多态，成员变量是没有多态的概念的。</strong></p>
-<pre><code>class Base{
-    public int i = 1;
-}
-class Sub extends Base{
-    public int i = 2;
-    public static void main(String [] args){
-        Base a = new Sub();
-        System.out.println(&quot;i = &quot;+a.i);
-    }
-}</code></pre><blockquote>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span>&#123;</span><br><span class="line">	public int i = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span> <span class="keyword">extends</span> <span class="title">Base</span></span>&#123;</span><br><span class="line">	public int i = <span class="number">2</span>;</span><br><span class="line">	public static void main(<span class="type">String</span> [] args)&#123;</span><br><span class="line">		<span class="type">Base</span> a = <span class="keyword">new</span> <span class="type">Sub</span>();</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"i = "</span>+a.i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>程序运行的结果为：<br>i = 1<br>成员变量是无法实现多态的，成员变量的值取父类还是子类并不取决于创建对象的类型，而是取决于<strong>所定义引用变量的类型</strong>，这是在编译期间确定的。</p>
 </blockquote>
 <h4 id="6-重载-amp-覆盖"><a href="#6-重载-amp-覆盖" class="headerlink" title="6. 重载&amp;覆盖"></a>6. 重载&amp;覆盖</h4><p>重载：<br>重载是指在一个类中定义了多个同名的方法，它们有不同的参数个数或不同的参数类型。</p>
@@ -502,23 +468,15 @@ class Sub extends Base{
 <li>匿名内部类</li>
 </ol>
 <p>静态内部类是被声明成static的内部类，它可以不依赖外部类的实例而被实例化，而通常的成员内部类需要在外部类实例化之后才能被实例化。静态内部类不能与外部类有相同的名字，不能访问外部类的非静态成员变量和方法，<strong>只能访问外部类的静态成员和方法（包括私有的）</strong>。</p>
-<pre><code>class OutterClass{
-    static class InnerClass{}
-}</code></pre><p>成员内部类可以自由使用外部类的成员变量和方法，无论是静态的还是非静态的。但是它与一个外部类的实例绑定在一起，<strong>不可以定义静态的变量和方法。</strong>只有在外部类被实例化后，该内部类才能被实例化。内部类的权限修饰符可以任意，甚至可以定义多个public的内部类。</p>
-<pre><code>class OutterClass{
-    class InnerClass{}
-}
-class Test{
-    public static void main(String [] main){
-        OutterClass oc = new OutterClass();
-        OutterClass.InnerClass ic = oc.new InnerClass();
-    }
-}</code></pre><p>局部内部类时值定义在一个代码块中的内部类，它的作用范围是其所在的代码块。局部内部类像局部变量一样，不能被public、protected、private以及static所修饰，只能访问方法中定义为final的局部变量。</p>
-<pre><code>class OutterClass{
-    public void f(){
-        class InnerClass{}
-    } 
-}</code></pre><p>匿名内部类是一种没有类名的内部类，不使用关键字class、extends、implements，没有构造函数，它必须继承其他类或实现其他接口。匿名内部类的好处是代码更加简洁紧凑，但带来的问题是代码易读性下降。它一般应用于GUI编程中实现事件处理等。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OutterClass</span></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>成员内部类可以自由使用外部类的成员变量和方法，无论是静态的还是非静态的。但是它与一个外部类的实例绑定在一起，<strong>不可以定义静态的变量和方法。</strong>只有在外部类被实例化后，该内部类才能被实例化。内部类的权限修饰符可以任意，甚至可以定义多个public的内部类。</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OutterClass</span></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span></span>&#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="keyword">String</span> [] main)&#123;</span><br><span class="line">		OutterClass oc = <span class="keyword">new</span> <span class="type">OutterClass</span>();</span><br><span class="line">		OutterClass.InnerClass ic = oc.<span class="keyword">new</span> <span class="type">InnerClass</span>();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>局部内部类时值定义在一个代码块中的内部类，它的作用范围是其所在的代码块。局部内部类像局部变量一样，不能被public、protected、private以及static所修饰，只能访问方法中定义为final的局部变量。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OutterClass</span>&#123;</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span>&#123;</span>&#125;</span><br><span class="line">	&#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>匿名内部类是一种没有类名的内部类，不使用关键字class、extends、implements，没有构造函数，它必须继承其他类或实现其他接口。匿名内部类的好处是代码更加简洁紧凑，但带来的问题是代码易读性下降。它一般应用于GUI编程中实现事件处理等。</p>
 <p>使用原则：</p>
 <ol>
 <li>不能有构造函数</li>
@@ -528,32 +486,19 @@ class Test{
 <li>一定是在new的后面，必须继承一个父类或实现一个接口</li>
 <li>因为匿名内部类是局部内部类，所以局部内部类的所有限制都对其生效。</li>
 </ol>
-<pre><code>btn.setOnClickListener(new OnClickListener(){
-    @Override
-    public void onClick(View v){
-        //按钮的点击事件
-    }
-});</code></pre><h4 id="9-this-amp-super"><a href="#9-this-amp-super" class="headerlink" title="9. this&amp;super"></a>9. this&amp;super</h4><p><strong>this</strong>：指向当前类的实例对象<br>作用：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">btn.setOnClickListener(<span class="keyword">new</span> OnClickListener()&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span></span>&#123;</span><br><span class="line">		<span class="comment">//按钮的点击事件</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-this-amp-super"><a href="#9-this-amp-super" class="headerlink" title="9. this&amp;super"></a>9. this&amp;super</h4><p><strong>this</strong>：指向当前类的实例对象<br>作用：</p>
 <ol>
 <li>普通的直接引用，指向当前对象本身。</li>
 <li>区别成员变量和方法的形参</li>
 </ol>
-<pre><code>class Person{
-    String name;
-    public Person(String name){
-        this.name = name;
-    }
-}</code></pre><ol start="3">
-<li>在一个构造函数中调用另一个构造函数（注意：调用代码一定要写在构造函数的第一行）<pre><code>class Person{
- String name;
- public Person(){
-     this(&quot;Tom&quot;);
-     ...
- }
- public Person(String name){
-     this.name = name;
- }
-}</code></pre></li>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Person&#123;</span><br><span class="line">	String <span class="keyword">name</span>;</span><br><span class="line">	<span class="keyword">public</span> Person(String <span class="keyword">name</span>)&#123;</span><br><span class="line">		this.<span class="keyword">name</span> = <span class="keyword">name</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在一个构造函数中调用另一个构造函数（注意：调用代码一定要写在构造函数的第一行）<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line">	String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>(<span class="string">"Tom"</span>);</span><br><span class="line">		...</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
 <p><strong>super</strong>：是指向当前对象的父类的一个指针，而这个父类是离自己最近的一个父类。</p>
 <p>用法：</p>
@@ -565,28 +510,9 @@ class Test{
 <li><p>调用父类的某一个构造函数（注意：调用语句要为构造函数中的第一条语句）</p>
 </li>
 </ol>
-<pre><code>class Person{
-    String name；
-    public Person(){
-        System.out.println(&quot;父类无参构造函数&quot;)；
-    }
-    public Person(String name){
-        this.name = name;
-        System.out.println(&quot;父类有参构造函数&quot;)；
-    }
-}
-class Chinese extends Person{
-    public Chinese(){
-        //调用父类无参构造函数
-        super();
-        System.out.println(&quot;子类无参构造函数&quot;)；
-    }
-    public Chinese(String name){
-        //调用父类有参构造函数
-        super(name);
-        System.out.println(&quot;子类有参构造函数&quot;)；
-    }
-}</code></pre><blockquote>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="type">String</span> name；</span><br><span class="line">	public <span class="type">Person</span>()&#123;</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"父类无参构造函数"</span>)；</span><br><span class="line">	&#125;</span><br><span class="line">	public <span class="type">Person</span>(<span class="type">String</span> name)&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"父类有参构造函数"</span>)；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Chinese</span> <span class="keyword">extends</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	public <span class="type">Chinese</span>()&#123;</span><br><span class="line">		<span class="comment">//调用父类无参构造函数</span></span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"子类无参构造函数"</span>)；</span><br><span class="line">	&#125;</span><br><span class="line">	public <span class="type">Chinese</span>(<span class="type">String</span> name)&#123;</span><br><span class="line">		<span class="comment">//调用父类有参构造函数</span></span><br><span class="line">		<span class="keyword">super</span>(name);</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"子类有参构造函数"</span>)；</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>this和super不能同时出现在一个构造函数里面，因为this必然会调用其它的构造函数，其它的构造函数必然也会有super语句的存在，所以在同一个构造函数里面有相同的语句，就失去了语句的意义，编译器也不会通过。<br>this()和super()都指的是对象，所以，均不可以在static环境中使用。包括：static变量,static方法，static语句块。<br>从本质上讲，this是一个指向本对象的指针, 然而super是一个Java关键字。</p>
 </blockquote>
 
@@ -613,7 +539,7 @@ class Chinese extends Person{
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -750,7 +676,7 @@ class Chinese extends Person{
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -843,9 +769,6 @@ class Chinese extends Person{
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

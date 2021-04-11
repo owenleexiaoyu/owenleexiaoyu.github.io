@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（5）抽象工厂模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -410,100 +404,17 @@
 <p>AbstractFactory：抽象工厂<br>ConcreteFactory：具体工厂<br>AbstractProduct：抽象产品<br>Product：具体产品</p>
 <h4 id="类图"><a href="#类图" class="headerlink" title="类图"></a>类图</h4><p><img src="https://i.loli.net/2019/08/29/bc1xqfwtCgNLmQP.jpg" alt="img1.png"></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>我们就以之前提到的电视（海尔电视、小米电视），电空调（海尔空调、小米空调）为例，看看代码如何实现。</p>
-<pre><code>//抽象产品类：TV、AirConditioning
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象产品类：TV、AirConditioning</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 电视的抽象类</span></span><br><span class="line"><span class="comment"> * @author OwenLee</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">TV</span> &#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * 电视播放节目的抽象方法</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">show</span>(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 空调的抽象类</span></span><br><span class="line"><span class="comment"> * @author OwenLee</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">AirConditioning</span> &#123;</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">	 * 空调的制冷方法</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">refrigerate</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-/**
- * 电视的抽象类
- * @author OwenLee
- *
- */
-public abstract class TV {
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//海尔公司生产的电视和空调</span></span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">HaierTV</span> <span class="keyword">extends</span> <span class="title">TV</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	public void show() &#123;</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"海尔电视的信号很好"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">HaierAirCoditioning</span> <span class="keyword">extends</span> <span class="title">AirConditioning</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	public void refrigerate() &#123;</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"海尔空调制冷效果很好"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /*
-     * 电视播放节目的抽象方法
-     */
-    public abstract void show();
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//小米公司生产的电视和空调</span></span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">XiaomiTV</span> <span class="keyword">extends</span> <span class="title">TV</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	public void show() &#123;</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"小米电视非常漂亮"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">XiaomiAirConditioning</span> <span class="keyword">extends</span> <span class="title">AirConditioning</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	public void refrigerate() &#123;</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"小米空调可以联网"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-}
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象的工厂类（接口）</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IFactory</span> &#123;</span><br><span class="line">	<span class="comment">//生产电视的方法</span></span><br><span class="line">	<span class="function">TV <span class="title">createTV</span>(<span class="params"></span>)</span>;</span><br><span class="line">	<span class="comment">//生产空调的方法</span></span><br><span class="line">	<span class="function">AirConditioning <span class="title">createAirConditioning</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-/**
- * 空调的抽象类
- * @author OwenLee
- *
- */
-public abstract class AirConditioning {
-    /*
-     * 空调的制冷方法
-     */
-    public abstract void refrigerate();
-}</code></pre><pre><code>//海尔公司生产的电视和空调
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//海尔的工厂类和小米的工厂类</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HaierFactory</span> <span class="keyword">implements</span> <span class="title">IFactory</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TV <span class="title">createTV</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> HaierTV();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> AirConditioning <span class="title">createAirConditioning</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> HaierAirCoditioning();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XiaomiFactory</span> <span class="keyword">implements</span> <span class="title">IFactory</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> TV <span class="title">createTV</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> XiaomiTV();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> AirConditioning <span class="title">createAirConditioning</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> XiaomiAirConditioning();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class HaierTV extends TV{
-
-    @Override
-    public void show() {
-        System.out.println(&quot;海尔电视的信号很好&quot;);
-    }
-}
-
-public class HaierAirCoditioning extends AirConditioning{
-
-    @Override
-    public void refrigerate() {
-        System.out.println(&quot;海尔空调制冷效果很好&quot;);
-    }
-}</code></pre><pre><code>//小米公司生产的电视和空调
-
-public class XiaomiTV extends TV{
-
-    @Override
-    public void show() {
-        System.out.println(&quot;小米电视非常漂亮&quot;);
-    }
-}
-
-public class XiaomiAirConditioning extends AirConditioning{
-
-    @Override
-    public void refrigerate() {
-        System.out.println(&quot;小米空调可以联网&quot;);
-    }
-
-}</code></pre><pre><code>//抽象的工厂类（接口）
-public interface IFactory {
-    //生产电视的方法
-    TV createTV();
-    //生产空调的方法
-    AirConditioning createAirConditioning();
-}</code></pre><pre><code>//海尔的工厂类和小米的工厂类
-
-public class HaierFactory implements IFactory{
-
-    @Override
-    public TV createTV() {
-        return new HaierTV();
-    }
-
-    @Override
-    public AirConditioning createAirConditioning() {
-        return new HaierAirCoditioning();
-    }
-
-}
-
-public class XiaomiFactory implements IFactory{
-
-    @Override
-    public TV createTV() {
-        return new XiaomiTV();
-    }
-
-    @Override
-    public AirConditioning createAirConditioning() {
-        return new XiaomiAirConditioning();
-    }
-
-}</code></pre><h4 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h4><p>当我们想要增加一个厂家，比如增加一家海信，同样生产电视和空调，我们需要做的工作有：</p>
+<h4 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h4><p>当我们想要增加一个厂家，比如增加一家海信，同样生产电视和空调，我们需要做的工作有：</p>
 <ol>
 <li>增加海信的电视和空调的产品类 HaixinTV、HaixinAirConditioning（必须）</li>
 <li>增加一个海信工厂类 HaixinFactory，实现 IFactory 接口，在相应生产方法中返回海信电视和空调的实例。</li>
@@ -569,7 +480,7 @@ public class XiaomiFactory implements IFactory{
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -706,9 +617,9 @@ public class XiaomiFactory implements IFactory{
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -801,9 +712,6 @@ public class XiaomiFactory implements IFactory{
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（10）观察者模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -383,86 +377,12 @@
 <p><img src="https://i.loli.net/2019/08/29/vhK6qDnCjtZoWQY.jpg" alt="img1.png"></p>
 <h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><p>我们用代码来实现一个观察者模式：</p>
 <p>目标类：</p>
-<pre><code>//-----------抽象目标类
-public abstract class Subject {
-    //用来保存注册的观察者
-    private List&lt;Observer&gt; list = new ArrayList&lt;&gt;();
-    /**
-     * 注册观察者对象
-     * @param observer
-     */
-    public void attach(Observer observer){
-        list.add(observer);
-        System.out.println(&quot;增加了一个观察者&quot;+observer.getName());
-    }
-    /**
-     * 删除观察者对象
-     * @param observer
-     */
-    public void detach(Observer observer){
-        list.remove(observer);
-        System.out.println(&quot;删除了一个观察者&quot;);
-    }
-    /**
-     * 通知所有注册的观察者对象
-     * @param newState
-     */
-    public void notifyObservers(String newState){
-        for(Observer o :list){
-            o.update(newState);
-        }
-    }
-}
-//-----------具体目标类
-public class ConcreteSubject extends Subject{
-    private String state;
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//-----------抽象目标类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Subject</span> &#123;</span><br><span class="line">	<span class="comment">//用来保存注册的观察者</span></span><br><span class="line">	<span class="keyword">private</span> List&lt;Observer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 注册观察者对象</span></span><br><span class="line"><span class="comment">	 * @param observer</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">attach</span>(<span class="params">Observer observer</span>)</span>&#123;</span><br><span class="line">		list.<span class="keyword">add</span>(observer);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"增加了一个观察者"</span>+observer.getName());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除观察者对象</span></span><br><span class="line"><span class="comment">	 * @param observer</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">detach</span>(<span class="params">Observer observer</span>)</span>&#123;</span><br><span class="line">		list.<span class="keyword">remove</span>(observer);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"删除了一个观察者"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 通知所有注册的观察者对象</span></span><br><span class="line"><span class="comment">	 * @param newState</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span>(<span class="params">String newState</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(Observer o :list)&#123;</span><br><span class="line">			o.update(newState);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//-----------具体目标类</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">ConcreteSubject</span> <span class="title">extends</span> <span class="title">Subject</span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String state;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getState</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> state;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">change</span>(<span class="params">String newState</span>)</span>&#123;</span><br><span class="line">		state = newState;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"目标状态为："</span>+state);</span><br><span class="line">		notifyObservers(state);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public String getState(){
-        return state;
-    }
-    public void change(String newState){
-        state = newState;
-        System.out.println(&quot;目标状态为：&quot;+state);
-        notifyObservers(state);
-    }
-}</code></pre><p>观察者类：</p>
-<pre><code>//----------------抽象观察者
-public abstract class Observer {
-    //观察者的名字
-    protected String name;
-    //观察者的状态
-    protected String observerState;
-    public String getName(){
-        return name;
-    }
+<p>观察者类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//----------------抽象观察者</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">	<span class="comment">//观察者的名字</span></span><br><span class="line">	<span class="keyword">protected</span> String name;</span><br><span class="line">	<span class="comment">//观察者的状态</span></span><br><span class="line">	<span class="keyword">protected</span> String observerState;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Observer</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 更新状态</span></span><br><span class="line"><span class="comment">	 * <span class="doctag">@param</span> state</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(String state)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//--------------具体观察者</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConcreteObserver</span> <span class="keyword">extends</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ConcreteObserver</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(name);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 更新观察者的状态，使其与目标状态一致</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(String state)</span> </span>&#123;</span><br><span class="line">		observerState = state;</span><br><span class="line">		System.out.println(<span class="string">"观察者["</span>+getName()+<span class="string">"]状态："</span>+observerState);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public Observer(String name){
-        this.name = name;
-    }
-
-    /**
-     * 更新状态
-     * @param state
-     */
-    public abstract void update(String state);
-}
-//--------------具体观察者
-public class ConcreteObserver extends Observer{
-
-    public ConcreteObserver(String name) {
-        super(name);
-    }
-
-    /**
-     * 更新观察者的状态，使其与目标状态一致
-     */
-    @Override
-    public void update(String state) {
-        observerState = state;
-        System.out.println(&quot;观察者[&quot;+getName()+&quot;]状态：&quot;+observerState);
-    }
-
-}</code></pre><p>运行结果为：</p>
+<p>运行结果为：</p>
 <blockquote>
 <p>增加了一个观察者1号<br>增加了一个观察者2号<br>增加了一个观察者3号<br>目标状态为：新状态<br>观察者[1号]状态：新状态<br>观察者[2号]状态：新状态<br>观察者[3号]状态：新状态</p>
 </blockquote>
@@ -474,82 +394,18 @@ public class ConcreteObserver extends Observer{
 <li>拉模型<br>目标对象在通知观察者的时候，只传递少量信息。如果观察者需要更具体的信息，由观察者主动到目标对象中获取，相当于是观察者从目标对象中拉数据。一般这种模型的实现中，会把目标对象自身通过 update() 方法传递给观察者，这样在观察者需要获取数据的时候，就可以通过这个引用来获取了。</li>
 </ul>
 <h5 id="拉模型代码实现"><a href="#拉模型代码实现" class="headerlink" title="拉模型代码实现"></a>拉模型代码实现</h5><p><strong>抽象目标类</strong>：拉模型的抽象目标类主要的改变是 nodifyObservers() 方法。在循环通知观察者的时候，也就是循环调用观察者的 update() 方法的时候，传入的参数不同了。</p>
-<pre><code>public abstract class Subject {
-    //用来保存注册的观察者
-    private List&lt;Observer&gt; list = new ArrayList&lt;&gt;();
-    /**
-     * 注册观察者对象
-     * @param observer
-     */
-    public void attach(Observer observer){
-        list.add(observer);
-        System.out.println(&quot;增加了一个观察者&quot;+observer.getName());
-    }
-    /**
-     * 删除观察者对象
-     * @param observer
-     */
-    public void detach(Observer observer){
-        list.remove(observer);
-        System.out.println(&quot;删除了一个观察者&quot;);
-    }
-    /**
-     * 通知所有注册的观察者对象
-     * @param newState
-     */
-    public void notifyObservers(){
-        for(Observer o :list){
-            o.update(this);
-        }
-    }
-}</code></pre><p><strong>具体目标类</strong>：跟推模型相比，有一点变化，就是调用通知观察者的方法的时候，不需要传入参数了。</p>
-<pre><code>public class ConcreteSubject extends Subject{
-    private String state;
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Subject</span> &#123;</span><br><span class="line">	<span class="comment">//用来保存注册的观察者</span></span><br><span class="line">	<span class="keyword">private</span> List&lt;Observer&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 注册观察者对象</span></span><br><span class="line"><span class="comment">	 * @param observer</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">attach</span>(<span class="params">Observer observer</span>)</span>&#123;</span><br><span class="line">		list.<span class="keyword">add</span>(observer);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"增加了一个观察者"</span>+observer.getName());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 删除观察者对象</span></span><br><span class="line"><span class="comment">	 * @param observer</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">detach</span>(<span class="params">Observer observer</span>)</span>&#123;</span><br><span class="line">		list.<span class="keyword">remove</span>(observer);</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"删除了一个观察者"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 通知所有注册的观察者对象</span></span><br><span class="line"><span class="comment">	 * @param newState</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(Observer o :list)&#123;</span><br><span class="line">			o.update(<span class="keyword">this</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public String getState(){
-        return state;
-    }
-    public void change(String newState){
-        state = newState;
-        System.out.println(&quot;目标状态为：&quot;+state);
-        notifyObservers();
-    }
-}</code></pre><p><strong>抽象观察者类</strong>：拉模型通常都是把主题对象当做参数传递。</p>
-<pre><code>public abstract class Observer {
-    //观察者的名字
-    protected String name;
-    //观察者的状态
-    protected String observerState;
-    public String getName(){
-        return name;
-    }
+<p><strong>具体目标类</strong>：跟推模型相比，有一点变化，就是调用通知观察者的方法的时候，不需要传入参数了。</p>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">public class ConcreteSubject extends Subject&#123;</span><br><span class="line">	private String <span class="keyword">state</span>;</span><br><span class="line">	</span><br><span class="line">	public String getState()&#123;</span><br><span class="line">		return <span class="keyword">state</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	public void change(String newState)&#123;</span><br><span class="line">		<span class="keyword">state</span> = newState;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"目标状态为："</span>+<span class="keyword">state</span>);</span><br><span class="line">		notifyObservers();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public Observer(String name){
-        this.name = name;
-    }
+<p><strong>抽象观察者类</strong>：拉模型通常都是把主题对象当做参数传递。</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Observer</span> &#123;</span><br><span class="line">	<span class="comment">//观察者的名字</span></span><br><span class="line">	<span class="keyword">protected</span> String name;</span><br><span class="line">	<span class="comment">//观察者的状态</span></span><br><span class="line">	<span class="keyword">protected</span> String observerState;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Observer</span>(<span class="params">String name</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 更新状态</span></span><br><span class="line"><span class="comment">	 * @param state</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">update</span>(<span class="params">Subject subject</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 更新状态
-     * @param state
-     */
-    public abstract void update(Subject subject);
-}</code></pre><p><strong>具体观察者</strong></p>
-<pre><code>public class ConcreteObserver extends Observer{
+<p><strong>具体观察者</strong></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">ConcreteObserver</span> <span class="keyword">extends</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	public <span class="type">ConcreteObserver</span>(<span class="type">String</span> name) &#123;</span><br><span class="line">		<span class="keyword">super</span>(name);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 更新观察者的状态，使其与目标状态一致</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	public void update(<span class="type">Subject</span> subject) &#123;</span><br><span class="line">		observerState = ((<span class="type">ConcreteSubject</span>)subject).getState();</span><br><span class="line">		<span class="type">System</span>.out.println(<span class="string">"观察者["</span>+getName()+<span class="string">"]状态："</span>+observerState);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public ConcreteObserver(String name) {
-        super(name);
-    }
-
-    /**
-     * 更新观察者的状态，使其与目标状态一致
-     */
-    @Override
-    public void update(Subject subject) {
-        observerState = ((ConcreteSubject)subject).getState();
-        System.out.println(&quot;观察者[&quot;+getName()+&quot;]状态：&quot;+observerState);
-    }
-
-}</code></pre><h5 id="两种模式的比较"><a href="#两种模式的比较" class="headerlink" title="两种模式的比较"></a>两种模式的比较</h5><ul>
+<h5 id="两种模式的比较"><a href="#两种模式的比较" class="headerlink" title="两种模式的比较"></a>两种模式的比较</h5><ul>
 <li><p>推模型是假定目标对象知道观察者需要的数据；而拉模型是主题对象不知道观察者具体需要什么数据，没有办法的情况下，干脆把自身传递给观察者，让观察者自己去按需要取值。</p>
 </li>
 <li><p>推模型可能会使得观察者对象难以复用，因为观察者的 update() 方法是按需要定义的参数，可能无法兼顾没有考虑到的使用情况。这就意味着出现新情况的时候，就可能提供新的 update() 方法，或者是干脆重新实现观察者；而拉模型就不会造成这样的情况，因为拉模型下，update() 方法的参数是主题对象本身，这基本上是主题对象能传递的最大数据集合了，基本上可以适应各种情况的需要。</p>
@@ -557,142 +413,22 @@ public class ConcreteObserver extends Observer{
 </ul>
 <h4 id="JDK-中的观察者模式支持"><a href="#JDK-中的观察者模式支持" class="headerlink" title="JDK 中的观察者模式支持"></a>JDK 中的观察者模式支持</h4><p>在 Java 的 java.util 库里面，提供了一个 Observable 类以及一个 Observer 接口，构成对观察者模式的支持。</p>
 <h5 id="Observer-接口"><a href="#Observer-接口" class="headerlink" title="Observer 接口"></a>Observer 接口</h5><p>这个接口只定义了一个方法，即 update() 方法，当被观察者对象的状态发生变化时，被观察者对象的 notifyObservers() 方法就会调用这一方法。</p>
-<pre><code>public interface Observer {
-    void update(Observable o, Object arg);
-}</code></pre><h5 id="Observable-类"><a href="#Observable-类" class="headerlink" title="Observable 类"></a>Observable 类</h5><p>被观察者类都是 java.util.Observable 类的子类。Observable 提供公开的方法支持观察者对象，这些方法中有两个对 Observable 的子类非常重要：一个是 setChanged()，另一个是 notifyObservers()。第一方法 setChanged() 被调用之后会设置一个内部标记变量，代表被观察者对象的状态发生了变化。第二个是 notifyObservers()，这个方法被调用时，会调用所有注册过的观察者对象的 update() 方法，使这些观察者对象可以更新自己。</p>
-<pre><code>public class Observable {
-    private boolean changed = false;
-    private Vector obs;
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public<span class="built_in"> interface </span>Observer &#123;</span><br><span class="line">    void update(Observable o, Object arg);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /** Construct an Observable with zero Observers. */
+<h5 id="Observable-类"><a href="#Observable-类" class="headerlink" title="Observable 类"></a>Observable 类</h5><p>被观察者类都是 java.util.Observable 类的子类。Observable 提供公开的方法支持观察者对象，这些方法中有两个对 Observable 的子类非常重要：一个是 setChanged()，另一个是 notifyObservers()。第一方法 setChanged() 被调用之后会设置一个内部标记变量，代表被观察者对象的状态发生了变化。第二个是 notifyObservers()，这个方法被调用时，会调用所有注册过的观察者对象的 update() 方法，使这些观察者对象可以更新自己。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Observable</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> changed = <span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">private</span> Vector obs;</span><br><span class="line">   </span><br><span class="line">    <span class="comment">/** Construct an Observable with zero Observers. */</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Observable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	obs = <span class="keyword">new</span> Vector();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将一个观察者添加到观察者聚集上面</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="function"><span class="keyword">void</span> <span class="title">addObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (o == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> NullPointerException();</span><br><span class="line">        <span class="keyword">if</span> (!obs.contains(o)) &#123;</span><br><span class="line">        	obs.addElement(o);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将一个观察者从观察者聚集上删除</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="function"><span class="keyword">void</span> <span class="title">deleteObserver</span><span class="params">(Observer o)</span> </span>&#123;</span><br><span class="line">        obs.removeElement(o);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	notifyObservers(<span class="keyword">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 如果本对象有变化（那时hasChanged 方法会返回true）</span></span><br><span class="line"><span class="comment">     * 调用本方法通知所有登记的观察者，即调用它们的update()方法</span></span><br><span class="line"><span class="comment">     * 传入this和arg作为参数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">(Object arg)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Object[] arrLocal;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>) &#123;</span><br><span class="line"></span><br><span class="line">        	<span class="keyword">if</span> (!changed)</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            arrLocal = obs.toArray();</span><br><span class="line">            clearChanged();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = arrLocal.length<span class="number">-1</span>; i&gt;=<span class="number">0</span>; i--)</span><br><span class="line">            ((Observer)arrLocal[i]).update(<span class="keyword">this</span>, arg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将观察者聚集清空</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="function"><span class="keyword">void</span> <span class="title">deleteObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	obs.removeAllElements();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将“已变化”设置为true</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">synchronized</span> <span class="function"><span class="keyword">void</span> <span class="title">setChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	changed = <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 将“已变化”重置为false</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">synchronized</span> <span class="function"><span class="keyword">void</span> <span class="title">clearChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	changed = <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 检测本对象是否已变化</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="function"><span class="keyword">boolean</span> <span class="title">hasChanged</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> changed;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Returns the number of observers of this &lt;tt&gt;Observable&lt;/tt&gt; object.</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>  the number of observers of this object.</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="function"><span class="keyword">int</span> <span class="title">countObservers</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="function"><span class="keyword">return</span> obs.<span class="title">size</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public Observable() {
-        obs = new Vector();
-    }
-
-    /**
-     * 将一个观察者添加到观察者聚集上面
-     */
-    public synchronized void addObserver(Observer o) {
-        if (o == null)
-            throw new NullPointerException();
-        if (!obs.contains(o)) {
-            obs.addElement(o);
-        }
-    }
-
-    /**
-     * 将一个观察者从观察者聚集上删除
-     */
-    public synchronized void deleteObserver(Observer o) {
-        obs.removeElement(o);
-    }
-
-    public void notifyObservers() {
-        notifyObservers(null);
-    }
-
-    /**
-     * 如果本对象有变化（那时hasChanged 方法会返回true）
-     * 调用本方法通知所有登记的观察者，即调用它们的update()方法
-     * 传入this和arg作为参数
-     */
-    public void notifyObservers(Object arg) {
-
-        Object[] arrLocal;
-
-        synchronized (this) {
-
-            if (!changed)
-                return;
-            arrLocal = obs.toArray();
-            clearChanged();
-        }
-
-        for (int i = arrLocal.length-1; i&gt;=0; i--)
-            ((Observer)arrLocal[i]).update(this, arg);
-    }
-
-    /**
-     * 将观察者聚集清空
-     */
-    public synchronized void deleteObservers() {
-        obs.removeAllElements();
-    }
-
-    /**
-     * 将“已变化”设置为true
-     */
-    protected synchronized void setChanged() {
-        changed = true;
-    }
-
-    /**
-     * 将“已变化”重置为false
-     */
-    protected synchronized void clearChanged() {
-        changed = false;
-    }
-
-    /**
-     * 检测本对象是否已变化
-     */
-    public synchronized boolean hasChanged() {
-        return changed;
-    }
-
-    /**
-     * Returns the number of observers of this &lt;tt&gt;Observable&lt;/tt&gt; object.
-     *
-     * @return  the number of observers of this object.
-     */
-    public synchronized int countObservers() {
-        return obs.size();
-    }
-}</code></pre><h5 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h5><p>这里给出一个非常简单的例子，说明怎样使用 Java 所提供的对观察者模式的支持。在这个例子中，被观察对象叫做 Watched；而观察者对象叫做 Watcher。Watched 对象继承自 java.util.Observable 类；而 Watcher 对象实现了 java.util.Observer 接口。另外有一个 Test 类扮演客户端角色。</p>
+<h5 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h5><p>这里给出一个非常简单的例子，说明怎样使用 Java 所提供的对观察者模式的支持。在这个例子中，被观察对象叫做 Watched；而观察者对象叫做 Watcher。Watched 对象继承自 java.util.Observable 类；而 Watcher 对象实现了 java.util.Observer 接口。另外有一个 Test 类扮演客户端角色。</p>
 <p><strong>被观察者 Watched 类</strong></p>
-<pre><code>public class Watched extends Observable{
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Watched</span> <span class="title">extends</span> <span class="title">Observable</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> String <span class="keyword">data</span> = <span class="string">""</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> String getData() &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">data</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> void setData(String <span class="keyword">data</span>) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(!<span class="keyword">this</span>.<span class="keyword">data</span>.equals(<span class="keyword">data</span>))&#123;</span><br><span class="line">            <span class="keyword">this</span>.<span class="keyword">data</span> = <span class="keyword">data</span>;</span><br><span class="line">            setChanged();</span><br><span class="line">        &#125;</span><br><span class="line">        notifyObservers();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    private String data = &quot;&quot;;
+<p><strong>观察者 Watcher 类</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Watcher</span> <span class="keyword">implements</span> <span class="title">Observer</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Watcher</span><span class="params">(Observable o)</span></span>&#123;</span><br><span class="line">        o.addObserver(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Observable o, Object arg)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"状态发生改变："</span> + ((Watched)o).getData());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public String getData() {
-        return data;
-    }
+<p><strong>测试类</strong></p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">        <span class="comment">//创建被观察者对象</span></span><br><span class="line">        Watched watched = <span class="keyword">new</span> <span class="type">Watched</span>();</span><br><span class="line">        <span class="comment">//创建观察者对象，并将被观察者对象登记</span></span><br><span class="line">        Observer watcher = <span class="keyword">new</span> <span class="type">Watcher</span>(watched);</span><br><span class="line">        <span class="comment">//给被观察者状态赋值</span></span><br><span class="line">        watched.setData(<span class="string">"start"</span>);</span><br><span class="line">        watched.setData(<span class="string">"run"</span>);</span><br><span class="line">        watched.setData(<span class="string">"stop"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public void setData(String data) {
-
-        if(!this.data.equals(data)){
-            this.data = data;
-            setChanged();
-        }
-        notifyObservers();
-    }
-}</code></pre><p><strong>观察者 Watcher 类</strong></p>
-<pre><code>public class Watcher implements Observer{
-
-    public Watcher(Observable o){
-        o.addObserver(this);
-    }
-
-    @Override
-    public void update(Observable o, Object arg) {
-        System.out.println(&quot;状态发生改变：&quot; + ((Watched)o).getData());
-    }
-
-}</code></pre><p><strong>测试类</strong></p>
-<pre><code>public class Test {
-
-    public static void main(String[] args) {
-        //创建被观察者对象
-        Watched watched = new Watched();
-        //创建观察者对象，并将被观察者对象登记
-        Observer watcher = new Watcher(watched);
-        //给被观察者状态赋值
-        watched.setData(&quot;start&quot;);
-        watched.setData(&quot;run&quot;);
-        watched.setData(&quot;stop&quot;);
-    }
-}</code></pre><p>首先创建了 Watched 和 Watcher 对象。在创建 Watcher 对象时，将 Watched 对象作为参数传入；然后调用 Watched 对象的 setData() 方法，触发 Watched 对象的内部状态变化；Watched 对象进而通知实现登记过的 Watcher 对象，也就是调用它的 update() 方法。</p>
+<p>首先创建了 Watched 和 Watcher 对象。在创建 Watcher 对象时，将 Watched 对象作为参数传入；然后调用 Watched 对象的 setData() 方法，触发 Watched 对象的内部状态变化；Watched 对象进而通知实现登记过的 Watcher 对象，也就是调用它的 update() 方法。</p>
 <h4 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h4><ul>
 <li>观察者模式描述了如何建立对象与对象之间的依赖关系，如何构造满足这种需求的系统。</li>
 <li>这一模式中的关键对象是观察目标和观察者，一个目标可以有任意数目的与之相依赖的观察者，一旦目标的状态发生改变，所有的观察者都将得到通知。</li>
@@ -746,7 +482,7 @@ public class ConcreteObserver extends Observer{
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -883,9 +619,9 @@ public class ConcreteObserver extends Observer{
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -978,9 +714,6 @@ public class ConcreteObserver extends Observer{
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

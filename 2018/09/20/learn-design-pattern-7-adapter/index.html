@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（7）适配器模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -391,139 +385,22 @@
 <p><img src="https://i.loli.net/2019/08/29/DARLHqdmykY8XZ6.jpg" alt="img2.png"></p>
 <p>现在我们就来定义这样一个适配器：</p>
 <p>首先定义两个接口：</p>
-<pre><code>/**
- * Lighting 充电器接口
- *
- */
-public interface ILighting {
-    public void chargeWithLighting();
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Lighting 充电器接口</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">ILighting</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chargeWithLighting</span>(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * MicroUsb充电器接口</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">IMicroUsb</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chargeWithMicroUsb</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-}
-/**
- * MicroUsb充电器接口
- *
- */
-public interface IMicroUsb {
-    public void chargeWithMicroUsb();
-}</code></pre><p>接着定义两个接口的实现类：</p>
-<pre><code>/**
- * 苹果设备的充电器
- *
- */
-public class AppleCharger implements ILighting{
+<p>接着定义两个接口的实现类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 苹果设备的充电器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppleCharger</span> <span class="keyword">implements</span> <span class="title">ILighting</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chargeWithLighting</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"使用Lighting型号充电器充电"</span>);	</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 安卓设备的充电器</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AndroidCharger</span> <span class="keyword">implements</span> <span class="title">IMicroUsb</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chargeWithMicroUsb</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"使用MicroUsb型号充电器充电"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @Override
-    public void chargeWithLighting() {
-        System.out.println(&quot;使用Lighting型号充电器充电&quot;);    
-    }
-}
-/**
- * 安卓设备的充电器
- *
- */
-public class AndroidCharger implements IMicroUsb{
+<p>然后定义两个手机：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Iphone6手机，只能使用Linghting接口</span></span><br><span class="line"><span class="comment"> * @author OwenLee</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Iphone6</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> ILighting lighting;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Iphone6</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Iphone6</span>(<span class="params">ILighting lighting</span>)</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.lighting = lighting;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> ILighting <span class="title">getLighting</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> lighting;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setLighting</span>(<span class="params">ILighting lighting</span>)</span> &#123;</span><br><span class="line">		<span class="keyword">this</span>.lighting = lighting;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">charge</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"----Iphone6开始充电----"</span>);</span><br><span class="line">		lighting.chargeWithLighting();</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"----Iphone6结束充电----"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 小米手机，只能使用MicroUsb接口</span></span><br><span class="line"><span class="comment"> * @author OwenLee</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Xiaomi8</span> &#123;</span><br><span class="line">	<span class="keyword">private</span> IMicroUsb microUsb;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Xiaomi8</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Xiaomi8</span>(<span class="params">IMicroUsb microUsb</span>)</span> &#123;</span><br><span class="line">		super();</span><br><span class="line">		<span class="keyword">this</span>.microUsb = microUsb;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> IMicroUsb <span class="title">getMicroUsb</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">		<span class="keyword">return</span> microUsb;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMicroUsb</span>(<span class="params">IMicroUsb microUsb</span>)</span> &#123;</span><br><span class="line">		<span class="keyword">this</span>.microUsb = microUsb;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">charge</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"----Xiaomi8开始充电----"</span>);</span><br><span class="line">		microUsb.chargeWithMicroUsb();</span><br><span class="line">		System.<span class="keyword">out</span>.println(<span class="string">"----Xiaomi8结束充电----"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @Override
-    public void chargeWithMicroUsb() {
-        System.out.println(&quot;使用MicroUsb型号充电器充电&quot;);
-    }
-}</code></pre><p>然后定义两个手机：</p>
-<pre><code>/**
- * Iphone6手机，只能使用Linghting接口
- * @author OwenLee
- *
- */
-public class Iphone6 {
-    private ILighting lighting;
+<p>最后就来实现将 MicroUsb 接口转化为 Lighting 接口的适配器 LightingAdaper：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LightingAdapter</span> <span class="keyword">implements</span> <span class="title">ILighting</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> IMicroUsb microUsb;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LightingAdapter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">LightingAdapter</span><span class="params">(IMicroUsb microUsb)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.microUsb = microUsb;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> IMicroUsb <span class="title">getMicroUsb</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> microUsb;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMicroUsb</span><span class="params">(IMicroUsb microUsb)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.microUsb = microUsb;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">chargeWithLighting</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		microUsb.chargeWithMicroUsb();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public Iphone6(){
-
-    }
-
-    public Iphone6(ILighting lighting){
-        this.lighting = lighting;
-    }
-
-    public ILighting getLighting() {
-        return lighting;
-    }
-
-    public void setLighting(ILighting lighting) {
-        this.lighting = lighting;
-    }
-
-    public void charge(){
-        System.out.println(&quot;----Iphone6开始充电----&quot;);
-        lighting.chargeWithLighting();
-        System.out.println(&quot;----Iphone6结束充电----&quot;);
-    }
-}
-/**
- * 小米手机，只能使用MicroUsb接口
- * @author OwenLee
- *
- */
-public class Xiaomi8 {
-    private IMicroUsb microUsb;
-
-    public Xiaomi8(){
-
-    }
-    public Xiaomi8(IMicroUsb microUsb) {
-        super();
-        this.microUsb = microUsb;
-    }
-    public IMicroUsb getMicroUsb() {
-        return microUsb;
-    }
-    public void setMicroUsb(IMicroUsb microUsb) {
-        this.microUsb = microUsb;
-    }
-
-    public void charge(){
-        System.out.println(&quot;----Xiaomi8开始充电----&quot;);
-        microUsb.chargeWithMicroUsb();
-        System.out.println(&quot;----Xiaomi8结束充电----&quot;);
-    }
-}</code></pre><p>最后就来实现将 MicroUsb 接口转化为 Lighting 接口的适配器 LightingAdaper：</p>
-<pre><code>public class LightingAdapter implements ILighting{
-
-    private IMicroUsb microUsb;
-
-    public LightingAdapter() {
-
-    }
-    public LightingAdapter(IMicroUsb microUsb){
-        this.microUsb = microUsb;
-    }
-
-    public IMicroUsb getMicroUsb() {
-        return microUsb;
-    }
-    public void setMicroUsb(IMicroUsb microUsb) {
-        this.microUsb = microUsb;
-    }
-
-    @Override
-    public void chargeWithLighting() {
-        microUsb.chargeWithMicroUsb();
-    }
-
-}</code></pre><p>该适配器的功能是把一个 MicroUsb 转换成 Lightning。实现方式是实现目标类的接口（ILightning），然后使用组合的方式，在该适配器中定义 IMicroUsb。然后在重写的 chargeWithLightning() 方法中，采用 IMicroUsb 的方法来实现具体细节。</p>
+<p>该适配器的功能是把一个 MicroUsb 转换成 Lightning。实现方式是实现目标类的接口（ILightning），然后使用组合的方式，在该适配器中定义 IMicroUsb。然后在重写的 chargeWithLightning() 方法中，采用 IMicroUsb 的方法来实现具体细节。</p>
 <p>在主函数中进行测试：</p>
-<pre><code>public class AdaperTest {
-    public static void main(String[] args) {
-        Iphone6 iphone6 = new Iphone6(new AppleCharger());
-        iphone6.charge();
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdaperTest</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">		Iphone6 iphone6 = <span class="keyword">new</span> <span class="type">Iphone6</span>(<span class="keyword">new</span> <span class="type">AppleCharger</span>());</span><br><span class="line">		iphone6.charge();</span><br><span class="line">		</span><br><span class="line">		Xiaomi8 xiaomi8 = <span class="keyword">new</span> <span class="type">Xiaomi8</span>(<span class="keyword">new</span> <span class="type">AndroidCharger</span>());</span><br><span class="line">		xiaomi8.charge();</span><br><span class="line">		</span><br><span class="line">		Iphone6 ip = <span class="keyword">new</span> <span class="type">Iphone6</span>(<span class="keyword">new</span> <span class="type">LightingAdapter</span>(<span class="keyword">new</span> <span class="type">AndroidCharger</span>()));</span><br><span class="line">		ip.charge();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        Xiaomi8 xiaomi8 = new Xiaomi8(new AndroidCharger());
-        xiaomi8.charge();
-
-        Iphone6 ip = new Iphone6(new LightingAdapter(new AndroidCharger()));
-        ip.charge();
-    }
-
-}</code></pre><blockquote>
+<blockquote>
 <p>执行结果为：<br>—-Iphone6开始充电—-<br>使用Lighting型号充电器充电<br>—-Iphone6结束充电—-</p>
 </blockquote>
 <blockquote>
@@ -586,7 +463,7 @@ public class Xiaomi8 {
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -723,9 +600,9 @@ public class Xiaomi8 {
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -818,9 +695,6 @@ public class Xiaomi8 {
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

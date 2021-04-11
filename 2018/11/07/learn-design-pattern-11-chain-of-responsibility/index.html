@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（11）责任链模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -394,150 +388,15 @@
 <p><img src="https://i.loli.net/2019/08/29/ykfeSTUMmwDNGz8.jpg" alt="img3.png"></p>
 <p>代码如下：</p>
 <p><strong>抽象处理者角色：</strong></p>
-<pre><code>public abstract class Handler {
-    /**
-     * 持有下一个处理请求的对象
-     */
-    protected Handler successor = null;
-    /**
-     * 取值方法
-     */
-    public Handler getSuccessor() {
-        return successor;
-    }
-    /**
-     * 设置下一个处理请求的对象
-     */
-    public void setSuccessor(Handler successor) {
-        this.successor = successor;
-    }
-    /**
-     * 处理聚餐费用的申请
-     * @param user    申请人
-     * @param fee    申请的钱数
-     * @return        成功或失败的具体通知
-     */
-    public abstract String handleFeeRequest(String user , double fee);
-}</code></pre><p><strong>具体处理者角色：</strong></p>
-<pre><code>//--------------项目经理
-public class ProjectManager extends Handler {
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Handler</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 持有下一个处理请求的对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> Handler successor = <span class="literal">null</span>;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 取值方法</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Handler <span class="title">getSuccessor</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> successor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置下一个处理请求的对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSuccessor</span>(<span class="params">Handler successor</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.successor = successor;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理聚餐费用的申请</span></span><br><span class="line"><span class="comment">     * @param user    申请人</span></span><br><span class="line"><span class="comment">     * @param fee    申请的钱数</span></span><br><span class="line"><span class="comment">     * @return        成功或失败的具体通知</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> String <span class="title">handleFeeRequest</span>(<span class="params">String user , <span class="keyword">double</span> fee</span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @Override
-    public String handleFeeRequest(String user, double fee) {
+<p><strong>具体处理者角色：</strong></p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//--------------项目经理</span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">ProjectManager</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public <span class="type">String</span> handleFeeRequest(<span class="type">String</span> user, double fee) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">String</span> str = <span class="string">""</span>;</span><br><span class="line">        <span class="comment">//项目经理权限比较小，只能在500以内</span></span><br><span class="line">        <span class="keyword">if</span>(fee &lt; <span class="number">500</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//为了测试，简单点，只同意张三的请求</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="string">"张三"</span>.equals(user))</span><br><span class="line">            &#123;</span><br><span class="line">                str = <span class="string">"成功：项目经理同意【"</span> + user + <span class="string">"】的聚餐费用，金额为"</span> + fee + <span class="string">"元"</span>;    </span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//其他人一律不同意</span></span><br><span class="line">                str = <span class="string">"失败：项目经理不同意【"</span> + user + <span class="string">"】的聚餐费用，金额为"</span> + fee + <span class="string">"元"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//超过500，继续传递给级别更高的人处理</span></span><br><span class="line">            <span class="keyword">if</span>(getSuccessor() != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> getSuccessor().handleFeeRequest(user, fee);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//----------------部门经理</span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">DeptManager</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public <span class="type">String</span> handleFeeRequest(<span class="type">String</span> user, double fee) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">String</span> str = <span class="string">""</span>;</span><br><span class="line">        <span class="comment">//部门经理的权限只能在1000以内</span></span><br><span class="line">        <span class="keyword">if</span>(fee &lt; <span class="number">1000</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//为了测试，简单点，只同意张三的请求</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="string">"张三"</span>.equals(user))</span><br><span class="line">            &#123;</span><br><span class="line">                str = <span class="string">"成功：部门经理同意【"</span> + user + <span class="string">"】的聚餐费用，金额为"</span> + fee + <span class="string">"元"</span>;    </span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//其他人一律不同意</span></span><br><span class="line">                str = <span class="string">"失败：部门经理不同意【"</span> + user + <span class="string">"】的聚餐费用，金额为"</span> + fee + <span class="string">"元"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//超过1000，继续传递给级别更高的人处理</span></span><br><span class="line">            <span class="keyword">if</span>(getSuccessor() != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> getSuccessor().handleFeeRequest(user, fee);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//-------------总经理</span></span><br><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">GeneralManager</span> <span class="keyword">extends</span> <span class="title">Handler</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public <span class="type">String</span> handleFeeRequest(<span class="type">String</span> user, double fee) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="type">String</span> str = <span class="string">""</span>;</span><br><span class="line">        <span class="comment">//总经理的权限很大，只要请求到了这里，他都可以处理</span></span><br><span class="line">        <span class="keyword">if</span>(fee &gt;= <span class="number">1000</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//为了测试，简单点，只同意张三的请求</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="string">"张三"</span>.equals(user))</span><br><span class="line">            &#123;</span><br><span class="line">                str = <span class="string">"成功：总经理同意【"</span> + user + <span class="string">"】的聚餐费用，金额为"</span> + fee + <span class="string">"元"</span>;    </span><br><span class="line">            &#125;<span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">//其他人一律不同意</span></span><br><span class="line">                str = <span class="string">"失败：总经理不同意【"</span> + user + <span class="string">"】的聚餐费用，金额为"</span> + fee + <span class="string">"元"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">//如果还有后继的处理对象，继续传递</span></span><br><span class="line">            <span class="keyword">if</span>(getSuccessor() != <span class="literal">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> getSuccessor().handleFeeRequest(user, fee);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> str;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        String str = &quot;&quot;;
-        //项目经理权限比较小，只能在500以内
-        if(fee &lt; 500)
-        {
-            //为了测试，简单点，只同意张三的请求
-            if(&quot;张三&quot;.equals(user))
-            {
-                str = &quot;成功：项目经理同意【&quot; + user + &quot;】的聚餐费用，金额为&quot; + fee + &quot;元&quot;;    
-            }else
-            {
-                //其他人一律不同意
-                str = &quot;失败：项目经理不同意【&quot; + user + &quot;】的聚餐费用，金额为&quot; + fee + &quot;元&quot;;
-            }
-        }else
-        {
-            //超过500，继续传递给级别更高的人处理
-            if(getSuccessor() != null)
-            {
-                return getSuccessor().handleFeeRequest(user, fee);
-            }
-        }
-        return str;
-    }
-}
-//----------------部门经理
-public class DeptManager extends Handler {
+<p><strong>客户端：</strong></p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> class <span class="built_in">Client</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">        <span class="comment">//先要组装责任链</span></span><br><span class="line">        Handler h1 = <span class="keyword">new</span> GeneralManager();</span><br><span class="line">        Handler h2 = <span class="keyword">new</span> DeptManager();</span><br><span class="line">        Handler h3 = <span class="keyword">new</span> ProjectManager();</span><br><span class="line">        h3.setSuccessor(h2);</span><br><span class="line">        h2.setSuccessor(h1);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//开始测试</span></span><br><span class="line">        <span class="keyword">String</span> test1 = h3.handleFeeRequest(<span class="string">"张三"</span>, <span class="number">300</span>);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"test1 = "</span> + test1);</span><br><span class="line">        <span class="keyword">String</span> test2 = h3.handleFeeRequest(<span class="string">"李四"</span>, <span class="number">300</span>);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"test2 = "</span> + test2);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"---------------------------------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">String</span> test3 = h3.handleFeeRequest(<span class="string">"张三"</span>, <span class="number">700</span>);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"test3 = "</span> + test3);</span><br><span class="line">        <span class="keyword">String</span> test4 = h3.handleFeeRequest(<span class="string">"李四"</span>, <span class="number">700</span>);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"test4 = "</span> + test4);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"---------------------------------------"</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">String</span> test5 = h3.handleFeeRequest(<span class="string">"张三"</span>, <span class="number">1500</span>);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"test5 = "</span> + test5);</span><br><span class="line">        <span class="keyword">String</span> test6 = h3.handleFeeRequest(<span class="string">"李四"</span>, <span class="number">1500</span>);</span><br><span class="line">        System.out.<span class="built_in">println</span>(<span class="string">"test6 = "</span> + test6);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @Override
-    public String handleFeeRequest(String user, double fee) {
-
-        String str = &quot;&quot;;
-        //部门经理的权限只能在1000以内
-        if(fee &lt; 1000)
-        {
-            //为了测试，简单点，只同意张三的请求
-            if(&quot;张三&quot;.equals(user))
-            {
-                str = &quot;成功：部门经理同意【&quot; + user + &quot;】的聚餐费用，金额为&quot; + fee + &quot;元&quot;;    
-            }else
-            {
-                //其他人一律不同意
-                str = &quot;失败：部门经理不同意【&quot; + user + &quot;】的聚餐费用，金额为&quot; + fee + &quot;元&quot;;
-            }
-        }else
-        {
-            //超过1000，继续传递给级别更高的人处理
-            if(getSuccessor() != null)
-            {
-                return getSuccessor().handleFeeRequest(user, fee);
-            }
-        }
-        return str;
-    }
-}
-//-------------总经理
-public class GeneralManager extends Handler {
-
-    @Override
-    public String handleFeeRequest(String user, double fee) {
-
-        String str = &quot;&quot;;
-        //总经理的权限很大，只要请求到了这里，他都可以处理
-        if(fee &gt;= 1000)
-        {
-            //为了测试，简单点，只同意张三的请求
-            if(&quot;张三&quot;.equals(user))
-            {
-                str = &quot;成功：总经理同意【&quot; + user + &quot;】的聚餐费用，金额为&quot; + fee + &quot;元&quot;;    
-            }else
-            {
-                //其他人一律不同意
-                str = &quot;失败：总经理不同意【&quot; + user + &quot;】的聚餐费用，金额为&quot; + fee + &quot;元&quot;;
-            }
-        }else
-        {
-            //如果还有后继的处理对象，继续传递
-            if(getSuccessor() != null)
-            {
-                return getSuccessor().handleFeeRequest(user, fee);
-            }
-        }
-        return str;
-    }
-}</code></pre><p><strong>客户端：</strong></p>
-<pre><code>public class Client {
-
-    public static void main(String[] args) {
-        //先要组装责任链
-        Handler h1 = new GeneralManager();
-        Handler h2 = new DeptManager();
-        Handler h3 = new ProjectManager();
-        h3.setSuccessor(h2);
-        h2.setSuccessor(h1);
-
-        //开始测试
-        String test1 = h3.handleFeeRequest(&quot;张三&quot;, 300);
-        System.out.println(&quot;test1 = &quot; + test1);
-        String test2 = h3.handleFeeRequest(&quot;李四&quot;, 300);
-        System.out.println(&quot;test2 = &quot; + test2);
-        System.out.println(&quot;---------------------------------------&quot;);
-
-        String test3 = h3.handleFeeRequest(&quot;张三&quot;, 700);
-        System.out.println(&quot;test3 = &quot; + test3);
-        String test4 = h3.handleFeeRequest(&quot;李四&quot;, 700);
-        System.out.println(&quot;test4 = &quot; + test4);
-        System.out.println(&quot;---------------------------------------&quot;);
-
-        String test5 = h3.handleFeeRequest(&quot;张三&quot;, 1500);
-        System.out.println(&quot;test5 = &quot; + test5);
-        String test6 = h3.handleFeeRequest(&quot;李四&quot;, 1500);
-        System.out.println(&quot;test6 = &quot; + test6);
-    }
-}</code></pre><p>运行结果如下：</p>
+<p>运行结果如下：</p>
 <p><img src="https://i.loli.net/2019/08/29/dXTPeECYIWQjVGo.jpg" alt="img4.png"></p>
 <h4 id="纯的与不纯的责任链模式"><a href="#纯的与不纯的责任链模式" class="headerlink" title="纯的与不纯的责任链模式"></a>纯的与不纯的责任链模式</h4><p>一个纯的责任链模式要求一个具体的处理者对象只能在两个行为中选择一个：一是承担责任，而是把责任推给下家。不允许出现某一个具体处理者对象在承担了一部分责任后又把责任向下传的情况。</p>
 <p>在一个纯的责任链模式里面，一个请求必须被某一个处理者对象所接收；在一个不纯的责任链模式里面，一个请求可以最终不被任何接收端对象所接收。</p>
@@ -584,7 +443,7 @@ public class GeneralManager extends Handler {
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -721,9 +580,9 @@ public class GeneralManager extends Handler {
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -816,9 +675,6 @@ public class GeneralManager extends Handler {
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（6）建造者模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -382,59 +376,9 @@
 <p><strong>抽象建造者</strong>：引入抽象建造者的目的，是为了将建造的具体过程交与它的子类来实现。这样更容易扩展。一般至少会有两个抽象方法，一个用来建造产品，一个是用来返回产品。</p>
 <p><strong>建造者</strong>：实现抽象类的所有未实现的方法，具体来说一般是两项任务：组建产品；返回组建好的产品。</p>
 <p><strong>导演类</strong>：负责调用适当的建造者来组建产品，导演类一般不与产品类发生依赖关系，与导演类直接交互的是建造者类。一般来说，导演类被用来封装程序中易变的部分。</p>
-<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><pre><code>    class Product {
-        private String name;
-        private String type;
-        public void showProduct(){
-            System.out.println(&quot;名称：&quot;+name);
-            System.out.println(&quot;型号：&quot;+type);
-        }
-        public void setName(String name) {
-            this.name = name;
-        }
-        public void setType(String type) {
-            this.type = type;
-        }
-    }
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title">Product</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> String type;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showProduct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"名称："</span>+name);</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"型号："</span>+type);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span>(<span class="params">String name</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setType</span>(<span class="params">String type</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.type = type;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">abstract</span> <span class="keyword">class</span> <span class="title">Builder</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setPart</span>(<span class="params">String arg1, String arg2</span>)</span>;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> Product <span class="title">getProduct</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title">ConcreteBuilder</span> <span class="title">extends</span> <span class="title">Builder</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Product product = <span class="keyword">new</span> Product();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Product <span class="title">getProduct</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> product;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPart</span>(<span class="params">String arg1, String arg2</span>)</span> &#123;</span><br><span class="line">        product.setName(arg1);</span><br><span class="line">        product.setType(arg2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Director</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> Builder builder = <span class="keyword">new</span> ConcreteBuilder();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Product <span class="title">getAProduct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        builder.setPart(<span class="string">"宝马汽车"</span>,<span class="string">"X7"</span>);</span><br><span class="line">        <span class="keyword">return</span> builder.getProduct();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> Product <span class="title">getBProduct</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        builder.setPart(<span class="string">"奥迪汽车"</span>,<span class="string">"Q5"</span>);</span><br><span class="line">        <span class="keyword">return</span> builder.getProduct();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span>&#123;</span><br><span class="line">        Director director = <span class="keyword">new</span> Director();</span><br><span class="line">        Product product1 = director.getAProduct();</span><br><span class="line">        product1.showProduct();</span><br><span class="line"></span><br><span class="line">        Product product2 = director.getBProduct();</span><br><span class="line">        product2.showProduct();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    abstract class Builder {
-        public abstract void setPart(String arg1, String arg2);
-        public abstract Product getProduct();
-    }
-    class ConcreteBuilder extends Builder {
-        private Product product = new Product();
-
-        public Product getProduct() {
-            return product;
-        }
-
-        public void setPart(String arg1, String arg2) {
-            product.setName(arg1);
-            product.setType(arg2);
-        }
-    }
-
-    public class Director {
-        private Builder builder = new ConcreteBuilder();
-        public Product getAProduct(){
-            builder.setPart(&quot;宝马汽车&quot;,&quot;X7&quot;);
-            return builder.getProduct();
-        }
-        public Product getBProduct(){
-            builder.setPart(&quot;奥迪汽车&quot;,&quot;Q5&quot;);
-            return builder.getProduct();
-        }
-    }
-    public class Client {
-        public static void main(String[] args){
-            Director director = new Director();
-            Product product1 = director.getAProduct();
-            product1.showProduct();
-
-            Product product2 = director.getBProduct();
-            product2.showProduct();
-        }
-    }</code></pre><h4 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h4><p>在建造者模式的结构中引入了一个指挥者类，该类的作用主要有两个：一方面它隔离了客户与生产过程；另一方面它负责控制产品的生成过程。指挥者针对抽象建造者编程，客户端只需要知道具体建造者的类型，即可通过指挥者类调用建造者的相关方法，返回一个完整的产品对象。</p>
+<h4 id="模式分析"><a href="#模式分析" class="headerlink" title="模式分析"></a>模式分析</h4><p>在建造者模式的结构中引入了一个指挥者类，该类的作用主要有两个：一方面它隔离了客户与生产过程；另一方面它负责控制产品的生成过程。指挥者针对抽象建造者编程，客户端只需要知道具体建造者的类型，即可通过指挥者类调用建造者的相关方法，返回一个完整的产品对象。</p>
 <p><strong>优点：</strong></p>
 <ol>
 <li>客户端不必知道产品内部组成的细节，将产品本身与产品的创建过程解耦，使得相同的创建过程可以创建不同的产品对象；</li>
@@ -455,20 +399,9 @@
 <p>一般来说，Builder 常常作为实际产品的静态内部类来实现（提高内聚性），所以 Product、Director、Builder 常常在一个类文件中。</p>
 <h4 id="和抽象工厂的比较"><a href="#和抽象工厂的比较" class="headerlink" title="和抽象工厂的比较"></a>和抽象工厂的比较</h4><p>与抽象工厂模式相比， 建造者模式返回一个组装好的完整产品 ，而 抽象工厂模式返回一系列相关的产品，这些产品位于不同的产品等级结构，构成了一个产品族。</p>
 <h4 id="在-Android-中应用"><a href="#在-Android-中应用" class="headerlink" title="在 Android 中应用"></a>在 Android 中应用</h4><p>Android 中的 AlertDialog 就用到了建造者模式，调用 AlertDialog.Builder的create() 方法可以返回一个 AlertDialog 对象。</p>
-<pre><code>AlertDialog.Builder builder = new AlertDialog.Builder(activity);//创建一个Builder对象
-        builder.setIcon(R.drawable.icon);
-        builder.setTitle(&quot;标题&quot;);
-        builder.setMessage(&quot;信息&quot;);
-        builder.setPositiveButton(&quot;确定&quot;,
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">AlertDialog.Builder builder = <span class="keyword">new</span> AlertDialog.Builder(activity);<span class="comment">//创建一个Builder对象</span></span><br><span class="line">        builder.setIcon(R.drawable.icon);</span><br><span class="line">        builder.setTitle(<span class="string">"标题"</span>);</span><br><span class="line">        builder.setMessage(<span class="string">"信息"</span>);</span><br><span class="line">        builder.setPositiveButton(<span class="string">"确定"</span>,</span><br><span class="line">                <span class="keyword">new</span> DialogInterface.OnClickListener() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(DialogInterface dialog, <span class="keyword">int</span> which)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">        AlertDialog alertDialog = builder.create();<span class="comment">//创建AlertDialog对象</span></span><br><span class="line">        alertDialog.show();<span class="comment">//展示AlertDialog</span></span><br></pre></td></tr></table></figure>
 
-                    }
-                });
-        AlertDialog alertDialog = builder.create();//创建AlertDialog对象
-        alertDialog.show();//展示AlertDialog
-</code></pre><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/builder.html" target="_blank" rel="noopener">建造者模式</a></p>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://design-patterns.readthedocs.io/zh_CN/latest/creational_patterns/builder.html" target="_blank" rel="noopener">建造者模式</a></p>
 <p><a href="http://wiki.jikexueyuan.com/project/java-design-pattern/builder-pattern.html" target="_blank" rel="noopener">建造者模式-极客学院WIKI</a></p>
 <p><a href="http://www.hollischuang.com/archives/1477" target="_blank" rel="noopener">设计模式（九）——建造者模式</a></p>
 <p><a href="https://mp.weixin.qq.com/s/DOT59A--UMZDyE6CzYpySQ" target="_blank" rel="noopener">【Android设计模式系列】卖热干面的启发—Builder模式</a></p>
@@ -496,7 +429,7 @@
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -633,9 +566,9 @@
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -728,9 +661,6 @@
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

@@ -316,9 +316,9 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
-              
               <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>学学设计模式（9）策略模式</h1>
@@ -330,12 +330,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -389,88 +383,15 @@
 <p>使用策略模式来实现的结构图如下：</p>
 <p><img src="https://i.loli.net/2019/08/29/5lbou2GDAKdF7ZM.jpg" alt="img2.png"></p>
 <p>策略类：</p>
-<pre><code>//抽象折扣类
-public interface MemberStrategy {
-    /**
-     * 计算图书的价格
-     * @param booksPrice    图书的原价
-     * @return    计算出打折后的价格
-     */
-    public double calcPrice(double booksPrice);
-}
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//抽象折扣类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">MemberStrategy</span> </span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 计算图书的价格</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> booksPrice    图书的原价</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>    计算出打折后的价格</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calcPrice</span><span class="params">(<span class="keyword">double</span> booksPrice)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//-------------初级会员折扣类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PrimaryMemberStrategy</span> <span class="keyword">implements</span> <span class="title">MemberStrategy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calcPrice</span><span class="params">(<span class="keyword">double</span> booksPrice)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"对于初级会员的没有折扣"</span>);</span><br><span class="line">        <span class="keyword">return</span> booksPrice;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//-------------中级会员折扣类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IntermediateMemberStrategy</span> <span class="keyword">implements</span> <span class="title">MemberStrategy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calcPrice</span><span class="params">(<span class="keyword">double</span> booksPrice)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="string">"对于中级会员的折扣为10%"</span>);</span><br><span class="line">        <span class="keyword">return</span> booksPrice * <span class="number">0.9</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//-------------高级会员折扣类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdvancedMemberStrategy</span> <span class="keyword">implements</span> <span class="title">MemberStrategy</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">calcPrice</span><span class="params">(<span class="keyword">double</span> booksPrice)</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(<span class="string">"对于高级会员的折扣为20%"</span>);</span><br><span class="line">        <span class="keyword">return</span> booksPrice * <span class="number">0.8</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-//-------------初级会员折扣类
-public class PrimaryMemberStrategy implements MemberStrategy {
+<p>价格类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Price</span> </span>&#123;</span><br><span class="line">    <span class="comment">//持有一个具体的策略对象</span></span><br><span class="line">    <span class="keyword">private</span> MemberStrategy strategy;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构造函数，传入一个具体的策略对象</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> strategy    具体的策略对象</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Price</span><span class="params">(MemberStrategy strategy)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.strategy = strategy;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 计算图书的价格</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> booksPrice    图书的原价</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span>    计算出打折后的价格</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">quote</span><span class="params">(<span class="keyword">double</span> booksPrice)</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.strategy.calcPrice(booksPrice);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @Override
-    public double calcPrice(double booksPrice) {
+<p>客户端：</p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Client</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span>(<span class="params">String[] args</span>)</span> &#123;</span><br><span class="line">        <span class="comment">//选择并创建需要使用的策略对象</span></span><br><span class="line">        MemberStrategy strategyA = <span class="keyword">new</span> AdvancedMemberStrategy();</span><br><span class="line">        <span class="comment">//创建环境</span></span><br><span class="line">        Price priceA = <span class="keyword">new</span> Price(strategyA);</span><br><span class="line">        <span class="comment">//计算价格</span></span><br><span class="line">        <span class="keyword">double</span> quote = priceA.quote(<span class="number">300</span>);</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"图书的最终价格为："</span> + quote);</span><br><span class="line">        </span><br><span class="line">        MemberStrategy strategyB = <span class="keyword">new</span> PrimaryMemberStrategy();</span><br><span class="line">        Price priceB = <span class="keyword">new</span> Price(strategyB);</span><br><span class="line">        quote = priceB.quote(<span class="number">300</span>);</span><br><span class="line">        System.<span class="keyword">out</span>.println(<span class="string">"图书的最终价格为："</span> + quote);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        System.out.println(&quot;对于初级会员的没有折扣&quot;);
-        return booksPrice;
-    }
-
-}
-
-//-------------中级会员折扣类
-public class IntermediateMemberStrategy implements MemberStrategy {
-
-    @Override
-    public double calcPrice(double booksPrice) {
-
-        System.out.println(&quot;对于中级会员的折扣为10%&quot;);
-        return booksPrice * 0.9;
-    }
-
-}
-
-//-------------高级会员折扣类
-public class AdvancedMemberStrategy implements MemberStrategy {
-
-    @Override
-    public double calcPrice(double booksPrice) {
-
-        System.out.println(&quot;对于高级会员的折扣为20%&quot;);
-        return booksPrice * 0.8;
-    }
-}</code></pre><p>价格类：</p>
-<pre><code>public class Price {
-    //持有一个具体的策略对象
-    private MemberStrategy strategy;
-    /**
-     * 构造函数，传入一个具体的策略对象
-     * @param strategy    具体的策略对象
-     */
-    public Price(MemberStrategy strategy){
-        this.strategy = strategy;
-    }
-
-    /**
-     * 计算图书的价格
-     * @param booksPrice    图书的原价
-     * @return    计算出打折后的价格
-     */
-    public double quote(double booksPrice){
-        return this.strategy.calcPrice(booksPrice);
-    }
-}</code></pre><p>客户端：</p>
-<pre><code>public class Client {
-
-    public static void main(String[] args) {
-        //选择并创建需要使用的策略对象
-        MemberStrategy strategyA = new AdvancedMemberStrategy();
-        //创建环境
-        Price priceA = new Price(strategyA);
-        //计算价格
-        double quote = priceA.quote(300);
-        System.out.println(&quot;图书的最终价格为：&quot; + quote);
-
-        MemberStrategy strategyB = new PrimaryMemberStrategy();
-        Price priceB = new Price(strategyB);
-        quote = priceB.quote(300);
-        System.out.println(&quot;图书的最终价格为：&quot; + quote);
-    }
-
-}</code></pre><p>最终执行结果为：</p>
+<p>最终执行结果为：</p>
 <blockquote>
 <p>对于高级会员的折扣为20%<br>图书的最终价格为：240.0<br>对于初级会员的没有折扣<br>图书的最终价格为：300.0</p>
 </blockquote>
@@ -523,7 +444,7 @@ public class AdvancedMemberStrategy implements MemberStrategy {
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -660,9 +581,9 @@ public class AdvancedMemberStrategy implements MemberStrategy {
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
-            
             <a class="tag" href="/tags/#设计模式" title="设计模式">设计模式</a>
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -755,9 +676,6 @@ public class AdvancedMemberStrategy implements MemberStrategy {
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   

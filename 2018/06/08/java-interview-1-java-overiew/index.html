@@ -316,7 +316,7 @@
           <div class="post-heading">
             <div class="tags">
               
-              <a class="tag" href="/tags/#java" title="java">java</a>
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
               
             </div>
             <h1>Java笔试面试（1）Java基本概念</h1>
@@ -328,12 +328,6 @@
 
 
             
-            
-            <!-- 不蒜子统计 start -->
-            <span class="meta" id="busuanzi_container_page_pv">
-              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
-            </span>
-            <!-- 不蒜子统计 end -->
             
 
 
@@ -462,35 +456,9 @@
 </tbody></table>
 <p><img src="https://i.loli.net/2018/11/06/5be1894818494.jpg" alt="14328926.jpg"></p>
 <p>一个clone（）方法的实现（包含深复制）：</p>
-<pre><code>import java.util.Date;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">implements</span> <span class="title">Cloneable</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">private</span> Date birth;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBirth</span><span class="params">(Date birth)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.birth = birth;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> Date <span class="title">getBirth</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> birth;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> Object <span class="title">clone</span><span class="params">()</span> <span class="keyword">throws</span> CloneNotSupportedException </span>&#123;</span><br><span class="line">		Student s = <span class="keyword">null</span>;</span><br><span class="line">		<span class="comment">//调用super.clone()方法</span></span><br><span class="line">		s = (Student) <span class="keyword">super</span>.clone();</span><br><span class="line">		<span class="comment">//进行深复制</span></span><br><span class="line">		s.birth =  (Date) <span class="keyword">this</span>.getBirth().clone();</span><br><span class="line">		<span class="keyword">return</span> s;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class Student implements Cloneable{
-    private int age;
-    private Date birth;
-
-    public void setAge(int age){
-        this.age = age;
-    }
-    public int getAge(){
-        return age;
-    }
-    public void setBirth(Date birth){
-        this.birth = birth;
-    }
-    public Date getBirth(){
-        return birth;
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        Student s = null;
-        //调用super.clone()方法
-        s = (Student) super.clone();
-        //进行深复制
-        s.birth =  (Date) this.getBirth().clone();
-        return s;
-    }
-}</code></pre><h4 id="8-反射机制"><a href="#8-反射机制" class="headerlink" title="8. 反射机制"></a>8. 反射机制</h4><p>反射机制是Java中一个非常重要的特性，他允许程序在运行时进行自我检查，同时也允许对其内部的成员进行操作。反射能够实现在运行时对类进行装载，因此可以增加程序灵活性，但是不恰当地使用反射机制，也会严重影响系统的性能。</p>
+<h4 id="8-反射机制"><a href="#8-反射机制" class="headerlink" title="8. 反射机制"></a>8. 反射机制</h4><p>反射机制是Java中一个非常重要的特性，他允许程序在运行时进行自我检查，同时也允许对其内部的成员进行操作。反射能够实现在运行时对类进行装载，因此可以增加程序灵活性，但是不恰当地使用反射机制，也会严重影响系统的性能。</p>
 <p>反射的功能：得到一个对象所属的类；获取一个类的所有成员变量和方法；在运行时创建对象，在运行时调用对象的方法。</p>
 <p>Class 是一个特殊的类，所有的类抽象成Class类。<br>获取Class的方法：</p>
 <ul>
@@ -533,7 +501,7 @@ public class Student implements Cloneable{
 <div class="tip">
   <p>
     
-      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
     
   </p>
 </div>
@@ -670,7 +638,7 @@ public class Student implements Cloneable{
           </h5>
           <div class="tags">
             
-            <a class="tag" href="/tags/#java" title="java">java</a>
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
             
           </div>
         </section>
@@ -763,9 +731,6 @@ public class Student implements Cloneable{
   <!-- totop(rocket) -->
   <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-  
-    <!-- Busuanzi JavaScript -->
-    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
   
 
   
