@@ -1,492 +1,375 @@
 <!DOCTYPE html>
-<html style="display: none;" lang="zh">
-    <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-    <!--
-        © Material Theme
-        https://github.com/viosey/hexo-theme-material
-        Version: 1.5.2 -->
-    <script>
-        window.materialVersion = "1.5.2"
-        // Delete localstorage with these tags
-        window.oldVersion = [
-            'codestartv1',
-            '1.3.4',
-            '1.4.0',
-            '1.4.0b1',
-            '1.5.0'
-        ]
-    </script>
+<html lang="en">
 
-    <!-- dns prefetch -->
-    <meta http-equiv="x-dns-prefetch-control" content="on">
-
-
-    <link rel="dns-prefetch" href="https://cdn1.lncld.net">
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- Meta & Info -->
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="renderer" content="webkit">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!-- Title -->
-    
-    <title>
-        
-            【转载】JavaPoet 看这一篇就够了 | 
-        
-        海树
-    </title>
-
-    <!-- Favicons -->
-    <link rel="icon shortcut" type="image/ico" href="/img/fish.png">
-    <link rel="icon" href="/img/favicon.png">
-
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content=",Java">
-    <meta name="theme-color" content="#0097A7">
-
-    <!-- Disable Fucking Bloody Baidu Tranformation -->
-    <meta http-equiv="Cache-Control" content="no-transform">
-    <meta http-equiv="Cache-Control" content="no-siteapp">
-
-    <!--[if lte IE 9]>
-        <link rel="stylesheet" href="/css/ie-blocker.css">
-
-        
-            <script src="/js/ie-blocker.zhCN.js"></script>
-        
-    <![endif]-->
-
-    <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
-
-    <!-- Import queue -->
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
-
-    <!-- Import CSS -->
-    
-        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-        
-            
-                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?VbSuLZyOpxJuf3o2tYEOVg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/tomorrow-night.min.css?QlnGZk/a4+d8XbwtXBDPiA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-            
-        
-
-    
-
-    
-        
-            <link rel="stylesheet" href="/css/fontawesome.min.css">
-        
-    
-
-    <!-- Config CSS -->
-
-<!-- Other Styles -->
-<style>
-  body, html {
-    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-    overflow-x: hidden !important;
-  }
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- Google Analytics -->
   
-  code {
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-  }
 
-  a {
-    color: #00838F;
-  }
+  <!-- Baidu Tongji -->
+  
 
-  .mdl-card__media,
-  #search-label,
-  #search-form-label:after,
-  #scheme-Paradox .hot_tags-count,
-  #scheme-Paradox .sidebar_archives-count,
-  #scheme-Paradox .sidebar-colored .sidebar-header,
-  #scheme-Paradox .sidebar-colored .sidebar-badge{
-    background-color: #0097A7 !important;
-  }
+  <!-- Baidu Push -->
+  
 
-  /* Sidebar User Drop Down Menu Text Color */
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
-  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
-    color: #0097A7 !important;
-  }
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  #post_entry-right-info,
-  .sidebar-colored .sidebar-nav li:hover > a,
-  .sidebar-colored .sidebar-nav li:hover > a i,
-  .sidebar-colored .sidebar-nav li > a:hover,
-  .sidebar-colored .sidebar-nav li > a:hover i,
-  .sidebar-colored .sidebar-nav li > a:focus i,
-  .sidebar-colored .sidebar-nav > .open > a,
-  .sidebar-colored .sidebar-nav > .open > a:hover,
-  .sidebar-colored .sidebar-nav > .open > a:focus,
-  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
-    color: #0097A7 !important;
-  }
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc">
+  <meta name="baidu-site-verification" content="PpzM9WxOJU">
 
-  .toTop {
-    background: #757575 !important;
-  }
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="做一山花易，成为海树难。">
+  <meta name="keyword" content="haishu,海树,owenlee,Blog">
+  <link rel="shortcut icon" href="/img/avatar/fish.png">
 
-  .material-layout .material-post>.material-nav,
-  .material-layout .material-index>.material-nav,
-  .material-nav a {
-    color: #757575;
-  }
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
 
-  #scheme-Paradox .MD-burger-layer {
-    background-color: #757575;
-  }
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 
-  #scheme-Paradox #post-toc-trigger-btn {
-    color: #757575;
-  }
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css">
 
-  .post-toc a:hover {
-    color: #00838F;
-    text-decoration: underline;
-  }
-
-</style>
-
-
-<!-- Theme Background Related-->
-
-    <style>
-      body{
-        background-color: #F5F5F5;
-      }
-
-      /* blog_info bottom background */
-      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
-        background-color: #fff;
-      }
-    </style>
-
-
-
-
-<!-- Fade Effect -->
-
-    <style>
-      .fade {
-        transition: all 800ms linear;
-        -webkit-transform: translate3d(0,0,0);
-        -moz-transform: translate3d(0,0,0);
-        -ms-transform: translate3d(0,0,0);
-        -o-transform: translate3d(0,0,0);
-        transform: translate3d(0,0,0);
-        opacity: 1;
-      }
-
-      .fade.out{
-        opacity: 0;
-      }
-    </style>
-
-
-<!-- Import Font -->
-<!-- Import Roboto -->
-
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-
-
-<!-- Import Material Icons -->
-
-
-    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
-
-
-
-
-    <!-- Import jQuery -->
-    
-        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
-    
-
-    <!-- WebAPP Icons -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="海树">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2021/04/09/javapoat-study/">
-    <meta name="msapplication-navbutton-color" content="#0097A7">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="海树">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="/img/favicon.png">
-
-    <!-- Site Verification -->
-    
-    
-
-    <!-- RSS -->
-    
-
-    <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2021/04/09/javapoat-study/">
-    <meta property="og:type" content="blog">
-    <meta property="og:title" content="【转载】JavaPoet 看这一篇就够了 | 海树">
-    <meta property="og:image" content="/img/favicon.png">
-    <meta property="og:description" content>
-    <meta property="og:article:tag" content="Java"> 
-
-    
-        <meta property="article:published_time" content="Fri Apr 09 2021 12:00:00 GMT+0800">
-        <meta property="article:modified_time" content="Fri Apr 09 2021 10:02:33 GMT+0800">
-    
-
-    <!-- The Twitter Card protocol -->
-    <meta name="twitter:card" content="summary_large_image">
-
-    <!-- Add canonical link for SEO -->
-    
-        <link rel="canonical" href="http://yoursite.com/2021/04/09/javapoat-study/index.html">
-    
-
-    <!-- Structured-data for SEO -->
-    
-        
-
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2021/04/09/javapoat-study/index.html",
-    "headline": "【转载】JavaPoet 看这一篇就够了",
-    "datePublished": "Fri Apr 09 2021 12:00:00 GMT+0800",
-    "dateModified": "Fri Apr 09 2021 10:02:33 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "Owen Lee",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/icon.jpg"
-        },
-        "description": "我心有猛虎  细嗅蔷薇香"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "海树",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon.png"
-        }
-    },
-    "keywords": ",Java",
-    "description": "",
-}
-</script>
-
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/widget.css">
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/catalog.css">
+    <link rel="stylesheet" href="/css/livemylife.css">
 
     
 
-    <!-- Analytics -->
     
-    
-    
-
-    <!-- Custom Head -->
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css">
+      <!-- top end -->
     
 
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css">
+      <!-- viewer end -->
+    
+
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css">
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/css/gitalk.css">
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yoursite.com/2021/04/09/javapoat-study/">
+  <title>
+    
+      【转载】JavaPoet 看这一篇就够了 - 海树
+    
+  </title>
 </head>
 
 
-    
-        <body id="scheme-Isolation" class="lazy">
-            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
-                
-                    <!-- Isolation Header -->
-                    <header class="header">
-    <div class="header-wrapper">
-        <!-- Header Copyright -->
-        <div class="header-copyright">
-            <div class="header-site">
-                ©&nbsp;
-                <script type="text/javascript">
-                    var fd = new Date();
-                    document.write(fd.getFullYear());
-                </script>
-                &nbsp;海树
-            </div>
-            <!--
-            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
-            It will not impact the appearance and can give developers a lot of support :)
+<!-- hack iOS CSS :active style -->
 
-            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
-            它不会影响美观并可以给开发者很大的支持。 :)
-            -->
-            <div>
-                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
-                <br>
-                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
-            </div>
-        </div>
+	<body ontouchstart="" class="body--light body--dark">
 
-        <!-- Header Title -->
-        <span class="header-title header-item">
-            <a href="/" title="海树">
-                海树
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'dark';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">海树</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
             </a>
-        </span>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
 
-        <p class="header-slogan header-item">
-        
-            
-                我心有猛虎  细嗅蔷薇香
-            
-        
-        </p>
+          
 
-        <!-- Header Nav -->
-        <nav class="header-nav header-item">
-            <span class="header-nav-item">
-                <a href="/" title="Home">
-                    <span>主页</span>
-                </a>
-            </span>
-
-            <!-- Pages  -->
-            
-                <span class="header-nav-item">
-                    <a href="/2017/10/20/about-me/" title="关于我">
-                        <span>关于我</span>
-                    </a>
-                </span>
-            
-                <span class="header-nav-item">
-                    <a href="/tags/" title="标签云">
-                        <span>标签云</span>
-                    </a>
-                </span>
-            
-                <span class="header-nav-item">
-                    <a href="/timeline/" title="时间轴">
-                        <span>时间轴</span>
-                    </a>
-                </span>
-            
-                <span class="header-nav-item">
-                    <a href="/gallery/" title="图库">
-                        <span>图库</span>
-                    </a>
-                </span>
-            
-            
-        </nav>
-
-        <!-- Header SNS -->
-        <div class="header-item header-sns_list">
-    <!-- Twitter -->
-    
-
-    <!-- Facebook -->
-    
-
-    <!-- Google + -->
-    
-
-    <!-- Weibo -->
-    
-
-    <!-- Instagram -->
-    
-
-    <!-- Tumblr -->
-    
-
-    <!-- Github -->
-    
-        <a href="https://github.com/owenleexiaoyu" target="_blank">
-            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
-        </a>
-    
-
-    <!-- LinkedIn -->
-    
-
-    <!-- Telegram -->
-    
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
 </div>
 
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url(''); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Java" title="Java">Java</a>
+              
+            </div>
+            <h1>【转载】JavaPoet 看这一篇就够了</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by Owen Lee on
+              2021-04-09
+            </span>
+
+
+            
+            
+            <!-- 不蒜子统计 start -->
+            <span class="meta" id="busuanzi_container_page_pv">
+              Viewed <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> Times
+            </span>
+            <!-- 不蒜子统计 end -->
+            
+
+
+          </div>
+          
+        </div>
+      </div>
     </div>
+  </div>
+
+  
+
 </header>
 
-                
-
-                <!-- Main Container -->
-                <main class="material-layout__content" id="main">
-
-                    <!-- Top Anchor -->
-                    <div id="top"></div>
-
-                    
-
-                    <!-- Post TOC -->
-
-    
 
 
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-
-
-    <!-- Isolation Post Header -->
-    <!-- Post thumbnail -->
-    
-        <!-- Post Header Info -->
-        <div class="post-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/icon.jpg" class="avatar-img" width="44px" height="44px" alt="Owen Lee's avatar">
-            <span class="name-span">Owen Lee</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-
-    
-        <div class="post-content_wrapper">
-            <p class="post-title">
-                【转载】JavaPoet 看这一篇就够了
-            </p>
-            <blockquote>
+        <blockquote>
 <p>重要：<br>本文转载自：<a href="https://juejin.cn/post/6844903475776585741" target="_blank" rel="noopener">https://juejin.cn/post/6844903475776585741</a></p>
 </blockquote>
 <p>Android/Java 框架常常会使用编译期注解, 而其中关键的一步是如何生成 Java 文件. JavaPoet 就是用来生成 Java 代码的一个 Java Library.</p>
@@ -499,44 +382,20 @@
 <p>可见， <strong>JavaFile</strong> 对应的 Java 文件。 <strong>包名</strong>直接用一个字符串表示。 <strong>TypeSpec</strong> 表示一个 class 定义。 <strong>FieldSpec</strong> 表示类中的属性。 <strong>MethodSpec</strong> 表示类中的方法。</p>
 <h2 id="最简实例"><a href="#最简实例" class="headerlink" title="最简实例"></a>最简实例</h2><p>理解了 JavaPoet 的大致结构， 我们就可以生成一个简单的 Java 文件了。</p>
 <p>gradle 引用:</p>
-<pre><code class="java">compile &#39;com.squareup:javapoet:1.8.0&#39;</code></pre>
-<pre><code class="java">public class HowToJavaPoetDemo {
-  public static void main(String[] args) {
-    // `JavaFile` 代表 Java 文件
-    JavaFile javaFile = JavaFile.builder(&quot;com.walfud.howtojavapoet&quot;,
-      // TypeSpec 代表一个类
-      TypeSpec.classBuilder(&quot;Clazz&quot;)
-              // 给类添加一个属性
-              .addField(FieldSpec.builder(int.class, &quot;mField&quot;, Modifier.PRIVATE)
-                                 .build())
-              // 给类添加一个方法
-              .addMethod(MethodSpec.methodBuilder(&quot;method&quot;)
-                    .addModifiers(Modifier.PUBLIC)
-                    .returns(void.class)
-                    .addStatement(&quot;System.out.println(str)&quot;)
-                    .build())
-              .build())
-      .build();
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">compile <span class="string">'com.squareup:javapoet:1.8.0'</span></span><br></pre></td></tr></table></figure>
 
-    System.out.println(javaFile.toString());
-  }
-}</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HowToJavaPoetDemo</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="comment">// `JavaFile` 代表 Java 文件</span></span><br><span class="line">    JavaFile javaFile = JavaFile.builder(<span class="string">"com.walfud.howtojavapoet"</span>,</span><br><span class="line">      <span class="comment">// TypeSpec 代表一个类</span></span><br><span class="line">      TypeSpec.classBuilder(<span class="string">"Clazz"</span>)</span><br><span class="line">              <span class="comment">// 给类添加一个属性</span></span><br><span class="line">              .addField(FieldSpec.builder(<span class="keyword">int</span>.class, <span class="string">"mField"</span>, Modifier.PRIVATE)</span><br><span class="line">                                 .build())</span><br><span class="line">              <span class="comment">// 给类添加一个方法</span></span><br><span class="line">              .addMethod(MethodSpec.methodBuilder(<span class="string">"method"</span>)</span><br><span class="line">                    .addModifiers(Modifier.PUBLIC)</span><br><span class="line">                    .returns(<span class="keyword">void</span>.class)</span><br><span class="line">                    .addStatement(<span class="string">"System.out.println(str)"</span>)</span><br><span class="line">                    .build())</span><br><span class="line">              .build())</span><br><span class="line">      .build();</span><br><span class="line"></span><br><span class="line">    System.out.println(javaFile.toString());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="更多的数据类型"><a href="#更多的数据类型" class="headerlink" title="更多的数据类型"></a>更多的数据类型</h2><p>上个例子中， 我们为了单一目标， 特意简化了数据类型。 现实编程中绝大多数情况下要面对各种对象类型， 如 <strong>File / List / Activity(android.app.Activity)</strong> 等等。 下面我们来了解一下 JavaPoet 的类型系统。</p>
 <p>我们要定义一个 <strong>java.io.File</strong> 类型的变量， 比如这样：</p>
-<pre><code class="java">import java.io.File;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> ... </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> File mFile;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class ... {
-    private File mFile;
-}</code></pre>
 <p>我们需要使用 <strong>FieldSpec.builder(File.class, “mFile”, Modifier.PRIVATE).build()</strong> 来定义这个属性。 这样 JavaPoet 就可以自动找到 File 所在的包并帮我们自动引入 <strong>import java.io.File</strong>。</p>
 <p>但如果定义 <strong>List</strong> 这种泛型的话， 该怎么写呢？<strong>List.class</strong> 显然是不行的。 因为这是一个复合类型， 其中的参数类型无法被表示。</p>
 <p>因此， JavaPoet 帮我们定义了如下几种专门描述类型的类。其关系图如下:<br><img src="https://i.loli.net/2021/04/08/wYt5s8UZVvFPfci.png" alt="image"></p>
 <h2 id="在-Statement-中使用类型"><a href="#在-Statement-中使用类型" class="headerlink" title="在 Statement 中使用类型"></a>在 Statement 中使用类型</h2><p>上面介绍了 JavaPoet 的类型系统， 现在我们来看看最后一道坎： statemenet 中的类型占位符。</p>
-<pre><code class="java">MethodSpec.methodBuilder(&quot;method&quot;)
-    .addStatement(&quot;$T file&quot;, File.class)            // File file;
-    .addStatement(&quot;$L = null&quot;, &quot;file&quot;)              // file = null;
-    .addStatement(&quot;file = new File($S)&quot;, &quot;foo/bar&quot;) // file = new File(&quot;foo/bar&quot;);
-    .build();</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MethodSpec.methodBuilder(<span class="string">"method"</span>)</span><br><span class="line">    .addStatement(<span class="string">"$T file"</span>, File.class)            <span class="comment">// File file;</span></span><br><span class="line">    .addStatement(<span class="string">"$L = null"</span>, <span class="string">"file"</span>)              <span class="comment">// file = null;</span></span><br><span class="line">    .addStatement(<span class="string">"file = new File($S)"</span>, <span class="string">"foo/bar"</span>) <span class="comment">// file = new File("foo/bar");</span></span><br><span class="line">    .build();</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li><strong>$ T</strong> 是类型替换, 一般用于 <strong>(“$T foo”, List.class) =&gt; List foo.</strong> $ T 的好处在于 JavaPoet 会自动帮你补全文件开头的 <strong>import</strong>. 如果直接写 <strong>(“List foo”)</strong> 虽然也能生成 <strong>List foo</strong>， 但是最终的 java 文件就不会自动帮你添加 <strong>import java.util.List.</strong></li>
 <li><strong>$ L</strong> 是字面量替换, 比如 <strong>(“abc$L123”, “FOO”) =&gt; abcFOO123</strong>. 也就是直接替换.</li>
@@ -544,604 +403,329 @@ public class ... {
 <li>$ N 是名称替换, 比如你之前定义了一个函数 <strong>MethodSpec methodSpec = MethodSpec.methodBuilder(“foo”).build();</strong> 现在你可以通过 $ N 获取这个函数的名称 <strong>(“$N”, methodSpec) =&gt; foo.</strong></li>
 </ul>
 <h2 id="万能例子（重点！！！要考！！！）"><a href="#万能例子（重点！！！要考！！！）" class="headerlink" title="万能例子（重点！！！要考！！！）"></a>万能例子（重点！！！要考！！！）</h2><p>最后， 我们展示一段几乎涵盖你所常见 case 的例子 (仅为了展示 JavaPoet 用法， 生成的代码可能编译不过). 如果哪里不知道怎么生成的, 可以方便的在下面的生成代码里查找生成方法.</p>
-<pre><code class="java">package com.walfud.howtojavapoet;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.walfud.howtojavapoet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">import</span> java.lang.Comparable;</span><br><span class="line"><span class="keyword">import</span> java.lang.Exception;</span><br><span class="line"><span class="keyword">import</span> java.lang.Integer;</span><br><span class="line"><span class="keyword">import</span> java.lang.Object;</span><br><span class="line"><span class="keyword">import</span> java.lang.Override;</span><br><span class="line"><span class="keyword">import</span> java.lang.Runnable;</span><br><span class="line"><span class="keyword">import</span> java.lang.RuntimeException;</span><br><span class="line"><span class="keyword">import</span> java.lang.String;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Clazz</span>&lt;<span class="title">T</span>&gt; <span class="keyword">extends</span> <span class="title">String</span> <span class="keyword">implements</span> <span class="title">Serializable</span>, <span class="title">Comparable</span>&lt;<span class="title">String</span>&gt;, <span class="title">Map</span>&lt;<span class="title">T</span>, ? <span class="keyword">extends</span> <span class="title">String</span>&gt; </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> mInt;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span>[] mArr;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> File mRef;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> T mT;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> List&lt;String&gt; mParameterizedField;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> List&lt;? extends String&gt; mWildcardField;</span><br><span class="line"></span><br><span class="line">  &#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">Clazz</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> &lt;T&gt; <span class="function"><span class="keyword">int</span> <span class="title">method</span><span class="params">(String string, T t, Map&lt;Integer, ? extends T&gt; map)</span> <span class="keyword">throws</span> IOException,</span></span><br><span class="line"><span class="function">      RuntimeException </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> foo = <span class="number">1</span>;</span><br><span class="line">    String bar = <span class="string">"a string"</span>;</span><br><span class="line">    Object obj = <span class="keyword">new</span> HashMap&lt;Integer, ? extends T&gt;(<span class="number">5</span>);</span><br><span class="line">    baz(<span class="keyword">new</span> Runnable(String param) &#123;</span><br><span class="line">      <span class="meta">@Override</span></span><br><span class="line">      <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">false</span>) &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">    &#125; <span class="keyword">while</span> (<span class="keyword">false</span>);</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">false</span>) &#123;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">false</span>) &#123;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">      e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">InnerClass</span> </span>&#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
-import java.lang.Comparable;
-import java.lang.Exception;
-import java.lang.Integer;
-import java.lang.Object;
-import java.lang.Override;
-import java.lang.Runnable;
-import java.lang.RuntimeException;
-import java.lang.String;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-public abstract class Clazz&lt;T&gt; extends String implements Serializable, Comparable&lt;String&gt;, Map&lt;T, ? extends String&gt; {
-  static {
-  }
-
-  private int mInt;
-
-  private int[] mArr;
-
-  private File mRef;
-
-  private T mT;
-
-  private List&lt;String&gt; mParameterizedField;
-
-  private List&lt;? extends String&gt; mWildcardField;
-
-  {
-  }
-
-  public Clazz() {
-  }
-
-  @Override
-  public &lt;T&gt; int method(String string, T t, Map&lt;Integer, ? extends T&gt; map) throws IOException,
-      RuntimeException {
-    int foo = 1;
-    String bar = &quot;a string&quot;;
-    Object obj = new HashMap&lt;Integer, ? extends T&gt;(5);
-    baz(new Runnable(String param) {
-      @Override
-      void run() {
-      }
-    });
-    for (int i = 0; i &lt; 5; i++) {
-    }
-    while (false) {
-    }
-    do {
-    } while (false);
-    if (false) {
-    } else if (false) {
-    } else {
-    }
-    try {
-    } catch (Exception e) {
-      e.printStackTrace();
-    } finally {
-    }
-    return 0;
-  }
-
-  class InnerClass {
-  }
-}</code></pre>
 <p><strong>JavaPoet 代码:</strong></p>
-<pre><code class="java">package com.walfud.howtojavapoet;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.walfud.howtojavapoet;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.ClassName;</span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.CodeBlock;</span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.FieldSpec;</span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.JavaFile;</span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.MethodSpec;</span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.ParameterizedTypeName;</span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.TypeName;</span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.TypeSpec;</span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.TypeVariableName;</span><br><span class="line"><span class="keyword">import</span> com.squareup.javapoet.WildcardTypeName;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.lang.model.element.Modifier;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * http://android.walfud.com/javapoet-看这一篇就够了/</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HowToJavaPoetDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TypeSpec clazz = clazz(builtinTypeField(),          <span class="comment">// int</span></span><br><span class="line">                               arrayTypeField(),            <span class="comment">// int[]</span></span><br><span class="line">                               refTypeField(),              <span class="comment">// File</span></span><br><span class="line">                               typeField(),                 <span class="comment">// T</span></span><br><span class="line">                               parameterizedTypeField(),    <span class="comment">// List&lt;String&gt;</span></span><br><span class="line">                               wildcardTypeField(),         <span class="comment">// List&lt;? extends String&gt;</span></span><br><span class="line">                               constructor(),               <span class="comment">// 构造函数</span></span><br><span class="line">                               method(code()));             <span class="comment">// 普通方法</span></span><br><span class="line">        JavaFile javaFile = JavaFile.builder(<span class="string">"com.walfud.howtojavapoet"</span>, clazz).build();</span><br><span class="line"></span><br><span class="line">        System.out.println(javaFile.toString());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * `public abstract class Clazz&lt;T&gt; extends String implements Serializable, Comparable&lt;String&gt;, Comparable&lt;? extends String&gt; &#123;</span></span><br><span class="line"><span class="comment">     * ...</span></span><br><span class="line"><span class="comment">     * &#125;`</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> TypeSpec <span class="title">clazz</span><span class="params">(FieldSpec builtinTypeField, FieldSpec arrayTypeField, FieldSpec refTypeField,</span></span></span><br><span class="line"><span class="function"><span class="params">                                 FieldSpec typeField, FieldSpec parameterizedTypeField, FieldSpec wildcardTypeField,</span></span></span><br><span class="line"><span class="function"><span class="params">                                 MethodSpec constructor, MethodSpec methodSpec)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> TypeSpec.classBuilder(<span class="string">"Clazz"</span>)</span><br><span class="line">                    <span class="comment">// 限定符</span></span><br><span class="line">                    .addModifiers(Modifier.PUBLIC, Modifier.ABSTRACT)</span><br><span class="line">                    <span class="comment">// 泛型</span></span><br><span class="line">                    .addTypeVariable(TypeVariableName.get(<span class="string">"T"</span>))</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 继承与接口</span></span><br><span class="line">                    .superclass(String.class)</span><br><span class="line">                    .addSuperinterface(Serializable.class)</span><br><span class="line">                    .addSuperinterface(ParameterizedTypeName.get(Comparable.class, String.class))</span><br><span class="line">                    .addSuperinterface(ParameterizedTypeName.get(ClassName.get(Map.class), </span><br><span class="line">                                                                 TypeVariableName.get(<span class="string">"T"</span>), </span><br><span class="line">                                                                 WildcardTypeName.subtypeOf(String.class)))</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 初始化块</span></span><br><span class="line">                    .addStaticBlock(CodeBlock.builder().build())</span><br><span class="line">                    .addInitializerBlock(CodeBlock.builder().build())</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 属性</span></span><br><span class="line">                    .addField(builtinTypeField)</span><br><span class="line">                    .addField(arrayTypeField)</span><br><span class="line">                    .addField(refTypeField)</span><br><span class="line">                    .addField(typeField)</span><br><span class="line">                    .addField(parameterizedTypeField)</span><br><span class="line">                    .addField(wildcardTypeField)</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 方法 （构造函数也在此定义）</span></span><br><span class="line">                    .addMethod(constructor)</span><br><span class="line">                    .addMethod(methodSpec)</span><br><span class="line"></span><br><span class="line">                    <span class="comment">// 内部类</span></span><br><span class="line">                    .addType(TypeSpec.classBuilder(<span class="string">"InnerClass"</span>).build())</span><br><span class="line"></span><br><span class="line">                    .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 内置类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FieldSpec <span class="title">builtinTypeField</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// private int mInt;</span></span><br><span class="line">        <span class="keyword">return</span> FieldSpec.builder(<span class="keyword">int</span>.class, <span class="string">"mInt"</span>, Modifier.PRIVATE).build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 数组类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FieldSpec <span class="title">arrayTypeField</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// private int[] mArr;</span></span><br><span class="line">        <span class="keyword">return</span> FieldSpec.builder(<span class="keyword">int</span>[].class, <span class="string">"mArr"</span>, Modifier.PRIVATE).build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 需要导入 import 的类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FieldSpec <span class="title">refTypeField</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// private File mRef;</span></span><br><span class="line">        <span class="keyword">return</span> FieldSpec.builder(File.class, <span class="string">"mRef"</span>, Modifier.PRIVATE).build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 泛型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FieldSpec <span class="title">typeField</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// private File mT;</span></span><br><span class="line">        <span class="keyword">return</span> FieldSpec.builder(TypeVariableName.get(<span class="string">"T"</span>), <span class="string">"mT"</span>, Modifier.PRIVATE).build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 参数化类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FieldSpec <span class="title">parameterizedTypeField</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// private List&lt;String&gt; mParameterizedField;</span></span><br><span class="line">        <span class="keyword">return</span> FieldSpec.builder(ParameterizedTypeName.get(List.class, String.class),</span><br><span class="line">                                 <span class="string">"mParameterizedField"</span>,</span><br><span class="line">                                 Modifier.PRIVATE)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通配符参数化类型</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> FieldSpec <span class="title">wildcardTypeField</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// private List&lt;? extends String&gt; mWildcardField;</span></span><br><span class="line">        <span class="keyword">return</span> FieldSpec.builder(ParameterizedTypeName.get(ClassName.get(List.class),</span><br><span class="line">                                                           WildcardTypeName.subtypeOf(String.class)),</span><br><span class="line">                                 <span class="string">"mWildcardField"</span>,</span><br><span class="line">                                 Modifier.PRIVATE)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 构造函数</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MethodSpec <span class="title">constructor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> MethodSpec.constructorBuilder()</span><br><span class="line">                .addModifiers(Modifier.PUBLIC)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * `<span class="doctag">@Override</span></span></span><br><span class="line"><span class="comment">     * public &lt;T&gt; Integer method(String string, T t, Map&lt;Integer, ? extends T&gt; map) throws IOException, RuntimeException &#123;</span></span><br><span class="line"><span class="comment">     * ...</span></span><br><span class="line"><span class="comment">     * &#125;`</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> codeBlock</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> MethodSpec <span class="title">method</span><span class="params">(CodeBlock codeBlock)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> MethodSpec.methodBuilder(<span class="string">"method"</span>)</span><br><span class="line">                .addAnnotation(Override.class)</span><br><span class="line">                .addTypeVariable(TypeVariableName.get(<span class="string">"T"</span>))</span><br><span class="line">                .addModifiers(Modifier.PUBLIC)</span><br><span class="line">                .returns(<span class="keyword">int</span>.class)</span><br><span class="line">                .addParameter(String.class, <span class="string">"string"</span>)</span><br><span class="line">                .addParameter(TypeVariableName.get(<span class="string">"T"</span>), <span class="string">"t"</span>)</span><br><span class="line">                .addParameter(ParameterizedTypeName.get(ClassName.get(Map.class), </span><br><span class="line">                                                        ClassName.get(Integer.class), </span><br><span class="line">                                                        WildcardTypeName.subtypeOf(TypeVariableName.get(<span class="string">"T"</span>))), </span><br><span class="line">                              <span class="string">"map"</span>)</span><br><span class="line">                .addException(IOException.class)</span><br><span class="line">                .addException(RuntimeException.class)</span><br><span class="line">                .addCode(codeBlock)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * ‘method’ 方法中的具体语句</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> CodeBlock <span class="title">code</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> CodeBlock.builder()</span><br><span class="line">                .addStatement(<span class="string">"int foo = 1"</span>)</span><br><span class="line">                .addStatement(<span class="string">"$T bar = $S"</span>, String.class, <span class="string">"a string"</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment">// Object obj = new HashMap&lt;Integer, ? extends T&gt;(5);</span></span><br><span class="line">                .addStatement(<span class="string">"$T obj = new $T(5)"</span>, </span><br><span class="line">                              Object.class, ParameterizedTypeName.get(ClassName.get(HashMap.class), </span><br><span class="line">                                                                      ClassName.get(Integer.class), </span><br><span class="line">                                                                      WildcardTypeName.subtypeOf(TypeVariableName.get(<span class="string">"T"</span>))))</span><br><span class="line"></span><br><span class="line">                <span class="comment">// method(new Runnable(String param) &#123;</span></span><br><span class="line">                <span class="comment">//   @Override</span></span><br><span class="line">                <span class="comment">//   void run() &#123;</span></span><br><span class="line">                <span class="comment">//   &#125;</span></span><br><span class="line">                <span class="comment">// &#125;);</span></span><br><span class="line">                .addStatement(<span class="string">"baz($L)"</span>, TypeSpec.anonymousClassBuilder(<span class="string">"$T param"</span>, String.class)</span><br><span class="line">                        .superclass(Runnable.class)</span><br><span class="line">                        .addMethod(MethodSpec.methodBuilder(<span class="string">"run"</span>)</span><br><span class="line">                                .addAnnotation(Override.class)</span><br><span class="line">                                .returns(TypeName.VOID)</span><br><span class="line">                                .build())</span><br><span class="line">                        .build())</span><br><span class="line"></span><br><span class="line">                <span class="comment">// for</span></span><br><span class="line">                .beginControlFlow(<span class="string">"for (int i = 0; i &lt; 5; i++)"</span>)</span><br><span class="line">                .endControlFlow()</span><br><span class="line"></span><br><span class="line">                <span class="comment">// while</span></span><br><span class="line">                .beginControlFlow(<span class="string">"while (false)"</span>)</span><br><span class="line">                .endControlFlow()</span><br><span class="line"></span><br><span class="line">                <span class="comment">// do... while</span></span><br><span class="line">                .beginControlFlow(<span class="string">"do"</span>)</span><br><span class="line">                .endControlFlow(<span class="string">"while (false)"</span>)</span><br><span class="line"></span><br><span class="line">                <span class="comment">// if... else if... else...</span></span><br><span class="line">                .beginControlFlow(<span class="string">"if (false)"</span>)</span><br><span class="line">                .nextControlFlow(<span class="string">"else if (false)"</span>)</span><br><span class="line">                .nextControlFlow(<span class="string">"else"</span>)</span><br><span class="line">                .endControlFlow()</span><br><span class="line"></span><br><span class="line">                <span class="comment">// try... catch... finally</span></span><br><span class="line">                .beginControlFlow(<span class="string">"try"</span>)</span><br><span class="line">                .nextControlFlow(<span class="string">"catch ($T e)"</span>, Exception.class)</span><br><span class="line">                .addStatement(<span class="string">"e.printStackTrace()"</span>)</span><br><span class="line">                .nextControlFlow(<span class="string">"finally"</span>)</span><br><span class="line">                .endControlFlow()</span><br><span class="line"></span><br><span class="line">                .addStatement(<span class="string">"return 0"</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-
-import com.squareup.javapoet.ClassName;
-import com.squareup.javapoet.CodeBlock;
-import com.squareup.javapoet.FieldSpec;
-import com.squareup.javapoet.JavaFile;
-import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.ParameterizedTypeName;
-import com.squareup.javapoet.TypeName;
-import com.squareup.javapoet.TypeSpec;
-import com.squareup.javapoet.TypeVariableName;
-import com.squareup.javapoet.WildcardTypeName;
-
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.lang.model.element.Modifier;
-
-/**
- * http://android.walfud.com/javapoet-看这一篇就够了/
- */
-class HowToJavaPoetDemo {
-    public static void main(String[] args) {
-        TypeSpec clazz = clazz(builtinTypeField(),          // int
-                               arrayTypeField(),            // int[]
-                               refTypeField(),              // File
-                               typeField(),                 // T
-                               parameterizedTypeField(),    // List&lt;String&gt;
-                               wildcardTypeField(),         // List&lt;? extends String&gt;
-                               constructor(),               // 构造函数
-                               method(code()));             // 普通方法
-        JavaFile javaFile = JavaFile.builder(&quot;com.walfud.howtojavapoet&quot;, clazz).build();
-
-        System.out.println(javaFile.toString());
-    }
-
-    /**
-     * `public abstract class Clazz&lt;T&gt; extends String implements Serializable, Comparable&lt;String&gt;, Comparable&lt;? extends String&gt; {
-     * ...
-     * }`
-     *
-     * @return
-     */
-    public static TypeSpec clazz(FieldSpec builtinTypeField, FieldSpec arrayTypeField, FieldSpec refTypeField,
-                                 FieldSpec typeField, FieldSpec parameterizedTypeField, FieldSpec wildcardTypeField,
-                                 MethodSpec constructor, MethodSpec methodSpec) {
-        return TypeSpec.classBuilder(&quot;Clazz&quot;)
-                    // 限定符
-                    .addModifiers(Modifier.PUBLIC, Modifier.ABSTRACT)
-                    // 泛型
-                    .addTypeVariable(TypeVariableName.get(&quot;T&quot;))
-
-                    // 继承与接口
-                    .superclass(String.class)
-                    .addSuperinterface(Serializable.class)
-                    .addSuperinterface(ParameterizedTypeName.get(Comparable.class, String.class))
-                    .addSuperinterface(ParameterizedTypeName.get(ClassName.get(Map.class), 
-                                                                 TypeVariableName.get(&quot;T&quot;), 
-                                                                 WildcardTypeName.subtypeOf(String.class)))
-
-                    // 初始化块
-                    .addStaticBlock(CodeBlock.builder().build())
-                    .addInitializerBlock(CodeBlock.builder().build())
-
-                    // 属性
-                    .addField(builtinTypeField)
-                    .addField(arrayTypeField)
-                    .addField(refTypeField)
-                    .addField(typeField)
-                    .addField(parameterizedTypeField)
-                    .addField(wildcardTypeField)
-
-                    // 方法 （构造函数也在此定义）
-                    .addMethod(constructor)
-                    .addMethod(methodSpec)
-
-                    // 内部类
-                    .addType(TypeSpec.classBuilder(&quot;InnerClass&quot;).build())
-
-                    .build();
-    }
-
-    /**
-     * 内置类型
-     */
-    public static FieldSpec builtinTypeField() {
-        // private int mInt;
-        return FieldSpec.builder(int.class, &quot;mInt&quot;, Modifier.PRIVATE).build();
-    }
-
-    /**
-     * 数组类型
-     */
-    public static FieldSpec arrayTypeField() {
-        // private int[] mArr;
-        return FieldSpec.builder(int[].class, &quot;mArr&quot;, Modifier.PRIVATE).build();
-    }
-
-    /**
-     * 需要导入 import 的类型
-     */
-    public static FieldSpec refTypeField() {
-        // private File mRef;
-        return FieldSpec.builder(File.class, &quot;mRef&quot;, Modifier.PRIVATE).build();
-    }
-
-    /**
-     * 泛型
-     */
-    public static FieldSpec typeField() {
-        // private File mT;
-        return FieldSpec.builder(TypeVariableName.get(&quot;T&quot;), &quot;mT&quot;, Modifier.PRIVATE).build();
-    }
-
-    /**
-     * 参数化类型
-     */
-    public static FieldSpec parameterizedTypeField() {
-        // private List&lt;String&gt; mParameterizedField;
-        return FieldSpec.builder(ParameterizedTypeName.get(List.class, String.class),
-                                 &quot;mParameterizedField&quot;,
-                                 Modifier.PRIVATE)
-                .build();
-    }
-
-    /**
-     * 通配符参数化类型
-     *
-     * @return
-     */
-    public static FieldSpec wildcardTypeField() {
-        // private List&lt;? extends String&gt; mWildcardField;
-        return FieldSpec.builder(ParameterizedTypeName.get(ClassName.get(List.class),
-                                                           WildcardTypeName.subtypeOf(String.class)),
-                                 &quot;mWildcardField&quot;,
-                                 Modifier.PRIVATE)
-                .build();
-    }
-
-    /**
-     * 构造函数
-     */
-    public static MethodSpec constructor() {
-        return MethodSpec.constructorBuilder()
-                .addModifiers(Modifier.PUBLIC)
-                .build();
-    }
-
-    /**
-     * `@Override
-     * public &lt;T&gt; Integer method(String string, T t, Map&lt;Integer, ? extends T&gt; map) throws IOException, RuntimeException {
-     * ...
-     * }`
-     *
-     * @param codeBlock
-     * @return
-     */
-    public static MethodSpec method(CodeBlock codeBlock) {
-        return MethodSpec.methodBuilder(&quot;method&quot;)
-                .addAnnotation(Override.class)
-                .addTypeVariable(TypeVariableName.get(&quot;T&quot;))
-                .addModifiers(Modifier.PUBLIC)
-                .returns(int.class)
-                .addParameter(String.class, &quot;string&quot;)
-                .addParameter(TypeVariableName.get(&quot;T&quot;), &quot;t&quot;)
-                .addParameter(ParameterizedTypeName.get(ClassName.get(Map.class), 
-                                                        ClassName.get(Integer.class), 
-                                                        WildcardTypeName.subtypeOf(TypeVariableName.get(&quot;T&quot;))), 
-                              &quot;map&quot;)
-                .addException(IOException.class)
-                .addException(RuntimeException.class)
-                .addCode(codeBlock)
-                .build();
-    }
-
-    /**
-     * ‘method’ 方法中的具体语句
-     */
-    public static CodeBlock code() {
-        return CodeBlock.builder()
-                .addStatement(&quot;int foo = 1&quot;)
-                .addStatement(&quot;$T bar = $S&quot;, String.class, &quot;a string&quot;)
-
-                // Object obj = new HashMap&lt;Integer, ? extends T&gt;(5);
-                .addStatement(&quot;$T obj = new $T(5)&quot;, 
-                              Object.class, ParameterizedTypeName.get(ClassName.get(HashMap.class), 
-                                                                      ClassName.get(Integer.class), 
-                                                                      WildcardTypeName.subtypeOf(TypeVariableName.get(&quot;T&quot;))))
-
-                // method(new Runnable(String param) {
-                //   @Override
-                //   void run() {
-                //   }
-                // });
-                .addStatement(&quot;baz($L)&quot;, TypeSpec.anonymousClassBuilder(&quot;$T param&quot;, String.class)
-                        .superclass(Runnable.class)
-                        .addMethod(MethodSpec.methodBuilder(&quot;run&quot;)
-                                .addAnnotation(Override.class)
-                                .returns(TypeName.VOID)
-                                .build())
-                        .build())
-
-                // for
-                .beginControlFlow(&quot;for (int i = 0; i &lt; 5; i++)&quot;)
-                .endControlFlow()
-
-                // while
-                .beginControlFlow(&quot;while (false)&quot;)
-                .endControlFlow()
-
-                // do... while
-                .beginControlFlow(&quot;do&quot;)
-                .endControlFlow(&quot;while (false)&quot;)
-
-                // if... else if... else...
-                .beginControlFlow(&quot;if (false)&quot;)
-                .nextControlFlow(&quot;else if (false)&quot;)
-                .nextControlFlow(&quot;else&quot;)
-                .endControlFlow()
-
-                // try... catch... finally
-                .beginControlFlow(&quot;try&quot;)
-                .nextControlFlow(&quot;catch ($T e)&quot;, Exception.class)
-                .addStatement(&quot;e.printStackTrace()&quot;)
-                .nextControlFlow(&quot;finally&quot;)
-                .endControlFlow()
-
-                .addStatement(&quot;return 0&quot;)
-                .build();
-    }
-}</code></pre>
 <p><strong>为了方便记忆, 我总结了一张图, 标注了关键或者稍微复杂的那些用法:</strong></p>
 <p><img src="https://i.loli.net/2021/04/08/lySo3HIEsB6JqcA.png" alt="image"></p>
 <p>注意: 在 Android 工程中, 是无法使用 <code>javax.lang.model.element.Modifier</code> 包, 因为 Android 运行时没有相关的 class.</p>
 
-            
-        </div>
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/2021/04/06/java-reflect/" data-toggle="tooltip" data-placement="top" title="【转载】大白话说Java反射：入门、使用、原理">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
     
+      If you like this blog or find it useful for you, you are welcome to comment on it. You are also welcome to share this blog, so that more people can participate in it. If the images used in the blog infringe your copyright, please contact the author to delete them. Thank you !
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=【转载】JavaPoet 看这一篇就够了&body=Hi,I found this website and thought you might like it http://yoursite.com/2021/04/09/javapoat-study/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
 </div>
 
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
 
-                
-                    <!-- Paradox Post Info -->
-                    
-                
+        <!-- Sharing End -->
+        
+        <hr>
 
-                <!-- Post Comments -->
-                
-                    
-    <div id="comment" style='padding:10px;' class="vcomment"></div>
-<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-<script>
-    var GUEST_INFO = ['nick','mail','link'];
-    var guest_info = ''.split(',').filter(function(item){
-        return GUEST_INFO.indexOf(item) > -1
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '3b44fc2839a6c19bfea7',
+      clientSecret: 'b96f2147e01e0d906403b6af8518a8e1f04a46de',
+      repo: 'blogcomments',
+      owner: 'owenleexiaoyu',
+      admin: 'owenleexiaoyu',
+      id: 'Fri Apr 09 2021 12:00:00 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
     });
-    var notify = 'false' == true;
-    var verify = 'false' == true;
-    new Valine({
-        el: '.vcomment',
-        notify: notify,
-        verify: verify,
-        appId: "kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz",
-        appKey: "hGgJDQbyDLHvM3UMFXuJyYNU",
-        placeholder: "来啊，快活啊~~",
-        pageSize:'',
-        avatar:'',
-        lang:''
-    });
-</script>
+    gitalk.render('gitalk-container');
 
-                
-            </div>
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
 
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
+  <!-- gitalk end -->
 
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
 
-    <!-- Next Nav -->
-    
-        <a href="/2021/04/06/java-reflect/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
+<!-- 2. gitment comment -->
 
-        </div>
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Java" title="Java">Java</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+      </div>
     </div>
+  </div>
+</article>
 
 
 
-                    
 
-                    
 
-                    <!--Footer-->
-<footer class="mdl-mini-footer" id="bottom">
-    
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/owenleexiaoyu">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          Owen Lee
+          2021
+          <br>
+          Theme by
+          <a href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by
+          <a href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe>
+        </p>
+      </div>
+    </div>
+  </div>
 </footer>
 
-
-                    <!-- Import JS File -->
-
-    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+<a id="rocket" href="#top" class=""></a>
 
 
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
 
-    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+  
+    <!-- Busuanzi JavaScript -->
+    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
 
+  
 
+  
 
-    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+  
 
+  
 
-<script type="text/ls-javascript" id="NProgress-script">
-    NProgress.configure({
-        showSpinner: true
-    });
-    NProgress.start();
-    $('#nprogress .bar').css({
-        'background': '#29d'
-    });
-    $('#nprogress .peg').css({
-        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
-    });
-    $('#nprogress .spinner-icon').css({
-        'border-top-color': '#29d',
-        'border-left-color': '#29d'
-    });
-    setTimeout(function() {
-        NProgress.done();
-        $('.fade').removeClass('out');
-    }, 800);
-</script>
-
-
-
-
-
-    <!-- Leancloud -->
-    <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
-    <script>
-        AV.initialize('kBAIXiwz3WNBdeedWKIJ57XK-gzGzoHsz', 'hGgJDQbyDLHvM3UMFXuJyYNU');
-    </script>
-    <script type="text/ls-javascript" id="leancloud-views-script">
-    function showTime(Counter) {
-        var query = new AV.Query(Counter);
-        $('.leancloud-views_num').each(function() {
-            var url = $(this).attr('id').trim();
-            query.equalTo('url', url);
-            query.find({
-                success: function(results) {
-                    if (results.length === 0) {
-                        var content = '0 ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                        return;
-                    }
-                    for (var i = 0; i < results.length; i++) {
-                        var object = results[i];
-                        var content = object.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    }
-                },
-                error: function(object, error) {
-                    console.log('Error: ' + error.code + ' ' + error.message);
-                }
-            });
-        });
-    }
-
-    function addCount(Counter) {
-      var Counter = AV.Object.extend('Counter');
-      url = $('.leancloud-views_num').attr('id').trim();
-      title = $('.leancloud-views_num').attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-      query.equalTo('url', url);
-      query.find({
-          success: function(results) {
-            if (results.length > 0) {
-                var counter = results[0];
-                counter.fetchWhenSave(true);
-                counter.increment('time');
-                counter.save(null, {
-                    success: function(counter) {
-                        var content =  counter.get('time') + ' ' + $(document.getElementById(url)).text();
-                        $(document.getElementById(url)).text(content);
-                    },
-                    error: function(counter, error) {
-                        console.log('Failed to save Visitor num, with error message: ' + error.message);
-                    }
-                });
-            } else {
-              var newcounter = new Counter();
-              newcounter.set('title', title);
-              newcounter.set('url', url);
-              newcounter.set('time', 1);
-              newcounter.save(null, {
-                  success: function(newcounter) {
-                      console.log('newcounter.get(\'time\')='+newcounter.get('time'));
-                      var content = newcounter.get('time') + ' ' + $(document.getElementById(url)).text();
-                      $(document.getElementById(url)).text(content);
-                  },
-                  error: function(newcounter, error) {
-                      console.log('Failed to create');
-                  }
-              });
-            }
-        },
-        error: function(error) {
-            console.log('Error:' + error.code + ' ' + error.message);
-        }
-      });
-    }
-    $(function() {
-        var Counter = AV.Object.extend('Counter');
-        if ($('.leancloud-views_num').length === 1) {
-            addCount(Counter);
-        } else if ($('.post-title-link').length > 1) {
-            showTime(Counter);
-        }
-    });
-</script>
+  
 
 
 
 
 
 
-   
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
 
-
-
-
-
-<!-- UC Browser Compatible -->
-<script>
-	var agent = navigator.userAgent.toLowerCase();
-	if(agent.indexOf('ucbrowser')>0) {
-		document.write('<link rel="stylesheet" href="/css/uc.css">');
-	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
-	}
-</script>
-
-<!-- Import prettify js  -->
-
-    
-        
-            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
-        
-    
-
-
-
-<!-- Window Load -->
-<!-- add class for prettify -->
-<script type="text/ls-javascript" id="window-load">
-    $(window).on('load', function() {
-        // Post_Toc parent position fixed
-        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
-    });
-
-    
-        
-            $(function() {
-                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
-                prettyPrint();
-                })
-        
-    
-    
-</script>
-
-<!-- MathJax Load-->
-
-
-<!-- Bing Background -->
-
-
-<script type="text/ls-javascript" id="lazy-load">
-    // Offer LazyLoad
-    queue.offer(function(){
-        $('.lazy').lazyload({
-            effect : 'show'
-        });
-    });
-
-    // Start Queue
-    $(document).ready(function(){
-        setInterval(function(){
-            queue.execNext();
-        },200);
-    });
-</script>
-
-<!-- Custom Footer -->
-
+  <!-- viewer end -->
 
 
 <script>
-    (function(){
-        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
 
-        for (var i = 0; i < scriptList.length; ++i) {
-            var item = scriptList[i];
-            lsloader.runInlineScript(item.id,item.id);
-        }
-    })()
-console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
 </script>
 
-                </main>
-            </div>
-        </body>
-    
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://yoursite.com/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+	</body>
 </html>

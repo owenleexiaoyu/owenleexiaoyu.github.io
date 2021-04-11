@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+
+  <!-- Baidu Push -->
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc">
+  <meta name="baidu-site-verification" content="PpzM9WxOJU">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="做一山花易，成为海树难。">
+  <meta name="keyword" content="haishu,海树,owenlee,Blog">
+  <link rel="shortcut icon" href="/img/avatar/fish.png">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/widget.css">
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/catalog.css">
+    <link rel="stylesheet" href="/css/livemylife.css">
+
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css">
+      <!-- top end -->
+    
+
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css">
+      <!-- viewer end -->
+    
+
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css">
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/css/gitalk.css">
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yoursite.com/archives/12/">
+  <title>
+    
+      海树
+    
+  </title>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--dark">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'dark';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">海树</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+    }
+
+    header.intro-header {
+       /*config*/
+        background-image: var(--intro-header-background-image-url-home);
+        /* background-image: url('/img/header_img/newhome_bg.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="site-heading">
+            <h1>海树</h1>
+            <!--<hr class="small">-->
+            <span class="subheading">我心有猛虎，细嗅蔷薇香</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    
+
+    <!-- USE SIDEBAR -->
+    <!-- Post Container -->
+    <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+
+      <!-- Main Content -->
+
+
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/06/06/target-on-offer-1/">
+    <h2 class="post-title">
+      剑指 Offer 系列（1）
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      1.二维数组中的查找描述：在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
+分析：注意到这个二维数组其实是部分有序的，每行中的数值依次增大，每列中数值依次增大。对于二维数组中的一个数，它上面的数比它小，右面一个数比它大。有了这个关系，可以联想到二叉搜索树的特性，从二叉搜索树的......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-06-06
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#算法" title="算法">算法</a>
+    
+    <a href="/tags/#剑指Offer" title="剑指Offer">剑指Offer</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/05/19/personal-work-1-childcare/">
+    <h2 class="post-title">
+      作品展示——儿童监护App
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      项目名称基于Android的儿童运动数据统计分析系统
+项目描述儿童时期是人一生中生命力最强、健康问题最少的时期，但也是意外伤害的多发时期。社会迫切需要对儿童的运动状态及安全状况有更全面的了解。父母作为儿童监护人，需要实时关注儿童的运动状态及安全状况。本项目设计实现了基于 Android 的儿童运动分析与监护系统，通过收集儿童的大量运动数据，以及检测儿童每日的跌倒信息，对儿童的运动状态以及身体......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-05-19
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#作品集" title="作品集">作品集</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/05/19/personal-work-2-kidprogramming/">
+    <h2 class="post-title">
+      作品展示——Blockly儿童编程平台
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      项目名称基于Android和Blockly的儿童编程思维训练平台实现
+项目描述思维训练是儿童教育的一个重要方面，而编程在其中起到重要作用。将编程应用于儿童早教中，可以更好地帮助儿童开发智力、拓展思维能力。本项目基于 Google的可视化编程工具 Blockly，开发一款 Android 平台的儿童编程思维训练软件。儿童在APP 中拖拽、摆放 Blockly 代码块，以认字识图和益智游戏等积木......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-05-19
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#作品集" title="作品集">作品集</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/04/03/use-blockly-create-a-maze-game/">
+    <h2 class="post-title">
+      利用 Blockly 实现游戏场景——小蝌蚪找妈妈
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      前言在项目的第二模块，是为小孩子创建一个游戏场景，让小孩子通过拖拽 Blockly 块来玩游戏，在玩游戏中锻炼逻辑思维能力。通过前期的研究，我们发现迷宫类的游戏场景特别适合 Blockly，因为可以通过 Blockly 块来控制迷宫中角色的前后移动，左右旋转等效果。在 Blockly 官网给出的游戏例子中，就有迷宫的场景。
+
+因此在这里模仿它，实现一个我们自己的迷宫游戏，游戏背景为我们中国儿......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by 啸宇 on
+    2018-04-03
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Blockly4Android" title="Blockly4Android">Blockly4Android</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/03/13/use-blockly-in-poetry-match/">
+    <h2 class="post-title">
+      利用 Blockly 实现诗歌匹配场景
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      前言在 KidProgramming 这个项目中，第一模块适用于儿童启蒙，我们设计一些知识主题，如动物百科、古诗阅读等，让小朋友了解一些知识。在学习过一些知识后，我们给他们设计了挑战环节，这个环节中就将 Blockly 运用进来，从学过的知识中抽取一些，做成一些 Blockly 的块，让儿童拖拽这些块进行拼接，比如将一首诗的正确诗句以正确的顺序拼到相应的诗名里。
+刚刚进入这个 Activit......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-03-13
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Blockly4Android" title="Blockly4Android">Blockly4Android</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2017/11/21/11-tasks-from-now-to-graduation/">
+    <h2 class="post-title">
+      从现在到毕业的 11 项学习任务
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      1. Blockly 项目学习和开发Blockly 项目是组里的 Google 项目，需要尽快研究透彻并且开发完成。反复看文档、源代码，进行实践。
+2. 网络编程模块的学习和相关博客写作这个模块是近期必须完成的学习任务，学习网络第三方框架的使用和原理，查看源码，进行实践，并且写相关的博客整理自己的知识体系。
+3. Java EE 上课认真听讲，整理上课知识Java EE 的课堂上认真听老师讲......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2017-11-21
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计划" title="计划">计划</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2017/11/17/j2ee-4-some-supplements/">
+    <h2 class="post-title">
+      Java EE 学习笔记（4）关于 Servlet 的一些补充
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      这篇笔记中，针对之前笔记中出现的一些类和接口，以及这些类的相关方法，做一个补充。涉及的类有 HttpServletRequest、HttpservletResponse、ServletConfig、ServletContext。
+1. HttpServletRequestHttpServletRequest 是一个接口，继承自 ServletRequest，表示客户端向 Servlet 组件......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2017-11-17
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#J2EE" title="J2EE">J2EE</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2017/11/14/j2ee-3-httpservlet-api/">
+    <h2 class="post-title">
+      Java EE 学习笔记（3）HttpServlet 详解
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      HttpServlet API 介绍在上篇笔记中简单提到了一下 HttpServlet 这个类，它是 Servlet 的一个针对于 Http 协议的实现类。HttpServlet  的父类是 GenericServlet，GenericServlet 是一个通用的、与网络协议无关的 Servlet 实现类。由于我们接触最多的就是使用 Http 协议进行网络通信，所以将重点放在 HttpSer......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2017-11-14
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#J2EE" title="J2EE">J2EE</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2017/11/09/j2ee-2-first-servlet/">
+    <h2 class="post-title">
+      Java EE 学习笔记（2）第一个 Servlet 程序及 Web 应用部署
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      前言这篇笔记中将介绍 Servlet 组件的基本使用，以及使用Servlet 组件完成一个最简单的 Web 应用，并介绍在 Tomcat 上部署 Web 应用的几种方式。
+Servlet 简介Servlet 是 Java EE 规范中定义的一个组件。它是运行在服务器端的一个小程序，可以响应来自客户端的请求，生成动态的 Web 界面。Servlet 和以前写的 Java SE 的程序的区别在于......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2017-11-09
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#J2EE" title="J2EE">J2EE</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2017/11/08/j2ee-1-first-web-app/">
+    <h2 class="post-title">
+      Java EE 学习笔记（1）Java EE 简介与第一个 Web 应用程序
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      Java EE 简介Java EE 的全称是 Java Enterprise Edition（Java 企业版），也称 J2EE。针对开发企业级应用的需求，Sun 公司在 Java SE（Java 标准版）基础上推出了 Java EE。Java EE 并不是一门编程语言，而是一种体系结构，或者说是一种开发规范。
+它将企业应用程序分成多个不同的层，每层都定义一些容器组件来规范这层的作用。典型的......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2017-11-08
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#J2EE" title="J2EE">J2EE</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+
+  <!-- Pager -->
+  <ul class="pager">
+    
+    <li class="previous">
+      <a href="/archives/11/">&larr; Older Posts</a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/archives/13/">Newer Posts &rarr;</a>
+    </li>
+    
+  </ul>
+
+
+      <!-- 如果开启评论功能 -->
+      
+    </div>
+
+    <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+  <h5><a href="/about/">ABOUT ME</a></h5>
+  <div class="short-about">
+
+    
+    <img id="avatar_pic" src="/img/avatar/avator.jpeg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
+    
+
+    
+    <p>一个平凡且幸运的人～</p>
+    
+
+    <!-- SNS Link -->
+    <ul class="list-inline">
+      
+
+      
+      <li>
+        <a target="_blank" href="https://github.com/owenleexiaoyu">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+
+    </ul>
+  </div>
+</section>
+
+        <hr>
+    
+        <!-- RECENT POSTS -->
+
+<h5><a href="/">RECENT POSTS</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="../../2021/04/09/javapoat-study/">
+      <li>【转载】JavaPoet 看这一篇就够了</li>
+    </a>
+    
+    <a href="../../2021/04/06/java-reflect/">
+      <li>【转载】大白话说Java反射：入门、使用、原理</li>
+    </a>
+    
+    <a href="../../2021/03/31/java-apt/">
+      <li>【转载】Java 注解处理器</li>
+    </a>
+    
+    <a href="../../2021/03/31/kotlin-learning-18-apt/">
+      <li>Kotlin 修炼手册（18）注解处理器（APT）</li>
+    </a>
+    
+    <a href="../../2021/03/05/kotlin-learning-17-annotation/">
+      <li>Kotlin 修炼手册（17）注解</li>
+    </a>
+    
+  </ul>
+</div>
+
+
+        <hr>
+    
+        <!-- Featured Tags -->
+
+<section>
+  <h5><a href="/tags/">FEATURED TAGS</a></h5>
+  <div class="tags">
+    
+    
+    <a href="/tags/#随笔" title="随笔" rel="17">随笔</a>
+    
+    
+    
+    <a href="/tags/#计划" title="计划" rel="2">计划</a>
+    
+    
+    
+    <a href="/tags/#Android" title="Android" rel="16">Android</a>
+    
+    
+    
+    <a href="/tags/#面经" title="面经" rel="4">面经</a>
+    
+    
+    
+    <a href="/tags/#知识体系" title="知识体系" rel="1">知识体系</a>
+    
+    
+    
+    <a href="/tags/#Android 网络编程" title="Android 网络编程" rel="8">Android 网络编程</a>
+    
+    
+    
+    <a href="/tags/#Blockly4Android" title="Blockly4Android" rel="10">Blockly4Android</a>
+    
+    
+    
+    <a href="/tags/#理财" title="理财" rel="5">理财</a>
+    
+    
+    
+    <a href="/tags/#Python" title="Python" rel="3">Python</a>
+    
+    
+    
+    <a href="/tags/#计算机网络" title="计算机网络" rel="12">计算机网络</a>
+    
+    
+    
+    <a href="/tags/#数据结构与算法" title="数据结构与算法" rel="1">数据结构与算法</a>
+    
+    
+    
+    <a href="/tags/#Git" title="Git" rel="1">Git</a>
+    
+    
+    
+    <a href="/tags/#学习" title="学习" rel="3">学习</a>
+    
+    
+    
+    <a href="/tags/#诗歌" title="诗歌" rel="5">诗歌</a>
+    
+    
+    
+    <a href="/tags/#J2EE" title="J2EE" rel="4">J2EE</a>
+    
+    
+    
+    <a href="/tags/#java" title="java" rel="23">java</a>
+    
+    
+    
+    <a href="/tags/#Kotlin" title="Kotlin" rel="18">Kotlin</a>
+    
+    
+    
+    <a href="/tags/#设计模式" title="设计模式" rel="14">设计模式</a>
+    
+    
+    
+    <a href="/tags/#工作杂想" title="工作杂想" rel="7">工作杂想</a>
+    
+    
+    
+    <a href="/tags/#作品集" title="作品集" rel="2">作品集</a>
+    
+    
+    
+    <a href="/tags/#年终总结" title="年终总结" rel="3">年终总结</a>
+    
+    
+    
+    <a href="/tags/#Android Studio" title="Android Studio" rel="1">Android Studio</a>
+    
+    
+    
+    <a href="/tags/#算法" title="算法" rel="4">算法</a>
+    
+    
+    
+    <a href="/tags/#剑指Offer" title="剑指Offer" rel="4">剑指Offer</a>
+    
+    
+    
+    <a href="/tags/#千字文计划" title="千字文计划" rel="3">千字文计划</a>
+    
+    
+    
+    <a href="/tags/#总结" title="总结" rel="1">总结</a>
+    
+    
+    
+    <a href="/tags/#Java" title="Java" rel="3">Java</a>
+    
+    
+  </div>
+</section>
+
+
+        <hr>
+    
+        <!-- Categories -->
+
+<h5><a href="/categories/">categories</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="/categories/#想法">
+      <li>想法</li>
+    </a>
+    
+    <a href="/categories/#技术">
+      <li>技术</li>
+    </a>
+    
+    <a href="/categories/#笔试面试">
+      <li>笔试面试</li>
+    </a>
+    
+    <a href="/categories/#译文">
+      <li>译文</li>
+    </a>
+    
+    <a href="/categories/#感想">
+      <li>感想</li>
+    </a>
+    
+  </ul>
+</div>
+
+
+        <hr>
+    
+</div>
+
+
+    
+  </div>
+</div>
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/owenleexiaoyu">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          Owen Lee
+          2021
+          <br>
+          Theme by
+          <a href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by
+          <a href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+    <!-- Busuanzi JavaScript -->
+    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://yoursite.com/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+	</body>
+</html>

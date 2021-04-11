@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+
+  <!-- Baidu Push -->
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc">
+  <meta name="baidu-site-verification" content="PpzM9WxOJU">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="做一山花易，成为海树难。">
+  <meta name="keyword" content="haishu,海树,owenlee,Blog">
+  <link rel="shortcut icon" href="/img/avatar/fish.png">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/widget.css">
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/catalog.css">
+    <link rel="stylesheet" href="/css/livemylife.css">
+
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css">
+      <!-- top end -->
+    
+
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css">
+      <!-- viewer end -->
+    
+
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css">
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/css/gitalk.css">
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yoursite.com/archives/9/">
+  <title>
+    
+      海树
+    
+  </title>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--dark">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'dark';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">海树</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+    }
+
+    header.intro-header {
+       /*config*/
+        background-image: var(--intro-header-background-image-url-home);
+        /* background-image: url('/img/header_img/newhome_bg.jpg'); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="site-heading">
+            <h1>海树</h1>
+            <!--<hr class="small">-->
+            <span class="subheading">我心有猛虎，细嗅蔷薇香</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    
+
+    <!-- USE SIDEBAR -->
+    <!-- Post Container -->
+    <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-8 col-md-offset-1
+                col-sm-12
+                col-xs-12
+                post-container
+            ">
+
+      <!-- Main Content -->
+
+
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/09/04/computer-network-10-http-cache/">
+    <h2 class="post-title">
+      计算机网络面试（10）HTTP 的缓存机制
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      
+本文部分内容来自：彻底弄懂 Http 缓存机制 - 基于缓存策略三要素分解法原创： 李志刚  腾讯Bugly(http://bugly.qq.com)  
+
+HTTP 的缓存机制可以分为 3 个部分：
+
+缓存存储策略
+缓存过期策略
+缓存对比策略
+
+
+缓存存储策略用来确定 HTTP 响应内容是否可以被客户端缓存，以及可以被哪些客户端缓存。
+这个策略的作用只有一个，用于决定 HTTP 响应内容......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-09-04
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/09/04/computer-network-9-http/">
+    <h2 class="post-title">
+      计算机网络面试（9）了解HTTP 协议
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      上篇文章的内容是 TCP 协议如何实现可靠传输，关于运输层的就复习完了，接下来的内容是应用层的相关协议复习。其实主要就是 HTTP 协议的知识。
+关于 HTTP 协议的基础内容，之前在「Android 网络编程」专题已经写过一篇了。所以这里就不再重新写了，提供一下那篇文章的链接。
+Android 网络编程系列（二）了解HTTP协议
+下一篇文章将介绍 HTTP 中有关缓存的相关内容。
+...
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-09-04
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/09/04/computer-network-8-tcp-reliable-transmission/">
+    <h2 class="post-title">
+      计算机网络面试（8）TCP 可靠传输
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      TCP 协议使用如下几种机制来保证可靠传输。
+包应答序列号及包重组面临的问题：网络传输中，会出现数据的破坏，丢包，重复，分片混乱等问题。
+本质上，要想保证传输的可靠性，则需要对传输的内容进行验证。
+
+对于网络数据的破坏，采取的策略是丢弃重新发送，以确保不会出现致命的错误。TCP 在自身协议中单独划了一块 checksum 用于这种校验，校验算法本质上是将整块数据通过某个函数映射到 16 位的......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-09-04
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/android-bottom-navigation-1-using-bottomnavigationview/">
+    <h2 class="post-title">
+      BottomNavigationView 用法：实现底部导航栏
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      前言BottomNavigationView 是 Android 官方提供的底部导航控件，这篇文章来学习一下它的用法。
+按照 MD 设计的规范，底部导航栏的 item 最好在 3-5 个之间。
+如果 BottomNavigationView 中的 item 数量超出5个，会出现异常：
+
+Caused by: java.lang.IllegalArgumentException: Maximu......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Android" title="Android">Android</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/toolbar-set-back-button/">
+    <h2 class="post-title">
+      Toolbar设置返回按钮
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      1. 使用系统自带的返回按钮样式getSupportActionBar().setDisplayHomeAsUpEnabled(true);//左侧添加一个默认的返回图标
+getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用添加之后，如果发现图标的颜色是黑色 ，则需要在 style.xml 中添加如下属性：
+&lt;!-- 溢......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Android" title="Android">Android</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/meituan-interview-experience/">
+    <h2 class="post-title">
+      美团秋招面经
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      前言同学帮我内推了美团新零售的Android开发岗，昨天晚上去公司面试，一共面了3轮技术面，也不知道结果如何，现在将面试过程和遇到的面试题记录一下，也为以后的面试提供一些参考。
+一面
+XML布局文件中所写的layout_width和layout_height如何参与到这个View的绘制。
+Android中如何发送Http请求，HttpUrlConnection和OkHttp中分别是怎么实现的......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Android" title="Android">Android</a>
+    
+    <a href="/tags/#面经" title="面经">面经</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/140-execllent-android-opensource-projects/">
+    <h2 class="post-title">
+      140 款 Android 开源优秀项目源码
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      BeautifulRefreshLayout-漂亮的美食下拉刷新https://github.com/android-cjj/BeautifulRefreshLayout/tree/BeautifulRefreshForFood
+Material Design-动画风格的选项卡tab切换功能https://github.com/neokree/MaterialTabs
+TwinklingRe......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Android" title="Android">Android</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/computer-network-7-three-and-four-way-handshake/">
+    <h2 class="post-title">
+      计算机网络面试（7）TCP 三次握手与四次挥手
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      三次握手三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需要客户端和服务器总共发送 3 个包。
+三次握手的目的是连接服务器指定端口，建立 TCP 连接，并同步连接双方的序列号和确认号，交换 TCP 窗口大小信息。在 socket 编程中，客户端执行 connect() 时。将触发三次握手。
+
+第一次握手(SYN=1, seq=x):
+
+客户端发送一个 TCP......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/computer-network-6-tcp-header/">
+    <h2 class="post-title">
+      计算机网络面试（6）TCP 首部
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      TCP 的全部功能都体现在它首部中各字段的作用，因此，只有弄清TCP首部各字段的作用才能掌握 TCP 的工作原理。
+TCP 报文段首部的前 20 字节是固定的，后面有 4n 字节是根据需要而增加的，因此 TCP 首部的最小长度是 20 字节。
+
+源端口和目的端口（Source Port、Destination Port）：
+分别占 2 个字节，表示源端口号和目的端口号；用于区别主机中的不同进......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/computer-network-5-tcp-overview/">
+    <h2 class="post-title">
+      计算机网络面试（5）TCP 协议概述
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      TCP 的特点1. 面向连接
+使用 TCP 协议进行数据传输之前，必须先建立 TCP 连接，在传送数据完毕后，必须释放已经建立的连接。
+2. 只提供一对一通信
+每条 TCP 连接只能有两个端点，只能是点对点的。
+3. 提供可靠的数据传输
+通过 TCP 连接传送的数据，无差错，不丢失，不重复，并且按序到达。
+4. 全双工通信
+TCP 允许通信双方的应用进程在任何时候都能发送数据。
+5. 面向字......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+
+  <!-- Pager -->
+  <ul class="pager">
+    
+    <li class="previous">
+      <a href="/archives/8/">&larr; Older Posts</a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/archives/10/">Newer Posts &rarr;</a>
+    </li>
+    
+  </ul>
+
+
+      <!-- 如果开启评论功能 -->
+      
+    </div>
+
+    <!-- Sidebar Container -->
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+        <!-- Short About -->
+<section class="visible-md visible-lg">
+  <h5><a href="/about/">ABOUT ME</a></h5>
+  <div class="short-about">
+
+    
+    <img id="avatar_pic" src="/img/avatar/avator.jpeg" alt="avatar_pic" style="box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);
+    -webkit-box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, .5);" />
+    
+
+    
+    <p>一个平凡且幸运的人～</p>
+    
+
+    <!-- SNS Link -->
+    <ul class="list-inline">
+      
+
+      
+      <li>
+        <a target="_blank" href="https://github.com/owenleexiaoyu">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+      <li>
+        <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
+          <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+          </span>
+        </a>
+      </li>
+      
+
+    </ul>
+  </div>
+</section>
+
+        <hr>
+    
+        <!-- RECENT POSTS -->
+
+<h5><a href="/">RECENT POSTS</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="../../2021/04/09/javapoat-study/">
+      <li>【转载】JavaPoet 看这一篇就够了</li>
+    </a>
+    
+    <a href="../../2021/04/06/java-reflect/">
+      <li>【转载】大白话说Java反射：入门、使用、原理</li>
+    </a>
+    
+    <a href="../../2021/03/31/java-apt/">
+      <li>【转载】Java 注解处理器</li>
+    </a>
+    
+    <a href="../../2021/03/31/kotlin-learning-18-apt/">
+      <li>Kotlin 修炼手册（18）注解处理器（APT）</li>
+    </a>
+    
+    <a href="../../2021/03/05/kotlin-learning-17-annotation/">
+      <li>Kotlin 修炼手册（17）注解</li>
+    </a>
+    
+  </ul>
+</div>
+
+
+        <hr>
+    
+        <!-- Featured Tags -->
+
+<section>
+  <h5><a href="/tags/">FEATURED TAGS</a></h5>
+  <div class="tags">
+    
+    
+    <a href="/tags/#随笔" title="随笔" rel="17">随笔</a>
+    
+    
+    
+    <a href="/tags/#计划" title="计划" rel="2">计划</a>
+    
+    
+    
+    <a href="/tags/#Android" title="Android" rel="16">Android</a>
+    
+    
+    
+    <a href="/tags/#面经" title="面经" rel="4">面经</a>
+    
+    
+    
+    <a href="/tags/#知识体系" title="知识体系" rel="1">知识体系</a>
+    
+    
+    
+    <a href="/tags/#Android 网络编程" title="Android 网络编程" rel="8">Android 网络编程</a>
+    
+    
+    
+    <a href="/tags/#Blockly4Android" title="Blockly4Android" rel="10">Blockly4Android</a>
+    
+    
+    
+    <a href="/tags/#理财" title="理财" rel="5">理财</a>
+    
+    
+    
+    <a href="/tags/#Python" title="Python" rel="3">Python</a>
+    
+    
+    
+    <a href="/tags/#计算机网络" title="计算机网络" rel="12">计算机网络</a>
+    
+    
+    
+    <a href="/tags/#数据结构与算法" title="数据结构与算法" rel="1">数据结构与算法</a>
+    
+    
+    
+    <a href="/tags/#Git" title="Git" rel="1">Git</a>
+    
+    
+    
+    <a href="/tags/#学习" title="学习" rel="3">学习</a>
+    
+    
+    
+    <a href="/tags/#诗歌" title="诗歌" rel="5">诗歌</a>
+    
+    
+    
+    <a href="/tags/#J2EE" title="J2EE" rel="4">J2EE</a>
+    
+    
+    
+    <a href="/tags/#java" title="java" rel="23">java</a>
+    
+    
+    
+    <a href="/tags/#Kotlin" title="Kotlin" rel="18">Kotlin</a>
+    
+    
+    
+    <a href="/tags/#设计模式" title="设计模式" rel="14">设计模式</a>
+    
+    
+    
+    <a href="/tags/#工作杂想" title="工作杂想" rel="7">工作杂想</a>
+    
+    
+    
+    <a href="/tags/#作品集" title="作品集" rel="2">作品集</a>
+    
+    
+    
+    <a href="/tags/#年终总结" title="年终总结" rel="3">年终总结</a>
+    
+    
+    
+    <a href="/tags/#Android Studio" title="Android Studio" rel="1">Android Studio</a>
+    
+    
+    
+    <a href="/tags/#算法" title="算法" rel="4">算法</a>
+    
+    
+    
+    <a href="/tags/#剑指Offer" title="剑指Offer" rel="4">剑指Offer</a>
+    
+    
+    
+    <a href="/tags/#千字文计划" title="千字文计划" rel="3">千字文计划</a>
+    
+    
+    
+    <a href="/tags/#总结" title="总结" rel="1">总结</a>
+    
+    
+    
+    <a href="/tags/#Java" title="Java" rel="3">Java</a>
+    
+    
+  </div>
+</section>
+
+
+        <hr>
+    
+        <!-- Categories -->
+
+<h5><a href="/categories/">categories</a></h5>
+<div class="widget">
+  <ul>
+    
+    <a href="/categories/#想法">
+      <li>想法</li>
+    </a>
+    
+    <a href="/categories/#技术">
+      <li>技术</li>
+    </a>
+    
+    <a href="/categories/#笔试面试">
+      <li>笔试面试</li>
+    </a>
+    
+    <a href="/categories/#译文">
+      <li>译文</li>
+    </a>
+    
+    <a href="/categories/#感想">
+      <li>感想</li>
+    </a>
+    
+  </ul>
+</div>
+
+
+        <hr>
+    
+</div>
+
+
+    
+  </div>
+</div>
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/owenleexiaoyu">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          Owen Lee
+          2021
+          <br>
+          Theme by
+          <a href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by
+          <a href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+    <!-- Busuanzi JavaScript -->
+    <script async="async" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://yoursite.com/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+	</body>
+</html>
