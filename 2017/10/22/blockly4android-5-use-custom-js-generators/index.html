@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -369,21 +369,17 @@
 <h3 id="加载生成器函数"><a href="#加载生成器函数" class="headerlink" title="加载生成器函数"></a>加载生成器函数</h3><p>对于继承自 <a href="https://github.com/google/blockly-android/blob/master/blocklylib-core/src/main/java/com/google/blockly/android/AbstractBlocklyActivity.java" target="_blank" rel="noopener">AbstractBlocklyActivity</a> 的 Activity 来说，通过覆盖 AbstractBlocklyActivity.getGeneratorsJsPaths() 这个方法来得到生成器文件。Activity 必须实现这个方法，返回所需生成器的 assets 目录下的资源路径列表。这些文件和 Blockly 的标准块的 JavaScript 语言核心生成器文件一起被加载。每次进行代码生成时都会调用此方法，因此列表可以是动态的或符合上下文的。</p>
 <p>就像块定义文件一样，可以加载多个 .js 文件。这些文件按顺序加载，因此重复的 id（参考块定义）将导致替换以前的生成器定义。</p>
 <h3 id="JavaScript-块实现示例"><a href="#JavaScript-块实现示例" class="headerlink" title="JavaScript 块实现示例"></a>JavaScript 块实现示例</h3><p>下面这段代码是 Turtle demo 中的一个生成器示例：</p>
-<pre><code>Blockly.JavaScript[&#39;turtle_width&#39;] = function(block) {
-  // Generate JavaScript for setting the width.
-  var width = Blockly.JavaScript.valueToCode(block, &#39;WIDTH&#39;,
-      Blockly.JavaScript.ORDER_NONE) || &#39;1&#39;;
-  return &#39;Turtle.penWidth(&#39; + width + &#39;);\n&#39;;
-};</code></pre><p>这段代码在 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/assets/turtle/generators.js" target="_blank" rel="noopener">blocklydemo/assets/turtle/generators.js</a> 文件中，匹配 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/assets/turtle/turtle_blocks.json" target="_blank" rel="noopener">blocklydemo / assets / turtle / turtle_blocks.json</a> 中的块定义。 TurtleActivity.getGeneratorsJsPaths() 方法通过常量 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/java/com/google/blockly/android/demo/TurtleActivity.java#L52" target="_blank" rel="noopener">TURTLE_BLOCK_GENERATORS</a> 返回此路径。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Blockly.JavaScript[<span class="string">'turtle_width'</span>] = <span class="function"><span class="keyword">function</span><span class="params">(block)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// Generate JavaScript for setting the width.</span></span><br><span class="line">  <span class="keyword">var</span> width = Blockly.JavaScript.valueToCode(block, <span class="string">'WIDTH'</span>,</span><br><span class="line">      Blockly.JavaScript.ORDER_NONE) || <span class="string">'1'</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">'Turtle.penWidth('</span> + width + <span class="string">');\n'</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码在 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/assets/turtle/generators.js" target="_blank" rel="noopener">blocklydemo/assets/turtle/generators.js</a> 文件中，匹配 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/assets/turtle/turtle_blocks.json" target="_blank" rel="noopener">blocklydemo / assets / turtle / turtle_blocks.json</a> 中的块定义。 TurtleActivity.getGeneratorsJsPaths() 方法通过常量 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/java/com/google/blockly/android/demo/TurtleActivity.java#L52" target="_blank" rel="noopener">TURTLE_BLOCK_GENERATORS</a> 返回此路径。</p>
 <p>上面这个函数为 id  为 turtle_width 的块提供代码转化，接收 “WIDTH” 域的输入生成代码字符串，设置给变量 width（如果未设置则为 ‘1’），并包装成 Turtle.penWidth（..）的函数调用。结果可能如下所示：</p>
-<pre><code>Turtle.penWidth(3);
-Turtle.penWidth(x);
-Turtle.penWidth(x / 2);</code></pre><p>有关写入生成器的更多详细信息，请参阅「<a href="https://developers.google.cn/blockly/guides/create-custom-blocks/generating-code" target="_blank" rel="noopener">生成代码</a>」。</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Turtle.penWidth(<span class="number">3</span>)<span class="comment">;</span></span><br><span class="line">Turtle.penWidth(x)<span class="comment">;</span></span><br><span class="line">Turtle.penWidth(x / <span class="number">2</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<p>有关写入生成器的更多详细信息，请参阅「<a href="https://developers.google.cn/blockly/guides/create-custom-blocks/generating-code" target="_blank" rel="noopener">生成代码</a>」。</p>
 <h3 id="生成其他语言代码"><a href="#生成其他语言代码" class="headerlink" title="生成其他语言代码"></a>生成其他语言代码</h3><p>Android 版的 Blockly 默认转化成的语言为 JavaScript。如果你想使用其他的编程语言，覆盖  AbstractBlocklyActivity.getBlockGeneratorLanguage() 方法并返回一个语言定义，其中包含核心语言文件路径和使用该语言定义生成器函数的文件路径。</p>
-<pre><code>Override
-protected LanguageDefinition getBlockGeneratorLanguage() {
-    return new LanguageDefinition(&quot;lua/lua_compressed.js&quot;, &quot;Blockly.Lua&quot;);
-}</code></pre><p>Blockly 的主代码仓库中有几种流行语言的「<a href="https://github.com/google/blockly/tree/master/generators" target="_blank" rel="noopener">生成器</a>」。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Override</span><br><span class="line"><span class="function"><span class="keyword">protected</span> LanguageDefinition <span class="title">getBlockGeneratorLanguage</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> LanguageDefinition(<span class="string">"lua/lua_compressed.js"</span>, <span class="string">"Blockly.Lua"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Blockly 的主代码仓库中有几种流行语言的「<a href="https://github.com/google/blockly/tree/master/generators" target="_blank" rel="noopener">生成器</a>」。</p>
 <h3 id="生成器如何运行"><a href="#生成器如何运行" class="headerlink" title="生成器如何运行"></a>生成器如何运行</h3><p>Android 版的 Blockly 在后台服务中维护一个 WebView，以运行用 JavaScript 编写的生成器。代码在 CodeGeneratorService 类中。大多数开发人员应该只需要通过扩展 AbstractBlocklyActivity 提供的更高级别的 API，并且可以忽略这个细节。</p>
 
 

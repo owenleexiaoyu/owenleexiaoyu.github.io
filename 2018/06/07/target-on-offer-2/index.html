@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -367,85 +367,36 @@
 
         <h5 id="7-斐波那契数列"><a href="#7-斐波那契数列" class="headerlink" title="7. 斐波那契数列"></a>7. 斐波那契数列</h5><p>描述：<br>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。n&lt;=39</p>
 <p>分析：<br>这题就是常规的求斐波那契数列第n项的值，可以使用递归来求解。</p>
-<pre><code>public class Solution {
-    public int Fibonacci(int n) {
-        if(n &lt;1){
-            return 0;
-        }else if(n &lt; 3){
-            return 1;
-        }else{
-            return Fibonacci(n -2) +Fibonacci(n-1);
-        }
-    }
-}</code></pre><h5 id="8-跳台阶"><a href="#8-跳台阶" class="headerlink" title="8. 跳台阶"></a>8. 跳台阶</h5><p>描述：<br>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Fibonacci</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">if</span>(n &lt;<span class="number">1</span>)&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(n &lt; <span class="number">3</span>)&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    		<span class="keyword">return</span> Fibonacci(n <span class="number">-2</span>) +Fibonacci(n<span class="number">-1</span>);</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="8-跳台阶"><a href="#8-跳台阶" class="headerlink" title="8. 跳台阶"></a>8. 跳台阶</h5><p>描述：<br>一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
 <p>分析：<br>对于n = 1，只有一种跳法（1）<br>对于n = 2，有两种跳法（1，1；2）<br>对于n&gt;2的情况，以n = 3为例，它要么选择从第2个台阶跳一个台阶到达，要么选择从第1个台阶跳两个台阶到达。所以n = 3时，应该是n = 1的跳法加上n = 2的跳法。<br>推广到其他&gt;2的情况n，要么选择从第n-1个台阶跳一个台阶到达，要么选择从第n-2个台阶跳两个台阶到达。所以应该是n - 1的跳法加上n - 2的跳法。<br>即当n&gt;2时，<strong>JumpFloor(n) = JumpFloor(n -1) + JumpFloor(n-2)；</strong></p>
-<pre><code>public class Solution {
-    public int JumpFloor(int target) {
-        if(target &lt;= 0){
-            return 0;
-        }else if(target &lt; 3){
-            return target;
-        }else{
-            return JumpFloor(target -1) + JumpFloor(target -2);
-        }
-    }
-}</code></pre><h5 id="9-变态跳台阶"><a href="#9-变态跳台阶" class="headerlink" title="9. 变态跳台阶"></a>9. 变态跳台阶</h5><p>描述：<br>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">JumpFloor</span><span class="params">(<span class="keyword">int</span> <span class="keyword">target</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">target</span> &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">        	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(<span class="keyword">target</span> &lt; <span class="number">3</span>)</span></span>&#123;</span><br><span class="line">        	<span class="keyword">return</span> <span class="keyword">target</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        	<span class="keyword">return</span> JumpFloor(<span class="keyword">target</span> <span class="number">-1</span>) + JumpFloor(<span class="keyword">target</span> <span class="number">-2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="9-变态跳台阶"><a href="#9-变态跳台阶" class="headerlink" title="9. 变态跳台阶"></a>9. 变态跳台阶</h5><p>描述：<br>一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。求该青蛙跳上一个n级的台阶总共有多少种跳法。</p>
 <p><strong>分析：</strong><br>这道题和上题条件上有了一点变化，青蛙一次可以跳1、2、、、n个台阶。<br>和上一题一样，从最简单的情况分析：<br>当n = 1时，只有1种跳法（1）<br>当n = 2时，它可以选择从第1个台阶跳1个台阶到达，也可以选择从第0个台阶（地面，便于理解）直接跳2个台阶到达。<br>当n = 3时，它可以选择从第2个台阶跳1个台阶到达，或者选择从第1个台阶跳2个台阶到达，或者选择从第0个台阶直接跳3个台阶到达。</p>
 <p>由此可以找到规律：台阶数为n时，跳法是小于n的台阶的跳法之和，再加最后从地面直接跳n个台阶到达的1种。<br>即：f(n) = f(n-1)+f(n-2)+…+f(1) +1<br>由:<br>n = 1, f(n) = 1;<br>n = 2, f(n) = 2;<br>n = 3, f(n) = 4;<br>n = 4, f(n) = 8;<br>可以看出，f(n) = 2* f(n-1);<br>这样我们就可以使用递归来解决这道题了。</p>
-<pre><code>public class Solution {
-    public int JumpFloorII(int target) {
-        if(target &lt;= 0){
-            return 0;
-        }else if(target &lt; 2){
-            return target;
-        }else{
-            return JumpFloorII(target -1) *2;
-        }
-    }
-}</code></pre><h5 id="10-矩阵覆盖"><a href="#10-矩阵覆盖" class="headerlink" title="10. 矩阵覆盖"></a>10. 矩阵覆盖</h5><p>描述：<br>我们可以用2<em>1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2</em>1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">JumpFloorII</span><span class="params">(<span class="keyword">int</span> <span class="keyword">target</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">target</span> &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">        	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(<span class="keyword">target</span> &lt; <span class="number">2</span>)</span></span>&#123;</span><br><span class="line">        	<span class="keyword">return</span> <span class="keyword">target</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        	<span class="keyword">return</span> JumpFloorII(<span class="keyword">target</span> <span class="number">-1</span>) *<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="10-矩阵覆盖"><a href="#10-矩阵覆盖" class="headerlink" title="10. 矩阵覆盖"></a>10. 矩阵覆盖</h5><p>描述：<br>我们可以用2<em>1的小矩形横着或者竖着去覆盖更大的矩形。请问用n个2</em>1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？</p>
 <p><strong>分析：</strong><br>这道题和跳台阶的题是一模一样的，同样是斐波那契数列的应用。</p>
 <p><img src="https://i.loli.net/2018/11/06/5be188bf702ab.jpg" alt></p>
 <p>如图所示，一个红色的小矩形代表一个2<em>1的小矩阵，黑色的大矩形代表2</em>n的大矩阵。<br>如果将大矩阵如图所示放置，可以对照跳台阶中的n层的台阶；<br>一个横置小矩阵（第二个图形），就相当于跳台阶中，青蛙一次跳一个台阶；<br>将两个小矩阵并排竖置（第三个图形），就相当于跳台阶中，青蛙一次跳了两个台阶。</p>
 <p>经过这样的对照，可以发现两个问题是一模一样的，那么解法同样是一样的。</p>
-<pre><code>public class Solution {
-    public int RectCover(int target) {
-        if(target &lt;= 0){
-            return 0;
-        }else if(target &lt; 3){
-            return target;
-        }else{
-            return RectCover(target -1) + RectCover(target -2);
-        }
-    }
-}</code></pre><h5 id="11-二进制中1的个数"><a href="#11-二进制中1的个数" class="headerlink" title="11. 二进制中1的个数"></a>11. 二进制中1的个数</h5><p>描述：<br>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">int</span> <span class="title">RectCover</span><span class="params">(<span class="keyword">int</span> <span class="keyword">target</span>)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">target</span> &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">        	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="function"><span class="keyword">else</span> <span class="title">if</span><span class="params">(<span class="keyword">target</span> &lt; <span class="number">3</span>)</span></span>&#123;</span><br><span class="line">        	<span class="keyword">return</span> <span class="keyword">target</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        	<span class="keyword">return</span> RectCover(<span class="keyword">target</span> <span class="number">-1</span>) + RectCover(<span class="keyword">target</span> <span class="number">-2</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="11-二进制中1的个数"><a href="#11-二进制中1的个数" class="headerlink" title="11. 二进制中1的个数"></a>11. 二进制中1的个数</h5><p>描述：<br>输入一个整数，输出该数二进制表示中1的个数。其中负数用补码表示。</p>
 <p>分析：</p>
 <blockquote>
 <p>思想：用1（1自身左移运算，其实后来就不是1了）和n的每位进行位与，来判断1的个数</p>
 <p>1的二进制是前面都是0，最后一位为1，也就是只有一个1，每次向左移位一下，使得flag的二进制表示中始终只有一个位为1，每次与n做位与操作，这样就相当于逐个检测n的每一位是否是1了。</p>
 </blockquote>
-<pre><code>public class Solution {
-    public int NumberOf1(int n) {
-        int count = 0;
-        int flag = 1;
-        while(flag != 0){
-            if((n &amp; flag) != 0){
-                count++;
-            }
-            flag = flag &lt;&lt; 1;
-        }
-        return count;
-    }
-}</code></pre><p><strong>最优解及分析：</strong></p>
-<pre><code>public class Solution {
-    public int NumberOf1(int n) {
-        int count = 0;
-        while(n!= 0){
-            count++;
-            n = n &amp; (n - 1);
-         }
-        return count;
-    }
-}</code></pre><blockquote>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> NumberOf1(<span class="keyword">int</span> n) &#123;</span><br><span class="line">    	<span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">    	<span class="keyword">while</span>(flag != <span class="number">0</span>)&#123;</span><br><span class="line">    		<span class="keyword">if</span>((n &amp; flag) != <span class="number">0</span>)&#123;</span><br><span class="line">    			<span class="keyword">count</span>++;</span><br><span class="line">    		&#125;</span><br><span class="line">    		flag = flag &lt;&lt; <span class="number">1</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">count</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>最优解及分析：</strong></p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> NumberOf1(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">int</span> <span class="keyword">count</span> = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n!= <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">count</span>++;</span><br><span class="line">            n = n &amp; (n - <span class="number">1</span>);</span><br><span class="line">         &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">count</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>链接：<a href="https://www.nowcoder.com/questionTerminal/8ee967e43c2c4ec193b040ea7fbb10b8" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/8ee967e43c2c4ec193b040ea7fbb10b8</a><br>来源：牛客网</p>
 </blockquote>
 <blockquote>
@@ -453,24 +404,9 @@
 </blockquote>
 <h5 id="12-数值的整数次方"><a href="#12-数值的整数次方" class="headerlink" title="12. 数值的整数次方"></a>12. 数值的整数次方</h5><p>描述：<br>给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。</p>
 <p>分析：<br>这里要注意的是exponent可以为负值，比如(1.3)^-2就等价于1/(1.3)^2。所以可以先求出exponent的绝对值，先求出result = base^|exponent|，如果exponent为负数，result = 1/result。至于求一个数的正数次幂，可以使用循环来实现。</p>
-<pre><code>public class Solution {
-    public double Power(double base, int exponent) {
-        double result = 1;
-        int exp = Math.abs(exponent);
-        if(exponent == 0){
-            return 1;
-        }
-        while(exp &gt; 0){
-            result *= base;
-            exp--;
-        }
-        if(exponent &gt; 0){
-            return result;
-        }else{
-            return 1/result;
-        }
-    }
-}</code></pre>
+<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> Solution &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">double</span> Power(<span class="keyword">double</span> base, <span class="built_in">int</span> <span class="built_in">exponent</span>) &#123;</span><br><span class="line">    	<span class="keyword">double</span> result = <span class="number">1</span>;</span><br><span class="line">    	<span class="built_in">int</span> <span class="built_in">exp</span> = Math.<span class="built_in">abs</span>(<span class="built_in">exponent</span>);</span><br><span class="line">    	<span class="keyword">if</span>(<span class="built_in">exponent</span> == <span class="number">0</span>)&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">while</span>(<span class="built_in">exp</span> &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    		result *= base;</span><br><span class="line">    		<span class="built_in">exp</span>--;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">if</span>(<span class="built_in">exponent</span> &gt; <span class="number">0</span>)&#123;</span><br><span class="line">    		<span class="keyword">return</span> result;</span><br><span class="line">    	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="number">1</span>/result;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
         <hr>
         <!-- Pager -->

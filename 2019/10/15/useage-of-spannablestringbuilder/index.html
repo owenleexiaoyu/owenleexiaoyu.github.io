@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -513,44 +513,18 @@
 <p>EXCLUSIVE：排除的，即不包含 ，INCLUSIVE：包含的。大多使用第一个，前后均不包含。</p>
 <p><strong>示例</strong></p>
 <p>选择了其中几个常用 Span 做了个简单示例，代码如下：</p>
-<pre><code>class SpannableAcitivity : AppCompatActivity() {
+<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class SpannableAcitivity : AppCompatActivity() &#123;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">val textStr = "夜阑卧听风吹雨，铁马冰河入梦来"</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">    override fun onCreate(savedInstanceState</span>: Bundle?) &#123;</span><br><span class="line">        super<span class="variable">.onCreate</span>(savedInstanceState)</span><br><span class="line">        setContentView(R<span class="variable">.layout</span><span class="variable">.activity_spannable</span>)</span><br><span class="line">        var builder = SpannableStringBuilder()<span class="variable">.also</span> &#123;</span><br><span class="line">            it<span class="variable">.append</span>(textStr)</span><br><span class="line">            it<span class="variable">.setSpan</span>(ForegroundColorSpan(Color<span class="variable">.BLUE</span>), 0, 1, Spanned<span class="variable">.SPAN_EXCLUSIVE_EXCLUSIVE</span>)</span><br><span class="line">            it<span class="variable">.setSpan</span>(BackgroundColorSpan(Color<span class="variable">.RED</span>), 1, 3, Spanned<span class="variable">.SPAN_EXCLUSIVE_EXCLUSIVE</span>)</span><br><span class="line">            it<span class="variable">.setSpan</span>(object : ClickableSpan() &#123;</span><br><span class="line">                override fun onClick(widget: View) &#123;</span><br><span class="line">                    Toast<span class="variable">.makeText</span>(this@SpannableAcitivity, "听风吹雨", Toast<span class="variable">.LENGTH_SHORT</span>)<span class="variable">.show</span>()</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;, 3, 7, Spanned<span class="variable">.SPAN_EXCLUSIVE_EXCLUSIVE</span>)</span><br><span class="line">            it<span class="variable">.setSpan</span>(StrikethroughSpan(), 8, 9, Spanned<span class="variable">.SPAN_EXCLUSIVE_EXCLUSIVE</span>)</span><br><span class="line">            it<span class="variable">.setSpan</span>(UnderlineSpan(), 9, 10, Spanned<span class="variable">.SPAN_EXCLUSIVE_EXCLUSIVE</span>)</span><br><span class="line">            it<span class="variable">.setSpan</span>(AbsoluteSizeSpan(50), 10, 11, Spanned<span class="variable">.SPAN_EXCLUSIVE_EXCLUSIVE</span>)</span><br><span class="line">            it<span class="variable">.setSpan</span>(StyleSpan(Typeface<span class="variable">.BOLD</span>), 11, 12, Spanned<span class="variable">.SPAN_EXCLUSIVE_EXCLUSIVE</span>)</span><br><span class="line">            it<span class="variable">.setSpan</span>(ImageSpan(this@SpannableAcitivity, R<span class="variable">.mipmap</span><span class="variable">.ic_launcher</span>),</span><br><span class="line">                12, 13, Spanned<span class="variable">.SPAN_EXCLUSIVE_EXCLUSIVE</span>)</span><br><span class="line">        &#125;</span><br><span class="line">        spannable_tv<span class="variable">.text</span> = builder</span><br><span class="line">        spannable_tv<span class="variable">.movementMethod</span> = LinkMovementMethod<span class="variable">.getInstance</span>()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    val textStr = &quot;夜阑卧听风吹雨，铁马冰河入梦来&quot;
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_spannable)
-        var builder = SpannableStringBuilder().also {
-            it.append(textStr)
-            it.setSpan(ForegroundColorSpan(Color.BLUE), 0, 1, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            it.setSpan(BackgroundColorSpan(Color.RED), 1, 3, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            it.setSpan(object : ClickableSpan() {
-                override fun onClick(widget: View) {
-                    Toast.makeText(this@SpannableAcitivity, &quot;听风吹雨&quot;, Toast.LENGTH_SHORT).show()
-                }
-            }, 3, 7, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            it.setSpan(StrikethroughSpan(), 8, 9, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            it.setSpan(UnderlineSpan(), 9, 10, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            it.setSpan(AbsoluteSizeSpan(50), 10, 11, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            it.setSpan(StyleSpan(Typeface.BOLD), 11, 12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-            it.setSpan(ImageSpan(this@SpannableAcitivity, R.mipmap.ic_launcher),
-                12, 13, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-        }
-        spannable_tv.text = builder
-        spannable_tv.movementMethod = LinkMovementMethod.getInstance()
-    }
-}</code></pre><p>效果如图：</p>
+<p>效果如图：</p>
 <p><img src="https://i.loli.net/2019/10/15/nWfrHUcSgwVQ6kL.png" alt="img2"></p>
 <p><strong>ClickableSpan 注意</strong></p>
 <p>在使用 ClickableSpan 时，需要注意以下几点：</p>
 <ol>
 <li>有默认颜色和下滑线，如果想修改颜色或去掉下划线，需要重写 updateDrawState方法。</li>
 </ol>
-<pre><code>@Override public void updateDrawState(@NonNull TextPaint ds) {
-    super.updateDrawState(ds);
-    ds.setColor(getResources().getColor(R.color.color_black));
-    ds.setUnderlineText(false);
-}</code></pre><ol start="2">
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@Override</span> public void updateDrawState(<span class="variable">@NonNull</span> TextPaint ds) &#123;</span><br><span class="line">    <span class="selector-tag">super</span><span class="selector-class">.updateDrawState</span>(ds);</span><br><span class="line">    <span class="selector-tag">ds</span><span class="selector-class">.setColor</span>(getResources().getColor(R.color.color_black));</span><br><span class="line">    <span class="selector-tag">ds</span><span class="selector-class">.setUnderlineText</span>(false);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
 <li><p>设置 ClickableSpan 后，TextView 需要加一行<code>textView.setMovementMethod(LinkMovementMethod.getInstance());</code>，否则ClickableSpan部分点击事件不起作用。</p>
 </li>
 <li><p>设置 ClickableSpan，可能会与 TextView 本身的onClick事件有冲突。</p>

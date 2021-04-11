@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -376,7 +376,9 @@
 </ol>
 <h3 id="加载本地-HTML-页面"><a href="#加载本地-HTML-页面" class="headerlink" title="加载本地 HTML 页面"></a>加载本地 HTML 页面</h3><p>前一篇文章中说到使用 WebView 需要开启 Internet 的权限，这个说法其实是不准确的。开启权限只是因为我们使用 loadUrl() 方法来获取 URL 的内容时需要联网。当我们选择加载本地的 HTML 页面（比如 assets 目录下的 HTML 文件或者使用 loadData() 方法加载一段 HTML 代码），并不需要网络权限。</p>
 <p>加载 assets 目录下的 HTML 文件的方式和加载网页是一致的，都是使用 WebView 的 loadUrl() 方法。</p>
-<pre><code>mWebView.loadUrl(&quot;file:///android_asset/index.html&quot;);</code></pre><h3 id="WebView-部分方法详解"><a href="#WebView-部分方法详解" class="headerlink" title="WebView 部分方法详解"></a>WebView 部分方法详解</h3><p>上篇文章在介绍 WebView 的历史记录时，列举了部分相关的方法并做了简单的描述。这部分主要补充几个 load 方法的介绍。</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mWebView.loadUrl(<span class="string">"file:///android_asset/index.html"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="WebView-部分方法详解"><a href="#WebView-部分方法详解" class="headerlink" title="WebView 部分方法详解"></a>WebView 部分方法详解</h3><p>上篇文章在介绍 WebView 的历史记录时，列举了部分相关的方法并做了简单的描述。这部分主要补充几个 load 方法的介绍。</p>
 <blockquote>
 <p>void loadData (String data, String mimeType, String encoding)</p>
 </blockquote>
@@ -388,16 +390,17 @@
 <li>encoding 指定了 data 是使用 base64 编码还是使用 URL 编码。如果 data 是使用 base64 编码的，encoding 的值一定为 “base64”，如果是其他值的编码方式（包括 null），则默认使用 ASCII 编码方式。对于超出 ASCII 范围的字符比如 ‘#’，‘%’，’&#39;，’?’，应该转化为 ”%+原字符的十六进制值“ 如 ‘%23’、‘%25’、‘%27’、‘%3f’。</li>
 </ul>
 <p>示例如下：</p>
-<pre><code>String htmlString = &quot;&lt;html&gt;&lt;title&gt;this is title&lt;/title&gt;&lt;body&gt;this is web content.&lt;/body&gt;&lt;/html&gt;&quot;;
-mWebView.loadData(htmlString, &quot;text/html&quot;,&quot;utf-8&quot;);</code></pre><blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String htmlString = "<span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span>this is title<span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span>this is web content.<span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span>";</span><br><span class="line">mWebView.loadData(htmlString, "text/html","utf-8");</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p>void loadDataWithBaseURL(String baseUrl, String data, String mimeType, String encoding, String historyUrl)</p>
 </blockquote>
 <p>这个方法比上面那个方法只多了两个参数，一个是 baseUrl，一个是 historyUrl。baseUrl 指定了 data 数据的基准地址。我们知道，在 HTML 代码中通常会有超链接或者图片，而这些链接或者图片地址通常使用的都是相对路径，如果没有一个基准，WebView 就无法访问到这些资源。</p>
 <p>下面我们在 assets 目录下模拟网站资源的相对路径，来帮助我们更好地理解：</p>
 <p>assets 目录下创建了 web 目录，里面有一张图片名为 logo.png</p>
-<pre><code>String htmlStr = &quot;this is our logo：&lt;img src=&quot;/logo.png&quot;/&gt;&quot;
-mWebView.loadData(htmlStr, &quot;text/html&quot;,&quot;utf-8&quot;);
-mWebView.loadDataWithBaseUrl(&quot;file:///android_asset/web&quot;,htmlstr,&quot;text/html&quot;,&quot;utf-8&quot;,null);</code></pre><p>使用 loadData() 方法无法加载图片，只有使用 loadDataWithBaseUrl() 方法才能加载。</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> htmlStr = <span class="string">"this is our logo：&lt;img src="</span>/logo.png<span class="string">"/&gt;"</span></span><br><span class="line">mWebView.loadData(htmlStr, <span class="string">"text/html"</span>,<span class="string">"utf-8"</span>)<span class="comment">;</span></span><br><span class="line">mWebView.loadDataWithBaseUrl(<span class="string">"file:///android_asset/web"</span>,htmlstr,<span class="string">"text/html"</span>,<span class="string">"utf-8"</span>,<span class="literal">null</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 loadData() 方法无法加载图片，只有使用 loadDataWithBaseUrl() 方法才能加载。</p>
 <blockquote>
 <p>void loadUrl(String url)</p>
 </blockquote>
@@ -416,74 +419,32 @@ mWebView.loadDataWithBaseUrl(&quot;file:///android_asset/web&quot;,htmlstr,&quot
 <p>获取对这个 WebView 进行设置的 WebSettings 对象。</p>
 <p>WebSettings 是管理 WebView 设置状态的类。当首次创建 WebView 时，它会获得一组默认设置。这些默认设置可以通过 WebSettings 的任何 getter 方法调用返回。从 WebView.getSettings() 获取的WebSettings 对象与 WebView 的使用寿命相关。如果 WebView 已被破坏，WebSettings 上的任何方法调用都将抛出一个 IllegalStateException 异常。</p>
 <p>上一篇文章中提到 WebView 本身不支持 JavaScript，需要通过 WebSettings 来设置，即：</p>
-<pre><code>mWebView.getSettings().setJavaScriptEnabled(true);</code></pre><p>这里介绍其他几个常用的 WebSettings 的 setter 方法，来对 WebView 进行设置。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">mWebView</span><span class="selector-class">.getSettings</span>()<span class="selector-class">.setJavaScriptEnabled</span>(<span class="selector-tag">true</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这里介绍其他几个常用的 WebSettings 的 setter 方法，来对 WebView 进行设置。</p>
 <blockquote>
 <p>setCacheMode(int mode)<br>设置是否支持缓存及缓存模式，默认值为 LOAD_DEFAULT。<br>setDefaultFontSize(int size)<br>设置默认的字体大小。有效值在 1~72 之间，默认值为 16。<br>setSupportZoom(boolean support)<br>设置是否支持缩放，默认支持。<br>setDisplayZoomControls(boolean enabled)<br>设置是否显示缩放按钮。默认值为 true。</p>
 </blockquote>
 <h3 id="WebView-与-WebViewClient、WebChromeClient-的关系和作用"><a href="#WebView-与-WebViewClient、WebChromeClient-的关系和作用" class="headerlink" title="WebView 与 WebViewClient、WebChromeClient 的关系和作用"></a>WebView 与 WebViewClient、WebChromeClient 的关系和作用</h3><p>在上篇文章中介绍了通过覆盖 WebViewClient 的shouldOverrideUrlLoading() 方法来使用当前应用展示页面，而不是通过手机浏览器来打开。这里就系统地讲讲 WebView 和 WebViewClient、WebChromeClient 的关系以及它们各自的作用。</p>
 <p>WebView 在加载网页时会产生各种事件，并回调给应用程序以便在网页加载过程进行一些额外的处理。如果所有的工作都由 WebView 本身来完成，那么它的工作量就太大了，因此 Android 中引入了WebVIewClient 和 WebChromeClient 类来帮助 WebView 分担这些事件处理的回调。</p>
 <p>WebView 负责加载网页以及网页渲染。<br>WebViewClient 的主要职责是帮助 WebView 处理各种通知、回调事件。<br>WebChromeClient 的作用是监听网页加载进度以及对网页标题，网页图标、JS 对话框进行处理等等。</p>
-<h3 id="WebViewClient-和-WebChromeCient-的方法介绍"><a href="#WebViewClient-和-WebChromeCient-的方法介绍" class="headerlink" title="WebViewClient 和 WebChromeCient 的方法介绍"></a>WebViewClient 和 WebChromeCient 的方法介绍</h3><h5 id="WebViewClient-部分方法说明"><a href="#WebViewClient-部分方法说明" class="headerlink" title="WebViewClient 部分方法说明"></a>WebViewClient 部分方法说明</h5><pre><code>//网页开始加载时的回调函数
-void onPageStarted(WebView view, String url, Bitmap favicon)
-//网页加载结束时的回调函数
-void    onPageFinished(WebView view, String url)
-//网页加载出错时的回调函数
-void onReceivedError(WebView view, int errorCode, String description, String failingUrl)
-//选择使用应用程序进行页面展示时需要覆盖该方法
-boolean shouldOverrideUrlLoading(WebView view, String url)</code></pre><h5 id="WebChromeClient-部分方法说明"><a href="#WebChromeClient-部分方法说明" class="headerlink" title="WebChromeClient 部分方法说明"></a>WebChromeClient 部分方法说明</h5><pre><code>//接收到页面 title 时回调，获取到 title 可以设置到应用的 ActionBar 上。
-void onReceivedTitle(WebView view, String title)
-//接收到页面的图标时回调
-void onReceivedIcon(WebView view, Bitmap icon)
-//当页面加载进度发生变化时回调，可以设置一个 ProgressBar 来显示加载进度
-void onProgressChanged(WebView view, int newProgress)
-//当页面弹出 Javascript 警报对话框时调用
-//客户端可以设置是否对这个对话框进行处理
-boolean    onJsAlert(WebView view, String url, String message, JsResult result)
-//当页面弹出 Javascript 确认对话框时调用
-//客户端可以设置是否对这个对话框进行处理
-boolean    onJsConfirm(WebView view, String url, String message, JsResult result)
-//当页面弹出 Javascript 提示对话框时调用
-//客户端可以设置是否对这个对话框进行处理
-boolean    onJsPrompt(WebView view, String url, String message, String defaultValue, JsPromptResult result)
-</code></pre><h3 id="错误码的处理"><a href="#错误码的处理" class="headerlink" title="错误码的处理"></a>错误码的处理</h3><p>在浏览网页时经常会遇到 404 错误，也就是访问的页面不存在，这里就简单介绍一下如何处理 WebView 中的 404 错误。对错误码的处理需要覆盖 WebViewClient 类中的 onReceiveError() 方法，对于 404 错误，有两个常用的处理方法：</p>
+<h3 id="WebViewClient-和-WebChromeCient-的方法介绍"><a href="#WebViewClient-和-WebChromeCient-的方法介绍" class="headerlink" title="WebViewClient 和 WebChromeCient 的方法介绍"></a>WebViewClient 和 WebChromeCient 的方法介绍</h3><h5 id="WebViewClient-部分方法说明"><a href="#WebViewClient-部分方法说明" class="headerlink" title="WebViewClient 部分方法说明"></a>WebViewClient 部分方法说明</h5><figure class="highlight qml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//网页开始加载时的回调函数</span></span><br><span class="line"><span class="keyword">void</span> onPageStarted(WebView view, <span class="built_in">String</span> <span class="built_in">url</span>, Bitmap favicon)</span><br><span class="line"><span class="comment">//网页加载结束时的回调函数</span></span><br><span class="line"><span class="keyword">void</span>	onPageFinished(WebView view, <span class="built_in">String</span> <span class="built_in">url</span>)</span><br><span class="line"><span class="comment">//网页加载出错时的回调函数</span></span><br><span class="line"><span class="keyword">void</span> onReceivedError(WebView view, <span class="built_in">int</span> errorCode, <span class="built_in">String</span> description, <span class="built_in">String</span> failingUrl)</span><br><span class="line"><span class="comment">//选择使用应用程序进行页面展示时需要覆盖该方法</span></span><br><span class="line">boolean shouldOverrideUrlLoading(WebView view, <span class="built_in">String</span> <span class="built_in">url</span>)</span><br></pre></td></tr></table></figure>
+
+<h5 id="WebChromeClient-部分方法说明"><a href="#WebChromeClient-部分方法说明" class="headerlink" title="WebChromeClient 部分方法说明"></a>WebChromeClient 部分方法说明</h5><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//接收到页面 title 时回调，获取到 title 可以设置到应用的 ActionBar 上。</span></span><br><span class="line"><span class="keyword">void</span> onReceivedTitle(WebView view, <span class="keyword">String</span> title)</span><br><span class="line"><span class="comment">//接收到页面的图标时回调</span></span><br><span class="line"><span class="keyword">void</span> onReceivedIcon(WebView view, Bitmap icon)</span><br><span class="line"><span class="comment">//当页面加载进度发生变化时回调，可以设置一个 ProgressBar 来显示加载进度</span></span><br><span class="line"><span class="keyword">void</span> onProgressChanged(WebView view, <span class="keyword">int</span> newProgress)</span><br><span class="line"><span class="comment">//当页面弹出 Javascript 警报对话框时调用</span></span><br><span class="line"><span class="comment">//客户端可以设置是否对这个对话框进行处理</span></span><br><span class="line"><span class="keyword">boolean</span>	onJsAlert(WebView view, <span class="keyword">String</span> url, <span class="keyword">String</span> message, JsResult result)</span><br><span class="line"><span class="comment">//当页面弹出 Javascript 确认对话框时调用</span></span><br><span class="line"><span class="comment">//客户端可以设置是否对这个对话框进行处理</span></span><br><span class="line"><span class="keyword">boolean</span>	onJsConfirm(WebView view, <span class="keyword">String</span> url, <span class="keyword">String</span> message, JsResult result)</span><br><span class="line"><span class="comment">//当页面弹出 Javascript 提示对话框时调用</span></span><br><span class="line"><span class="comment">//客户端可以设置是否对这个对话框进行处理</span></span><br><span class="line"><span class="keyword">boolean</span>	onJsPrompt(WebView view, <span class="keyword">String</span> url, <span class="keyword">String</span> message, <span class="keyword">String</span> defaultValue, JsPromptResult result)</span><br></pre></td></tr></table></figure>
+
+<h3 id="错误码的处理"><a href="#错误码的处理" class="headerlink" title="错误码的处理"></a>错误码的处理</h3><p>在浏览网页时经常会遇到 404 错误，也就是访问的页面不存在，这里就简单介绍一下如何处理 WebView 中的 404 错误。对错误码的处理需要覆盖 WebViewClient 类中的 onReceiveError() 方法，对于 404 错误，有两个常用的处理方法：</p>
 <p>第一，加载一个 assets 目录下的写好的 404 页面</p>
-<pre><code>class MyWebViewClient extends WebViewClient{
-    @Override
-    public void onReceivedError(WebView view, int errorCode, 
-        String description, String failingUrl) {
-        view.loadUrl(&quot;file:///android_asset/404.html&quot;);
-    }
-}
-mWebView.setWebViewClient(new MyWebViewClient());</code></pre><p>第二，使用 Android 中的 ImageView 或者 TextVIew 来显示错误信息。</p>
-<pre><code>TextView tvError = (TextView) findViewById(R.id.tv_error);
-class MyWebViewClient extends WebViewClient{
-    @Override
-    public void onReceivedError(WebView view, int errorCode, 
-        String description, String failingUrl) {
-        mWebView.setVisibility(View.GONE);
-        tvError.setVisibility(View.VISIBLE);
-        tvError.setText(&quot;something goes wrong&quot;);
-    }
-}
-mWebView.setWebViewClient(new MyWebViewClient());</code></pre><h3 id="利用-WebView-下载文件"><a href="#利用-WebView-下载文件" class="headerlink" title="利用 WebView 下载文件"></a>利用 WebView 下载文件</h3><p>使用 WebView 进行文件下载同样有两种常用的方法，一种是使用隐式 Intent，调用系统浏览器进行下载任务；一种是获取到下载文件的 URL，创建线程进行异步下载。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyWebViewClient</span> <span class="keyword">extends</span> <span class="title">WebViewClient</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public void onReceivedError(<span class="type">WebView</span> view, int errorCode, </span><br><span class="line">	    <span class="type">String</span> description, <span class="type">String</span> failingUrl) &#123;</span><br><span class="line">        view.loadUrl(<span class="string">"file:///android_asset/404.html"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">mWebView.setWebViewClient(<span class="keyword">new</span> <span class="type">MyWebViewClient</span>());</span><br></pre></td></tr></table></figure>
+
+<p>第二，使用 Android 中的 ImageView 或者 TextVIew 来显示错误信息。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">TextView</span> tvError = (<span class="type">TextView</span>) findViewById(<span class="type">R</span>.id.tv_error);</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyWebViewClient</span> <span class="keyword">extends</span> <span class="title">WebViewClient</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public void onReceivedError(<span class="type">WebView</span> view, int errorCode, </span><br><span class="line">	    <span class="type">String</span> description, <span class="type">String</span> failingUrl) &#123;</span><br><span class="line">	    mWebView.setVisibility(<span class="type">View</span>.<span class="type">GONE</span>);</span><br><span class="line">        tvError.setVisibility(<span class="type">View</span>.<span class="type">VISIBLE</span>);</span><br><span class="line">        tvError.setText(<span class="string">"something goes wrong"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">mWebView.setWebViewClient(<span class="keyword">new</span> <span class="type">MyWebViewClient</span>());</span><br></pre></td></tr></table></figure>
+
+<h3 id="利用-WebView-下载文件"><a href="#利用-WebView-下载文件" class="headerlink" title="利用 WebView 下载文件"></a>利用 WebView 下载文件</h3><p>使用 WebView 进行文件下载同样有两种常用的方法，一种是使用隐式 Intent，调用系统浏览器进行下载任务；一种是获取到下载文件的 URL，创建线程进行异步下载。</p>
 <p>我们这里就简单介绍一下使用隐式 Intent 的方法来下载文件，第二种方法将在后面一篇关于 HttpUrlConnection 的文章中进行介绍。</p>
 <p>WebView 有一个 setDownloadListener() 方法，当 URL 的内容不能被 WebView 引擎渲染时（文件），应该被下载。需要新建一个 DownloadListener 的实现类。在该实现类的 onDownloadStart() 方法中，可以获取到当前下载文件的 URL。之后就可以通过隐式 Intent 来调用系统浏览器进行下载。</p>
-<pre><code>class MyDownloadListener implements DownloadListener{
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyDownloadListener</span> <span class="keyword">implements</span> <span class="title">DownloadListener</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public <span class="keyword">void</span> onDownloadStart(<span class="built_in">String</span> url, <span class="built_in">String</span> userAgent,</span><br><span class="line">        <span class="built_in">String</span> contentDisposition,</span><br><span class="line">        <span class="built_in">String</span> mimetype, long contentLength) &#123;</span><br><span class="line">        <span class="keyword">if</span>(url.endsWith(<span class="string">".apk"</span>))&#123;</span><br><span class="line">            <span class="built_in">Uri</span> uri = <span class="built_in">Uri</span>.parse(url);</span><br><span class="line">            Intent i = <span class="keyword">new</span> Intent(Intent.ACTION_VIEW, uri);</span><br><span class="line">            startActivity(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">mWebView.loadUrl(<span class="string">"http://www.wandoujia.com/"</span>);</span><br><span class="line">mWebView.getSettings().setJavaScriptEnabled(<span class="keyword">true</span>);</span><br><span class="line">mWebView.setDownloadListener(<span class="keyword">new</span> MyDownloadListener());</span><br></pre></td></tr></table></figure>
 
-    @Override
-    public void onDownloadStart(String url, String userAgent,
-        String contentDisposition,
-        String mimetype, long contentLength) {
-        if(url.endsWith(&quot;.apk&quot;)){
-            Uri uri = Uri.parse(url);
-            Intent i = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(i);
-        }
-    }
-}
-mWebView.loadUrl(&quot;http://www.wandoujia.com/&quot;);
-mWebView.getSettings().setJavaScriptEnabled(true);
-mWebView.setDownloadListener(new MyDownloadListener());</code></pre><p>上述代码实现了在豌豆荚网站中下载 apk 文件的效果。</p>
+<p>上述代码实现了在豌豆荚网站中下载 apk 文件的效果。</p>
 <h3 id="远程注入漏洞的解决方案"><a href="#远程注入漏洞的解决方案" class="headerlink" title="远程注入漏洞的解决方案"></a>远程注入漏洞的解决方案</h3><p>上篇文章中讲到了在 Android 4.2 版本之前使用 addJavascriptInterface() 方法会存在安全隐患，攻击者可以通过反射机制来对客户端进行攻击。那么在 4.2 之前，这个漏洞有没有什么解决方案呢？</p>
 <p>答案是有的，在网上看了一些资料，找到了对应的方案。在上面的 WebChromeClient 的方法介绍时提到了一个 onJsPrompt() 方法，这个方法在 JS 调用 prompt 方法时会在本地回调。通过这个方法，JS 能把信息（文本）传递到 Java，而 Java 也能把信息（文本）传递到 JS 中。客户端和网页前端的开发者之间协商好一个小型的协议，通过 onJsPrompt() 将远程调用所需的信息按照协议封装成文本发给客户端，客户端根据协议解析这段文本，提取出所需的信息，利用反射机制进行本地的方法调用，如果有返回值就将返回值通过onJsPrompt() 传递给 JS。就能够实现 JS 远程调用 Java 代码了。</p>
 <p>这样的解决方案我也只是一知半解，所以只能介绍到这里，在参考资料中会有更加详细的介绍。</p>

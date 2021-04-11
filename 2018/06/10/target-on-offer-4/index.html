@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -372,149 +372,22 @@
 <li>层数的计算方式是(Math.min(rowNum,colNum)-1)/2+1</li>
 <li>在每层中有上述四个循环，保证遍历元素不重复。</li>
 </ol>
-<pre><code>import java.util.ArrayList;
-public class Solution {
-    public ArrayList&lt;Integer&gt; printMatrix(int [][] matrix) {
-        ArrayList&lt;Integer&gt; list = null;
-        if(matrix == null || matrix.length == 0){
-            return list;
-        }
-        list = new ArrayList&lt;&gt;();
-        int rowNum = matrix.length;
-        int colNum = matrix[0].length;
-        if(colNum == 0){
-            return list;
-        }
-        //从外到里的圈数
-        int layer = (Math.min(rowNum, colNum) -1)/2+1;
-        //正在遍历的圈数
-        int turn = 0;
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">public</span> class Solution &#123;</span><br><span class="line">    <span class="keyword">public</span> ArrayList&lt;Integer&gt; printMatrix(<span class="keyword">int</span> [][] matrix) &#123;</span><br><span class="line">    	ArrayList&lt;Integer&gt; list = null;</span><br><span class="line">    	<span class="built_in">if</span>(matrix == null || matrix.length == <span class="number">0</span>)&#123;</span><br><span class="line">    		<span class="built_in">return</span> list;</span><br><span class="line">    	&#125;</span><br><span class="line">    	list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    	<span class="keyword">int</span> rowNum = matrix.length;</span><br><span class="line">    	<span class="keyword">int</span> colNum = matrix[<span class="number">0</span>].length;</span><br><span class="line">    	<span class="built_in">if</span>(colNum == <span class="number">0</span>)&#123;</span><br><span class="line">    		<span class="built_in">return</span> list;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="comment">//从外到里的圈数</span></span><br><span class="line">    	<span class="keyword">int</span> layer = (Math.<span class="built_in">min</span>(rowNum, colNum) <span class="number">-1</span>)/<span class="number">2</span>+<span class="number">1</span>;</span><br><span class="line">    	<span class="comment">//正在遍历的圈数</span></span><br><span class="line">    	<span class="keyword">int</span> <span class="built_in">turn</span> = <span class="number">0</span>;</span><br><span class="line">    	</span><br><span class="line">    	<span class="built_in">while</span>(<span class="built_in">turn</span> &lt;layer)&#123;</span><br><span class="line">    		<span class="comment">//从左向右</span></span><br><span class="line">    		<span class="built_in">for</span>(<span class="keyword">int</span> i = <span class="built_in">turn</span>;i &lt; colNum-<span class="built_in">turn</span>;i++)&#123;</span><br><span class="line">    			list.add(matrix[<span class="built_in">turn</span>][i]);</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">//从上到下</span></span><br><span class="line">    		<span class="built_in">for</span>(<span class="keyword">int</span> j = <span class="built_in">turn</span>+<span class="number">1</span>; j &lt;rowNum-<span class="built_in">turn</span>;j++)&#123;</span><br><span class="line">    			list.add(matrix[j][colNum-<span class="built_in">turn</span><span class="number">-1</span>]);</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">//从右到左</span></span><br><span class="line">    		<span class="built_in">for</span>(<span class="keyword">int</span> k = colNum-<span class="built_in">turn</span><span class="number">-2</span>;(k&gt;=<span class="built_in">turn</span>) &amp;&amp; (rowNum-<span class="built_in">turn</span><span class="number">-1</span>!= <span class="built_in">turn</span>);k--)&#123;</span><br><span class="line">    			list.add(matrix[rowNum-<span class="built_in">turn</span><span class="number">-1</span>][k]);</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">//从下到上</span></span><br><span class="line">    		<span class="built_in">for</span>(<span class="keyword">int</span> l = rowNum-<span class="built_in">turn</span><span class="number">-2</span>; (l&gt;<span class="built_in">turn</span>) &amp;&amp; (colNum-<span class="built_in">turn</span> <span class="number">-1</span>!= <span class="built_in">turn</span>);l--)&#123;</span><br><span class="line">    			list.add(matrix[l][<span class="built_in">turn</span>]);</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="built_in">turn</span>++;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="built_in">return</span> list;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        while(turn &lt;layer){
-            //从左向右
-            for(int i = turn;i &lt; colNum-turn;i++){
-                list.add(matrix[turn][i]);
-            }
-            //从上到下
-            for(int j = turn+1; j &lt;rowNum-turn;j++){
-                list.add(matrix[j][colNum-turn-1]);
-            }
-            //从右到左
-            for(int k = colNum-turn-2;(k&gt;=turn) &amp;&amp; (rowNum-turn-1!= turn);k--){
-                list.add(matrix[rowNum-turn-1][k]);
-            }
-            //从下到上
-            for(int l = rowNum-turn-2; (l&gt;turn) &amp;&amp; (colNum-turn -1!= turn);l--){
-                list.add(matrix[l][turn]);
-            }
-            turn++;
-        }
-        return list;
-    }
-}</code></pre><h5 id="20-包含min函数的栈"><a href="#20-包含min函数的栈" class="headerlink" title="20. 包含min函数的栈"></a>20. 包含min函数的栈</h5><p>描述：定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。</p>
+<h5 id="20-包含min函数的栈"><a href="#20-包含min函数的栈" class="headerlink" title="20. 包含min函数的栈"></a>20. 包含min函数的栈</h5><p>描述：定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。</p>
 <p>分析：这道题比较简单，只需遍历栈中元素找出最小值即可，这里使用了迭代器。</p>
-<pre><code>import java.util.Stack;
-import java.util.Iterator;
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"><span class="keyword">import</span> java.util.Iterator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    Stack&lt;Integer&gt; <span class="built_in">stack</span> = null;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Solution</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="built_in">stack</span> = <span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> node)</span> </span>&#123;</span><br><span class="line">    	<span class="built_in">stack</span>.push(node);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> topVal = <span class="built_in">stack</span>.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">stack</span>.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> min = <span class="built_in">stack</span>.peek();</span><br><span class="line">    	Iterator&lt;Integer&gt; iterator = <span class="built_in">stack</span>.iterator();</span><br><span class="line">    	<span class="keyword">while</span>(iterator.hasNext())&#123;</span><br><span class="line">    		<span class="keyword">int</span> temp = iterator.next();</span><br><span class="line">    		<span class="keyword">if</span>(temp &lt; min)&#123;</span><br><span class="line">    			min = temp;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">        <span class="keyword">return</span> min;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class Solution {
-
-    Stack&lt;Integer&gt; stack = null;
-    public Solution(){
-        stack = new Stack&lt;Integer&gt;();
-    }
-
-    public void push(int node) {
-        stack.push(node);
-    }
-
-    public void pop() {
-        int topVal = stack.pop();
-    }
-
-    public int top() {
-        return stack.peek();
-    }
-
-    public int min() {
-        int min = stack.peek();
-        Iterator&lt;Integer&gt; iterator = stack.iterator();
-        while(iterator.hasNext()){
-            int temp = iterator.next();
-            if(temp &lt; min){
-                min = temp;
-            }
-        }
-        return min;
-    }
-}</code></pre><h5 id="21-栈的压入、弹出序列"><a href="#21-栈的压入、弹出序列" class="headerlink" title="21. 栈的压入、弹出序列"></a>21. 栈的压入、弹出序列</h5><p>描述：<br>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4，5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</p>
+<h5 id="21-栈的压入、弹出序列"><a href="#21-栈的压入、弹出序列" class="headerlink" title="21. 栈的压入、弹出序列"></a>21. 栈的压入、弹出序列</h5><p>描述：<br>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4，5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</p>
 <p>分析：<br>这道题的整体思路是，遍历弹出序列，如果当前元素不在栈内，则将压入序列中在这之前（包括这个元素本身）都压入栈内，再将栈顶元素弹出；同时将压入序列的起始位挪到这个元素的后一位；如果弹出序列中的元素已经在栈内，就从栈中弹出一个元素，如果与这个元素不匹配，就说明这个弹出序列是不正确的。如果弹出序列遍历结束后，栈为空，则说明这个弹出序列是正确的。</p>
-<pre><code>import java.util.Stack;
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> boolean <span class="title">IsPopOrder</span><span class="params">(<span class="keyword">int</span> [] pushA,<span class="keyword">int</span> [] popA)</span> </span>&#123;</span><br><span class="line">    	Stack&lt;Integer&gt; <span class="built_in">stack</span> = <span class="keyword">new</span> Stack&lt;&gt;();</span><br><span class="line">    	<span class="comment">//每次压栈的起始元素下标</span></span><br><span class="line">    	<span class="keyword">int</span> index = <span class="number">0</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;popA.length;i++)&#123;</span><br><span class="line">    		<span class="keyword">if</span>(!<span class="built_in">stack</span>.contains(popA[i]))&#123;</span><br><span class="line">    			<span class="keyword">for</span>(<span class="keyword">int</span> j = index; j&lt;pushA.length;j++)&#123;</span><br><span class="line">        			<span class="built_in">stack</span>.push(pushA[j]);</span><br><span class="line">        			<span class="keyword">if</span>(pushA[j] == popA[i])&#123;</span><br><span class="line">            			<span class="built_in">stack</span>.pop();</span><br><span class="line">            			index = j+<span class="number">1</span>;</span><br><span class="line">            			<span class="keyword">break</span>;</span><br><span class="line">            		&#125;</span><br><span class="line">        		&#125;</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="comment">//如果已经在栈内，则弹出一个元素与之比较，如果不相等，说明弹出序列错误，返回false</span></span><br><span class="line">    		<span class="keyword">else</span>&#123;</span><br><span class="line">    			<span class="keyword">if</span>(popA[i] != <span class="built_in">stack</span>.pop())&#123;</span><br><span class="line">    				<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    			&#125;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="comment">//当弹出序列遍历完，栈为空，说明弹出序列正确，返回true</span></span><br><span class="line">    	<span class="keyword">if</span>(<span class="built_in">stack</span>.isEmpty())&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class Solution {
-    public boolean IsPopOrder(int [] pushA,int [] popA) {
-        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
-        //每次压栈的起始元素下标
-        int index = 0;
-        for(int i = 0; i &lt;popA.length;i++){
-            if(!stack.contains(popA[i])){
-                for(int j = index; j&lt;pushA.length;j++){
-                    stack.push(pushA[j]);
-                    if(pushA[j] == popA[i]){
-                        stack.pop();
-                        index = j+1;
-                        break;
-                    }
-                }
-            }
-            //如果已经在栈内，则弹出一个元素与之比较，如果不相等，说明弹出序列错误，返回false
-            else{
-                if(popA[i] != stack.pop()){
-                    return false;
-                }
-            }
-        }
-        //当弹出序列遍历完，栈为空，说明弹出序列正确，返回true
-        if(stack.isEmpty()){
-            return true;
-        }
-        return false;
-    }
-}</code></pre><h5 id="22-从上往下打印二叉树"><a href="#22-从上往下打印二叉树" class="headerlink" title="22. 从上往下打印二叉树"></a>22. 从上往下打印二叉树</h5><p>描述：从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
+<h5 id="22-从上往下打印二叉树"><a href="#22-从上往下打印二叉树" class="headerlink" title="22. 从上往下打印二叉树"></a>22. 从上往下打印二叉树</h5><p>描述：从上往下打印出二叉树的每个节点，同层节点从左至右打印。</p>
 <p>分析：这道题是二叉树的广度优先遍历，需要借助于队列进行实现，这里使用ArrayList作为一个队列。</p>
 <p>现将二叉树的根节点放入队列中，然后取出队首结点，将其值加入结果列表中，如果这个结点有左右孩子结点，则分别加入队尾，如此循环，直至队列为空。</p>
-<pre><code>import java.util.ArrayList;
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">import java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Solution</span> &#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ArrayList&lt;Integer&gt; <span class="title">PrintFromTopToBottom</span>(<span class="params">TreeNode root</span>)</span> &#123;</span><br><span class="line">    	ArrayList&lt;Integer&gt; resultList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    	<span class="keyword">if</span>(root == <span class="literal">null</span>)&#123;</span><br><span class="line">    		<span class="keyword">return</span> resultList;</span><br><span class="line">    	&#125;</span><br><span class="line">    	ArrayList&lt;TreeNode&gt; queue = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    	queue.<span class="keyword">add</span>(root);</span><br><span class="line">    	<span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">    		TreeNode n = queue.<span class="keyword">remove</span>(<span class="number">0</span>);</span><br><span class="line">    		resultList.<span class="keyword">add</span>(n.val);</span><br><span class="line">    		<span class="keyword">if</span>(n.left != <span class="literal">null</span>)&#123;</span><br><span class="line">    			queue.<span class="keyword">add</span>(n.left);</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="keyword">if</span>(n.right != <span class="literal">null</span>)&#123;</span><br><span class="line">    			queue.<span class="keyword">add</span>(n.right);</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">        <span class="keyword">return</span> resultList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title">TreeNode</span> &#123;</span><br><span class="line">    <span class="keyword">int</span> val = <span class="number">0</span>;</span><br><span class="line">    TreeNode left = <span class="literal">null</span>;</span><br><span class="line">    TreeNode right = <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TreeNode</span>(<span class="params"><span class="keyword">int</span> val</span>)</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public class Solution {
-    public ArrayList&lt;Integer&gt; PrintFromTopToBottom(TreeNode root) {
-        ArrayList&lt;Integer&gt; resultList = new ArrayList&lt;&gt;();
-        if(root == null){
-            return resultList;
-        }
-        ArrayList&lt;TreeNode&gt; queue = new ArrayList&lt;&gt;();
-        queue.add(root);
-        while(!queue.isEmpty()){
-            TreeNode n = queue.remove(0);
-            resultList.add(n.val);
-            if(n.left != null){
-                queue.add(n.left);
-            }
-            if(n.right != null){
-                queue.add(n.right);
-            }
-        }
-        return resultList;
-    }
-}
-
-class TreeNode {
-    int val = 0;
-    TreeNode left = null;
-    TreeNode right = null;
-
-    public TreeNode(int val) {
-        this.val = val;
-    }
-}</code></pre><h5 id="23-二叉搜索树的后序遍历序列"><a href="#23-二叉搜索树的后序遍历序列" class="headerlink" title="23. 二叉搜索树的后序遍历序列"></a>23. 二叉搜索树的后序遍历序列</h5><p>描述：<br>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
+<h5 id="23-二叉搜索树的后序遍历序列"><a href="#23-二叉搜索树的后序遍历序列" class="headerlink" title="23. 二叉搜索树的后序遍历序列"></a>23. 二叉搜索树的后序遍历序列</h5><p>描述：<br>输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。如果是则输出Yes,否则输出No。假设输入的数组的任意两个数字都互不相同。</p>
 <p>分析：首先明确二叉搜索树的特点，左子树值&lt;根结点值&lt;右子树值<br>后序遍历：左子树-&gt;右子树-&gt;根</p>
 <ol>
 <li>在序列中找到根结点，即这个序列的最后一个元素（后序遍历）</li>
@@ -522,92 +395,17 @@ class TreeNode {
 <li>从元素N开始遍历，到根结点的前一个元素，这些元素中如果有值小于根结点，说明这个序列不满足二叉搜索树的特点，直接返回false。</li>
 <li>根结点的左右子树都同时满足二叉搜索树的特点，对根结点的左右子树进行递归，得到最终结果。</li>
 </ol>
-<pre><code>public class Solution {
-    public boolean VerifySquenceOfBST(int [] sequence) {
-        if(sequence == null ||sequence.length == 0){
-            return false;
-        }
-        if(sequence.length == 1){
-            return true;
-        }
-        return judge(sequence,0,sequence.length-1);
-    }
-    public boolean judge(int [] seq, int start, int end){
-        //如果分解到只有一个节点，说明已经到了叶子结点，返回true
-        if(start &gt;= end){
-            return true;
-        }
-        //当前根结点右子树的起始下标
-        int rightStart = end;
-        for(int i = start;i&lt;end;i++){
-            if(seq[i]&gt;seq[end]){
-                rightStart = i;
-                break;
-            }
-        }
-        //如果右子树中有比根结点的值小的，则说明不是二叉搜索树，返回false
-        for(int i = rightStart;i&lt;end;i++){
-            if(seq[i]&lt;seq[end]){
-                return false;
-            }
-        }
-        return judge(seq,start,rightStart -1) &amp;&amp; judge(seq,rightStart,end-1);
-    }
-}</code></pre><h5 id="24-二叉树中和为某一值的路径"><a href="#24-二叉树中和为某一值的路径" class="headerlink" title="24. 二叉树中和为某一值的路径"></a>24. 二叉树中和为某一值的路径</h5><p>描述：<br>输入一棵二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
+<figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">public class <span class="type">Solution</span> &#123;</span><br><span class="line">    public boolean <span class="type">VerifySquenceOfBST</span>(<span class="built_in">int</span> [] sequence) &#123;</span><br><span class="line">        <span class="keyword">if</span>(sequence == null ||sequence.length == <span class="number">0</span>)&#123;</span><br><span class="line">        	<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(sequence.length == <span class="number">1</span>)&#123;</span><br><span class="line">        	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> judge(sequence,<span class="number">0</span>,sequence.length-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    public boolean judge(<span class="built_in">int</span> [] <span class="built_in">seq</span>, <span class="built_in">int</span> start, <span class="built_in">int</span> <span class="keyword">end</span>)&#123;</span><br><span class="line">    	//如果分解到只有一个节点，说明已经到了叶子结点，返回<span class="literal">true</span></span><br><span class="line">    	<span class="keyword">if</span>(start &gt;= <span class="keyword">end</span>)&#123;</span><br><span class="line">    		<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    	&#125;</span><br><span class="line">    	//当前根结点右子树的起始下标</span><br><span class="line">    	<span class="built_in">int</span> rightStart = <span class="keyword">end</span>;</span><br><span class="line">    	<span class="keyword">for</span>(<span class="built_in">int</span> i = start;i&lt;<span class="keyword">end</span>;i++)&#123;</span><br><span class="line">        	<span class="keyword">if</span>(<span class="built_in">seq</span>[i]&gt;<span class="built_in">seq</span>[<span class="keyword">end</span>])&#123;</span><br><span class="line">        		rightStart = i;</span><br><span class="line">        		<span class="keyword">break</span>;</span><br><span class="line">        	&#125;</span><br><span class="line">        &#125;</span><br><span class="line">    	//如果右子树中有比根结点的值小的，则说明不是二叉搜索树，返回<span class="literal">false</span></span><br><span class="line">    	<span class="keyword">for</span>(<span class="built_in">int</span> i = rightStart;i&lt;<span class="keyword">end</span>;i++)&#123;</span><br><span class="line">    		<span class="keyword">if</span>(<span class="built_in">seq</span>[i]&lt;<span class="built_in">seq</span>[<span class="keyword">end</span>])&#123;</span><br><span class="line">    			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">    	<span class="keyword">return</span> judge(<span class="built_in">seq</span>,start,rightStart -<span class="number">1</span>) &amp;&amp; judge(<span class="built_in">seq</span>,rightStart,<span class="keyword">end</span>-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="24-二叉树中和为某一值的路径"><a href="#24-二叉树中和为某一值的路径" class="headerlink" title="24. 二叉树中和为某一值的路径"></a>24. 二叉树中和为某一值的路径</h5><p>描述：<br>输入一棵二叉树和一个整数，打印出二叉树中结点值的和为输入整数的所有路径。路径定义为从树的根结点开始往下一直到叶结点所经过的结点形成一条路径。</p>
 <p>分析：<br>首先先找到最左的一条路径，将这条路径上的结点都压入栈中，如果这条路径上结点值之和为目标值，则将这条路径加入结果列表中（一定要用深拷贝）；</p>
 <p>弹出栈顶结点，修复当前路径以及目标值。 如果此时栈顶元素还有右孩子没有访问，则将其右孩子加入路径中，如果它的右孩子已访问过，就回溯到它的父节点处。直至栈为空。</p>
 <blockquote>
 <p>链接：<a href="https://www.nowcoder.com/questionTerminal/b736e784e3e34731af99065031301bca" target="_blank" rel="noopener">https://www.nowcoder.com/questionTerminal/b736e784e3e34731af99065031301bca</a><br>来源：牛客网<br>/*<br>非递归法：后序遍历<br>1.进栈时候，把值同时压入路径的向量数组，修正路径的和<br>2.出栈时候，先判断和是否相等，且该节点是否是叶节点，<br>判断完成后保持和栈一致，抛出路径，修改路径的和<br>3.向量数组和栈的操作要保持一致<br>*/</p>
 </blockquote>
-<pre><code>import java.util.ArrayList;
-import java.util.Stack;
-
-public class Solution {
-     public ArrayList&lt;ArrayList&lt;Integer&gt;&gt; FindPath(TreeNode root,int target) {
-        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; resultList = new ArrayList&lt;&gt;();
-        ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
-        Stack&lt;TreeNode&gt; stack = new Stack&lt;&gt;();
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.<span class="built_in">Stack</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> class Solution &#123;</span><br><span class="line">     <span class="keyword">public</span> ArrayList&lt;ArrayList&lt;<span class="built_in">Integer</span>&gt;&gt; FindPath(TreeNode root,int target) &#123;</span><br><span class="line">    	ArrayList&lt;ArrayList&lt;<span class="built_in">Integer</span>&gt;&gt; resultList = <span class="literal">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    	ArrayList&lt;<span class="built_in">Integer</span>&gt; <span class="built_in">list</span> = <span class="literal">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    	<span class="built_in">Stack</span>&lt;TreeNode&gt; <span class="built_in">stack</span> = <span class="literal">new</span> <span class="built_in">Stack</span>&lt;&gt;();</span><br><span class="line">    	</span><br><span class="line"></span><br><span class="line">    	<span class="keyword">while</span>(root != <span class="built_in">null</span> || !<span class="built_in">stack</span>.isEmpty())&#123;</span><br><span class="line">    		<span class="keyword">while</span>(root!= <span class="built_in">null</span>)&#123;</span><br><span class="line">    			<span class="built_in">stack</span>.push(root);</span><br><span class="line">    			<span class="built_in">list</span>.add(root.val);</span><br><span class="line">    			target -= root.val;</span><br><span class="line">    			<span class="comment">//能左就左，否则向右</span></span><br><span class="line">    			root = root.left != <span class="built_in">null</span> ? root.left:root.right;</span><br><span class="line">    		&#125;</span><br><span class="line">    		root = <span class="built_in">stack</span>.peek();</span><br><span class="line">    		<span class="keyword">if</span>(target == <span class="number">0</span> &amp;&amp; root.left == <span class="built_in">null</span> &amp;&amp; root.right == <span class="built_in">null</span>)&#123;</span><br><span class="line">    			ArrayList&lt;<span class="built_in">Integer</span>&gt; ls = (ArrayList&lt;<span class="built_in">Integer</span>&gt;) <span class="built_in">list</span>.clone();</span><br><span class="line">    			resultList.add(ls);</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="built_in">stack</span>.pop();</span><br><span class="line">    		int size = <span class="built_in">list</span>.size();</span><br><span class="line">			<span class="built_in">list</span>.remove(size<span class="number">-1</span>);</span><br><span class="line">			target += root.val;</span><br><span class="line">			<span class="comment">//右子数没遍历就遍历，如果遍历就强迫出栈</span></span><br><span class="line">    		<span class="keyword">if</span>(!<span class="built_in">stack</span>.isEmpty() &amp;&amp; <span class="built_in">stack</span>.peek().left == root)&#123;</span><br><span class="line">    			root = <span class="built_in">stack</span>.peek().right;</span><br><span class="line">    		&#125;</span><br><span class="line">    		<span class="keyword">else</span>&#123;</span><br><span class="line">    			<span class="comment">//强迫出栈</span></span><br><span class="line">    			root = <span class="built_in">null</span>;</span><br><span class="line">    		&#125;</span><br><span class="line">    	&#125;</span><br><span class="line">        <span class="keyword">return</span> resultList;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class TreeNode &#123;</span><br><span class="line">    int val = <span class="number">0</span>;</span><br><span class="line">    TreeNode left = <span class="built_in">null</span>;</span><br><span class="line">    TreeNode right = <span class="built_in">null</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TreeNode(int val) &#123;</span><br><span class="line">        this.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-        while(root != null || !stack.isEmpty()){
-            while(root!= null){
-                stack.push(root);
-                list.add(root.val);
-                target -= root.val;
-                //能左就左，否则向右
-                root = root.left != null ? root.left:root.right;
-            }
-            root = stack.peek();
-            if(target == 0 &amp;&amp; root.left == null &amp;&amp; root.right == null){
-                ArrayList&lt;Integer&gt; ls = (ArrayList&lt;Integer&gt;) list.clone();
-                resultList.add(ls);
-            }
-            stack.pop();
-            int size = list.size();
-            list.remove(size-1);
-            target += root.val;
-            //右子数没遍历就遍历，如果遍历就强迫出栈
-            if(!stack.isEmpty() &amp;&amp; stack.peek().left == root){
-                root = stack.peek().right;
-            }
-            else{
-                //强迫出栈
-                root = null;
-            }
-        }
-        return resultList;
-    }
-}
-
-class TreeNode {
-    int val = 0;
-    TreeNode left = null;
-    TreeNode right = null;
-
-    public TreeNode(int val) {
-        this.val = val;
-    }
-}</code></pre>
 
         <hr>
         <!-- Pager -->

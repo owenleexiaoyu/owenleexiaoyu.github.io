@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -367,125 +367,29 @@
 <hr>
 <h4 id="一、概述："><a href="#一、概述：" class="headerlink" title="一、概述："></a>一、概述：</h4><p>我主要写的是一个 fragment 页面上的按钮点击切换到下一个 fragment 的页面，覆盖掉前一个 fragment 页面，不是主 activity 的按钮去控制切换不同的 fragment。</p>
 <p>说明：所用到的类 FragmentManager 和 FragmentTransaction 都是 v4 包下的，便于兼容。这里的切换是点击在 fragment 的页面上的按钮去切换，而 fragment 最好有主 Activity 来控制，所以便想到了在主Activity 里面设置点击切换的方法，根据 FragmentTransaction 去添加 fragment 设置它们的 tag 值，其方法就是 add() ，点击的时候根据不同的 tag 来切换。</p>
-<h4 id="二、主-Activity-的代码"><a href="#二、主-Activity-的代码" class="headerlink" title="二、主 Activity 的代码"></a>二、主 Activity 的代码</h4><pre><code>public class MainActivity extends FragmentActivity {
+<h4 id="二、主-Activity-的代码"><a href="#二、主-Activity-的代码" class="headerlink" title="二、主 Activity 的代码"></a>二、主 Activity 的代码</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">MainActivity</span> <span class="title">extends</span> <span class="title">FragmentActivity</span> &#123;</span><br><span class="line"></span><br><span class="line">    FragmentManager fm;</span><br><span class="line">    FragmentTransaction ft;</span><br><span class="line">    Fragment mCurrentFragment;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span>(<span class="params">Bundle savedInstanceState</span>)</span> &#123;</span><br><span class="line">        super.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_main);</span><br><span class="line">        fm = getSupportFragmentManager();</span><br><span class="line">        ft = fm.beginTransaction();</span><br><span class="line">        Fragment1 fragment1 = <span class="keyword">new</span> Fragment1();</span><br><span class="line">        Fragment2 fragment2 = <span class="keyword">new</span> Fragment2();</span><br><span class="line">        Fragment3 fragment3 = <span class="keyword">new</span> Fragment3();</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 在这里进行添加页面，设置fragment的TAG值</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        ft.<span class="keyword">add</span>(R.id.fl_main, fragment1, <span class="string">"fragment1"</span>).<span class="keyword">add</span>(R.id.fl_main, fragment2, <span class="string">"fragment2"</span>).hide(fragment2)</span><br><span class="line">                .<span class="keyword">add</span>(R.id.fl_main, fragment3, <span class="string">"fragment3"</span>).hide(fragment3).commit();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 主activity进行控制不同的fragment</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @param fromTag</span></span><br><span class="line"><span class="comment">     * @param toTag</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">switchFragment</span>(<span class="params">String fromTag, String toTag</span>)</span> &#123;</span><br><span class="line">        Fragment <span class="keyword">from</span> = fm.findFragmentByTag(fromTag);</span><br><span class="line">        Fragment to = fm.findFragmentByTag(toTag);</span><br><span class="line">        <span class="keyword">if</span> (mCurrentFragment != to) &#123;</span><br><span class="line">            mCurrentFragment = to;</span><br><span class="line">            FragmentTransaction transaction = fm.beginTransaction();</span><br><span class="line">            <span class="keyword">if</span> (!to.isAdded()) &#123;<span class="comment">//判断是否被添加到了Activity里面去了</span></span><br><span class="line">                transaction.hide(<span class="keyword">from</span>).<span class="keyword">add</span>(R.id.fl_main, to).commit();</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                transaction.hide(<span class="keyword">from</span>).show(to).commit();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    FragmentManager fm;
-    FragmentTransaction ft;
-    Fragment mCurrentFragment;
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        fm = getSupportFragmentManager();
-        ft = fm.beginTransaction();
-        Fragment1 fragment1 = new Fragment1();
-        Fragment2 fragment2 = new Fragment2();
-        Fragment3 fragment3 = new Fragment3();
-        /**
-         * 在这里进行添加页面，设置fragment的TAG值
-         */
-        ft.add(R.id.fl_main, fragment1, &quot;fragment1&quot;).add(R.id.fl_main, fragment2, &quot;fragment2&quot;).hide(fragment2)
-                .add(R.id.fl_main, fragment3, &quot;fragment3&quot;).hide(fragment3).commit();
-
-
-    }
-
-    /**
-     * 主activity进行控制不同的fragment
-     *
-     * @param fromTag
-     * @param toTag
-     */
-    public void switchFragment(String fromTag, String toTag) {
-        Fragment from = fm.findFragmentByTag(fromTag);
-        Fragment to = fm.findFragmentByTag(toTag);
-        if (mCurrentFragment != to) {
-            mCurrentFragment = to;
-            FragmentTransaction transaction = fm.beginTransaction();
-            if (!to.isAdded()) {//判断是否被添加到了Activity里面去了
-                transaction.hide(from).add(R.id.fl_main, to).commit();
-            } else {
-                transaction.hide(from).show(to).commit();
-            }
-        }
-    }
-}</code></pre><h4 id="三、-三个不同的-fragment-页面和基类-BaseFragment"><a href="#三、-三个不同的-fragment-页面和基类-BaseFragment" class="headerlink" title="三、 三个不同的 fragment 页面和基类 BaseFragment"></a>三、 三个不同的 fragment 页面和基类 BaseFragment</h4><ol>
+<h4 id="三、-三个不同的-fragment-页面和基类-BaseFragment"><a href="#三、-三个不同的-fragment-页面和基类-BaseFragment" class="headerlink" title="三、 三个不同的 fragment 页面和基类 BaseFragment"></a>三、 三个不同的 fragment 页面和基类 BaseFragment</h4><ol>
 <li>基类</li>
 </ol>
-<pre><code>public abstract class BaseFragment extends Fragment {
-    //上下文
-    public MainActivity mActivity;
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseFragment</span> <span class="keyword">extends</span> <span class="title">Fragment</span> </span>&#123;</span><br><span class="line">    <span class="comment">//上下文</span></span><br><span class="line">    public <span class="type">MainActivity</span> mActivity;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public <span class="type">View</span> onCreateView(<span class="type">LayoutInflater</span> inflater, <span class="type">ViewGroup</span> container, <span class="type">Bundle</span> savedInstanceState) &#123;</span><br><span class="line">        mActivity = (<span class="type">MainActivity</span>) getActivity();</span><br><span class="line">        <span class="type">View</span> view = initView();</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 主界面的抽象方法初始化view</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * @return</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    public <span class="keyword">abstract</span> <span class="type">View</span> initView();</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mActivity = (MainActivity) getActivity();
-        View view = initView();
-        return view;
-    }
-
-    /**
-     * 主界面的抽象方法初始化view
-     *
-     * @return
-     */
-    public abstract View initView();
-
-}</code></pre><ol start="2">
+<ol start="2">
 <li>三个 fragment 的页面相同，只展示一个，其他类似。</li>
 </ol>
-<pre><code>public class Fragment1 extends BaseFragment {
-    private Button btn;
-    private View view;
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">Fragment1</span> <span class="keyword">extends</span> <span class="title">BaseFragment</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">Button</span> btn;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">View</span> view;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    public <span class="type">View</span> initView() &#123;</span><br><span class="line">        <span class="keyword">if</span> (view == <span class="literal">null</span>) &#123;</span><br><span class="line">            view = <span class="type">View</span>.inflate(mActivity, <span class="type">R</span>.layout.fragment1, <span class="literal">null</span>);</span><br><span class="line">            btn = (<span class="type">Button</span>) view.findViewById(<span class="type">R</span>.id.btn_1);</span><br><span class="line">            btn.setOnClickListener(<span class="keyword">new</span> <span class="type">View</span>.<span class="type">OnClickListener</span>() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                public void onClick(<span class="type">View</span> view) &#123;</span><br><span class="line">                    mActivity.switchFragment(<span class="string">"fragment1"</span>, <span class="string">"fragment2"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> view;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @Override
-    public View initView() {
-        if (view == null) {
-            view = View.inflate(mActivity, R.layout.fragment1, null);
-            btn = (Button) view.findViewById(R.id.btn_1);
-            btn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mActivity.switchFragment(&quot;fragment1&quot;, &quot;fragment2&quot;);
-                }
-            });
-        }
-        return view;
-    }
-}</code></pre><ol start="3">
+<ol start="3">
 <li>主界面布局文件 activity_main.xml 文件</li>
 </ol>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    android:gravity=&quot;center&quot;
-    android:orientation=&quot;vertical&quot;&gt;
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/btn_1"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"页面1"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-    &lt;Button
-        android:id=&quot;@+id/btn_1&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;页面1&quot; /&gt;
-
-&lt;/LinearLayout&gt;</code></pre><ol start="4">
+<ol start="4">
 <li>fragment 的布局，其他类似</li>
 </ol>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    android:gravity=&quot;center&quot;
-    android:orientation=&quot;vertical&quot;&gt;
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/btn_1"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"页面1"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-    &lt;Button
-        android:id=&quot;@+id/btn_1&quot;
-        android:layout_width=&quot;wrap_content&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:text=&quot;页面1&quot; /&gt;
 
-&lt;/LinearLayout&gt;</code></pre>
 
         <hr>
         <!-- Pager -->

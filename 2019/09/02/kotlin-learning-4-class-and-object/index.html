@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -365,176 +365,60 @@
 
         <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在面向对象编程中，类与对象是非常重要的概念，这篇文章来写一下 Kotlin 中的类与对象。</p>
 <h4 id="类的定义与对象声明"><a href="#类的定义与对象声明" class="headerlink" title="类的定义与对象声明"></a>类的定义与对象声明</h4><p>Kotlin 中使用 <code>class</code> 关键字来定义类。</p>
-<pre><code class="kotlin">class Person{}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果是空类，可以这样写：</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span></span><br></pre></td></tr></table></figure>
 
-//如果是空类，可以这样写：
-class Person</code></pre>
 <p>在声明一个对象时，对比 Java，Kotlin 中省略了 new 这个关键字。</p>
-<pre><code>val p = Person()</code></pre><h4 id="类的属性和函数"><a href="#类的属性和函数" class="headerlink" title="类的属性和函数"></a>类的属性和函数</h4><p>类的属性可以用 var 或 val 来声明，var 可变，val 不可变。要使用一个属性，直接用名称来引用它。</p>
-<pre><code class="kotlin">class Person{
-    var name: String
-    var age: Int
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">val <span class="selector-tag">p</span> = Person()</span><br></pre></td></tr></table></figure>
 
-    fun say(){
-        println(&quot;hello&quot;)
-    }
-}
+<h4 id="类的属性和函数"><a href="#类的属性和函数" class="headerlink" title="类的属性和函数"></a>类的属性和函数</h4><p>类的属性可以用 var 或 val 来声明，var 可变，val 不可变。要使用一个属性，直接用名称来引用它。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> name: String</span><br><span class="line">	<span class="keyword">var</span> age: <span class="built_in">Int</span></span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">fun</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">		println(<span class="string">"hello"</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">val</span> p = Person()</span><br><span class="line">	println(p.name + p.age) <span class="comment">//使用.来引用</span></span><br><span class="line">	p.say()  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-fun main(){
-    val p = Person()
-    println(p.name + p.age) //使用.来引用
-    p.say()  
-}</code></pre>
 <p>Kotlin 中函数的参数不能用 var 和 val 来修饰，但默认是 <code>val</code> 的，保证了参数不可被修改。</p>
 <p><strong>getter 和 setter</strong></p>
 <p>Java 中一般将变量定义为 private，搭配 public 的 getter 和 setter 方法，比如这样：</p>
-<pre><code>class Person{
-    private String name;
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-        this.name = name;
-    }
-}</code></pre><p>Kotlin 中默认为我们实现了 getter 和 setter 方法，val  声明的变量只有 getter，没有 setter，因为它是只读的。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>&#123;</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Kotlin 中默认为我们实现了 getter 和 setter 方法，val  声明的变量只有 getter，没有 setter，因为它是只读的。</p>
 <p>可以自定义属性的 getter 和 setter 方法，进行一些额外的处理：</p>
-<pre><code class="kotlin">class Person {
-    var name: String = &quot;&quot;
-        get() {
-            return field.toUpperCase()
-        }
-        set  // 直接写set或者省略都使用默认的
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: String = <span class="string">""</span></span><br><span class="line">        <span class="keyword">get</span>() &#123;</span><br><span class="line">            <span class="keyword">return</span> field.toUpperCase()</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">set</span>  <span class="comment">// 直接写set或者省略都使用默认的</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> age: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">        <span class="keyword">get</span>() = field   <span class="comment">//这里也可以写get、或者省略不谢</span></span><br><span class="line">        <span class="keyword">set</span>(value) &#123;   <span class="comment">//value的类型一定是和属性一致，所以这里可以省略类型</span></span><br><span class="line">            <span class="keyword">if</span> (value &lt; <span class="number">0</span>) &#123;</span><br><span class="line">                field = <span class="number">0</span></span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                field = value</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> p = Person()</span><br><span class="line">    p.name = <span class="string">"tom"</span></span><br><span class="line">    p.age = -<span class="number">1</span></span><br><span class="line">    println(<span class="string">"name = <span class="subst">$&#123;p.name&#125;</span>"</span>)</span><br><span class="line">    println(<span class="string">"age = <span class="subst">$&#123;p.age&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    var age: Int = 0
-        get() = field   //这里也可以写get、或者省略不谢
-        set(value) {   //value的类型一定是和属性一致，所以这里可以省略类型
-            if (value &lt; 0) {
-                field = 0
-            } else {
-                field = value
-            }
-        }
-}
-
-fun main() {
-    val p = Person()
-    p.name = &quot;tom&quot;
-    p.age = -1
-    println(&quot;name = ${p.name}&quot;)
-    println(&quot;age = ${p.age}&quot;)
-}</code></pre>
 <p>上面例子中有一个关键字 <code>field</code>，这是Kotlin中的后端变量（Backing Fields），可以简单理解为当前这个属性的备用名，用于在 getter 和 setter 方法中指代该属性。</p>
 <p>为什么不能用属性的名称而要用一个备用名呢？这是因为在 Kotlin 中，一遇到<code>属性赋值</code>就会转化成 setter 函数，一遇到<code>属性的引用</code>就会转化成 getter 函数，从而形成递归，最终因为内存溢出而造成程序崩溃。</p>
 <p>详细可以查看这篇文章的评论部分，有非常详尽的解释：<a href="https://www.runoob.com/kotlin/kotlin-class-object.html" target="_blank" rel="noopener">Kotlin 类和对象</a></p>
 <h4 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h4><p>我们先来看看 Java 中的构造函数。</p>
-<pre><code class="java">public class ClassA {
-    private String name;
-    private int age;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassA</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ClassA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(<span class="string">""</span>,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ClassA</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>(name,<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ClassA</span><span class="params">(String name, <span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public ClassA(){
-        this(&quot;&quot;,0);
-    }
-
-    public ClassA(String name){
-        this(name,0);
-    }
-
-    public ClassA(String name, int age){
-        this.name = name;
-        this.age = age;
-    }
-}</code></pre>
 <p>可以看到，Java 中的构造函数是一种特殊的成员函数，没有返回值，一般为 public，在不写构造函数的时候编译器会自动生成一个无参空实现的构造函数，可以重载。</p>
 <p>在 Kotlin 中，有主构造器和次级构造器之分，使用 <code>constructor</code> 关键字表示。不用 public 修饰符，默认是公开的。</p>
 <p><strong>主构造器</strong></p>
 <p>主构造器写在类的声明中，如果主构造器没有任何注解和修饰符，可以不加 constructor 关键字。主构造器中的参数可以在 <code>init</code> 代码块中被访问。还可以加上 var 或 val 来直接将参数声明成类的属性。</p>
-<pre><code class="kotlin">class Person constructor(name: String) {  //constructor可省略
-    val name: String
-    init {
-        this.name = name
-        println(&quot;constructor&quot;)
-    }
-}
-fun main() {
-    val p = Person(&quot;tt&quot;)
-    println(&quot;name = ${p.name}&quot;)
-}
-//运行结果
-name = tt</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">constructor</span></span>(name: String) &#123;  <span class="comment">//constructor可省略</span></span><br><span class="line">    <span class="keyword">val</span> name: String</span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">        println(<span class="string">"constructor"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> p = Person(<span class="string">"tt"</span>)</span><br><span class="line">    println(<span class="string">"name = <span class="subst">$&#123;p.name&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">name = tt</span><br></pre></td></tr></table></figure>
+
 <p>在 init 代码块中，可以进行属性的赋值和执行初始化代码。</p>
 <p>也可以写成下面这样，意思是一样的。</p>
-<pre><code class="kotlin">class Person(val name: String) {}
-fun main() {
-    val p = Person(&quot;tt&quot;)
-    println(&quot;name = ${p.name}&quot;)
-}
-//运行结果
-name = tt</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>(<span class="keyword">val</span> name: String) &#123;&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> p = Person(<span class="string">"tt"</span>)</span><br><span class="line">    println(<span class="string">"name = <span class="subst">$&#123;p.name&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">name = tt</span><br></pre></td></tr></table></figure>
+
 <p>可以看到和 Java 的对比，Kotlin 是将一个构造函数拆开了，参数部分写在类头，函数体部分写在了 init 代码块中。</p>
 <p><strong>次级构造器</strong></p>
 <p>主构造器和次级构造器之间并没有什么本质区别，只是主构造器中的参数列表是最常用的。</p>
 <p>次级构造器必须加上 constructor 关键字，而且必须使用 <code>this</code> 关键字显式调用主构造器。看下面这个例子：</p>
-<pre><code class="kotlin">class Person constructor(name: String) {
-    val name: String
-    init {
-        this.name = name
-        println(&quot;主构造器调用&quot;)
-    }
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">constructor</span></span>(name: String) &#123;</span><br><span class="line">    <span class="keyword">val</span> name: String</span><br><span class="line">    <span class="keyword">init</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name</span><br><span class="line">        println(<span class="string">"主构造器调用"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">constructor</span>():<span class="keyword">this</span>(<span class="string">"owen"</span>)&#123;</span><br><span class="line">        println(<span class="string">"次级构造器调用"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> p = Person()</span><br><span class="line">    println(<span class="string">"name = <span class="subst">$&#123;p.name&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">主构造器调用</span><br><span class="line">次级构造器调用</span><br><span class="line">name = owen</span><br></pre></td></tr></table></figure>
 
-    constructor():this(&quot;owen&quot;){
-        println(&quot;次级构造器调用&quot;)
-    }
-}
-fun main() {
-    val p = Person()
-    println(&quot;name = ${p.name}&quot;)
-}
-//运行结果
-主构造器调用
-次级构造器调用
-name = owen</code></pre>
 <p>如果没有调用主构造器，编译器会直接报错：</p>
 <p><img src="https://i.loli.net/2019/09/02/i2nwvzSx3RFXEVm.png" alt="img1"></p>
 <h4 id="其他类"><a href="#其他类" class="headerlink" title="其他类"></a>其他类</h4><p><strong>抽象类</strong></p>
 <p>抽象类的概念和 Java 中一致。如果一个类中有一个或多个抽象方法，那这个类就要被定义成抽象的，使用 <code>abstract</code> 关键字进行修饰。</p>
-<pre><code class="kotlin">abstract class A{
-    abstract fun foo()
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(<span class="string">"hello"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    fun foo2(){
-        println(&quot;hello&quot;)
-    }
-}</code></pre>
 <p><strong>嵌套类</strong></p>
 <p>可以把一个类定义在另一个类中，通常这两个类之间有一定业务上的联系。</p>
-<pre><code class="kotlin">class Outter{
-    val age = 0
-    class Nested{
-        val name = &quot;tom&quot;
-    }
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outter</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> age = <span class="number">0</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Nested</span></span>&#123;</span><br><span class="line">        <span class="keyword">val</span> name = <span class="string">"tom"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> n = Outter.Nested()</span><br><span class="line">    println(n.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-fun main() {
-    val n = Outter.Nested()
-    println(n.name)
-}</code></pre>
 <p><strong>内部类</strong></p>
 <p>Kotlin 中内部类使用 <code>inner</code> 关键字表示，内部类持有一个外部类对象，所以可以访问外部类的属性和函数（即使是 private 的）。</p>
-<pre><code>class Outter{
-    val age = 0
-    inner class Inner{
-        val name = &quot;tom&quot;
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Outter</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> age = <span class="number">0</span></span><br><span class="line">    <span class="keyword">inner</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span>&#123;</span><br><span class="line">        <span class="keyword">val</span> name = <span class="string">"tom"</span></span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">fun</span> <span class="title">say</span><span class="params">()</span></span>&#123;</span><br><span class="line">            println(<span class="string">"外部类age=<span class="variable">$age</span>"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> n = Outter().Inner()</span><br><span class="line">    println(n.name)</span><br><span class="line">    n.say()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        fun say(){
-            println(&quot;外部类age=$age&quot;)
-        }
-    }
-}
-
-fun main() {
-    val n = Outter().Inner()
-    println(n.name)
-    n.say()
-}</code></pre><p>总结一下嵌套类和内部类的几点区别：</p>
+<p>总结一下嵌套类和内部类的几点区别：</p>
 <ol>
 <li>嵌套类没有关键字修饰，内部类使用 inner关键字</li>
 <li>嵌套类的声明方式是 <code>Outter.Nested()</code>，内部类是 <code>Outter().Inner()</code>，嵌套类中外部类后面没有括号，因为没有实例化外部类的对象。</li>
@@ -543,38 +427,16 @@ fun main() {
 <p><strong>匿名内部类</strong></p>
 <p>使用对象表达式来创建匿名内部类，<code>必须</code>要使用 <code>object</code> 关键字作为假设的变量名。</p>
 <p>以 Android 中 Button 的点击事件为例：</p>
-<pre><code>class Button{
-    var text = &quot;文字&quot;
-    fun setOnClickListener(listener: OnClickListener){
-        listener.onClick()
-    }
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Button</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> text = <span class="string">"文字"</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">setOnClickListener</span><span class="params">(listener: <span class="type">OnClickListener</span>)</span></span>&#123;</span><br><span class="line">        listener.onClick()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 定义接口</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">OnClickListener</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> button = Button()</span><br><span class="line">    button.setOnClickListener(<span class="keyword">object</span> : OnClickListener&#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onClick</span><span class="params">()</span></span> &#123;</span><br><span class="line">            println(<span class="string">"点击了button"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-/**
- * 定义接口
- */
-interface OnClickListener {
-    fun onClick()
-}
-
-fun main(){
-    var button = Button()
-    button.setOnClickListener(object : OnClickListener{
-        override fun onClick() {
-            println(&quot;点击了button&quot;)
-        }
-    })
-}</code></pre><h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><p>Kotlin 中类的修饰符分为两种，一种是类属性修饰符（classModifier），用于标识类本身属性，一种是访问权限修饰符（accessModifier）。</p>
+<h4 id="修饰符"><a href="#修饰符" class="headerlink" title="修饰符"></a>修饰符</h4><p>Kotlin 中类的修饰符分为两种，一种是类属性修饰符（classModifier），用于标识类本身属性，一种是访问权限修饰符（accessModifier）。</p>
 <p>类属性修饰符有：</p>
-<pre><code>abstruct    -&gt; 抽象类（或者修饰抽象方法）
-final       -&gt; 类不可被继承，默认为final
-enum        -&gt; 枚举类
-open        -&gt; 可以被继承
-annotation  -&gt; 注解类</code></pre><p>权限访问修饰符有：</p>
-<pre><code>private    -&gt; 在同一个文件中可见
-protected  -&gt; 同一个文件中或子类可见
-public     -&gt; 所有调用的地方都可见
-internal   -&gt; 同一个模块中可见</code></pre><h4 id="静态变量和方法"><a href="#静态变量和方法" class="headerlink" title="静态变量和方法"></a>静态变量和方法</h4><p>在 Java 中，可以使用 static 关键字定义类层面的变量和方法；在 Kotlin 中，使用伴生对象来实现类的静态属性和函数。这个在之后进行介绍。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">abstruct    -&gt; 抽象类（或者修饰抽象方法）</span><br><span class="line">final       -&gt; 类不可被继承，默认为final</span><br><span class="line"><span class="class"><span class="keyword">enum</span>        -&gt; 枚举类</span></span><br><span class="line">open        -&gt; 可以被继承</span><br><span class="line"><span class="keyword">annotation</span>  -&gt; 注解类</span><br></pre></td></tr></table></figure>
+
+<p>权限访问修饰符有：</p>
+<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">private</span>    -&gt;</span> 在同一个文件中可见</span><br><span class="line"><span class="function"><span class="title">protected</span>  -&gt;</span> 同一个文件中或子类可见</span><br><span class="line"><span class="function"><span class="title">public</span>     -&gt;</span> 所有调用的地方都可见</span><br><span class="line"><span class="function"><span class="title">internal</span>   -&gt;</span> 同一个模块中可见</span><br></pre></td></tr></table></figure>
+
+<h4 id="静态变量和方法"><a href="#静态变量和方法" class="headerlink" title="静态变量和方法"></a>静态变量和方法</h4><p>在 Java 中，可以使用 static 关键字定义类层面的变量和方法；在 Kotlin 中，使用伴生对象来实现类的静态属性和函数。这个在之后进行介绍。</p>
 <h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>下一篇是关于继承和接口的内容。</p>
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://www.runoob.com/kotlin/kotlin-class-object.html" target="_blank" rel="noopener">Kotlin 类和对象</a><br><a href="https://kaixue.io/kotlin-basic-2/" target="_blank" rel="noopener">Kotlin 里那些「不是那么写的」</a></p>
 

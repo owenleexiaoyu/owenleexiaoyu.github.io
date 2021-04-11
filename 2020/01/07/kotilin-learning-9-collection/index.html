@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -371,122 +371,44 @@
 <p><img src="https://i.loli.net/2020/01/07/oIHk7ELpMGsFxPN.png" alt="image2"></p>
 <h4 id="Set-的使用"><a href="#Set-的使用" class="headerlink" title="Set 的使用"></a>Set 的使用</h4><p><strong>创建</strong></p>
 <p>可以用以下函数来创建 Set 集合：</p>
-<pre><code>setOf() // 返回不可变的Set集合，元素顺序按添加顺序排列
-mutableSetOf() // 返回可变的Set集合，元素顺序按添加顺序排列
-hashSetOf() // 返回可变的HashSet集合, 不保证元素顺序
-linkedSetOf() // 返回可变的LinkedHashSet集合，元素顺序按添加顺序排列
-sortedSetOf() // 返回可变的TreeSet集合，元素按从小到达排列</code></pre><p>setOf()、mutableSetOf()、linkedSetOf() 创建的 Set 集合都能维护元素的顺序，只有 hashSetOf() 创建的 Set 集合是无序的。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">setOf</span><span class="params">()</span></span> <span class="comment">// 返回不可变的Set集合，元素顺序按添加顺序排列</span></span><br><span class="line"><span class="function"><span class="title">mutableSetOf</span><span class="params">()</span></span> <span class="comment">// 返回可变的Set集合，元素顺序按添加顺序排列</span></span><br><span class="line"><span class="function"><span class="title">hashSetOf</span><span class="params">()</span></span> <span class="comment">// 返回可变的HashSet集合, 不保证元素顺序</span></span><br><span class="line"><span class="function"><span class="title">linkedSetOf</span><span class="params">()</span></span> <span class="comment">// 返回可变的LinkedHashSet集合，元素顺序按添加顺序排列</span></span><br><span class="line"><span class="function"><span class="title">sortedSetOf</span><span class="params">()</span></span> <span class="comment">// 返回可变的TreeSet集合，元素按从小到达排列</span></span><br></pre></td></tr></table></figure>
+
+<p>setOf()、mutableSetOf()、linkedSetOf() 创建的 Set 集合都能维护元素的顺序，只有 hashSetOf() 创建的 Set 集合是无序的。</p>
 <p><strong>处理（操作）</strong></p>
 <p>有一些通用的处理函数放在最后一个部分单独来讲，这里写一下 Set 特有的处理：</p>
-<pre><code>set1 intersect set2  // 取交集
-set1 union set2 // 取并集
-set1 + set2 // 集合相加，相当于取并集
-set1 - set2 // 集合相减，在set1中减去set1和set2公共的元素</code></pre><p>示例：</p>
-<pre><code>fun main() {
-    val set1 = setOf(&quot;Kotlin&quot;, &quot;Java&quot;, &quot;Go&quot;, &quot;Python&quot;)
-    val set2 = setOf(&quot;Kotlin&quot;, &quot;C&quot;, &quot;NodeJs&quot;, &quot;Java&quot;)
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>1 intersect <span class="keyword">set</span>2  <span class="string">//</span> 取交集</span><br><span class="line"><span class="keyword">set</span>1 union <span class="keyword">set</span>2 <span class="string">//</span> 取并集</span><br><span class="line"><span class="keyword">set</span>1 + <span class="keyword">set</span>2 <span class="string">//</span> 集合相加，相当于取并集</span><br><span class="line"><span class="keyword">set</span>1 - <span class="keyword">set</span>2 <span class="string">//</span> 集合相减，在<span class="keyword">set</span>1中减去<span class="keyword">set</span>1和<span class="keyword">set</span>2公共的元素</span><br></pre></td></tr></table></figure>
 
-    println(set1 intersect set2)
-    println(set1 union  set2)
-    println(set1 + set2)
-    println(set1 - set2)
-}
-// 运行结果
-[Kotlin, Java]
-[Kotlin, Java, Go, Python, C, NodeJs]
-[Kotlin, Java, Go, Python, C, NodeJs]
-[Go, Python]</code></pre><p><strong>遍历</strong></p>
+<p>示例：</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span></span>() &#123;</span><br><span class="line">    val set1 = setOf(<span class="string">"Kotlin"</span>, <span class="string">"Java"</span>, <span class="string">"Go"</span>, <span class="string">"Python"</span>)</span><br><span class="line">    val set2 = setOf(<span class="string">"Kotlin"</span>, <span class="string">"C"</span>, <span class="string">"NodeJs"</span>, <span class="string">"Java"</span>)</span><br><span class="line"></span><br><span class="line">    println(set1 intersect set2)</span><br><span class="line">    println(set1 <span class="class"><span class="keyword">union</span>  <span class="title">set2</span>)</span></span><br><span class="line">    println(set1 + set2)</span><br><span class="line">    println(set1 - set2)</span><br><span class="line">&#125;</span><br><span class="line">/<span class="regexp">/ 运行结果</span></span><br><span class="line"><span class="regexp">[Kotlin, Java]</span></span><br><span class="line"><span class="regexp">[Kotlin, Java, Go, Python, C, NodeJs]</span></span><br><span class="line"><span class="regexp">[Kotlin, Java, Go, Python, C, NodeJs]</span></span><br><span class="line"><span class="regexp">[Go, Python]</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>遍历</strong></p>
 <ul>
 <li>for-in 循环遍历</li>
 <li>forEach() 函数遍历</li>
 <li>使用索引遍历</li>
 </ul>
 <p>示例：</p>
-<pre><code>fun main() {
-    val set1 = hashSetOf(&quot;Kotlin&quot;, &quot;Java&quot;, &quot;Go&quot;, &quot;Python&quot;)
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> set1 = hashSetOf(<span class="string">"Kotlin"</span>, <span class="string">"Java"</span>, <span class="string">"Go"</span>, <span class="string">"Python"</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ---- for-in遍历 ----</span></span><br><span class="line">    <span class="keyword">for</span> (e <span class="keyword">in</span> set1) &#123;</span><br><span class="line">        print(<span class="string">"<span class="variable">$e</span> "</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    println(<span class="string">"\n=================="</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ---- forEach()遍历 ----</span></span><br><span class="line">    set1.forEach(&#123; print(<span class="string">"<span class="variable">$it</span> "</span>) &#125;)</span><br><span class="line"></span><br><span class="line">    println(<span class="string">"\n=================="</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// ---- 使用索引遍历 ----</span></span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> set1.indices) &#123;</span><br><span class="line">        print(<span class="string">"<span class="subst">$&#123;set1.elementAt(i)&#125;</span> "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">Go Java Kotlin Python </span><br><span class="line">==================</span><br><span class="line">Go Java Kotlin Python </span><br><span class="line">==================</span><br><span class="line">Go Java Kotlin Python</span><br></pre></td></tr></table></figure>
 
-    // ---- for-in遍历 ----
-    for (e in set1) {
-        print(&quot;$e &quot;)
-    }
+<p><strong>增删（MutableSet）</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 增加单个元素</span></span><br><span class="line"><span class="function"><span class="title">add</span><span class="params">(element: E)</span></span></span><br><span class="line"><span class="comment">// 添加批量元素</span></span><br><span class="line"><span class="function"><span class="title">addAll</span><span class="params">(elements: Collection&lt;E&gt;)</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除单个元素</span></span><br><span class="line"><span class="function"><span class="title">remove</span><span class="params">(element: E)</span></span></span><br><span class="line"><span class="comment">// 删除批量元素</span></span><br><span class="line"><span class="function"><span class="title">removeAll</span><span class="params">(elements: Collection&lt;E&gt;)</span></span> </span><br><span class="line"><span class="comment">// 只保留set集合与elements中的共有元素</span></span><br><span class="line"><span class="function"><span class="title">retainAll</span><span class="params">(elements: Collection&lt;E&gt;)</span></span></span><br><span class="line"><span class="comment">// 清空集合</span></span><br><span class="line"><span class="function"><span class="title">clear</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 
-    println(&quot;\n==================&quot;)
-
-    // ---- forEach()遍历 ----
-    set1.forEach({ print(&quot;$it &quot;) })
-
-    println(&quot;\n==================&quot;)
-
-    // ---- 使用索引遍历 ----
-    for (i in set1.indices) {
-        print(&quot;${set1.elementAt(i)} &quot;)
-    }
-}
-// 运行结果
-Go Java Kotlin Python 
-==================
-Go Java Kotlin Python 
-==================
-Go Java Kotlin Python</code></pre><p><strong>增删（MutableSet）</strong></p>
-<pre><code>// 增加单个元素
-add(element: E)
-// 添加批量元素
-addAll(elements: Collection&lt;E&gt;)
-
-// 删除单个元素
-remove(element: E)
-// 删除批量元素
-removeAll(elements: Collection&lt;E&gt;) 
-// 只保留set集合与elements中的共有元素
-retainAll(elements: Collection&lt;E&gt;)
-// 清空集合
-clear()</code></pre><p>Set 和 MutableSet 都包含一个 <code>iterator()</code> 方法，不可变 Set 返回的是 Iterator 对象，该对象只有 <code>hasNext()</code> 和 <code>next()</code> 两个方法，可变 Set 返回的是 MutableIterator 对象，除了 hasNext() 和 next() 外，还有一个 <code>remove()</code> 方法，可用于在遍历时删除元素。</p>
+<p>Set 和 MutableSet 都包含一个 <code>iterator()</code> 方法，不可变 Set 返回的是 Iterator 对象，该对象只有 <code>hasNext()</code> 和 <code>next()</code> 两个方法，可变 Set 返回的是 MutableIterator 对象，除了 hasNext() 和 next() 外，还有一个 <code>remove()</code> 方法，可用于在遍历时删除元素。</p>
 <p>示例：</p>
-<pre><code>fun main() {
-    val set = hashSetOf(&quot;Kotlin&quot;, &quot;Java&quot;, &quot;Go&quot;, &quot;Python&quot;)
-    val itr = set.iterator()
-    while (itr.hasNext()) {
-        val e = itr.next()
-        if (e.length &lt; 3) {
-            itr.remove()
-        }
-    }
-    println(set)
-}
-// 运行结果
-[Java, Kotlin, Python]</code></pre><h4 id="List-的使用"><a href="#List-的使用" class="headerlink" title="List 的使用"></a>List 的使用</h4><p>比较简单，就随便写一下：</p>
-<pre><code>// 创建不可变的List
-listOf()
-// 创建不可变的元素不为null的List（自动过滤到传入的null）
-listOfNotNull()
-// 创建可变的List
-mutableListOf()
-// 创建可变的ArrayList
-arrayListOf()</code></pre><pre><code>// 获取index索引的元素，带operator修饰符，可以使用[]
-get(index: Int)
-// 返回元素所在的索引，不存在返回-1
-indexOf(element: E)
-// 返回元素在List中最后一次出现位置的索引
-lastIndexOf(element: E)
-// 返回子集
-subList(start: Int, end: Int)</code></pre><h4 id="Map的使用"><a href="#Map的使用" class="headerlink" title="Map的使用"></a>Map的使用</h4><p>Map 集合用于存储键值对。</p>
-<pre><code>// 创建不可变的Map集合
-mapOf()
-// 创建可变的Map集合
-mutableMapOf()
-// 创建可变的HashMap集合
-hashMapOf()
-// 创建可变的LinkedHashMap集合
-linkedMapOf()
-// 创建可变的TreeMap集合
-sortedMapOf()</code></pre><p>示例：</p>
-<pre><code>fun main() {
-    // 使用 to 建立 key 和 value 的关系
-    val map = mapOf(&quot;Java&quot; to 4, &quot;Kotlin&quot; to 5, &quot;G0&quot; to 2)
-    val map2 = mutableMapOf(&quot;Java&quot; to 4, &quot;Kotlin&quot; to 5, &quot;G0&quot; to 2)
-    map2[&quot;Python&quot;] = 6
-    println(map2)
-}</code></pre><p><strong>遍历</strong></p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> <span class="keyword">set</span> = hashSetOf(<span class="string">"Kotlin"</span>, <span class="string">"Java"</span>, <span class="string">"Go"</span>, <span class="string">"Python"</span>)</span><br><span class="line">    <span class="keyword">val</span> itr = <span class="keyword">set</span>.iterator()</span><br><span class="line">    <span class="keyword">while</span> (itr.hasNext()) &#123;</span><br><span class="line">        <span class="keyword">val</span> e = itr.next()</span><br><span class="line">        <span class="keyword">if</span> (e.length &lt; <span class="number">3</span>) &#123;</span><br><span class="line">            itr.remove()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="keyword">set</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">[Java, Kotlin, Python]</span><br></pre></td></tr></table></figure>
+
+<h4 id="List-的使用"><a href="#List-的使用" class="headerlink" title="List 的使用"></a>List 的使用</h4><p>比较简单，就随便写一下：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建不可变的List</span></span><br><span class="line"><span class="function"><span class="title">listOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建不可变的元素不为null的List（自动过滤到传入的null）</span></span><br><span class="line"><span class="function"><span class="title">listOfNotNull</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的List</span></span><br><span class="line"><span class="function"><span class="title">mutableListOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的ArrayList</span></span><br><span class="line"><span class="function"><span class="title">arrayListOf</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取index索引的元素，带operator修饰符，可以使用[]</span></span><br><span class="line"><span class="function"><span class="title">get</span><span class="params">(index: Int)</span></span></span><br><span class="line"><span class="comment">// 返回元素所在的索引，不存在返回-1</span></span><br><span class="line"><span class="function"><span class="title">indexOf</span><span class="params">(element: E)</span></span></span><br><span class="line"><span class="comment">// 返回元素在List中最后一次出现位置的索引</span></span><br><span class="line"><span class="function"><span class="title">lastIndexOf</span><span class="params">(element: E)</span></span></span><br><span class="line"><span class="comment">// 返回子集</span></span><br><span class="line"><span class="function"><span class="title">subList</span><span class="params">(start: Int, end: Int)</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Map的使用"><a href="#Map的使用" class="headerlink" title="Map的使用"></a>Map的使用</h4><p>Map 集合用于存储键值对。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建不可变的Map集合</span></span><br><span class="line"><span class="function"><span class="title">mapOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的Map集合</span></span><br><span class="line"><span class="function"><span class="title">mutableMapOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的HashMap集合</span></span><br><span class="line"><span class="function"><span class="title">hashMapOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的LinkedHashMap集合</span></span><br><span class="line"><span class="function"><span class="title">linkedMapOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的TreeMap集合</span></span><br><span class="line"><span class="function"><span class="title">sortedMapOf</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">fun</span> main() &#123;</span><br><span class="line">	<span class="comment">// 使用 to 建立 key 和 value 的关系</span></span><br><span class="line">    <span class="keyword">val</span> map = mapOf(<span class="string">"Java"</span> <span class="keyword">to</span> <span class="number">4</span>, <span class="string">"Kotlin"</span> <span class="keyword">to</span> <span class="number">5</span>, <span class="string">"G0"</span> <span class="keyword">to</span> <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">val</span> map2 = mutableMapOf(<span class="string">"Java"</span> <span class="keyword">to</span> <span class="number">4</span>, <span class="string">"Kotlin"</span> <span class="keyword">to</span> <span class="number">5</span>, <span class="string">"G0"</span> <span class="keyword">to</span> <span class="number">2</span>)</span><br><span class="line">    map2[<span class="string">"Python"</span>] = <span class="number">6</span></span><br><span class="line">    println(map2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>遍历</strong></p>
 <ul>
 <li>使用 entries 属性</li>
 <li>先遍历 map 的 key，再通过 key 取 value</li>
@@ -494,35 +416,12 @@ sortedMapOf()</code></pre><p>示例：</p>
 <li>使用 forEach + Lambda 表达式</li>
 </ul>
 <p>示例：</p>
-<pre><code>fun main() {
-    var map = mapOf(&quot;Kotlin&quot; to 32, &quot;Java&quot; to 55, &quot;Python&quot; to 41)
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> map = mapOf(<span class="string">"Kotlin"</span> to <span class="number">32</span>, <span class="string">"Java"</span> to <span class="number">55</span>, <span class="string">"Python"</span> to <span class="number">41</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 方法一：使用entries属性</span></span><br><span class="line">    <span class="keyword">for</span> (en <span class="keyword">in</span> map.entries) &#123;</span><br><span class="line">        println(<span class="string">"key=<span class="subst">$&#123;en.key&#125;</span>, value=<span class="subst">$&#123;en.value&#125;</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 方法二：先遍历map的key，通过key取value</span></span><br><span class="line">    <span class="keyword">for</span> (key <span class="keyword">in</span> map.keys) &#123;</span><br><span class="line">        println(<span class="string">"key=<span class="subst">$&#123;key&#125;</span>, value=<span class="subst">$&#123;map[key]&#125;</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 方法三：使用解构</span></span><br><span class="line">    <span class="keyword">for</span> ((key, value) <span class="keyword">in</span> map) &#123;</span><br><span class="line">        println(<span class="string">"key=<span class="variable">$key</span>, value=<span class="variable">$value</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 方法四：使用forEach+Lambda表达式</span></span><br><span class="line">    map.forEach &#123; println(<span class="string">"key=<span class="subst">$&#123;it.key&#125;</span>, value=<span class="subst">$&#123;it.value&#125;</span>"</span>) &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    // 方法一：使用entries属性
-    for (en in map.entries) {
-        println(&quot;key=${en.key}, value=${en.value}&quot;)
-    }
+<p><strong>增删（Mutable）</strong></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 清空所有的键值对</span></span><br><span class="line"><span class="function"><span class="title">clear</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 删除键值对</span></span><br><span class="line"><span class="function"><span class="title">remove</span><span class="params">(key: K)</span></span></span><br><span class="line"><span class="comment">// 放入键值对，如果已有该key，会覆盖原来的value</span></span><br><span class="line"><span class="function"><span class="title">put</span><span class="params">(key: K, value: V)</span></span></span><br><span class="line"><span class="comment">// 批量放入</span></span><br><span class="line"><span class="function"><span class="title">putAll</span><span class="params">(from: Map&lt;out K, V&gt;)</span></span></span><br></pre></td></tr></table></figure>
 
-    // 方法二：先遍历map的key，通过key取value
-    for (key in map.keys) {
-        println(&quot;key=${key}, value=${map[key]}&quot;)
-    }
-
-    // 方法三：使用解构
-    for ((key, value) in map) {
-        println(&quot;key=$key, value=$value&quot;)
-    }
-
-    // 方法四：使用forEach+Lambda表达式
-    map.forEach { println(&quot;key=${it.key}, value=${it.value}&quot;) }
-}</code></pre><p><strong>增删（Mutable）</strong></p>
-<pre><code>// 清空所有的键值对
-clear()
-// 删除键值对
-remove(key: K)
-// 放入键值对，如果已有该key，会覆盖原来的value
-put(key: K, value: V)
-// 批量放入
-putAll(from: Map&lt;out K, V&gt;)</code></pre><p>另外，MutableMap 还提供了一个 set(key, value) 方法来放入键值对，用 operator 修饰，可以通过 <code>[]</code> 来放入键值对。</p>
+<p>另外，MutableMap 还提供了一个 set(key, value) 方法来放入键值对，用 operator 修饰，可以通过 <code>[]</code> 来放入键值对。</p>
 <h4 id="常见的数组、集合处理函数"><a href="#常见的数组、集合处理函数" class="headerlink" title="常见的数组、集合处理函数"></a>常见的数组、集合处理函数</h4><ul>
 <li>all(predicate: (T) -&gt; Boolean)</li>
 </ul>

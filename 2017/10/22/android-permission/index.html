@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -364,7 +364,9 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>在 Android 6.0 之前，我们进行权限申请只需要在 AndroidManifest.xml 文件中使用 &lt; uses-permission &gt; 标签列出需要的权限名称即可。比如：</p>
-<pre><code>&lt;uses-permission android:name=&quot;android.permission.INTERNET&quot;/&gt;</code></pre><p>这样做对于开发人员来讲是便捷的，但对用户来讲却是存在隐患的。现在的很多应用都存在着胡乱申请权限的现象，也不管这些权限用没用到，如果用户不同意这些不合理的权限就直接不能安装这款应用。通常情况下，普通用户都不会非常关注所安装应用的权限情况，这就让应用有了获取用户手机隐私的可能。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:<span class="attribute">name</span>=<span class="string">"android.permission.INTERNET"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样做对于开发人员来讲是便捷的，但对用户来讲却是存在隐患的。现在的很多应用都存在着胡乱申请权限的现象，也不管这些权限用没用到，如果用户不同意这些不合理的权限就直接不能安装这款应用。通常情况下，普通用户都不会非常关注所安装应用的权限情况，这就让应用有了获取用户手机隐私的可能。</p>
 <p>为了弥补这个隐患，在 Android 6.0 就推出了动态权限的概念，即光在 AndroidManifest.xml 文件申明了某项权限还不够，在应用运行过程中，用户的某个操作需要这个权限的支持时，需要提示用户是否允许这个权限。用户可以随意选择允许或者拒绝这个权限的申请。如果用户拒绝了该权限的申请，下次需要这个权限时，还是会提示用户进行选择。这样用户就可以拒绝掉一些不合理的、可能涉及隐私的权限，从而提高了安全性。</p>
 <p>这篇文章，我们就来介绍一下动态申请权限的相关知识。</p>
 <h3 id="普通权限和危险权限"><a href="#普通权限和危险权限" class="headerlink" title="普通权限和危险权限"></a>普通权限和危险权限</h3><p>在推出动态权限的概念时，Google 将我们手机上所用到的权限按照对用户的安全性划分程两类，普通权限和危险权限。普通权限是指不涉及用户个人隐私信息的权限，如网络权限、手机震动权限等。危险权限即那些涉及用户隐私信息的权限，如获取手机联系人权限、打电话权限、定位权限等。普通权限只需要在 AndroidManifest.xml 文件中进行申明即可，危险权限则需要动态申请。毕竟如果所有的权限都要动态申请的话，也太麻烦了。</p>
@@ -378,44 +380,21 @@
 <ol>
 <li>在 AndroidManifest.xml 文件中申明权限。这个步骤还是必须的，因为我们的应用需要适配 6.0 以下版本的机型。</li>
 </ol>
-<pre><code>&lt;uses-permission android:name=&quot;android.permission.CALL_PHONE&quot;/&gt;</code></pre><ol start="2">
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:<span class="attribute">name</span>=<span class="string">"android.permission.CALL_PHONE"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
 <li>运行时判断某个权限是否已经被授权。本来我们在按钮的点击事件中只需要调用一个我们自己写的函数 callPhone() 即可，但现在必须加以判断，如果用户之前已经授权过 CALL_PHONE 这个权限，就调用 callPhone()  函数，如果还未被授权，则需去申请这个权限。</li>
 </ol>
-<pre><code>btnCall = findViewById(R.id.main_call);
-btnCall.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        if(ContextCompat.checkSelfPermission(MainActivity.this,
-                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(MainActivity.this,
-                    new String[] {Manifest.permission.CALL_PHONE},1);
-        } else {
-            callPhone();
-        }
-    }
-});</code></pre><pre><code>private void callPhone() {
-    try{
-        Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(&quot;tel:1008611&quot;));
-        startActivity(intent);
-    } catch (SecurityException e){
-        e.printStackTrace();
-    }
-}</code></pre><ol start="3">
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">btnCall = findViewById(R.id.main_call);</span><br><span class="line">btnCall.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(ContextCompat.checkSelfPermission(MainActivity.<span class="keyword">this</span>,</span><br><span class="line">                Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">            ActivityCompat.requestPermissions(MainActivity.<span class="keyword">this</span>,</span><br><span class="line">                    <span class="keyword">new</span> String[] &#123;Manifest.permission.CALL_PHONE&#125;,<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            callPhone();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">callPhone</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        Intent intent = <span class="keyword">new</span> Intent(Intent.ACTION_CALL, Uri.parse(<span class="string">"tel:1008611"</span>));</span><br><span class="line">        startActivity(intent);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SecurityException e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
 <li>弹出提示框让用户选择授权还是拒绝授权，用户选择后会回调 onRequestPermissionsResult() 方法，在这个方法中可以获取用户选择结果。如果用户授权 CALL_PHONE 权限，就再调用 callPhone() 方法，如果用户拒绝了该权限，则打印一些提示告知用户。</li>
 </ol>
-<pre><code>Override
-public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-    switch (requestCode){
-        case 1:
-            if(grantResults.length &gt; 0 &amp;&amp;
-                    grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                callPhone();
-            }else{
-                Toast.makeText(MainActivity.this, &quot;你拒绝了权限申请&quot;, Toast.LENGTH_SHORT).show();
-            }
-            break;
-    }
-}</code></pre><p>用户同时也可以在设置 → 权限管理中找到某个应用，查看该应用所申请的所有权限，然后自行选择开启或关闭这些权限。关闭后，应用运行时需要某个危险权限的支持，还会重复上述几个步骤，请用户再次授权。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">Override</span></span><br><span class="line"><span class="selector-tag">public</span> <span class="selector-tag">void</span> <span class="selector-tag">onRequestPermissionsResult</span>(int requestCode, <span class="variable">@NonNull</span> String[] permissions, <span class="variable">@NonNull</span> int[] grantResults) &#123;</span><br><span class="line">    <span class="selector-tag">switch</span> (requestCode)&#123;</span><br><span class="line">        <span class="selector-tag">case</span> <span class="selector-tag">1</span>:</span><br><span class="line">            <span class="selector-tag">if</span>(grantResults.length &gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">                    grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">                <span class="selector-tag">callPhone</span>();</span><br><span class="line">            &#125;<span class="selector-tag">else</span>&#123;</span><br><span class="line">	            <span class="selector-tag">Toast</span><span class="selector-class">.makeText</span>(MainActivity.this, <span class="string">"你拒绝了权限申请"</span>, Toast.LENGTH_SHORT)<span class="selector-class">.show</span>();</span><br><span class="line">		    &#125;</span><br><span class="line">            <span class="selector-tag">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用户同时也可以在设置 → 权限管理中找到某个应用，查看该应用所申请的所有权限，然后自行选择开启或关闭这些权限。关闭后，应用运行时需要某个危险权限的支持，还会重复上述几个步骤，请用户再次授权。</p>
 <h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>这篇文章中简单介绍了运行时权限的概念和使用过程。 Github 上也有一些封装好的动态权限申请的第三方库，可以帮助我们更加简单地进行权限申请。如果想了解更多的相关知识，可以去看看这些开源库的源码实现。</p>
 
 

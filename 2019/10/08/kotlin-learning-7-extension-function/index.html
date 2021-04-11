@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -365,89 +365,43 @@
 
         <p>在 Java 中，想要扩展类的功能，但是又不想直接改原来的类时，一般会采用继承、组合（装饰者模式）等方式来实现。而 Kotlin 中支持对类的属性和函数进行扩展，在类外增加原来类的属性和函数，可以方便地实现在原来的类上添加新功能。</p>
 <h4 id="函数扩展"><a href="#函数扩展" class="headerlink" title="函数扩展"></a>函数扩展</h4><p>函数扩展的格式为：</p>
-<pre><code>fun &lt;类名&gt;.&lt;扩展函数名&gt;([参数列表])&lt;:返回类型&gt;{
-}</code></pre><p>在 Android 开发中，我们经常需要在 Activity 中弹出 Toast，每次要写：<code>Toast.makeText(this,  &quot;text&quot;, Toast.LENGTH_SHORT).show();</code> 这么一长串很累，通常都会封装一个工具类来简化一下调用： <code>ToastUtils.makeToast(&quot;text&quot;);</code> 。</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">&lt;</span></span>类名&gt;.&lt;扩展函数名&gt;([参数列表])&lt;:返回类型&gt;&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在 Android 开发中，我们经常需要在 Activity 中弹出 Toast，每次要写：<code>Toast.makeText(this,  &quot;text&quot;, Toast.LENGTH_SHORT).show();</code> 这么一长串很累，通常都会封装一个工具类来简化一下调用： <code>ToastUtils.makeToast(&quot;text&quot;);</code> 。</p>
 <p>在 Kotlin 中，有了扩展函数，我们可以更加方便优雅地弹 Toast，</p>
 <p>在一个扩展文件中，对 Context 类加一个扩展函数，因为 Activity 是 Context 的子类，也可以直接调用。</p>
-<pre><code>fun Context.showToast(content: String) {
-    Toast.makeText(this, content, Toast.LENGTH_SHORT).show()
-}</code></pre><p>这样在 Activity 中我们就可以这样来弹 Toast：</p>
-<pre><code>button.setOnClickListener{
-    showToast(&quot;text&quot;)
-}</code></pre><p>是不是非常方便简洁？</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> Context.<span class="title">showToast</span><span class="params">(content: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span>, content, Toast.LENGTH_SHORT).show()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样在 Activity 中我们就可以这样来弹 Toast：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">button</span>.setOnClickListener&#123;</span><br><span class="line">	showToast(<span class="string">"text"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>是不是非常方便简洁？</p>
 <p>在扩展函数中，可以使用 <code>this</code> 关键字指代调用这个函数的对象。</p>
 <p><strong>扩展函数是静态解析的</strong></p>
 <p>扩展函数时静态解析的，具体调用哪一个类的函数，由调用函数的表达式类型决定，而不是由表达式运行时的动态类型决定。</p>
-<pre><code>open class Shape
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span>: <span class="type">Shape</span></span>()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> Shape.<span class="title">getName</span><span class="params">()</span></span> = <span class="string">"Shape"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> Rectangle.<span class="title">getName</span><span class="params">()</span></span> = <span class="string">"Rectangle"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">printClassName</span><span class="params">(s: <span class="type">Shape</span>)</span></span> &#123;  <span class="comment">//类型是Shape</span></span><br><span class="line">    println(s.getName())</span><br><span class="line">&#125;    </span><br><span class="line"></span><br><span class="line">printClassName(Rectangle())</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">Shape</span><br></pre></td></tr></table></figure>
 
-class Rectangle: Shape()
-
-fun Shape.getName() = &quot;Shape&quot;
-
-fun Rectangle.getName() = &quot;Rectangle&quot;
-
-fun printClassName(s: Shape) {  //类型是Shape
-    println(s.getName())
-}    
-
-printClassName(Rectangle())
-
-//运行结果
-Shape</code></pre><p><strong>和成员函数重名</strong></p>
+<p><strong>和成员函数重名</strong></p>
 <p>如果扩展函数和类的成员函数一致时，优先调用成员函数。</p>
-<pre><code>class C {
-    fun foo() { println(&quot;成员函数&quot;) }
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">foo</span><span class="params">()</span></span> &#123; println(<span class="string">"成员函数"</span>) &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> C.<span class="title">foo</span><span class="params">()</span></span> &#123; println(<span class="string">"扩展函数"</span>) &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> c = C()</span><br><span class="line">    c.foo()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">成员函数</span><br></pre></td></tr></table></figure>
 
-fun C.foo() { println(&quot;扩展函数&quot;) }
-
-fun main(){
-    var c = C()
-    c.foo()
-}
-
-//运行结果
-成员函数</code></pre><p><strong>空对象的扩展</strong></p>
+<p><strong>空对象的扩展</strong></p>
 <p>在扩展函数内， 可以通过 <code>this == null</code> 来判断接收者是否为 null。这样，即使接收者为 null，也可以调用扩展函数。</p>
-<pre><code>fun Any?.toString(): String {
-    if (this == null) return &quot;null&quot;
-    // 空检测之后，“this”会自动转换为非空类型，所以下面的 toString()
-    // 解析为 Any 类的成员函数
-    return toString()
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> Any?.<span class="title">toString</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span> == <span class="literal">null</span>) <span class="keyword">return</span> <span class="string">"null"</span></span><br><span class="line">    <span class="comment">// 空检测之后，“this”会自动转换为非空类型，所以下面的 toString()</span></span><br><span class="line">    <span class="comment">// 解析为 Any 类的成员函数</span></span><br><span class="line">    <span class="keyword">return</span> toString()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">var</span> t = <span class="literal">null</span></span><br><span class="line">	println(t.toString())</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line"><span class="literal">null</span></span><br></pre></td></tr></table></figure>
 
-fun main(){
-    var t = null
-    println(t.toString())
-}
-//运行结果
-null</code></pre><p><strong>Java 中调用扩展函数</strong></p>
+<p><strong>Java 中调用扩展函数</strong></p>
 <p>通过<code>文件名+Kt.函数名(扩展类的对象，完整的其他参数)</code>来在 Java 中调用扩展函数（相当于调用工具类的静态方法）。</p>
 <p>例如之前的 Toast 示例，该扩展函数写在 Utils.kt 文件下，则在 Java 代码中应该这样调用这个函数。</p>
-<pre><code>UtilsKt.showToast(MainActivity.this, &quot;Hello&quot;);</code></pre><h4 id="属性扩展"><a href="#属性扩展" class="headerlink" title="属性扩展"></a>属性扩展</h4><p>Kotlin 也支持对属性进行扩展。</p>
-<pre><code>val &lt;T&gt; List&lt;T&gt;. lastIndex: Int
-    get() = size - 1</code></pre><p>由于扩展没有实际的将成员插入类中，因此对扩展属性来说<code>后端变量</code>是无效的。这就是为什么扩展属性不能有初始化器。他们的行为只能由显式提供的 getters/setters 定义。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">UtilsKt.showToast(MainActivity.<span class="keyword">this</span>, <span class="string">"Hello"</span>);</span><br></pre></td></tr></table></figure>
+
+<h4 id="属性扩展"><a href="#属性扩展" class="headerlink" title="属性扩展"></a>属性扩展</h4><p>Kotlin 也支持对属性进行扩展。</p>
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val &lt;<span class="built_in">T</span>&gt; List&lt;<span class="built_in">T</span>&gt;. lastInd<span class="symbol">ex:</span> <span class="built_in">Int</span></span><br><span class="line">	get() = size - <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>由于扩展没有实际的将成员插入类中，因此对扩展属性来说<code>后端变量</code>是无效的。这就是为什么扩展属性不能有初始化器。他们的行为只能由显式提供的 getters/setters 定义。</p>
 <p>扩展函数只能被声明为 <code>val</code>。</p>
 <h4 id="伴生对象的扩展"><a href="#伴生对象的扩展" class="headerlink" title="伴生对象的扩展"></a>伴生对象的扩展</h4><p>可以给类的伴生对象定义扩展函数和属性。</p>
 <p>伴生对象通过<code>类名.</code> 的形式调用伴生对象，伴生对象声明的扩展函数，通过用类名限定符来调用：</p>
-<pre><code>class MyClass {
-    companion object { }  // 将被称为 &quot;Companion&quot;
-}
-
-fun MyClass.Companion.foo() {
-    println(&quot;伴随对象的扩展函数&quot;)
-}
-
-val MyClass.Companion.no: Int
-    get() = 10
-
-fun main(args: Array&lt;String&gt;) {
-    println(&quot;no:${MyClass.no}&quot;)
-    MyClass.foo()
-}
-//运行结果
-no:10
-伴随对象的扩展函数</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">companion</span> <span class="keyword">object</span> &#123; &#125;  <span class="comment">// 将被称为 "Companion"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> MyClass.Companion.<span class="title">foo</span><span class="params">()</span></span> &#123;</span><br><span class="line">    println(<span class="string">"伴随对象的扩展函数"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">val</span> MyClass.Companion.no: <span class="built_in">Int</span></span><br><span class="line">    <span class="keyword">get</span>() = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">(args: <span class="type">Array</span>&lt;<span class="type">String</span>&gt;)</span></span> &#123;</span><br><span class="line">    println(<span class="string">"no:<span class="subst">$&#123;MyClass.no&#125;</span>"</span>)</span><br><span class="line">    MyClass.foo()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">no:<span class="number">10</span></span><br><span class="line">伴随对象的扩展函数</span><br></pre></td></tr></table></figure>
 
         <hr>
         <!-- Pager -->

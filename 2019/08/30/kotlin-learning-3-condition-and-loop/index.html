@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -366,194 +366,62 @@
         <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>这篇主要记一下 Kotlin 中的分支（条件判断）、循环以及常用的一些关键字。</p>
 <h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><p><strong>if-else</strong></p>
 <p>if-else 结构的用法大体上和 Java 一致，比如：</p>
-<pre><code class="kotlin">fun main() {
-    val score = 50
-    if (score &lt; 0) {
-        println(&quot;分数不符合，应该为非负数&quot;)
-    } else if (score &lt; 60) {
-        println(&quot;不及格&quot;)
-    } else if (score &lt; 80) {
-        println(&quot;及格&quot;)
-    } else if (score &lt; 90) {
-        println(&quot;良好&quot;)
-    } else if (score &lt; 101) {
-        println(&quot;优秀&quot;)
-    } else {
-        println(&quot;分数不符合，最大为100&quot;)
-    }
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> score = <span class="number">50</span></span><br><span class="line">    <span class="keyword">if</span> (score &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        println(<span class="string">"分数不符合，应该为非负数"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &lt; <span class="number">60</span>) &#123;</span><br><span class="line">        println(<span class="string">"不及格"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &lt; <span class="number">80</span>) &#123;</span><br><span class="line">        println(<span class="string">"及格"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &lt; <span class="number">90</span>) &#123;</span><br><span class="line">        println(<span class="string">"良好"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (score &lt; <span class="number">101</span>) &#123;</span><br><span class="line">        println(<span class="string">"优秀"</span>)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        println(<span class="string">"分数不符合，最大为100"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>同时 <code>if-else</code> 结构可以作为表达式，作用类似于  Java 中的 <code>?:</code>。</p>
-<pre><code class="kotlin">// 当满足if中的条件时c的值是a，否则c的值是b
-val c = if(condition) a else b</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当满足if中的条件时c的值是a，否则c的值是b</span></span><br><span class="line"><span class="keyword">val</span> c = <span class="keyword">if</span>(condition) a <span class="keyword">else</span> b</span><br></pre></td></tr></table></figure>
+
 <p><strong>when</strong></p>
 <p>Kotlin 中用 <code>when</code> 关键字代替了 Java 中的 <code>switch</code>，但用法类似。when 中，<code>else</code> 类比于 switch 中的 <code>default</code>，当其他分支不匹配时走 else。如果很多分支需要用相同的方式处理，则可以把多个分支条件放在一起，用 <code>,</code> 分隔。</p>
-<pre><code class="kotlin">fun main() {
-    val x = &#39;d&#39;
-    when(x){
-        &#39;a&#39; -&gt; println(&quot;x = a&quot;)
-        &#39;b&#39; -&gt; println(&quot;x = b&quot;)
-        &#39;C&#39;,&#39;c&#39; -&gt; println(&quot;x = C or c&quot;)
-        else -&gt; println(&quot;x is others&quot;)
-    }
-}
-// 运行结果
-x is others</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> x = <span class="string">'d'</span></span><br><span class="line">    <span class="keyword">when</span>(x)&#123;</span><br><span class="line">        <span class="string">'a'</span> -&gt; println(<span class="string">"x = a"</span>)</span><br><span class="line">        <span class="string">'b'</span> -&gt; println(<span class="string">"x = b"</span>)</span><br><span class="line">        <span class="string">'C'</span>,<span class="string">'c'</span> -&gt; println(<span class="string">"x = C or c"</span>)</span><br><span class="line">        <span class="keyword">else</span> -&gt; println(<span class="string">"x is others"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">x <span class="keyword">is</span> others</span><br></pre></td></tr></table></figure>
+
 <p>Kotlin 中相当于默认加上 break，由上往下依次对照case，如果符合条件，则执行对应的语句，之后的分支不会继续走。</p>
-<pre><code class="kotlin">fun main() {
-    val x = 5
-    when (x) {
-        in 1..10 -&gt; print(&quot;x is in 1 to 10&quot;)
-        !in 10..20 -&gt; print(&quot;x is not in 10 to 20&quot;)
-        else -&gt; print(&quot;none of the above&quot;)
-    }
-}
-// 运行结果
-x is in 1 to 10</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> x = <span class="number">5</span></span><br><span class="line">    <span class="keyword">when</span> (x) &#123;</span><br><span class="line">        <span class="keyword">in</span> <span class="number">1</span>..<span class="number">10</span> -&gt; print(<span class="string">"x is in 1 to 10"</span>)</span><br><span class="line">        !<span class="keyword">in</span> <span class="number">10</span>..<span class="number">20</span> -&gt; print(<span class="string">"x is not in 10 to 20"</span>)</span><br><span class="line">        <span class="keyword">else</span> -&gt; print(<span class="string">"none of the above"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">x <span class="keyword">is</span> <span class="keyword">in</span> <span class="number">1</span> to <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
 <p>可以看到，x 虽然同时满足 <code>in 1..10</code> 和 <code>!in 10..20</code> 两个条件，但是只会走第一条分支。</p>
 <p>同时，和 if-else 结构一样，when 也可以作为表达式，如果作为表达式，<code>最先</code> 符合条件的分支的值就是整个表达式的值。</p>
-<pre><code class="kotlin">fun main() {
-    val x = 5
-    val c = when (x) {
-        0 -&gt; &quot;x = 0&quot;
-        1 -&gt; &quot;x = 1&quot;
-        else -&gt; &quot;x = else&quot;
-    }
-    println(c)
-}
-//运行结果
-x = else</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> x = <span class="number">5</span></span><br><span class="line">    <span class="keyword">val</span> c = <span class="keyword">when</span> (x) &#123;</span><br><span class="line">        <span class="number">0</span> -&gt; <span class="string">"x = 0"</span></span><br><span class="line">        <span class="number">1</span> -&gt; <span class="string">"x = 1"</span></span><br><span class="line">        <span class="keyword">else</span> -&gt; <span class="string">"x = else"</span></span><br><span class="line">    &#125;</span><br><span class="line">    println(c)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">x = <span class="keyword">else</span></span><br></pre></td></tr></table></figure>
+
 <p>when 可以用来取代 <code>if-else if</code> 链，如果不提供参数，所有的分支条件都是简单的布尔表达式，而当一个分支的条件为真时则执行该分支：</p>
 <p>之前 if-else 结构的例子可以用 when 来改写：</p>
-<pre><code class="kotlin">fun main() {
-    val score = 50
-    when{
-        score &lt; 0 -&gt; println(&quot;分数不符合，应该为非负数&quot;)
-        score &lt; 60 -&gt; println(&quot;不及格&quot;)
-        score &lt; 80 -&gt; println(&quot;及格&quot;)
-        score &lt; 90 -&gt; println(&quot;良好&quot;)
-        score &lt; 101 -&gt; println(&quot;优秀&quot;)
-        else -&gt; println(&quot;分数不符合，最大为100&quot;)
-    }
-}
-//运行结果
-不及格</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> score = <span class="number">50</span></span><br><span class="line">    <span class="keyword">when</span>&#123;</span><br><span class="line">        score &lt; <span class="number">0</span> -&gt; println(<span class="string">"分数不符合，应该为非负数"</span>)</span><br><span class="line">        score &lt; <span class="number">60</span> -&gt; println(<span class="string">"不及格"</span>)</span><br><span class="line">        score &lt; <span class="number">80</span> -&gt; println(<span class="string">"及格"</span>)</span><br><span class="line">        score &lt; <span class="number">90</span> -&gt; println(<span class="string">"良好"</span>)</span><br><span class="line">        score &lt; <span class="number">101</span> -&gt; println(<span class="string">"优秀"</span>)</span><br><span class="line">        <span class="keyword">else</span> -&gt; println(<span class="string">"分数不符合，最大为100"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">不及格</span><br></pre></td></tr></table></figure>
+
 <h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><p>Kotlin 中，<code>for</code> 循环可以对任何提供迭代器的对象进行遍历。通常使用 <code>in</code> 关键字表示在某一个区间或某一集合中。</p>
-<pre><code class="kotlin">fun main() {
-    val arr = arrayOf(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;)
-    for (a in arr){
-        println(a)
-    }
-}
-// 运行结果
-one
-two
-three</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> arr = arrayOf(<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>)</span><br><span class="line">    <span class="keyword">for</span> (a <span class="keyword">in</span> arr)&#123;</span><br><span class="line">        println(a)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">one</span><br><span class="line">two</span><br><span class="line">three</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>可以看到，表示当前元素的变量 a，不用显式申明类型</p>
 </blockquote>
 <p>如果想通过索引（下标）遍历一个数组或 list 时，可以使用 <code>indices</code> 变量来获得索引：</p>
-<pre><code class="kotlin">fun main() {
-    val array = arrayOf(&quot;one&quot;, &quot;two&quot;, &quot;three&quot;)
-    for (i in array.indices){
-        println(array[i])
-    }
-}</code></pre>
-<p>或者使用 <code>withIndex()</code> 方法，同时获得下标和值。</p>
-<pre><code>fun main(){
-    val array = arrayOf(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;)
-    for ((index, value) in array.withIndex()) {
-        println(&quot;the element at $index is $value&quot;)
-    }
-}
-//输出结果
-the element at 0 is apple
-the element at 1 is banana
-the element at 2 is orange</code></pre><p>Kotlin 中的 <code>while</code> 和 <code>do-while</code> 的用法和 Java 中一样，看两个例子理解一下。</p>
-<pre><code>fun main() {
-    var i = 0
-    while(i &lt; 5){
-        print(&quot;$i &quot;)
-        i++
-    }
-}
-//运行结果
-0 1 2 3 4 
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> array = arrayOf(<span class="string">"one"</span>, <span class="string">"two"</span>, <span class="string">"three"</span>)</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> array.indices)&#123;</span><br><span class="line">        println(array[i])</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-fun main() {
-    var i = 0
-    do {
-        print(&quot;$i &quot;)
-        i++
-    }while (i &lt; 5)
-}
-//运行结果
-0 1 2 3 4 </code></pre><h4 id="常用关键字"><a href="#常用关键字" class="headerlink" title="常用关键字"></a>常用关键字</h4><p>在分支和循环部分，提到了一些关键字或符号，但没有专门解释过。这部分就来讲讲一些常用的关键字。</p>
+<p>或者使用 <code>withIndex()</code> 方法，同时获得下标和值。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> array = arrayOf(<span class="string">"apple"</span>, <span class="string">"banana"</span>, <span class="string">"orange"</span>)</span><br><span class="line">    <span class="keyword">for</span> ((index, value) <span class="keyword">in</span> array.withIndex()) &#123;</span><br><span class="line">        println(<span class="string">"the element at <span class="variable">$index</span> is <span class="variable">$value</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//输出结果</span></span><br><span class="line">the element at <span class="number">0</span> <span class="keyword">is</span> apple</span><br><span class="line">the element at <span class="number">1</span> <span class="keyword">is</span> banana</span><br><span class="line">the element at <span class="number">2</span> <span class="keyword">is</span> orange</span><br></pre></td></tr></table></figure>
+
+<p>Kotlin 中的 <code>while</code> 和 <code>do-while</code> 的用法和 Java 中一样，看两个例子理解一下。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(i &lt; <span class="number">5</span>)&#123;</span><br><span class="line">        print(<span class="string">"<span class="variable">$i</span> "</span>)</span><br><span class="line">        i++</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">var</span> i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        print(<span class="string">"<span class="variable">$i</span> "</span>)</span><br><span class="line">        i++</span><br><span class="line">    &#125;<span class="keyword">while</span> (i &lt; <span class="number">5</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line"><span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="常用关键字"><a href="#常用关键字" class="headerlink" title="常用关键字"></a>常用关键字</h4><p>在分支和循环部分，提到了一些关键字或符号，但没有专门解释过。这部分就来讲讲一些常用的关键字。</p>
 <p><code>in</code>：表示在一个区间或集合内（数组、list、set 等）<br><code>!in</code>：和 in 正好相反，表示不在该范围中<br><code>a..b</code>：表示闭区间 [a,b]，其中 a &lt;= b<br><code>until</code>：a until b 表示左闭右开区间 [a,b)，其中 a &lt;= b</p>
-<pre><code class="kotlin">fun main() {
-    for (i in 1..10) {
-        print(&quot;$i &quot;)
-    }
-}
-//运行结果
-1 2 3 4 5 6 7 8 9 10 </code></pre>
-<pre><code class="kotlin">fun main() {
-    for (i in 1 until 10){
-        print(&quot;$i &quot;)
-    }
-}
-//运行结果
-1 2 3 4 5 6 7 8 9 </code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span>..<span class="number">10</span>) &#123;</span><br><span class="line">        print(<span class="string">"<span class="variable">$i</span> "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span> until <span class="number">10</span>)&#123;</span><br><span class="line">        print(<span class="string">"<span class="variable">$i</span> "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
 <p><code>step</code>：步长，循环时的间隔</p>
-<pre><code class="kotlin">fun main() {
-    for (i in 1 until 10 step 2){
-        print(&quot;$i &quot;)
-    }
-}
-//运行结果
-1 3 5 7 9 </code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">1</span> until <span class="number">10</span> step <span class="number">2</span>)&#123;</span><br><span class="line">        print(<span class="string">"<span class="variable">$i</span> "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line"><span class="number">1</span> <span class="number">3</span> <span class="number">5</span> <span class="number">7</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
 <p>downTo：a downTo b 表示从大到小递减的闭区间 [a, b]，a &gt;= b</p>
-<pre><code class="kotlin">fun main() {
-    for (i in 10 downTo 2 step 2){
-        print(&quot;$i &quot;)
-    }
-}
-//运行结果
-10 8 6 4 2 </code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">for</span> (i <span class="keyword">in</span> <span class="number">10</span> downTo <span class="number">2</span> step <span class="number">2</span>)&#123;</span><br><span class="line">        print(<span class="string">"<span class="variable">$i</span> "</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line"><span class="number">10</span> <span class="number">8</span> <span class="number">6</span> <span class="number">4</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
 <p><code>is</code>：是否是某一个类型，类似于 Java 中的 <code>instanceof</code> 关键字</p>
 <p>并且 Kotlin 中会进行智能类型转换，如果是某一个类型，就会自动转换成该类型，不用显式类型转换。</p>
 <p>举个例子：</p>
 <p>实现一个将字符串转化为大写，但是参数是Object（Kotlin 中为 Any）类型，不能直接调用方法，需要先进行类型判断。Java 中的实现：</p>
-<pre><code class="java">public class TestJava {
-    public static void stringToUpperCase(Object o){
-        if(o instanceof String){
-            System.out.println(((String) o).toUpperCase());
-        } else {
-            System.out.println(&quot;不是String类型&quot;);
-        }
-    }
-    public static void main(String[] args) {
-        stringToUpperCase(&quot;hello&quot;);
-        stringToUpperCase(1);
-    }
-}
-//运行结果
-HELLO
-不是String类型</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestJava</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">stringToUpperCase</span><span class="params">(Object o)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(o <span class="keyword">instanceof</span> String)&#123;</span><br><span class="line">            System.out.println(((String) o).toUpperCase());</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"不是String类型"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        stringToUpperCase(<span class="string">"hello"</span>);</span><br><span class="line">        stringToUpperCase(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">HELLO</span><br><span class="line">不是String类型</span><br></pre></td></tr></table></figure>
+
 <p>Kotin 的实现：</p>
-<pre><code class="kotlin">fun stringToUpperCase(o : Any){
-    if(o is String){
-        println(o.toUpperCase())
-    }else{
-        println(&quot;不是String类型&quot;)
-    }
-}
-fun main() {
-    stringToUpperCase(&quot;hello&quot;)
-    stringToUpperCase(1)
-}
-//运行结果
-HELLO
-不是String类型</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">stringToUpperCase</span><span class="params">(o : <span class="type">Any</span>)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(o <span class="keyword">is</span> String)&#123;</span><br><span class="line">        println(o.toUpperCase())</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        println(<span class="string">"不是String类型"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    stringToUpperCase(<span class="string">"hello"</span>)</span><br><span class="line">    stringToUpperCase(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果</span></span><br><span class="line">HELLO</span><br><span class="line">不是String类型</span><br></pre></td></tr></table></figure>
+
 <p>两者的不同的在于 Java 在是 String 类型时，要使用 <code>((String) o)</code> 进行强制类型转换，而 Kotlin 已经直接帮我们转换了，写起来更加简洁。</p>
 <h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>关于 Kotlin 中分支、循环、常用关键字就先写到这里，下一篇将介绍 Kotlin 中的类与对象。</p>
 <h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="https://www.runoob.com/kotlin/kotlin-condition-control.html" target="_blank" rel="noopener">Kotlin 条件控制</a><br><a href="https://www.runoob.com/kotlin/kotlin-loop-control.html" target="_blank" rel="noopener">Kotlin 循环控制</a></p>

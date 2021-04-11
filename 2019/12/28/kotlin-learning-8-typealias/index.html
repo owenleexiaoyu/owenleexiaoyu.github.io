@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -371,22 +371,12 @@
 <li>运算符重载</li>
 </ol>
 <h4 id="类型别名"><a href="#类型别名" class="headerlink" title="类型别名"></a>类型别名</h4><p>类型别名使用关键字 <code>typealias</code> 表示，可以给一个类型指定一个可读性更好的别名。比如给一个名称很长的类指定一个更简短的名字。比如用于缩短泛型集合、内部类等等。</p>
-<pre><code>// 缩短集合类型
-typealias NodeSet = Set&lt;Network.Node&gt;
-typealias FileTable&lt;T&gt; = MutableMap&lt;T, MutableList&lt;File&gt;&gt;
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 缩短集合类型</span></span><br><span class="line"><span class="keyword">typealias</span> NodeSet = Set&lt;Network.Node&gt;</span><br><span class="line"><span class="keyword">typealias</span> FileTable&lt;T&gt; = MutableMap&lt;T, MutableList&lt;File&gt;&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 缩短内部类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">	<span class="keyword">inner</span> <span class="class"><span class="keyword">class</span> <span class="title">Inner</span></span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typealias</span> AInner = A.Inner</span><br></pre></td></tr></table></figure>
 
-// 缩短内部类
-class A{
-    inner class Inner
-}
-typealias AInner = A.Inner</code></pre><p>Kotlin 中也支持对 Lambda 表达式的类型指定别名：</p>
-<pre><code>typealias Predicate&lt;T&gt; = (T) -&gt; Boolean
+<p>Kotlin 中也支持对 Lambda 表达式的类型指定别名：</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">typealias Predicate&lt;T&gt; = (T) -&gt; Boolean</span><br><span class="line"></span><br><span class="line">val <span class="selector-tag">p</span>: Predicate&lt;String&gt; = &#123;it<span class="selector-class">.length</span> &gt; <span class="number">4</span>&#125;</span><br><span class="line"><span class="function"><span class="title">println</span><span class="params">(arrayOf(<span class="string">"Kotlin"</span>,<span class="string">"Java"</span>,<span class="string">"Go"</span>,<span class="string">"Python"</span>)</span></span>.<span class="attribute">filter</span>(p))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">[<span class="string">"Kotlin"</span>, <span class="string">"Python"</span>]</span><br></pre></td></tr></table></figure>
 
-val p: Predicate&lt;String&gt; = {it.length &gt; 4}
-println(arrayOf(&quot;Kotlin&quot;,&quot;Java&quot;,&quot;Go&quot;,&quot;Python&quot;).filter(p))
-
-// 运行结果
-[&quot;Kotlin&quot;, &quot;Python&quot;]</code></pre><h4 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h4><p>之前在学习 Java 或者其他语言时，这块其实没仔细看，学的半懂不懂的，疯狂讲义中这部分写的很详细，总算是看明白了。</p>
+<h4 id="位运算"><a href="#位运算" class="headerlink" title="位运算"></a>位运算</h4><p>之前在学习 Java 或者其他语言时，这块其实没仔细看，学的半懂不懂的，疯狂讲义中这部分写的很详细，总算是看明白了。</p>
 <p>位运算主要包括以下几种：</p>
 <p>按位与、按位或、按位非、按位异或、左移、右移、无符号右移。</p>
 <p>下面是一个 Kotlin 中支持位运算的 infix 函数和解释。</p>
@@ -436,27 +426,30 @@ println(arrayOf(&quot;Kotlin&quot;,&quot;Java&quot;,&quot;Go&quot;,&quot;Python&
 </tbody></table>
 <p>下面看一些示例：</p>
 <ol>
-<li>按位与、按位或、按位异或<pre><code>println(5 and 9) // 输出1
-println(5 or 9)  // 输出13
-println(5 xor 9) // 输出12</code></pre></li>
+<li>按位与、按位或、按位异或<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">println</span><span class="params">(<span class="number">5</span> and <span class="number">9</span>)</span></span> <span class="comment">// 输出1</span></span><br><span class="line"><span class="function"><span class="title">println</span><span class="params">(<span class="number">5</span> or <span class="number">9</span>)</span></span>  <span class="comment">// 输出13</span></span><br><span class="line"><span class="function"><span class="title">println</span><span class="params">(<span class="number">5</span> xor <span class="number">9</span>)</span></span> <span class="comment">// 输出12</span></span><br></pre></td></tr></table></figure>
+
+</li>
 </ol>
 <p><img src="https://i.loli.net/2019/12/28/oJlpuNcHzIQnFq4.png" alt="image1"></p>
 <ol start="2">
 <li>按位非</li>
 </ol>
-<pre><code>println(5.inv())    // 输出-6
-println((-5).inv()) // 输出4</code></pre><p><img src="https://i.loli.net/2019/12/28/KejUEz86akLm5Q9.png" alt="image2"></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">println</span><span class="params">(<span class="number">5</span>.inv()</span></span>)    <span class="comment">// 输出-6</span></span><br><span class="line"><span class="function"><span class="title">println</span><span class="params">((-<span class="number">5</span>)</span></span>.inv()) <span class="comment">// 输出4</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/12/28/KejUEz86akLm5Q9.png" alt="image2"></p>
 <p><img src="https://i.loli.net/2019/12/28/D5yGZtrqP4uV7bS.png" alt="image3"></p>
 <ol start="3">
 <li>左移运算符</li>
 </ol>
-<pre><code>println(5 shl 2)    // 输出20
-println(-5 shl 2)   // 输出-20</code></pre><p><img src="https://i.loli.net/2019/12/28/3Uowtvn4P9LRmWG.png" alt="image4"></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">println</span><span class="params">(<span class="number">5</span> shl <span class="number">2</span>)</span></span>    <span class="comment">// 输出20</span></span><br><span class="line"><span class="function"><span class="title">println</span><span class="params">(-<span class="number">5</span> shl <span class="number">2</span>)</span></span>   <span class="comment">// 输出-20</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/12/28/3Uowtvn4P9LRmWG.png" alt="image4"></p>
 <ol start="4">
 <li>右移运算符、无符号右移运算符</li>
 </ol>
-<pre><code>println(-5 shr 2)    // 输出-2
-println(-5 ushr 2)   // 输出1073741822</code></pre><p><img src="https://i.loli.net/2019/12/28/lZFChDorkPbjK69.png" alt="image5"></p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">println</span><span class="params">(-<span class="number">5</span> shr <span class="number">2</span>)</span></span>    <span class="comment">// 输出-2</span></span><br><span class="line"><span class="function"><span class="title">println</span><span class="params">(-<span class="number">5</span> ushr <span class="number">2</span>)</span></span>   <span class="comment">// 输出1073741822</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://i.loli.net/2019/12/28/lZFChDorkPbjK69.png" alt="image5"></p>
 <h4 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h4><p>在 Kotlin 中，运算符都是依靠特定名称的函数来进行实现的，因此只需要重载这些函数，就可以为任意类添加这些运算符。重载运算符的函数要用 <code>operator</code> 关键字。</p>
 <p>以下是常用的运算符及其对应函数：</p>
 <p><strong>单目前缀运算符</strong></p>
@@ -677,28 +670,9 @@ println(-5 ushr 2)   // 输出1073741822</code></pre><p><img src="https://i.loli
 <p>假设有一个类 Point(x , y) 表示坐标系中一组坐标值，我们想用 p1 - p2 来表示两个坐标的距离，p1 * p2 表示两个坐标围起来的矩形的面积。</p>
 </blockquote>
 <p>代码实现如下：</p>
-<pre><code>data class Point(val x: Int, val y: Int) {
-    // 重载 minus 函数，就可以使用 p1 - p2
-    operator fun minus(target: Point): Double {
-        return Math.hypot((x - target.x).toDouble(), (y - target.y).toDouble())
-    }
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Point</span></span>(<span class="keyword">val</span> x: <span class="built_in">Int</span>, <span class="keyword">val</span> y: <span class="built_in">Int</span>) &#123;</span><br><span class="line">    <span class="comment">// 重载 minus 函数，就可以使用 p1 - p2</span></span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">minus</span><span class="params">(target: <span class="type">Point</span>)</span></span>: <span class="built_in">Double</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Math.hypot((x - target.x).toDouble(), (y - target.y).toDouble())</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 重载 times 函数，就可以使用 p1 * p2</span></span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">times</span><span class="params">(target: <span class="type">Point</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Math.abs(x - target.x) * Math.abs(y - target.y)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> p1 = Point(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">val</span> p2 = Point(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">    println(<span class="string">"两个点的距离：<span class="subst">$&#123;p1 - p2&#125;</span>"</span>)</span><br><span class="line">    println(<span class="string">"两个点围成的举行面积：<span class="subst">$&#123;p1 * p2&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">两个点的距离：<span class="number">5.0</span></span><br><span class="line">两个点围成的举行面积：<span class="number">12</span></span><br></pre></td></tr></table></figure>
 
-    // 重载 times 函数，就可以使用 p1 * p2
-    operator fun times(target: Point): Int {
-        return Math.abs(x - target.x) * Math.abs(y - target.y)
-    }
-}
 
-fun main() {
-    val p1 = Point(0,0)
-    val p2 = Point(3,4)
-    println(&quot;两个点的距离：${p1 - p2}&quot;)
-    println(&quot;两个点围成的举行面积：${p1 * p2}&quot;)
-}
-
-// 运行结果
-两个点的距离：5.0
-两个点围成的举行面积：12</code></pre>
 
         <hr>
         <!-- Pager -->

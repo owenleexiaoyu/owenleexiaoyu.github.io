@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -374,350 +374,56 @@
 <p><img src="https://i.loli.net/2019/08/29/A8rGYRcq6PSuXdy.jpg" alt="img4.png"></p>
 <p>定义一个块有两种形式，一种是 Json，一种是 JS 代码，因为 Json 具有跨平台的特点，所以是首选的块定义形式，也是 Android 中唯一的定义方式。</p>
 <p>下面是第一个块定义的 Json文本：</p>
-<pre><code>{
-    &quot;type&quot;: &quot;poetry&quot;,
-    &quot;message0&quot;: &quot;诗名： %1 内容： %2&quot;,
-    &quot;args0&quot;: [
-      {
-        &quot;type&quot;: &quot;input_value&quot;,
-        &quot;name&quot;: &quot;TITLE&quot;
-      },
-      {
-        &quot;type&quot;: &quot;input_statement&quot;,
-        &quot;name&quot;: &quot;CONTENT&quot;
-      }
-    ],
-    &quot;colour&quot;: 120,
-    &quot;tooltip&quot;: &quot;&quot;,
-    &quot;helpUrl&quot;: &quot;&quot;
-  }</code></pre><p>关于 Json代码中各个属性的含义，请参考官方文档中的块定义部分。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"poetry"</span>,</span><br><span class="line">    <span class="attr">"message0"</span>: <span class="string">"诗名： %1 内容： %2"</span>,</span><br><span class="line">    <span class="attr">"args0"</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"input_value"</span>,</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"TITLE"</span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"input_statement"</span>,</span><br><span class="line">        <span class="attr">"name"</span>: <span class="string">"CONTENT"</span></span><br><span class="line">      &#125;</span><br><span class="line">    ],</span><br><span class="line">    <span class="attr">"colour"</span>: <span class="number">120</span>,</span><br><span class="line">    <span class="attr">"tooltip"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"helpUrl"</span>: <span class="string">""</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>关于 Json代码中各个属性的含义，请参考官方文档中的块定义部分。</p>
 <p>进行块的定义时，可以直接写 Json 代码（有点难），也可以借助一个网站（需要翻墙）——「<a href="https://blockly-demo.appspot.com/static/demos/blockfactory/index.html" target="_blank" rel="noopener">Blockly开发者工具</a>」，在这里可以用可视化的方式来创建一个块，可以直接看到块的预览形状。我们最后只需要将自动形成的 Json 代码复制下来，应用到项目中去即可。</p>
 <p>具体的操作方法见官方文档「Blockly 开发者工具」篇， 去网站上练习几次即可掌握。</p>
 <p>将所有用到的块的 Json 代码写在一个 .json 类型的文件中，放在项目的 assets 目录下。</p>
 <h4 id="2-创建-Toolbox（工具栏）文件"><a href="#2-创建-Toolbox（工具栏）文件" class="headerlink" title="2. 创建 Toolbox（工具栏）文件"></a>2. 创建 Toolbox（工具栏）文件</h4><p>在这个场景中我们的块都是直接生成在工作区中，Toolbox 中并没有放置块。所以我们直接创建一个名为 toolbox.xml 的文件，放在 assets 目录下，内容为：</p>
-<pre><code>&lt;toolbox&gt;&lt;/toolbox&gt;</code></pre><p>就可以满足需要了。在其他的场景中如果需要用到工具栏，则需要在 toolbox.xml 文件中填入相应块的引用，便于用户可以直接从工具栏中拖出想要的块。具体如何写 Toolbox 文件，请看官方文档 Toolbox 相关内容。</p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">&lt;toolbox&gt;</span><span class="section">&lt;/toolbox&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>就可以满足需要了。在其他的场景中如果需要用到工具栏，则需要在 toolbox.xml 文件中填入相应块的引用，便于用户可以直接从工具栏中拖出想要的块。具体如何写 Toolbox 文件，请看官方文档 Toolbox 相关内容。</p>
 <h4 id="3-创建生成器函数"><a href="#3-创建生成器函数" class="headerlink" title="3. 创建生成器函数"></a>3. 创建生成器函数</h4><p>每个块都对应一个用 JS 编写的生成器函数，在这个函数中将这个块转化为一段字符串类型的代码。这个代码我们将在 Activity 的回调中用到，判断是否匹配正确。如果我们使用 「Blockly开发者工具」，我们可以在网页上直接复制一个块的生成器函数模版，然后再自定义。一个 type 为 poetry 的块的生成器函数如下：</p>
-<pre><code>Blockly.JavaScript[&#39;poetry&#39;] = function(block) {
-    var title = Blockly.JavaScript.statementToCode(block, &#39;TITLE&#39;).substring(2);
-    var content = Blockly.JavaScript.statementToCode(block, &#39;CONTENT&#39;).substring(2);
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Blockly.JavaScript['poetry'] = function(<span class="built_in">block</span>) &#123;</span><br><span class="line">    <span class="built_in">var</span> <span class="built_in">title</span> = Blockly.JavaScript.statementToCode(<span class="built_in">block</span>, 'TITLE').<span class="built_in">substring</span>(<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">var</span> <span class="built_in">content</span> = Blockly.JavaScript.statementToCode(<span class="built_in">block</span>, 'CONTENT').<span class="built_in">substring</span>(<span class="number">2</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">return</span> <span class="built_in">title</span>+'='+<span class="built_in">content</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-    return title+&#39;=&#39;+content;
-};</code></pre><p>上面的代码表示，获取到这个块接收的古诗的标题和内容，用等号进行拼接，返回拼接后的字符串。将所有块的生成器函数写在一个 JS 文件中，放在 assets 目录下。</p>
+<p>上面的代码表示，获取到这个块接收的古诗的标题和内容，用等号进行拼接，返回拼接后的字符串。将所有块的生成器函数写在一个 JS 文件中，放在 assets 目录下。</p>
 <h4 id="4-建立数据实体类和数据库"><a href="#4-建立数据实体类和数据库" class="headerlink" title="4. 建立数据实体类和数据库"></a>4. 建立数据实体类和数据库</h4><p>在这个场景中，我们会有很多的古诗，所以需要一个数据库。我们在这个项目中使用 Litepal 这个第三方库来帮助创建数据库。关于 Litepal 的使用在这里不赘述，重点在于数据实体类的创建。下面是诗歌实体类中的成员变量：</p>
-<pre><code>private int id;
-private String title;//标题
-private String writor;//作者
-private List&lt;String&gt; contents;//内容
-private String dynasty;//作者朝代
-private int level; //根据诗歌的难易程度所划分的等级，分为1-6,1最简单，6最难。</code></pre><p>我们将收集的古诗素材按照一定的规则整理成一个文件，然后在应用启动时将这个文件中的所有古诗都加载到数据库中，便于之后的出题和判断匹配正误。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> id;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">String</span> title;<span class="comment">//标题</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">String</span> writor;<span class="comment">//作者</span></span><br><span class="line"><span class="keyword">private</span> List&lt;<span class="keyword">String</span>&gt; contents;<span class="comment">//内容</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">String</span> dynasty;<span class="comment">//作者朝代</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">int</span> level; <span class="comment">//根据诗歌的难易程度所划分的等级，分为1-6,1最简单，6最难。</span></span><br></pre></td></tr></table></figure>
+
+<p>我们将收集的古诗素材按照一定的规则整理成一个文件，然后在应用启动时将这个文件中的所有古诗都加载到数据库中，便于之后的出题和判断匹配正误。</p>
 <p>这里我们写了一个数据工具类 DataUtil，定义了一个抽象方法，遍历这个古诗素材文件，按照规则提取出每首诗的标题、作者等信息，保存进数据库中：</p>
-<pre><code>public static void initPoetryDataBase(Context context) {
-    //先清空该数据库中所有的古诗
-    DataSupport.deleteAll(Poetry.class);
-    try{
-        InputStream is = context.getAssets().open(&quot;poetry/poetry.txt&quot;);
-        BufferedReader br=new BufferedReader(new InputStreamReader(is));
-        String line=&quot;&quot;;
-        while ((line=br.readLine())!=null) {
-            String[] arrs=null;//备用数组
-            Poetry p=new Poetry();
-            arrs=line.split(&quot;&gt;&quot;);
-            p.setLevel(Integer.parseInt(arrs[0]));
-            p.setTitle(arrs[1]);
-            p.setWritor(arrs[2]);
-            p.setDynasty(arrs[3]);
-            List&lt;String&gt; contents = new ArrayList&lt;&gt;();
-            for(int i = 4; i&lt;arrs.length;i++){
-                contents.add(arrs[i]);
-            }
-            p.setContents(contents);
-            p.save();
-        }
-        br.close();
-        is.close();
-    } catch (FileNotFoundException e) {
-        e.printStackTrace();
-    } catch(IOException e){
-        e.printStackTrace();
-    }
-}</code></pre><h4 id="5-初始化Activity"><a href="#5-初始化Activity" class="headerlink" title="5.  初始化Activity"></a>5.  初始化Activity</h4><p>新建一个 Activity 继承自 AbstractBlocklyActivity 或者 BlocklySectionsActivity（继承这个用于实现关卡）。这里就继承 AbstractBlocklyActivity。覆盖父类的抽象方法。</p>
-<pre><code>    //添加js生成器函数路径
-    private static final List&lt;String&gt; JAVASCRIPT_GENERATORS = Arrays.asList(
-            &quot;generator.js&quot;              
-    );
-    //点击run后的回调
-    CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback = 
-            new CodeGenerationRequest.CodeGeneratorCallback() {
-        @Override
-        public void onFinishCodeGeneration(String generatedCode) {
-           //这里面写匹配是否正确的判断逻辑 
-        }
-    };
-    /**
-     * 工具栏
-     * @return toolbox的路径
-     */
-    @Override
-    protected String getToolboxContentsXmlPath() {
-        return &quot;poetry/toolbox.xml&quot;;
-    }
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> initPoetryDataBase(Context context) &#123;</span><br><span class="line">    <span class="comment">//先清空该数据库中所有的古诗</span></span><br><span class="line">    DataSupport.deleteAll(Poetry.class);</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        InputStream is = context.getAssets().<span class="built_in">open</span>(<span class="string">"poetry/poetry.txt"</span>);</span><br><span class="line">        <span class="keyword">BufferedReader</span> br=<span class="keyword">new</span> <span class="keyword">BufferedReader</span>(<span class="keyword">new</span> InputStreamReader(is));</span><br><span class="line">        <span class="keyword">String</span> <span class="built_in">line</span>=<span class="string">""</span>;</span><br><span class="line">        <span class="keyword">while</span> ((<span class="built_in">line</span>=br.readLine())!=<span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">String</span>[] arrs=<span class="keyword">null</span>;<span class="comment">//备用数组</span></span><br><span class="line">            Poetry p=<span class="keyword">new</span> Poetry();</span><br><span class="line">            arrs=<span class="built_in">line</span>.<span class="built_in">split</span>(<span class="string">"&gt;"</span>);</span><br><span class="line">            p.setLevel(Integer.parseInt(arrs[<span class="number">0</span>]));</span><br><span class="line">            p.setTitle(arrs[<span class="number">1</span>]);</span><br><span class="line">            p.setWritor(arrs[<span class="number">2</span>]);</span><br><span class="line">            p.setDynasty(arrs[<span class="number">3</span>]);</span><br><span class="line">            List&lt;<span class="keyword">String</span>&gt; contents = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">4</span>; i&lt;arrs.length;i++)&#123;</span><br><span class="line">                contents.<span class="built_in">add</span>(arrs[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            p.setContents(contents);</span><br><span class="line">            p.<span class="built_in">save</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        br.close();</span><br><span class="line">        is.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125; <span class="keyword">catch</span>(IOException e)&#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 此函数用于添加定义block块的路径，路径为json文件
-     * @return block块的集合
-     */
-    @Override
-    protected List&lt;String&gt; getBlockDefinitionsJsonPaths() {
-        List&lt;String&gt; assetPaths = new ArrayList&lt;&gt;();
-        assetPaths.add(&quot;poetry/poetry.json&quot;);
-        return assetPaths;
-    }
-    //添加js生成器函数路径
-    @Override
-    protected List&lt;String&gt; getGeneratorsJsPaths() {
-        return JAVASCRIPT_GENERATORS;
-    }
+<h4 id="5-初始化Activity"><a href="#5-初始化Activity" class="headerlink" title="5.  初始化Activity"></a>5.  初始化Activity</h4><p>新建一个 Activity 继承自 AbstractBlocklyActivity 或者 BlocklySectionsActivity（继承这个用于实现关卡）。这里就继承 AbstractBlocklyActivity。覆盖父类的抽象方法。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//添加js生成器函数路径</span></span><br><span class="line">private <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; JAVASCRIPT_GENERATORS = Arrays.asList(</span><br><span class="line">           <span class="string">"generator.js"</span>              </span><br><span class="line">   );</span><br><span class="line">   <span class="comment">//点击run后的回调</span></span><br><span class="line">   CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback = </span><br><span class="line">           <span class="keyword">new</span> CodeGenerationRequest.CodeGeneratorCallback() &#123;</span><br><span class="line">       <span class="meta">@Override</span></span><br><span class="line">       public <span class="keyword">void</span> onFinishCodeGeneration(<span class="built_in">String</span> generatedCode) &#123;</span><br><span class="line">          <span class="comment">//这里面写匹配是否正确的判断逻辑 </span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">    * </span>工具栏</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">    * </span>@return toolbox的路径</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">    */</span></span></span></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   protected <span class="built_in">String</span> getToolboxContentsXmlPath() &#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="string">"poetry/toolbox.xml"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">    * </span>此函数用于添加定义block块的路径，路径为json文件</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">    * </span>@return block块的集合</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">    */</span></span></span></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   protected <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; getBlockDefinitionsJsonPaths() &#123;</span><br><span class="line">       <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; assetPaths = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">       assetPaths.add(<span class="string">"poetry/poetry.json"</span>);</span><br><span class="line">       <span class="keyword">return</span> assetPaths;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="comment">//添加js生成器函数路径</span></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   protected <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; getGeneratorsJsPaths() &#123;</span><br><span class="line">       <span class="keyword">return</span> JAVASCRIPT_GENERATORS;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   protected CodeGenerationRequest.CodeGeneratorCallback getCodeGenerationCallback() &#123;</span><br><span class="line">       <span class="keyword">return</span> mCodeGeneratorCallback;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
-    @Override
-    protected CodeGenerationRequest.CodeGeneratorCallback getCodeGenerationCallback() {
-        return mCodeGeneratorCallback;
-    }</code></pre><p>在这步中，我们将一个 Activity 初始化成了一个具有 Blockly 工具栏、工作区等组件的 BlocklyActivity。接下来就是实现场景的具体功能。</p>
+<p>在这步中，我们将一个 Activity 初始化成了一个具有 Blockly 工具栏、工作区等组件的 BlocklyActivity。接下来就是实现场景的具体功能。</p>
 <h4 id="6-从数据库中提取数据封装成工作区中的块"><a href="#6-从数据库中提取数据封装成工作区中的块" class="headerlink" title="6. 从数据库中提取数据封装成工作区中的块"></a>6. 从数据库中提取数据封装成工作区中的块</h4><p>在第二步中提到我们这个场景中没有用到 Toolbox，因为我们所有的块都是在 Activity 初始化的时候直接加载到工作区中的。</p>
 <p>实现随机出题的思路是：根据指定的古诗难度，从数据库中随机选取两首对应难度的古诗，使用一个工具类将这两首古诗的标题、所有诗句都封装成我们定义好的 Blockly 块，写入一个临时文件中。在 Activity 初始化时，从这个临时文件中加载所有的块，填充到工作区中，具体的代码如下：</p>
-<pre><code>/**
-     * 针对整诗匹配场景来生成XML文件
-     * 根据传入的level的值从数据库中随机选择响应level的诗歌来生成XML文件，写入fos流所在的文件中
-     * @param fos
-     * @param level
-     */
-    public static void generateWholePoetryXML(FileOutputStream fos, int level){
-        List&lt;Poetry&gt; poetryList = DataSupport.where(&quot;level = ?&quot;,level+&quot;&quot;).find(Poetry.class);
-        Random random = new Random(System.currentTimeMillis());
-        try {
-            //获取XmlSerializer对象
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            XmlSerializer xmlSerializer = factory.newSerializer();
-            //设置输出流对象
-            xmlSerializer.setOutput(fos, &quot;utf-8&quot;);
-            //文档开始
-            xmlSerializer.startDocument(&quot;utf-8&quot;, true);
-            //开始一个标签
-            xmlSerializer.startTag(null,&quot;toolbox&quot;);
-            for(int i = 0; i&lt; 2;i++){
-                int index = random.nextInt(poetryList.size());
-                Poetry p = poetryList.get(index);
-                xmlSerializer.startTag(null,&quot;block&quot;);
-                xmlSerializer.attribute(null, &quot;type&quot;,&quot;poetry&quot;);
-                xmlSerializer.startTag(null,&quot;value&quot;);
-                xmlSerializer.attribute(null, &quot;name&quot;,&quot;TITLE&quot;);
-                xmlSerializer.startTag(null,&quot;block&quot;);
-                xmlSerializer.attribute(null, &quot;type&quot;,&quot;poetry_title&quot;);
-                xmlSerializer.startTag(null,&quot;field&quot;);
-                xmlSerializer.attribute(null,&quot;name&quot;,&quot;TITLE&quot;);
-                xmlSerializer.text(p.getTitle());
-                xmlSerializer.endTag(null,&quot;field&quot;);
-                xmlSerializer.endTag(null,&quot;block&quot;);
-                xmlSerializer.endTag(null,&quot;value&quot;);
-                xmlSerializer.endTag(null,&quot;block&quot;);
-                for(String c : p.getContents()){
-                    xmlSerializer.startTag(null,&quot;block&quot;);
-                    xmlSerializer.attribute(null,&quot;type&quot;,&quot;poetry_contents&quot;);
-                    xmlSerializer.startTag(null,&quot;field&quot;);
-                    xmlSerializer.attribute(null,&quot;name&quot;,&quot;CONTENT&quot;);
-                    xmlSerializer.text(c);
-                    xmlSerializer.endTag(null,&quot;field&quot;);
-                    xmlSerializer.endTag(null,&quot;block&quot;);
-                }
-            }
-            //每一个endTag对应的startTag
-            xmlSerializer.endTag(null,&quot;toolbox&quot;);
-            xmlSerializer.endDocument();
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>针对整诗匹配场景来生成XML文件</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>根据传入的level的值从数据库中随机选择响应level的诗歌来生成XML文件，写入fos流所在的文件中</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param fos</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param level</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    public <span class="keyword">static</span> <span class="keyword">void</span> generateWholePoetryXML(FileOutputStream fos, <span class="built_in">int</span> level)&#123;</span><br><span class="line">        <span class="built_in">List</span>&lt;Poetry&gt; poetryList = DataSupport.where(<span class="string">"level = ?"</span>,level+<span class="string">""</span>).find(Poetry.<span class="keyword">class</span>);</span><br><span class="line">        Random random = <span class="keyword">new</span> Random(System.currentTimeMillis());</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//获取XmlSerializer对象</span></span><br><span class="line">            XmlPullParserFactory <span class="keyword">factory</span> = XmlPullParserFactory.newInstance();</span><br><span class="line">            XmlSerializer xmlSerializer = <span class="keyword">factory</span>.newSerializer();</span><br><span class="line">            <span class="comment">//设置输出流对象</span></span><br><span class="line">            xmlSerializer.setOutput(fos, <span class="string">"utf-8"</span>);</span><br><span class="line">            <span class="comment">//文档开始</span></span><br><span class="line">            xmlSerializer.startDocument(<span class="string">"utf-8"</span>, <span class="keyword">true</span>);</span><br><span class="line">            <span class="comment">//开始一个标签</span></span><br><span class="line">            xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"toolbox"</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">0</span>; i&lt; <span class="number">2</span>;i++)&#123;</span><br><span class="line">                <span class="built_in">int</span> index = random.nextInt(poetryList.size());</span><br><span class="line">                Poetry p = poetryList.<span class="keyword">get</span>(index);</span><br><span class="line">                xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"block"</span>);</span><br><span class="line">                xmlSerializer.attribute(<span class="keyword">null</span>, <span class="string">"type"</span>,<span class="string">"poetry"</span>);</span><br><span class="line">                xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"value"</span>);</span><br><span class="line">                xmlSerializer.attribute(<span class="keyword">null</span>, <span class="string">"name"</span>,<span class="string">"TITLE"</span>);</span><br><span class="line">                xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"block"</span>);</span><br><span class="line">                xmlSerializer.attribute(<span class="keyword">null</span>, <span class="string">"type"</span>,<span class="string">"poetry_title"</span>);</span><br><span class="line">                xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"field"</span>);</span><br><span class="line">                xmlSerializer.attribute(<span class="keyword">null</span>,<span class="string">"name"</span>,<span class="string">"TITLE"</span>);</span><br><span class="line">                xmlSerializer.text(p.getTitle());</span><br><span class="line">                xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"field"</span>);</span><br><span class="line">                xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"block"</span>);</span><br><span class="line">                xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"value"</span>);</span><br><span class="line">                xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"block"</span>);</span><br><span class="line">                <span class="keyword">for</span>(<span class="built_in">String</span> c : p.getContents())&#123;</span><br><span class="line">                    xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"block"</span>);</span><br><span class="line">                    xmlSerializer.attribute(<span class="keyword">null</span>,<span class="string">"type"</span>,<span class="string">"poetry_contents"</span>);</span><br><span class="line">                    xmlSerializer.startTag(<span class="keyword">null</span>,<span class="string">"field"</span>);</span><br><span class="line">                    xmlSerializer.attribute(<span class="keyword">null</span>,<span class="string">"name"</span>,<span class="string">"CONTENT"</span>);</span><br><span class="line">                    xmlSerializer.text(c);</span><br><span class="line">                    xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"field"</span>);</span><br><span class="line">                    xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"block"</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//每一个endTag对应的startTag</span></span><br><span class="line">            xmlSerializer.endTag(<span class="keyword">null</span>,<span class="string">"toolbox"</span>);</span><br><span class="line">            xmlSerializer.endDocument();</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (XmlPullParserException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }</code></pre><p>这是 Util 工具类中的一个静态方法，本质上是依照一个 Toolbox 的书写形式来用动态生成一个 XML 文件，以达到写入动态数据的目的。</p>
-<pre><code>/**
-     * 根据不同的level加载不同难度的诗歌。
-     * @param level
-     */
-    private void reLoadPoetrys(int level) {
-        //重置工作空间
-        getController().resetWorkspace();
-        //进行动态权限申请
-        if (ContextCompat.checkSelfPermission(PoetryBlocklyActivity.this,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(PoetryBlocklyActivity.this,
-                    new String[] {Manifest.permission.WRITE_EXTERNAL_STORAGE},1);
-        } else {
-            load(level);
-        }
-    }
-    /**
-     * 初始化工作区时将块散乱排列
-     */
-    public void load(int level){
-        File directory = Environment.getExternalStorageDirectory();
-        File file = new File(directory,&quot;poetry_workspace.xml&quot;);
-        if(file.exists()){
-            file.delete();
+<p>这是 Util 工具类中的一个静态方法，本质上是依照一个 Toolbox 的书写形式来用动态生成一个 XML 文件，以达到写入动态数据的目的。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 根据不同的level加载不同难度的诗歌。</span></span><br><span class="line"><span class="comment">     * @param level</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> reLoadPoetrys(<span class="keyword">int</span> level) &#123;</span><br><span class="line">        <span class="comment">//重置工作空间</span></span><br><span class="line">        getController().resetWorkspace();</span><br><span class="line">        <span class="comment">//进行动态权限申请</span></span><br><span class="line">        <span class="built_in">if</span> (ContextCompat.checkSelfPermission(PoetryBlocklyActivity.<span class="keyword">this</span>,</span><br><span class="line">                Manifest.permission.WRITE_EXTERNAL_STORAGE)</span><br><span class="line">                != PackageManager.PERMISSION_GRANTED) &#123;</span><br><span class="line">            ActivityCompat.requestPermissions(PoetryBlocklyActivity.<span class="keyword">this</span>,</span><br><span class="line">                    <span class="keyword">new</span> <span class="keyword">String</span>[] &#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;,<span class="number">1</span>);</span><br><span class="line">        &#125; <span class="built_in">else</span> &#123;</span><br><span class="line">            load(level);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化工作区时将块散乱排列</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> load(<span class="keyword">int</span> level)&#123;</span><br><span class="line">        <span class="built_in">File</span> directory = Environment.getExternalStorageDirectory();</span><br><span class="line">        <span class="built_in">File</span> file = <span class="keyword">new</span> <span class="built_in">File</span>(directory,<span class="string">"poetry_workspace.xml"</span>);</span><br><span class="line">        <span class="built_in">if</span>(file.<span class="built_in">exists</span>())&#123;</span><br><span class="line">            file.<span class="keyword">delete</span>();</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">try</span> &#123;</span><br><span class="line">            file.createNewFile();</span><br><span class="line">        &#125; <span class="built_in">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">try</span> &#123;</span><br><span class="line">            FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(file);</span><br><span class="line">            Util.generateWholePoetryXML(fos,level);</span><br><span class="line">            fos.<span class="built_in">close</span>();</span><br><span class="line">            FileInputStream fis = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">            <span class="comment">//加载指定XML文件中的块</span></span><br><span class="line">            List&lt;Block&gt; blocks = BlocklyXmlHelper.loadFromXml(fis,</span><br><span class="line">                    getController().getBlockFactory());</span><br><span class="line"></span><br><span class="line">            <span class="comment">//将块打乱排列</span></span><br><span class="line">            <span class="built_in">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; blocks.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">                Block copiedModel = blocks.<span class="built_in">get</span>(i).deepCopy();</span><br><span class="line">                copiedModel.setPosition((<span class="keyword">int</span>) (Math.<span class="built_in">random</span>() * CARPET_SIZE) - CARPET_SIZE / <span class="number">2</span>,</span><br><span class="line">                        (<span class="keyword">int</span>) (Math.<span class="built_in">random</span>() * CARPET_SIZE) - CARPET_SIZE / <span class="number">2</span>);</span><br><span class="line">                getController().addRootBlock(copiedModel);</span><br><span class="line">            &#125;</span><br><span class="line">            fis.<span class="built_in">close</span>();</span><br><span class="line">        &#125; <span class="built_in">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="built_in">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="built_in">catch</span> (BlockLoadingException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 动态权限申请结果回调</span></span><br><span class="line"><span class="comment">     * @param requestCode</span></span><br><span class="line"><span class="comment">     * @param permissions</span></span><br><span class="line"><span class="comment">     * @param grantResults</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    @Override</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> onRequestPermissionsResult(<span class="keyword">int</span> requestCode, @NonNull <span class="keyword">String</span>[] permissions, @NonNull <span class="keyword">int</span>[] grantResults) &#123;</span><br><span class="line">        <span class="built_in">switch</span> (requestCode)&#123;</span><br><span class="line">            <span class="built_in">case</span> <span class="number">1</span>:</span><br><span class="line">                <span class="built_in">if</span>(grantResults.length &gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">                        grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">                    Toast.makeText(<span class="keyword">this</span>, <span class="string">"允许了权限"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                    load(currentLevel);</span><br><span class="line">                &#125;<span class="built_in">else</span>&#123;</span><br><span class="line">                    Toast.makeText(PoetryBlocklyActivity.<span class="keyword">this</span>, <span class="string">"你拒绝了权限申请"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="built_in">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-        }
-        try {
-            file.createNewFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try {
-            FileOutputStream fos = new FileOutputStream(file);
-            Util.generateWholePoetryXML(fos,level);
-            fos.close();
-            FileInputStream fis = new FileInputStream(file);
-            //加载指定XML文件中的块
-            List&lt;Block&gt; blocks = BlocklyXmlHelper.loadFromXml(fis,
-                    getController().getBlockFactory());
-
-            //将块打乱排列
-            for (int i = 0; i &lt; blocks.size(); i++) {
-                Block copiedModel = blocks.get(i).deepCopy();
-                copiedModel.setPosition((int) (Math.random() * CARPET_SIZE) - CARPET_SIZE / 2,
-                        (int) (Math.random() * CARPET_SIZE) - CARPET_SIZE / 2);
-                getController().addRootBlock(copiedModel);
-            }
-            fis.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (BlockLoadingException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    /**
-     * 动态权限申请结果回调
-     * @param requestCode
-     * @param permissions
-     * @param grantResults
-     */
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        switch (requestCode){
-            case 1:
-                if(grantResults.length &gt; 0 &amp;&amp;
-                        grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    Toast.makeText(this, &quot;允许了权限&quot;, Toast.LENGTH_SHORT).show();
-                    load(currentLevel);
-                }else{
-                    Toast.makeText(PoetryBlocklyActivity.this, &quot;你拒绝了权限申请&quot;, Toast.LENGTH_SHORT).show();
-                }
-                break;
-        }
-    }</code></pre><p>上面代码中一共是三个方法，reLoadPoetrys() 方法主要是进行一个动态权限的申请，因为我们会在手机的储存卡中生成一个临时的文件，所以需要进行权限申请。</p>
+<p>上面代码中一共是三个方法，reLoadPoetrys() 方法主要是进行一个动态权限的申请，因为我们会在手机的储存卡中生成一个临时的文件，所以需要进行权限申请。</p>
 <p>load() 方法是真正实现在工作区中加载指定的块并且支持随机散乱排列的一个方法。首先在手机储存卡中创建一个临时的文件，然后使用之前的工具类往这个文件中写入动态的内容，之后使用 <strong>List&lt; Block &gt; blocks = BlocklyXmlHelper.loadFromXml(fis, getController().getBlockFactory());</strong> 这行代码将这个文件中的对块的引用转化成一个一个 Block 实体类。这个方法是在 Blockly 的核心库中实现好的，我们可以直接拿来用。之后对返回的列表中的每个块进行一个深拷贝，然后为拷贝对象指定一个随机的工作区位置。这样就实现了块在工作区中散乱排列。最后使用 <strong>getController().addRootBlock(copiedModel);</strong> 这行代码将所有的块加入到工作区中，实现最终的出题效果。</p>
 <p>onRequestPermissionsResult（）是权限申请的回调方法，这里不多说。</p>
 <p>最后，我们只需要在 Activity 初始化的时候或者变换当前关卡时，调用 reLoadPoetrys() 这个方法即可。</p>
-<pre><code>    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        reLoadPoetrys(currentLevel);
-    }</code></pre><h4 id="7-实现多重关卡"><a href="#7-实现多重关卡" class="headerlink" title="7. 实现多重关卡"></a>7. 实现多重关卡</h4><p>其实通过上面这些方法的铺垫，实现多重关卡非常简单，只需要修改 reLoadPoetrys() 这个方法的传入参数即可。（这个方法的参数是当前的关卡数，也是要所选古诗的难度，两者是一一对应的）</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    reLoadPoetrys(currentLevel);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-实现多重关卡"><a href="#7-实现多重关卡" class="headerlink" title="7. 实现多重关卡"></a>7. 实现多重关卡</h4><p>其实通过上面这些方法的铺垫，实现多重关卡非常简单，只需要修改 reLoadPoetrys() 这个方法的传入参数即可。（这个方法的参数是当前的关卡数，也是要所选古诗的难度，两者是一一对应的）</p>
 <p>修改我们的 Activity，让它继承自 BlocklySectionsActivity，这时需要多覆盖两个父类的抽象方法，之前覆盖的抽象方法都不用做修改，因为 BlocklySectionsActivity 也是 AbstractBlocklyActivity 的一个子类。</p>
-<pre><code>    /**
-     * 创建等级不同的section，实现诗歌难易递进闯关
-     * @return
-     */
-    @NonNull
-    @Override
-    protected ListAdapter onCreateSectionsListAdapter() {
-        String[] levelNames = new String[6];
-        for (int i = 0; i &lt; 6; ++i) {
-            levelNames[i] = &quot;关卡 &quot; + (i + 1);
-        }
-        return new ArrayAdapter&lt;&gt;(this,
-                android.R.layout.simple_list_item_activated_1,
-                android.R.id.text1,
-                levelNames);
-    }
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 创建等级不同的section，实现诗歌难易递进闯关</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@NonNull</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function">ListAdapter <span class="title">onCreateSectionsListAdapter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String[] levelNames = <span class="keyword">new</span> String[<span class="number">6</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">6</span>; ++i) &#123;</span><br><span class="line">        levelNames[i] = <span class="string">"关卡 "</span> + (i + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> ArrayAdapter&lt;&gt;(<span class="keyword">this</span>,</span><br><span class="line">            android.R.layout.simple_list_item_activated_1,</span><br><span class="line">            android.R.id.text1,</span><br><span class="line">            levelNames);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * section改变时的回调</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> oldSection</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> newSection</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">boolean</span> <span class="title">onSectionChanged</span><span class="params">(<span class="keyword">int</span> oldSection, <span class="keyword">int</span> newSection)</span> </span>&#123;</span><br><span class="line">    currentLevel = newSection+<span class="number">1</span>;</span><br><span class="line">    Log.i(TAG, <span class="string">"onSectionChanged: oldsection="</span>+oldSection+<span class="string">",newsection="</span>+newSection);</span><br><span class="line">    reLoadPoetrys(currentLevel);</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * section改变时的回调
-     * @param oldSection
-     * @param newSection
-     * @return
-     */
-    @Override
-    protected boolean onSectionChanged(int oldSection, int newSection) {
-        currentLevel = newSection+1;
-        Log.i(TAG, &quot;onSectionChanged: oldsection=&quot;+oldSection+&quot;,newsection=&quot;+newSection);
-        reLoadPoetrys(currentLevel);
-        return true;
-    }</code></pre><p>在 onCreateSectionsListAdapter（）这个方法里面创建了六个关卡，然后在点击了不同的 section 时调用 reLoadPoetrys（）方法，传入当前的 level 值即可。</p>
+<p>在 onCreateSectionsListAdapter（）这个方法里面创建了六个关卡，然后在点击了不同的 section 时调用 reLoadPoetrys（）方法，传入当前的 level 值即可。</p>
 <h4 id="8-编写匹配判断逻辑"><a href="#8-编写匹配判断逻辑" class="headerlink" title="8. 编写匹配判断逻辑"></a>8. 编写匹配判断逻辑</h4><p>经过之前的这些工作，我们已经可以得到一个比较完美的界面，在工作区中可以随机排列两首古诗的标题和句子等待着拼接匹配。但是我们还没有说最为关键的一步，就是编写判断逻辑。即如何判断这些块是拼对了还是拼错了，只有将这个逻辑写出来，这个场景才算真正活过来。在第五步初始化 Activity 时，有一个 CodeGeneratorCallback 我们一直没有理会，我们的判断逻辑其实就是写在这个匿名内部类中。</p>
-<pre><code>//点击run后的回调
-    CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback = 
-            new CodeGenerationRequest.CodeGeneratorCallback() {
-        @Override
-        public void onFinishCodeGeneration(String generatedCode) {
-           //这里面写匹配是否正确的判断逻辑 
-        }
-    };</code></pre><p>上面这个 mCodeGeneratorCallback 是一个匿名内部类的引用，这个匿名内部类实现了 CodeGeneratorCallback 这个接口，onFinishCodeGeneration（）是一个回调，当点击运行按钮时，这个回调方法就会被触发。这个回调方法所携带的参数是各个块的生成器函数的返回值拼接成的一个字符串。我们就是通过分离这个字符串来取得相关信息，以此来进行逻辑的编写。</p>
-<pre><code>public final CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
-            new CodeGenerationRequest.CodeGeneratorCallback() {//用户按下运行按钮式打出一个toast,打出的是转换的js代码
-                @Override
-                public void onFinishCodeGeneration(final String generatedCode) {
-                    Log.i(TAG, &quot;generatedCode:\n&quot; + generatedCode);
-                    String[] codes = generatedCode.split(&quot;\n&quot;);
-                    String finalResult = &quot;&quot;;//存放结果集toast语句
-                    for (int i = 0; i &lt; codes.length; i++) {
-                        if (codes[i].equals(&quot;&quot;)) {//发现题的题目脱出后，返回的generationCode会多空出一行
-                            continue;
-                        }
-                        if (!codes[i].contains(&quot;=&quot;)) {//没有等号证明不是一首具体的诗
-                            finalResult += (codes[i] + &quot; 不能构成一首诗歌\n&quot;);
-                            continue;
-                        }
-                        String[] result = codes[i].split(&quot;=&quot;);
-                        if (result.length == 1) {//只有一个空的框架，题目和内容都没有填
-                            finalResult += (&quot;这个框架什么都没有\n&quot;);
-                            continue;
-                        }
-                        String title = result[1];
-                        List&lt;Poetry&gt; ps = DataSupport.where(&quot;title = ?&quot;, title).find(Poetry.class);
-                        if (ps == null || ps.size() == 0) {
-                            Log.i(TAG, &quot;执行第几次循环？&quot; + i);
-                            finalResult += (title + &quot;没有这首诗\n&quot;);
-                            // Toast.makeText(MyBlocklyActivity.this, &quot;没有这首诗&quot;, Toast.LENGTH_SHORT).show();
-                            Log.i(TAG, &quot;此时的finalrusult为？&quot; + finalResult);
-                        } else {
-                            //查找到这首诗歌
-                            Poetry p = ps.get(0);
-                            StringBuffer sb = new StringBuffer();
-                            //查询这首诗歌的所有内容
-                            List&lt;String&gt; cts = p.getContents();
-                            //将list形式的内容转化成字符串形式。
-                            for (String c : cts) {
-                                sb.append(c);
-                            }
-                            String content = sb.toString();
-                            if (result.length &lt; 3) {//判断出是否是没有填内容的
-                                finalResult += (title + &quot;这首诗并没有完成\n&quot;);
-                            } else if (content.equals(result[2])) {
-                                finalResult += (title + &quot;匹配正确\n&quot;);
-                            } else {
-                                finalResult += (title + &quot;匹配错误\n&quot;);
-                            }
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//点击run后的回调</span></span><br><span class="line">    CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback = </span><br><span class="line">            <span class="keyword">new</span> CodeGenerationRequest.CodeGeneratorCallback() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onFinishCodeGeneration</span><span class="params">(String generatedCode)</span> </span>&#123;</span><br><span class="line">           <span class="comment">//这里面写匹配是否正确的判断逻辑 </span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
 
-                        }
+<p>上面这个 mCodeGeneratorCallback 是一个匿名内部类的引用，这个匿名内部类实现了 CodeGeneratorCallback 这个接口，onFinishCodeGeneration（）是一个回调，当点击运行按钮时，这个回调方法就会被触发。这个回调方法所携带的参数是各个块的生成器函数的返回值拼接成的一个字符串。我们就是通过分离这个字符串来取得相关信息，以此来进行逻辑的编写。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">final</span> CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =</span><br><span class="line">            <span class="keyword">new</span> CodeGenerationRequest.CodeGeneratorCallback() &#123;<span class="comment">//用户按下运行按钮式打出一个toast,打出的是转换的js代码</span></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                public <span class="keyword">void</span> onFinishCodeGeneration(<span class="keyword">final</span> <span class="built_in">String</span> generatedCode) &#123;</span><br><span class="line">                    Log.i(TAG, <span class="string">"generatedCode:\n"</span> + generatedCode);</span><br><span class="line">                    <span class="built_in">String</span>[] codes = generatedCode.split(<span class="string">"\n"</span>);</span><br><span class="line">                    <span class="built_in">String</span> finalResult = <span class="string">""</span>;<span class="comment">//存放结果集toast语句</span></span><br><span class="line">                    <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; codes.length; i++) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (codes[i].equals(<span class="string">""</span>)) &#123;<span class="comment">//发现题的题目脱出后，返回的generationCode会多空出一行</span></span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="keyword">if</span> (!codes[i].contains(<span class="string">"="</span>)) &#123;<span class="comment">//没有等号证明不是一首具体的诗</span></span><br><span class="line">                            finalResult += (codes[i] + <span class="string">" 不能构成一首诗歌\n"</span>);</span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="built_in">String</span>[] result = codes[i].split(<span class="string">"="</span>);</span><br><span class="line">                        <span class="keyword">if</span> (result.length == <span class="number">1</span>) &#123;<span class="comment">//只有一个空的框架，题目和内容都没有填</span></span><br><span class="line">                            finalResult += (<span class="string">"这个框架什么都没有\n"</span>);</span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                        <span class="built_in">String</span> title = result[<span class="number">1</span>];</span><br><span class="line">                        <span class="built_in">List</span>&lt;Poetry&gt; ps = DataSupport.where(<span class="string">"title = ?"</span>, title).find(Poetry.<span class="keyword">class</span>);</span><br><span class="line">                        <span class="keyword">if</span> (ps == <span class="keyword">null</span> || ps.size() == <span class="number">0</span>) &#123;</span><br><span class="line">                            Log.i(TAG, <span class="string">"执行第几次循环？"</span> + i);</span><br><span class="line">                            finalResult += (title + <span class="string">"没有这首诗\n"</span>);</span><br><span class="line">                            <span class="comment">// Toast.makeText(MyBlocklyActivity.this, "没有这首诗", Toast.LENGTH_SHORT).show();</span></span><br><span class="line">                            Log.i(TAG, <span class="string">"此时的finalrusult为？"</span> + finalResult);</span><br><span class="line">                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="comment">//查找到这首诗歌</span></span><br><span class="line">                            Poetry p = ps.<span class="keyword">get</span>(<span class="number">0</span>);</span><br><span class="line">                            <span class="built_in">StringBuffer</span> sb = <span class="keyword">new</span> <span class="built_in">StringBuffer</span>();</span><br><span class="line">                            <span class="comment">//查询这首诗歌的所有内容</span></span><br><span class="line">                            <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; cts = p.getContents();</span><br><span class="line">                            <span class="comment">//将list形式的内容转化成字符串形式。</span></span><br><span class="line">                            <span class="keyword">for</span> (<span class="built_in">String</span> c : cts) &#123;</span><br><span class="line">                                sb.append(c);</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="built_in">String</span> content = sb.toString();</span><br><span class="line">                            <span class="keyword">if</span> (result.length &lt; <span class="number">3</span>) &#123;<span class="comment">//判断出是否是没有填内容的</span></span><br><span class="line">                                finalResult += (title + <span class="string">"这首诗并没有完成\n"</span>);</span><br><span class="line">                            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (content.equals(result[<span class="number">2</span>])) &#123;</span><br><span class="line">                                finalResult += (title + <span class="string">"匹配正确\n"</span>);</span><br><span class="line">                            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                finalResult += (title + <span class="string">"匹配错误\n"</span>);</span><br><span class="line">                            &#125;</span><br><span class="line"></span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                    &#125;</span><br><span class="line">                    Toast.makeText(PoetryBlocklyActivity.<span class="keyword">this</span>, finalResult, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;;</span><br></pre></td></tr></table></figure>
 
-                    }
-                    Toast.makeText(PoetryBlocklyActivity.this, finalResult, Toast.LENGTH_SHORT).show();
-                }
-            };</code></pre><p>每个场景的设计不同，它所需要的判断逻辑也不相同，所以需要根据实际的场景来编写相应的逻辑，并且在编写逻辑的过程中要尽量考虑到各种可能的情形，要具备一定的容错性。</p>
+<p>每个场景的设计不同，它所需要的判断逻辑也不相同，所以需要根据实际的场景来编写相应的逻辑，并且在编写逻辑的过程中要尽量考虑到各种可能的情形，要具备一定的容错性。</p>
 <h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>上述就是利用 Blockly 进行一个实际的场景开发的实例，其实熟知了 Android 平台下 Blockly 的整体执行逻辑后，你会发现所有场景开发的步骤都是类似的。当然，要想实现一些比较复杂的功能，比如这个例子中的随机出题和块在工作区中散乱排列，还是需要多研究官方给的 demo 和底层的源码。</p>
 
 

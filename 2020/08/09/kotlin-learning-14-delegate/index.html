@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -382,63 +382,28 @@
 <p>下面以一个具体的例子来介绍下 Kotlin 中类委托的写法（该例子来自参考资料 2，清晰易懂）：</p>
 <p>很多年轻人喜欢打英雄联盟，这个游戏是有等级划分的，对多数玩家来说想要上到钻石段位比较难，就随之诞生了游戏代练一职，帮玩家上分，这其中就体现了委托模式的思想，玩家委托代练打排位，玩家不关心代练打排位的过程，只关注最后是否成功晋级的结果。</p>
 <p>首先我们定义一个约束，包含了需要委托的业务，这里的就是打排位和晋级。</p>
-<pre><code class="kotlin">// 接口：约束，定义了需要代理的逻辑
-interface IGamePlayer {
-    // 打排位赛
-    fun rank()
-    // 晋级
-    fun update()
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 接口：约束，定义了需要代理的逻辑</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IGamePlayer</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 打排位赛</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">rank</span><span class="params">()</span></span></span><br><span class="line">    <span class="comment">// 晋级</span></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">update</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>然后我们定义被委托者，也就是游戏代练。</p>
-<pre><code class="kotlin">// 被委托者（游戏代练）
-class RealGamePlayer(val name: String) : IGamePlayer {
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 被委托者（游戏代练）</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RealGamePlayer</span></span>(<span class="keyword">val</span> name: String) : IGamePlayer &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">rank</span><span class="params">()</span></span> &#123;</span><br><span class="line">        println(<span class="string">"<span class="variable">$name</span> 打排位赛"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">update</span><span class="params">()</span></span> &#123;</span><br><span class="line">        println(<span class="string">"<span class="variable">$name</span> 晋级"</span>)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    override fun rank() {
-        println(&quot;$name 打排位赛&quot;)
-    }
-
-    override fun update() {
-        println(&quot;$name 晋级&quot;)
-    }
-
-}</code></pre>
 <p>上面代码中定义了 RealGamePlayer，有个属性是 name，同时实现了约束接口 IGamePlayer，并实现了接口中定义的业务方法。</p>
 <p>接下来是委托者：</p>
-<pre><code class="kotlin">// 委托者
-class DelegateGamePlayer(private val player: IGamePlayer) : IGamePlayer by player</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 委托者</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DelegateGamePlayer</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> player: IGamePlayer) : IGamePlayer <span class="keyword">by</span> player</span><br></pre></td></tr></table></figure>
+
 <p>可以看到，我们定义了一个 DelegateGamePlayer，同样实现了 IGamePlayer，并且通过构造函数传入了一个被委托对象 player。Kotlin 委托用 by 修饰，by 后面就是被委托的对象，可以是一个表达式，所以上例通过 <code>by player</code> 把 DelegateGamePlayer 的所有方法委托给了 player。</p>
 <p>最后写一些测试代码：</p>
-<pre><code class="kotlin">fun main() {
-    val realGamePlayer = RealGamePlayer(&quot;张三&quot;)
-    val delegateGamePlayer = DelegateGamePlayer(realGamePlayer)
-    delegateGamePlayer.rank()
-    delegateGamePlayer.update()
-}
-// 运行结果
-张三 打排位
-张三 晋级</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> realGamePlayer = RealGamePlayer(<span class="string">"张三"</span>)</span><br><span class="line">    <span class="keyword">val</span> delegateGamePlayer = DelegateGamePlayer(realGamePlayer)</span><br><span class="line">    delegateGamePlayer.rank()</span><br><span class="line">    delegateGamePlayer.update()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">张三 打排位</span><br><span class="line">张三 晋级</span><br></pre></td></tr></table></figure>
+
 <p>以上就是类委托的使用，两个对象参与处理一个请求，这个请求是约束中的定义的业务方法。委托类（DelegateGamePlayer）和被委托类（RealGamePlayer）都要实现约束接口（IGamePlayer）。</p>
 <p>如果委托者中重写了约束中的方法实现，那么这个方法不会委托给被委托者。</p>
 <p>我们修改一下 DelegateGamePlayer：</p>
-<pre><code class="kotlin">class DelegateGamePlayer(private val player: IGamePlayer) : IGamePlayer by player {
-    override fun update() {
-        println(&quot;玩家升级了&quot;)
-    }
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DelegateGamePlayer</span></span>(<span class="keyword">private</span> <span class="keyword">val</span> player: IGamePlayer) : IGamePlayer <span class="keyword">by</span> player &#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">update</span><span class="params">()</span></span> &#123;</span><br><span class="line">        println(<span class="string">"玩家升级了"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> realGamePlayer = RealGamePlayer(<span class="string">"张三"</span>)</span><br><span class="line">    <span class="keyword">val</span> delegateGamePlayer = DelegateGamePlayer(realGamePlayer)</span><br><span class="line">    delegateGamePlayer.rank()</span><br><span class="line">    delegateGamePlayer.update()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">张三 打排位赛</span><br><span class="line">玩家升级了</span><br></pre></td></tr></table></figure>
 
-fun main() {
-    val realGamePlayer = RealGamePlayer(&quot;张三&quot;)
-    val delegateGamePlayer = DelegateGamePlayer(realGamePlayer)
-    delegateGamePlayer.rank()
-    delegateGamePlayer.update()
-}
-
-// 运行结果
-张三 打排位赛
-玩家升级了</code></pre>
 <h3 id="属性委托"><a href="#属性委托" class="headerlink" title="属性委托"></a>属性委托</h3><p>属性委托指的是一个类的某个属性值不是在类中直接进行定义，而是将其托付给一个代理类，从而实现对该类的属性统一管理。</p>
 <p>属性委托的格式是：</p>
-<pre><code class="kotlin">val / var &lt;属性名&gt;: &lt;类型&gt; by &lt;表达式&gt;</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> / <span class="keyword">var</span> &lt;属性名&gt;: &lt;类型&gt; <span class="keyword">by</span> &lt;表达式&gt;</span><br></pre></td></tr></table></figure>
+
 <ul>
 <li>val / var：属性是可变还是只读</li>
 <li>属性名：属性的名称</li>
@@ -447,31 +412,8 @@ fun main() {
 </ul>
 <p>前面提到，委托中有个角色是约束，里面定义了代理的业务。类委托中通常是个接口，那属性委托呢？其实也是有约束的，被代理的逻辑就是这个属性的 <code>getter / setter</code> 方法，因此被委托类需要提供 <code>setValue/getValue</code> 的方法。如果是 val 属性，则只需要提供 <code>getValue</code>。</p>
 <p>我们看一个示例：</p>
-<pre><code class="kotlin">class Test {
-    // 属性委托
-    var prop: String by Delegate()
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 属性委托</span></span><br><span class="line">    <span class="keyword">var</span> prop: String <span class="keyword">by</span> Delegate()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Delegate</span> </span>&#123;</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">getValue</span><span class="params">(thisRef: <span class="type">Any</span>?, property: <span class="type">KProperty</span>&lt;*&gt;)</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"对象为：<span class="variable">$thisRef</span>，委托的属性为：<span class="variable">$property</span>"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">setValue</span><span class="params">(thisRef: <span class="type">Any</span>?, property: <span class="type">KProperty</span>&lt;*&gt;, value: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">        println(<span class="string">"<span class="variable">$value</span> 被赋值给对象 <span class="variable">$thisRef</span> 的 <span class="variable">$property</span> 属性"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    println(Test().prop)</span><br><span class="line">    Test().prop = <span class="string">"Hello World"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">对象为：cc.lixiaoyu.hellokotlin.<span class="symbol">Test@</span><span class="number">1</span>a93a7ca，委托的属性为：<span class="keyword">var</span> cc.lixiaoyu.hellokotlin.Test.prop: kotlin.String</span><br><span class="line"></span><br><span class="line">Hello World 被赋值给对象 cc.lixiaoyu.hellokotlin.<span class="symbol">Test@</span><span class="number">693f</span>e6c9 的 <span class="keyword">var</span> cc.lixiaoyu.hellokotlin.Test.prop: kotlin.String 属性</span><br></pre></td></tr></table></figure>
 
-
-class Delegate {
-    operator fun getValue(thisRef: Any?, property: KProperty&lt;*&gt;): String {
-        return &quot;对象为：$thisRef，委托的属性为：$property&quot;
-    }
-
-    operator fun setValue(thisRef: Any?, property: KProperty&lt;*&gt;, value: String) {
-        println(&quot;$value 被赋值给对象 $thisRef 的 $property 属性&quot;)
-    }
-}
-
-fun main() {
-    println(Test().prop)
-    Test().prop = &quot;Hello World&quot;
-}
-
-// 运行结果
-对象为：cc.lixiaoyu.hellokotlin.Test@1a93a7ca，委托的属性为：var cc.lixiaoyu.hellokotlin.Test.prop: kotlin.String
-
-Hello World 被赋值给对象 cc.lixiaoyu.hellokotlin.Test@693fe6c9 的 var cc.lixiaoyu.hellokotlin.Test.prop: kotlin.String 属性</code></pre>
 <p>从上面的代码中可以看出一个属性委托的被委托类是怎么写的，下面来解释下 getValue 和 setValue 中出现的参数：</p>
 <ul>
 <li><p><strong>thisRef</strong>：指的是这个属性所在的对象，必须和这个属性所在类的类型相同或者是它的父类。</p>
@@ -482,24 +424,12 @@ Hello World 被赋值给对象 cc.lixiaoyu.hellokotlin.Test@693fe6c9 的 var cc.
 </li>
 </ul>
 <p>这样固定的写法，如果每次都要手写还是比较麻烦的，我们很自然能想到写一个接口，被代理类只需要实现这个接口就可以了。Kotlin 标注库中也确实提供了这样的接口：<code>ReadOnlyProperty</code> 和 <code>ReadWriteProperty</code>。</p>
-<pre><code class="kotlin">interface ReadOnlyProperty&lt;in R, out T&gt; {
-    operator fun getValue(thisRef: R, property: KProperty&lt;*&gt;): T
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ReadOnlyProperty</span>&lt;<span class="type">in R, out T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">getValue</span><span class="params">(thisRef: <span class="type">R</span>, property: <span class="type">KProperty</span>&lt;*&gt;)</span></span>: T</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ReadWriteProperty</span>&lt;<span class="type">in R, T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">getValue</span><span class="params">(thisRef: <span class="type">R</span>, property: <span class="type">KProperty</span>&lt;*&gt;)</span></span>: T</span><br><span class="line">    <span class="keyword">operator</span> <span class="function"><span class="keyword">fun</span> <span class="title">setValue</span><span class="params">(thisRef: <span class="type">R</span>, property: <span class="type">KProperty</span>&lt;*&gt;, value: <span class="type">T</span>)</span></span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-interface ReadWriteProperty&lt;in R, T&gt; {
-    operator fun getValue(thisRef: R, property: KProperty&lt;*&gt;): T
-    operator fun setValue(thisRef: R, property: KProperty&lt;*&gt;, value: T)
-}</code></pre>
 <p>被委托类实现其中一个接口就可以了，val 属性实现ReadOnlyProperty，var属性实现ReadWriteProperty。</p>
 <p>上面的 Delegate 类可以改写成这样：</p>
-<pre><code class="kotlin">class Delegate : ReadWriteProperty&lt;Any, String&gt; {
-    override fun getValue(thisRef: Any, property: KProperty&lt;*&gt;): String {
-        return &quot;对象为：$thisRef，委托的属性为：$property&quot;
-    }
-    override fun setValue(thisRef: Any, property: KProperty&lt;*&gt;, value: String) {
-        println(&quot;$value 被赋值给对象 $thisRef 的 $property 属性&quot;)
-    }
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Delegate</span> : <span class="type">ReadWriteProperty</span>&lt;<span class="type">Any, String</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">getValue</span><span class="params">(thisRef: <span class="type">Any</span>, property: <span class="type">KProperty</span>&lt;*&gt;)</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"对象为：<span class="variable">$thisRef</span>，委托的属性为：<span class="variable">$property</span>"</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">setValue</span><span class="params">(thisRef: <span class="type">Any</span>, property: <span class="type">KProperty</span>&lt;*&gt;, value: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">        println(<span class="string">"<span class="variable">$value</span> 被赋值给对象 <span class="variable">$thisRef</span> 的 <span class="variable">$property</span> 属性"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="Kotlin-标准库中的委托"><a href="#Kotlin-标准库中的委托" class="headerlink" title="Kotlin 标准库中的委托"></a>Kotlin 标准库中的委托</h3><p>Kotlin 标准库中提供了几种委托，比如：</p>
 <ul>
 <li>延迟属性（lazy properties）：属性的值只在首次访问时计算；</li>
@@ -509,107 +439,27 @@ interface ReadWriteProperty&lt;in R, T&gt; {
 </ul>
 <p>下面分别来看看：</p>
 <h4 id="延迟属性-lazy"><a href="#延迟属性-lazy" class="headerlink" title="延迟属性 lazy"></a>延迟属性 lazy</h4><p><code>lazy()</code> 接受一个 Lambda 并返回一个 <code>Lazy&lt;T&gt;</code> 实例的函数，返回的实例可以作为实现延迟属性的委托：第一次调用 get() 会执行已传递给 lazy() 的 Lambda 并记录结果， 后续调用 get() 只是返回记录的结果。</p>
-<pre><code class="kotlin">val lazyValue:String by lazy {
-    println(&quot;computed&quot;) // 第一次调用执行，第二次调用不执行
-    &quot;Hello&quot;
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">val</span> lazyValue:String <span class="keyword">by</span> lazy &#123;</span><br><span class="line">    println(<span class="string">"computed"</span>) <span class="comment">// 第一次调用执行，第二次调用不执行</span></span><br><span class="line">    <span class="string">"Hello"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    println(lazyValue) <span class="comment">// 第一次执行</span></span><br><span class="line">    println(lazyValue) <span class="comment">// 第二次执行</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">computed</span><br><span class="line">Hello</span><br><span class="line">Hello</span><br></pre></td></tr></table></figure>
 
-fun main() {
-    println(lazyValue) // 第一次执行
-    println(lazyValue) // 第二次执行
-}
-
-// 运行结果
-computed
-Hello
-Hello</code></pre>
 <p>lazy 延迟初始化也可以接受参数，标准库中提供了下面三种：</p>
-<pre><code class="kotlin">public enum class LazyThreadSafetyMode {
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">LazyThreadSafetyMode</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加同步锁，使 lazy 延迟初始化线程安全</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    SYNCHRONIZED,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化的 Lambda 表达式可以在同一时间被多次调用，但是只有第一个返回的值作为初始化的值</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    PUBLICATION,</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 没有同步锁，多线程访问时候，初始化的值是未知的，非线程安全。</span></span><br><span class="line"><span class="comment">     * 一般情况下，不推荐使用这种方式，除非你能保证初始化和属性始终在同一个线程</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    NONE,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 添加同步锁，使 lazy 延迟初始化线程安全
-     */
-    SYNCHRONIZED,
-
-    /**
-     * 初始化的 Lambda 表达式可以在同一时间被多次调用，但是只有第一个返回的值作为初始化的值
-     */
-    PUBLICATION,
-
-    /**
-     * 没有同步锁，多线程访问时候，初始化的值是未知的，非线程安全。
-     * 一般情况下，不推荐使用这种方式，除非你能保证初始化和属性始终在同一个线程
-     */
-    NONE,
-}</code></pre>
 <p>lazy 函数默认的模式是 LazyThreadSafetyMode.SYNCHRONIZED。</p>
 <h4 id="可观察属性-observable"><a href="#可观察属性-observable" class="headerlink" title="可观察属性 observable"></a>可观察属性 observable</h4><p>observable 可以用于实现观察者模式。<code>Delegates.observable()</code> 函数接受两个参数：第一个是 <code>初始值</code>，第二个是属性值变化事件的 <code>响应器（监听器）</code>。在属性赋值后会执行事件的响应器，它有三个参数：<code>被赋值的属性</code>、<code>旧值</code> 和 <code>新值</code>：</p>
-<pre><code class="kotlin">class User {
-    var name : String by Delegates.observable(&quot;初始值&quot;) {
-        property, oldValue, newValue -&gt;
-        println(&quot;属性是：$property，旧值是：$oldValue，新值是：$newValue&quot;)
-    }
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name : String <span class="keyword">by</span> Delegates.observable(<span class="string">"初始值"</span>) &#123;</span><br><span class="line">        property, oldValue, newValue -&gt;</span><br><span class="line">        println(<span class="string">"属性是：<span class="variable">$property</span>，旧值是：<span class="variable">$oldValue</span>，新值是：<span class="variable">$newValue</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> user = User()</span><br><span class="line">    user.name = <span class="string">"第一次赋值"</span></span><br><span class="line">    user.name = <span class="string">"第二次赋值"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">属性是：<span class="keyword">var</span> cc.lixiaoyu.hellokotlin.User.name: kotlin.String，旧值是：初始值，新值是：第一次赋值</span><br><span class="line">属性是：<span class="keyword">var</span> cc.lixiaoyu.hellokotlin.User.name: kotlin.String，旧值是：第一次赋值，新值是：第二次赋值</span><br></pre></td></tr></table></figure>
 
-fun main() {
-    val user = User()
-    user.name = &quot;第一次赋值&quot;
-    user.name = &quot;第二次赋值&quot;
-}
-// 运行结果
-属性是：var cc.lixiaoyu.hellokotlin.User.name: kotlin.String，旧值是：初始值，新值是：第一次赋值
-属性是：var cc.lixiaoyu.hellokotlin.User.name: kotlin.String，旧值是：第一次赋值，新值是：第二次赋值</code></pre>
 <h4 id="vetoable"><a href="#vetoable" class="headerlink" title="vetoable"></a>vetoable</h4><p><code>vetoable</code> 和 observable 一样，可以观察属性值的变化，并且 vetoable 可以通过处理器函数来决定属性值是否生效。</p>
 <p>我们声明一个 Int 类型的属性 vetoableValue，如果新值比旧值大，则赋值给属性，否则不赋值。</p>
-<pre><code class="kotlin">var vetoableValue: Int by Delegates.vetoable(0) { _, oldValue, newValue -&gt;
-    println(&quot;$oldValue -&gt; $newValue&quot;)
-    newValue &gt; oldValue
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> vetoableValue: <span class="built_in">Int</span> <span class="keyword">by</span> Delegates.vetoable(<span class="number">0</span>) &#123; _, oldValue, newValue -&gt;</span><br><span class="line">    println(<span class="string">"<span class="variable">$oldValue</span> -&gt; <span class="variable">$newValue</span>"</span>)</span><br><span class="line">    newValue &gt; oldValue</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    println(<span class="string">"vetoableValue=<span class="variable">$vetoableValue</span>"</span>)</span><br><span class="line">    vetoableValue = <span class="number">10</span></span><br><span class="line">    println(<span class="string">"vetoableValue=<span class="variable">$vetoableValue</span>"</span>)</span><br><span class="line">    vetoableValue = <span class="number">5</span></span><br><span class="line">    println(<span class="string">"vetoableValue=<span class="variable">$vetoableValue</span>"</span>)</span><br><span class="line">    vetoableValue = <span class="number">20</span></span><br><span class="line">    println(<span class="string">"vetoableValue=<span class="variable">$vetoableValue</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">vetoableValue=<span class="number">0</span></span><br><span class="line"><span class="number">0</span> -&gt; <span class="number">10</span></span><br><span class="line">vetoableValue=<span class="number">10</span></span><br><span class="line"><span class="number">10</span> -&gt; <span class="number">5</span></span><br><span class="line">vetoableValue=<span class="number">10</span> <span class="comment">// 10 -&gt; 5 的赋值没有生效</span></span><br><span class="line"><span class="number">10</span> -&gt; <span class="number">20</span></span><br><span class="line">vetoableValue=<span class="number">20</span></span><br></pre></td></tr></table></figure>
 
-fun main() {
-    println(&quot;vetoableValue=$vetoableValue&quot;)
-    vetoableValue = 10
-    println(&quot;vetoableValue=$vetoableValue&quot;)
-    vetoableValue = 5
-    println(&quot;vetoableValue=$vetoableValue&quot;)
-    vetoableValue = 20
-    println(&quot;vetoableValue=$vetoableValue&quot;)
-}
-
-// 运行结果
-vetoableValue=0
-0 -&gt; 10
-vetoableValue=10
-10 -&gt; 5
-vetoableValue=10 // 10 -&gt; 5 的赋值没有生效
-10 -&gt; 20
-vetoableValue=20</code></pre>
 <h4 id="属性存储在映射中"><a href="#属性存储在映射中" class="headerlink" title="属性存储在映射中"></a>属性存储在映射中</h4><p>一个常见的用例是在一个映射（map）里存储属性的值。 这经常出现在像解析 JSON 或者做其他”动态”事情的应用中。 在这种情况下，你可以使用映射实例自身作为委托来实现委托属性。</p>
 <p>比如下面这个例子：</p>
-<pre><code class="kotlin">class User(val map: Map&lt;String, Any?&gt;) {
-    val name: String by map
-    val age: Int by map
-}
-fun main() {
-    val user = User(mapOf(
-        &quot;name&quot; to &quot;Owen&quot;,
-        &quot;age&quot; to 18
-    ))
-    println(&quot;name=${user.name}, age=${user.age}&quot;)
-}
-// 运行结果
-name=Owen, age=18</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(<span class="keyword">val</span> map: Map&lt;String, Any?&gt;) &#123;</span><br><span class="line">    <span class="keyword">val</span> name: String <span class="keyword">by</span> map</span><br><span class="line">    <span class="keyword">val</span> age: <span class="built_in">Int</span> <span class="keyword">by</span> map</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> user = User(mapOf(</span><br><span class="line">        <span class="string">"name"</span> to <span class="string">"Owen"</span>,</span><br><span class="line">        <span class="string">"age"</span> to <span class="number">18</span></span><br><span class="line">    ))</span><br><span class="line">    println(<span class="string">"name=<span class="subst">$&#123;user.name&#125;</span>, age=<span class="subst">$&#123;user.age&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">name=Owen, age=<span class="number">18</span></span><br></pre></td></tr></table></figure>
+
 <p>如果是 var 属性，需要把 Map 换成 MutableMap。</p>
 <h4 id="Not-Null"><a href="#Not-Null" class="headerlink" title="Not Null"></a>Not Null</h4><p><code>Delegates.notNull</code> 适用于那些无法在初始化阶段就确定属性值的场合。如果属性在赋值前被访问会抛出异常。</p>
-<pre><code class="kotlin">var notNullValue: String by Delegates.notNull()
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> notNullValue: String <span class="keyword">by</span> Delegates.notNull()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    notNullValue = <span class="string">"hello"</span></span><br><span class="line">    println(notNullValue)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">hello</span><br></pre></td></tr></table></figure>
 
-fun main() {
-    notNullValue = &quot;hello&quot;
-    println(notNullValue)
-}
-
-// 运行结果
-hello</code></pre>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.runoob.com/kotlin/kotlin-delegated.html" target="_blank" rel="noopener">kotlin 委托【菜鸟教程】</a></p>
 <p><a href="https://juejin.im/post/5e1288d86fb9a048217a19d9" target="_blank" rel="noopener">一文彻底搞懂 Kotlin 中的委托</a></p>
 <p><a href="https://www.kotlincn.net/docs/reference/delegation.html" target="_blank" rel="noopener">委托【Kotlin 中文站】</a></p>

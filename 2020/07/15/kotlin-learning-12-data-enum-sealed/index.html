@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -371,7 +371,8 @@
 </ul>
 <h3 id="数据类"><a href="#数据类" class="headerlink" title="数据类"></a>数据类</h3><p>在 Android 开发中，一个非常常见的场景是发送网络请求，从服务端获取 Json 格式的数据，然后解析成实体类。这个类中只包含一些数据，通常没有额外的复杂函数逻辑。在 Kotlin 中，把这样的类叫做<code>数据类</code>。使用 <code>data class</code> 来定义。</p>
 <p>定义格式：</p>
-<pre><code class="kotlin">data class User(val name:String, val age: Int)</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(<span class="keyword">val</span> name:String, <span class="keyword">val</span> age: <span class="built_in">Int</span>)</span><br></pre></td></tr></table></figure>
+
 <p>编译器根据数据类主构造函数中的参数列表自动生成了以下函数：</p>
 <ul>
 <li>equals() 与 hashCode()</li>
@@ -390,184 +391,56 @@
 </ul>
 <h4 id="和-Java-的比较"><a href="#和-Java-的比较" class="headerlink" title="和 Java 的比较"></a>和 Java 的比较</h4><p>Kotlin 数据类最大的优势在于我们可以不要用像以前在 Java 中那样去给每个变量写 getter、setter 方法，从而减少很多模版代码。</p>
 <p>来看一个与 Java 的对比：</p>
-<pre><code class="java">// Java version
-public class User{
-    private String name;
-    private int age;
-    private int height;
-    private int weight;
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Java version</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> height;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> weight;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.age = age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getHeight</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> height;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setHeight</span><span class="params">(<span class="keyword">int</span> height)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.height = height;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getWeight</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> weight;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setWeight</span><span class="params">(<span class="keyword">int</span> weight)</span></span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.weight = weight;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public String getName(){
-        return name;
-    }
-    public void setName(String name){
-        this.name = name;
-    }
-    public int getAge(){
-        return age;
-    }
-    public void setAge(int age){
-        this.age = age;
-    }
-    public int getHeight(){
-        return height;
-    }
-    public void setHeight(int height){
-        this.height = height;
-    }
-    public int getWeight(){
-        return weight;
-    }
-    public void setWeight(int weight){
-        this.weight = weight;
-    }
-}</code></pre>
-<pre><code class="kotlin">// Kotlin version
-data class User(
-    val name: String,
-    val age: Int,
-    val height: Int,
-    val weight: Int
-)</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Kotlin version</span></span><br><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(</span><br><span class="line">	<span class="keyword">val</span> name: String,</span><br><span class="line">	<span class="keyword">val</span> age: <span class="built_in">Int</span>,</span><br><span class="line">	<span class="keyword">val</span> height: <span class="built_in">Int</span>,</span><br><span class="line">	<span class="keyword">val</span> weight: <span class="built_in">Int</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 <p>可以看到代码明显更加精简。</p>
 <h4 id="使用-copy-函数"><a href="#使用-copy-函数" class="headerlink" title="使用 copy 函数"></a>使用 copy 函数</h4><p>copy 函数可以用来复制一个新的数据类实例，同时可以对某些属性做修改。数据类中 val 修饰的变量只能通过copy 函数来修改，var 修饰的变量可以通过 setter 函数修改。</p>
-<pre><code class="kotlin">data class User(val name: String, val age: Int)
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> age: <span class="built_in">Int</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> user1 = User(<span class="string">"owen"</span>, <span class="number">11</span>)</span><br><span class="line">    <span class="keyword">val</span> user2 = user1.copy(age = <span class="number">33</span>)</span><br><span class="line">    println(user1)</span><br><span class="line">    println(user2)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">User(name=owen, age=<span class="number">11</span>)</span><br><span class="line">User(name=owen, age=<span class="number">33</span>)</span><br></pre></td></tr></table></figure>
 
-fun main() {
-    val user1 = User(&quot;owen&quot;, 11)
-    val user2 = user1.copy(age = 33)
-    println(user1)
-    println(user2)
-}
-// 运行结果
-User(name=owen, age=11)
-User(name=owen, age=33)</code></pre>
 <h4 id="解构声明"><a href="#解构声明" class="headerlink" title="解构声明"></a>解构声明</h4><p>前面提到，数据类会根据参数自动生成 componentN() 函数，主要就是用于解构声明中。</p>
-<pre><code class="kotlin">data class User(val name: String, val age: Int)
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> age: <span class="built_in">Int</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> user1 = User(<span class="string">"owen"</span>, <span class="number">11</span>)</span><br><span class="line">    println(<span class="string">"user1.component1=<span class="subst">$&#123;user1.component1()&#125;</span>"</span>)</span><br><span class="line">    println(<span class="string">"user1.component2=<span class="subst">$&#123;user1.component2()&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">user1.component1=owen</span><br><span class="line">user1.component2=<span class="number">11</span></span><br></pre></td></tr></table></figure>
 
-fun main() {
-    val user1 = User(&quot;owen&quot;, 11)
-    println(&quot;user1.component1=${user1.component1()}&quot;)
-    println(&quot;user1.component2=${user1.component2()}&quot;)
-}
-// 运行结果
-user1.component1=owen
-user1.component2=11</code></pre>
 <p>解构申明是指把一个对象重新拆成很多个变量的过程，它可以一次同时创建多个变量。</p>
-<pre><code class="kotlin">data class User(val name: String, val age: Int)
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> age: <span class="built_in">Int</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> user1 = User(<span class="string">"owen"</span>, <span class="number">11</span>)</span><br><span class="line">    <span class="keyword">val</span> (name, age) = user1</span><br><span class="line">    println(<span class="string">"user name = <span class="variable">$name</span> and user age = <span class="variable">$age</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">user name = owen and user age = <span class="number">11</span></span><br></pre></td></tr></table></figure>
 
-fun main() {
-    val user1 = User(&quot;owen&quot;, 11)
-    val (name, age) = user1
-    println(&quot;user name = $name and user age = $age&quot;)
-}
-// 运行结果
-user name = owen and user age = 11</code></pre>
 <p>如果在解构申明时不需要某个变量，可以使用<code>下划线_</code>代替。</p>
-<pre><code class="kotlin">data class User(val name: String, val age: Int)
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span></span>(<span class="keyword">val</span> name: String, <span class="keyword">val</span> age: <span class="built_in">Int</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> user1 = User(<span class="string">"owen"</span>, <span class="number">11</span>)</span><br><span class="line">    <span class="keyword">val</span> (_, age) = user1</span><br><span class="line">    println(<span class="string">"user age = <span class="variable">$age</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">user age = <span class="number">11</span></span><br></pre></td></tr></table></figure>
 
-fun main() {
-    val user1 = User(&quot;owen&quot;, 11)
-    val (_, age) = user1
-    println(&quot;user age = $age&quot;)
-}
-// 运行结果
-user age = 11</code></pre>
 <h3 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h3><p>对比于使用数值类型或者字符串类型来定义常量，使用枚举类可以在编译期帮助我们检查一些值的合法性，找到可能的潜在错误。</p>
 <p>Kotlin 中的枚举类使用 <code>enum class</code> 来定义，最简单的使用是用来定义类型安全的枚举常量：</p>
-<pre><code class="kotlin">enum class Color {
-    RED, GREEN, BLUE
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Color</span> </span>&#123;</span><br><span class="line">    RED, GREEN, BLUE</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>其中的每个枚举常量都是枚举类的一个实例。</p>
 <h4 id="成员变量解释"><a href="#成员变量解释" class="headerlink" title="成员变量解释"></a>成员变量解释</h4><p>Kotlin 中枚举类有如下继承自父类的成员变量：</p>
-<pre><code class="kotlin">name: 就是定义的枚举名称
-ordinal: 枚举在枚举类中定义的顺序，按照定义顺序从0开始递增
-declaringClass: 所属于的枚举类</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name: 就是定义的枚举名称</span><br><span class="line">ordinal: 枚举在枚举类中定义的顺序，按照定义顺序从<span class="number">0</span>开始递增</span><br><span class="line">declaringClass: 所属于的枚举类</span><br></pre></td></tr></table></figure>
+
 <p>并且和其他普通类一样，枚举类也可以自己定义成员变量，例如：</p>
-<pre><code class="kotlin">enum class Color(val rgb: Int) {
-    RED(0xFF0000),
-    GREEN(0x00FF00),
-    BLUE(0x0000FF)
-}</code></pre>
-<pre><code class="kotlin">fun main() {
-    val c1 = Color.RED
-    val c2 = Color.BLUE
-    println(&quot;name=${c1.name} ordinal=${c1.ordinal} declaringClass=${c1.declaringClass} rgb=${c1.rgb}&quot;)
-    println(&quot;name=${c2.name} ordinal=${c2.ordinal} declaringClass=${c2.declaringClass} rgb=${c2.rgb}&quot;)
-}
-// 运行结果
-name=RED ordinal=0 declaringClass=class cc.lixiaoyu.enumtest.Color rgb=16711680
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Color</span></span>(<span class="keyword">val</span> rgb: <span class="built_in">Int</span>) &#123;</span><br><span class="line">    RED(<span class="number">0xFF0000</span>),</span><br><span class="line">    GREEN(<span class="number">0x00FF00</span>),</span><br><span class="line">    BLUE(<span class="number">0x0000FF</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-name=BLUE ordinal=2 declaringClass=class cc.lixiaoyu.enumtest.Color rgb=255</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> c1 = Color.RED</span><br><span class="line">    <span class="keyword">val</span> c2 = Color.BLUE</span><br><span class="line">    println(<span class="string">"name=<span class="subst">$&#123;c1.name&#125;</span> ordinal=<span class="subst">$&#123;c1.ordinal&#125;</span> declaringClass=<span class="subst">$&#123;c1.declaringClass&#125;</span> rgb=<span class="subst">$&#123;c1.rgb&#125;</span>"</span>)</span><br><span class="line">    println(<span class="string">"name=<span class="subst">$&#123;c2.name&#125;</span> ordinal=<span class="subst">$&#123;c2.ordinal&#125;</span> declaringClass=<span class="subst">$&#123;c2.declaringClass&#125;</span> rgb=<span class="subst">$&#123;c2.rgb&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">name=RED ordinal=<span class="number">0</span> declaringClass=<span class="class"><span class="keyword">class</span> <span class="title">cc</span>.<span class="title">lixiaoyu</span>.<span class="title">enumtest</span>.<span class="title">Color</span> <span class="title">rgb</span>=16711680</span></span><br><span class="line"></span><br><span class="line">name=BLUE ordinal=<span class="number">2</span> declaringClass=<span class="class"><span class="keyword">class</span> <span class="title">cc</span>.<span class="title">lixiaoyu</span>.<span class="title">enumtest</span>.<span class="title">Color</span> <span class="title">rgb</span>=255</span></span><br></pre></td></tr></table></figure>
+
 <h4 id="枚举类抽象方法"><a href="#枚举类抽象方法" class="headerlink" title="枚举类抽象方法"></a>枚举类抽象方法</h4><p>枚举类中可以定义抽象方法，每个枚举常量都会重写该方法。可以通过枚举常量直接调用该方法。在枚举类中定义抽象的时候，最后一个枚举常量定义后面需要加 <code>;</code> 作为分隔符，这也是 Kotlin 中为数不多的使用分号的场景。</p>
-<pre><code class="kotlin">enum class Color(val rgb: Int) {
-    RED(0xFF0000) {
-        override fun printColorInfo() {
-            println(&quot;I am RED&quot;)
-        }
-    },
-    GREEN(0x00FF00) {
-        override fun printColorInfo() {
-            println(&quot;I am GREEN&quot;)
-        }
-    },
-    BLUE(0x0000FF) {
-        override fun printColorInfo() {
-            println(&quot;I am BLUE&quot;)
-        }
-    };
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="class"><span class="keyword">class</span> <span class="title">Color</span></span>(<span class="keyword">val</span> rgb: <span class="built_in">Int</span>) &#123;</span><br><span class="line">    RED(<span class="number">0xFF0000</span>) &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">printColorInfo</span><span class="params">()</span></span> &#123;</span><br><span class="line">            println(<span class="string">"I am RED"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    GREEN(<span class="number">0x00FF00</span>) &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">printColorInfo</span><span class="params">()</span></span> &#123;</span><br><span class="line">            println(<span class="string">"I am GREEN"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    BLUE(<span class="number">0x0000FF</span>) &#123;</span><br><span class="line">        <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">printColorInfo</span><span class="params">()</span></span> &#123;</span><br><span class="line">            println(<span class="string">"I am BLUE"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">abstract</span> <span class="function"><span class="keyword">fun</span> <span class="title">printColorInfo</span><span class="params">()</span></span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    Color.RED.printColorInfo()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">I am RED</span><br></pre></td></tr></table></figure>
 
-    abstract fun printColorInfo()
-}
-
-fun main() {
-    Color.RED.printColorInfo()
-}
-// 运行结果
-I am RED</code></pre>
 <h4 id="枚举常量使用"><a href="#枚举常量使用" class="headerlink" title="枚举常量使用"></a>枚举常量使用</h4><p>不需要实例化枚举类就能使用枚举常量，使用：<code>枚举类名.枚举常量.属性（成员变量）</code>，例如：</p>
-<pre><code class="kotlin">Color.RED.name
-Color.GREEN.ordinal
-Color.BLUE.rgb</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Color.RED.name</span><br><span class="line">Color.GREEN.ordinal</span><br><span class="line">Color.BLUE.rgb</span><br></pre></td></tr></table></figure>
+
 <p>Kotlin 中可以通过 <code>values()</code> 方法以数组的形式，返回所有定义的枚举常量。</p>
-<pre><code class="kotlin">fun main(){
-    Color.values().forEach {
-        println(&quot;item name: ${it.name}&quot;)
-    }
-}
-// 运行结果
-item name: RED
-item name: GREEN
-item name: BLUE</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Color.values().forEach &#123;</span><br><span class="line">        println(<span class="string">"item name: <span class="subst">$&#123;it.name&#125;</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">item name: RED</span><br><span class="line">item name: GREEN</span><br><span class="line">item name: BLUE</span><br></pre></td></tr></table></figure>
+
 <p>可以通过 <code>valueOf()</code> 方法传入一个枚举常量名称，返回一个 name 匹配的枚举常量，如果没有匹配的，则会抛出一个 <code>IllegalArgumentException</code> 异常。</p>
 <p><img src="https://i.loli.net/2020/07/14/NJ8kodWpvyVHjOu.png" alt="image"></p>
 <p>从 Kotlin 1.1 起，还可以使用 enumValues<t>() 和 enumValueOf<t>() 函数以泛型的方式访问枚举类中的枚举常量：</t></t></p>
-<pre><code class="kotlin">fun main() {
-    println(enumValues&lt;Color&gt;().joinToString { it.name })
-    println(enumValueOf&lt;Color&gt;(&quot;RED&quot;))
-}
-// 运行结果 
-RED, GREEN, BLUE
-RED</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    println(enumValues&lt;Color&gt;().joinToString &#123; it.name &#125;)</span><br><span class="line">    println(enumValueOf&lt;Color&gt;(<span class="string">"RED"</span>))</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果 </span></span><br><span class="line">RED, GREEN, BLUE</span><br><span class="line">RED</span><br></pre></td></tr></table></figure>
+
 <h3 id="密封类"><a href="#密封类" class="headerlink" title="密封类"></a>密封类</h3><p>Kotlin 中的密封类用来表示受限的类继承结构。受限的类继承结构是指一个类中的一个值只能是有限的几种类型，而不能是其他的类型。这种受限的类继承结构相当于是枚举类的拓展。不过，枚举类中的每个枚举变量都只能存在一个实例，而密封类的一个子类可以有包含状态的多个实例。</p>
 <p>或者可以说，密封类包含了一组受限的类集合，因为里面的类都是继承自这个密封类的。但是其和其他继承类（open）的区别在于密封类是不可以在这个文件以外被继承的。但是密封类的子类的扩展不受限制，可以在代码中任何位置定义。</p>
 <p>密封类使用 <code>sealed class</code> 来定义。密封类本身是不能被实例化的，编译器会直接报错。</p>
 <p>密封类的子类必须在密封类内部或者同一文件内定义。</p>
-<pre><code class="kotlin">sealed class Expr {
-    data class Const(val num: Int): Expr()
-    data class Sum(val e1: Expr, val e2: Expr) : Expr()
-}
-object NotNum: Expr()
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sealed</span> <span class="class"><span class="keyword">class</span> <span class="title">Expr</span> </span>&#123;</span><br><span class="line">    <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Const</span></span>(<span class="keyword">val</span> num: <span class="built_in">Int</span>): Expr()</span><br><span class="line">    <span class="keyword">data</span> <span class="class"><span class="keyword">class</span> <span class="title">Sum</span></span>(<span class="keyword">val</span> e1: Expr, <span class="keyword">val</span> e2: Expr) : Expr()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">object</span> NotNum: Expr()</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">eval</span><span class="params">(expr: <span class="type">Expr</span>)</span></span>: <span class="built_in">Int</span> = <span class="keyword">when</span>(expr) &#123;</span><br><span class="line">    <span class="keyword">is</span> Expr.Const -&gt; expr.num</span><br><span class="line">    <span class="keyword">is</span> Expr.Sum -&gt; eval(expr.e1) + eval(expr.e2)</span><br><span class="line">    NotNum -&gt; <span class="number">0</span></span><br><span class="line">    <span class="comment">// 不再需要 else 分支，因为已经覆盖了所有的情况</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    println(<span class="string">"<span class="subst">$&#123;eval(Expr.Sum(Expr.Const(<span class="number">4</span>), NotNum))&#125;</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-fun eval(expr: Expr): Int = when(expr) {
-    is Expr.Const -&gt; expr.num
-    is Expr.Sum -&gt; eval(expr.e1) + eval(expr.e2)
-    NotNum -&gt; 0
-    // 不再需要 else 分支，因为已经覆盖了所有的情况
-}
-fun main() {
-    println(&quot;${eval(Expr.Sum(Expr.Const(4), NotNum))}&quot;)
-}</code></pre>
 <p>在使用 when 语句时我们需要一个 else 分支，但有时候我们自己已经穷举了所有的情况，这时这个 else 分支是没有实际意义的，但是因为 when 语句的语法规则而必须添加。从上述实例也可以看出密封类的一个关键好处是可以让我们去掉这个多余的 else 分支。</p>
 <p>并且，如果我们增加了一个密封类的子类，而忘记在 when 中增加这个子类的分支，编译器会自动检查出来报错。</p>
 <p><img src="https://i.loli.net/2020/07/15/29lzprBkdHvEgey.png" alt="ima"></p>

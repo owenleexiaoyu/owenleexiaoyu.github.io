@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -376,558 +376,56 @@
 <h4 id="获取到-HttpUrlConnection-对象"><a href="#获取到-HttpUrlConnection-对象" class="headerlink" title="获取到 HttpUrlConnection 对象"></a>获取到 HttpUrlConnection 对象</h4><p>使用 URL 对象的 openConnection（）方法获取到 HttpUrlConnection 对象，这个对象是我们进行网络请求的核心。</p>
 <p>网络请求在响应时间上具有很大的不确定性，如果将网络请求放在主线程中执行时，过长的耗时操作会阻塞主线程，导致程序卡死。因此，网络请求都应该放在子线程中执行。</p>
 <p>如以下示例代码：</p>
-<pre><code>URL url = new URL(&quot;http://lixiaoyu.cc&quot;);
-HttpURLConnection conn = (HttpURLConnection) url.openConnection();</code></pre><h4 id="进行全局的网络设置并建立-Http-连接"><a href="#进行全局的网络设置并建立-Http-连接" class="headerlink" title="进行全局的网络设置并建立 Http 连接"></a>进行全局的网络设置并建立 Http 连接</h4><p>获取到 HttpUrlConnection 对象后，就可以调用这个对象的一些方法，进行一些网络设置，比如设置连接超时时间，读取超时时间，网络请求方式等。如以下代码所示：</p>
-<pre><code>//设置网络请求方式，如GET、POST、HEAD等
-conn.setRequestMethod(&quot;GET&quot;);
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">URL url</span> = new URL(<span class="string">"http://lixiaoyu.cc"</span>);</span><br><span class="line"><span class="attribute">HttpURLConnection conn</span> = (HttpURLConnection) url.openConnection();</span><br></pre></td></tr></table></figure>
 
-//设置连接超时时间
-conn.setConnectTimeout(8000);
+<h4 id="进行全局的网络设置并建立-Http-连接"><a href="#进行全局的网络设置并建立-Http-连接" class="headerlink" title="进行全局的网络设置并建立 Http 连接"></a>进行全局的网络设置并建立 Http 连接</h4><p>获取到 HttpUrlConnection 对象后，就可以调用这个对象的一些方法，进行一些网络设置，比如设置连接超时时间，读取超时时间，网络请求方式等。如以下代码所示：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置网络请求方式，如GET、POST、HEAD等</span></span><br><span class="line"><span class="selector-tag">conn</span><span class="selector-class">.setRequestMethod</span>(<span class="string">"GET"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置连接超时时间</span></span><br><span class="line"><span class="selector-tag">conn</span><span class="selector-class">.setConnectTimeout</span>(<span class="number">8000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置读取超时时间</span></span><br><span class="line"><span class="selector-tag">conn</span><span class="selector-class">.setReadTimeout</span>(<span class="number">8000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置Http请求头部</span></span><br><span class="line"><span class="selector-tag">conn</span><span class="selector-class">.setRequestProperty</span>(<span class="string">"Accept-Encoding"</span>, <span class="string">"identity"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置可以读取输入流</span></span><br><span class="line"><span class="selector-tag">conn</span><span class="selector-class">.setDoInput</span>(true);</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置可以读取输出流，在使用POST向服务器提交数据时必须要将该方法设置为true</span></span><br><span class="line"><span class="selector-tag">conn</span><span class="selector-class">.setDoOutput</span>(true);</span><br><span class="line"></span><br><span class="line"><span class="comment">//进行Http连接，必须写在setDoInput（）方法后面</span></span><br><span class="line"><span class="selector-tag">conn</span><span class="selector-class">.connect</span>();</span><br></pre></td></tr></table></figure>
 
-//设置读取超时时间
-conn.setReadTimeout(8000);
-
-//设置Http请求头部
-conn.setRequestProperty(&quot;Accept-Encoding&quot;, &quot;identity&quot;);
-
-//设置可以读取输入流
-conn.setDoInput(true);
-
-//设置可以读取输出流，在使用POST向服务器提交数据时必须要将该方法设置为true
-conn.setDoOutput(true);
-
-//进行Http连接，必须写在setDoInput（）方法后面
-conn.connect();</code></pre><h4 id="进行数据处理"><a href="#进行数据处理" class="headerlink" title="进行数据处理"></a>进行数据处理</h4><p>进行数据处理包括两个方面，一个是从服务器读取相应数据，一个是向服务器发送数据（POST 方法会用到），分别对应之前的 setDoInput() 和 setDoOutput() 方法。</p>
+<h4 id="进行数据处理"><a href="#进行数据处理" class="headerlink" title="进行数据处理"></a>进行数据处理</h4><p>进行数据处理包括两个方面，一个是从服务器读取相应数据，一个是向服务器发送数据（POST 方法会用到），分别对应之前的 setDoInput() 和 setDoOutput() 方法。</p>
 <p><strong>从服务器读取数据</strong></p>
 <p>先来看看从服务器读取数据，通过调用 HttpUrlConnection 对象的一些方法可以获取到服务器发送给客户端的相应信息，如状态码、响应内容长度、包含了响应内容的输入流等等。如以下示例代码：</p>
-<pre><code>//获取响应状态码，如 200 表示成功等
-int responseCode = conn.getResponseCode();
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取响应状态码，如 200 表示成功等</span></span><br><span class="line"><span class="keyword">int</span> responseCode = conn.getResponseCode();</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取包含响应内容的输入流</span></span><br><span class="line">InputStream <span class="keyword">in</span> = conn.getInputStream();</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取响应内容长度</span></span><br><span class="line"><span class="keyword">int</span> contentLength = conn.getContentLength();</span><br></pre></td></tr></table></figure>
 
-//获取包含响应内容的输入流
-InputStream in = conn.getInputStream();
-
-//获取响应内容长度
-int contentLength = conn.getContentLength();</code></pre><p>在获取输入流之后，就可以利用 Java 中的 IO 流的知识对该输入流进行流处理，从而得到我们想要的数据。（这部分代码在完整示例代码中给出）</p>
+<p>在获取输入流之后，就可以利用 Java 中的 IO 流的知识对该输入流进行流处理，从而得到我们想要的数据。（这部分代码在完整示例代码中给出）</p>
 <p><strong>向服务器提交数据</strong></p>
 <p>我们常常使用 POST 方法向服务器提交一个表单，在向服务器提交数据时，需要先通过 HttpUrlConnection 对象的 getOutputStream() 方法获取到输出流对象，在通过输出流对象的 write() 方法向服务器写数据。POST 方法的每条数据都以键值对的形式提交，数据之间用 “&amp;” 进行分隔。如以下示例代码：</p>
-<pre><code>//将网络请求方法改为 POST
-conn.setRequestMethod(&quot;POST&quot;);
-//设置支持输出流
-conn.setDoOutput(true);
-//获取 HttpUrlConnection 的输出流对象
-OutputStream out = conn.getOutputStream();
-//给这个输出流添加一个处理流，方便操作
-DataOutputStream dos = new DataOutputStream(out);
-//使用 writeBytes() 方法将数据提交到服务器
-dos.writeBytes(&quot;username=admin&amp;password=123456&quot;);
-//进行 Http 连接
-conn.connect();</code></pre><h4 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a>关闭连接</h4><p>在我们完成了所有数据写入和读取的流操作后，应该调用 disconnect() 方法关闭 Http 连接。</p>
-<pre><code>//关闭 Http 连接
-conn.disconnect();</code></pre><h3 id="实例一：获取网站源码"><a href="#实例一：获取网站源码" class="headerlink" title="实例一：获取网站源码"></a>实例一：获取网站源码</h3><p>在 layout 文件中放置一个 Button 和一个 TextView，我们希望点击 Button 后，获取到某个网站的 HTML 源码，并以文本的形式展示在 TextView 中。这个实例较为简单，就直接将代码贴出，关键部分会有注释。</p>
+<figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//将网络请求方法改为 POST</span><br><span class="line">conn.setRequestMethod(<span class="string">"<span class="keyword">POST</span>"</span>);</span><br><span class="line">//设置支持输出流</span><br><span class="line">conn.setDoOutput(true);</span><br><span class="line">//获取 HttpUrlConnection 的输出流对象</span><br><span class="line">OutputStream out = conn.getOutputStream();</span><br><span class="line">//给这个输出流添加一个处理流，方便操作</span><br><span class="line">DataOutputStream dos = new DataOutputStream(out);</span><br><span class="line">//使用 writeBytes() 方法将数据提交到服务器</span><br><span class="line">dos.writeBytes(<span class="string">"username=admin&amp;password=123456"</span>);</span><br><span class="line">//进行 Http 连接</span><br><span class="line">conn.connect();</span><br></pre></td></tr></table></figure>
+
+<h4 id="关闭连接"><a href="#关闭连接" class="headerlink" title="关闭连接"></a>关闭连接</h4><p>在我们完成了所有数据写入和读取的流操作后，应该调用 disconnect() 方法关闭 Http 连接。</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//关闭 Http 连接</span></span><br><span class="line">conn.<span class="built_in">disconnect</span>();</span><br></pre></td></tr></table></figure>
+
+<h3 id="实例一：获取网站源码"><a href="#实例一：获取网站源码" class="headerlink" title="实例一：获取网站源码"></a>实例一：获取网站源码</h3><p>在 layout 文件中放置一个 Button 和一个 TextView，我们希望点击 Button 后，获取到某个网站的 HTML 源码，并以文本的形式展示在 TextView 中。这个实例较为简单，就直接将代码贴出，关键部分会有注释。</p>
 <p>layout 文件中，Button 指定了一个名为 getCode 的 onClick（）方法，可以直接在 Activity 中实现这个方法，进行 Button 的点击事件监听。</p>
-<pre><code>&lt;LinearLayout
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;
-    android:orientation=&quot;vertical&quot;&gt;
-    &lt;Button
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;wrap_content&quot;
-        android:onClick=&quot;getCode&quot;
-        android:text=&quot;获取网页源代码&quot;/&gt;
-    &lt;TextView
-        android:id=&quot;@+id/main_content&quot;
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;match_parent&quot;/&gt;
-&lt;/LinearLayout&gt;</code></pre><p>在 Activity 中：</p>
-<pre><code>//处理 Button 的点击事件
-public void getCode(View view) {
-    new Thread(new Runnable() {
-        @Override
-        public void run() {
-            try {
-                URL url = new URL(&quot;http://lixiaoyu.cc&quot;);
-                //获取 HttpURLConnection 对象
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"vertical"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">Button</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"wrap_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:onClick</span>=<span class="string">"getCode"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:text</span>=<span class="string">"获取网页源代码"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/main_content"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-                //设置请求方法为 GET
-                conn.setRequestMethod(&quot;GET&quot;);
-                //设置连接超时时间为 8 秒
-                conn.setConnectTimeout(8000);
-                //设置读取超时时间为 8 秒
-                conn.setReadTimeout(8000);
-                //支持输入流
-                conn.setDoInput(true);
+<p>在 Activity 中：</p>
+<figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//处理 Button 的点击事件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> getCode(View view) &#123;</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> run() &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">		        URL url = <span class="keyword">new</span> URL(<span class="string">"http://lixiaoyu.cc"</span>);</span><br><span class="line">                <span class="comment">//获取 HttpURLConnection 对象</span></span><br><span class="line">                HttpURLConnection conn = (HttpURLConnection) url.openConnection();</span><br><span class="line"></span><br><span class="line">                <span class="comment">//设置请求方法为 GET</span></span><br><span class="line">                conn.setRequestMethod(<span class="string">"GET"</span>);</span><br><span class="line">                <span class="comment">//设置连接超时时间为 8 秒</span></span><br><span class="line">                conn.setConnectTimeout(<span class="number">8000</span>);</span><br><span class="line">                <span class="comment">//设置读取超时时间为 8 秒</span></span><br><span class="line">                conn.setReadTimeout(<span class="number">8000</span>);</span><br><span class="line">                <span class="comment">//支持输入流</span></span><br><span class="line">                conn.setDoInput(<span class="keyword">true</span>);</span><br><span class="line"></span><br><span class="line">                <span class="comment">//获取响应状态码</span></span><br><span class="line">                <span class="built_in">int</span> responseCode = conn.getResponseCode();</span><br><span class="line">                Log.i(TAG, <span class="string">"responseCode="</span> + responseCode);</span><br><span class="line">                <span class="comment">//获取输入流</span></span><br><span class="line">                InputStream in = conn.getInputStream();</span><br><span class="line">                <span class="comment">//将输入流封装成 BufferedReader</span></span><br><span class="line">                <span class="keyword">BufferedReader</span> reader = <span class="keyword">new</span> <span class="keyword">BufferedReader</span>(<span class="keyword">new</span> InputStreamReader(in));</span><br><span class="line">                StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">                <span class="keyword">String</span> <span class="built_in">line</span>;</span><br><span class="line">                <span class="keyword">while</span> ((<span class="built_in">line</span> = reader.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    sb.<span class="built_in">append</span>(<span class="built_in">line</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="comment">//将 StringBuffer 的数据转化成 String，在主线程中设置到 TextView 上</span></span><br><span class="line">                showCode(sb.toString());</span><br><span class="line">	        &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">void</span> showCode(<span class="keyword">final</span> <span class="keyword">String</span> s) &#123;</span><br><span class="line">    <span class="comment">//必须在主线程中操作 UI</span></span><br><span class="line">    runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        @Override</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> run() &#123;</span><br><span class="line">            tvCode.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-                //获取响应状态码
-                int responseCode = conn.getResponseCode();
-                Log.i(TAG, &quot;responseCode=&quot; + responseCode);
-                //获取输入流
-                InputStream in = conn.getInputStream();
-                //将输入流封装成 BufferedReader
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-                StringBuffer sb = new StringBuffer();
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    sb.append(line);
-                }
-                //将 StringBuffer 的数据转化成 String，在主线程中设置到 TextView 上
-                showCode(sb.toString());
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }).start();
-}
-
-private void showCode(final String s) {
-    //必须在主线程中操作 UI
-    runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            tvCode.setText(s);
-        }
-    });
-}</code></pre><p>程序运行的结果如图所示：</p>
+<p>程序运行的结果如图所示：</p>
 <p><img src="https://i.loli.net/2019/08/29/tirIV6f8jSL1Y7v.jpg" alt="img1.png"></p>
 <h3 id="实例二：下载文件"><a href="#实例二：下载文件" class="headerlink" title="实例二：下载文件"></a>实例二：下载文件</h3><p>在上篇 WebView 的文章中讲到在 Webview 下载文件可以有两种方式，一时通过隐式 Intent 调用系统浏览器进行下载，一种是拿到文件的 URL 后自己创建线程进行下载，上篇文章中只介绍了第一种方法，这里就介绍第二种方法的实现。其实原理非常简单，就是在获取到文件 URL 后，使用 HttpUrlConnection 进行网络请求，通过其对象的输入流读取到该文件的二进制数据，将二进制数据保存为相应格式的文件即可。</p>
 <p>完整代码如下：</p>
-<pre><code>public class WebActivity extends AppCompatActivity {
-    private WebView mWebView;
-    private String mUrl = null;
-    private static final String TAG = &quot;WebActivity&quot;;
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_haha);
-        mWebView = (WebView) findViewById(R.id.webview);
-        mWebView.getSettings().setJavaScriptEnabled(true);
-        //加载豌豆荚应用市场的网页
-        mWebView.loadUrl(&quot;http://wandoujia.com&quot;);
-        mWebView.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                view.loadUrl(url);
-                return true;
-            }
-        });
-        //设置下载监听器
-        mWebView.setDownloadListener(new DownloadListener() {
-            @Override
-            public void onDownloadStart(String url, String s1, String s2, String s3, long l) {
-                //如果URL以“.apk”结尾，就进行下载
-                if (url.endsWith(&quot;.apk&quot;)) {
-                    mUrl = url;
-                    //程序运行在Android 6.0以上的系统中，所以在读写SD卡时需要动态申请权限
-                    if(ContextCompat.checkSelfPermission(WebActivity.this,
-                            Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                            != PackageManager.PERMISSION_GRANTED){
-                        ActivityCompat.requestPermissions(WebActivity.this,
-                                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                    }else{
-                        //如果已经申请该权限，则直接下载
-                        downloadApk(mUrl);
-                    }
-                }
-            }
-        });
-    }
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> WebView mWebView;</span><br><span class="line">    <span class="keyword">private</span> String mUrl = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"WebActivity"</span>;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(R.layout.activity_haha);</span><br><span class="line">        mWebView = (WebView) findViewById(R.id.webview);</span><br><span class="line">        mWebView.getSettings().setJavaScriptEnabled(<span class="keyword">true</span>);</span><br><span class="line">        <span class="comment">//加载豌豆荚应用市场的网页</span></span><br><span class="line">        mWebView.loadUrl(<span class="string">"http://wandoujia.com"</span>);</span><br><span class="line">        mWebView.setWebViewClient(<span class="keyword">new</span> WebViewClient() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">shouldOverrideUrlLoading</span><span class="params">(WebView view, String url)</span> </span>&#123;</span><br><span class="line">                view.loadUrl(url);</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">//设置下载监听器</span></span><br><span class="line">        mWebView.setDownloadListener(<span class="keyword">new</span> DownloadListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDownloadStart</span><span class="params">(String url, String s1, String s2, String s3, <span class="keyword">long</span> l)</span> </span>&#123;</span><br><span class="line">                <span class="comment">//如果URL以“.apk”结尾，就进行下载</span></span><br><span class="line">                <span class="keyword">if</span> (url.endsWith(<span class="string">".apk"</span>)) &#123;</span><br><span class="line">                    mUrl = url;</span><br><span class="line">                    <span class="comment">//程序运行在Android 6.0以上的系统中，所以在读写SD卡时需要动态申请权限</span></span><br><span class="line">                    <span class="keyword">if</span>(ContextCompat.checkSelfPermission(WebActivity.<span class="keyword">this</span>,</span><br><span class="line">                            Manifest.permission.WRITE_EXTERNAL_STORAGE)</span><br><span class="line">                            != PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">                        ActivityCompat.requestPermissions(WebActivity.<span class="keyword">this</span>,</span><br><span class="line">                                <span class="keyword">new</span> String[]&#123;Manifest.permission.WRITE_EXTERNAL_STORAGE&#125;, <span class="number">1</span>);</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        <span class="comment">//如果已经申请该权限，则直接下载</span></span><br><span class="line">                        downloadApk(mUrl);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 下载Apk文件的方法</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> url</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">downloadApk</span><span class="params">(<span class="keyword">final</span> String url)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                <span class="comment">//获取SD卡的目录</span></span><br><span class="line">                File sdCard = Environment.getExternalStorageDirectory();</span><br><span class="line">                <span class="comment">//通过URL拿到apk文件名</span></span><br><span class="line">                String apkName = url.substring(url.lastIndexOf(<span class="string">"/"</span>));</span><br><span class="line">                <span class="comment">//在SD卡的根目录下新建一个文件</span></span><br><span class="line">                File apkFile = <span class="keyword">new</span> File(sdCard, apkName);</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    <span class="keyword">if</span> (!apkFile.exists())&#123;</span><br><span class="line">                        apkFile.createNewFile();</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        apkFile.delete();</span><br><span class="line">                        apkFile.createNewFile();</span><br><span class="line">                    &#125;</span><br><span class="line">                    FileOutputStream fos = <span class="keyword">new</span> FileOutputStream(apkFile);</span><br><span class="line">                    HttpURLConnection conn = (HttpURLConnection) (<span class="keyword">new</span> URL(url)).openConnection();</span><br><span class="line">                    conn.setRequestMethod(<span class="string">"GET"</span>);</span><br><span class="line">                    conn.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">                    conn.setConnectTimeout(<span class="number">80000</span>);</span><br><span class="line">                    conn.setReadTimeout(<span class="number">80000</span>);</span><br><span class="line">                    conn.connect();</span><br><span class="line">                    InputStream in = conn.getInputStream();</span><br><span class="line">                    <span class="comment">//新建一个byte数组buffer，将输入流中读到的数据写入buffer中</span></span><br><span class="line">                    <span class="keyword">byte</span> [] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">1024</span> * <span class="number">1024</span>];</span><br><span class="line">                    <span class="comment">//每次读到的数据长度</span></span><br><span class="line">                    <span class="keyword">int</span> len;</span><br><span class="line">                    <span class="keyword">while</span> ((len = in.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                        <span class="comment">//将每次读取到的数据写入SD卡中的文件里</span></span><br><span class="line">                        fos.write(buffer,<span class="number">0</span>,len);</span><br><span class="line">                    &#125;</span><br><span class="line">                    Log.i(<span class="string">"TAG"</span>, <span class="string">"download success"</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;).start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 权限申请的回调函数</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> requestCode</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> permissions</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> grantResults</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRequestPermissionsResult</span><span class="params">(<span class="keyword">int</span> requestCode,</span></span></span><br><span class="line"><span class="function"><span class="params">                                           @NonNull String[] permissions,</span></span></span><br><span class="line"><span class="function"><span class="params">                                           @NonNull <span class="keyword">int</span>[] grantResults)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (requestCode)&#123;</span><br><span class="line">            <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">if</span> (grantResults.length &gt; <span class="number">0</span> &amp;&amp;</span><br><span class="line">                        grantResults[<span class="number">0</span>] == PackageManager.PERMISSION_GRANTED)&#123;</span><br><span class="line">                    <span class="comment">//用户已同意该权限的申请</span></span><br><span class="line">                    <span class="keyword">if</span> (mUrl != <span class="keyword">null</span>)&#123;</span><br><span class="line">                        downloadApk(mUrl);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//用户拒绝了权限的申请</span></span><br><span class="line">                    Toast.makeText(<span class="keyword">this</span>, <span class="string">"你拒绝了权限申请"</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 下载Apk文件的方法
-     * @param url
-     */
-    private void downloadApk(final String url) {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                //获取SD卡的目录
-                File sdCard = Environment.getExternalStorageDirectory();
-                //通过URL拿到apk文件名
-                String apkName = url.substring(url.lastIndexOf(&quot;/&quot;));
-                //在SD卡的根目录下新建一个文件
-                File apkFile = new File(sdCard, apkName);
-                try {
-                    if (!apkFile.exists()){
-                        apkFile.createNewFile();
-                    }else{
-                        apkFile.delete();
-                        apkFile.createNewFile();
-                    }
-                    FileOutputStream fos = new FileOutputStream(apkFile);
-                    HttpURLConnection conn = (HttpURLConnection) (new URL(url)).openConnection();
-                    conn.setRequestMethod(&quot;GET&quot;);
-                    conn.setDoInput(true);
-                    conn.setConnectTimeout(80000);
-                    conn.setReadTimeout(80000);
-                    conn.connect();
-                    InputStream in = conn.getInputStream();
-                    //新建一个byte数组buffer，将输入流中读到的数据写入buffer中
-                    byte [] buffer = new byte[1024 * 1024];
-                    //每次读到的数据长度
-                    int len;
-                    while ((len = in.read(buffer)) != -1) {
-                        //将每次读取到的数据写入SD卡中的文件里
-                        fos.write(buffer,0,len);
-                    }
-                    Log.i(&quot;TAG&quot;, &quot;download success&quot;);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-    }
-
-    /**
-     * 权限申请的回调函数
-     * @param requestCode
-     * @param permissions
-     * @param grantResults
-     */
-    @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           @NonNull String[] permissions,
-                                           @NonNull int[] grantResults) {
-        switch (requestCode){
-            case 1:
-                if (grantResults.length &gt; 0 &amp;&amp;
-                        grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                    //用户已同意该权限的申请
-                    if (mUrl != null){
-                        downloadApk(mUrl);
-                    }
-                }else{
-                    //用户拒绝了权限的申请
-                    Toast.makeText(this, &quot;你拒绝了权限申请&quot;, Toast.LENGTH_SHORT).show();
-                }
-                break;
-        }
-    }
-}</code></pre><h3 id="将-HttpUrlConnection-封装成工具类"><a href="#将-HttpUrlConnection-封装成工具类" class="headerlink" title="将 HttpUrlConnection 封装成工具类"></a>将 HttpUrlConnection 封装成工具类</h3><p>每次有网络请求时，如果都使用上面的方式来实现，效率显然是极低的，因为每次我们都要把所有的代码都再写一遍。更好的想法就是将网络请求封装成一个工具类，每次要用的时候直接调用这个工具类的相关方法。我对 HttpUrlConnection 进行了一个简单的封装。</p>
+<h3 id="将-HttpUrlConnection-封装成工具类"><a href="#将-HttpUrlConnection-封装成工具类" class="headerlink" title="将 HttpUrlConnection 封装成工具类"></a>将 HttpUrlConnection 封装成工具类</h3><p>每次有网络请求时，如果都使用上面的方式来实现，效率显然是极低的，因为每次我们都要把所有的代码都再写一遍。更好的想法就是将网络请求封装成一个工具类，每次要用的时候直接调用这个工具类的相关方法。我对 HttpUrlConnection 进行了一个简单的封装。</p>
 <p>在 HttpUtils 这个工具类中，提供了四个 public 的静态方法：</p>
 <blockquote>
 <p>String httpGet(String url)<br>String httpGet(String url, HttpCallback callback)<br>String httpPost(String url, List&lt; PostParam &gt; paramList)<br>String httpGet(String url, List&lt; PostParam &gt; paramList, HttpCallback callback)</p>
 </blockquote>
 <p>前两个是 GET 方法，后两个是 POST 方法。具体的区别请看代码以及注释。</p>
 <p>HttpUtils 类：</p>
-<pre><code>public class HttpUtils {
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">HttpUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>GET 方法，返回字符串类型的响应内容,返回值为空表示失败，不为空表示成功了</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param url 网址</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    public <span class="keyword">static</span> <span class="built_in">String</span> httpGet(<span class="built_in">String</span> url)&#123;</span><br><span class="line">        HttpResponse response = baseGet(url);</span><br><span class="line">        <span class="keyword">if</span>(response.getCode() == <span class="number">200</span>)&#123;</span><br><span class="line">            <span class="comment">//成功</span></span><br><span class="line">            Log.i(TAG, <span class="string">"httpGet: 成功"</span>);</span><br><span class="line">            <span class="keyword">return</span> response.getContent();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//失败</span></span><br><span class="line">            Log.i(TAG, <span class="string">"httpGet: 失败---"</span> + response.getCode());</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>GET方法，使用一个回调接口，成功则回调onSuccess方法，失败则回调onError方法</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param url 网址</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param callback 回调接口</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    public <span class="keyword">static</span> <span class="built_in">String</span> httpGet(<span class="built_in">String</span> url, HttpCallback callback)&#123;</span><br><span class="line">        HttpResponse response = baseGet(url);</span><br><span class="line">        <span class="keyword">if</span>(response.getCode() == <span class="number">200</span>)&#123;</span><br><span class="line">            <span class="comment">//成功</span></span><br><span class="line">            Log.i(TAG, <span class="string">"httpGet: 成功"</span>);</span><br><span class="line">            callback.onSuccess(response.getContent());</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//失败</span></span><br><span class="line">            Log.i(TAG, <span class="string">"httpGet: 失败---"</span> + response.getCode());</span><br><span class="line">            callback.onError(response.getCode(), <span class="keyword">new</span> Exception());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>基础的GET实现，不对外公布此方法，仅仅是被上面两个方法调用</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>返回的HttpResponse类，包含状态码和响应内容。</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param url 网址</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    private <span class="keyword">static</span> HttpResponse baseGet(<span class="built_in">String</span> url)&#123;</span><br><span class="line">        HttpURLConnection conn = getHttpUrlConnection(url);</span><br><span class="line">        HttpResponse response = <span class="keyword">new</span> HttpResponse();</span><br><span class="line">        BufferedReader reader;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//设置请求方式</span></span><br><span class="line">            conn.setRequestMethod(<span class="string">"GET"</span>);</span><br><span class="line">            <span class="comment">//建立连接</span></span><br><span class="line">            conn.connect();</span><br><span class="line">            <span class="comment">//获取状态码</span></span><br><span class="line">            response.setCode(conn.getResponseCode());</span><br><span class="line">            reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(conn.getInputStream()));</span><br><span class="line">            <span class="built_in">StringBuffer</span> sb = <span class="keyword">new</span> <span class="built_in">StringBuffer</span>();</span><br><span class="line">            <span class="built_in">String</span> line;</span><br><span class="line">            <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>)&#123;</span><br><span class="line">                sb.append(line);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//获取响应内容</span></span><br><span class="line">            response.setContent(sb.toString());</span><br><span class="line">            <span class="comment">//关闭流</span></span><br><span class="line">            reader.close();</span><br><span class="line">            <span class="comment">//关闭连接</span></span><br><span class="line">            conn.disconnect();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ProtocolException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>POST 方法，返回字符串类型的响应内容,返回值为空表示失败，不为空表示成功了</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param url  网址</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param paramList Post提交的参数列表，键值对形式</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    public <span class="keyword">static</span> <span class="built_in">String</span> httpPost(<span class="built_in">String</span> url, <span class="built_in">List</span>&lt;PostParam&gt; paramList)&#123;</span><br><span class="line">        HttpResponse response = basePost(url, paramList);</span><br><span class="line">        <span class="keyword">if</span>(response.getCode() == <span class="number">200</span>)&#123;</span><br><span class="line">            <span class="comment">//成功</span></span><br><span class="line">            Log.i(TAG, <span class="string">"httpPost: 成功"</span>);</span><br><span class="line">            <span class="keyword">return</span> response.getContent();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//失败</span></span><br><span class="line">            Log.i(TAG, <span class="string">"httpPost: 失败---"</span> + response.getCode());</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>POST方法，使用一个回调接口，成功则回调onSuccess方法，失败则回调onError方法</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param url 网址</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param paramList post提交的参数列表</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param callback 回调接口</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return 返回值无意义</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    public <span class="keyword">static</span> <span class="built_in">String</span> httpPost(<span class="built_in">String</span> url, <span class="built_in">List</span>&lt;PostParam&gt; paramList, HttpCallback callback)&#123;</span><br><span class="line">        HttpResponse response = basePost(url, paramList);</span><br><span class="line">        <span class="keyword">if</span>(response.getCode() == <span class="number">200</span>)&#123;</span><br><span class="line">            <span class="comment">//成功</span></span><br><span class="line">            Log.i(TAG, <span class="string">"httpPost: 成功"</span>);</span><br><span class="line">            callback.onSuccess(response.getContent());</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="comment">//失败</span></span><br><span class="line">            Log.i(TAG, <span class="string">"httpPost: 失败---"</span> + response.getCode());</span><br><span class="line">            callback.onError(response.getCode(), <span class="keyword">new</span> Exception());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>基础的POST实现，不对外公布此方法，只被上面两个POST方法调用</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param url 网址</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param paramList 提交的参数列表</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    private <span class="keyword">static</span> HttpResponse basePost(<span class="built_in">String</span> url, <span class="built_in">List</span>&lt;PostParam&gt; paramList)&#123;</span><br><span class="line">        HttpURLConnection conn = getHttpUrlConnection(url);</span><br><span class="line">        HttpResponse response = <span class="keyword">new</span> HttpResponse();</span><br><span class="line">        <span class="built_in">String</span> post = parseParamList(paramList);</span><br><span class="line">        BufferedReader reader;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//设置请求方式</span></span><br><span class="line">            conn.setRequestMethod(<span class="string">"POST"</span>);</span><br><span class="line">            <span class="comment">//获取输出流并转化为处理流</span></span><br><span class="line">            DataOutputStream dos = <span class="keyword">new</span> DataOutputStream(conn.getOutputStream());</span><br><span class="line">            <span class="comment">//写入参数</span></span><br><span class="line">            dos.writeUTF(post);</span><br><span class="line">            <span class="comment">//建立连接</span></span><br><span class="line">            conn.connect();</span><br><span class="line">            <span class="comment">//获取状态码</span></span><br><span class="line">            response.setCode(conn.getResponseCode());</span><br><span class="line">            reader = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> InputStreamReader(conn.getInputStream()));</span><br><span class="line">            <span class="built_in">StringBuffer</span> sb = <span class="keyword">new</span> <span class="built_in">StringBuffer</span>();</span><br><span class="line">            <span class="built_in">String</span> line;</span><br><span class="line">            <span class="keyword">while</span> ((line = reader.readLine()) != <span class="keyword">null</span>)&#123;</span><br><span class="line">                sb.append(line);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">//获取响应内容</span></span><br><span class="line">            response.setContent(sb.toString());</span><br><span class="line">            <span class="comment">//关闭流</span></span><br><span class="line">            reader.close();</span><br><span class="line">            <span class="comment">//关闭连接</span></span><br><span class="line">            conn.disconnect();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ProtocolException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> response;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>将参数列表转化成一段字符串</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param paramList</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    private <span class="keyword">static</span> <span class="built_in">String</span> parseParamList(<span class="meta">@NonNull</span> <span class="built_in">List</span>&lt;PostParam&gt; paramList)&#123;</span><br><span class="line">        <span class="built_in">StringBuffer</span> sb = <span class="keyword">new</span> <span class="built_in">StringBuffer</span>();</span><br><span class="line">        <span class="keyword">for</span> (PostParam param :</span><br><span class="line">                paramList) &#123;</span><br><span class="line">            <span class="keyword">if</span>(sb == <span class="keyword">null</span>)&#123;</span><br><span class="line">                sb.append(param.toString());</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                sb.append(<span class="string">"&amp;"</span>+param.toString());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sb.toString();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>获取HttpUrlConnection对象，并进行基础网络设置</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@param url</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>@return</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    private <span class="keyword">static</span> HttpURLConnection getHttpUrlConnection(<span class="built_in">String</span> url)&#123;</span><br><span class="line">        HttpURLConnection conn = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//获取HttpURLConnection对象</span></span><br><span class="line">            URL mUrl = <span class="keyword">new</span> URL(url);</span><br><span class="line">            conn = (HttpURLConnection) mUrl.openConnection();</span><br><span class="line">            <span class="comment">//进行一些通用设置</span></span><br><span class="line">            conn.setConnectTimeout(<span class="number">80000</span>);</span><br><span class="line">            conn.setReadTimeout(<span class="number">80000</span>);</span><br><span class="line">            conn.setRequestProperty(<span class="string">"Conection"</span>,<span class="string">"Keep-Alive"</span>);</span><br><span class="line">            conn.setDoInput(<span class="keyword">true</span>);</span><br><span class="line">            conn.setDoOutput(<span class="keyword">true</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (MalformedURLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> conn;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>回调接口，有两个方法，分别在成功和失败时回调</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    public <span class="class"><span class="keyword">interface</span> <span class="title">HttpCallback</span></span>&#123;</span><br><span class="line">        <span class="keyword">void</span> onSuccess(<span class="built_in">String</span> response);</span><br><span class="line">        <span class="keyword">void</span> onError(<span class="built_in">int</span> responseCode, Exception e);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"><span class="markdown">/**</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>Post提交的参数类</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="bullet">     * </span>包含String类型的name和String类型的value</span></span></span><br><span class="line"><span class="comment"><span class="markdown"><span class="code">     */</span></span></span></span><br><span class="line">    public <span class="class"><span class="keyword">class</span> <span class="title">PostParam</span></span>&#123;</span><br><span class="line">        private <span class="built_in">String</span> name;</span><br><span class="line">        private <span class="built_in">String</span> value;</span><br><span class="line">        public PostParam(<span class="built_in">String</span> name, <span class="built_in">String</span> value)&#123;</span><br><span class="line">            <span class="keyword">this</span>.name = name;</span><br><span class="line">            <span class="keyword">this</span>.value = value;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public <span class="built_in">String</span> getName() &#123;</span><br><span class="line">            <span class="keyword">return</span> name;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        public <span class="built_in">String</span> getValue() &#123;</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        public <span class="built_in">String</span> toString() &#123;</span><br><span class="line">            <span class="keyword">return</span> name+<span class="string">"="</span>+value;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * GET 方法，返回字符串类型的响应内容,返回值为空表示失败，不为空表示成功了
-     * @param url 网址
-     * @return
-     */
-    @Nullable
-    public static String httpGet(String url){
-        HttpResponse response = baseGet(url);
-        if(response.getCode() == 200){
-            //成功
-            Log.i(TAG, &quot;httpGet: 成功&quot;);
-            return response.getContent();
-        }else{
-            //失败
-            Log.i(TAG, &quot;httpGet: 失败---&quot; + response.getCode());
-            return null;
-        }
-    }
+<p>HttpResponse 类</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 包含网络请求的响应状态码和响应内容</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HttpResponse</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> code;</span><br><span class="line">    <span class="keyword">private</span> String content;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCode</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCode</span><span class="params">(<span class="keyword">int</span> code)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.code = code;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getContent</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> content;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setContent</span><span class="params">(String content)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.content = content;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * GET方法，使用一个回调接口，成功则回调onSuccess方法，失败则回调onError方法
-     * @param url 网址
-     * @param callback 回调接口
-     * @return
-     */
-    @Nullable
-    public static String httpGet(String url, HttpCallback callback){
-        HttpResponse response = baseGet(url);
-        if(response.getCode() == 200){
-            //成功
-            Log.i(TAG, &quot;httpGet: 成功&quot;);
-            callback.onSuccess(response.getContent());
-        }else{
-            //失败
-            Log.i(TAG, &quot;httpGet: 失败---&quot; + response.getCode());
-            callback.onError(response.getCode(), new Exception());
-        }
-        return null;
-    }
+<p>有了这个工具类，我们实现实例一的功能，就可以这样来写：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">getCode</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            String url = <span class="string">"http://www.cnmooc.org"</span>;</span><br><span class="line">            String response = HttpUtils.httpGet(url);</span><br><span class="line">            <span class="keyword">if</span>(response != <span class="keyword">null</span>)&#123;</span><br><span class="line">                showCode(response);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">showCode</span><span class="params">(<span class="keyword">final</span> String s)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//必须在主线程中操作UI</span></span><br><span class="line">    runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            Log.i(TAG, <span class="string">"run: code---&gt;"</span>+s);</span><br><span class="line">            tvCode.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 基础的GET实现，不对外公布此方法，仅仅是被上面两个方法调用
-     * 返回的HttpResponse类，包含状态码和响应内容。
-     * @param url 网址
-     * @return
-     */
-    private static HttpResponse baseGet(String url){
-        HttpURLConnection conn = getHttpUrlConnection(url);
-        HttpResponse response = new HttpResponse();
-        BufferedReader reader;
-        try {
-            //设置请求方式
-            conn.setRequestMethod(&quot;GET&quot;);
-            //建立连接
-            conn.connect();
-            //获取状态码
-            response.setCode(conn.getResponseCode());
-            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            StringBuffer sb = new StringBuffer();
-            String line;
-            while ((line = reader.readLine()) != null){
-                sb.append(line);
-            }
-            //获取响应内容
-            response.setContent(sb.toString());
-            //关闭流
-            reader.close();
-            //关闭连接
-            conn.disconnect();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return response;
-    }
+<p>或者使用带回调接口的GET方法：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">getCode</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            String url = <span class="string">"http://www.cnmooc.org"</span>;</span><br><span class="line">	        HttpUtils.httpGet(url, <span class="keyword">new</span> HttpUtils.HttpCallback() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onSuccess</span><span class="params">(String response)</span> </span>&#123;</span><br><span class="line">                    showCode(response);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">onError</span><span class="params">(<span class="keyword">int</span> responseCode, Exception e)</span> </span>&#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">	    &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">void</span> <span class="title">showCode</span><span class="params">(<span class="keyword">final</span> String s)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//必须在主线程中操作UI</span></span><br><span class="line">    runOnUiThread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            Log.i(TAG, <span class="string">"run: code---&gt;"</span>+s);</span><br><span class="line">            tvCode.setText(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * POST 方法，返回字符串类型的响应内容,返回值为空表示失败，不为空表示成功了
-     * @param url  网址
-     * @param paramList Post提交的参数列表，键值对形式
-     * @return
-     */
-    @Nullable
-    public static String httpPost(String url, List&lt;PostParam&gt; paramList){
-        HttpResponse response = basePost(url, paramList);
-        if(response.getCode() == 200){
-            //成功
-            Log.i(TAG, &quot;httpPost: 成功&quot;);
-            return response.getContent();
-        }else{
-            //失败
-            Log.i(TAG, &quot;httpPost: 失败---&quot; + response.getCode());
-            return null;
-        }
-    }
-
-    /**
-     * POST方法，使用一个回调接口，成功则回调onSuccess方法，失败则回调onError方法
-     * @param url 网址
-     * @param paramList post提交的参数列表
-     * @param callback 回调接口
-     * @return 返回值无意义
-     */
-    @Nullable
-    public static String httpPost(String url, List&lt;PostParam&gt; paramList, HttpCallback callback){
-        HttpResponse response = basePost(url, paramList);
-        if(response.getCode() == 200){
-            //成功
-            Log.i(TAG, &quot;httpPost: 成功&quot;);
-            callback.onSuccess(response.getContent());
-        }else{
-            //失败
-            Log.i(TAG, &quot;httpPost: 失败---&quot; + response.getCode());
-            callback.onError(response.getCode(), new Exception());
-        }
-        return null;
-    }
-
-    /**
-     * 基础的POST实现，不对外公布此方法，只被上面两个POST方法调用
-     * @param url 网址
-     * @param paramList 提交的参数列表
-     * @return
-     */
-    private static HttpResponse basePost(String url, List&lt;PostParam&gt; paramList){
-        HttpURLConnection conn = getHttpUrlConnection(url);
-        HttpResponse response = new HttpResponse();
-        String post = parseParamList(paramList);
-        BufferedReader reader;
-        try {
-            //设置请求方式
-            conn.setRequestMethod(&quot;POST&quot;);
-            //获取输出流并转化为处理流
-            DataOutputStream dos = new DataOutputStream(conn.getOutputStream());
-            //写入参数
-            dos.writeUTF(post);
-            //建立连接
-            conn.connect();
-            //获取状态码
-            response.setCode(conn.getResponseCode());
-            reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-            StringBuffer sb = new StringBuffer();
-            String line;
-            while ((line = reader.readLine()) != null){
-                sb.append(line);
-            }
-            //获取响应内容
-            response.setContent(sb.toString());
-            //关闭流
-            reader.close();
-            //关闭连接
-            conn.disconnect();
-        } catch (ProtocolException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return response;
-    }
-
-    /**
-     * 将参数列表转化成一段字符串
-     * @param paramList
-     * @return
-     */
-    @NonNull
-    private static String parseParamList(@NonNull List&lt;PostParam&gt; paramList){
-        StringBuffer sb = new StringBuffer();
-        for (PostParam param :
-                paramList) {
-            if(sb == null){
-                sb.append(param.toString());
-            }else{
-                sb.append(&quot;&amp;&quot;+param.toString());
-            }
-        }
-        return sb.toString();
-    }
-
-    /**
-     * 获取HttpUrlConnection对象，并进行基础网络设置
-     * @param url
-     * @return
-     */
-    private static HttpURLConnection getHttpUrlConnection(String url){
-        HttpURLConnection conn = null;
-        try {
-            //获取HttpURLConnection对象
-            URL mUrl = new URL(url);
-            conn = (HttpURLConnection) mUrl.openConnection();
-            //进行一些通用设置
-            conn.setConnectTimeout(80000);
-            conn.setReadTimeout(80000);
-            conn.setRequestProperty(&quot;Conection&quot;,&quot;Keep-Alive&quot;);
-            conn.setDoInput(true);
-            conn.setDoOutput(true);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return conn;
-    }
-
-    /**
-     * 回调接口，有两个方法，分别在成功和失败时回调
-     */
-    public interface HttpCallback{
-        void onSuccess(String response);
-        void onError(int responseCode, Exception e);
-    }
-
-    /**
-     * Post提交的参数类
-     * 包含String类型的name和String类型的value
-     */
-    public class PostParam{
-        private String name;
-        private String value;
-        public PostParam(String name, String value){
-            this.name = name;
-            this.value = value;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return name+&quot;=&quot;+value;
-        }
-    }
-}</code></pre><p>HttpResponse 类</p>
-<pre><code>/**
- * 包含网络请求的响应状态码和响应内容
- */
-public class HttpResponse {
-    private int code;
-    private String content;
-
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-}</code></pre><p>有了这个工具类，我们实现实例一的功能，就可以这样来写：</p>
-<pre><code>public void getCode(View view) {
-    new Thread(new Runnable() {
-        @Override
-        public void run() {
-            String url = &quot;http://www.cnmooc.org&quot;;
-            String response = HttpUtils.httpGet(url);
-            if(response != null){
-                showCode(response);
-            }
-        }
-    }).start();
-}
-private void showCode(final String s) {
-    //必须在主线程中操作UI
-    runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            Log.i(TAG, &quot;run: code---&gt;&quot;+s);
-            tvCode.setText(s);
-        }
-    });
-}</code></pre><p>或者使用带回调接口的GET方法：</p>
-<pre><code>public void getCode(View view) {
-    new Thread(new Runnable() {
-        @Override
-        public void run() {
-            String url = &quot;http://www.cnmooc.org&quot;;
-            HttpUtils.httpGet(url, new HttpUtils.HttpCallback() {
-                @Override
-                public void onSuccess(String response) {
-                    showCode(response);
-                }
-
-                @Override
-                public void onError(int responseCode, Exception e) {
-                    e.printStackTrace();
-                }
-            });
-        }
-    }).start();
-}
-private void showCode(final String s) {
-    //必须在主线程中操作UI
-    runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            Log.i(TAG, &quot;run: code---&gt;&quot;+s);
-            tvCode.setText(s);
-        }
-    });
-}</code></pre><h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>这篇文章中对 HttpUrlConnection 的用法、使用示例以及如何封装一个简单的 Http 工具类做了一个介绍，对于了解 HttpUrlConnection 的相关内容还是有所帮助的。接下来是学习一些第三方网络框架的使用和原理，下篇文章应该是关于 Volley 的一些使用介绍，敬请期待。</p>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h3><p>这篇文章中对 HttpUrlConnection 的用法、使用示例以及如何封装一个简单的 Http 工具类做了一个介绍，对于了解 HttpUrlConnection 的相关内容还是有所帮助的。接下来是学习一些第三方网络框架的使用和原理，下篇文章应该是关于 Volley 的一些使用介绍，敬请期待。</p>
 <p>再见。</p>
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p>这篇文章的参考资料主要有：</p>
 <blockquote>

@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -368,17 +368,15 @@
 <p>默认情况下，<a href="https://github.com/google/blockly-android/blob/master/blocklylib-core/src/main/java/com/google/blockly/android/AbstractBlocklyActivity.java" target="_blank" rel="noopener">AbstractBlocklyActivity</a> 用一个大的工作区（workspace）填充整个屏幕。这个工作区由 <a href="https://github.com/google/blockly-android/blob/master/blocklylib-core/src/main/res/layout/blockly_unified_workspace.xml" target="_blank" rel="noopener">blockly_unified_workspace.xml</a> 来定义，布局上将工作区、工具箱和垃圾桶组合在一起。</p>
 <p><img src="https://developers.google.cn/blockly/images/unified-layout-android.png" alt="enter image description here"></p>
 <p>这个布局由onCreateContentView() 方法加载到 Activity 中：</p>
-<pre><code>protected View onCreateContentView(int containerId) {
-    return getLayoutInflater().inflate(R.layout.blockly_unified_workspace, null);
-}</code></pre><p>在程序中可以重载此方法以使用自己的视图。在 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/java/com/google/blockly/android/demo/SplitActivity.java" target="_blank" rel="noopener">SplitActivity</a> 和 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/java/com/google/blockly/android/demo/TurtleActivity.java" target="_blank" rel="noopener">TurtleActivity</a> 中可以找到两个相关示例：</p>
-<pre><code>Override
-protected View onCreateContentView(int parentId) {
-    View root = getLayoutInflater().inflate(R.layout.split_content, null);
-    mGeneratedTextView = (TextView) root.findViewById(R.id.generated_code);
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">protected</span> <span class="function">View <span class="title">onCreateContentView</span><span class="params">(<span class="keyword">int</span> containerId)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> getLayoutInflater().inflate(R.layout.blockly_unified_workspace, <span class="keyword">null</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    return root;
-}</code></pre><p>这两种情况下，修改后的布局都是在效果预览视图的旁边简单地引用了 blockly_unified_workspace.xml 的布局。</p>
-<pre><code>&lt;include layout=&quot;@layout/blockly_unified_workspace&quot; /&gt;</code></pre><h3 id="直接引用-Blockly-UI"><a href="#直接引用-Blockly-UI" class="headerlink" title="直接引用 Blockly UI"></a>直接引用 Blockly UI</h3><p>虽然 blockly_unified_workspace 可以轻松地在 Blockly 工作区旁边添加一些额外的 UI，但通过直接添加 Blockly UI 可以实现更高级的布局。</p>
+<p>在程序中可以重载此方法以使用自己的视图。在 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/java/com/google/blockly/android/demo/SplitActivity.java" target="_blank" rel="noopener">SplitActivity</a> 和 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/java/com/google/blockly/android/demo/TurtleActivity.java" target="_blank" rel="noopener">TurtleActivity</a> 中可以找到两个相关示例：</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Override</span><br><span class="line"><span class="keyword">protected</span> <span class="function">View <span class="title">onCreateContentView</span><span class="params">(<span class="keyword">int</span> parentId)</span> </span>&#123;</span><br><span class="line">    View root = getLayoutInflater().inflate(R.layout.split_content, <span class="keyword">null</span>);</span><br><span class="line">    mGeneratedTextView = (TextView) root.findViewById(R.id.generated_code);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这两种情况下，修改后的布局都是在效果预览视图的旁边简单地引用了 blockly_unified_workspace.xml 的布局。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="meta">include</span> layout=<span class="string">"@layout/blockly_unified_workspace"</span> /&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="直接引用-Blockly-UI"><a href="#直接引用-Blockly-UI" class="headerlink" title="直接引用 Blockly UI"></a>直接引用 Blockly UI</h3><p>虽然 blockly_unified_workspace 可以轻松地在 Blockly 工作区旁边添加一些额外的 UI，但通过直接添加 Blockly UI 可以实现更高级的布局。</p>
 <p><a href="https://github.com/google/blockly-android/blob/master/blocklylib-core/src/main/java/com/google/blockly/android/AbstractBlocklyActivity.java" target="_blank" rel="noopener">AbstractBlocklyActivity</a> 中的默认实现是使用 <a href="https://github.com/google/blockly-android/blob/master/blocklylib-core/src/main/java/com/google/blockly/android/BlocklyActivityHelper.java" target="_blank" rel="noopener">BlocklyActivityHelper</a>，它会查找以下 fragment 的ID：</p>
 <ul>
 <li>blockly_workspace：定义主要工作区域的<a href="https://github.com/google/blockly-android/blob/master/blocklylib-core/src/main/java/com/google/blockly/android/WorkspaceFragment.java" target="_blank" rel="noopener">WorkspaceFragment</a>。</li>

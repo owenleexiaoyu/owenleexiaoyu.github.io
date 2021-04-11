@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -366,54 +366,9 @@
         <p>上篇文章介绍了Volley框架的基本用法，包括StringRequest、JsonRequest、ImageRequest、ImageLoader等用法。这篇文章我们自己实现自定义Request，以适用于多样化的场景。</p>
 <h4 id="XMLRequest"><a href="#XMLRequest" class="headerlink" title="XMLRequest"></a>XMLRequest</h4><p>我们知道网络数据通常有两种格式，一种是Json、一种是XML。因为Volley中已经有了JsonRequest，所以我们现在来自己实现一个XMLRequest。</p>
 <p>先看看StringRequest是怎么实现的：</p>
-<pre><code>public class StringRequest extends Request&lt;String&gt; {
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> StringRequest <span class="keyword">extends</span> Request&lt;<span class="built_in">String</span>&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** Lock to guard mListener as it is cleared on cancel() and read on delivery. */</span></span><br><span class="line">    <span class="keyword">private</span> final <span class="built_in">Object</span> mLock = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// @GuardedBy("mLock")</span></span><br><span class="line">    <span class="keyword">private</span> Listener&lt;<span class="built_in">String</span>&gt; mListener;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> StringRequest(int method, <span class="built_in">String</span> url, Listener&lt;<span class="built_in">String</span>&gt; listener,</span><br><span class="line">            ErrorListener errorListener) &#123;</span><br><span class="line">        <span class="keyword">super</span>(method, url, errorListener);</span><br><span class="line">        mListener = listener;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> StringRequest(<span class="built_in">String</span> url, Listener&lt;<span class="built_in">String</span>&gt; listener, ErrorListener errorListener) &#123;</span><br><span class="line">        <span class="keyword">this</span>(Method.GET, url, listener, errorListener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">void</span> cancel() &#123;</span><br><span class="line">        <span class="keyword">super</span>.cancel();</span><br><span class="line">        synchronized (mLock) &#123;</span><br><span class="line">            mListener = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="built_in">void</span> deliverResponse(<span class="built_in">String</span> response) &#123;</span><br><span class="line">        Response.Listener&lt;<span class="built_in">String</span>&gt; listener;</span><br><span class="line">        synchronized (mLock) &#123;</span><br><span class="line">            listener = mListener;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (listener != <span class="literal">null</span>) &#123;</span><br><span class="line">            listener.onResponse(response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Response&lt;<span class="built_in">String</span>&gt; parseNetworkResponse(NetworkResponse response) &#123;</span><br><span class="line">        <span class="built_in">String</span> parsed;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            parsed = <span class="keyword">new</span> <span class="built_in">String</span>(response.data, HttpHeaderParser.parseCharset(response.headers));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            parsed = <span class="keyword">new</span> <span class="built_in">String</span>(response.data);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /** Lock to guard mListener as it is cleared on cancel() and read on delivery. */
-    private final Object mLock = new Object();
-
-    // @GuardedBy(&quot;mLock&quot;)
-    private Listener&lt;String&gt; mListener;
-
-    public StringRequest(int method, String url, Listener&lt;String&gt; listener,
-            ErrorListener errorListener) {
-        super(method, url, errorListener);
-        mListener = listener;
-    }
-
-    public StringRequest(String url, Listener&lt;String&gt; listener, ErrorListener errorListener) {
-        this(Method.GET, url, listener, errorListener);
-    }
-
-    @Override
-    public void cancel() {
-        super.cancel();
-        synchronized (mLock) {
-            mListener = null;
-        }
-    }
-
-    @Override
-    protected void deliverResponse(String response) {
-        Response.Listener&lt;String&gt; listener;
-        synchronized (mLock) {
-            listener = mListener;
-        }
-        if (listener != null) {
-            listener.onResponse(response);
-        }
-    }
-
-    @Override
-    protected Response&lt;String&gt; parseNetworkResponse(NetworkResponse response) {
-        String parsed;
-        try {
-            parsed = new String(response.data, HttpHeaderParser.parseCharset(response.headers));
-        } catch (UnsupportedEncodingException e) {
-            parsed = new String(response.data);
-        }
-        return Response.success(parsed, HttpHeaderParser.parseCacheHeaders(response));
-    }
-}</code></pre><p>可以看到，StringRequest里面的代码非常少，大部分工作都在其父类中进行了实现。</p>
+<p>可以看到，StringRequest里面的代码非常少，大部分工作都在其父类中进行了实现。</p>
 <p>自定义一个Request的基本步骤为：</p>
 <ol>
 <li>创建一个成功响应的回调Listener</li>
@@ -421,59 +376,9 @@
 <li>覆盖父类中的抽象方法，解析网络请求结果和回调响应成功的数据。</li>
 </ol>
 <p>下面是XMLRequest的代码：</p>
-<pre><code>public class XMLRequest extends Request&lt;XmlPullParser&gt; {
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XMLRequest</span> <span class="keyword">extends</span> <span class="title">Request</span>&lt;<span class="title">XmlPullParser</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//锁</span></span><br><span class="line">    <span class="keyword">private</span> Object mLock = <span class="keyword">new</span> Object();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//请求成功的回调</span></span><br><span class="line">    <span class="keyword">private</span> Response.Listener&lt;XmlPullParser&gt; listener;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//带有请求方式的构造函数</span></span><br><span class="line">    <span class="keyword">public</span> XMLRequest(<span class="keyword">int</span> method, String url, Response.Listener&lt;XmlPullParser&gt; listener,</span><br><span class="line">                      Response.ErrorListener errorListener) &#123;</span><br><span class="line">        <span class="keyword">super</span>(method, url, errorListener);</span><br><span class="line">        <span class="keyword">this</span>.listener = listener;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//默认请求方式为GET的构造函数</span></span><br><span class="line">    <span class="keyword">public</span> XMLRequest(String url, Response.Listener&lt;XmlPullParser&gt; listener,</span><br><span class="line">                      Response.ErrorListener errorListener) &#123;</span><br><span class="line">        <span class="keyword">this</span>(Method.GET, url,listener, errorListener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//解析网络请求结果</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> Response&lt;XmlPullParser&gt; parseNetworkResponse(NetworkResponse response) &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            String xmlString = <span class="keyword">new</span> String(response.data,</span><br><span class="line">                    HttpHeaderParser.parseCharset(response.headers));</span><br><span class="line">            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();</span><br><span class="line">            XmlPullParser xmlPullParser = factory.newPullParser();</span><br><span class="line">            xmlPullParser.setInput(<span class="keyword">new</span> StringReader(xmlString));</span><br><span class="line">            <span class="keyword">return</span> Response.success(xmlPullParser, HttpHeaderParser.parseCacheHeaders(response));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (UnsupportedEncodingException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> Response.<span class="keyword">error</span>(<span class="keyword">new</span> ParseError(e));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (XmlPullParserException e) &#123;</span><br><span class="line">            <span class="keyword">return</span> Response.<span class="keyword">error</span>(<span class="keyword">new</span> ParseError(e));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//回调成功的请求</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">deliverResponse</span><span class="params">(XmlPullParser response)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (mLock)&#123;</span><br><span class="line">            listener.onResponse(response);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//取消请求</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">cancel</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.cancel();</span><br><span class="line">        <span class="keyword">synchronized</span> (mLock)&#123;</span><br><span class="line">            listener = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    //锁
-    private Object mLock = new Object();
-
-    //请求成功的回调
-    private Response.Listener&lt;XmlPullParser&gt; listener;
-
-    //带有请求方式的构造函数
-    public XMLRequest(int method, String url, Response.Listener&lt;XmlPullParser&gt; listener,
-                      Response.ErrorListener errorListener) {
-        super(method, url, errorListener);
-        this.listener = listener;
-    }
-    //默认请求方式为GET的构造函数
-    public XMLRequest(String url, Response.Listener&lt;XmlPullParser&gt; listener,
-                      Response.ErrorListener errorListener) {
-        this(Method.GET, url,listener, errorListener);
-    }
-
-    //解析网络请求结果
-    @Override
-    protected Response&lt;XmlPullParser&gt; parseNetworkResponse(NetworkResponse response) {
-        try {
-            String xmlString = new String(response.data,
-                    HttpHeaderParser.parseCharset(response.headers));
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            XmlPullParser xmlPullParser = factory.newPullParser();
-            xmlPullParser.setInput(new StringReader(xmlString));
-            return Response.success(xmlPullParser, HttpHeaderParser.parseCacheHeaders(response));
-        } catch (UnsupportedEncodingException e) {
-            return Response.error(new ParseError(e));
-        } catch (XmlPullParserException e) {
-            return Response.error(new ParseError(e));
-        }
-    }
-    //回调成功的请求
-    @Override
-    protected void deliverResponse(XmlPullParser response) {
-        synchronized (mLock){
-            listener.onResponse(response);
-        }
-    }
-
-    //取消请求
-    @Override
-    public void cancel() {
-        super.cancel();
-        synchronized (mLock){
-            listener = null;
-        }
-    }
-}</code></pre><p>这里我们使用Pull方法来解析XML数据，这里用到了XmlPullParser这个类。首先定义了一个泛型为XmlPullParser的回调监听器Listener对象，用于回调请求成功的数据（请求失败的回调都是一样的，但是请求成功时返回的数据类型不同，回调也不一样）。在构造函数中为回调赋值，构造函数同样模仿StringRequest中的写法，三个参数的构造函数调用四个参数的构造函数。在继承了Request这个父类后，必须要覆盖它的两个抽象方法，分别是<strong>parseNetworkResponse() **和</strong>deliverResponse()**，下面来介绍一下这两个方法的作用。</p>
+<p>这里我们使用Pull方法来解析XML数据，这里用到了XmlPullParser这个类。首先定义了一个泛型为XmlPullParser的回调监听器Listener对象，用于回调请求成功的数据（请求失败的回调都是一样的，但是请求成功时返回的数据类型不同，回调也不一样）。在构造函数中为回调赋值，构造函数同样模仿StringRequest中的写法，三个参数的构造函数调用四个参数的构造函数。在继承了Request这个父类后，必须要覆盖它的两个抽象方法，分别是<strong>parseNetworkResponse() **和</strong>deliverResponse()**，下面来介绍一下这两个方法的作用。</p>
 <p><strong>protected Response<t> parseNetworkResponse(NetworkResponse response)</t></strong></p>
 <p>这个方法是用于解析网络请求的响应结果，根据响应结果，调用不同的响应方法。在XmlRequest中，首先获取到Response中的响应数据，再将其解析成XmlPullParser的格式，然后调用响应成功的方法，如果数据出错（请求不成功，解析出错等情况），就调用响应失败的方法。</p>
 <p><strong>protected void deliverResponse(T response)</strong></p>
@@ -481,42 +386,9 @@
 <p>后面的文章中我们会介绍这两个函数背后的原理以及整个Volley的流程。</p>
 <h4 id="GsonResquest"><a href="#GsonResquest" class="headerlink" title="GsonResquest"></a>GsonResquest</h4><p>其实经过上个XMLRequest的实现，我们已经大致了解了自定义Request的要点。下面再贴一下GsonRequest的实现，Gson是Google开源的一个JSON数据解析框架，能够自动地将一段JSON数据映射成一个实体类的对象。当然实际上这个Request并不需要定制，只需要在StringRequest的响应结果中加上Gson即可（因为可能只需要Json数据的其中一部分）。</p>
 <p>以下是具体实现：</p>
-<pre><code>public class GsonRequest&lt;T&gt; extends Request&lt;T&gt; {
-    private Response.Listener&lt;T&gt; listener;
-    private Gson mGson;
-    private Class&lt;T&gt; mClass;
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> GsonRequest&lt;T&gt; extends <span class="built_in">Request</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">Response</span>.Listener&lt;T&gt; listener;</span><br><span class="line">    <span class="keyword">private</span> Gson mGson;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">Class</span>&lt;T&gt; mClass;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> GsonRequest(<span class="built_in">int</span> method, <span class="built_in">String</span> url, <span class="keyword">Class</span>&lt;T&gt; clazz, <span class="built_in">Response</span>.Listener&lt;T&gt; listener,</span><br><span class="line">                       <span class="built_in">Response</span>.ErrorListener errorListener) &#123;</span><br><span class="line">        super(method, url, errorListener);</span><br><span class="line">        mGson = <span class="keyword">new</span> Gson();</span><br><span class="line">        this.mClass = clazz;</span><br><span class="line">        this.listener = listener;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> GsonRequest(<span class="built_in">String</span> url, <span class="keyword">Class</span>&lt;T&gt; clazz, <span class="built_in">Response</span>.Listener&lt;T&gt; listener,</span><br><span class="line">                       <span class="built_in">Response</span>.ErrorListener errorListener) &#123;</span><br><span class="line">        this(Method.<span class="keyword">GET</span>, url, clazz, listener, errorListener);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected <span class="built_in">Response</span>&lt;T&gt; parseNetworkResponse(NetworkResponse <span class="built_in">response</span>) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            <span class="built_in">String</span> jsonString = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="built_in">response</span>.data,</span><br><span class="line">                    HttpHeaderParser.parseCharset(<span class="built_in">response</span>.headers));</span><br><span class="line">            return <span class="built_in">Response</span>.success(mGson.fromJson(jsonString,mClass),</span><br><span class="line">                    HttpHeaderParser.parseCacheHeaders(<span class="built_in">response</span>));</span><br><span class="line">        &#125; catch (UnsupportedEncodingException e) &#123;</span><br><span class="line">            return <span class="built_in">Response</span>.<span class="keyword">error</span>(<span class="keyword">new</span> ParseError(e));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void deliverResponse(T <span class="built_in">response</span>) &#123;</span><br><span class="line">        listener.onResponse(<span class="built_in">response</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    public GsonRequest(int method, String url, Class&lt;T&gt; clazz, Response.Listener&lt;T&gt; listener,
-                       Response.ErrorListener errorListener) {
-        super(method, url, errorListener);
-        mGson = new Gson();
-        this.mClass = clazz;
-        this.listener = listener;
-    }
-
-    public GsonRequest(String url, Class&lt;T&gt; clazz, Response.Listener&lt;T&gt; listener,
-                       Response.ErrorListener errorListener) {
-        this(Method.GET, url, clazz, listener, errorListener);
-    }
-
-
-    @Override
-    protected Response&lt;T&gt; parseNetworkResponse(NetworkResponse response) {
-        try {
-            String jsonString = new String(response.data,
-                    HttpHeaderParser.parseCharset(response.headers));
-            return Response.success(mGson.fromJson(jsonString,mClass),
-                    HttpHeaderParser.parseCacheHeaders(response));
-        } catch (UnsupportedEncodingException e) {
-            return Response.error(new ParseError(e));
-        }
-    }
-
-    @Override
-    protected void deliverResponse(T response) {
-        listener.onResponse(response);
-    }
-}</code></pre><p>其中需要注意的一个点是，要增加一个类型为Class&lt; T &gt;的成员变量mClass，并在构造函数中赋值。这是因为在parseNetworkResponse()方法的<strong>mGson.fromJson(jsonString,mClass)</strong>这行代码中需要显式指定JSON所要映射的实体类类型。</p>
+<p>其中需要注意的一个点是，要增加一个类型为Class&lt; T &gt;的成员变量mClass，并在构造函数中赋值。这是因为在parseNetworkResponse()方法的<strong>mGson.fromJson(jsonString,mClass)</strong>这行代码中需要显式指定JSON所要映射的实体类类型。</p>
 <h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>这篇自定义Request就到这里了，文章大部分内容都来源于郭霖老师下面这篇博客：</p>
 <p><a href="http://blog.csdn.net/guolin_blog/article/details/17612763" target="_blank" rel="noopener">Android Volley完全解析(三)，定制自己的Request</a></p>
 

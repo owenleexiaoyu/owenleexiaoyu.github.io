@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -366,37 +366,23 @@
         <h3 id="申明"><a href="#申明" class="headerlink" title="申明"></a>申明</h3><p>本指南翻译自 Google Blockly 官方文档。</p>
 <hr>
 <p>工具箱是用户可以创建新块的侧面菜单。使用 XML 代码来指定工具箱的结构，它可能是节点树或字符串。如果您不喜欢手动输入 XML，我们建议你查看「<a href="https://developers.google.cn/blockly/guides/create-custom-blocks/blockly-developer-tools" target="_blank" rel="noopener">Blockly 开发者工具</a>」。使用「Blockly 开发者工具」，您可以构建一个工具箱，并使用可视化界面自动生成其工具箱 XML 代码。这个 XML 文件放在assets 目录下，其路径在 BlocklyController 构造时传递给 BlocklyController。如果您的 Activity 继承自 <a href="https://github.com/google/blockly-android/blob/master/blocklylib-core/src/main/java/com/google/blockly/android/AbstractBlocklyActivity.java" target="_blank" rel="noopener">AbstractBlocklyActivity</a>，则可以使用 getToolboxContentsXmlPath（）方法返回的 XML 文件路径自动完成此操作：</p>
-<pre><code>Override
-protected String getToolboxContentsXmlPath() {
-    return &quot;default/toolbox.xml&quot;;
-}</code></pre><p>下面的代码是使用节点树的一个最简实例：</p>
-<pre><code>&lt;toolbox&gt;
-  &lt;block type=&quot;controls_if&quot;&gt;&lt;/block&gt;
-  &lt;block type=&quot;controls_whileUntil&quot;&gt;&lt;/block&gt;
-&lt;/toolbox&gt;</code></pre><p>这个工具箱将加载如下的块（block）：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Override</span><br><span class="line"><span class="function"><span class="keyword">protected</span> String <span class="title">getToolboxContentsXmlPath</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"default/toolbox.xml"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面的代码是使用节点树的一个最简实例：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">toolbox</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"controls_if"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"controls_whileUntil"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">toolbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>这个工具箱将加载如下的块（block）：</p>
 <p><img src="https://developers.google.cn/blockly/images/toolbox-minimal-android.png" alt="enter image description here"></p>
 <p>如果只有少量的块，那么它们可能没有任何类别显示（如上面的最简实例所示）。在这种简单模式下，所有可用的块都显示在工具箱中。</p>
 <h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>工具箱中块可以划分成不同的类别进行组织，下面的代码中有两个类别（“控制”和“逻辑”），每个类别包含三个块：</p>
-<pre><code>&lt;toolbox&gt;
-  &lt;category name=&quot;Control&quot;&gt;
-    &lt;block type=&quot;controls_if&quot;&gt;&lt;/block&gt;
-    &lt;block type=&quot;controls_whileUntil&quot;&gt;&lt;/block&gt;
-    &lt;block type=&quot;controls_for&quot;&gt;&lt;/block&gt;
-  &lt;/category&gt;
-  &lt;category name=&quot;Logic&quot;&gt;
-    &lt;block type=&quot;logic_compare&quot;&gt;&lt;/block&gt;
-    &lt;block type=&quot;logic_operation&quot;&gt;&lt;/block&gt;
-    &lt;block type=&quot;logic_boolean&quot;&gt;&lt;/block&gt;
-  &lt;/category&gt;
-&lt;/toolbox&gt;</code></pre><p>以下是所产生的工具箱，点击“逻辑”类别，便可以在弹出的窗口中看到这个类别下的三个“逻辑块”：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">toolbox</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">category</span> <span class="attr">name</span>=<span class="string">"Control"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"controls_if"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"controls_whileUntil"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"controls_for"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">category</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">category</span> <span class="attr">name</span>=<span class="string">"Logic"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"logic_compare"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"logic_operation"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"logic_boolean"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">category</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">toolbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以下是所产生的工具箱，点击“逻辑”类别，便可以在弹出的窗口中看到这个类别下的三个“逻辑块”：</p>
 <p><img src="https://developers.google.cn/blockly/images/toolbox-categories-android.png" alt="enter image description here"></p>
 <p>可以使用 colour 属性来为一个类别的所有块分配一个颜色。这里需注意 colour 是英国的拼写。颜色值是定义色调的数字（0-360）。</p>
-<pre><code>&lt;toolbox&gt;
-  &lt;category name=&quot;Logic&quot; colour=&quot;210&quot;&gt;...&lt;/category&gt;
-  &lt;category name=&quot;Loops&quot; colour=&quot;120&quot;&gt;...&lt;/category&gt;
-  &lt;category name=&quot;Math&quot; colour=&quot;230&quot;&gt;...&lt;/category&gt;
-  &lt;category name=&quot;Colour&quot; colour=&quot;20&quot;&gt;...&lt;/category&gt;
-&lt;/toolbox&gt;</code></pre><p>指定的颜色成为这个类别下的块的背景色，效果如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">toolbox</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">category</span> <span class="attr">name</span>=<span class="string">"Logic"</span> <span class="attr">colour</span>=<span class="string">"210"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">category</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">category</span> <span class="attr">name</span>=<span class="string">"Loops"</span> <span class="attr">colour</span>=<span class="string">"120"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">category</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">category</span> <span class="attr">name</span>=<span class="string">"Math"</span> <span class="attr">colour</span>=<span class="string">"230"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">category</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">category</span> <span class="attr">name</span>=<span class="string">"Colour"</span> <span class="attr">colour</span>=<span class="string">"20"</span>&gt;</span>...<span class="tag">&lt;/<span class="name">category</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">toolbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>指定的颜色成为这个类别下的块的背景色，效果如下：</p>
 <p><img src="https://developers.google.cn/blockly/images/toolbox-colours-android.png" alt="enter image description here"></p>
 <blockquote>
 <p>标签着色正在开发，敬请期待。</p>
@@ -413,45 +399,9 @@ protected String getToolboxContentsXmlPath() {
 </li>
 </ol>
 <p>以下是生成这四个块的 XML 代码：</p>
-<pre><code>&lt;toolbox&gt;
-  &lt;block type=&quot;logic_boolean&quot;&gt;&lt;/block&gt;
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">toolbox</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"logic_boolean"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"math_number"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"NUM"</span>&gt;</span>42<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"controls_for"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span> <span class="attr">name</span>=<span class="string">"FROM"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"math_number"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"NUM"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span> <span class="attr">name</span>=<span class="string">"TO"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"math_number"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"NUM"</span>&gt;</span>10<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span> <span class="attr">name</span>=<span class="string">"BY"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"math_number"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"NUM"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"math_arithmetic"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"OP"</span>&gt;</span>ADD<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span> <span class="attr">name</span>=<span class="string">"A"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">shadow</span> <span class="attr">type</span>=<span class="string">"math_number"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"NUM"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">shadow</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span> <span class="attr">name</span>=<span class="string">"B"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">shadow</span> <span class="attr">type</span>=<span class="string">"math_number"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">field</span> <span class="attr">name</span>=<span class="string">"NUM"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">field</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">shadow</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">toolbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-  &lt;block type=&quot;math_number&quot;&gt;
-    &lt;field name=&quot;NUM&quot;&gt;42&lt;/field&gt;
-  &lt;/block&gt;
-
-  &lt;block type=&quot;controls_for&quot;&gt;
-    &lt;value name=&quot;FROM&quot;&gt;
-      &lt;block type=&quot;math_number&quot;&gt;
-        &lt;field name=&quot;NUM&quot;&gt;1&lt;/field&gt;
-      &lt;/block&gt;
-    &lt;/value&gt;
-    &lt;value name=&quot;TO&quot;&gt;
-      &lt;block type=&quot;math_number&quot;&gt;
-        &lt;field name=&quot;NUM&quot;&gt;10&lt;/field&gt;
-      &lt;/block&gt;
-    &lt;/value&gt;
-    &lt;value name=&quot;BY&quot;&gt;
-      &lt;block type=&quot;math_number&quot;&gt;
-        &lt;field name=&quot;NUM&quot;&gt;1&lt;/field&gt;
-      &lt;/block&gt;
-    &lt;/value&gt;
-  &lt;/block&gt;
-
-  &lt;block type=&quot;math_arithmetic&quot;&gt;
-    &lt;field name=&quot;OP&quot;&gt;ADD&lt;/field&gt;
-    &lt;value name=&quot;A&quot;&gt;
-      &lt;shadow type=&quot;math_number&quot;&gt;
-        &lt;field name=&quot;NUM&quot;&gt;1&lt;/field&gt;
-      &lt;/shadow&gt;
-    &lt;/value&gt;
-    &lt;value name=&quot;B&quot;&gt;
-      &lt;shadow type=&quot;math_number&quot;&gt;
-        &lt;field name=&quot;NUM&quot;&gt;1&lt;/field&gt;
-      &lt;/shadow&gt;
-    &lt;/value&gt;
-  &lt;/block&gt;
-&lt;/toolbox&gt;</code></pre><p>这些自定义块或组的 XML 与 Blockly 的 XML 保存格式相同。因此，为这些块构建 XML 的最简单的方法是使用「<a href="https://blockly-demo.appspot.com/static/demos/code/index.html" target="_blank" rel="noopener">Code application</a>」来构建块，然后切换到 XML 选项卡并复制结果。 x，y 和 id 属性被工具箱忽略，可能被删除。</p>
+<p>这些自定义块或组的 XML 与 Blockly 的 XML 保存格式相同。因此，为这些块构建 XML 的最简单的方法是使用「<a href="https://blockly-demo.appspot.com/static/demos/code/index.html" target="_blank" rel="noopener">Code application</a>」来构建块，然后切换到 XML 选项卡并复制结果。 x，y 和 id 属性被工具箱忽略，可能被删除。</p>
 <p>影子块是执行若干功能的占位符块：</p>
 <ul>
 <li>它们表示父级块的默认值。</li>

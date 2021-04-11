@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -401,78 +401,21 @@
 </blockquote>
 <h4 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h4><p><strong>1. 布局文件</strong></p>
 <p>在布局文件中添加 BottomNavigationView 控件，设置相关属性。</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;android.support.constraint.ConstraintLayout
-    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;&gt;
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">android.support.constraint.ConstraintLayout</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">xmlns:app</span>=<span class="string">"http://schemas.android.com/apk/res-auto"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">TextView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/second_textview"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:gravity</span>=<span class="string">"center"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:textSize</span>=<span class="string">"14sp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toTopOf</span>=<span class="string">"@+id/second_bottom_navbar"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintTop_toTopOf</span>=<span class="string">"parent"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">android.support.design.widget.BottomNavigationView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:elevation</span>=<span class="string">"5dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:translationZ</span>=<span class="string">"5dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"?attr/actionBarSize"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/second_bottom_navbar"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:menu</span>=<span class="string">"@menu/bottom_nav"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:itemIconTint</span>=<span class="string">"@color/icon_color_selector"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:itemTextColor</span>=<span class="string">"@color/icon_color_selector"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">app:layout_constraintBottom_toBottomOf</span>=<span class="string">"parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:background</span>=<span class="string">"@color/colorAccent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">android.support.design.widget.BottomNavigationView</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">android.support.constraint.ConstraintLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-    &lt;TextView
-        android:id=&quot;@+id/second_textview&quot;
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;0dp&quot;
-        android:gravity=&quot;center&quot;
-        android:textSize=&quot;14sp&quot;
-        app:layout_constraintBottom_toTopOf=&quot;@+id/second_bottom_navbar&quot;
-        app:layout_constraintTop_toTopOf=&quot;parent&quot; /&gt;
-    &lt;android.support.design.widget.BottomNavigationView
-        android:elevation=&quot;5dp&quot;
-        android:translationZ=&quot;5dp&quot;
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;?attr/actionBarSize&quot;
-        android:id=&quot;@+id/second_bottom_navbar&quot;
-        app:menu=&quot;@menu/bottom_nav&quot;
-        app:itemIconTint=&quot;@color/icon_color_selector&quot;
-        app:itemTextColor=&quot;@color/icon_color_selector&quot;
-        app:layout_constraintBottom_toBottomOf=&quot;parent&quot;
-        android:background=&quot;@color/colorAccent&quot;&gt;
-    &lt;/android.support.design.widget.BottomNavigationView&gt;
-&lt;/android.support.constraint.ConstraintLayout&gt;</code></pre><p><strong>2. 引用的 menu 文件</strong></p>
+<p><strong>2. 引用的 menu 文件</strong></p>
 <p>在 res/menu 目录下新建文件，添加 menu 菜单。</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;menu xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
-    &lt;item android:id=&quot;@+id/bottom_home&quot;
-        android:icon=&quot;@mipmap/ic_home_gray&quot;
-        android:title=&quot;首页&quot;/&gt;
-    &lt;item android:id=&quot;@+id/bottom_system&quot;
-        android:icon=&quot;@mipmap/ic_system_gray&quot;
-        android:title=&quot;体系&quot;/&gt;
-    &lt;item android:id=&quot;@+id/bottom_nav&quot;
-        android:icon=&quot;@mipmap/ic_nav_gray&quot;
-        android:title=&quot;导航&quot;/&gt;
-    &lt;item android:id=&quot;@+id/bottom_project&quot;
-        android:icon=&quot;@mipmap/ic_project_gray&quot;
-        android:title=&quot;项目&quot;/&gt;
-&lt;/menu&gt;</code></pre><p><strong>3. color 的 selector 文件</strong></p>
-<p>在 res/color 目录下新建文件，使用 selector 标签实现多种颜色。</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
-    &lt;item android:color=&quot;@android:color/white&quot; android:state_selected=&quot;true&quot;/&gt;
-    &lt;item android:color=&quot;@color/light_gray&quot; android:state_selected=&quot;false&quot;/&gt;
-&lt;/selector&gt;</code></pre><p><strong>4. Java 代码</strong></p>
-<p>在 Activity 中实例化 BottomNavigationView 控件，添加 item 选中监听器等方法。</p>
-<pre><code>public class SecondActivity extends AppCompatActivity{
-    BottomNavigationView bottomNavigationView;
-    TextView textView;
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">menu</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:id</span>=<span class="string">"@+id/bottom_home"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_home_gray"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">"首页"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:id</span>=<span class="string">"@+id/bottom_system"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_system_gray"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">"体系"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:id</span>=<span class="string">"@+id/bottom_nav"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_nav_gray"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">"导航"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:id</span>=<span class="string">"@+id/bottom_project"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:icon</span>=<span class="string">"@mipmap/ic_project_gray"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:title</span>=<span class="string">"项目"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">menu</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-        bottomNavigationView = findViewById(R.id.second_bottom_navbar);
-        textView = findViewById(R.id.second_textview);
-        textView.setText(bottomNavigationView.getMenu().getItem(0).getTitle());
-        bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                textView.setText(menuItem.getTitle());
-                return true;
-            }
-        });
-    }
-}</code></pre><h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><ol>
+<p><strong>3. color 的 selector 文件</strong></p>
+<p>在 res/color 目录下新建文件，使用 selector 标签实现多种颜色。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">selector</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:color</span>=<span class="string">"@android:color/white"</span> <span class="attr">android:state_selected</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">android:color</span>=<span class="string">"@color/light_gray"</span> <span class="attr">android:state_selected</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">selector</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4. Java 代码</strong></p>
+<p>在 Activity 中实例化 BottomNavigationView 控件，添加 item 选中监听器等方法。</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">public <span class="class"><span class="keyword">class</span> <span class="title">SecondActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span></span>&#123;</span><br><span class="line">    <span class="type">BottomNavigationView</span> bottomNavigationView;</span><br><span class="line">    <span class="type">TextView</span> textView;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> void onCreate(<span class="meta">@Nullable</span> <span class="type">Bundle</span> savedInstanceState) &#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(<span class="type">R</span>.layout.activity_second);</span><br><span class="line"></span><br><span class="line">        bottomNavigationView = findViewById(<span class="type">R</span>.id.second_bottom_navbar);</span><br><span class="line">        textView = findViewById(<span class="type">R</span>.id.second_textview);</span><br><span class="line">        textView.setText(bottomNavigationView.getMenu().getItem(<span class="number">0</span>).getTitle());</span><br><span class="line">        bottomNavigationView.setOnNavigationItemSelectedListener(</span><br><span class="line">                <span class="keyword">new</span> <span class="type">BottomNavigationView</span>.<span class="type">OnNavigationItemSelectedListener</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            public boolean onNavigationItemSelected(<span class="meta">@NonNull</span> <span class="type">MenuItem</span> menuItem) &#123;</span><br><span class="line">                textView.setText(menuItem.getTitle());</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><ol>
 <li><p>在 setOnNavigationItemSelectedListener() 方法中，一定要将回调方法 <strong>onNavigationItemSelected()</strong> 的返回值设为 <strong>true</strong>，不然 item 不能正常切换。</p>
 </li>
 <li><p>总的 item 不能超过5个，当 item 数量在3个以内时，每个 item 都会显示图标的文字，如果item的数量是4个或5个时，只有选中的item才会显示图标的文字，没选中的item只显示图标。</p>

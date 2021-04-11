@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -412,17 +412,9 @@
 <li>LinkedList时间复杂度</li>
 <li>接口与抽象类的区别，抽象类和接口中哪个可以有静态代码块？</li>
 </ol>
-<pre><code>interface ITest{
-   static {
-      printf(&quot;hello&quot;);
-  }
-}
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ITest</span></span>&#123;</span><br><span class="line">   <span class="keyword">static</span> &#123;</span><br><span class="line">      printf(<span class="string">"hello"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">       printf(<span class="string">"hello"</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-public abstract class Test {
-    static {
-       printf(&quot;hello&quot;);
-   }
-}</code></pre><ol start="5">
+<ol start="5">
 <li>操作系统进程间通信</li>
 <li>介绍一下Android中的Handler和Looper。<br>两个looper能否共享一个线程? 两个线程能否共享一个looper?</li>
 <li>View事件传递机制和View绘制机制</li>

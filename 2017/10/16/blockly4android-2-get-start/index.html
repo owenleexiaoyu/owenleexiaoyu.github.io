@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -378,71 +378,49 @@
 <p><img src="https://i.loli.net/2019/08/29/u4niqFsrwMILotc.jpg" alt="img2"></p>
 <p>这两种情况下，你都不需要为你的 Blockly Activity 创建对应的布局文件，它会自动使用 Blockly 库中提供的布局文件。</p>
 <p>在 AndroidManifest.xml 文件中，像如下代码一样设置 <strong>windowSoftInputMode</strong>：</p>
-<pre><code>&lt;application ...
-    android:windowSoftInputMode=&quot;stateHidden|adjustPan&quot;
-    /&gt;</code></pre><p>这样设置 windowSoftInputMode 确保即使在有输入框的情况下，键盘都处于隐藏状态。当键盘（或其他输入法编辑器 Input Method Editor）出现时，它还将确保工作区平移以显示这些区域。</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;application <span class="built_in">..</span>.</span><br><span class="line">    android:<span class="attribute">windowSoftInputMode</span>=<span class="string">"stateHidden|adjustPan"</span></span><br><span class="line">    /&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样设置 windowSoftInputMode 确保即使在有输入框的情况下，键盘都处于隐藏状态。当键盘（或其他输入法编辑器 Input Method Editor）出现时，它还将确保工作区平移以显示这些区域。</p>
 <p>AndroidManifest.xml 文件中 &lt; appliction &gt; 标签里 style 所设置样式为 AppTheme， 在 res/values/styles.xml 文件中找到这个样式，设置它的父样式为 <strong>BlocklyVerticalTheme</strong>。</p>
-<pre><code>&lt;style name=&quot;AppTheme&quot; parent=&quot;BlocklyVerticalTheme&quot;&gt;
-    &lt;!-- Customize your theme here. --&gt;
-    ...
-&lt;/style&gt;</code></pre><p>（译者注：其实设置样式这步应该在导入依赖后进行，因为没导入依赖前系统中找不到 BlocklyVerticalTheme 这个样式）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"AppTheme"</span> <span class="attr">parent</span>=<span class="string">"BlocklyVerticalTheme"</span>&gt;</span></span><br><span class="line"><span class="xml">    <span class="comment">&lt;!-- Customize your theme here. --&gt;</span></span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（译者注：其实设置样式这步应该在导入依赖后进行，因为没导入依赖前系统中找不到 BlocklyVerticalTheme 这个样式）</p>
 <h3 id="配置工程依赖"><a href="#配置工程依赖" class="headerlink" title="配置工程依赖"></a>配置工程依赖</h3><p>打开你项目工程的 build.gradle 文件，并确保它包含 JCenter 仓库。同时还要确保它包含 Android 的支持和兼容性类的 Google maven 仓库。由最新版本的 Android Studio 创建的项目文件应该已经包含了这些仓库，如下所示：</p>
-<pre><code>allprojects {
-    repositories {
-        jcenter()
-        maven {
-            url &#39;https://maven.google.com&#39;
-        }
-    }
-}</code></pre><p>接下来，打开你应用的 build.gradle 文件，通常这个文件都在工程的 app 目录下。在依赖的模块里添加以下几行依赖：</p>
-<pre><code>compile &#39;com.android.support:appcompat-v7:26.0.1&#39;
-compile &#39;com.android.support:recyclerview-v7:26.0.1&#39;
-compile &#39;com.android.support:support-v4:26.0.1&#39;
-compile &#39;com.google.blockly.android:blocklylib-vertical:0.9-beta.20171003&#39;</code></pre><p>（译者注：其实关键的依赖只有最后那个 Blockly 库，其他依赖在创建工程的过程中基本都已经导入了）</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">allprojects</span> &#123;</span><br><span class="line">    <span class="keyword">repositories</span> &#123;</span><br><span class="line">        jcenter()</span><br><span class="line">        maven &#123;</span><br><span class="line">            url <span class="string">'https://maven.google.com'</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>接下来，打开你应用的 build.gradle 文件，通常这个文件都在工程的 app 目录下。在依赖的模块里添加以下几行依赖：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:appcompat-v7:26.0.1'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:recyclerview-v7:26.0.1'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.android.support:support-v4:26.0.1'</span></span><br><span class="line"><span class="keyword">compile</span> <span class="string">'com.google.blockly.android:blocklylib-vertical:0.9-beta.20171003'</span></span><br></pre></td></tr></table></figure>
+
+<p>（译者注：其实关键的依赖只有最后那个 Blockly 库，其他依赖在创建工程的过程中基本都已经导入了）</p>
 <blockquote>
 <p><img src="https://i.loli.net/2019/08/30/8gYSm73q5VULt4f.png" alt="a.png"><br>请注意：在 JCenter 网站的 <a href="https://bintray.com/bintray/jcenter?filterByPkgName=blocklylib-core" target="_blank" rel="noopener"><strong>blocklylib-core</strong></a> 和 <a href="https://bintray.com/bintray/jcenter?filterByPkgName=blocklylib-vertical" target="_blank" rel="noopener"><strong>blocklylib-vertical</strong></a> 中查看依赖的最新版本。</p>
 </blockquote>
 <h3 id="实现基类-Activity"><a href="#实现基类-Activity" class="headerlink" title="实现基类 Activity"></a>实现基类 Activity</h3><p>最简单的开发一个 Android Blockly Activity 的方法就是区继承 <a href="https://github.com/google/blockly-android/blob/master/blocklylib-core/src/main/java/com/google/blockly/android/AbstractBlocklyActivity.java" target="_blank" rel="noopener"><strong>AbstractBlocklyActivity</strong></a>，我们强烈推荐在你第一个 Blockly  应用中使用它。这个类有如下几个抽象方法需要你来覆盖，这些抽象方法的具体实现你可以参考 <a href="https://github.com/google/blockly-android/blob/master/blocklydemo/src/main/java/com/google/blockly/android/demo/SimpleActivity.java" target="_blank" rel="noopener"><strong>SimpleActivity</strong></a>。</p>
 <h4 id="getToolboxContentsXmlPath"><a href="#getToolboxContentsXmlPath" class="headerlink" title="getToolboxContentsXmlPath()"></a>getToolboxContentsXmlPath()</h4><p>getToolboxContentsXmlPath() 返回 assets/ 目录下定义工具箱（toolbox）内容的 XML 文件路径。</p>
-<pre><code>@Override
-protected String getToolboxContentsXmlPath() {
-    return &quot;default/toolbox.xml&quot;;
-}</code></pre><blockquote>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function">String <span class="title">getToolboxContentsXmlPath</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"default/toolbox.xml"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
 <p><img src="https://i.loli.net/2019/08/30/8gYSm73q5VULt4f.png" alt="a.png"> 请注意：想了解关于工具箱（toolbox）的更多内容，请参阅「<a href="https://developers.google.cn/blockly/guides/configure/android/toolbox" target="_blank" rel="noopener">填充工具箱</a>」</p>
 </blockquote>
 <h4 id="getBlockDefinitionsJsonPaths"><a href="#getBlockDefinitionsJsonPaths" class="headerlink" title="getBlockDefinitionsJsonPaths()"></a>getBlockDefinitionsJsonPaths()</h4><p>getBlockDefinitionsJsonPaths() 返回 assets/ 目录下定义块（Block）的 .json 文件路径，以下代码实现了导入Blockly库中提供的默认块（Block）。</p>
-<pre><code>@Override
-protected List&lt;String&gt; getBlockDefinitionsJsonPaths() {
-    List&lt;String&gt; assetPaths = new ArrayList&lt;&gt;(DefaultBlocks.getAllBlockDefinitions());
-    // Append your own block definitions here.
-    return assetPaths;
-}</code></pre><p>DefaultBlocks 类中包含了 Blockly 预定义块的帮助函数。 getAllBlockDefinitions（）返回一个所有预定义块路径的数组。从这个地方开始是容易的，尽管开发者们最终会想要选择与应用程序相关的特定块，以及特定于运行时环境的创建块。</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">protected <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; getBlockDefinitionsJsonPaths() &#123;</span><br><span class="line">    <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; assetPaths = <span class="keyword">new</span> ArrayList&lt;&gt;(DefaultBlocks.getAllBlockDefinitions());</span><br><span class="line">    <span class="comment">// Append your own block definitions here.</span></span><br><span class="line">    <span class="keyword">return</span> assetPaths;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>DefaultBlocks 类中包含了 Blockly 预定义块的帮助函数。 getAllBlockDefinitions（）返回一个所有预定义块路径的数组。从这个地方开始是容易的，尽管开发者们最终会想要选择与应用程序相关的特定块，以及特定于运行时环境的创建块。</p>
 <p>关于创建新的 Blockly 块的详细信息，请参阅「<a href="https://developers.google.cn/blockly/guides/configure/android/add-custom-blocks" target="_blank" rel="noopener">添加自定义块</a>」。</p>
 <h4 id="getGeneratorsJsPaths"><a href="#getGeneratorsJsPaths" class="headerlink" title="getGeneratorsJsPaths()"></a>getGeneratorsJsPaths()</h4><p>getGeneratorsJsPaths() 返回 assets/ 目录下定义 Blockly  块实现方法的生成器 .js 文件的路径。下面代码表示引入包括 Blockly 默认块的所有 JavaScript 实现。</p>
-<pre><code>private static final List&lt;String&gt; JAVASCRIPT_GENERATORS = Arrays.asList(
-    // Custom block generators go here. Default blocks are already included.
-);
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">private <span class="keyword">static</span> <span class="keyword">final</span> <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; JAVASCRIPT_GENERATORS = Arrays.asList(</span><br><span class="line">    <span class="comment">// Custom block generators go here. Default blocks are already included.</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line">protected <span class="built_in">List</span>&lt;<span class="built_in">String</span>&gt; getGeneratorsJsPaths() &#123;</span><br><span class="line">    <span class="keyword">return</span> JAVASCRIPT_GENERATORS;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-@Override
-protected List&lt;String&gt; getGeneratorsJsPaths() {
-    return JAVASCRIPT_GENERATORS;
-}</code></pre><blockquote>
+<blockquote>
 <p><img src="https://i.loli.net/2019/08/30/8gYSm73q5VULt4f.png" alt="a.png"> 请注意：在「<a href="https://developers.google.cn/blockly/guides/configure/android/custom-generators" target="_blank" rel="noopener">自定义生成器</a>」中了解更多关于生成器（generators）内容。</p>
 </blockquote>
 <h4 id="getCodeGenerationCallback"><a href="#getCodeGenerationCallback" class="headerlink" title="getCodeGenerationCallback()"></a>getCodeGenerationCallback()</h4><p>getCodeGenerationCallback() 返回将生成的代码返回给应用的回调，这个方法在用户点击标题栏（actionbar）中的 run/play 按钮时被调用。</p>
-<pre><code>CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
-        new LoggingCodeGeneratorCallback(this, &quot;LoggingTag&quot;);
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =</span><br><span class="line">        <span class="keyword">new</span> LoggingCodeGeneratorCallback(<span class="keyword">this</span>, <span class="string">"LoggingTag"</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> CodeGenerationRequest.<span class="function">CodeGeneratorCallback <span class="title">getCodeGenerationCallback</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> mCodeGeneratorCallback;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-@Override
-protected CodeGenerationRequest.CodeGeneratorCallback getCodeGenerationCallback() {
-    return mCodeGeneratorCallback;
-}</code></pre><p>在上述代码中，应用对于每次调用都使用相同的生成器回调。这种做法是常见的，但不是必须的。</p>
+<p>在上述代码中，应用对于每次调用都使用相同的生成器回调。这种做法是常见的，但不是必须的。</p>
 <h4 id="onInitBlankWorkspace"><a href="#onInitBlankWorkspace" class="headerlink" title="onInitBlankWorkspace()"></a>onInitBlankWorkspace()</h4><p>虽然不是一种抽象方法，但是如果您的应用程序包含 default / variable_blocks.json，则现在需要onInitBlankWorkspace（）来定义可用的变量。支持变量的功能目前正在开发中。</p>
-<pre><code>@Override
-protected void onInitBlankWorkspace() {
-    // Initialize available variable names.
-    getController().addVariable(&quot;item&quot;);
-}</code></pre><h3 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h3><p>这时候，你的应用程序应该可以编译和运行，效果类似于 SimpleActivity 。接下来，你可以从如下几个不同方面来进行进一步的开发。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">protected</span> <span class="function"><span class="keyword">void</span> <span class="title">onInitBlankWorkspace</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// Initialize available variable names.</span></span><br><span class="line">    getController().addVariable(<span class="string">"item"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="下一步"><a href="#下一步" class="headerlink" title="下一步"></a>下一步</h3><p>这时候，你的应用程序应该可以编译和运行，效果类似于 SimpleActivity 。接下来，你可以从如下几个不同方面来进行进一步的开发。</p>
 <ul>
 <li><a href="https://developers.google.cn/blockly/guides/configure/android/customize-layout" target="_blank" rel="noopener">自定义活动布局</a>，为应用的导航和可视化让出空间。</li>
 <li>在新的块 .json 文件中<a href="https://developers.google.cn/blockly/guides/create-custom-blocks/define-blocks" target="_blank" rel="noopener">定义和添加自定义块</a></li>

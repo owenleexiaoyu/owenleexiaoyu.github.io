@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -452,8 +452,9 @@ ViewStub当界面中有些子布局需要满足某些条件才展示时，通常
     <div class="post-content-preview">
       在 Java 中，想要扩展类的功能，但是又不想直接改原来的类时，一般会采用继承、组合（装饰者模式）等方式来实现。而 Kotlin 中支持对类的属性和函数进行扩展，在类外增加原来类的属性和函数，可以方便地实现在原来的类上添加新功能。
 函数扩展函数扩展的格式为：
-fun &lt;类名&gt;.&lt;扩展函数名&gt;([参数列表])&lt;:返回类型&gt;{
-}在 Android 开发中，我......
+12fun &lt;类名&gt;.&lt;扩展函数名&gt;([参数列表])&lt;:返回类型&gt;&#123;&#125;
+
+在 ......
     </div>
   </a>
   
@@ -488,9 +489,7 @@ fun &lt;类名&gt;.&lt;扩展函数名&gt;([参数列表])&lt;:返回类型&gt;{
     <div class="post-content-preview">
       前言这篇文章来写一下 Kotlin 中的伴生对象。
 从静态说起之前的文章中，提到在 Java 中，使用 static 这个关键字来表示在类层面的变量和方法，比如：
-class HttpUtils{
-    public static final String URL = &quot;http://www.baidu.com&quot;;
-    public static String ge......
+123456class HttpUtils&#123;	public static final String URL = "http://www.baidu.com";	public static String getHttpRe......
     </div>
   </a>
   
@@ -526,11 +525,11 @@ class HttpUtils{
       前言这篇的内容还是和类有关，介绍 Kotlin 中继承和接口。
 继承Kotlin 中所有类都继承自 Any 类，是所有类的超类，类似于 Java 中的 Object。
 Any 默认提供三个函数：
-equals()
-hashCode()
-toString()默认的类都是不可被继承的，类似于 Java 中的 final 类。
+123equals()hashCode()toString()
+
+默认的类都是不可被继承的，类似于 Java 中的 final 类。
 要让类可以被继承，需要加 open 关键字修饰。
-open class......
+1open c......
     </div>
   </a>
   
@@ -565,12 +564,11 @@ open class......
     <div class="post-content-preview">
       前言在面向对象编程中，类与对象是非常重要的概念，这篇文章来写一下 Kotlin 中的类与对象。
 类的定义与对象声明Kotlin 中使用 class 关键字来定义类。
-class Person{}
+1234class Person&#123;&#125;//如果是空类，可以这样写：class Person
 
-//如果是空类，可以这样写：
-class Person
 在声明一个对象时，对比 Java，Kotlin 中省略了 new 这个关键字。
-val p = Person()类的属性和函数类的属性可以用......
+1val p = Person()
+......
     </div>
   </a>
   
@@ -646,11 +644,7 @@ val p = Person()类的属性和函数类的属性可以用......
       前言这篇主要记一下 Kotlin 中的分支（条件判断）、循环以及常用的一些关键字。
 分支if-else
 if-else 结构的用法大体上和 Java 一致，比如：
-fun main() {
-    val score = 50
-    if (score &lt; 0) {
-        println(&quot;分数不符合，应该为非负数&quot;)
-    } else if (sc......
+12345678910111213141516fun main() &#123;    val score = 50    if (score &lt; 0) &#123;        println("分数不符合，应该为非负数......
     </div>
   </a>
   
@@ -872,10 +866,6 @@ fun main() {
     
     
     
-    <a href="/tags/#面经" title="面经" rel="4">面经</a>
-    
-    
-    
     <a href="/tags/#知识体系" title="知识体系" rel="1">知识体系</a>
     
     
@@ -884,15 +874,19 @@ fun main() {
     
     
     
+    <a href="/tags/#面经" title="面经" rel="4">面经</a>
+    
+    
+    
     <a href="/tags/#Blockly4Android" title="Blockly4Android" rel="10">Blockly4Android</a>
     
     
     
-    <a href="/tags/#理财" title="理财" rel="5">理财</a>
-    
-    
-    
     <a href="/tags/#Python" title="Python" rel="3">Python</a>
+    
+    
+    
+    <a href="/tags/#理财" title="理财" rel="5">理财</a>
     
     
     
@@ -908,17 +902,19 @@ fun main() {
     
     
     
-    <a href="/tags/#学习" title="学习" rel="3">学习</a>
-    
-    
-    
     <a href="/tags/#诗歌" title="诗歌" rel="5">诗歌</a>
+    
+    
+    
+    <a href="/tags/#学习" title="学习" rel="3">学习</a>
     
     
     
     <a href="/tags/#J2EE" title="J2EE" rel="4">J2EE</a>
     
     
+    
+    <a href="/tags/#Java" title="Java" rel="26">Java</a>
     
     
     
@@ -946,6 +942,10 @@ fun main() {
     
     
     
+    <a href="/tags/#总结" title="总结" rel="1">总结</a>
+    
+    
+    
     <a href="/tags/#算法" title="算法" rel="4">算法</a>
     
     
@@ -955,14 +955,6 @@ fun main() {
     
     
     <a href="/tags/#千字文计划" title="千字文计划" rel="3">千字文计划</a>
-    
-    
-    
-    <a href="/tags/#总结" title="总结" rel="1">总结</a>
-    
-    
-    
-    <a href="/tags/#Java" title="Java" rel="26">Java</a>
     
     
   </div>

@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -368,52 +368,25 @@
 <p>为了解决这个问题，Kotlin 引入了内联函数，它可以消除使用 Lambda 表达式带来的运行时开销。</p>
 <h3 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h3><p>在定义高阶函数时，加上 <code>inline</code> 关键字，这个函数就是一个内联函数。Kotlin 编译器会将内联函数中的代码在编译时自动替换到调用它的地方，不会在运行时创建匿名类，也就不存在运行时的开销了。</p>
 <p>看如下例子：</p>
-<pre><code class="kotlin">inline fun myFunc(a: Int, b: Int, operation: (Int, Int) -&gt; Int): Int {
-    val result = operation(a, b)
-    return result
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="title">myFunc</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>, operation: (<span class="type">Int</span>, <span class="built_in">Int</span>)</span></span> -&gt; <span class="built_in">Int</span>): <span class="built_in">Int</span> &#123;</span><br><span class="line">    <span class="keyword">val</span> result = operation(a, b)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> num1 = <span class="number">1</span></span><br><span class="line">    <span class="keyword">val</span> num2 = <span class="number">2</span></span><br><span class="line">    <span class="keyword">val</span> result = myFunc(num1, num2) &#123;a, b -&gt;</span><br><span class="line">        a + b</span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="string">"result= <span class="variable">$result</span>"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 执行结果</span></span><br><span class="line">result= <span class="number">3</span></span><br></pre></td></tr></table></figure>
 
-fun main(){
-    val num1 = 1
-    val num2 = 2
-    val result = myFunc(num1, num2) {a, b -&gt;
-        a + b
-    }
-    println(&quot;result= $result&quot;)
-}
-// 执行结果
-result= 3</code></pre>
 <p>首先，Kotlin 编译器会将 Lambda 表达式中代码替换到函数类型调用的地方，这一步替换后类似这样：</p>
-<pre><code class="kotlin">inline fun myFunc(a: Int, b: Int, operation: (Int, Int) -&gt; Int): Int {
-    val result = a + b  // Lambda表达式中内容替换到这
-    return result
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="title">myFunc</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>, operation: (<span class="type">Int</span>, <span class="built_in">Int</span>)</span></span> -&gt; <span class="built_in">Int</span>): <span class="built_in">Int</span> &#123;</span><br><span class="line">    <span class="keyword">val</span> result = a + b  <span class="comment">// Lambda表达式中内容替换到这</span></span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> num1 = <span class="number">1</span></span><br><span class="line">    <span class="keyword">val</span> num2 = <span class="number">2</span></span><br><span class="line">    <span class="keyword">val</span> result = myFunc(num1, num2)</span><br><span class="line">    println(<span class="string">"result= <span class="variable">$result</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-fun main(){
-    val num1 = 1
-    val num2 = 2
-    val result = myFunc(num1, num2)
-    println(&quot;result= $result&quot;)
-}</code></pre>
 <p>然后将内联函数中的代码替换到函数调用的地方，替换后类似这样：</p>
-<pre><code class="kotlin">fun main(){
-    val num1 = 1
-    val num2 = 2
-    val result = num1 + num2 // 替换到这里
-    println(&quot;result= $result&quot;)
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">val</span> num1 = <span class="number">1</span></span><br><span class="line">    <span class="keyword">val</span> num2 = <span class="number">2</span></span><br><span class="line">    <span class="keyword">val</span> result = num1 + num2 <span class="comment">// 替换到这里</span></span><br><span class="line">    println(<span class="string">"result= <span class="variable">$result</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>inline 函数的原理是将 Lambda 表达式中代码替换到被调用处，每调一次，该代码就会被复制一次，如果 Lambda 表达式中的代码量很大的话，会造成程序代码量的增加，是以目标代码的增加为代价来节省运行时开销的。</p>
 <p>所以在 Lambda 表达式包含大量执行代码时，不应该使用内联函数，当 Lambda 表达式只包含非常简单的代码（特别是单表达式）时，应该使用内联函数。另外，inline 关键字只适合用来修饰高阶函数，普通函数使用 inline 关键字对性能的提升微乎其微，如果使用了 inline 关键字，编译还会提示将其移除。</p>
 <p>比如下面这个 add 函数，使用 inline 关键字修饰：</p>
-<pre><code class="kotlin">inline fun add(a: Int, b: Int): Int {
-    return a + b
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="title">add</span><span class="params">(a: <span class="type">Int</span>, b: <span class="type">Int</span>)</span></span>: <span class="built_in">Int</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>编译器会给出这样的提示：</p>
 <p><img src="https://i.loli.net/2020/07/10/oSH3yt5s1BTUdPQ.png" alt="image1"></p>
 <p>使用内联函数时，不能持有传入的函数类型参数对象的引用，也不能将传入的函数类型参数对象传递给另一个函数。如果这样做了，会提示非法使用内联参数。如果需要将函数参数传递，一种方法是这个高阶函数不要用 inline 修饰；另一种方式是使用 noinline 关键字修饰要传递的这个函数参数，使其不要内联。下面就来看看 noinline 的用法。</p>
 <h3 id="noinline"><a href="#noinline" class="headerlink" title="noinline"></a>noinline</h3><p>如果一个高阶函数中有多个 Lambda，这个函数添加 inline 后，所有的 Lambda 表达式中的代码都会被替换到调用处。前面又提到如果 Lambda 表达式中代码很多的话不应该被替换，那么如何让多个 Lambda 中代码很多的 Lambda 不要被内联呢，就是使用 <code>noinline</code> 关键字。参考下面这个例子：</p>
-<pre><code class="kotlin">inline fun testInline(block1: ()-&gt; Unit, noinline block2: () -&gt; Unit) {
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="title">testInline</span><span class="params">(block1: ()</span></span>-&gt; <span class="built_in">Unit</span>, <span class="keyword">noinline</span> block2: () -&gt; <span class="built_in">Unit</span>) &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>testInline 用 inline 修饰，block2 这个 Lambda 添加了noinline 修饰，就只有 block1 会被内联了，block2 不会。</p>
 <h3 id="crossinline"><a href="#crossinline" class="headerlink" title="crossinline"></a>crossinline</h3><p>上一篇函数进阶中，提到非内联函数的 Lambda 中不能使用 return，而 内联函数的 Lambda 表达式中可以使用 return，不过不用于返回 Lambda，而是返回 Lambda 所在的调用函数，这是因为内联函数的 Lambda 表达式中的代码会被替换到函数调用处。这样的 return 语句被称为 <code>非局部返回</code>。</p>
 <p>内联和非局部返回其实是有冲突的，因为如果调用者在 Lambda 中使用了return，就会造成高阶函数Lambda表达式之后的代码无法执行，改变了函数的执行流程，所以需要一个方法在内联函数中禁用非局部返回。这个方法就是用 <code>crossinline</code> 来修饰函数类型的参数，这样 Lambda 表达式中如果使用了 return 来非局部返回，编译无法通过，但是可以使用 <code>return@高阶函数名</code> 进行局部返回。比如下面这个例子：</p>

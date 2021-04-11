@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -364,14 +364,15 @@
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
         <p>自定义EditText的光标颜色，需要在EditText的XML代码中加入如下一条属性：</p>
-<pre><code>android:textCursorDrawable=&quot;&quot;</code></pre><p>其中的参数如果为<strong>@null</strong>，则光标颜色与字体颜色相同，宽度为最窄。<br>而要实现自己自定义的样式，则需要在drawable文件夹下新建一个样式XML文件editcursor.xml。其中的代码为：</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:shape=&quot;rectangle&quot;&gt;
-    &lt;solid android:color=&quot;#00bb9c&quot;/&gt;
-    &lt;size android:width=&quot;2dp&quot;/&gt;
-&lt;/shape&gt;</code></pre><p>将这个drawable样式文件设置要edittext的该属性中，就实现了光标样式的自定义：</p>
-<pre><code>android:textCursorDrawable=&quot;@drawable/editcursor&quot;</code></pre><p><strong>注意：该属性中不能直接写颜色，因为没有宽度的话，光标是无法显示的。</strong></p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">android:</span>textCursorDrawable=<span class="string">""</span></span><br></pre></td></tr></table></figure>
+
+<p>其中的参数如果为<strong>@null</strong>，则光标颜色与字体颜色相同，宽度为最窄。<br>而要实现自己自定义的样式，则需要在drawable文件夹下新建一个样式XML文件editcursor.xml。其中的代码为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">shape</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:shape</span>=<span class="string">"rectangle"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">solid</span> <span class="attr">android:color</span>=<span class="string">"#00bb9c"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">size</span> <span class="attr">android:width</span>=<span class="string">"2dp"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">shape</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>将这个drawable样式文件设置要edittext的该属性中，就实现了光标样式的自定义：</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">android:</span>textCursorDrawable=<span class="string">"@drawable/editcursor"</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：该属性中不能直接写颜色，因为没有宽度的话，光标是无法显示的。</strong></p>
 <p>最后附上效果图（光标颜色被改为深绿色）</p>
 <p><img src="https://i.loli.net/2019/08/29/PFS249lBREqNnXM.jpg" alt="img1.png"></p>
 

@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -401,119 +401,23 @@
 </ul>
 <h3 id="Kotlin-中-DSL-的写法"><a href="#Kotlin-中-DSL-的写法" class="headerlink" title="Kotlin 中 DSL 的写法"></a>Kotlin 中 DSL 的写法</h3><p>Kotlin 也是支持构建 DSL 的，最常见的实现方式是使用高阶函数+Lambda 表达式。有时也会用到拓展函数、运算符重载、中缀表达式等语法特性。</p>
 <p>如果我们想在项目中使用一些第三方库，就会在build.gradle中添加这样的内容：</p>
-<pre><code class="kotlin">dependencies {
-    implementation &#39;com.squareup.retrofit2:retrofit:2.6.1&#39;
-    implementation &#39;com.squareup.retrofit2:converter-gson:2.6.1&#39;
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dependencies &#123;</span><br><span class="line">    implementation <span class="string">'com.squareup.retrofit2:retrofit:2.6.1'</span></span><br><span class="line">    implementation <span class="string">'com.squareup.retrofit2:converter-gson:2.6.1'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>下面来用 Kotlin 实现类似的语法结构（示例来自郭霖《Android 第一行代码（第三版）》）：</p>
 <p>首先定义一个Dependency类，包含一个依赖第三方库的列表：</p>
-<pre><code class="kotlin">class Dependency {
-    val libraries = mutableListOf&lt;String&gt;()
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dependency</span> </span>&#123;</span><br><span class="line">    <span class="keyword">val</span> libraries = mutableListOf&lt;String&gt;()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">implementation</span><span class="params">(lib: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">        libraries.add(lib)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    fun implementation(lib: String) {
-        libraries.add(lib)
-    }
-}</code></pre>
 <p>然后定义 dependencies 函数：</p>
-<pre><code class="kotlin">fun dependencies(block: Dependency.()-&gt;Unit): List&lt;String&gt; {
-    return Dependency().apply {
-        block()
-    }.libraries
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">dependencies</span><span class="params">(block: <span class="type">Dependency</span>.()</span></span>-&gt;<span class="built_in">Unit</span>): List&lt;String&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> Dependency().apply &#123;</span><br><span class="line">        block()</span><br><span class="line">    &#125;.libraries</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>dependencies 函数接收一个函数类型的参数，并且这个参数是定义到 Dependency 这个类上的，所以调用它的时候需要创建一个 Dependency 的实例，然后通过这个实例来调用函数类型的参数，这样传入的 Lambda 表达式就可以执行了。最后将实例的 libraries 列表返回。</p>
 <p>测试一下效果：</p>
-<pre><code class="kotlin">fun main() {
-    val libs = dependencies {
-        implementation(&quot;com.squareup.retrofit2:retrofit:2.6.1&quot;)
-        implementation(&quot;com.squareup.retrofit2:converter-gson:2.6.1&quot;)
-    }
-    for(lib in libs) {
-        println(lib)
-    }
-}
-// 运行结果
-com.squareup.retrofit2:retrofit:2.6.1
-com.squareup.retrofit2:converter-gson:2.6.1</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> libs = dependencies &#123;</span><br><span class="line">        implementation(<span class="string">"com.squareup.retrofit2:retrofit:2.6.1"</span>)</span><br><span class="line">        implementation(<span class="string">"com.squareup.retrofit2:converter-gson:2.6.1"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(lib <span class="keyword">in</span> libs) &#123;</span><br><span class="line">        println(lib)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">com.squareup.retrofit2:retrofit:<span class="number">2.6</span>.1</span><br><span class="line">com.squareup.retrofit2:converter-gson:<span class="number">2.6</span>.1</span><br></pre></td></tr></table></figure>
+
 <p>这样就实现了一个超简单的 DSL。</p>
 <p>下面再来写一个更复杂一点的 HTML 的 DSL 例子，写法和上面的 dependencies 函数的写法是类似的。</p>
-<pre><code class="kotlin">// 定义一个接口 IHTML，有个 html 方法，返回一个标签中的所有内容（外加换行和缩进）
-interface IHTML {
-    fun html(): String
-}
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个接口 IHTML，有个 html 方法，返回一个标签中的所有内容（外加换行和缩进）</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">IHTML</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">html</span><span class="params">()</span></span>: String</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对应&lt;td&gt;标签，content是标签中的内容</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Td</span> : <span class="type">IHTML &#123;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> content = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">html</span><span class="params">()</span></span> = <span class="string">"\n\t\t&lt;td&gt;<span class="variable">$content</span>&lt;/td&gt;"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对应&lt;tr&gt;标签，包裹&lt;td&gt;标签，用一个Td类型的列表表示</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tr</span> : <span class="type">IHTML &#123;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> children = ArrayList&lt;Td&gt;()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">td</span><span class="params">(block: <span class="type">Td</span>.()</span></span> -&gt; String) &#123;</span><br><span class="line">        <span class="keyword">val</span> td = Td()</span><br><span class="line">        td.content = td.block()</span><br><span class="line">        children.add(td)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">html</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">val</span> builder = StringBuilder()</span><br><span class="line">        builder.append(<span class="string">"\n\t&lt;tr&gt;"</span>)</span><br><span class="line">        <span class="keyword">for</span> (childTag <span class="keyword">in</span> children) &#123;</span><br><span class="line">            builder.append(childTag.html())</span><br><span class="line">        &#125;</span><br><span class="line">        builder.append(<span class="string">"\n\t&lt;/tr&gt;"</span>)</span><br><span class="line">        <span class="keyword">return</span> builder.toString()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 对应&lt;table&gt;标签，包裹&lt;tr&gt;标签，用一个Tr类型的列表表示</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Table</span> : <span class="type">IHTML &#123;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">val</span> children = ArrayList&lt;Tr&gt;()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">tr</span><span class="params">(block: <span class="type">Tr</span>.()</span></span> -&gt; <span class="built_in">Unit</span>) &#123;</span><br><span class="line">        <span class="keyword">val</span> tr = Tr()</span><br><span class="line">        tr.block()</span><br><span class="line">        children.add(tr)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 首尾加上&lt;table&gt;标签的字符串，中间遍历children，调用html方法填充子标签内容</span></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">html</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">val</span> builder = StringBuilder()</span><br><span class="line">        builder.append(<span class="string">"&lt;table&gt;"</span>)</span><br><span class="line">        <span class="keyword">for</span> (childTag <span class="keyword">in</span> children) &#123;</span><br><span class="line">            builder.append(childTag.html())</span><br><span class="line">        &#125;</span><br><span class="line">        builder.append(<span class="string">"\n&lt;/table&gt;"</span>)</span><br><span class="line">        <span class="keyword">return</span> builder.toString()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// </span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">table</span><span class="params">(block: <span class="type">Table</span>.()</span></span> -&gt; <span class="built_in">Unit</span>): String &#123;</span><br><span class="line">    <span class="keyword">val</span> table = Table()</span><br><span class="line">    table.block()</span><br><span class="line">    <span class="keyword">return</span> table.html()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> html = table &#123;</span><br><span class="line">        repeat(<span class="number">2</span>) &#123;</span><br><span class="line">            tr &#123;</span><br><span class="line">                td &#123; <span class="string">"Apple"</span> &#125;</span><br><span class="line">                td &#123; <span class="string">"Banana"</span> &#125;</span><br><span class="line">                td &#123; <span class="string">"Orange"</span> &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">val</span> f = File(<span class="string">"test.html"</span>)</span><br><span class="line">    f.writeText(html)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-// 对应&lt;td&gt;标签，content是标签中的内容
-class Td : IHTML {
-
-    var content = &quot;&quot;
-
-    override fun html() = &quot;\n\t\t&lt;td&gt;$content&lt;/td&gt;&quot;
-}
-
-// 对应&lt;tr&gt;标签，包裹&lt;td&gt;标签，用一个Td类型的列表表示
-class Tr : IHTML {
-
-    private val children = ArrayList&lt;Td&gt;()
-
-    fun td(block: Td.() -&gt; String) {
-        val td = Td()
-        td.content = td.block()
-        children.add(td)
-    }
-
-    override fun html(): String {
-        val builder = StringBuilder()
-        builder.append(&quot;\n\t&lt;tr&gt;&quot;)
-        for (childTag in children) {
-            builder.append(childTag.html())
-        }
-        builder.append(&quot;\n\t&lt;/tr&gt;&quot;)
-        return builder.toString()
-    }
-}
-
-// 对应&lt;table&gt;标签，包裹&lt;tr&gt;标签，用一个Tr类型的列表表示
-class Table : IHTML {
-
-    private val children = ArrayList&lt;Tr&gt;()
-
-    fun tr(block: Tr.() -&gt; Unit) {
-        val tr = Tr()
-        tr.block()
-        children.add(tr)
-    }
-
-    // 首尾加上&lt;table&gt;标签的字符串，中间遍历children，调用html方法填充子标签内容
-    override fun html(): String {
-        val builder = StringBuilder()
-        builder.append(&quot;&lt;table&gt;&quot;)
-        for (childTag in children) {
-            builder.append(childTag.html())
-        }
-        builder.append(&quot;\n&lt;/table&gt;&quot;)
-        return builder.toString()
-    }
-}
-
-// 
-fun table(block: Table.() -&gt; Unit): String {
-    val table = Table()
-    table.block()
-    return table.html()
-}
-
-fun main() {
-    val html = table {
-        repeat(2) {
-            tr {
-                td { &quot;Apple&quot; }
-                td { &quot;Banana&quot; }
-                td { &quot;Orange&quot; }
-            }
-        }
-    }
-    val f = File(&quot;test.html&quot;)
-    f.writeText(html)
-}</code></pre>
 <p>运行后，会生成一个 test.html 文件，用浏览器打开后是这样的：</p>
 <p><img src="https://i.loli.net/2020/08/20/NcyBEaGlm5Mq187.png" alt="image"></p>
 <p>到此我们就用 Kotlin 的高阶函数和 Lambda 的相关知识，构建了更加便于书写和理解的 DSL 语法结构，用于解决特定的问题。</p>

@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -410,8 +410,9 @@
 <p><strong>这个策略的作用也只有一个，那就是决定客户端是否可直接从本地缓存数据中加载数据并展示（否则就发请求到服务端获取）</strong></p>
 <p>刚上面我们已经阐述了数据缓存到了本地后还需要经过判断才能使用，那么浏览器通过什么条件来判断呢？ 答案是：Expires，Expires 指明了缓存数据有效的绝对时间，告诉客户端到了这个时间点（比照客户端时间点）后本地缓存就作废了，在这个时间点内客户端可以认为缓存数据有效，可直接从缓存中加载展示。</p>
 <p>不过 HTTP 缓存头设计并没有想象的那么规矩，像上面提到的 Cache-Control（这个头是在 Http1.1 里加进来的）头里的 no-cache 和 max-age 就是特例，它们既包含缓存存储策略也包含缓存过期策略，以 max-age 为例，他实际上相当于：</p>
-<pre><code>Cache-Control：public/private（这里不太确定具体哪个）
-Expires：当前客户端时间 + maxAge 。</code></pre><p>而 Cache-Control：no-cache 和 Cache-Control：max-age=0 （单位是秒）相当。</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Cache</span><span class="params">-Control</span>：<span class="keyword">public</span>/<span class="keyword">private</span>（这里不太确定具体哪个）</span><br><span class="line">Expires：当前客户端时间 + maxAge 。</span><br></pre></td></tr></table></figure>
+
+<p>而 Cache-Control：no-cache 和 Cache-Control：max-age=0 （单位是秒）相当。</p>
 <p>这里需要注意的是：</p>
 <ol>
 <li><p>Cache-Control 中指定的缓存过期策略优先级高于 Expires，当它们同时存在的时候，后者会被覆盖掉。</p>

@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -372,36 +372,8 @@
 <li>also</li>
 </ul>
 <p>先举个例子：</p>
-<pre><code class="kotlin">
-const val MALE = 0
-const val FEMALE = 1
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> MALE = <span class="number">0</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> FEMALE = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: String? = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">var</span> age: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> sex: <span class="built_in">Int</span> = MALE</span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">toString</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"[name=<span class="variable">$name</span>, age=<span class="variable">$age</span>, sex=<span class="subst">$&#123;if (sex == MALE) "MALE" else "FEMALE"&#125;</span>]"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> p = Person()</span><br><span class="line">    p.name = <span class="string">"owen"</span></span><br><span class="line">    p.age = <span class="number">18</span></span><br><span class="line">    p.sex = MALE</span><br><span class="line">    println(p)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> p2 = Person().apply &#123; <span class="comment">// 调用了 apply 函数</span></span><br><span class="line">        name = <span class="string">"Tom"</span></span><br><span class="line">        age = <span class="number">23</span></span><br><span class="line">        sex = FEMALE</span><br><span class="line">    &#125;</span><br><span class="line">    println(p2)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">[name=owen, age=<span class="number">18</span>, sex=MALE]</span><br><span class="line">[name=Tom, age=<span class="number">23</span>, sex=FEMALE]</span><br></pre></td></tr></table></figure>
 
-class Person {
-    var name: String? = null
-    var age: Int = 0
-    var sex: Int = MALE
-    override fun toString(): String {
-        return &quot;[name=$name, age=$age, sex=${if (sex == MALE) &quot;MALE&quot; else &quot;FEMALE&quot;}]&quot;
-    }
-}
-
-fun main() {
-    val p = Person()
-    p.name = &quot;owen&quot;
-    p.age = 18
-    p.sex = MALE
-    println(p)
-
-    val p2 = Person().apply { // 调用了 apply 函数
-        name = &quot;Tom&quot;
-        age = 23
-        sex = FEMALE
-    }
-    println(p2)
-}
-// 运行结果
-[name=owen, age=18, sex=MALE]
-[name=Tom, age=23, sex=FEMALE]</code></pre>
 <p>从这个简单的例子可以看出使用作用域函数的优点：</p>
 <ol>
 <li>省略了 <code>变量名.</code>，在变量名较长且需要设置很多属性时，可以节省一些代码量。</li>
@@ -465,198 +437,63 @@ fun main() {
 </tbody></table>
 <h3 id="引用上下文对象方式"><a href="#引用上下文对象方式" class="headerlink" title="引用上下文对象方式"></a>引用上下文对象方式</h3><p>引用上下文对象的方式有两种，it 和 this。this 表示 Lambda 表达式的接受者，it 表示 Lambda 表达式的参数。它们的主要区别主要在于 this 在没有歧义的情况下可以省略，it 不能省略。</p>
 <h4 id="this"><a href="#this" class="headerlink" title="this"></a>this</h4><p>run、with 以及 apply 通过关键字 this 引用上下文对象。因此在 Lambda 表达式中可以像在普通的类函数中一样访问上下文对象。在大多数场景下，可以省略 this 来简化代码。因此，对于主要对上下文对象成员进行操作（调用对象的函数或者给对象属性赋值），建议将上下文对象作为接收者，即选用 run、with  或者 apply。</p>
-<pre><code class="kotlin">fun main() {
-    val p = Person().apply {
-        name = &quot;owen&quot;
-        age = 18
-        city = &quot;上海&quot;
-    }
-    println(p)
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> p = Person().apply &#123;</span><br><span class="line">        name = <span class="string">"owen"</span></span><br><span class="line">        age = <span class="number">18</span></span><br><span class="line">        city = <span class="string">"上海"</span></span><br><span class="line">    &#125;</span><br><span class="line">    println(p)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">val</span> nextYearAge = Person().run &#123;</span><br><span class="line">        name = <span class="string">"tom"</span></span><br><span class="line">        age = <span class="number">22</span></span><br><span class="line">        city = <span class="string">"北京"</span></span><br><span class="line">        println(<span class="keyword">this</span>)</span><br><span class="line">        age + <span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="string">"nextYearAge = <span class="variable">$nextYearAge</span>"</span>)</span><br><span class="line"></span><br><span class="line">    with(Person()) &#123;</span><br><span class="line">        name = <span class="string">"sam"</span></span><br><span class="line">        age = <span class="number">30</span></span><br><span class="line">        city = <span class="string">"深圳"</span></span><br><span class="line">        println(<span class="keyword">this</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">Person(name=owen, age=<span class="number">18</span>, city=上海)</span><br><span class="line">Person(name=tom, age=<span class="number">22</span>, city=北京)</span><br><span class="line">nextYearAge = <span class="number">23</span></span><br><span class="line">Person(name=sam, age=<span class="number">30</span>, city=深圳)</span><br></pre></td></tr></table></figure>
 
-    val nextYearAge = Person().run {
-        name = &quot;tom&quot;
-        age = 22
-        city = &quot;北京&quot;
-        println(this)
-        age + 1
-    }
-    println(&quot;nextYearAge = $nextYearAge&quot;)
-
-    with(Person()) {
-        name = &quot;sam&quot;
-        age = 30
-        city = &quot;深圳&quot;
-        println(this)
-    }
-}
-// 运行结果
-Person(name=owen, age=18, city=上海)
-Person(name=tom, age=22, city=北京)
-nextYearAge = 23
-Person(name=sam, age=30, city=深圳)</code></pre>
 <h4 id="it"><a href="#it" class="headerlink" title="it"></a>it</h4><p>let 及 also 将上下文对象作为 Lambda 表达式参数。如果没有指定参数名，对象可以用隐式默认名称 it 访问。it 比 this 简短，带有 it 的表达式通常更容易阅读。然而，当调用对象函数或属性时，不能像 this 这样直接省略。因此，当上下文对象在 Lambda 中主要用作函数的 <strong>参数</strong> 时，使用 it 作为上下文对象会更好。若在代码块中使用多个变量，则 it 也更好。</p>
-<pre><code class="kotlin">const val MALE = 0
-const val FEMALE = 1
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> MALE = <span class="number">0</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">val</span> FEMALE = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name: String? = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">var</span> age: <span class="built_in">Int</span> = <span class="number">0</span></span><br><span class="line">    <span class="keyword">var</span> sex: <span class="built_in">Int</span> = MALE</span><br><span class="line"></span><br><span class="line">    <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">toString</span><span class="params">()</span></span>: String &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"[name=<span class="variable">$name</span>, age=<span class="variable">$age</span>, sex=<span class="subst">$&#123;if (sex == MALE) "MALE" else "FEMALE"&#125;</span>]"</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">sayHi</span><span class="params">()</span></span>&#123;</span><br><span class="line">        println(<span class="string">"<span class="variable">$name</span> says Hi"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> p:Person? = Person()</span><br><span class="line">    p?.let &#123;</span><br><span class="line">        it.name = <span class="string">"Owen"</span></span><br><span class="line">        it.age = <span class="number">15</span></span><br><span class="line">        it.sex = MALE</span><br><span class="line">        println(it)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Person().also &#123;</span><br><span class="line">        it.name = <span class="string">"Sam"</span></span><br><span class="line">        println(it)</span><br><span class="line">    &#125;.sayHi()</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">[name=Owen, age=<span class="number">15</span>, sex=MALE]</span><br><span class="line">[name=Sam, age=<span class="number">0</span>, sex=MALE]</span><br><span class="line">Sam says Hi</span><br></pre></td></tr></table></figure>
 
-class Person {
-    var name: String? = null
-    var age: Int = 0
-    var sex: Int = MALE
-
-    override fun toString(): String {
-        return &quot;[name=$name, age=$age, sex=${if (sex == MALE) &quot;MALE&quot; else &quot;FEMALE&quot;}]&quot;
-    }
-
-    fun sayHi(){
-        println(&quot;$name says Hi&quot;)
-    }
-}
-
-fun main() {
-    val p:Person? = Person()
-    p?.let {
-        it.name = &quot;Owen&quot;
-        it.age = 15
-        it.sex = MALE
-        println(it)
-    }
-
-    Person().also {
-        it.name = &quot;Sam&quot;
-        println(it)
-    }.sayHi()
-}
-// 运行结果
-[name=Owen, age=15, sex=MALE]
-[name=Sam, age=0, sex=MALE]
-Sam says Hi</code></pre>
 <h3 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h3><p>返回值也有两种，返回上下文对象本身，或者 Lambda 表达式的结果（Lambda 表达式最后一行的值）。</p>
 <h4 id="上下文对象"><a href="#上下文对象" class="headerlink" title="上下文对象"></a>上下文对象</h4><p>apply 和 also 返回的是上下文对象本身，因此可以作为辅助步骤包含在调用链中：可以继续在同一个对象上进行链式函数调用。</p>
 <p>例如：</p>
-<pre><code class="kotlin">fun main() {
-    val list = mutableListOf&lt;Int&gt;()
-    list.also {
-        println(&quot;填充数据&quot;)
-    }.apply {
-        add(4)
-        add(3)
-        add(6)
-    }.also {
-        println(&quot;排序&quot;)
-    }.sort()
-    println(list)
-}
-// 运行结果
-填充数据
-排序
-[3, 4, 6]</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> list = mutableListOf&lt;<span class="built_in">Int</span>&gt;()</span><br><span class="line">    list.also &#123;</span><br><span class="line">        println(<span class="string">"填充数据"</span>)</span><br><span class="line">    &#125;.apply &#123;</span><br><span class="line">        add(<span class="number">4</span>)</span><br><span class="line">        add(<span class="number">3</span>)</span><br><span class="line">        add(<span class="number">6</span>)</span><br><span class="line">    &#125;.also &#123;</span><br><span class="line">        println(<span class="string">"排序"</span>)</span><br><span class="line">    &#125;.sort()</span><br><span class="line">    println(list)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">填充数据</span><br><span class="line">排序</span><br><span class="line">[<span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>]</span><br></pre></td></tr></table></figure>
+
 <h4 id="Lambda-表达式结果"><a href="#Lambda-表达式结果" class="headerlink" title="Lambda 表达式结果"></a>Lambda 表达式结果</h4><p>let、run 及 with 返回 lambda 表达式的结果。所以，在需要使用其结果给一个变量赋值，或者在需要对其结果进行链式操作等情况下，可以使用它们。</p>
-<pre><code class="kotlin">fun main() {
-    val nums = mutableListOf(&quot;One&quot;, &quot;Two&quot;, &quot;Three&quot;)
-    val count = nums.run {
-        add(&quot;Four&quot;)
-        add(&quot;Five&quot;)
-        count {
-            it.endsWith(&quot;e&quot;)
-        }
-    }
-    println(&quot;以 e 结尾的单词数量是：$count&quot;)
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> nums = mutableListOf(<span class="string">"One"</span>, <span class="string">"Two"</span>, <span class="string">"Three"</span>)</span><br><span class="line">    <span class="keyword">val</span> count = nums.run &#123;</span><br><span class="line">        add(<span class="string">"Four"</span>)</span><br><span class="line">        add(<span class="string">"Five"</span>)</span><br><span class="line">        count &#123;</span><br><span class="line">            it.endsWith(<span class="string">"e"</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="string">"以 e 结尾的单词数量是：<span class="variable">$count</span>"</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>下面来看下这几个函数典型用法：</p>
 <h3 id="典型使用场景"><a href="#典型使用场景" class="headerlink" title="典型使用场景"></a>典型使用场景</h3><h4 id="let"><a href="#let" class="headerlink" title="let"></a>let</h4><p>let 经常用来替代重复的 <code>?.</code>，对于一个可空变量，我们需要使用 ?. 来调用对应的函数，但每次安全调用就显得多余，也增加了不必要的非空判断，这时候就可以使用 <code>?.let</code> 在 Lambda 表达式中执行操作，在 Lambda 表达式中，变量就肯定不为空了。</p>
 <p>如这个例子，p2 为空时，Lambda 表达式中的代码不会执行：</p>
-<pre><code class="kotlin">fun main() {
-    val p:Person? = Person()
-    p?.let {
-        it.name = &quot;Owen&quot;
-        it.age = 15
-        it.sex = MALE
-        println(it)
-    }
-    val p2: Person? = null
-    p2?.let {
-        it.name = &quot;Tom&quot;
-        it.age = 22
-        it.sex = FEMALE
-        println(it)
-    }
-}
-// 运行结果
-[name=Owen, age=15, sex=MALE]</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> p:Person? = Person()</span><br><span class="line">    p?.let &#123;</span><br><span class="line">        it.name = <span class="string">"Owen"</span></span><br><span class="line">        it.age = <span class="number">15</span></span><br><span class="line">        it.sex = MALE</span><br><span class="line">        println(it)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">val</span> p2: Person? = <span class="literal">null</span></span><br><span class="line">    p2?.let &#123;</span><br><span class="line">        it.name = <span class="string">"Tom"</span></span><br><span class="line">        it.age = <span class="number">22</span></span><br><span class="line">        it.sex = FEMALE</span><br><span class="line">        println(it)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">[name=Owen, age=<span class="number">15</span>, sex=MALE]</span><br></pre></td></tr></table></figure>
+
 <p>let 函数源码：</p>
-<pre><code class="kotlin">public inline fun &lt;T, R&gt; T.let(block: (T) -&gt; R): R {
-    return block(this)
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T, R&gt;</span> T.<span class="title">let</span><span class="params">(block: (<span class="type">T</span>)</span></span> -&gt; R): R &#123;</span><br><span class="line">    <span class="keyword">return</span> block(<span class="keyword">this</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="with"><a href="#with" class="headerlink" title="with"></a>with</h4><p>with 不是一个拓展函数，它接收两个参数，第一个参数是上下文对象，第二个参数是 Lambda 表达式。可以理解为： 对于这个对象，执行以下操作。</p>
 <p>with 函数源码：</p>
-<pre><code class="kotlin">public inline fun &lt;T, R&gt; with(receiver: T, block: T.() -&gt; R): R {
-    return receiver.block()
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T, R&gt;</span> <span class="title">with</span><span class="params">(receiver: <span class="type">T</span>, block: <span class="type">T</span>.()</span></span> -&gt; R): R &#123;</span><br><span class="line">    <span class="keyword">return</span> receiver.block()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="run"><a href="#run" class="headerlink" title="run"></a>run</h4><p>run 有两种用法，一种是作为拓展函数，常用在当 Lambda 表达式中同时包含对象初始化和返回值计算的场景。</p>
 <p>拓展函数型 run 函数源码：</p>
-<pre><code class="kotlin">public inline fun &lt;T, R&gt; T.run(block: T.() -&gt; R): R {
-    return block()
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T, R&gt;</span> T.<span class="title">run</span><span class="params">(block: <span class="type">T</span>.()</span></span> -&gt; R): R &#123;</span><br><span class="line">    <span class="keyword">return</span> block()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>另一种是类似于 with，用作非拓展函数，可以在需要表达式的地方执行一个由多个语句组成的代码块。</p>
 <p>非拓展函数型 run 函数源码：</p>
-<pre><code class="kotlin">public inline fun &lt;R&gt; run(block: () -&gt; R): R {
-    return block()
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;R&gt;</span> <span class="title">run</span><span class="params">(block: ()</span></span> -&gt; R): R &#123;</span><br><span class="line">    <span class="keyword">return</span> block()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="apply"><a href="#apply" class="headerlink" title="apply"></a>apply</h4><p>对于不返回值且主要在接收者（this）对象的成员上运行的代码块使用 apply。apply 的常见情况是对象配置。这样的调用可以理解为：将以下赋值操作应用于该对象。</p>
 <p>apply 函数源码：</p>
-<pre><code class="kotlin">public inline fun &lt;T&gt; T.apply(block: T.() -&gt; Unit): T {
-    block()
-    return this
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> T.<span class="title">apply</span><span class="params">(block: <span class="type">T</span>.()</span></span> -&gt; <span class="built_in">Unit</span>): T &#123;</span><br><span class="line">    block()</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="also"><a href="#also" class="headerlink" title="also"></a>also</h4><p>also 对于执行一些将上下文对象作为参数的操作很有用。对于需要引用对象而不是其属性与函数的操作，请使用 also。可以理解为：并且用该对象执行以下操作（附加效果）。</p>
 <p>also 函数源码：</p>
-<pre><code class="kotlin">public inline fun &lt;T&gt; T.also(block: (T) -&gt; Unit): T {
-    block(this)
-    return this
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> T.<span class="title">also</span><span class="params">(block: (<span class="type">T</span>)</span></span> -&gt; <span class="built_in">Unit</span>): T &#123;</span><br><span class="line">    block(<span class="keyword">this</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="其他标准函数"><a href="#其他标准函数" class="headerlink" title="其他标准函数"></a>其他标准函数</h3><p>标准库中还提供了两个函数：takeIf 和 takeUnless，这两个函数可以<strong>将对象的状态检查嵌入到调用链中</strong>。</p>
 <h4 id="takeIf"><a href="#takeIf" class="headerlink" title="takeIf"></a>takeIf</h4><p>takeIf 作用的对象如果满足 Lambda 表达式的结果，则返回这个对象，否则返回 null。</p>
 <p>takeIf 函数源码：</p>
-<pre><code class="kotlin">public inline fun &lt;T&gt; T.takeIf(predicate: (T) -&gt; Boolean): T? {
-    return if (predicate(this)) this else null
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> T.<span class="title">takeIf</span><span class="params">(predicate: (<span class="type">T</span>)</span></span> -&gt; <span class="built_in">Boolean</span>): T? &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">if</span> (predicate(<span class="keyword">this</span>)) <span class="keyword">this</span> <span class="keyword">else</span> <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h4 id="takeUnless"><a href="#takeUnless" class="headerlink" title="takeUnless"></a>takeUnless</h4><p>takeUnless 和 takeIf 正好相反，当不满足条件时，返回对象，满足条件时，返回 null。</p>
 <p>takeUnless 源码：</p>
-<pre><code class="kotlin">public inline fun &lt;T&gt; T.takeUnless(predicate: (T) -&gt; Boolean): T? {
-    return if (!predicate(this)) this else null
-}</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">inline</span> <span class="function"><span class="keyword">fun</span> <span class="type">&lt;T&gt;</span> T.<span class="title">takeUnless</span><span class="params">(predicate: (<span class="type">T</span>)</span></span> -&gt; <span class="built_in">Boolean</span>): T? &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">if</span> (!predicate(<span class="keyword">this</span>)) <span class="keyword">this</span> <span class="keyword">else</span> <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>当在 takeIf 和 takeUnless 之后调用其他函数，需要进行空检查或者使用 <code>?.</code>，因为它们的返回值是可空的。</p>
 <p>takeIf 及 takeUnless 与作用域函数一起特别好用，比如 在takeIf 或者 takeUnless 后接 let。</p>
 <p>看如下例子对比：</p>
-<pre><code class="Kotlin">// 不使用 takeIf 和 let
-fun displaySubstringPosition(input: String, sub: String) {
-    val index = input.indexOf(sub)
-    if (index &gt;= 0) {
-        println(&quot;在【$input】中找到了【$sub】&quot;)
-        println(&quot;子串开始位置为：$index&quot;)
-    }
-}
-fun main() {
-    displaySubstringPosition(&quot;HelloWorld&quot;, &quot;ll&quot;)
-    displaySubstringPosition(&quot;HelloWorld&quot;, &quot;lf&quot;)
-}
-// 运行结果
-在【HelloWorld】中找到了【ll】
-子串开始位置为：2</code></pre>
-<pre><code class="kotlin">// 使用 takeIf 和 let
-fun displaySubstringPosition2(input: String, sub: String) {
-    input.indexOf(sub).takeIf { it &gt;= 0 }?.let {
-        println(&quot;在【$input】中找到了【$sub】&quot;)
-        println(&quot;子串开始位置为：$it&quot;)
-    }
-}
-fun main() {
-    displaySubstringPosition2(&quot;HelloWorld&quot;, &quot;ld&quot;)
-    displaySubstringPosition2(&quot;HelloWorld&quot;, &quot;lf&quot;)
-}
-// 运行结果
-在【HelloWorld】中找到了【ld】
-子串开始位置为：8</code></pre>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不使用 takeIf 和 let</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">displaySubstringPosition</span><span class="params">(input: <span class="type">String</span>, sub: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> index = input.indexOf(sub)</span><br><span class="line">    <span class="keyword">if</span> (index &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        println(<span class="string">"在【<span class="variable">$input</span>】中找到了【<span class="variable">$sub</span>】"</span>)</span><br><span class="line">        println(<span class="string">"子串开始位置为：<span class="variable">$index</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    displaySubstringPosition(<span class="string">"HelloWorld"</span>, <span class="string">"ll"</span>)</span><br><span class="line">    displaySubstringPosition(<span class="string">"HelloWorld"</span>, <span class="string">"lf"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">在【HelloWorld】中找到了【ll】</span><br><span class="line">子串开始位置为：<span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 takeIf 和 let</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">displaySubstringPosition2</span><span class="params">(input: <span class="type">String</span>, sub: <span class="type">String</span>)</span></span> &#123;</span><br><span class="line">    input.indexOf(sub).takeIf &#123; it &gt;= <span class="number">0</span> &#125;?.let &#123;</span><br><span class="line">        println(<span class="string">"在【<span class="variable">$input</span>】中找到了【<span class="variable">$sub</span>】"</span>)</span><br><span class="line">        println(<span class="string">"子串开始位置为：<span class="variable">$it</span>"</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    displaySubstringPosition2(<span class="string">"HelloWorld"</span>, <span class="string">"ld"</span>)</span><br><span class="line">    displaySubstringPosition2(<span class="string">"HelloWorld"</span>, <span class="string">"lf"</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">在【HelloWorld】中找到了【ld】</span><br><span class="line">子串开始位置为：<span class="number">8</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><p><a href="https://www.kotlincn.net/docs/reference/scope-functions.html" target="_blank" rel="noopener">作用域函数</a></p>
 <p><a href="https://juejin.im/post/5d71d1ddf265da03a53a5a0f" target="_blank" rel="noopener">玩转kotlin的作用域函数</a></p>
 <p><a href="https://www.ituring.com.cn/book/2744" target="_blank" rel="noopener">《Android 第一行代码（第三版）》</a></p>

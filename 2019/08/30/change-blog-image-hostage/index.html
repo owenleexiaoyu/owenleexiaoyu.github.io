@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -383,84 +383,15 @@
 <li>遍历 list，根据 url 去下载图片，统一保存到一个文件夹下，文件夹以文章名字来命名，方便后续步骤的查找</li>
 </ol>
 <p>代码如下，也加了一些注释，不难理解：</p>
-<pre><code class="python">from urllib.request import urlretrieve
-import os
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlretrieve</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">blog_dir = <span class="string">'/users/bd/Workspace/Blog/source/_posts/'</span></span><br><span class="line">save_dir = <span class="string">'/users/bytedance/Desktop/imgs/'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">downloadAllXinlangImgs</span><span class="params">(dir_path, file_name)</span>:</span></span><br><span class="line">    urls = []</span><br><span class="line">    <span class="comment"># 找出文件中所有新浪的图片链接，添加到列表中</span></span><br><span class="line">    <span class="keyword">with</span> open(dir_path + file_name, encoding=<span class="string">'latin-1'</span>) <span class="keyword">as</span> file:</span><br><span class="line">        f = file.readlines()</span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            <span class="comment"># 如果一行的内容中包含新浪域名，则进行url提取</span></span><br><span class="line">            <span class="keyword">if</span> line.find(<span class="string">'https://ws1.sinaimg.cn/'</span>) &gt;= <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># 查找到url的start</span></span><br><span class="line">                start = line.find(<span class="string">'http'</span>)</span><br><span class="line">                <span class="comment"># 查找到url的end，其实这里不严谨，不能识别后缀为gif、webp等格式的图片</span></span><br><span class="line">                <span class="comment"># 不过新浪图床中图片的后缀好像都是用jpg，所以没有什么关系</span></span><br><span class="line">                end = line.rfind(<span class="string">'g'</span>) + <span class="number">1</span></span><br><span class="line">                img_url = line[start:end]</span><br><span class="line">                print(<span class="string">"img_url:"</span> + img_url)</span><br><span class="line">                urls.append(img_url)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 下载列表中保存的所有图片，保存到save_dir中</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    <span class="comment"># 遍历list</span></span><br><span class="line">    <span class="keyword">for</span> url <span class="keyword">in</span> urls:</span><br><span class="line">        <span class="comment"># 提取出文章的不带md后缀的名字</span></span><br><span class="line">        file_name_without_tail = file_name[:<span class="number">-3</span>]</span><br><span class="line">        print(file_name_without_tail)</span><br><span class="line">        dir = save_dir + file_name_without_tail</span><br><span class="line">        <span class="comment"># 如果目录不存在，则创建一个新的目录</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(dir):</span><br><span class="line">            os.system(<span class="string">r"mkdir &#123;&#125;"</span>.format(dir))</span><br><span class="line">        <span class="comment"># 拼接图片的保存路径</span></span><br><span class="line">        path = dir + <span class="string">"/"</span> + <span class="string">"img"</span> + str(i) + <span class="string">".png"</span></span><br><span class="line">        <span class="comment"># 比较重要：如果相同名字的图片已经下载过了，就跳过</span></span><br><span class="line">        <span class="comment"># 因为脚本可能会跑好几次，需要避免重复下载相同的图片</span></span><br><span class="line">        <span class="keyword">if</span> os.path.exists(path):</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">        <span class="comment"># 下载图片，并保存到相应路径</span></span><br><span class="line">        urlretrieve(url, path)</span><br><span class="line">        i = i + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 列出博客目录下的所有文章，是一个list</span></span><br><span class="line">    file_list = os.listdir(blog_dir)</span><br><span class="line">    <span class="comment"># 遍历list，进行下载保存</span></span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> file_list:</span><br><span class="line">        downloadAllXinlangImgs(blog_dir, file)</span><br></pre></td></tr></table></figure>
 
-blog_dir = &#39;/users/bd/Workspace/Blog/source/_posts/&#39;
-save_dir = &#39;/users/bytedance/Desktop/imgs/&#39;
-
-def downloadAllXinlangImgs(dir_path, file_name):
-    urls = []
-    # 找出文件中所有新浪的图片链接，添加到列表中
-    with open(dir_path + file_name, encoding=&#39;latin-1&#39;) as file:
-        f = file.readlines()
-        for line in f:
-            # 如果一行的内容中包含新浪域名，则进行url提取
-            if line.find(&#39;https://ws1.sinaimg.cn/&#39;) &gt;= 0:
-                # 查找到url的start
-                start = line.find(&#39;http&#39;)
-                # 查找到url的end，其实这里不严谨，不能识别后缀为gif、webp等格式的图片
-                # 不过新浪图床中图片的后缀好像都是用jpg，所以没有什么关系
-                end = line.rfind(&#39;g&#39;) + 1
-                img_url = line[start:end]
-                print(&quot;img_url:&quot; + img_url)
-                urls.append(img_url)
-
-    # 下载列表中保存的所有图片，保存到save_dir中
-    i = 1
-    # 遍历list
-    for url in urls:
-        # 提取出文章的不带md后缀的名字
-        file_name_without_tail = file_name[:-3]
-        print(file_name_without_tail)
-        dir = save_dir + file_name_without_tail
-        # 如果目录不存在，则创建一个新的目录
-        if not os.path.exists(dir):
-            os.system(r&quot;mkdir {}&quot;.format(dir))
-        # 拼接图片的保存路径
-        path = dir + &quot;/&quot; + &quot;img&quot; + str(i) + &quot;.png&quot;
-        # 比较重要：如果相同名字的图片已经下载过了，就跳过
-        # 因为脚本可能会跑好几次，需要避免重复下载相同的图片
-        if os.path.exists(path):
-            pass
-        # 下载图片，并保存到相应路径
-        urlretrieve(url, path)
-        i = i + 1
-
-if __name__ == &#39;__main__&#39;:
-    # 列出博客目录下的所有文章，是一个list
-    file_list = os.listdir(blog_dir)
-    # 遍历list，进行下载保存
-    for file in file_list:
-        downloadAllXinlangImgs(blog_dir, file)</code></pre>
 <p>第 3、4 步没什么好说的，以一篇文章（一个保存图片的文件夹）为单位，上传这篇文章的所有图片，拿到新的图片 url，然后根据文件夹的名字找到文章，将文章中旧的图片 url 依次替换就可以了，只是过程比较费时。</p>
 <p>至此，转移图床就完成了。</p>
 <h4 id="第二部分：替换残留的七牛云图片链接"><a href="#第二部分：替换残留的七牛云图片链接" class="headerlink" title="第二部分：替换残留的七牛云图片链接"></a>第二部分：替换残留的七牛云图片链接</h4><p>但是，在之前转移的中途突然发现之前从七牛云转到新浪的时候有部分图片还没有替换，原因是替换时，这部分图片还可以正常访问（真想抽以前的自己一巴掌）。所以接着要把所有这些七牛云的图片链接筛出来，因为这些链接已经彻底不能访问了，所以这里就不能去用代码直接下载。好在我的博客都是使用马克飞象来写，直接保存到印象笔记中，而且这些图片数量不多，可以手动去印象笔记中对应的文章里面下载下来，然后传到新图床，再进行替换。</p>
 <p>这些七牛云的图片链接散落在某些文章里，手动筛选是肯定不现实的，所以还是通过脚本来做，这里只需要找到文章里七牛云的图片链接，打印出它所在的文章，为了便于查找，把所在的行数也打印出来。</p>
 <p>脚本代码如下：</p>
-<pre><code class="python">import os
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">blog_dir = <span class="string">'/users/bd/Workspace/Blog/source/_posts/'</span></span><br><span class="line">qiniu_domain = <span class="string">'http://opgrjw8x2.bkt.clouddn.com'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">listAllQiniuImgUrl</span><span class="params">(dir_path, file_name)</span>:</span></span><br><span class="line">    <span class="comment"># 不带md后缀的文件名</span></span><br><span class="line">    file_name_without_tail = file_name[:<span class="number">-3</span>]</span><br><span class="line">    <span class="keyword">with</span> open(dir_path + file_name, encoding=<span class="string">'latin-1'</span>) <span class="keyword">as</span> file:</span><br><span class="line">        f = file.readlines()</span><br><span class="line">        line_num = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">            <span class="comment"># 如果一行的内容中包含七牛云域名，则将文件名，行数等信息打印出来</span></span><br><span class="line">            <span class="keyword">if</span> line.find(qiniu_domain) &gt;= <span class="number">0</span>:</span><br><span class="line">                print(<span class="string">"&#123;"</span> + file_name_without_tail + <span class="string">"&#125;line:"</span> + str(line_num) + <span class="string">"----&gt;"</span> + line)</span><br><span class="line">            line_num = line_num + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 列出博客目录下的所有文章，是一个list</span></span><br><span class="line">    file_list = os.listdir(blog_dir)</span><br><span class="line">    <span class="comment"># 遍历list，查找所有的七牛云图片链接</span></span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> file_list:</span><br><span class="line">        listAllQiniuImgUrl(blog_dir, file)</span><br></pre></td></tr></table></figure>
 
-blog_dir = &#39;/users/bd/Workspace/Blog/source/_posts/&#39;
-qiniu_domain = &#39;http://opgrjw8x2.bkt.clouddn.com&#39;
-
-def listAllQiniuImgUrl(dir_path, file_name):
-    # 不带md后缀的文件名
-    file_name_without_tail = file_name[:-3]
-    with open(dir_path + file_name, encoding=&#39;latin-1&#39;) as file:
-        f = file.readlines()
-        line_num = 1
-        for line in f:
-            # 如果一行的内容中包含七牛云域名，则将文件名，行数等信息打印出来
-            if line.find(qiniu_domain) &gt;= 0:
-                print(&quot;{&quot; + file_name_without_tail + &quot;}line:&quot; + str(line_num) + &quot;----&gt;&quot; + line)
-            line_num = line_num + 1
-
-if __name__ == &#39;__main__&#39;:
-    # 列出博客目录下的所有文章，是一个list
-    file_list = os.listdir(blog_dir)
-    # 遍历list，查找所有的七牛云图片链接
-    for file in file_list:
-        listAllQiniuImgUrl(blog_dir, file)</code></pre>
 <p>有了图片链接所在文章和所在行数的信息，后续工作也比较方便了，又经历了一番繁琐的上传、替换后，终于将残余的七牛云图片链接全部换成了新图床的链接。</p>
 <p>有句话说得好：今天流的泪，都是以前傻逼时脑袋进的水。End。</p>
 

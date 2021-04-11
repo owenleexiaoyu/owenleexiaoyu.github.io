@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -370,117 +370,20 @@
 <p><img src="https://i.loli.net/2019/05/11/5cd6b6395d16d.png" alt="image"></p>
 <h4 id="框架实现"><a href="#框架实现" class="headerlink" title="框架实现"></a>框架实现</h4><h5 id="基类实现"><a href="#基类实现" class="headerlink" title="基类实现"></a>基类实现</h5><p>首先需要实现 Model、View、Presenter 各自的基类，用于提供最底层的抽象方法。</p>
 <p><strong>BaseModel</strong></p>
-<pre><code>public interface BaseModel {
-}</code></pre><p><strong>BaseView</strong></p>
-<pre><code>public interface BaseView{
-    /**
-     * 展示加载进度
-     */
-    void showLoading();
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">public<span class="built_in"> interface </span>BaseModel &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><strong>BaseView</strong></p>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title">BaseView</span>&#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 展示加载进度</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">showLoading</span>(<span class="params"></span>)</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 隐藏加载进度</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">hideLoading</span>(<span class="params"></span>)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 隐藏加载进度
-     */
-    void hideLoading();
-}</code></pre><p>这里提供了两个方法，可以用来在页面加载时显示进度条和隐藏进度条。</p>
-<pre><code>public abstract class BasePresenter&lt;V extends BaseView&gt; {
+<p>这里提供了两个方法，可以用来在页面加载时显示进度条和隐藏进度条。</p>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BasePresenter</span>&lt;<span class="title">V</span> <span class="keyword">extends</span> <span class="title">BaseView</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> Reference&lt;V&gt; mViewRef;<span class="comment">//View 接口类型的弱引用</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">attachView</span><span class="params">(V view)</span></span>&#123;</span><br><span class="line">        mViewRef = <span class="keyword">new</span> WeakReference&lt;&gt;(view);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="function">V <span class="title">getView</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="function"><span class="keyword">return</span> mViewRef.<span class="title">get</span><span class="params">()</span></span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">boolean</span> <span class="title">isViewAttached</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mViewRef != <span class="keyword">null</span> &amp;&amp; mViewRef.get() != <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">detachView</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(mViewRef != <span class="keyword">null</span>)&#123;</span><br><span class="line">            mViewRef.clear();</span><br><span class="line">            mViewRef = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span>  <span class="function"><span class="keyword">void</span> <span class="title">start</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    protected Reference&lt;V&gt; mViewRef;//View 接口类型的弱引用
-
-    public void attachView(V view){
-        mViewRef = new WeakReference&lt;&gt;(view);
-    }
-
-    protected V getView(){
-        return mViewRef.get();
-    }
-
-    public boolean isViewAttached(){
-        return mViewRef != null &amp;&amp; mViewRef.get() != null;
-    }
-
-    public void detachView(){
-        if(mViewRef != null){
-            mViewRef.clear();
-            mViewRef = null;
-        }
-    }
-
-    public abstract  void start();
-}</code></pre><p>BasePresenter 中有一个 BaseView 子类的对象作为成员变量，attachView() 方法用来关联具体的 View 实现类，也就是 Activity 或者 Fragment，这里对它进行一个弱引用的封装，避免内存泄漏的问题。</p>
+<p>BasePresenter 中有一个 BaseView 子类的对象作为成员变量，attachView() 方法用来关联具体的 View 实现类，也就是 Activity 或者 Fragment，这里对它进行一个弱引用的封装，避免内存泄漏的问题。</p>
 <p><strong>BaseActivity</strong></p>
 <p>Fragment 相关的基类设计和 Activity 是类似的，这里就以 Activity 为例。BaseActivity 是在开发过程中必须的一个基类，这个类中封装了一些最为基础的功能，为每一个子类 Activity 提供服务。这里简单贴一下项目中写的 BaseActivity 的实现：</p>
-<pre><code>/**
- * 基类Activity，处理一些公共逻辑
- */
-public abstract class BaseActivity extends AppCompatActivity {
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 基类Activity，处理一些公共逻辑</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Unbinder unbinder;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        setContentView(attachLayout());</span><br><span class="line">        unbinder = ButterKnife.bind(<span class="keyword">this</span>);</span><br><span class="line">        initData();</span><br><span class="line">        initView();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 解绑ButterKnife</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        <span class="keyword">if</span> (unbinder != <span class="keyword">null</span> &amp;&amp; unbinder != Unbinder.EMPTY) &#123;</span><br><span class="line">            unbinder.unbind();</span><br><span class="line">            unbinder = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化数据</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 初始化View控件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 加载布局文件</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="keyword">int</span> <span class="title">attachLayout</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 处理返回按钮事件</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> item</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onOptionsItemSelected</span><span class="params">(MenuItem item)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">switch</span> (item.getItemId()) &#123;</span><br><span class="line">            <span class="keyword">case</span> android.R.id.home:</span><br><span class="line">                finish();</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 判断用户是否登录</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">boolean</span> <span class="title">isLogined</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> DataManager().getLoginState();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    private Unbinder unbinder;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(attachLayout());
-        unbinder = ButterKnife.bind(this);
-        initData();
-        initView();
-    }
-
-    /**
-     * 解绑ButterKnife
-     */
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (unbinder != null &amp;&amp; unbinder != Unbinder.EMPTY) {
-            unbinder.unbind();
-            unbinder = null;
-        }
-    }
-
-    /**
-     * 初始化数据
-     */
-    protected abstract void initData();
-
-    /**
-     * 初始化View控件
-     */
-    protected abstract void initView();
-
-    /**
-     * 加载布局文件
-     *
-     * @return
-     */
-    protected abstract int attachLayout();
-
-    /**
-     * 处理返回按钮事件
-     *
-     * @param item
-     * @return
-     */
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                finish();
-                break;
-        }
-        return true;
-    }
-
-    /**
-     * 判断用户是否登录
-     *
-     * @return
-     */
-    protected boolean isLogined() {
-        return new DataManager().getLoginState();
-    }
-}</code></pre><p>这里介绍一下类中的一些方法，在 BaseActivity 中用到了 ButterKnife 框架，在 onCreate() 方法中进行了 ButterKnife 的绑定，在 onDestroy() 方法中进行解绑，这样在具体的 Activity 中就无需重复的绑定和解绑，可以直接使用 @BindView 等注解。</p>
+<p>这里介绍一下类中的一些方法，在 BaseActivity 中用到了 ButterKnife 框架，在 onCreate() 方法中进行了 ButterKnife 的绑定，在 onDestroy() 方法中进行解绑，这样在具体的 Activity 中就无需重复的绑定和解绑，可以直接使用 @BindView 等注解。</p>
 <p>另外在 BaseActivity 中定义了3个抽象方法：</p>
 <ul>
 <li>initData()：进行数据的初始化</li>
@@ -491,323 +394,28 @@ public abstract class BaseActivity extends AppCompatActivity {
 <p>至于对返回按钮的处理和判断用户是否登录这些功能，要看具体的项目来定，这里不细说。</p>
 <p><strong>MVPBaseActivity</strong></p>
 <p>为了应用 MVP 模式，添加了一个 MVPBaseActivity，这个类和 BaseActivity 作用类似，在其基础上加入了 View 和 Presenter 的互相关联。我的考虑是，在项目中，有些界面逻辑非常简单，没有必要使用 MVP 模式（减少代码量），用 MVC 模式即可，这时候就可以让 Activity 继承 BaseActivity。对于业务逻辑复杂的界面，就可以继承 MVPBaseActivity，使用 MVP 模式来进行业务解耦。</p>
-<pre><code>public abstract class MVPBaseActivity&lt;P extends BasePresenter&gt;
-        extends BaseActivity implements BaseView{
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">MVPBaseActivity&lt;P</span> <span class="keyword">extends</span> <span class="title">BasePresenter&gt;</span></span></span><br><span class="line"><span class="class">        <span class="keyword">extends</span> <span class="title">BaseActivity</span> <span class="title">implements</span> <span class="title">BaseView</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="type">P</span> mPresenter;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> void onCreate(<span class="meta">@Nullable</span> <span class="type">Bundle</span> savedInstanceState) &#123;</span><br><span class="line">        mPresenter = createPresenter();</span><br><span class="line">        mPresenter.attachView(<span class="keyword">this</span>);</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> void onDestroy() &#123;</span><br><span class="line">        <span class="keyword">super</span>.onDestroy();</span><br><span class="line">        mPresenter.detachView();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">abstract</span> <span class="type">P</span> createPresenter();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    protected P mPresenter;
-
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        mPresenter = createPresenter();
-        mPresenter.attachView(this);
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mPresenter.detachView();
-    }
-
-    protected abstract P createPresenter();
-}</code></pre><p>MVPBaseActivity 继承自 BaseActivity，在它的基础上添加了对 MVP 的支持，主要实现是添加了一个 BasePresenter 子类的泛型对象作为成员变量，然后在 onCreate() 方法中进行 Presenter 和 View 的绑定，在 onDestroy() 方法中解除绑定。</p>
+<p>MVPBaseActivity 继承自 BaseActivity，在它的基础上添加了对 MVP 的支持，主要实现是添加了一个 BasePresenter 子类的泛型对象作为成员变量，然后在 onCreate() 方法中进行 Presenter 和 View 的绑定，在 onDestroy() 方法中解除绑定。</p>
 <h5 id="具体业务实现"><a href="#具体业务实现" class="headerlink" title="具体业务实现"></a>具体业务实现</h5><p>实现了所有的基类后，就可以针对具体业务来应用 MVP 模式了，设想这样一个简单的首页逻辑，在 App 首页可以用一个列表展示所有文章，可以点击列表中的按钮来收藏文章和取消收藏文章，点击列表项还可以打开文章的详情页。我们需要实现的类有以下几个：</p>
 <p><strong>HomeContract</strong></p>
-<pre><code>public interface HomeContract {
-    interface Model extends BaseModel{
-        Observable&lt;Optional&lt;ArticlePage&gt;&gt; getArticleList(int page);
-        Observable&lt;Optional&lt;String&gt;&gt; collectArticle(int articleId);
-        Observable&lt;Optional&lt;String&gt;&gt; unCollectArticle(int articleId);
-    }
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HomeContract</span> </span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">Model</span> <span class="keyword">extends</span> <span class="title">BaseModel</span></span>&#123;</span><br><span class="line">        Observable&lt;Optional&lt;ArticlePage&gt;&gt; getArticleList(<span class="keyword">int</span> page);</span><br><span class="line">        Observable&lt;Optional&lt;String&gt;&gt; collectArticle(<span class="keyword">int</span> articleId);</span><br><span class="line">        Observable&lt;Optional&lt;String&gt;&gt; unCollectArticle(<span class="keyword">int</span> articleId);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">interface</span> <span class="title">View</span> <span class="keyword">extends</span> <span class="title">BaseView</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 显示文章列表</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> articles</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">showArticleList</span><span class="params">(List&lt;ArticlePage.Article&gt; articles)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 显示收藏文章</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> position</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> success</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">showCollectArticle</span><span class="params">(<span class="keyword">boolean</span> success, <span class="keyword">int</span> position)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 显示取消收藏</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> position</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> success</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">showCancelCollectArticle</span><span class="params">(<span class="keyword">boolean</span> success, <span class="keyword">int</span> position)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 显示打开文章详情</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> article</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">showOpenArticleDetail</span><span class="params">(ArticlePage.Article article)</span></span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Presenter</span> <span class="keyword">extends</span> <span class="title">BasePresenter</span>&lt;<span class="title">View</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 获取文章列表</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">getArticleList</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 打开文章详情页</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> article</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">openArticleDetail</span><span class="params">(ArticlePage.Article article)</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 收藏文章</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> position</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> article</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">collectArticle</span><span class="params">(<span class="keyword">int</span> position, ArticlePage.Article article)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 取消收藏文章</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> position</span></span><br><span class="line"><span class="comment">         * <span class="doctag">@param</span> article</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">cancelCollectArticle</span><span class="params">(<span class="keyword">int</span> position, ArticlePage.Article article)</span></span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    interface View extends BaseView{
-
-        /**
-         * 显示文章列表
-         * @param articles
-         */
-        void showArticleList(List&lt;ArticlePage.Article&gt; articles);
-
-        /**
-         * 显示收藏文章
-         * @param position
-         * @param success
-         */
-        void showCollectArticle(boolean success, int position);
-
-        /**
-         * 显示取消收藏
-         * @param position
-         * @param success
-         */
-        void showCancelCollectArticle(boolean success, int position);
-
-        /**
-         * 显示打开文章详情
-         * @param article
-         */
-        void showOpenArticleDetail(ArticlePage.Article article);
-    }
-
-    abstract class Presenter extends BasePresenter&lt;View&gt;{
-
-        /**
-         * 获取文章列表
-         */
-        public abstract void getArticleList();
-
-        /**
-         * 打开文章详情页
-         * @param article
-         */
-        public abstract void openArticleDetail(ArticlePage.Article article);
-
-
-        /**
-         * 收藏文章
-         * @param position
-         * @param article
-         */
-        public abstract void collectArticle(int position, ArticlePage.Article article);
-
-        /**
-         * 取消收藏文章
-         * @param position
-         * @param article
-         */
-        public abstract void cancelCollectArticle(int position, ArticlePage.Article article);
-
-    }
-}</code></pre><p>HomeContract 是个契约接口，它是 Google 给的 MVP 示例中的写法，将 MVP 中三个部分的抽象定义都约束在一个接口中。这样写的好处我觉得主要是让代码结构更加清晰，并且可以减少不必要的类文件（三个类文件放到一个中）。在契约接口中有三个子接口（Presenter 是抽象类），在子接口中分别定义了各自的方法定义，然后创建具体的实现类来实现这些接口。这样一个 MVP 框架就写好了。下面看看实际如何利用框架来实现业务功能：</p>
+<p>HomeContract 是个契约接口，它是 Google 给的 MVP 示例中的写法，将 MVP 中三个部分的抽象定义都约束在一个接口中。这样写的好处我觉得主要是让代码结构更加清晰，并且可以减少不必要的类文件（三个类文件放到一个中）。在契约接口中有三个子接口（Presenter 是抽象类），在子接口中分别定义了各自的方法定义，然后创建具体的实现类来实现这些接口。这样一个 MVP 框架就写好了。下面看看实际如何利用框架来实现业务功能：</p>
 <p><strong>HomeModel</strong></p>
 <p>HomeModel 是 HomeContract.Model 的实现类，用来发送请求获取数据。</p>
-<pre><code>public class HomeModel implements HomeContract.Model{
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeModel</span> <span class="keyword">implements</span> <span class="title">HomeContract</span>.<span class="title">Model</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> WanAndroidService mService;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HomeModel</span><span class="params">()</span></span>&#123;</span><br><span class="line">        mService = RetrofitHelper.getInstance().getWanAndroidService();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Observable&lt;Optional&lt;ArticlePage&gt;&gt; getArticleList(<span class="keyword">int</span> page) &#123;</span><br><span class="line">        <span class="keyword">return</span> BaseModelFactory.compose(mService.getArticleList(page, <span class="keyword">null</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Observable&lt;Optional&lt;String&gt;&gt; collectArticle(<span class="keyword">int</span> articleId) &#123;</span><br><span class="line">        <span class="keyword">return</span> BaseModelFactory.compose(mService.collectArticle(articleId));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Observable&lt;Optional&lt;String&gt;&gt; unCollectArticle(<span class="keyword">int</span> articleId) &#123;</span><br><span class="line">        <span class="keyword">return</span> BaseModelFactory.compose(mService.unCollectArticleFromArticleList(articleId));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    private WanAndroidService mService;
-
-    public HomeModel(){
-        mService = RetrofitHelper.getInstance().getWanAndroidService();
-    }
-
-    @Override
-    public Observable&lt;Optional&lt;ArticlePage&gt;&gt; getArticleList(int page) {
-        return BaseModelFactory.compose(mService.getArticleList(page, null));
-    }
-
-    @Override
-    public Observable&lt;Optional&lt;String&gt;&gt; collectArticle(int articleId) {
-        return BaseModelFactory.compose(mService.collectArticle(articleId));
-    }
-
-    @Override
-    public Observable&lt;Optional&lt;String&gt;&gt; unCollectArticle(int articleId) {
-        return BaseModelFactory.compose(mService.unCollectArticleFromArticleList(articleId));
-    }
-}</code></pre><p>在项目中用到了 Retrofit 来封装网络请求，并使用 RxJava 实现异步，后续文章会具体介绍这方面的实现。</p>
+<p>在项目中用到了 Retrofit 来封装网络请求，并使用 RxJava 实现异步，后续文章会具体介绍这方面的实现。</p>
 <p><strong>HomePresenter</strong></p>
 <p>HomePresenter 继承自 HomeContract.Presenter，是负责逻辑的具体实现类。</p>
-<pre><code>public class HomePresenter extends HomeContract.Presenter {
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomePresenter</span> <span class="keyword">extends</span> <span class="title">HomeContract</span>.<span class="title">Presenter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> HomeModel homeModel;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mCurrentPage = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HomePresenter</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.homeModel = <span class="keyword">new</span> HomeModel();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getArticleList</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mCurrentPage = <span class="number">0</span>;</span><br><span class="line">        getTopArticles();</span><br><span class="line">        homeModel.getArticleList(mCurrentPage).subscribe(<span class="keyword">new</span> Consumer&lt;Optional&lt;ArticlePage&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Optional&lt;ArticlePage&gt; articlePage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                getView().showArticleList(articlePage.getIncludeNull().getArticleList());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadMoreArticle</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mCurrentPage++;</span><br><span class="line">        homeModel.getArticleList(mCurrentPage).subscribe(<span class="keyword">new</span> Consumer&lt;Optional&lt;ArticlePage&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Optional&lt;ArticlePage&gt; articlePage)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                getView().showLoadMore(articlePage.getIncludeNull().getArticleList(), <span class="keyword">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">new</span> Consumer&lt;Throwable&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                ToastUtil.showToast(<span class="string">"获取文章列表数据失败"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">openArticleDetail</span><span class="params">(ArticlePage.Article article)</span> </span>&#123;</span><br><span class="line">        getView().showOpenArticleDetail(article);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">collectArticle</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> position, ArticlePage.Article article)</span> </span>&#123;</span><br><span class="line">        homeModel.collectArticle(article.getId()).subscribe(<span class="keyword">new</span> Consumer&lt;Optional&lt;String&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Optional&lt;String&gt; s)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                getView().showCollectArticle(<span class="keyword">true</span>, position);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">new</span> Consumer&lt;Throwable&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                getView().showCollectArticle(<span class="keyword">false</span>, position);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cancelCollectArticle</span><span class="params">(<span class="keyword">final</span> <span class="keyword">int</span> position, ArticlePage.Article article)</span> </span>&#123;</span><br><span class="line">        homeModel.unCollectArticle(article.getId()).subscribe(<span class="keyword">new</span> Consumer&lt;Optional&lt;String&gt;&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Optional&lt;String&gt; s)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                getView().showCancelCollectArticle(<span class="keyword">true</span>, position);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, <span class="keyword">new</span> Consumer&lt;Throwable&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Throwable throwable)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">                getView().showCancelCollectArticle(<span class="keyword">false</span>, position);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        mCurrentPage = <span class="number">0</span>;</span><br><span class="line">        getArticleList();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    private HomeModel homeModel;
-
-    private int mCurrentPage = 0;
-
-    public HomePresenter(){
-        this.homeModel = new HomeModel();
-    }
-
-
-    @Override
-    public void getArticleList() {
-        mCurrentPage = 0;
-        getTopArticles();
-        homeModel.getArticleList(mCurrentPage).subscribe(new Consumer&lt;Optional&lt;ArticlePage&gt;&gt;() {
-            @Override
-            public void accept(Optional&lt;ArticlePage&gt; articlePage) throws Exception {
-                getView().showArticleList(articlePage.getIncludeNull().getArticleList());
-            }
-        });
-
-    }
-
-    @Override
-    public void loadMoreArticle() {
-        mCurrentPage++;
-        homeModel.getArticleList(mCurrentPage).subscribe(new Consumer&lt;Optional&lt;ArticlePage&gt;&gt;() {
-            @Override
-            public void accept(Optional&lt;ArticlePage&gt; articlePage) throws Exception {
-                getView().showLoadMore(articlePage.getIncludeNull().getArticleList(), true);
-            }
-        }, new Consumer&lt;Throwable&gt;() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                ToastUtil.showToast(&quot;获取文章列表数据失败&quot;);
-            }
-        });
-    }
-
-    @Override
-    public void openArticleDetail(ArticlePage.Article article) {
-        getView().showOpenArticleDetail(article);
-    }
-
-    @Override
-    public void collectArticle(final int position, ArticlePage.Article article) {
-        homeModel.collectArticle(article.getId()).subscribe(new Consumer&lt;Optional&lt;String&gt;&gt;() {
-            @Override
-            public void accept(Optional&lt;String&gt; s) throws Exception {
-                getView().showCollectArticle(true, position);
-            }
-        }, new Consumer&lt;Throwable&gt;() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                getView().showCollectArticle(false, position);
-            }
-        });
-    }
-
-    @Override
-    public void cancelCollectArticle(final int position, ArticlePage.Article article) {
-        homeModel.unCollectArticle(article.getId()).subscribe(new Consumer&lt;Optional&lt;String&gt;&gt;() {
-            @Override
-            public void accept(Optional&lt;String&gt; s) throws Exception {
-                getView().showCancelCollectArticle(true, position);
-            }
-        }, new Consumer&lt;Throwable&gt;() {
-            @Override
-            public void accept(Throwable throwable) throws Exception {
-                getView().showCancelCollectArticle(false, position);
-            }
-        });
-    }
-
-    @Override
-    public void start() {
-        mCurrentPage = 0;
-        getArticleList();
-    }
-}</code></pre><p>HomePresenter 中有一个 HomeModel 的成员变量，用于调用 Model 层的方法。</p>
+<p>HomePresenter 中有一个 HomeModel 的成员变量，用于调用 Model 层的方法。</p>
 <p><strong>HomeFragment</strong></p>
-<pre><code>public class HomeFragment extends MVPBaseFragment&lt;HomeContract.Presenter&gt; implements HomeContract.View{
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeFragment</span> <span class="keyword">extends</span> <span class="title">MVPBaseFragment</span>&lt;<span class="title">HomeContract</span>.<span class="title">Presenter</span>&gt; <span class="keyword">implements</span> <span class="title">HomeContract</span>.<span class="title">View</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@BindView</span>(R.id.fhome_smart_refresh)</span><br><span class="line">    SmartRefreshLayout mSmartRefreshLayout;</span><br><span class="line">    com.youth.banner.Banner mBanner;</span><br><span class="line">    <span class="meta">@BindView</span>(R.id.fhome_recyclerview)</span><br><span class="line">    RecyclerView mRecyclerView;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ArticleAdapter mAdapter;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> HomeFragment <span class="title">newInstance</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HomeFragment();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResume</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onResume();</span><br><span class="line">        mPresenter.start();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">initView</span><span class="params">(View view)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//初始化Adapter</span></span><br><span class="line">        mAdapter = <span class="keyword">new</span> ArticleAdapter(R.layout.item_recyclerview_article,</span><br><span class="line">                <span class="keyword">new</span> ArrayList&lt;ArticlePage.Article&gt;(<span class="number">0</span>));</span><br><span class="line">        mAdapter.setOnItemClickListener(<span class="keyword">new</span> BaseQuickAdapter.OnItemClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemClick</span><span class="params">(BaseQuickAdapter adapter, View view, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">                ArticlePage.Article article = mAdapter.getData().get(position);</span><br><span class="line">                mPresenter.openArticleDetail(article);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        mAdapter.setOnItemChildClickListener(<span class="keyword">new</span> BaseQuickAdapter.OnItemChildClickListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onItemChildClick</span><span class="params">(BaseQuickAdapter adapter, View view, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">                    <span class="comment">//如果文章已经被收藏了，就取消收藏，如果没有收藏，就收藏</span></span><br><span class="line">                <span class="keyword">if</span>(mAdapter.getItem(position).isCollect())&#123;</span><br><span class="line">                    mPresenter.cancelCollectArticle(position, mAdapter.getItem(position));</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    mPresenter.collectArticle(position, mAdapter.getItem(position));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置RecyclerView的Adapter和布局管理器</span></span><br><span class="line">        mRecyclerView.setAdapter(mAdapter);</span><br><span class="line">        mRecyclerView.setLayoutManager(<span class="keyword">new</span> LinearLayoutManager(getActivity()));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//设置SmartRefreshLayout的Header</span></span><br><span class="line">        mSmartRefreshLayout.setRefreshHeader(<span class="keyword">new</span> MaterialHeader(getActivity()));</span><br><span class="line">        <span class="comment">//设置下拉刷新的监听器</span></span><br><span class="line">        mSmartRefreshLayout.setOnRefreshListener(<span class="keyword">new</span> OnRefreshListener() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onRefresh</span><span class="params">(RefreshLayout refreshLayout)</span> </span>&#123;</span><br><span class="line">                mPresenter.getArticleList();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">int</span> <span class="title">attachLayout</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> R.layout.fragment_home;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showArticleList</span><span class="params">(List&lt;ArticlePage.Article&gt; articles)</span> </span>&#123;</span><br><span class="line">        mAdapter.addData(articles);</span><br><span class="line">        mSmartRefreshLayout.finishRefresh();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showCollectArticle</span><span class="params">(<span class="keyword">boolean</span> success, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(success)&#123;</span><br><span class="line">            ToastUtil.showToast(<span class="string">"收藏文章成功"</span>);</span><br><span class="line">            mAdapter.getData().get(position).setCollect(<span class="keyword">true</span>);</span><br><span class="line">            mAdapter.notifyDataSetChanged();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            ToastUtil.showToast(<span class="string">"收藏文章失败"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showCancelCollectArticle</span><span class="params">(<span class="keyword">boolean</span> success, <span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(success)&#123;</span><br><span class="line">            ToastUtil.showToast(<span class="string">"取消收藏文章成功"</span>);</span><br><span class="line">            mAdapter.getData().get(position).setCollect(<span class="keyword">false</span>);</span><br><span class="line">            mAdapter.notifyDataSetChanged();</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            ToastUtil.showToast(<span class="string">"取消收藏文章失败"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showOpenArticleDetail</span><span class="params">(ArticlePage.Article article)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//携带Title和URL跳转到ArticleDetailActivity</span></span><br><span class="line">        ArticleDetailActivity.actionStart(getActivity(),</span><br><span class="line">                article.getTitle(), article.getLink());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showLoading</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hideLoading</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> HomeContract.<span class="function">Presenter <span class="title">createPresenter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HomePresenter();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @BindView(R.id.fhome_smart_refresh)
-    SmartRefreshLayout mSmartRefreshLayout;
-    com.youth.banner.Banner mBanner;
-    @BindView(R.id.fhome_recyclerview)
-    RecyclerView mRecyclerView;
-
-    private ArticleAdapter mAdapter;
-    public static HomeFragment newInstance(){
-        return new HomeFragment();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mPresenter.start();
-    }
-
-
-    @Override
-    protected void initData() {
-
-    }
-
-    @Override
-    protected void initView(View view) {
-
-        //初始化Adapter
-        mAdapter = new ArticleAdapter(R.layout.item_recyclerview_article,
-                new ArrayList&lt;ArticlePage.Article&gt;(0));
-        mAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                ArticlePage.Article article = mAdapter.getData().get(position);
-                mPresenter.openArticleDetail(article);
-            }
-        });
-        mAdapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
-            @Override
-            public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
-                    //如果文章已经被收藏了，就取消收藏，如果没有收藏，就收藏
-                if(mAdapter.getItem(position).isCollect()){
-                    mPresenter.cancelCollectArticle(position, mAdapter.getItem(position));
-                }else{
-                    mPresenter.collectArticle(position, mAdapter.getItem(position));
-                }
-            }
-        });
-
-        //设置RecyclerView的Adapter和布局管理器
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-        //设置SmartRefreshLayout的Header
-        mSmartRefreshLayout.setRefreshHeader(new MaterialHeader(getActivity()));
-        //设置下拉刷新的监听器
-        mSmartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
-            @Override
-            public void onRefresh(RefreshLayout refreshLayout) {
-                mPresenter.getArticleList();
-            }
-        });
-
-    @Override
-    protected int attachLayout() {
-        return R.layout.fragment_home;
-    }
-
-    @Override
-    public void showArticleList(List&lt;ArticlePage.Article&gt; articles) {
-        mAdapter.addData(articles);
-        mSmartRefreshLayout.finishRefresh();
-    }
-
-
-    @Override
-    public void showCollectArticle(boolean success, int position) {
-        if(success){
-            ToastUtil.showToast(&quot;收藏文章成功&quot;);
-            mAdapter.getData().get(position).setCollect(true);
-            mAdapter.notifyDataSetChanged();
-        }else{
-            ToastUtil.showToast(&quot;收藏文章失败&quot;);
-        }
-    }
-
-    @Override
-    public void showCancelCollectArticle(boolean success, int position) {
-        if(success){
-            ToastUtil.showToast(&quot;取消收藏文章成功&quot;);
-            mAdapter.getData().get(position).setCollect(false);
-            mAdapter.notifyDataSetChanged();
-        }else{
-            ToastUtil.showToast(&quot;取消收藏文章失败&quot;);
-        }
-    }
-
-    @Override
-    public void showOpenArticleDetail(ArticlePage.Article article) {
-        //携带Title和URL跳转到ArticleDetailActivity
-        ArticleDetailActivity.actionStart(getActivity(),
-                article.getTitle(), article.getLink());
-    }
-
-    @Override
-    public void showLoading() {
-
-    }
-
-    @Override
-    public void hideLoading() {
-
-    }
-
-    @Override
-    protected HomeContract.Presenter createPresenter() {
-        return new HomePresenter();
-    }
-}</code></pre><p>在 HomeFragment 中，需要在 createPresenter() 方法中返回一个对应的 HomePresenter 对象，用于和 HomeFragment 绑定。</p>
+<p>在 HomeFragment 中，需要在 createPresenter() 方法中返回一个对应的 HomePresenter 对象，用于和 HomeFragment 绑定。</p>
 <h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>关于项目中 MVP 框架的内容就是这些，MVP 和 Retrofit、 RxJava 组合的剩余部分内容之后文章中再来介绍。</p>
 
 

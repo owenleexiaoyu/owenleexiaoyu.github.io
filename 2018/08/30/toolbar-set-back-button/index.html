@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -363,18 +363,25 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h4 id="1-使用系统自带的返回按钮样式"><a href="#1-使用系统自带的返回按钮样式" class="headerlink" title="1. 使用系统自带的返回按钮样式"></a>1. 使用系统自带的返回按钮样式</h4><pre><code>getSupportActionBar().setDisplayHomeAsUpEnabled(true);//左侧添加一个默认的返回图标
-getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用</code></pre><p>添加之后，如果发现图标的颜色是黑色 ，则需要在 style.xml 中添加如下属性：</p>
-<pre><code>&lt;!-- 溢出菜单图标颜色，可以自己设置成任意的颜色--&gt;
-&lt;item name=&quot;colorControlNormal&quot;&gt;@android:color/white&lt;/item&gt;</code></pre><h4 id="2-自定义返回按钮颜色与样式"><a href="#2-自定义返回按钮颜色与样式" class="headerlink" title="2. 自定义返回按钮颜色与样式"></a>2. 自定义返回按钮颜色与样式</h4><p><strong>第一种方法：</strong></p>
+        <h4 id="1-使用系统自带的返回按钮样式"><a href="#1-使用系统自带的返回按钮样式" class="headerlink" title="1. 使用系统自带的返回按钮样式"></a>1. 使用系统自带的返回按钮样式</h4><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">getSupportActionBar</span>()<span class="selector-class">.setDisplayHomeAsUpEnabled</span>(true);<span class="comment">//左侧添加一个默认的返回图标</span></span><br><span class="line"><span class="selector-tag">getSupportActionBar</span>()<span class="selector-class">.setHomeButtonEnabled</span>(true); <span class="comment">//设置返回键可用</span></span><br></pre></td></tr></table></figure>
+
+<p>添加之后，如果发现图标的颜色是黑色 ，则需要在 style.xml 中添加如下属性：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 溢出菜单图标颜色，可以自己设置成任意的颜色--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"colorControlNormal"</span>&gt;</span>@android:color/white<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-自定义返回按钮颜色与样式"><a href="#2-自定义返回按钮颜色与样式" class="headerlink" title="2. 自定义返回按钮颜色与样式"></a>2. 自定义返回按钮颜色与样式</h4><p><strong>第一种方法：</strong></p>
 <ul>
-<li>在布局文件中添加属性设置<pre><code>app:navigationIcon=&quot;@mipmap/title_bar_back&quot;</code></pre></li>
-<li>或者代码设置</li>
+<li><p>在布局文件中添加属性设置</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">app:</span>navigationIcon=<span class="string">"@mipmap/title_bar_back"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>或者代码设置</p>
+</li>
 </ul>
-<pre><code>mToolbar.setNavigationIcon();</code></pre><p><strong>第二种方法：</strong></p>
-<pre><code>ActionBar actionBar = getSupportActionBar();
-actionBar.setDisplayHomeAsUpEnabled(true);
-actionBar.setHomeAsUpIndicator(R.mipmap.ic_back);</code></pre>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mToolbar.setNavigationIcon()<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>第二种方法：</strong></p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ActionBar actionBar = getSupportActionBar()<span class="comment">;</span></span><br><span class="line">actionBar.setDisplayHomeAsUpEnabled(true)<span class="comment">;</span></span><br><span class="line">actionBar.setHomeAsUpIndicator(R.mipmap.ic_back)<span class="comment">;</span></span><br></pre></td></tr></table></figure>
+
+
 
         <hr>
         <!-- Pager -->

@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -369,20 +369,8 @@
 <p><strong>图解示意：</strong></p>
 <p><img src="https://i.loli.net/2019/08/29/oqi4U2reG7sF9Bn.jpg" alt="img1.png"></p>
 <p><strong>代码实现：</strong></p>
-<pre><code class="java">    /**
-     * 插入排序
-     * @param data
-     */
-    public static void insertSort(int [] data){
-        for(int i = 1; i&lt; data.length;i++){
-            int temp = data[i];
-            int j;
-            for(j = i - 1; j &gt;= 0 &amp;&amp; data[j] &gt; temp;j--){
-                data[j+1] = data[j];
-            }
-            data[j+1] = temp;
-        }
-    }</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 插入排序</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span> [] data)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i&lt; data.length;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> temp = data[i];</span><br><span class="line">		<span class="keyword">int</span> j;</span><br><span class="line">		<span class="keyword">for</span>(j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span> &amp;&amp; data[j] &gt; temp;j--)&#123;</span><br><span class="line">			data[j+<span class="number">1</span>] = data[j];</span><br><span class="line">		&#125;</span><br><span class="line">		data[j+<span class="number">1</span>] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p><strong>复杂度与稳定性：</strong></p>
 <p>直接插入排序主要应用比较和移动两种操作。</p>
 <p>从空间上看，它需要 1 个元素的辅助空间，用于位置交换，空间复杂度为<strong>O(1)</strong>。</p>
@@ -392,26 +380,9 @@
 <p>使用折半查找可以大大提高查找速度。</p>
 <p><img src="https://i.loli.net/2019/08/29/OkZqtpPTLchCjef.jpg" alt="img2.png"></p>
 <p><strong>代码实现：</strong></p>
-<pre><code>    public static void halfInsertSort(int [] data){
-        int left,right,mid;
-        for(int i = 1;i&lt;data.length;i++){
-            int temp = data[i];
-            left = 0;
-            right = i -1;
-            while(left &lt;= right){
-                mid = (left+right)/2;
-                if(data[mid]&gt;temp){
-                    right = mid - 1;
-                }else{
-                    left = mid + 1;
-                }
-            }
-            for(int j = i-1;j &gt;= left;j--){
-                data[j+1] = data[j];
-            }
-            data[left] = temp;
-        }
-    }</code></pre><p><strong>复杂度与稳定性：</strong></p>
+<figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> static void halfInsertSort(<span class="built_in">int</span> [] data)&#123;</span><br><span class="line">	<span class="built_in">int</span> <span class="built_in">left</span>,<span class="built_in">right</span>,<span class="built_in">mid</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">int</span> i = <span class="number">1</span>;i&lt;data.length;i++)&#123;</span><br><span class="line">		<span class="built_in">int</span> temp = data[i];</span><br><span class="line">		<span class="built_in">left</span> = <span class="number">0</span>;</span><br><span class="line">		<span class="built_in">right</span> = i <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">while</span>(<span class="built_in">left</span> &lt;= <span class="built_in">right</span>)&#123;</span><br><span class="line">			<span class="built_in">mid</span> = (<span class="built_in">left</span>+<span class="built_in">right</span>)/<span class="number">2</span>;</span><br><span class="line">			<span class="keyword">if</span>(data[<span class="built_in">mid</span>]&gt;temp)&#123;</span><br><span class="line">				<span class="built_in">right</span> = <span class="built_in">mid</span> - <span class="number">1</span>;</span><br><span class="line">			&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">				<span class="built_in">left</span> = <span class="built_in">mid</span> + <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="built_in">int</span> j = i<span class="number">-1</span>;j &gt;= <span class="built_in">left</span>;j--)&#123;</span><br><span class="line">			data[j+<span class="number">1</span>] = data[j];</span><br><span class="line">		&#125;</span><br><span class="line">		data[<span class="built_in">left</span>] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
 <p>空间复杂度为 <strong>O(1)</strong>。</p>
 <p>折半查找只是减少了比较次数，但是元素的移动次数不变，折半插入排序平均时间复杂度为 <strong>O(n^2)</strong>。</p>
 <p>是<strong>稳定</strong>的排序算法。</p>
@@ -420,23 +391,9 @@
 <p><strong>图解示意：</strong></p>
 <p><img src="https://i.loli.net/2019/08/29/gGP13NUp4METv5r.jpg" alt="img3.png"></p>
 <p><strong>代码实现：</strong></p>
-<pre><code>    public static void shellSort(int [] data){
-        int d = data.length / 2;
-        while(d &gt;= 1){
-            for(int k = 0; k &lt;d;k++){
-                for(int i = k+d;i&lt;data.length;i += d){
-                    int temp = data[i];
-                    int j = i - d;
-                    while(j&gt;=k &amp;&amp; data[j]&gt;temp){
-                        data[j+d] = data[j];
-                        j -= d;
-                    }
-                    data[j+d] = temp;
-                }
-            }
-            d = d/2;
-        }
-    }</code></pre><p><strong>复杂度与稳定性：</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public static void shellSort(int [] data)&#123;</span><br><span class="line">	int d = data.<span class="built_in">length</span> / <span class="number">2</span>;</span><br><span class="line">	<span class="keyword">while</span>(d &gt;= <span class="number">1</span>)&#123;</span><br><span class="line">		<span class="keyword">for</span>(int k = <span class="number">0</span>; k &lt;d;k++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(int <span class="built_in">i</span> = k+d;<span class="built_in">i</span>&lt;data.<span class="built_in">length</span>;<span class="built_in">i</span> += d)&#123;</span><br><span class="line">				int temp = data[<span class="built_in">i</span>];</span><br><span class="line">				int <span class="built_in">j</span> = <span class="built_in">i</span> - d;</span><br><span class="line">				<span class="keyword">while</span>(<span class="built_in">j</span>&gt;=k &amp;&amp; data[<span class="built_in">j</span>]&gt;temp)&#123;</span><br><span class="line">					data[<span class="built_in">j</span>+d] = data[<span class="built_in">j</span>];</span><br><span class="line">					<span class="built_in">j</span> -= d;</span><br><span class="line">				&#125;</span><br><span class="line">				data[<span class="built_in">j</span>+d] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		d = d/<span class="number">2</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
 <p>希尔排序的时间复杂度大致为 <strong>O(n^1.3)</strong>。</p>
 <p>希尔排序<strong>不是稳定的</strong>。</p>
 <h4 id="4-冒泡排序"><a href="#4-冒泡排序" class="headerlink" title="4. 冒泡排序"></a>4. 冒泡排序</h4><p>冒泡排序的基本思想是，对相邻的元素进行两两比较，顺序相反则进行交换，这样，每一趟会将最小或最大的元素“浮”到顶端，最终达到完全有序。</p>
@@ -445,25 +402,9 @@
 <p><img src="https://i.loli.net/2019/08/29/yP9bGmDYNMxEofW.jpg" alt="img4.png"></p>
 <p><strong>代码实现：</strong></p>
 <p>在冒泡排序的过程中，如果某一趟执行完毕，没有做任何一次交换操作，比如数组[5,4,1,2,3]，执行了两次冒泡，也就是两次外循环之后，分别将5和4调整到最终位置[1,2,3,4,5]。此时，再执行第三次循环后，一次交换都没有做，这就说明剩下的序列已经是有序的，排序操作也就可以完成了。</p>
-<pre><code>    public static void bubbleSort(int [] data){
-        int n = data.length;
-        for(int i = 0; i&lt;n-1;i++){
-            //设定一个是否交换标记，若为false
-            //则表示此次循环没有进行交换，也就是待排序列已经有序，排序已然完成。
-            boolean flag = false;
-            for(int j = 0;j&lt;n-1-i;j++){
-                if(data[j+1] &lt; data[j]){
-                    int temp = data[j];
-                    data[j] = data[j+1];
-                    data[j+1] = temp;
-                    flag = true;
-                }
-            }
-            if(!flag){
-                break;
-            }
-        }
-    }</code></pre><p><strong>复杂度与稳定性：</strong></p>
+<figure class="highlight stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public static void bubbleSort(<span class="selector-tag">int</span> [] <span class="title">data</span>)&#123;</span><br><span class="line">	<span class="selector-tag">int</span> n = <span class="title">data</span>.length;</span><br><span class="line">	<span class="name">for</span>(<span class="selector-tag">int</span> i = <span class="number">0</span>; i&lt;n-<span class="number">1</span>;i++)&#123;</span><br><span class="line">		<span class="comment">//设定一个是否交换标记，若为false</span></span><br><span class="line">		<span class="comment">//则表示此次循环没有进行交换，也就是待排序列已经有序，排序已然完成。</span></span><br><span class="line">		boolean flag = <span class="literal">false</span>;</span><br><span class="line">		<span class="name">for</span>(<span class="selector-tag">int</span> j = <span class="number">0</span>;j&lt;n-<span class="number">1</span>-i;j++)&#123;</span><br><span class="line">			<span class="name">if</span>(<span class="title">data</span>[j+<span class="number">1</span>] &lt; <span class="title">data</span>[j])&#123;</span><br><span class="line">				<span class="selector-tag">int</span> temp = <span class="title">data</span>[j];</span><br><span class="line">				<span class="title">data</span>[j] = <span class="title">data</span>[j+<span class="number">1</span>];</span><br><span class="line">				<span class="title">data</span>[j+<span class="number">1</span>] = temp;</span><br><span class="line">				flag = <span class="literal">true</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="name">if</span>(!flag)&#123;</span><br><span class="line">			break;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
 <p>冒泡排序的效率和待排序列的初始顺序有关，如果若原数组本身就是有序的（这是最好情况），仅需 n-1 次比较就可完成，不用交换；若是倒序，比较次数为 n-1+n-2+…+1=n(n-1)/2，交换次数和比较次数等值。所以，其时间复杂度依然为 <strong>O(n^2)</strong>。</p>
 <p>冒泡排序只进行元素间的顺序移动，所以是<strong>稳定</strong>的排序算法。</p>
 <h4 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5. 快速排序"></a>5. 快速排序</h4><p>快速排序和希尔排序一样，都是基于”分治法“思想的。快速排序可谓是名副其实，在实际应用中，它几乎是最快的排序算法。</p>
@@ -489,39 +430,9 @@
 <p>重复上述过程，直到 i = j，最后把轴元素放在 i 所指位置。<br>这时，i 位置就是轴元素的正确位置，之后对 i 位置左右两边使用递归，对左右序列分别排序。</p>
 <p><img src="https://i.loli.net/2019/08/29/PRypaem4iLC2uHJ.jpg" alt="img6.png"></p>
 <p><strong>代码实现1：</strong></p>
-<pre><code>    /**
-     * 快速排序算法实现1：左右交替赋值
-     * @param data
-     * @param left
-     * @param right
-     * @return
-     */
-    public static void quickSort1(int [] data, int left, int right){
-        //递归结束条件
-        if(left &gt;= right){
-            return;
-        }
-        //存储轴元素的值
-        int temp = data[left];
-        int i = left;
-        int j = right;
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> * 快速排序算法实现<span class="number">1</span>：左右交替赋值</span><br><span class="line"> * @param <span class="class"><span class="keyword">data</span></span></span><br><span class="line"> * @param left</span><br><span class="line"> * @param right</span><br><span class="line"> * @return</span><br><span class="line"> */</span><br><span class="line"><span class="title">public</span> static void quickSort1(int [] <span class="class"><span class="keyword">data</span>, int left, int right)&#123;</span></span><br><span class="line"><span class="class">	//递归结束条件</span></span><br><span class="line"><span class="class">	<span class="title">if</span>(<span class="title">left</span> &gt;= <span class="title">right</span>)&#123;</span></span><br><span class="line"><span class="class">		<span class="title">return</span>;</span></span><br><span class="line"><span class="class">	&#125;</span></span><br><span class="line">	//存储轴元素的值</span><br><span class="line">	int temp = <span class="class"><span class="keyword">data</span>[left];</span></span><br><span class="line">	int i = left;</span><br><span class="line">	int j = right;</span><br><span class="line">	</span><br><span class="line">	while(i &lt; j)&#123;</span><br><span class="line">		while(i &lt; j &amp;&amp; <span class="class"><span class="keyword">data</span>[j] &gt; temp)&#123;</span></span><br><span class="line"><span class="class">			<span class="title">j</span><span class="comment">--;</span></span></span><br><span class="line"><span class="class">		&#125;</span></span><br><span class="line">		<span class="class"><span class="keyword">data</span>[i] = <span class="keyword">data</span>[j];</span></span><br><span class="line">		while(i &lt; j &amp;&amp; <span class="class"><span class="keyword">data</span>[i] &lt;= temp)&#123;</span></span><br><span class="line"><span class="class">			<span class="title">i</span>++;</span></span><br><span class="line"><span class="class">		&#125;</span></span><br><span class="line">		<span class="class"><span class="keyword">data</span>[j] = <span class="keyword">data</span>[i];</span></span><br><span class="line">	&#125;</span><br><span class="line">	//将轴元素移动到正确的位置</span><br><span class="line">	<span class="class"><span class="keyword">data</span>[i] = temp;</span></span><br><span class="line">	//使用递归分别对轴元素左右两边的序列进行快速排序</span><br><span class="line">	quickSort1(<span class="class"><span class="keyword">data</span>, left, i-1);</span></span><br><span class="line">	quickSort1(<span class="class"><span class="keyword">data</span>, i+1, right);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        while(i &lt; j){
-            while(i &lt; j &amp;&amp; data[j] &gt; temp){
-                j--;
-            }
-            data[i] = data[j];
-            while(i &lt; j &amp;&amp; data[i] &lt;= temp){
-                i++;
-            }
-            data[j] = data[i];
-        }
-        //将轴元素移动到正确的位置
-        data[i] = temp;
-        //使用递归分别对轴元素左右两边的序列进行快速排序
-        quickSort1(data, left, i-1);
-        quickSort1(data, i+1, right);
-    }</code></pre><p><strong>算法实现2：</strong></p>
+<p><strong>算法实现2：</strong></p>
 <p>第二种实现，是左右同时交换。</p>
 <p>先从右往左找一个小于或等于轴的元素，再从左往右找一个大于轴的元素，然后交换他们。</p>
 <p>具体过程如下图所示，非常清晰易懂：</p>
@@ -531,39 +442,9 @@
 <p><img src="https://i.loli.net/2019/08/29/Tz3rAgDCFLx9owH.jpg" alt="img10.png"></p>
 <p>上面过程完成后，轴元素放在正确的位置上了，之后就和方法 1 一样，使用递归对轴左右两边进行排序。</p>
 <p><strong>代码实现2：</strong></p>
-<pre><code>    /**
-     * 快速排序算法实现2：左右同时交换
-     * @param data
-     * @param left
-     * @param right
-     */
-    public static void quickSort2(int [] data, int left, int right){
-        //如果left指针大于right指针，则已经有序，直接返回
-        if(left &gt; right){
-            return;
-        }
-        //存储轴元素
-        int temp = data[left];
-        int i = left;
-        int j = right;
-        while(i != j){
-            while(i &lt; j &amp;&amp; data[j]&gt;temp)
-                j--;
-            while(i &lt; j &amp;&amp; data[i] &lt;= temp)
-                i++;
-            if(i &lt; j){
-                int t = data[i];
-                data[i] = data[j];
-                data[j] = t;
-            }
-        }
-        //将轴元素移动到正确的位置
-        data[left] = data[i];
-        data[i] = temp;
-        //使用递归分别对轴元素左右两边的序列进行快速排序
-        quickSort2(data, left, i-1);
-        quickSort2(data, i+1, right);
-    }</code></pre><p><strong>复杂度与稳定性：</strong></p>
+<figure class="highlight stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 快速排序算法实现2：左右同时交换</span></span><br><span class="line"><span class="comment"> * @param data</span></span><br><span class="line"><span class="comment"> * @param left</span></span><br><span class="line"><span class="comment"> * @param right</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">public static void quickSort2(<span class="selector-tag">int</span> [] <span class="title">data</span>, <span class="selector-tag">int</span> left, <span class="selector-tag">int</span> right)&#123;</span><br><span class="line">	<span class="comment">//如果left指针大于right指针，则已经有序，直接返回</span></span><br><span class="line">	<span class="name">if</span>(left &gt; right)&#123;</span><br><span class="line">		return;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//存储轴元素</span></span><br><span class="line">	<span class="selector-tag">int</span> temp = <span class="title">data</span>[left];</span><br><span class="line">	<span class="selector-tag">int</span> i = left;</span><br><span class="line">	<span class="selector-tag">int</span> j = right;</span><br><span class="line">	<span class="name">while</span>(i != j)&#123;</span><br><span class="line">		<span class="name">while</span>(i &lt; j &amp;&amp; <span class="title">data</span>[j]&gt;temp)</span><br><span class="line">			j--;</span><br><span class="line">		<span class="name">while</span>(i &lt; j &amp;&amp; <span class="title">data</span>[i] &lt;= temp)</span><br><span class="line">			i++;</span><br><span class="line">		<span class="name">if</span>(i &lt; j)&#123;</span><br><span class="line">			<span class="selector-tag">int</span> t = <span class="title">data</span>[i];</span><br><span class="line">			<span class="title">data</span>[i] = <span class="title">data</span>[j];</span><br><span class="line">			<span class="title">data</span>[j] = t;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//将轴元素移动到正确的位置</span></span><br><span class="line">	<span class="title">data</span>[left] = <span class="title">data</span>[i];</span><br><span class="line">	<span class="title">data</span>[i] = temp;</span><br><span class="line">	<span class="comment">//使用递归分别对轴元素左右两边的序列进行快速排序</span></span><br><span class="line">	quickSort2(<span class="title">data</span>, left, i-<span class="number">1</span>);</span><br><span class="line">	quickSort2(<span class="title">data</span>, i+<span class="number">1</span>, right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
 <p>快速排序的最坏情况是输入序列有序时，每次分割都将轴元素划分在序列的一端。最坏情况下，快速排序和直接插入排序、冒泡排序一样差，最坏的时间复杂度是 <strong>O(n^2)</strong>。</p>
 <p>最好情况是每次分割都是最平衡的，也就是每次分割后左右两个序列的长度基本一致，最好的时间复杂度是 <strong>O(nlogn)</strong>。</p>
 <p>快速排序算法的空间开销主要是递归调用时所使用的栈，与递归调用的栈的深度成正比，故最好的空间复杂度为 <strong>O(logn)</strong>，最坏的空间复杂度为 <strong>O(n)</strong>。</p>
@@ -572,21 +453,9 @@
 <p><strong>图解示意：</strong></p>
 <p><img src="https://i.loli.net/2019/08/29/bzQDNUXaLGdFP2R.jpg" alt="img11.png"></p>
 <p><strong>代码实现：</strong></p>
-<pre><code>    public static void selectSort(int [] data){
-        for(int i = 0;i &lt; data.length - 1;i++){
-            int minIndex = i;
-            for(int j = i+1;j&lt;data.length;j++){
-                if(data[j] &lt; data[minIndex]){
-                    minIndex = j;
-                }
-            }
-            if(minIndex != i){
-                int temp = data[i];
-                data[i] = data[minIndex];
-                data[minIndex] = temp;
-            }
-        }
-    }</code></pre><p><strong>复杂度与稳定性：</strong></p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public static void selectSort(int [] data)&#123;</span><br><span class="line">	<span class="keyword">for</span>(int <span class="built_in">i</span> = <span class="number">0</span>;<span class="built_in">i</span> &lt; data.<span class="built_in">length</span> - <span class="number">1</span>;<span class="built_in">i</span>++)&#123;</span><br><span class="line">		int minIndex = <span class="built_in">i</span>;</span><br><span class="line">		<span class="keyword">for</span>(int <span class="built_in">j</span> = <span class="built_in">i</span>+<span class="number">1</span>;<span class="built_in">j</span>&lt;data.<span class="built_in">length</span>;<span class="built_in">j</span>++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(data[<span class="built_in">j</span>] &lt; data[minIndex])&#123;</span><br><span class="line">				minIndex = <span class="built_in">j</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(minIndex != <span class="built_in">i</span>)&#123;</span><br><span class="line">			int temp = data[<span class="built_in">i</span>];</span><br><span class="line">			data[<span class="built_in">i</span>] = data[minIndex];</span><br><span class="line">			data[minIndex] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>复杂度与稳定性：</strong></p>
 <p>简单选择排序的时间复杂度是 O(n^2)，空间复杂度为 O(1)。</p>
 <p>简单选择排序算法是<strong>不稳定</strong>的。</p>
 <h4 id="7-堆排序"><a href="#7-堆排序" class="headerlink" title="7. 堆排序"></a>7. 堆排序</h4><p>堆排序是利用<strong>堆</strong>这种数据结构而设计的一种排序算法，堆排序是一种选择排序。</p>
@@ -611,55 +480,9 @@
 <p><strong>3. 继续进行调整，交换，如此反复进行，最终使得整个序列有序。</strong></p>
 <p><img src="https://i.loli.net/2019/08/29/rD5WMRysnxhZzvi.jpg" alt="img18.png"></p>
 <p><strong>代码实现：</strong></p>
-<pre><code>    /**
-     * 堆排序算法
-     * @param data
-     */
-    public static void heapSort(int [] data){
-        buidHeap(data);
-        for(int i = data.length-1;i&gt;0;i--){
-            int temp = data[0];
-            data[0] = data[i];
-            data[i] = temp;
-            adjustHeap(data, 0, i);
-        }
-    }
+<figure class="highlight stan"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 堆排序算法</span></span><br><span class="line"><span class="comment"> * @param data</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">public static void heapSort(<span class="selector-tag">int</span> [] <span class="title">data</span>)&#123;</span><br><span class="line">	buidHeap(<span class="title">data</span>);</span><br><span class="line">	<span class="name">for</span>(<span class="selector-tag">int</span> i = <span class="title">data</span>.length-<span class="number">1</span>;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="selector-tag">int</span> temp = <span class="title">data</span>[<span class="number">0</span>];</span><br><span class="line">		<span class="title">data</span>[<span class="number">0</span>] = <span class="title">data</span>[i];</span><br><span class="line">		<span class="title">data</span>[i] = temp;</span><br><span class="line">		adjustHeap(<span class="title">data</span>, <span class="number">0</span>, i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 构建最大堆</span></span><br><span class="line"><span class="comment"> * @param data</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">public static void buidHeap(<span class="selector-tag">int</span> [] <span class="title">data</span>)&#123;</span><br><span class="line">	<span class="name">for</span>(<span class="selector-tag">int</span> i = <span class="title">data</span>.length/<span class="number">2</span> -<span class="number">1</span>;i &gt;= <span class="number">0</span>;i--)&#123;</span><br><span class="line">		adjustHeap(<span class="title">data</span>, i, <span class="title">data</span>.length);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 调整堆</span></span><br><span class="line"><span class="comment"> * @param data</span></span><br><span class="line"><span class="comment"> * @param i</span></span><br><span class="line"><span class="comment"> * @param length</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">public static void adjustHeap(<span class="selector-tag">int</span> [] <span class="title">data</span>, <span class="selector-tag">int</span> i, <span class="selector-tag">int</span> length)&#123;</span><br><span class="line">	<span class="selector-tag">int</span> left = <span class="number">2</span>*i+<span class="number">1</span>;</span><br><span class="line">	<span class="selector-tag">int</span> right = <span class="number">2</span>*i+<span class="number">2</span>;</span><br><span class="line">	<span class="selector-tag">int</span> minIndex = i;</span><br><span class="line">	<span class="comment">//和左孩子进行比较</span></span><br><span class="line">	<span class="name">if</span>(left &lt; length &amp;&amp; <span class="title">data</span>[minIndex] &lt;<span class="title">data</span>[left])&#123;</span><br><span class="line">		minIndex = left;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//和右孩子进行比较</span></span><br><span class="line">	<span class="name">if</span>(right &lt; length &amp;&amp; <span class="title">data</span>[minIndex] &lt; <span class="title">data</span>[right])&#123;</span><br><span class="line">		minIndex = right;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//判断是否需要调整</span></span><br><span class="line">	<span class="name">if</span>(minIndex != i)&#123;</span><br><span class="line">		<span class="selector-tag">int</span> temp = <span class="title">data</span>[minIndex];</span><br><span class="line">		<span class="title">data</span>[minIndex] = <span class="title">data</span>[i];</span><br><span class="line">		<span class="title">data</span>[i] = temp;</span><br><span class="line">		adjustHeap(<span class="title">data</span>, minIndex, length); <span class="comment">//递归对子节点进行调整</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 构建最大堆
-     * @param data
-     */
-    public static void buidHeap(int [] data){
-        for(int i = data.length/2 -1;i &gt;= 0;i--){
-            adjustHeap(data, i, data.length);
-        }
-    }
-    /**
-     * 调整堆
-     * @param data
-     * @param i
-     * @param length
-     */
-    public static void adjustHeap(int [] data, int i, int length){
-        int left = 2*i+1;
-        int right = 2*i+2;
-        int minIndex = i;
-        //和左孩子进行比较
-        if(left &lt; length &amp;&amp; data[minIndex] &lt;data[left]){
-            minIndex = left;
-        }
-        //和右孩子进行比较
-        if(right &lt; length &amp;&amp; data[minIndex] &lt; data[right]){
-            minIndex = right;
-        }
-        //判断是否需要调整
-        if(minIndex != i){
-            int temp = data[minIndex];
-            data[minIndex] = data[i];
-            data[i] = temp;
-            adjustHeap(data, minIndex, length); //递归对子节点进行调整
-        }
-    }</code></pre><p><strong>复杂度与稳定性：</strong></p>
+<p><strong>复杂度与稳定性：</strong></p>
 <p>堆排序的最坏，最好，平均时间复杂度均为 <strong>O(nlogn)</strong>。</p>
 <p>堆排序是<strong>不稳定</strong>排序。</p>
 <p><strong>海量数据的 Top N 排序中可以使用堆排序</strong></p>
@@ -676,71 +499,9 @@
 <p><img src="https://i.loli.net/2019/08/29/P3xHcnkJwzOXuhV.jpg" alt="img19.png"></p>
 <p><img src="https://i.loli.net/2019/08/29/ArkjwRGN6MyBtIq.jpg" alt="img20.png"></p>
 <p><strong>代码实现：</strong></p>
-<pre><code>    /**
-     * 归并排序
-     * @param data
-     */
-    public static void mergeSort(int [] data){
-        mergeSort(data, 0, data.length - 1);
-    }
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 归并排序</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span> [] data)</span></span>&#123;</span><br><span class="line">	mergeSort(data, <span class="number">0</span>, data.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 利用递归进行序列划分</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span> [] data, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(left &lt; right)&#123;</span><br><span class="line">		<span class="keyword">int</span> mid = (left + right)/<span class="number">2</span>;</span><br><span class="line">		mergeSort(data, left, mid);</span><br><span class="line">		mergeSort(data, mid+<span class="number">1</span>, right);</span><br><span class="line">		merge(data, left, mid, right);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 将两个子序列归并</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> data</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> left</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> mid</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> right</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="function"><span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span>[] data, <span class="keyword">int</span> left, <span class="keyword">int</span> mid, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> len1 = mid - left + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> len2 = right - mid;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> [] a = <span class="keyword">new</span> <span class="keyword">int</span> [len1];      <span class="comment">//临时数组用于存放左边数据</span></span><br><span class="line">	<span class="keyword">int</span> [] b = <span class="keyword">new</span> <span class="keyword">int</span> [len2];      <span class="comment">//临时数据用于存放左边数据</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;len1;i++)&#123;</span><br><span class="line">		a[i] = data[left+i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;len2;i++)&#123;</span><br><span class="line">		b[i] = data[mid+<span class="number">1</span>+i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">for</span>(k = left; k &lt; right;k++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(i == len1 || j == len2)&#123;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(a[i] &lt;= b[j])&#123;</span><br><span class="line">			data[k] = a[i++];</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			data[k] = b[j++];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//如果左边还有数据，则加到data的后面</span></span><br><span class="line">	<span class="keyword">while</span>(i &lt; len1)&#123;</span><br><span class="line">		data[k++] = a[i++];	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//如果右边还有数据，则加到data的后面</span></span><br><span class="line">	<span class="keyword">while</span>(j &lt; len2)&#123;</span><br><span class="line">		data[k++] = b[j++];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 利用递归进行序列划分
-     * @param data
-     * @param left
-     * @param right
-     */
-    private static void mergeSort(int [] data, int left, int right){
-        if(left &lt; right){
-            int mid = (left + right)/2;
-            mergeSort(data, left, mid);
-            mergeSort(data, mid+1, right);
-            merge(data, left, mid, right);
-        }
-    }
-
-    /**
-     * 将两个子序列归并
-     * @param data
-     * @param left
-     * @param mid
-     * @param right
-     */
-    private static void merge(int[] data, int left, int mid, int right) {
-        int len1 = mid - left + 1;
-        int len2 = right - mid;
-
-        int [] a = new int [len1];      //临时数组用于存放左边数据
-        int [] b = new int [len2];      //临时数据用于存放左边数据
-
-        for(int i = 0; i&lt;len1;i++){
-            a[i] = data[left+i];
-        }
-        for(int i = 0;i&lt;len2;i++){
-            b[i] = data[mid+1+i];
-        }
-        int i = 0;
-        int j = 0;
-        int k;
-        for(k = left; k &lt; right;k++){
-            if(i == len1 || j == len2){
-                break;
-            }
-            if(a[i] &lt;= b[j]){
-                data[k] = a[i++];
-            }else{
-                data[k] = b[j++];
-            }
-        }
-        //如果左边还有数据，则加到data的后面
-        while(i &lt; len1){
-            data[k++] = a[i++];    
-        }
-        //如果右边还有数据，则加到data的后面
-        while(j &lt; len2){
-            data[k++] = b[j++];
-        }
-    }</code></pre><p><strong>复杂度与稳定性：</strong></p>
+<p><strong>复杂度与稳定性：</strong></p>
 <p>归并排序的最坏情况下的时间复杂度为 <strong>O(nlogn)</strong>，在执行归并过程中，需要额外 <strong>O(n)</strong> 的辅助空间。</p>
 <p>归并排序是一个<strong>稳定</strong>的算法。</p>
 <p>由于需要额外申请辅助空间，实际应用中，归并排序的效果往往没有快速排序好。</p>

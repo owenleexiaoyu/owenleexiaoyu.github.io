@@ -184,10 +184,12 @@
 
           
           
+          
+          
           <li>
-            <a href="/tags/">
+            <a href="/about/">
               
-              TAGS
+              ABOUT
               
               
             </a>
@@ -217,12 +219,10 @@
           
           
           
-          
-          
           <li>
-            <a href="/about/">
+            <a href="/tags/">
               
-              ABOUT
+              TAGS
               
               
             </a>
@@ -378,39 +378,17 @@
 <p>在得到以上这些信息之后，其实整体的实现思路就已经出来了。第一步，用 HTML 结合 CSS、JavaScript 来写游戏场景，将一些控制函数导出成 API，供 Blockly 块去调用。第二步，制作和这个场景契合的 Blockly 块，将块与写好的控制函数进行匹配。</p>
 <h4 id="游戏场景实现"><a href="#游戏场景实现" class="headerlink" title="游戏场景实现"></a>游戏场景实现</h4><p>上面说的两步中，使用 HTML 配合 JS 来实现一个游戏其实是最难的一部分。因为需要用到 HTML5、CSS3、JavaScript 等综合知识。接下来针对这个游戏场景来讲讲具体的实现思路。</p>
 <h5 id="1-准备游戏数据及数据的初始化"><a href="#1-准备游戏数据及数据的初始化" class="headerlink" title="1. 准备游戏数据及数据的初始化"></a>1. 准备游戏数据及数据的初始化</h5><p>我们按照面向对象的编程思路，将整个游戏逻辑整合到一个类 Tadpole（蝌蚪）中。首先，我们需要放置游戏数据的容器，在这里，我使用了一个 10<em>10 的二维数组，数组中的每一个元素对应迷宫中的一格，这个二维数组我们称之为*</em>数据矩阵**。矩阵中的元素有以下几种值，分别对应着不同的含义。</p>
-<pre><code>//在代码中用到的一些常量
-const TYPE_BLOCK = -1;   //-1表示不能走的墙壁
-const TYPE_PATH = 0;     //0表示可以走的通道
-const TYPE_CURRENT = 1;  //1表示角色当前位置
-const TYPE_END = 2;      //2表示角色的目的地
-const TYPE_SUCCESS = 3;  //3表示角色到达了目的地</code></pre><p>我们默认的游戏矩阵是这样的：</p>
-<pre><code>//游戏数据矩阵，初始值都为-1，在init方法中接收外界的赋值
-var gameData = [
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-];</code></pre><p>这样的一个数据矩阵经过 CSS 渲染后，就是下图所示的样子。荷叶表示障碍物，小蝌蚪不能通过这个障碍物。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在代码中用到的一些常量</span></span><br><span class="line"><span class="keyword">const</span> TYPE_BLOCK = <span class="number">-1</span>;   <span class="comment">//-1表示不能走的墙壁</span></span><br><span class="line"><span class="keyword">const</span> TYPE_PATH = <span class="number">0</span>;     <span class="comment">//0表示可以走的通道</span></span><br><span class="line"><span class="keyword">const</span> TYPE_CURRENT = <span class="number">1</span>;  <span class="comment">//1表示角色当前位置</span></span><br><span class="line"><span class="keyword">const</span> TYPE_END = <span class="number">2</span>;      <span class="comment">//2表示角色的目的地</span></span><br><span class="line"><span class="keyword">const</span> TYPE_SUCCESS = <span class="number">3</span>;  <span class="comment">//3表示角色到达了目的地</span></span><br></pre></td></tr></table></figure>
+
+<p>我们默认的游戏矩阵是这样的：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//游戏数据矩阵，初始值都为-1，在init方法中接收外界的赋值</span></span><br><span class="line">var gameData = [</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>]</span><br><span class="line">];</span><br></pre></td></tr></table></figure>
+
+<p>这样的一个数据矩阵经过 CSS 渲染后，就是下图所示的样子。荷叶表示障碍物，小蝌蚪不能通过这个障碍物。</p>
 <p><img src="https://i.loli.net/2019/08/29/yfevDpJbVP7I1kY.jpg" alt="img4.png"></p>
 <p>如果我们将矩阵中一些元素的值改变，比如将 -1 修改为 1，就表示这个迷宫中出现了一个蝌蚪的角色，比如将 -1 改为 0，就表示这个位置的障碍物消失，成为小蝌蚪可以通过的通道，再比如将 -1 改为 2，就表示迷宫中出现了一只青蛙，它就是小蝌蚪要去的目的地。</p>
-<pre><code>[
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1,  1,  0,  0,  2, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-]</code></pre><p>例如上面这个矩阵，经过渲染后就是下面这个样子，是不是已经有了一个迷宫的雏形？</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>,  <span class="number">1</span>,  <span class="number">0</span>,  <span class="number">0</span>,  <span class="number">2</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>例如上面这个矩阵，经过渲染后就是下面这个样子，是不是已经有了一个迷宫的雏形？</p>
 <p><img src="https://i.loli.net/2019/08/29/ctnfLCW37NFj6gS.jpg" alt="img5.png"></p>
 <p>那么如何将数据矩阵渲染成我们想要的游戏界面呢，接着往下看。</p>
 <h5 id="2-初始化游戏界面"><a href="#2-初始化游戏界面" class="headerlink" title="2. 初始化游戏界面"></a>2. 初始化游戏界面</h5><p>对于这样一个游戏，我们项目文件结构如下：</p>
@@ -418,464 +396,74 @@ var gameData = [
 <p>css 目录下放置样式表文件，img 目录下放置所需的图片资源，js 目录下放置 JavaScript 脚本文件，html 目录下放置 HTML 网页。</p>
 <p><strong>HTML页面</strong></p>
 <p>首先我们在 html 目录下新建一个 index.html 的文件，在 css 目录下新建 style.css 的样式表，在 js 目录下新建 tadpole.js 脚本。在 index.html 中引入样式表和脚本。</p>
-<pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-    &lt;meta charset=&quot;UTF-8&quot;&gt;
-    &lt;title&gt;小蝌蚪找妈妈&lt;/title&gt;
-    &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;../css/style.css&quot;&gt;
-&lt;/head&gt;
-&lt;body class=&quot;bg&quot;&gt;
-    &lt;div class=&quot;game&quot; id=&quot;game&quot;&gt;&lt;/div&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/tadpole.js&quot;&gt;&lt;/script&gt;
-    &lt;script type=&quot;text/javascript&quot; src=&quot;../js/level1_script.js&quot;&gt;&lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><p>在 HTML 页面中我们定义一个 div 标签，id 为 game，class 也为 game，这个 div 就是我们游戏的背景容器，称为<strong>GameDiv</strong>。后面我们将在代码中动态地向这个 div 中填充100个小 div，与数据矩阵中元素一一对应。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>小蝌蚪找妈妈<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"../css/style.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"bg"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"game"</span> <span class="attr">id</span>=<span class="string">"game"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../js/tadpole.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../js/level1_script.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>在 HTML 页面中我们定义一个 div 标签，id 为 game，class 也为 game，这个 div 就是我们游戏的背景容器，称为<strong>GameDiv</strong>。后面我们将在代码中动态地向这个 div 中填充100个小 div，与数据矩阵中元素一一对应。</p>
 <p><strong>CSS样式</strong></p>
 <p>下面来写一下 style.css 文件，对我们要用到的 div 添加一些样式。</p>
-<pre><code>.bg{
-    background-image: url(../img/water_bg.jpg);
-    background-size: 1000px 1000px;
-}
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg</span>&#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(../img/water_bg.jpg);</span><br><span class="line">    <span class="attribute">background-size</span>: <span class="number">1000px</span> <span class="number">1000px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.game</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: transparent;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">block : 墙壁，不能走的区域</span></span><br><span class="line"><span class="comment">start : 起点</span></span><br><span class="line"><span class="comment">end :   终点</span></span><br><span class="line"><span class="comment">path :  通道，可以走的区域</span></span><br><span class="line"><span class="comment">current_*: 小蝌蚪当前的位置,up表示方向朝上，right表示方向朝右，down表示方向朝下，left表示方向朝左</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="selector-class">.block</span>, <span class="selector-class">.end</span>, <span class="selector-class">.path</span>, <span class="selector-class">.current_up</span>, <span class="selector-class">.current_right</span>, <span class="selector-class">.current_down</span>, <span class="selector-class">.current_left</span>, <span class="selector-class">.success</span>&#123;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.block</span>&#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(../img/lotus_leaf.png);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.path</span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.end</span>&#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(../img/frog.png);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.success</span>&#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(../img/water.png);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.current_up</span>&#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(../img/tadpole_up.png);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.current_right</span>&#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(../img/tadpole_right.png);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.current_down</span>&#123;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">url</span>(../img/tadpole_down.png);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.current_left</span>&#123;</span><br><span class="line">     <span class="attribute">background-image</span>: <span class="built_in">url</span>(../img/tadpole_left.png);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 
-.game {
-    background-color: transparent;
-    position: absolute;
-}
-
-/*
-block : 墙壁，不能走的区域
-start : 起点
-end :   终点
-path :  通道，可以走的区域
-current_*: 小蝌蚪当前的位置,up表示方向朝上，right表示方向朝右，down表示方向朝下，left表示方向朝左
-*/
-.block, .end, .path, .current_up, .current_right, .current_down, .current_left, .success{
-    position: absolute;
-    box-sizing: border-box;
-}
-
-.block{
-    background-image: url(../img/lotus_leaf.png);
-}
-.path{
-}
-
-.end{
-    background-image: url(../img/frog.png);
-}
-
-.success{
-    background-image: url(../img/water.png);
-}
-
-.current_up{
-    background-image: url(../img/tadpole_up.png);
-}
-.current_right{
-    background-image: url(../img/tadpole_right.png);
-}
-.current_down{
-    background-image: url(../img/tadpole_down.png);
-}
-.current_left{
-     background-image: url(../img/tadpole_left.png);
- }</code></pre><p>在这个样式表中，为 body 设置了背景图片，为 game 这个 class 设置了定位方式，为我们接下来要用到的小 div 设置了一些背景图片。比如为 class 为 block 的 div 设置荷叶背景图，为 class 为 end 的 div 设置青蛙背景图，为 class 为 current_up 的 div 设置一个头朝上的蝌蚪背景图等等。</p>
+<p>在这个样式表中，为 body 设置了背景图片，为 game 这个 class 设置了定位方式，为我们接下来要用到的小 div 设置了一些背景图片。比如为 class 为 block 的 div 设置荷叶背景图，为 class 为 end 的 div 设置青蛙背景图，为 class 为 current_up 的 div 设置一个头朝上的蝌蚪背景图等等。</p>
 <p><strong>JS 脚本</strong></p>
 <p>在 tadpole.js 文件中，我们定义一个初始化游戏界面的函数 initGameDivs()，函数实现如下：</p>
-<pre><code>    //获取屏幕的宽度和高度
-    var screen_width = window.innerWidth;
-    var screen_height = window.innerHeight;
-    //游戏区域的尺寸
-    var game_div_size = Math.min(screen_width, screen_height) - 20;
-    var single_div_size = game_div_size / 10;
-    //初始化页面中的DIV
-    var initGameDivs = function (data, divs) {
-        //设置游戏区域的宽和高，是动态变化的
-        var gameDiv = document.getElementById(&quot;game&quot;);
-        gameDiv.style.width = game_div_size + &#39;px&#39;;
-        gameDiv.style.height = game_div_size + &#39;px&#39;;
-        //设置gameDiv的位置
-        var top = Math.max(10, (screen_height - game_div_size) / 2);
-        var left = Math.max(10, (screen_width - game_div_size) / 2);
-        gameDiv.style.top = top + &#39;px&#39;;
-        gameDiv.style.left = left + &#39;px&#39;;
-        for (var i = 0; i &lt; data.length; i++) {
-            var div = [];
-            for (var j = 0; j &lt; data[0].length; j++) {
-                var newNode = document.createElement(&#39;div&#39;);
-                newNode.className = &#39;block&#39;;
-                //设置宽和高
-                newNode.style.height = single_div_size + &#39;px&#39;;
-                newNode.style.width = single_div_size + &#39;px&#39;;
-                //设置位置
-                newNode.style.top = (i * single_div_size) + &#39;px&#39;;
-                newNode.style.left = (j * single_div_size) + &#39;px&#39;;
-                //设置背景图片的缩放尺寸
-                newNode.style.backgroundSize = single_div_size + &#39;px&#39;;
-                //向gameDiv中添加字项
-                document.getElementById(&#39;game&#39;).appendChild(newNode);
-                div.push(newNode);
-            }
-            divs.push(div);
-        }
-    };</code></pre><p>首先，我们获取到 HTML 页面的宽度和高度，然后将GameDiv 的尺寸定为页面宽高中的小的那个值减去20（留出一些空隙），GameDiv 中每个小 div 的尺寸为 GameDiv 的十分之一（正好 10*10 的排列）。这样做可以根据 HTML 页面的大小来动态调整 GameDiv 和里面小 div 的缩放，适配所有的屏幕尺寸。</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取屏幕的宽度和高度</span></span><br><span class="line">   <span class="keyword">var</span> screen_width = window.innerWidth;</span><br><span class="line">   <span class="keyword">var</span> screen_height = window.innerHeight;</span><br><span class="line">   <span class="comment">//游戏区域的尺寸</span></span><br><span class="line">   <span class="keyword">var</span> game_div_size = Math.min(screen_width, screen_height) - <span class="number">20</span>;</span><br><span class="line">   <span class="keyword">var</span> single_div_size = game_div_size / <span class="number">10</span>;</span><br><span class="line"><span class="comment">//初始化页面中的DIV</span></span><br><span class="line">   <span class="keyword">var</span> initGameDivs = <span class="function"><span class="keyword">function</span> </span>(data, divs) &#123;</span><br><span class="line">       <span class="comment">//设置游戏区域的宽和高，是动态变化的</span></span><br><span class="line">       <span class="keyword">var</span> gameDiv = document.getElementById(<span class="string">"game"</span>);</span><br><span class="line">       gameDiv.style.width = game_div_size + <span class="string">'px'</span>;</span><br><span class="line">       gameDiv.style.height = game_div_size + <span class="string">'px'</span>;</span><br><span class="line">       <span class="comment">//设置gameDiv的位置</span></span><br><span class="line">       <span class="keyword">var</span> top = Math.max(<span class="number">10</span>, (screen_height - game_div_size) / <span class="number">2</span>);</span><br><span class="line">       <span class="keyword">var</span> left = Math.max(<span class="number">10</span>, (screen_width - game_div_size) / <span class="number">2</span>);</span><br><span class="line">       gameDiv.style.top = top + <span class="string">'px'</span>;</span><br><span class="line">       gameDiv.style.left = left + <span class="string">'px'</span>;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">           <span class="keyword">var</span> div = [];</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; data[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">               <span class="keyword">var</span> <span class="keyword">new</span><span class="type">Node</span> = document.createElement(<span class="string">'div'</span>);</span><br><span class="line">               <span class="keyword">new</span><span class="type">Node</span>.className = <span class="string">'block'</span>;</span><br><span class="line">               <span class="comment">//设置宽和高</span></span><br><span class="line">               <span class="keyword">new</span><span class="type">Node</span>.style.height = single_div_size + <span class="string">'px'</span>;</span><br><span class="line">               <span class="keyword">new</span><span class="type">Node</span>.style.width = single_div_size + <span class="string">'px'</span>;</span><br><span class="line">               <span class="comment">//设置位置</span></span><br><span class="line">               <span class="keyword">new</span><span class="type">Node</span>.style.top = (i * single_div_size) + <span class="string">'px'</span>;</span><br><span class="line">               <span class="keyword">new</span><span class="type">Node</span>.style.left = (j * single_div_size) + <span class="string">'px'</span>;</span><br><span class="line">               <span class="comment">//设置背景图片的缩放尺寸</span></span><br><span class="line">               <span class="keyword">new</span><span class="type">Node</span>.style.backgroundSize = single_div_size + <span class="string">'px'</span>;</span><br><span class="line">               <span class="comment">//向gameDiv中添加字项</span></span><br><span class="line">               document.getElementById(<span class="string">'game'</span>).appendChild(<span class="keyword">new</span><span class="type">Node</span>);</span><br><span class="line">               div.push(<span class="keyword">new</span><span class="type">Node</span>);</span><br><span class="line">           &#125;</span><br><span class="line">           divs.push(div);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>首先，我们获取到 HTML 页面的宽度和高度，然后将GameDiv 的尺寸定为页面宽高中的小的那个值减去20（留出一些空隙），GameDiv 中每个小 div 的尺寸为 GameDiv 的十分之一（正好 10*10 的排列）。这样做可以根据 HTML 页面的大小来动态调整 GameDiv 和里面小 div 的缩放，适配所有的屏幕尺寸。</p>
 <p>在这个函数中我们通过 <strong>getElementById()</strong>  获取到<br> id 为 game 的 div，也就是 GameDiv，然后为它设置动态的宽高以及在屏幕中的位置，进行屏幕适配。通过两个嵌套的 for 循环，创建 100 个div，同样设置这 100 个小 div 的宽高、位置、背景图缩放尺寸等属性，然后将这100个小 div 加到 GameDiv 中，同时将这100个小 div 加入一个 10<em>10 的二维数组中，便于后面刷新界面时为这些小 div 设置不同的 class，这个二维数组我们称之为 *</em>DIV 矩阵**。</p>
 <p>在 tadpole.js 中再定义一个函数 refreshGame()，传进来两个参数，一个是数据矩阵，一个是 DIV 矩阵，根据数据矩阵中元素的值，为 DIV 矩阵中对应的 div 设置不同 class，以渲染不同的背景图片。在这里我们增加了一个成员变量 mDirection，表示小蝌蚪当前的朝向，根据朝向的不同来设置不同的蝌蚪背景图（图片中蝌蚪的方向不同）。</p>
-<pre><code>    //小蝌蚪的方向,1 表示向上，2 表示向右，3表示向下， 4表示向左，默认向上
-    var mDirection = 2;
-    //刷新DIV
-    var refreshGame = function (data, divs) {
-        for (var i = 0; i &lt; data.length; i++) {
-            for (var j = 0; j &lt; data[0].length; j++) {
-                //是不可以走的block
-                if (data[i][j] == TYPE_BLOCK) {
-                    divs[i][j].className = &#39;block&#39;;
-                }
-                //是可以走的path
-                else if (data[i][j] === TYPE_PATH) {
-                    divs[i][j].className = &#39;path&#39;;
-                }
-                //当前所在位置current
-                else if (data[i][j] == TYPE_CURRENT) {
-                    //根据角色不同的方向加载不同的背景图片
-                    switch (mDirection) {
-                        case 1:
-                            divs[i][j].className = &#39;current_up&#39;;
-                            break;
-                        case 2:
-                            divs[i][j].className = &#39;current_right&#39;;
-                            break;
-                        case 3:
-                            divs[i][j].className = &#39;current_down&#39;;
-                            break;
-                        case 4:
-                            divs[i][j].className = &#39;current_left&#39;;
-                            break;
-                    }
-                }
-                //是终点end
-                else if (data[i][j] == TYPE_END) {
-                    divs[i][j].className = &#39;end&#39;;
-                }
-                //角色成功到达终点
-                else if (data[i][j] == TYPE_SUCCESS) {
-                    divs[i][j].className = &#39;success&#39;;
-                }
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//小蝌蚪的方向,1 表示向上，2 表示向右，3表示向下， 4表示向左，默认向上</span></span><br><span class="line">   <span class="keyword">var</span> mDirection = <span class="number">2</span>;</span><br><span class="line"><span class="comment">//刷新DIV</span></span><br><span class="line">   <span class="keyword">var</span> refreshGame = function (<span class="keyword">data</span>, divs) &#123;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="keyword">data</span>.length; i++) &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; <span class="keyword">data</span>[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">               <span class="comment">//是不可以走的block</span></span><br><span class="line">               <span class="keyword">if</span> (<span class="keyword">data</span>[i][j] == TYPE_BLOCK) &#123;</span><br><span class="line">                   divs[i][j].className = <span class="string">'block'</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="comment">//是可以走的path</span></span><br><span class="line">               <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">data</span>[i][j] === TYPE_PATH) &#123;</span><br><span class="line">                   divs[i][j].className = <span class="string">'path'</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="comment">//当前所在位置current</span></span><br><span class="line">               <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">data</span>[i][j] == TYPE_CURRENT) &#123;</span><br><span class="line">                   <span class="comment">//根据角色不同的方向加载不同的背景图片</span></span><br><span class="line">                   switch (mDirection) &#123;</span><br><span class="line">                       case <span class="number">1</span>:</span><br><span class="line">                           divs[i][j].className = <span class="string">'current_up'</span>;</span><br><span class="line">                           <span class="keyword">break</span>;</span><br><span class="line">                       case <span class="number">2</span>:</span><br><span class="line">                           divs[i][j].className = <span class="string">'current_right'</span>;</span><br><span class="line">                           <span class="keyword">break</span>;</span><br><span class="line">                       case <span class="number">3</span>:</span><br><span class="line">                           divs[i][j].className = <span class="string">'current_down'</span>;</span><br><span class="line">                           <span class="keyword">break</span>;</span><br><span class="line">                       case <span class="number">4</span>:</span><br><span class="line">                           divs[i][j].className = <span class="string">'current_left'</span>;</span><br><span class="line">                           <span class="keyword">break</span>;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="comment">//是终点end</span></span><br><span class="line">               <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">data</span>[i][j] == TYPE_END) &#123;</span><br><span class="line">                   divs[i][j].className = <span class="string">'end'</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="comment">//角色成功到达终点</span></span><br><span class="line">               <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">data</span>[i][j] == TYPE_SUCCESS) &#123;</span><br><span class="line">                   divs[i][j].className = <span class="string">'success'</span>;</span><br><span class="line">               &#125;</span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
 
-            }
-        }
-    };</code></pre><p>再定义一个整体的初始化函数 init()，调用上面两个方法，完成初始化工作。</p>
-<pre><code>    //在script.js中调用
-    var init = function (data) {
-        //为initTime赋值
-        initTime = new Date().getTime();
-        //为gameData赋值
-        for (var i = 0; i &lt; data.length; i++) {
-            for (var j = 0; j &lt; data[0].length; j++) {
-                gameData[i][j] = data[i][j];
-            }
-        }
-        initGameDivs(gameData, gameDivs);
-        refreshGame(gameData, gameDivs);
-    };</code></pre><p>（这里从外界传入一个 data 的二维数据，遍历这个数组，对数据矩阵进行赋值操作，将实际的数据矩阵提取到外部，有利于代码的拓展，后面再介绍）</p>
+<p>再定义一个整体的初始化函数 init()，调用上面两个方法，完成初始化工作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在script.js中调用</span></span><br><span class="line">   <span class="keyword">var</span> init = <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">       <span class="comment">//为initTime赋值</span></span><br><span class="line">       initTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">       <span class="comment">//为gameData赋值</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; data[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">               gameData[i][j] = data[i][j];</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       initGameDivs(gameData, gameDivs);</span><br><span class="line">       refreshGame(gameData, gameDivs);</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>（这里从外界传入一个 data 的二维数据，遍历这个数组，对数据矩阵进行赋值操作，将实际的数据矩阵提取到外部，有利于代码的拓展，后面再介绍）</p>
 <h4 id="编写控制函数"><a href="#编写控制函数" class="headerlink" title="编写控制函数"></a>编写控制函数</h4><p>这里我们只需要三个控制函数，分别是前进、左转、右转。</p>
-<pre><code>    const DIRECTION_UP = 1;    //1表示方向向上
-    const DIRECTION_RIGHT = 2;  //2表示方向向右
-    const DIRECTION_DOWN = 3;  //3表示方向向下
-    const DIRECTION_LEFT = 4;  //4表示方向向左
-    //根据当前的方向向前走
-    var move_forward = function () {
-        var index_i = -1;
-        var index_j = -1;
-        //遍历这个数据矩阵，找到当前的位置
-        for (var i = 0; i &lt; gameData.length; i++) {
-            for (var j = 0; j &lt; gameData[0].length; j++) {
-                if (gameData[i][j] == 1) {
-                    index_i = i;
-                    index_j = j;
-                    break;
-                }
-            }
-        }
-        //根据方向修改往前走了一步后的数据矩阵
-        switch (mDirection) {
-            case 1:  //方向朝上
-                //必须是不等于-1才能往前走
-                if (gameData[index_i - 1][index_j] != TYPE_BLOCK) {
-                    gameData[index_i - 1][index_j] += 1;
-                    gameData[index_i][index_j] -= 1;
-                }
-                break;
-            case 2:  //方向朝右
-                //必须是不等于-1才能往前走
-                if (gameData[index_i][index_j + 1] != TYPE_BLOCK) {
-                    gameData[index_i][index_j + 1] += 1;
-                    gameData[index_i][index_j] -= 1;
-                }
-                break;
-            case 3:  //方向朝下
-                //必须是不等于-1才能往前走
-                if (gameData[index_i + 1][index_j] != TYPE_BLOCK) {
-                    gameData[index_i + 1][index_j] += 1;
-                    gameData[index_i][index_j] -= 1;
-                }
-                break;
-            case 4:  //方向朝左
-                //必须是不等于-1才能往前走
-                if (gameData[index_i][index_j - 1] != TYPE_BLOCK) {
-                    gameData[index_i][index_j - 1] += 1;
-                    gameData[index_i][index_j] -= 1;
-                }
-                break;
-        }
-        refreshGame(gameData, gameDivs);
-    };
-    //角色左转
-    var turn_left = function () {
-        if (mDirection == DIRECTION_UP) {
-            mDirection = DIRECTION_LEFT;
-        } else {
-            mDirection = mDirection - 1;
-        }
-        refreshGame(gameData, gameDivs);
-    };
-    //角色右转
-    var turn_right = function () {
-        if (mDirection == DIRECTION_LEFT) {
-            mDirection = DIRECTION_UP;
-        } else {
-            mDirection = mDirection + 1;
-        }
-        refreshGame(gameData, gameDivs);
-    };</code></pre><p>在函数 move_forward() 中，先遍历数据矩阵，查到矩阵中值为 1 的元素坐标，如果没找到，说明小蝌蚪已经到达目的地，则遍历矩阵，查找值为 3 的元素坐标，定位到小蝌蚪当前所在位置。然后根据其当前的朝向，判断小蝌蚪前面一个元素是不是障碍物，如果不是，就修改前面一个元素和当前所在位置元素的值，做到动态修改数据矩阵的目的。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">const</span> DIRECTION_UP = <span class="number">1</span>;    <span class="comment">//1表示方向向上</span></span><br><span class="line">   <span class="keyword">const</span> DIRECTION_RIGHT = <span class="number">2</span>;  <span class="comment">//2表示方向向右</span></span><br><span class="line">   <span class="keyword">const</span> DIRECTION_DOWN = <span class="number">3</span>;  <span class="comment">//3表示方向向下</span></span><br><span class="line">   <span class="keyword">const</span> DIRECTION_LEFT = <span class="number">4</span>;  <span class="comment">//4表示方向向左</span></span><br><span class="line"><span class="comment">//根据当前的方向向前走</span></span><br><span class="line">   <span class="keyword">var</span> move_forward = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">var</span> index_i = <span class="number">-1</span>;</span><br><span class="line">       <span class="keyword">var</span> index_j = <span class="number">-1</span>;</span><br><span class="line">       <span class="comment">//遍历这个数据矩阵，找到当前的位置</span></span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; gameData.length; i++) &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; gameData[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">               <span class="keyword">if</span> (gameData[i][j] == <span class="number">1</span>) &#123;</span><br><span class="line">                   index_i = i;</span><br><span class="line">                   index_j = j;</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="comment">//根据方向修改往前走了一步后的数据矩阵</span></span><br><span class="line">       <span class="keyword">switch</span> (mDirection) &#123;</span><br><span class="line">           <span class="keyword">case</span> <span class="number">1</span>:  <span class="comment">//方向朝上</span></span><br><span class="line">               <span class="comment">//必须是不等于-1才能往前走</span></span><br><span class="line">               <span class="keyword">if</span> (gameData[index_i - <span class="number">1</span>][index_j] != TYPE_BLOCK) &#123;</span><br><span class="line">                   gameData[index_i - <span class="number">1</span>][index_j] += <span class="number">1</span>;</span><br><span class="line">                   gameData[index_i][index_j] -= <span class="number">1</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           <span class="keyword">case</span> <span class="number">2</span>:  <span class="comment">//方向朝右</span></span><br><span class="line">               <span class="comment">//必须是不等于-1才能往前走</span></span><br><span class="line">               <span class="keyword">if</span> (gameData[index_i][index_j + <span class="number">1</span>] != TYPE_BLOCK) &#123;</span><br><span class="line">                   gameData[index_i][index_j + <span class="number">1</span>] += <span class="number">1</span>;</span><br><span class="line">                   gameData[index_i][index_j] -= <span class="number">1</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           <span class="keyword">case</span> <span class="number">3</span>:  <span class="comment">//方向朝下</span></span><br><span class="line">               <span class="comment">//必须是不等于-1才能往前走</span></span><br><span class="line">               <span class="keyword">if</span> (gameData[index_i + <span class="number">1</span>][index_j] != TYPE_BLOCK) &#123;</span><br><span class="line">                   gameData[index_i + <span class="number">1</span>][index_j] += <span class="number">1</span>;</span><br><span class="line">                   gameData[index_i][index_j] -= <span class="number">1</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           <span class="keyword">case</span> <span class="number">4</span>:  <span class="comment">//方向朝左</span></span><br><span class="line">               <span class="comment">//必须是不等于-1才能往前走</span></span><br><span class="line">               <span class="keyword">if</span> (gameData[index_i][index_j - <span class="number">1</span>] != TYPE_BLOCK) &#123;</span><br><span class="line">                   gameData[index_i][index_j - <span class="number">1</span>] += <span class="number">1</span>;</span><br><span class="line">                   gameData[index_i][index_j] -= <span class="number">1</span>;</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       refreshGame(gameData, gameDivs);</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="comment">//角色左转</span></span><br><span class="line">   <span class="keyword">var</span> turn_left = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (mDirection == DIRECTION_UP) &#123;</span><br><span class="line">           mDirection = DIRECTION_LEFT;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           mDirection = mDirection - <span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       refreshGame(gameData, gameDivs);</span><br><span class="line">   &#125;;</span><br><span class="line">   <span class="comment">//角色右转</span></span><br><span class="line">   <span class="keyword">var</span> turn_right = <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (mDirection == DIRECTION_LEFT) &#123;</span><br><span class="line">           mDirection = DIRECTION_UP;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">           mDirection = mDirection + <span class="number">1</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       refreshGame(gameData, gameDivs);</span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>在函数 move_forward() 中，先遍历数据矩阵，查到矩阵中值为 1 的元素坐标，如果没找到，说明小蝌蚪已经到达目的地，则遍历矩阵，查找值为 3 的元素坐标，定位到小蝌蚪当前所在位置。然后根据其当前的朝向，判断小蝌蚪前面一个元素是不是障碍物，如果不是，就修改前面一个元素和当前所在位置元素的值，做到动态修改数据矩阵的目的。</p>
 <p>在 turn _left() 和 turn _right() 这两个方法中，其实就是修改了 mDirection 这个变量的值，使它能够正确表示左转、右转之后的蝌蚪朝向。（其实方向的值用 0~3 会更好一些）</p>
 <h5 id="游戏结果检查"><a href="#游戏结果检查" class="headerlink" title="游戏结果检查"></a>游戏结果检查</h5><p>游戏结果检查的逻辑其实也比较简单，就是遍历数据矩阵，查找矩阵中有没有值为 3 的元素。如果有，就说明小蝌蚪正确到达目的地，如果没有，就说明没有到达目的地。</p>
-<pre><code>    //是否成功
-    var flag_success = false;
-    //所用时间,根据所用时间来进行星级评定
-    var usedTime = 0;
-    //游戏初始化时的时间
-    var initTime = 0;
-    //检查游戏是否结束时的时间
-    var finishTime = 0;
-    //判断游戏是否结束
-    var check_game = function (data) {
-        //用户的评星
-        var rating = 0;
-        //为finishTime赋值
-        finishTime = new Date().getTime();
-        usedTime = finishTime - initTime;
-        for (var i = 0; i &lt; data.length; i++) {
-            for (var j = 0; j &lt; data[0].length; j++) {
-                if (data[i][j] == 3) {
-                    flag_success = true;
-                    break;
-                }
-            }
-        }
-        if (flag_success == true) {
-            //如果成功到达目的地并且用时少于1分钟，评为3星
-            if(usedTime &lt; 60000){
-                rating = 3;
-            }
-            //如果成功到达目的地并且用时少于3分钟，评为2星
-            else if(usedTime &lt; 180000){
-                rating = 2;
-            }
-            //如果成功到达目的地并且用时少于5分钟，评为1星
-            else if(usedTime &lt; 300000){
-                rating = 1;
-            }
-            window.android.showGameResult(rating, &quot;恭喜你成功了&quot;);
-        }else{
-            window.android.showGameResult(rating, &quot;没有到达目的地&quot;);
-        }
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//是否成功</span></span><br><span class="line">   <span class="keyword">var</span> flag_success = <span class="literal">false</span>;</span><br><span class="line">   <span class="comment">//所用时间,根据所用时间来进行星级评定</span></span><br><span class="line">   <span class="keyword">var</span> usedTime = <span class="number">0</span>;</span><br><span class="line">   <span class="comment">//游戏初始化时的时间</span></span><br><span class="line">   <span class="keyword">var</span> initTime = <span class="number">0</span>;</span><br><span class="line">   <span class="comment">//检查游戏是否结束时的时间</span></span><br><span class="line">   <span class="keyword">var</span> finishTime = <span class="number">0</span>;</span><br><span class="line">   <span class="comment">//判断游戏是否结束</span></span><br><span class="line">   <span class="keyword">var</span> check_game = <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">       <span class="comment">//用户的评星</span></span><br><span class="line">       <span class="keyword">var</span> rating = <span class="number">0</span>;</span><br><span class="line">       <span class="comment">//为finishTime赋值</span></span><br><span class="line">       finishTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">       usedTime = finishTime - initTime;</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; data.length; i++) &#123;</span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">var</span> j = <span class="number">0</span>; j &lt; data[<span class="number">0</span>].length; j++) &#123;</span><br><span class="line">               <span class="keyword">if</span> (data[i][j] == <span class="number">3</span>) &#123;</span><br><span class="line">                   flag_success = <span class="literal">true</span>;</span><br><span class="line">                   <span class="keyword">break</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (flag_success == <span class="literal">true</span>) &#123;</span><br><span class="line">           <span class="comment">//如果成功到达目的地并且用时少于1分钟，评为3星</span></span><br><span class="line">           <span class="keyword">if</span>(usedTime &lt; <span class="number">60000</span>)&#123;</span><br><span class="line">               rating = <span class="number">3</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">//如果成功到达目的地并且用时少于3分钟，评为2星</span></span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(usedTime &lt; <span class="number">180000</span>)&#123;</span><br><span class="line">               rating = <span class="number">2</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="comment">//如果成功到达目的地并且用时少于5分钟，评为1星</span></span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(usedTime &lt; <span class="number">300000</span>)&#123;</span><br><span class="line">               rating = <span class="number">1</span>;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="built_in">window</span>.android.showGameResult(rating, <span class="string">"恭喜你成功了"</span>);</span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           <span class="built_in">window</span>.android.showGameResult(rating, <span class="string">"没有到达目的地"</span>);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">   &#125;;</span><br></pre></td></tr></table></figure>
 
-    };</code></pre><p>可以看到我们在这个函数中引入评星系统，这个星级是根据是否成功到达目的地以及所用时间长短来划分的。如果成功到达目的地且用时少于 1 分钟，评 3 星（满）；如果成功到达目的地且用时在 1<del>3 分钟之间，评 2 星；<br>如果成功到达目的地且用时在 3</del>5 分钟之间，评 1 星；<br>如果成功到达目的地但用时在超出 5 分钟或者没有成功到达目的地，评 0 星。（initTime 这个变量在 init() 方法中初始化） </p>
+<p>可以看到我们在这个函数中引入评星系统，这个星级是根据是否成功到达目的地以及所用时间长短来划分的。如果成功到达目的地且用时少于 1 分钟，评 3 星（满）；如果成功到达目的地且用时在 1<del>3 分钟之间，评 2 星；<br>如果成功到达目的地且用时在 3</del>5 分钟之间，评 1 星；<br>如果成功到达目的地但用时在超出 5 分钟或者没有成功到达目的地，评 0 星。（initTime 这个变量在 init() 方法中初始化） </p>
 <p>同时，我们可以看到我们调用了 <strong>window.android.showGameResult(rating, “恭喜你成功了”);</strong> 这样一个方法。这个方法是去调用了 Android 本地的 Java 对象的方法，主要是用于展示一个本地的 Dialog 而不是一个网页的弹窗，这个我们后面再介绍。</p>
-<h5 id="定义执行函数和API导出"><a href="#定义执行函数和API导出" class="headerlink" title="定义执行函数和API导出"></a>定义执行函数和API导出</h5><pre><code>    //执行相应的方法
-    var execute = function (code) {
-        try{
-            eval(code);
-            check_game(gameData);
-        }
-        catch (e) {
-            if (e !== Infinity) {
-                alert(e);
-            }
-        }
-    };
-    //导出API
-    this.init = init;
-    this.move_forward = move_forward;
-    this.turn_left = turn_left;
-    this.turn_right = turn_right;
-    this.execute = execute;</code></pre><p>我们模仿 turtle.js 中的写法，定义一个执行函数 execute()，传入 Blockly 块所生成的代码，这些代码是 move_forward() 等控制函数的调用。利用 eval() 函数一次执行这些代码，然后检查游戏结果。</p>
+<h5 id="定义执行函数和API导出"><a href="#定义执行函数和API导出" class="headerlink" title="定义执行函数和API导出"></a>定义执行函数和API导出</h5><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//执行相应的方法</span></span><br><span class="line"><span class="keyword">var</span> execute = function (code) &#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        eval(code);</span><br><span class="line">        check_game(gameData);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (e) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e !== Infinity) &#123;</span><br><span class="line">            alert(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//导出API</span></span><br><span class="line"><span class="keyword">this</span>.<span class="keyword">init</span> = <span class="keyword">init</span>;</span><br><span class="line"><span class="keyword">this</span>.move_forward = move_forward;</span><br><span class="line"><span class="keyword">this</span>.turn_left = turn_left;</span><br><span class="line"><span class="keyword">this</span>.turn_right = turn_right;</span><br><span class="line"><span class="keyword">this</span>.execute = execute;</span><br></pre></td></tr></table></figure>
+
+<p>我们模仿 turtle.js 中的写法，定义一个执行函数 execute()，传入 Blockly 块所生成的代码，这些代码是 move_forward() 等控制函数的调用。利用 eval() 函数一次执行这些代码，然后检查游戏结果。</p>
 <p>导出 API 是为了在其他的 JS 文件中也能够调用 Tadpole 这个类的函数。比如我们在 level1_script.js 文件中就调用了 init() 方法来对一个 Tadpole 对象初始化。</p>
-<pre><code>var game = [
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1,  1,  0,  0,  2, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1],
-    [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1]
-];
-var tp = new Tadpole();
-tp.init(game);</code></pre><p>在这个 JS 文件中我们就可以知道，实际的初始数据矩阵是通过外界的 JS 文件传入，这样做的好处在于我们可以非常方便进行游戏场景的复制，设置不同形状的迷宫。只需要复制这个 JS 文件，然后修改其中的数据矩阵即可。</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">var game = [</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>,  <span class="number">1</span>,  <span class="number">0</span>,  <span class="number">0</span>,  <span class="number">2</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>],</span><br><span class="line">    [<span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>, <span class="number">-1</span>]</span><br><span class="line">];</span><br><span class="line">var tp = new Tadpole();</span><br><span class="line">tp.init(game);</span><br></pre></td></tr></table></figure>
+
+<p>在这个 JS 文件中我们就可以知道，实际的初始数据矩阵是通过外界的 JS 文件传入，这样做的好处在于我们可以非常方便进行游戏场景的复制，设置不同形状的迷宫。只需要复制这个 JS 文件，然后修改其中的数据矩阵即可。</p>
 <h4 id="设计-Blockly-块，匹配控制函数"><a href="#设计-Blockly-块，匹配控制函数" class="headerlink" title="设计 Blockly 块，匹配控制函数"></a>设计 Blockly 块，匹配控制函数</h4><p>上面这一大段内容都是介绍这个游戏场景的实现，实际上它可以作为一个独立的 HTML 游戏，运行在网页上，使用键盘控制小蝌蚪的前行和转向，和 Blockly 还没有什么关联。现在我们要做的就是设计 Blockly 的块，使用这些块来控制小蝌蚪的动作。</p>
 <p>这个流程和第一模块中的流程基本上是相同的，进行块定义、加入工具栏、编写生成器函数、编写回调等等。</p>
 <p><strong>1. 块定义和生成器函数</strong></p>
-<pre><code>{
-    &quot;type&quot;: &quot;tp_move_forward&quot;,
-    &quot;message0&quot;: &quot;往前游一下&quot;,
-    &quot;previousStatement&quot;: null,
-    &quot;nextStatement&quot;: null,
-    &quot;colour&quot;: 20,
-    &quot;tooltip&quot;: &quot;&quot;,
-    &quot;helpUrl&quot;: &quot;&quot;
-  }</code></pre><p>以前进的块为例来作说明，这个块的定义其实是最简单的那一种，连参数都没有，只有文本和上下连接。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"type"</span>: <span class="string">"tp_move_forward"</span>,</span><br><span class="line">    <span class="attr">"message0"</span>: <span class="string">"往前游一下"</span>,</span><br><span class="line">    <span class="attr">"previousStatement"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"nextStatement"</span>: <span class="literal">null</span>,</span><br><span class="line">    <span class="attr">"colour"</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="attr">"tooltip"</span>: <span class="string">""</span>,</span><br><span class="line">    <span class="attr">"helpUrl"</span>: <span class="string">""</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>以前进的块为例来作说明，这个块的定义其实是最简单的那一种，连参数都没有，只有文本和上下连接。</p>
 <p><img src="https://i.loli.net/2019/08/29/aetbisQLgmBlWrP.jpg" alt="img7.png"></p>
 <p>再看看它所对应的生成器函数是怎样的：</p>
-<pre><code>//角色向前走
-Blockly.JavaScript[&#39;tp_move_forward&#39;] = function(block) {
-    return &#39;move_forward();\n&#39;;
-};</code></pre><p>也非常的简单，就是返回对 move_forward() 函数的调用。</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//角色向前走</span></span><br><span class="line">Blockly.JavaScript[<span class="string">'tp_move_forward'</span>] = <span class="function"><span class="keyword">function</span><span class="params">(block)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'move_forward();\n'</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>也非常的简单，就是返回对 move_forward() 函数的调用。</p>
 <p><strong>2. 工具栏</strong></p>
-<pre><code>&lt;toolbox&gt;
-    &lt;block type=&quot;tp_move_forward&quot;&gt;&lt;/block&gt;
-&lt;/toolbox&gt;</code></pre><p>工具栏也超级简单，就是将用到的块做了一个引用。这里我们制作了多个工具栏，便于在不同的关卡中展示要用到的不同的块。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">toolbox</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">block</span> <span class="attr">type</span>=<span class="string">"tp_move_forward"</span>&gt;</span><span class="tag">&lt;/<span class="name">block</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">toolbox</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>工具栏也超级简单，就是将用到的块做了一个引用。这里我们制作了多个工具栏，便于在不同的关卡中展示要用到的不同的块。</p>
 <p><strong>3. Activity 中的逻辑</strong></p>
-<pre><code>/**
- * 小蝌蚪找妈妈的blockly界面
- */
-public class TadpoleBlocklyActivity extends AbstractBlocklyActivity {
-    private static final String TAG = &quot;TadpoleBlocklyActivity&quot;;
-    //当前所在的关卡，默认为0，即第一关
-    private int mIndex = 0;
-    //根据不同的关卡，加载不同场景
-    private String [] htmlPaths = {
-            &quot;file:///android_asset/tadpole/html/level1.html&quot;,
-            &quot;file:///android_asset/tadpole/html/level2.html&quot;,
-            &quot;file:///android_asset/tadpole/html/level3.html&quot;,
-            &quot;file:///android_asset/tadpole/html/level4.html&quot;
-    };
-    //根据不同的关卡，加载不同的工具栏
-    private String [] toolboxPaths = {
-            &quot;tadpole/toolbox/toolbox_level1.xml&quot;,
-            &quot;tadpole/toolbox/toolbox_level2.xml&quot;,
-            &quot;tadpole/toolbox/toolbox_3.xml&quot;,
-            &quot;tadpole/toolbox/toolbox_3.xml&quot;
-    };
-    private Handler mHandler = new Handler();
-    private WebView mWebview;
-    private CodeGenerationRequest.CodeGeneratorCallback mCallback = new CodeGenerationRequest.CodeGeneratorCallback() {
-        @Override
-        public void onFinishCodeGeneration(final String generatedCode) {
-            Log.i(TAG, &quot;onFinishCodeGeneration: &quot;+generatedCode);
-            mHandler.post(new Runnable() {
-                @Override
-                public void run() {
-                    String encoded = &quot;tp.execute(&quot;
-                            + JavascriptUtil.makeJsString(generatedCode) + &quot;)&quot;;
-                    mWebview.loadUrl(&quot;javascript:&quot;+encoded);
-                }
-            });
-        }
-    };
-    @NonNull
-    @Override
-    protected String getToolboxContentsXmlPath() {
-        Log.i(TAG, &quot;getToolboxContentsXmlPath: mIndex-------&gt;&quot;+mIndex);
-        return toolboxPaths[mIndex];
-    }
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 小蝌蚪找妈妈的blockly界面</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TadpoleBlocklyActivity</span> <span class="keyword">extends</span> <span class="title">AbstractBlocklyActivity</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"TadpoleBlocklyActivity"</span>;</span><br><span class="line">    <span class="comment">//当前所在的关卡，默认为0，即第一关</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//根据不同的关卡，加载不同场景</span></span><br><span class="line">    <span class="keyword">private</span> String [] htmlPaths = &#123;</span><br><span class="line">            <span class="string">"file:///android_asset/tadpole/html/level1.html"</span>,</span><br><span class="line">            <span class="string">"file:///android_asset/tadpole/html/level2.html"</span>,</span><br><span class="line">            <span class="string">"file:///android_asset/tadpole/html/level3.html"</span>,</span><br><span class="line">            <span class="string">"file:///android_asset/tadpole/html/level4.html"</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//根据不同的关卡，加载不同的工具栏</span></span><br><span class="line">    <span class="keyword">private</span> String [] toolboxPaths = &#123;</span><br><span class="line">            <span class="string">"tadpole/toolbox/toolbox_level1.xml"</span>,</span><br><span class="line">            <span class="string">"tadpole/toolbox/toolbox_level2.xml"</span>,</span><br><span class="line">            <span class="string">"tadpole/toolbox/toolbox_3.xml"</span>,</span><br><span class="line">            <span class="string">"tadpole/toolbox/toolbox_3.xml"</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">private</span> Handler mHandler = <span class="keyword">new</span> Handler();</span><br><span class="line">    <span class="keyword">private</span> WebView mWebview;</span><br><span class="line">    <span class="keyword">private</span> CodeGenerationRequest.CodeGeneratorCallback mCallback = <span class="keyword">new</span> CodeGenerationRequest.CodeGeneratorCallback() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinishCodeGeneration</span><span class="params">(<span class="keyword">final</span> String generatedCode)</span> </span>&#123;</span><br><span class="line">            Log.i(TAG, <span class="string">"onFinishCodeGeneration: "</span>+generatedCode);</span><br><span class="line">            mHandler.post(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">                    String encoded = <span class="string">"tp.execute("</span></span><br><span class="line">                            + JavascriptUtil.makeJsString(generatedCode) + <span class="string">")"</span>;</span><br><span class="line">                    mWebview.loadUrl(<span class="string">"javascript:"</span>+encoded);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> String <span class="title">getToolboxContentsXmlPath</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Log.i(TAG, <span class="string">"getToolboxContentsXmlPath: mIndex-------&gt;"</span>+mIndex);</span><br><span class="line">        <span class="keyword">return</span> toolboxPaths[mIndex];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getBlockDefinitionsJsonPaths</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; jsonPaths = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        jsonPaths.add(<span class="string">"tadpole/tadpole.json"</span>);</span><br><span class="line">        <span class="keyword">return</span> jsonPaths;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> List&lt;String&gt; <span class="title">getGeneratorsJsPaths</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List&lt;String&gt; jsPaths= <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        jsPaths.add(<span class="string">"tadpole/generator.js"</span>);</span><br><span class="line">        <span class="keyword">return</span> jsPaths;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@NonNull</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> CodeGenerationRequest.<span class="function">CodeGeneratorCallback <span class="title">getCodeGenerationCallback</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mCallback;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> View <span class="title">onCreateContentView</span><span class="params">(<span class="keyword">int</span> containerId)</span> </span>&#123;</span><br><span class="line">        mIndex = getIntent().getIntExtra(<span class="string">"index"</span>,<span class="number">0</span>);</span><br><span class="line">        Log.i(TAG, <span class="string">"onCreateContentView: mIndex------&gt;"</span>+mIndex);</span><br><span class="line">        View root = getLayoutInflater().inflate(R.layout.activity_tadpole, <span class="keyword">null</span>);</span><br><span class="line">        mWebview = root.findViewById(R.id.tp_webview);</span><br><span class="line">        mWebview.getSettings().setJavaScriptEnabled(<span class="keyword">true</span>);</span><br><span class="line">        mWebview.setWebChromeClient(<span class="keyword">new</span> WebChromeClient());</span><br><span class="line">        <span class="keyword">if</span> (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) &#123;</span><br><span class="line">            WebView.setWebContentsDebuggingEnabled(<span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        mWebview.addJavascriptInterface(<span class="keyword">new</span> MyJSInterface(<span class="keyword">this</span>), <span class="string">"android"</span>);</span><br><span class="line">        mWebview.loadUrl(htmlPaths[mIndex]);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstanceState)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">        ActionBar actionBar = getSupportActionBar();</span><br><span class="line">        actionBar.setElevation(<span class="number">0</span>);</span><br><span class="line">        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.water));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-    @NonNull
-    @Override
-    protected List&lt;String&gt; getBlockDefinitionsJsonPaths() {
-        List&lt;String&gt; jsonPaths = new ArrayList&lt;&gt;();
-        jsonPaths.add(&quot;tadpole/tadpole.json&quot;);
-        return jsonPaths;
-    }
+<p>我们新建 TadpoleActivity 继承自 AbstractBlocklyActivity，覆盖里面的抽象方法。在 onCreateContentView() 方法里面加载我们自定义的布局。自定义布局中有效果展示的 WebView，并引入了 Blockly 的工作区，用于摆放 Blockly 的块。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">LinearLayout</span> <span class="attr">xmlns:android</span>=<span class="string">"http://schemas.android.com/apk/res/android"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:orientation</span>=<span class="string">"horizontal"</span> <span class="attr">android:layout_width</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">    <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">WebView</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:id</span>=<span class="string">"@+id/tp_webview"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">WebView</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">RelativeLayout</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_width</span>=<span class="string">"0dp"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_height</span>=<span class="string">"match_parent"</span></span></span><br><span class="line"><span class="tag">        <span class="attr">android:layout_weight</span>=<span class="string">"1"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">include</span> <span class="attr">layout</span>=<span class="string">"@layout/blockly_unified_workspace"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">RelativeLayout</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">LinearLayout</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-    @NonNull
-    @Override
-    protected List&lt;String&gt; getGeneratorsJsPaths() {
-        List&lt;String&gt; jsPaths= new ArrayList&lt;&gt;();
-        jsPaths.add(&quot;tadpole/generator.js&quot;);
-        return jsPaths;
-    }
-
-    @NonNull
-    @Override
-    protected CodeGenerationRequest.CodeGeneratorCallback getCodeGenerationCallback() {
-        return mCallback;
-    }
-
-    @Override
-    protected View onCreateContentView(int containerId) {
-        mIndex = getIntent().getIntExtra(&quot;index&quot;,0);
-        Log.i(TAG, &quot;onCreateContentView: mIndex------&gt;&quot;+mIndex);
-        View root = getLayoutInflater().inflate(R.layout.activity_tadpole, null);
-        mWebview = root.findViewById(R.id.tp_webview);
-        mWebview.getSettings().setJavaScriptEnabled(true);
-        mWebview.setWebChromeClient(new WebChromeClient());
-        if (Build.VERSION.SDK_INT &gt;= Build.VERSION_CODES.KITKAT) {
-            WebView.setWebContentsDebuggingEnabled(true);
-        }
-        mWebview.addJavascriptInterface(new MyJSInterface(this), &quot;android&quot;);
-        mWebview.loadUrl(htmlPaths[mIndex]);
-        return root;
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setElevation(0);
-        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.water));
-    }
-}</code></pre><p>我们新建 TadpoleActivity 继承自 AbstractBlocklyActivity，覆盖里面的抽象方法。在 onCreateContentView() 方法里面加载我们自定义的布局。自定义布局中有效果展示的 WebView，并引入了 Blockly 的工作区，用于摆放 Blockly 的块。</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:orientation=&quot;horizontal&quot; android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;match_parent&quot;&gt;
-    &lt;WebView
-        android:id=&quot;@+id/tp_webview&quot;
-        android:layout_width=&quot;0dp&quot;
-        android:layout_height=&quot;match_parent&quot;
-        android:layout_weight=&quot;1&quot;&gt;
-    &lt;/WebView&gt;
-    &lt;RelativeLayout
-        android:layout_width=&quot;0dp&quot;
-        android:layout_height=&quot;match_parent&quot;
-        android:layout_weight=&quot;1&quot;&gt;
-        &lt;include layout=&quot;@layout/blockly_unified_workspace&quot; /&gt;
-    &lt;/RelativeLayout&gt;
-&lt;/LinearLayout&gt;</code></pre><p>在 onFinishCodeGeneration() 这个回调函数中，调用WebView 加载生成的 JS 代码，实现最终效果。</p>
+<p>在 onFinishCodeGeneration() 这个回调函数中，调用WebView 加载生成的 JS 代码，实现最终效果。</p>
 <p>在这里还有一个需要注意的地方，我们之前在JS代码的 check_game() 这个函数中提到 <strong>window.android.showGameResult(rating, “恭喜你成功了”);</strong> 这行代码是调用本地 Java 对象的方法。现在我们就来讲讲这里是如何调用的。</p>
 <p>在 onCreateContentView() 函数中，我们通过 findViewById() 找到 Webview 控件，然后有如下一行代码：</p>
-<pre><code>mWebview.addJavascriptInterface(new MyJSInterface(this), &quot;android&quot;);</code></pre><p>这行代码中涉及一个类 MyJSInterface，我们先来看看这个类是怎样的：</p>
-<pre><code>public class MyJSInterface {
-    private Context mContext;
-    public MyJSInterface(Context context){
-        this.mContext = context;
-    }
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mWebview.addJavascriptInterface(<span class="keyword">new</span> <span class="type">MyJSInterface</span>(<span class="built_in">this</span>), <span class="string">"android"</span>);</span><br></pre></td></tr></table></figure>
 
-    /**
-     * 展示游戏运行结果
-     * @param rating
-     * @param msg
-     */
-    @JavascriptInterface
-    public void showGameResult(int rating, String msg){
-        Util.showDialog(mContext,msg, rating,new Handler());
-    }
-}</code></pre><p>可以看到这个类中定义了一个方法 showGameResult()，展示游戏结果。这个方法中接收 rating 和 msg 两个参数，调用 Util.showDialog() 这个静态方法，显示一个 Dialog。</p>
+<p>这行代码中涉及一个类 MyJSInterface，我们先来看看这个类是怎样的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyJSInterface</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Context mContext;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MyJSInterface</span><span class="params">(Context context)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.mContext = context;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 展示游戏运行结果</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> rating</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> msg</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@JavascriptInterface</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showGameResult</span><span class="params">(<span class="keyword">int</span> rating, String msg)</span></span>&#123;</span><br><span class="line">        Util.showDialog(mContext,msg, rating,<span class="keyword">new</span> Handler());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以看到这个类中定义了一个方法 showGameResult()，展示游戏结果。这个方法中接收 rating 和 msg 两个参数，调用 Util.showDialog() 这个静态方法，显示一个 Dialog。</p>
 <p>WebView 的 addJavascriptInterface() 这个方法的作用是将一个 MyJSInterface 对象以 “android” 这个名字注入到 JS 代码中，在 JS 代码中可以通过 window.android 获取到这个对象，从而调用这个对象的方法，这是远程 JS 调用 Android 本地函数的一种实现。在我们的代码中我们用一个原生的 Dialog 代替 JS 中的 Alert 窗口，更加美观，也更有拓展的余地。</p>
 <h4 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h4><p>经过这么一大篇的叙述，终于将使用 Blockly 实现游戏场景介绍完毕。从内容的分配上就可以知道这第二模块的开发难度不在于块的设计或者块与游戏的对接上，而是在于游戏场景的设计与实现上。要做到游戏场景与 Blockly 有一定的契合度并不容易，需要好好构思。</p>
 
