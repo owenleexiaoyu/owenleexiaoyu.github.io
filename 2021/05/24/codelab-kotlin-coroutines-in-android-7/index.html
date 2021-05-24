@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag (contains Google-Analytics、Baidu-Tongji)-->
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- Google Analytics -->
+  
+
+  <!-- Baidu Tongji -->
+  
+
+  <!-- Baidu Push -->
+  
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="google-site-verification" content="lxDfCplOZbIzjhG34NuQBgu2gdyRlAtMB4utP5AgEBc">
+  <meta name="baidu-site-verification" content="PpzM9WxOJU">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="做一山花易，成为海树难。">
+  <meta name="keyword" content="haishu,海树,owenlee,Blog">
+  <link rel="shortcut icon" href="/img/avatar/fish.png">
+
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async="async" defer="defer" src="https://buttons.github.io/buttons.js"></script>
+
+  
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/beantech.min.css">
+
+    <!-- Pygments Highlight CSS -->
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/widget.css">
+    <link rel="stylesheet" href="/css/rocket.css">
+    <link rel="stylesheet" href="/css/signature.css">
+    <link rel="stylesheet" href="/css/catalog.css">
+    <link rel="stylesheet" href="/css/livemylife.css">
+
+    
+
+    
+      <!-- top start (article top hot config) -->
+      <link rel="stylesheet" href="/css/top.css">
+      <!-- top end -->
+    
+
+    
+
+    
+      <!-- viewer start (Picture preview) -->
+      <link rel="stylesheet" href="/css/viewer.min.css">
+      <!-- viewer end -->
+    
+
+    
+
+    
+      <!-- ThemeColor start -->
+      <link rel="stylesheet" href="/css/themecolor.css">
+      <!-- ThemeColor end -->
+    
+
+    
+
+    
+      <!-- gitalk start -->
+      <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"> -->
+      <link rel="stylesheet" href="/css/gitalk.css">
+      <!-- gitalk end -->
+    
+  
+
+  <!-- Custom Fonts -->
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+  <!-- Hux change font-awesome CDN to qiniu -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Hux Delete, sad but pending in China <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'> <link
+  href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/ css'> -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]> <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script> <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script> <![endif]-->
+
+  <!-- ga & ba script hoook -->
+  <link rel="canonical" href="http://yoursite.com/2021/05/24/codelab-kotlin-coroutines-in-android-7/">
+  <title>
+    
+      在你的 Android 程序中使用协程（7） - 海树
+    
+  </title>
+</head>
+
+
+<!-- hack iOS CSS :active style -->
+
+	<body ontouchstart="" class="body--light body--dark">
+
+
+		<!-- ThemeColor -->
+		
+		<!-- ThemeColor -->
+<style type="text/css">
+  .body--light {
+    --light-mode: none;
+    --dark-mode: block;
+  }
+  .body--dark {
+    --light-mode: block;
+    --dark-mode: none;
+  }
+  i.mdui-icon.material-icons.light-mode {
+    display: var(--light-mode);
+  }
+  i.mdui-icon.material-icons.dark-mode {
+    display: var(--dark-mode);
+  }
+</style>
+<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
+  <i class="mdui-icon material-icons light-mode"></i>
+  <i class="mdui-icon material-icons dark-mode"></i>
+</div>
+<script>
+  //getCookieValue
+  function getCookieValue(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b
+      ? b.pop()
+      : '';
+  }
+  let themeMode = 'dark';
+  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
+    let dbody = document.body.classList;
+    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
+  }
+
+  //setCookieValue
+  var toggleBtn = document.querySelector(".toggle");
+  toggleBtn.addEventListener("click", function () {
+    var e = document.body.classList.contains("body--dark");
+    var cookieString = e
+      ? "dark"
+      : "light";
+    var exp = new Date();
+    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
+    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
+  });
+</script>
+
+		
+
+		<!-- Gitter -->
+		
+
+		<!-- Navigation (contains search)-->
+		<!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">海树</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!-- Known Issue, found by Hux: <nav>'s height woule be hold on by its content. so, when navbar scale out, the <nav> will cover tags. also mask any touch event of tags, unfortunately. -->
+    <div id="huxblog_navbar">
+      <div class="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="/">HOME</a>
+          </li>
+
+          
+          
+          
+          
+          <li>
+            <a href="/about/">
+              
+              ABOUT
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/categories/">
+              
+              CATEGORIES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/archive/">
+              
+              ARCHIVES
+              
+              
+            </a>
+          </li>
+          
+          
+          
+          <li>
+            <a href="/tags/">
+              
+              TAGS
+              
+              
+            </a>
+          </li>
+          
+          
+
+          
+
+          <!-- LangSelect -->
+          
+        </ul>
+      </div>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container -->
+</nav>
+<!-- progress -->
+<div id="progress">
+  <div class="line" style="width: 0%;"></div>
+</div>
+
+<script>
+  // Drop Bootstarp low-performance Navbar Use customize navbar with high-quality material design animation in high-perf jank-free CSS3 implementation
+  var $body = document.body;
+  var $toggle = document.querySelector('.navbar-toggle');
+  var $navbar = document.querySelector('#huxblog_navbar');
+  var $collapse = document.querySelector('.navbar-collapse');
+
+  $toggle.addEventListener('click', handleMagic)
+
+  function handleMagic(e) {
+    if ($navbar.className.indexOf('in') > 0) {
+      // CLOSE
+      $navbar.className = " ";
+      // wait until animation end.
+      setTimeout(function() {
+        // prevent frequently toggle
+        if ($navbar.className.indexOf('in') < 0) {
+          $collapse.style.height = "0px"
+        }
+      }, 400)
+    } else {
+      // OPEN
+      $collapse.style.height = "auto"
+      $navbar.className += " in";
+    }
+  }
+</script>
+
+
+		<!-- Post Header (contains intro-header、signature、wordcount、busuanzi、waveoverlay) -->
+		<!-- Modified by Yu-Hsuan Yen -->
+<!-- Post Header -->
+
+  <style type="text/css">
+    .body--light {
+      /* intro-header */
+      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: url('');
+      --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
+    }
+    .body--dark {
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
+      --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
+    }
+
+    header.intro-header {
+       /*post*/
+        background-image: var(--intro-header-background-image-url-post);
+        /* background-image: url(''); */
+      
+    }
+
+    
+  </style>
+
+
+
+
+
+<header class="intro-header">
+  <!-- Signature -->
+  <div id="signature">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          
+          <div class="post-heading">
+            <div class="tags">
+              
+              <a class="tag" href="/tags/#Kotlin" title="Kotlin">Kotlin</a>
+              
+              <a class="tag" href="/tags/#协程" title="协程">协程</a>
+              
+            </div>
+            <h1>在你的 Android 程序中使用协程（7）</h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              Posted by Owen Lee on
+              2021-05-24
+            </span>
+
+
+            
+            
+
+
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+</header>
+
+
+
+		<!-- Main Content (Post contains
+	Pager、
+	tip、
+	socialshare、
+	gitalk、gitment、disqus-comment、
+	Catalog、
+	Sidebar、
+	Featured-Tags、
+	Friends Blog、
+	anchorjs、
+	) -->
+		<!-- Modify by Yu-Hsuan Yen -->
+<!-- Post Content -->
+<article>
+  <div class="container">
+    <div class="row">
+      <!-- Post Container -->
+      <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
+
+        <h2 id="7-从回调函数到协程"><a href="#7-从回调函数到协程" class="headerlink" title="7. 从回调函数到协程"></a>7. 从回调函数到协程</h2><p>在这个练习中，你将开始将 Repository 转换为使用协程。为此，我们将向 ViewModel、 Repository、 Room 和 Retrofit 添加协程。</p>
+<p>在切换到使用协程之前，理解架构的每个部分负责什么是一个好主意：</p>
+<ol>
+<li><code>MainDatabase</code> 实现一个数据库，使用 Room 保存并加载一个<code>Title</code>.</li>
+<li><code>MainNetwork</code> 实现了一个获取新标题的网络 API，它使用 Retrofit 获取标题。在这里，<code>Retrofit</code> 会随机返回错误或模拟数据，但在其他方面表现得像是在发出真正的网络请求</li>
+<li><code>TitleRepository</code> 中通过聚合数据库和网络的数据来实现一个获取 title 的 API</li>
+<li>MainViewModel 记录了屏幕的状态并负责处理事件。当用户点击屏幕时，它会告诉 Repository 刷新标题。</li>
+</ol>
+<p>由于网络请求是由 UI-events 驱动的，并且我们希望基于它启动一个协程，因此开始使用协程的自然位置是 ViewModel。</p>
+<h3 id="回调版本"><a href="#回调版本" class="headerlink" title="回调版本"></a>回调版本</h3><p>打开 MainViewModel.kt 查看 refreshTitle 的声明：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Update title text via this LiveData</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">val</span> title = repository.title</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// ... other code ...</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Refresh the title, showing a loading spinner while it refreshes and errors via snackbar.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">refreshTitle</span><span class="params">()</span></span> &#123;</span><br><span class="line">   <span class="comment">// <span class="doctag">TODO:</span> Convert refreshTitle to use coroutines</span></span><br><span class="line">   _spinner.value = <span class="literal">true</span></span><br><span class="line">   repository.refreshTitleWithCallbacks(<span class="keyword">object</span>: TitleRefreshCallback &#123;</span><br><span class="line">       <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onCompleted</span><span class="params">()</span></span> &#123;</span><br><span class="line">           _spinner.postValue(<span class="literal">false</span>)</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">override</span> <span class="function"><span class="keyword">fun</span> <span class="title">onError</span><span class="params">(cause: <span class="type">Throwable</span>)</span></span> &#123;</span><br><span class="line">           _snackBar.postValue(cause.message)</span><br><span class="line">           _spinner.postValue(<span class="literal">false</span>)</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个函数在用户每次单击屏幕时被调用，它让 Repository 去刷新标题并将新标题写入数据库。</p>
+<p>这个实现使用一个回调来做一些事情：</p>
+<ol>
+<li>在开始查询之前，它通过 <code>_spinner.value = true</code> 这行代码来展示一个 loading</li>
+<li>当它得到一个结果时，它通过 <code>_spinner.value = false</code> 这行代码来清除 loading</li>
+<li>如果它得到一个错误，它会显示一个 snackbar 并清除 loading</li>
+</ol>
+<p>注意，onCompleted 回调中没有传递标题，因为我们将所有标题写入 Room 数据库，所以 UI 通过观察一个 LiveData 更新当前标题，这个 LiveData 是由 Room 来更新。</p>
+<p>在转换到协程时，我们将保持完全相同的行为。使用像 Room 数据库这样的可观测数据源来自动更新 UI 是一个很好的模式。</p>
+<blockquote>
+<p><strong>object : TitleRefreshCallback 是什么意思？</strong></p>
+<p>这是在 Kotlin 创建一个匿名类的方法，它创建一个实现 TitleRefreshCallback 的新对象。</p>
+</blockquote>
+<h3 id="协程版本"><a href="#协程版本" class="headerlink" title="协程版本"></a>协程版本</h3><p>让我们用协程重写 <code>refreshTitle</code>！</p>
+<p>既然我们现在就需要它，那么让我们在 Repository 中创建一个空的挂起函数（TitleRespository.kt），该函数使用 suspend 操作符告诉 Kotlin 它和协程一起工作。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">refreshTitle</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">// <span class="doctag">TODO:</span> Refresh from network and write to database</span></span><br><span class="line">    delay(<span class="number">500</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当你完成这整个 Codelab 后，你将使用 Retrofit 和 Room 来更新这个代码，使用协程获取一个新的标题，并将其写入数据库。现在，它只需要花费500毫秒假装在工作，然后继续。</p>
+<p>在 MainViewModel 中，将 refreshTitle 的回调版本替换为启动一个新协程的版本：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* Refresh the title, showing a loading spinner while it refreshes and errors via snackbar.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">refreshTitle</span><span class="params">()</span></span> &#123;</span><br><span class="line">   viewModelScope.launch &#123;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           _spinner.value = <span class="literal">true</span></span><br><span class="line">           repository.refreshTitle()</span><br><span class="line">       &#125; <span class="keyword">catch</span> (error: TitleRefreshError) &#123;</span><br><span class="line">           _snackBar.value = error.message</span><br><span class="line">       &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">           _spinner.value = <span class="literal">false</span></span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>让我们来看看这个函数:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">viewModelScope.launch &#123;</span><br></pre></td></tr></table></figure>
+
+<p>就像更新点击次数的协程一样，首先在 viewModelScope 中启动一个新的协程。这将使用 Dispatchers.Main 是没问题的。即使 refreshTitle 将发出网络请求和数据库查询，它也可以使用协程来暴露一个 main-safe（主线程安全）的方法，这意味着从主线程调用它是安全的。</p>
+<p>因为我们使用的是 viewModelScope，当用户离开这个屏幕时，这个协程启动的任务将自动取消。这意味着它不会产生额外的网络请求或数据库查询。</p>
+<blockquote>
+<p>当从非协程环境创建协程时，从 <code>launch</code> 开始。</p>
+<p>这样，如果他们抛出一个未捕获的异常，它将自动传播到未捕获的异常处理程序（默认情况下，这会使应用程序崩溃）。使用 async 启动的协程在调用 await 之前不会向其调用者抛出异常。但是，你只能从协程内部调用 await，因为它是一个挂起函数。</p>
+<p>一旦进入协程，你可以使用 launch 或 async 启动子协程。当没有结果返回时使用 launch，当有结果返回时使用 async。</p>
+</blockquote>
+<p>接下来的几行代码实际上调用了 TitleRepository 中的 <code>refreshTitle</code> 方法。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    _spinner.value = <span class="literal">true</span></span><br><span class="line">    repository.refreshTitle()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个协程执行任何操作之前，它先开始 loading，然后像调用普通函数一样调用 refreshTitle。但是，由于 refreshTitle 是一个挂起函数，因此它执行的方式与普通函数不同。</p>
+<p>我们不需要通过传递一个回调对象，协程将暂停，直到 refreshTitle 恢复。虽然它看起来就像一个常规的阻塞函数调用，但它会自动等待，直到网络和数据库查询完成后，才会在不阻塞主线程的情况下恢复。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#125; <span class="keyword">catch</span> (error: TitleRefreshError) &#123;</span><br><span class="line">    _snackBar.value = error.message</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    _spinner.value = <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>挂起函数中的异常和常规函数中的错误一样。如果你在一个 suspend 函数中抛出一个错误，它将被抛给调用者。因此，即使它们的执行方式非常不同，你也可以使用常规的 try/catch 块来处理它们。这很有用，因为它使你可以依赖内置的语言支持来进行错误处理，而不是为每个回调创建自定义的错误处理。</p>
+<p>而且，如果你从协程中抛出一个异常——协程将默认取消其父类。这意味着很容易将几个相关的任务一起取消。</p>
+<p>然后，在 finally 块中，我们可以确保在查询运行后始终关闭 loading。</p>
+<blockquote>
+<p><strong>未捕获的异常会发生什么</strong></p>
+<p>协程中未捕获的异常类似于非协程代码中未捕获的异常。默认情况下，它们会取消协程的 Job，并通知父协程它们应该取消自己。如果没有协程处理异常，那么它最终将被传递给 CoroutineScope 的未捕获异常处理器。</p>
+<p>默认情况下，未捕获的异常将发送到 JVM 上线程的未捕获异常处理器。你可以通过提供 CoroutineExceptionHandler 来自定义此行为。</p>
+</blockquote>
+<p>再次运行 start 应用程序，当你点击屏幕的任何地方时应该会看到一个 loading，标题将保持不变，因为我们还没有连接到我们的网络或数据库。</p>
+<p>在下一个练习中，你将更新 TitleRepository 来实际执行工作。</p>
+
+
+        <hr>
+        <!-- Pager -->
+        <ul class="pager">
+          
+          
+          <li class="next">
+            <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-6/" data-toggle="tooltip" data-placement="top" title="在你的 Android 程序中使用协程（6）">Next Post &rarr;</a>
+          </li>
+          
+        </ul>
+
+        
+        <!-- tip start -->
+        <!-- tip -->
+<!-- tip start -->
+<div class="tip">
+  <p>
+    
+      如果您喜欢这篇博客或发现它对您有用，则欢迎发表评论。 也欢迎您分享此博客，以便更多人可以参与。 如果博客中使用的图像侵犯了您的版权，请与作者联系以将其删除。 谢谢！
+    
+  </p>
+</div>
+<!-- tip end -->
+
+        <!-- tip end -->
+        
+
+        
+        <!-- Sharing Srtart -->
+        <!-- Social Social Share Post -->
+<!-- Docs:https://github.com/overtrue/share.js -->
+
+<div class="social-share" data-initialized="true" data-disabled="tencent ,douban ,qzone ,linkedin ,facebook ,google ,diandian" data-wechat-qrcode-helper="" align="center">
+  <ul class="list-inline text-center social-share-ul">
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-twitter">
+        <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a class="social-share-icon icon-wechat">
+        <i class="fa fa-weixin fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-weibo">
+        <i class="fa fa-weibo fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon icon-qq">
+        <i class="fa fa-qq fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li class="social-share-li">
+      <a target="_blank" class="social-share-icon" href="mailto:?subject=在你的 Android 程序中使用协程（7）&body=Hi,I found this website and thought you might like it http://yoursite.com/2021/05/24/codelab-kotlin-coroutines-in-android-7/">
+        <i class="fa fa-envelope fa-1x" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+<!-- css & js -->
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css"> -->
+<script defer="defer" async="true" src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+
+        <!-- Sharing End -->
+        
+        <hr>
+
+        <!-- comments start -->
+        <!-- 1. gitalk comment -->
+
+  <!-- gitalk start -->
+  <!-- Docs:https://github.com/gitalk/gitalk/blob/master/readme-cn.md -->
+
+  <div id="gitalk-container"></div>
+
+  
+    <!-- <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.js"></script> -->
+    <script src="/js/comment/gitalk.js"></script>
+  
+
+  <script>
+    var gitalk = new Gitalk({
+      clientID: '3b44fc2839a6c19bfea7',
+      clientSecret: 'b96f2147e01e0d906403b6af8518a8e1f04a46de',
+      repo: 'blogcomments',
+      owner: 'owenleexiaoyu',
+      admin: 'owenleexiaoyu',
+      id: 'Mon May 24 2021 07:00:00 GMT+0800', // Ensure uniqueness and length less than 50
+      distractionFreeMode: false, // Facebook-like distraction free mode
+      perPage: 10,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      language: 'en',
+      proxy: 'https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token'
+    });
+    gitalk.render('gitalk-container');
+
+    var gtFolded = () => {
+      setTimeout(function () {
+        let markdownBody = document.getElementsByClassName("markdown-body");
+        let list = Array.from(markdownBody);
+        list.forEach(item => {
+          if (item.clientHeight > 250) {
+            item.classList.add('gt-comment-body-folded');
+            item.style.maxHeight = '250px';
+            item.title = 'Click to Expand';
+            item.onclick = function () {
+              item.classList.remove('gt-comment-body-folded');
+              item.style.maxHeight = '';
+              item.title = '';
+              item.onclick = null;
+            };
+          }
+        })
+      }, 800);
+    }
+  </script>
+
+  <!-- gitalk end -->
+
+
+<!-- 2. gitment comment -->
+
+
+<!-- 3. disqus comment -->
+
+
+        <!-- comments end -->
+        <hr>
+
+      </div>
+
+      <!-- Catalog: Tabe of Content -->
+      <!-- Table of Contents -->
+
+
+
+      <!-- Sidebar Container -->
+      <div class="
+                col-lg-8 col-lg-offset-1
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+        <!-- Featured Tags -->
+        
+        <section>
+          <!-- no hr -->
+          <h5>
+            <a href="/tags/">FEATURED TAGS</a>
+          </h5>
+          <div class="tags">
+            
+            <a class="tag" href="/tags/#Kotlin" title="Kotlin">Kotlin</a>
+            
+            <a class="tag" href="/tags/#协程" title="协程">协程</a>
+            
+          </div>
+        </section>
+        
+
+        <!-- Friends Blog -->
+        
+      </div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+		<!-- Footer (contains ThemeColor、viewer) -->
+		<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center">
+          
+
+          
+            <li>
+              <a target="_blank" href="https://github.com/owenleexiaoyu">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+            <li>
+              <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
+                <span class="fa-stack fa-lg">
+                  <i class="fa fa-circle fa-stack-2x"></i>
+                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          
+
+        </ul>
+        <p class="copyright text-muted">
+          Copyright &copy;
+          Owen Lee
+          2021
+          <br>
+          Theme by
+          <a href="http://beantech.org">BeanTech</a>
+          <span style="display: inline-block; margin: 0 5px;">
+            <i class="fa fa-heart"></i>
+          </span>
+          re-Ported by
+          <a href="https://v-vincen.life/">Live My Life</a>
+          |
+          <iframe style="margin-left: 2px; margin-bottom:-5px;" frameborder="0" scrolling="0" width="91px" height="20px" src="https://ghbtns.com/github-btn.html?user=V-Vincen&repo=V-Vincen.github.io&type=star&count=true"></iframe>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a id="rocket" href="#top" class=""></a>
+
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <!-- Custom Theme JavaScript -->
+  <script type="text/javascript" src="/js/hux-blog.min.js"></script>
+  <!-- catalog -->
+  <script async="true" type="text/javascript" src="/js/catalog.js"></script>
+  <!-- totop(rocket) -->
+  <script async="true" type="text/javascript" src="/js/totop.js"></script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+
+  <!-- viewer start -->
+  <!-- viewer start (Picture preview) -->
+  
+    <script async="async" type="text/javascript" src="/js/viewer/viewer.min.js"></script>
+    <script async="async" type="text/javascript" src="/js/viewer/pic-viewer.js"></script>
+  
+
+  <!-- viewer end -->
+
+
+<script>
+  // async load function
+  function async (u, c) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) {
+      o.addEventListener('load', function (e) {
+        c(null, e);
+      }, false);
+    }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  // fastClick.js
+  async ("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function () {
+    var $nav = document.querySelector("nav");
+    if ($nav)
+      FastClick.attach($nav);
+    }
+  )
+</script>
+
+<!-- Because of the native support for backtick-style fenced code blocks right within the Markdown is landed in Github Pages, From V1.6, There is no need for Highlight.js, so Huxblog drops it officially. -
+https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0 - https://help.github.com/articles/creating-and-highlighting-code-blocks/ -->
+<!-- <script> async ("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function () { hljs.initHighlightingOnLoad(); }) </script> <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet"> -->
+
+<!-- jquery.tagcloud.js -->
+<!-- <script> // only load tagcloud.js in tag.html if ($('#tag_cloud').length !== 0) { async ("http://yoursite.com/js/jquery.tagcloud.js", function () { $.fn.tagcloud.defaults = { // size: { start: 1, end: 1, unit: 'em' }, color: {
+start: '#bbbbee', end: '#0085a1' } }; $('#tag_cloud a').tagcloud(); }) } </script> -->
+
+
+		<!-- Search -->
+		
+	</body>
+</html>

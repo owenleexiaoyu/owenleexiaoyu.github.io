@@ -367,6 +367,264 @@
   <!-- top end -->
   
 
+  <a href="/2018/09/04/computer-network-9-http/">
+    <h2 class="post-title">
+      计算机网络面试（9）了解HTTP 协议
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      上篇文章的内容是 TCP 协议如何实现可靠传输，关于运输层的就复习完了，接下来的内容是应用层的相关协议复习。其实主要就是 HTTP 协议的知识。
+关于 HTTP 协议的基础内容，之前在「Android 网络编程」专题已经写过一篇了。所以这里就不再重新写了，提供一下那篇文章的链接。
+Android 网络编程系列（二）了解HTTP协议
+下一篇文章将介绍 HTTP 中有关缓存的相关内容。
+...
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-09-04
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/09/04/computer-network-8-tcp-reliable-transmission/">
+    <h2 class="post-title">
+      计算机网络面试（8）TCP 可靠传输
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      TCP 协议使用如下几种机制来保证可靠传输。
+包应答序列号及包重组面临的问题：网络传输中，会出现数据的破坏，丢包，重复，分片混乱等问题。
+本质上，要想保证传输的可靠性，则需要对传输的内容进行验证。
+
+对于网络数据的破坏，采取的策略是丢弃重新发送，以确保不会出现致命的错误。TCP 在自身协议中单独划了一块 checksum 用于这种校验，校验算法本质上是将整块数据通过某个函数映射到 16 位的......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-09-04
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/android-bottom-navigation-1-using-bottomnavigationview/">
+    <h2 class="post-title">
+      BottomNavigationView 用法：实现底部导航栏
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      前言BottomNavigationView 是 Android 官方提供的底部导航控件，这篇文章来学习一下它的用法。
+按照 MD 设计的规范，底部导航栏的 item 最好在 3-5 个之间。
+如果 BottomNavigationView 中的 item 数量超出5个，会出现异常：
+
+Caused by: java.lang.IllegalArgumentException: Maximu......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Android" title="Android">Android</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/toolbar-set-back-button/">
+    <h2 class="post-title">
+      Toolbar设置返回按钮
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      1. 使用系统自带的返回按钮样式12getSupportActionBar().setDisplayHomeAsUpEnabled(true);//左侧添加一个默认的返回图标getSupportActionBar().setHomeButtonEnabled(true); //设置返回键可用
+
+添加之后，如果发现图标的颜色是黑色 ，则需要在 style.xml 中添加如下属性：
+12&lt;......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Android" title="Android">Android</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/meituan-interview-experience/">
+    <h2 class="post-title">
+      美团秋招面经
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      前言同学帮我内推了美团新零售的Android开发岗，昨天晚上去公司面试，一共面了3轮技术面，也不知道结果如何，现在将面试过程和遇到的面试题记录一下，也为以后的面试提供一些参考。
+一面
+XML布局文件中所写的layout_width和layout_height如何参与到这个View的绘制。
+Android中如何发送Http请求，HttpUrlConnection和OkHttp中分别是怎么实现的......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Android" title="Android">Android</a>
+    
+    <a href="/tags/#面经" title="面经">面经</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/140-execllent-android-opensource-projects/">
+    <h2 class="post-title">
+      140 款 Android 开源优秀项目源码
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      BeautifulRefreshLayout-漂亮的美食下拉刷新https://github.com/android-cjj/BeautifulRefreshLayout/tree/BeautifulRefreshForFood
+Material Design-动画风格的选项卡tab切换功能https://github.com/neokree/MaterialTabs
+TwinklingRe......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#Android" title="Android">Android</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
+  <a href="/2018/08/30/computer-network-7-three-and-four-way-handshake/">
+    <h2 class="post-title">
+      计算机网络面试（7）TCP 三次握手与四次挥手
+    </h2>
+    <h3 class="post-subtitle">
+      
+    </h3>
+    <div class="post-content-preview">
+      三次握手三次握手(Three-way Handshake)，是指建立一个 TCP 连接时，需要客户端和服务器总共发送 3 个包。
+三次握手的目的是连接服务器指定端口，建立 TCP 连接，并同步连接双方的序列号和确认号，交换 TCP 窗口大小信息。在 socket 编程中，客户端执行 connect() 时。将触发三次握手。
+
+第一次握手(SYN=1, seq=x):
+
+客户端发送一个 TCP......
+    </div>
+  </a>
+  
+  <p class="post-meta" style="margin: 10px 0;">
+    Posted by Owen Lee on
+    2018-08-30
+  </p>
+  <div class="tags">
+    
+    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
+    
+  </div>
+  
+
+</div>
+<hr>
+
+<div class="post-preview">
+  
+  <!-- top start (article top hot config) -->
+  
+  <!-- top end -->
+  
+
   <a href="/2018/08/30/computer-network-6-tcp-header/">
     <h2 class="post-title">
       计算机网络面试（6）TCP 首部
@@ -477,257 +735,6 @@ UDP 特点1. 无连接
 </div>
 <hr>
 
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/2018/08/15/computer-network-3-transport-layer/">
-    <h2 class="post-title">
-      计算机网络面试（3）运输层概述
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      前言上篇文章对计算机网络的体系结构做了简单介绍，这篇文章的主题是介绍五层体系中的运输层。至于更加底层的物理层、数据链路层、网络层，其内容多且复杂，并且在笔试面试中不常考到，所以没有去复习，也就不做笔记了。
-运输层作用上篇文章讲到，运输层的任务是负责向两台主机的进程之间的通信提供通用的数据传输服务。应用进程利用该服务传送应用层报文。通用的是指这种服务并不针对某个特定的网络应用，而是多种应用可以......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Owen Lee on
-    2018-08-15
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/2018/08/15/computer-network-2-architecture/">
-    <h2 class="post-title">
-      计算机网络面试（2）计算机网络体系结构
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      前言上篇文章简单介绍了一些计算机网络的基本概念。这篇文章就主要讲一下计算机网络的体系结构。
-两台主机想要通过互联网进行数据传输，所需要做的工作是非常庞大复杂的。所以在互联网诞生之初，就采用了分层的思想来设计计算机网络。分层可将复杂的问题转化为若干的小问题，这些小问题比较容易解决。
-OSI 体系结构OSI 体系结构，指的是 OSI 的七层协议模型。OSI 将计算机网络从用户到物理结构、自上而下......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Owen Lee on
-    2018-08-15
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/2018/08/13/android-network-8-http-and-https/">
-    <h2 class="post-title">
-      Android 网络编程——HTTP 与 HTTPS
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      前言HTTP 协议是最常见的一种网络协议，它以明文方式进行数据传输，不提供任何的加密措施，如果攻击者拦截了传输报文，就可以直接读懂消息。所以在进行一些安全要求传输时，比如转账，发送密码等，HTTP 是不能满足的，这时候，HTTPS 就应运而生了。
-HTTPS 的概念与作用HTTPS 是超文本传输安全协议，为了数据传输的安全，HTTPS 在 HTTP 的基础上加入了 SSL 协议，SSL 依靠......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Owen Lee on
-    2018-08-13
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#Android 网络编程" title="Android 网络编程">Android 网络编程</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/2018/08/12/computer-network-1-overview/">
-    <h2 class="post-title">
-      计算机网络面试（1）计算机网络基础概念
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      前言在面试中，面试官会经常问到和计算机网络有关的一些问题，这类问题对我来说很是头疼，主要是之前在学习时，基础不扎实，然后又过去很久，很多概念都模糊了。所以这个系列就选择面试中关于计算机网络中的一些关键概念进行一个温习，做一下笔记，以备战面试。
-这个系列会面向计算机网络中一些重点的概念，也是比较实用性的（常考的），进行复习。主要包含以下几个大的模块：
-
-计算机网络概述
-计算机网络体系结构
-物理......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Owen Lee on
-    2018-08-12
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#计算机网络" title="计算机网络">计算机网络</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/2018/08/11/solve-problem-that-android-studio-keep-indexing/">
-    <h2 class="post-title">
-      解决Android Studio不停indexing的问题
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      不知怎么回事，某次加载一个新项目的时候，AS就一直会不停地indexing，非常频繁，一秒钟indexing好几下，和抽风了一样，代码也不能正常运行。重启几次也没有用，上网查了一下资料，可以这样解决：
-File-&gt;Invalidate Caches/Restart
-完美。
-...
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Owen Lee on
-    2018-08-11
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#Android" title="Android">Android</a>
-    
-    <a href="/tags/#Android Studio" title="Android Studio">Android Studio</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/2018/07/31/android-interview-questions/">
-    <h2 class="post-title">
-      Android 实习面经分享
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      前言 六月份开始准备找实习工作后，先后再拉勾、实习僧上创建账号，查找合适的实习岗位，海投简历。进入面试的公司有今日头条、腾讯、知乎、小黑盒、链家、小米，最后拿到了小米的实习offer，也算是一个happy ending。
-下面将面试的一些经历写下来，算是了却一桩心事。
-今日头条我先后在拉勾上投了两个头条的岗位，但是很忏愧都倒在了一面上。
-第一个实习岗位的一面现在看来是最为可惜的，因为题目不难......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Owen Lee on
-    2018-07-31
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#Android" title="Android">Android</a>
-    
-    <a href="/tags/#面经" title="面经">面经</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
-<div class="post-preview">
-  
-  <!-- top start (article top hot config) -->
-  
-  <!-- top end -->
-  
-
-  <a href="/2018/07/02/android-network-7-customize-request/">
-    <h2 class="post-title">
-      Android 网络编程系列（七）Volley 自定义 Request
-    </h2>
-    <h3 class="post-subtitle">
-      
-    </h3>
-    <div class="post-content-preview">
-      上篇文章介绍了Volley框架的基本用法，包括StringRequest、JsonRequest、ImageRequest、ImageLoader等用法。这篇文章我们自己实现自定义Request，以适用于多样化的场景。
-XMLRequest我们知道网络数据通常有两种格式，一种是Json、一种是XML。因为Volley中已经有了JsonRequest，所以我们现在来自己实现一个XMLReque......
-    </div>
-  </a>
-  
-  <p class="post-meta" style="margin: 10px 0;">
-    Posted by Owen Lee on
-    2018-07-02
-  </p>
-  <div class="tags">
-    
-    <a href="/tags/#Android 网络编程" title="Android 网络编程">Android 网络编程</a>
-    
-  </div>
-  
-
-</div>
-<hr>
-
 
   <!-- Pager -->
   <ul class="pager">
@@ -820,24 +827,24 @@ XMLRequest我们知道网络数据通常有两种格式，一种是Json、一种
 <div class="widget">
   <ul>
     
-    <a href="../../2021/05/12/git-guide-2-install/">
-      <li>Git 入门（二）安装 Git</li>
+    <a href="../../2021/05/24/codelab-kotlin-coroutines-in-android-7/">
+      <li>在你的 Android 程序中使用协程（7）</li>
     </a>
     
-    <a href="../../2021/04/11/kotlin-learning-19-reflection/">
-      <li>Kotlin 修炼手册（19）反射</li>
+    <a href="../../2021/05/24/codelab-kotlin-coroutines-in-android-6/">
+      <li>在你的 Android 程序中使用协程（6）</li>
     </a>
     
-    <a href="../../2021/04/09/javapoat-study/">
-      <li>【转载】JavaPoet 看这一篇就够了</li>
+    <a href="../../2021/05/24/codelab-kotlin-coroutines-in-android-5/">
+      <li>在你的 Android 程序中使用协程（5）</li>
     </a>
     
-    <a href="../../2021/04/06/java-reflect/">
-      <li>【转载】大白话说Java反射：入门、使用、原理</li>
+    <a href="../../2021/05/24/codelab-kotlin-coroutines-in-android-4/">
+      <li>在你的 Android 程序中使用协程（4）</li>
     </a>
     
-    <a href="../../2021/03/31/java-apt/">
-      <li>【转载】Java 注解处理器</li>
+    <a href="../../2021/05/24/codelab-kotlin-coroutines-in-android-3/">
+      <li>在你的 Android 程序中使用协程（3）</li>
     </a>
     
   </ul>
@@ -917,7 +924,7 @@ XMLRequest我们知道网络数据通常有两种格式，一种是Json、一种
     
     
     
-    <a href="/tags/#Kotlin" title="Kotlin" rel="19">Kotlin</a>
+    <a href="/tags/#Kotlin" title="Kotlin" rel="26">Kotlin</a>
     
     
     
@@ -954,6 +961,10 @@ XMLRequest我们知道网络数据通常有两种格式，一种是Json、一种
     
     
     <a href="/tags/#千字文计划" title="千字文计划" rel="3">千字文计划</a>
+    
+    
+    
+    <a href="/tags/#协程" title="协程" rel="7">协程</a>
     
     
   </div>
