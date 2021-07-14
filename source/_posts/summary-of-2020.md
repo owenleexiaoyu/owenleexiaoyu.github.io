@@ -2,7 +2,7 @@
 ---
 title: 2020 年终总结与 2021 展望
 date: 2021-01-03 11:00
-tags: ["总结"]
+tags: ["年终总结"]
 categories: 感想
 thumbnail: http://image.wufazhuce.com/FjNb3tSrJFtROK4Rltb5n7KVEjEz
 ---
