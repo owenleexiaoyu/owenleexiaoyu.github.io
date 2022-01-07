@@ -42,6 +42,10 @@
     <link rel="stylesheet" href="/css/livemylife.css">
 
     
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css">
+      <!-- wave end -->
+    
 
     
       <!-- top start (article top hot config) -->
@@ -59,10 +63,6 @@
 
     
 
-    
-      <!-- ThemeColor start -->
-      <link rel="stylesheet" href="/css/themecolor.css">
-      <!-- ThemeColor end -->
     
 
     
@@ -100,59 +100,10 @@
 
 <!-- hack iOS CSS :active style -->
 
-	<body ontouchstart="" class="body--light body--dark">
+	<body ontouchstart="" class="body--light">
 
 
 		<!-- ThemeColor -->
-		
-		<!-- ThemeColor -->
-<style type="text/css">
-  .body--light {
-    --light-mode: none;
-    --dark-mode: block;
-  }
-  .body--dark {
-    --light-mode: block;
-    --dark-mode: none;
-  }
-  i.mdui-icon.material-icons.light-mode {
-    display: var(--light-mode);
-  }
-  i.mdui-icon.material-icons.dark-mode {
-    display: var(--dark-mode);
-  }
-</style>
-<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
-  <i class="mdui-icon material-icons light-mode"></i>
-  <i class="mdui-icon material-icons dark-mode"></i>
-</div>
-<script>
-  //getCookieValue
-  function getCookieValue(a) {
-    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
-    return b
-      ? b.pop()
-      : '';
-  }
-  let themeMode = 'dark';
-  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
-    let dbody = document.body.classList;
-    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
-  }
-
-  //setCookieValue
-  var toggleBtn = document.querySelector(".toggle");
-  toggleBtn.addEventListener("click", function () {
-    var e = document.body.classList.contains("body--dark");
-    var cookieString = e
-      ? "dark"
-      : "light";
-    var exp = new Date();
-    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
-    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
-  });
-</script>
-
 		
 
 		<!-- Gitter -->
@@ -198,9 +149,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -209,9 +160,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -282,12 +233,12 @@
   <style type="text/css">
     .body--light {
       /* intro-header */
-      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-home: url('/img/header_img/home_bg.jpg');
       --intro-header-background-image-url-post: url('');
       --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
     }
     .body--dark {
-      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home_bg.jpg');
       --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
       --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
     }
@@ -339,6 +290,22 @@
   </div>
 
   
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
 
 </header>
 
@@ -363,13 +330,13 @@
       <!-- Post Container -->
       <div class="col-lg-8 col-lg-offset-1 col-md-10 col-md-offset-1 post-container">
 
-        <h4 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h4><p>Kotlin 中没有真正实现任何集合类，是使用类型别名为原来 Java 的集合类指定了一个 kotlin 包下的别名。Kotlin 的集合也是派生自 Collection 和 Map 两个接口。</p>
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>Kotlin 中没有真正实现任何集合类，是使用类型别名为原来 Java 的集合类指定了一个 kotlin 包下的别名。Kotlin 的集合也是派生自 Collection 和 Map 两个接口。</p>
 <p>Kotlin 中的集合分为可变集合（Mutable）和不可变集合两大类。只有可变集合才能添加、删除、修改元素，不可变集合只能读取元素。</p>
-<h4 id="Kotlin-集合继承树结构"><a href="#Kotlin-集合继承树结构" class="headerlink" title="Kotlin 集合继承树结构"></a>Kotlin 集合继承树结构</h4><p>Collection 集合体系的简单的继承树如下图：</p>
+<h2 id="Kotlin-集合继承树结构"><a href="#Kotlin-集合继承树结构" class="headerlink" title="Kotlin 集合继承树结构"></a>Kotlin 集合继承树结构</h2><p>Collection 集合体系的简单的继承树如下图：</p>
 <p><img src="https://i.loli.net/2020/01/07/QYEi4ZLzP8gls2m.png" alt="image1"></p>
 <p>Map 集合体系的继承树如下：</p>
 <p><img src="https://i.loli.net/2020/01/07/oIHk7ELpMGsFxPN.png" alt="image2"></p>
-<h4 id="Set-的使用"><a href="#Set-的使用" class="headerlink" title="Set 的使用"></a>Set 的使用</h4><p><strong>创建</strong></p>
+<h2 id="Set-的使用"><a href="#Set-的使用" class="headerlink" title="Set 的使用"></a>Set 的使用</h2><p><strong>创建</strong></p>
 <p>可以用以下函数来创建 Set 集合：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">setOf</span><span class="params">()</span></span> <span class="comment">// 返回不可变的Set集合，元素顺序按添加顺序排列</span></span><br><span class="line"><span class="function"><span class="title">mutableSetOf</span><span class="params">()</span></span> <span class="comment">// 返回可变的Set集合，元素顺序按添加顺序排列</span></span><br><span class="line"><span class="function"><span class="title">hashSetOf</span><span class="params">()</span></span> <span class="comment">// 返回可变的HashSet集合, 不保证元素顺序</span></span><br><span class="line"><span class="function"><span class="title">linkedSetOf</span><span class="params">()</span></span> <span class="comment">// 返回可变的LinkedHashSet集合，元素顺序按添加顺序排列</span></span><br><span class="line"><span class="function"><span class="title">sortedSetOf</span><span class="params">()</span></span> <span class="comment">// 返回可变的TreeSet集合，元素按从小到达排列</span></span><br></pre></td></tr></table></figure>
 
@@ -397,12 +364,12 @@
 <p>示例：</p>
 <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">fun</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="keyword">val</span> <span class="keyword">set</span> = hashSetOf(<span class="string">"Kotlin"</span>, <span class="string">"Java"</span>, <span class="string">"Go"</span>, <span class="string">"Python"</span>)</span><br><span class="line">    <span class="keyword">val</span> itr = <span class="keyword">set</span>.iterator()</span><br><span class="line">    <span class="keyword">while</span> (itr.hasNext()) &#123;</span><br><span class="line">        <span class="keyword">val</span> e = itr.next()</span><br><span class="line">        <span class="keyword">if</span> (e.length &lt; <span class="number">3</span>) &#123;</span><br><span class="line">            itr.remove()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    println(<span class="keyword">set</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 运行结果</span></span><br><span class="line">[Java, Kotlin, Python]</span><br></pre></td></tr></table></figure>
 
-<h4 id="List-的使用"><a href="#List-的使用" class="headerlink" title="List 的使用"></a>List 的使用</h4><p>比较简单，就随便写一下：</p>
+<h2 id="List-的使用"><a href="#List-的使用" class="headerlink" title="List 的使用"></a>List 的使用</h2><p>比较简单，就随便写一下：</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建不可变的List</span></span><br><span class="line"><span class="function"><span class="title">listOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建不可变的元素不为null的List（自动过滤到传入的null）</span></span><br><span class="line"><span class="function"><span class="title">listOfNotNull</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的List</span></span><br><span class="line"><span class="function"><span class="title">mutableListOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的ArrayList</span></span><br><span class="line"><span class="function"><span class="title">arrayListOf</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取index索引的元素，带operator修饰符，可以使用[]</span></span><br><span class="line"><span class="function"><span class="title">get</span><span class="params">(index: Int)</span></span></span><br><span class="line"><span class="comment">// 返回元素所在的索引，不存在返回-1</span></span><br><span class="line"><span class="function"><span class="title">indexOf</span><span class="params">(element: E)</span></span></span><br><span class="line"><span class="comment">// 返回元素在List中最后一次出现位置的索引</span></span><br><span class="line"><span class="function"><span class="title">lastIndexOf</span><span class="params">(element: E)</span></span></span><br><span class="line"><span class="comment">// 返回子集</span></span><br><span class="line"><span class="function"><span class="title">subList</span><span class="params">(start: Int, end: Int)</span></span></span><br></pre></td></tr></table></figure>
 
-<h4 id="Map的使用"><a href="#Map的使用" class="headerlink" title="Map的使用"></a>Map的使用</h4><p>Map 集合用于存储键值对。</p>
+<h2 id="Map的使用"><a href="#Map的使用" class="headerlink" title="Map的使用"></a>Map的使用</h2><p>Map 集合用于存储键值对。</p>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建不可变的Map集合</span></span><br><span class="line"><span class="function"><span class="title">mapOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的Map集合</span></span><br><span class="line"><span class="function"><span class="title">mutableMapOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的HashMap集合</span></span><br><span class="line"><span class="function"><span class="title">hashMapOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的LinkedHashMap集合</span></span><br><span class="line"><span class="function"><span class="title">linkedMapOf</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 创建可变的TreeMap集合</span></span><br><span class="line"><span class="function"><span class="title">sortedMapOf</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
 
 <p>示例：</p>
@@ -422,7 +389,7 @@
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 清空所有的键值对</span></span><br><span class="line"><span class="function"><span class="title">clear</span><span class="params">()</span></span></span><br><span class="line"><span class="comment">// 删除键值对</span></span><br><span class="line"><span class="function"><span class="title">remove</span><span class="params">(key: K)</span></span></span><br><span class="line"><span class="comment">// 放入键值对，如果已有该key，会覆盖原来的value</span></span><br><span class="line"><span class="function"><span class="title">put</span><span class="params">(key: K, value: V)</span></span></span><br><span class="line"><span class="comment">// 批量放入</span></span><br><span class="line"><span class="function"><span class="title">putAll</span><span class="params">(from: Map&lt;out K, V&gt;)</span></span></span><br></pre></td></tr></table></figure>
 
 <p>另外，MutableMap 还提供了一个 set(key, value) 方法来放入键值对，用 operator 修饰，可以通过 <code>[]</code> 来放入键值对。</p>
-<h4 id="常见的数组、集合处理函数"><a href="#常见的数组、集合处理函数" class="headerlink" title="常见的数组、集合处理函数"></a>常见的数组、集合处理函数</h4><ul>
+<h2 id="常见的数组、集合处理函数"><a href="#常见的数组、集合处理函数" class="headerlink" title="常见的数组、集合处理函数"></a>常见的数组、集合处理函数</h2><ul>
 <li>all(predicate: (T) -&gt; Boolean)</li>
 </ul>
 <p>所有元素都满足该表达式，返回 true，否则返回 false。</p>
@@ -656,21 +623,12 @@
           
 
           
-            <li>
-              <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          
 
         </ul>
         <p class="copyright text-muted">
           Copyright &copy;
           Owen Lee
-          2021
+          2022
           <br>
           Theme by
           <a href="http://beantech.org">BeanTech</a>

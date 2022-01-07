@@ -42,6 +42,10 @@
     <link rel="stylesheet" href="/css/livemylife.css">
 
     
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css">
+      <!-- wave end -->
+    
 
     
       <!-- top start (article top hot config) -->
@@ -59,10 +63,6 @@
 
     
 
-    
-      <!-- ThemeColor start -->
-      <link rel="stylesheet" href="/css/themecolor.css">
-      <!-- ThemeColor end -->
     
 
     
@@ -100,59 +100,10 @@
 
 <!-- hack iOS CSS :active style -->
 
-	<body ontouchstart="" class="body--light body--dark">
+	<body ontouchstart="" class="body--light">
 
 
 		<!-- ThemeColor -->
-		
-		<!-- ThemeColor -->
-<style type="text/css">
-  .body--light {
-    --light-mode: none;
-    --dark-mode: block;
-  }
-  .body--dark {
-    --light-mode: block;
-    --dark-mode: none;
-  }
-  i.mdui-icon.material-icons.light-mode {
-    display: var(--light-mode);
-  }
-  i.mdui-icon.material-icons.dark-mode {
-    display: var(--dark-mode);
-  }
-</style>
-<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
-  <i class="mdui-icon material-icons light-mode"></i>
-  <i class="mdui-icon material-icons dark-mode"></i>
-</div>
-<script>
-  //getCookieValue
-  function getCookieValue(a) {
-    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
-    return b
-      ? b.pop()
-      : '';
-  }
-  let themeMode = 'dark';
-  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
-    let dbody = document.body.classList;
-    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
-  }
-
-  //setCookieValue
-  var toggleBtn = document.querySelector(".toggle");
-  toggleBtn.addEventListener("click", function () {
-    var e = document.body.classList.contains("body--dark");
-    var cookieString = e
-      ? "dark"
-      : "light";
-    var exp = new Date();
-    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
-    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
-  });
-</script>
-
 		
 
 		<!-- Gitter -->
@@ -198,9 +149,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -209,9 +160,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -282,12 +233,12 @@
   <style type="text/css">
     .body--light {
       /* intro-header */
-      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-home: url('/img/header_img/home_bg.jpg');
       --intro-header-background-image-url-post: url('');
       --intro-header-background-image-url-page: url('/img/header_img/archive_bg2.jpg');
     }
     .body--dark {
-      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home_bg.jpg');
       --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('');
       --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/archive_bg2.jpg');
     }
@@ -295,7 +246,7 @@
     header.intro-header {
        /*config*/
         background-image: var(--intro-header-background-image-url-home);
-        /* background-image: url('/img/header_img/newhome_bg.jpg'); */
+        /* background-image: url('/img/header_img/home_bg.jpg'); */
       
     }
 
@@ -324,6 +275,22 @@
     </div>
   </div>
 
+  
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
   
 
 </header>
@@ -779,15 +746,6 @@ HTTP 协议简介HTTP 协议（HyperText Transfer Prot......
       
 
       
-      <li>
-        <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
-          <span class="fa-stack fa-lg">
-            <i class="fa fa-circle fa-stack-2x"></i>
-            <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-          </span>
-        </a>
-      </li>
-      
 
     </ul>
   </div>
@@ -834,11 +792,11 @@ HTTP 协议简介HTTP 协议（HyperText Transfer Prot......
   <div class="tags">
     
     
-    <a href="/tags/#随笔" title="随笔" rel="17">随笔</a>
-    
-    
-    
     <a href="/tags/#计划" title="计划" rel="2">计划</a>
+    
+    
+    
+    <a href="/tags/#随笔" title="随笔" rel="17">随笔</a>
     
     
     
@@ -918,15 +876,15 @@ HTTP 协议简介HTTP 协议（HyperText Transfer Prot......
     
     
     
-    <a href="/tags/#读书笔记" title="读书笔记" rel="1">读书笔记</a>
-    
-    
-    
     <a href="/tags/#Android Studio" title="Android Studio" rel="1">Android Studio</a>
     
     
     
     <a href="/tags/#年终总结" title="年终总结" rel="4">年终总结</a>
+    
+    
+    
+    <a href="/tags/#读书笔记" title="读书笔记" rel="1">读书笔记</a>
     
     
     
@@ -1018,21 +976,12 @@ HTTP 协议简介HTTP 协议（HyperText Transfer Prot......
           
 
           
-            <li>
-              <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          
 
         </ul>
         <p class="copyright text-muted">
           Copyright &copy;
           Owen Lee
-          2021
+          2022
           <br>
           Theme by
           <a href="http://beantech.org">BeanTech</a>

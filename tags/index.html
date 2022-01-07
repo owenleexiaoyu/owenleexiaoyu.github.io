@@ -42,6 +42,10 @@
     <link rel="stylesheet" href="/css/livemylife.css">
 
     
+      <!-- wave start -->
+      <link rel="stylesheet" href="/css/wave.css">
+      <!-- wave end -->
+    
 
     
       <!-- top start (article top hot config) -->
@@ -59,10 +63,6 @@
 
     
 
-    
-      <!-- ThemeColor start -->
-      <link rel="stylesheet" href="/css/themecolor.css">
-      <!-- ThemeColor end -->
     
 
     
@@ -100,59 +100,10 @@
 
 <!-- hack iOS CSS :active style -->
 
-	<body ontouchstart="" class="body--light body--dark">
+	<body ontouchstart="" class="body--light">
 
 
 		<!-- ThemeColor -->
-		
-		<!-- ThemeColor -->
-<style type="text/css">
-  .body--light {
-    --light-mode: none;
-    --dark-mode: block;
-  }
-  .body--dark {
-    --light-mode: block;
-    --dark-mode: none;
-  }
-  i.mdui-icon.material-icons.light-mode {
-    display: var(--light-mode);
-  }
-  i.mdui-icon.material-icons.dark-mode {
-    display: var(--dark-mode);
-  }
-</style>
-<div class="toggle" onclick="document.body.classList.toggle('body--dark')">
-  <i class="mdui-icon material-icons light-mode"></i>
-  <i class="mdui-icon material-icons dark-mode"></i>
-</div>
-<script>
-  //getCookieValue
-  function getCookieValue(a) {
-    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
-    return b
-      ? b.pop()
-      : '';
-  }
-  let themeMode = 'dark';
-  if (getCookieValue('sb-color-mode') && (getCookieValue('sb-color-mode') !== themeMode)) {
-    let dbody = document.body.classList;
-    themeMode === 'dark' ? dbody.remove('body--dark') : dbody.add('body--dark');
-  }
-
-  //setCookieValue
-  var toggleBtn = document.querySelector(".toggle");
-  toggleBtn.addEventListener("click", function () {
-    var e = document.body.classList.contains("body--dark");
-    var cookieString = e
-      ? "dark"
-      : "light";
-    var exp = new Date();
-    exp.setTime(exp.getTime() + 3 * 24 * 60 * 60 * 1000); //3天过期
-    document.cookie = "sb-color-mode=" + cookieString + ";expires=" + exp.toGMTString() + ";path=/";
-  });
-</script>
-
 		
 
 		<!-- Gitter -->
@@ -198,9 +149,9 @@
           
           
           <li>
-            <a href="/categories/">
+            <a href="/archive/">
               
-              CATEGORIES
+              ARCHIVES
               
               
             </a>
@@ -209,9 +160,9 @@
           
           
           <li>
-            <a href="/archive/">
+            <a href="/categories/">
               
-              ARCHIVES
+              CATEGORIES
               
               
             </a>
@@ -282,12 +233,12 @@
   <style type="text/css">
     .body--light {
       /* intro-header */
-      --intro-header-background-image-url-home: url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-home: url('/img/header_img/home_bg.jpg');
       --intro-header-background-image-url-post: url('img/header_img/tag_bg.jpg');
       --intro-header-background-image-url-page: url('/img/header_img/tag_bg.jpg');
     }
     .body--dark {
-      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/newhome_bg.jpg');
+      --intro-header-background-image-url-home: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/home_bg.jpg');
       --intro-header-background-image-url-post: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('img/header_img/tag_bg.jpg');
       --intro-header-background-image-url-page: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)), url('/img/header_img/tag_bg.jpg');
     }
@@ -325,6 +276,22 @@
   </div>
 
   
+  <!-- waveoverlay start -->
+  <div class="preview-overlay">
+    <svg class="preview-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+      <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+      </defs>
+      <g class="preview-parallax">
+        <use xlink:href="#gentle-wave" x="48" y="0" fill=var(--gentle-wave1)></use>
+        <use xlink:href="#gentle-wave" x="48" y="3" fill=var(--gentle-wave2)></use>
+        <use xlink:href="#gentle-wave" x="48" y="5" fill=var(--gentle-wave3)></use>
+        <use xlink:href="#gentle-wave" x="48" y="7" fill=var(--gentle-wave)></use>
+      </g>
+    </svg>
+  </div>
+  <!-- waveoverlay end -->
+  
 
 </header>
 
@@ -350,9 +317,9 @@
       <!-- 标签云 -->
       <div id='tag_cloud' class="tags">
         
-        <a href="#随笔" title="随笔" rel="17">随笔</a>
-        
         <a href="#计划" title="计划" rel="2">计划</a>
+        
+        <a href="#随笔" title="随笔" rel="17">随笔</a>
         
         <a href="#Android" title="Android" rel="16">Android</a>
         
@@ -392,11 +359,11 @@
         
         <a href="#作品集" title="作品集" rel="2">作品集</a>
         
-        <a href="#读书笔记" title="读书笔记" rel="1">读书笔记</a>
-        
         <a href="#Android Studio" title="Android Studio" rel="1">Android Studio</a>
         
         <a href="#年终总结" title="年终总结" rel="4">年终总结</a>
+        
+        <a href="#读书笔记" title="读书笔记" rel="1">读书笔记</a>
         
         <a href="#算法" title="算法" rel="4">算法</a>
         
@@ -407,6 +374,35 @@
       </div>
 
       <!-- 标签列表 -->
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="计划">
+          <span class="tag-text">计划</span>
+        </span>
+        
+        <div class="post-preview">
+          <a href="/2017/11/21/11-tasks-from-now-to-graduation/">
+            <h2 class="post-title">
+              从现在到毕业的 11 项学习任务
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2020/04/21/learning-state-replay/">
+            <h2 class="post-title">
+              学习状态的复盘
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+      </div>
       
       <div class="one-tag-list">
         <span class="fa fa-tag listing-seperator" id="随笔">
@@ -458,17 +454,6 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/11/09/hang-out-with-yonghao/">
-            <h2 class="post-title">
-              和勇昊聚
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
           <a href="/2017/05/06/hello-blog/">
             <h2 class="post-title">
               Hello Blog
@@ -478,6 +463,17 @@
             <h3 class="post-subtitle">
               谈谈我搭个人博客的辛酸
             </h3>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2018/11/09/hang-out-with-yonghao/">
+            <h2 class="post-title">
+              和勇昊聚
+              
+            </h2>
             
           </a>
         </div>
@@ -510,9 +506,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2020/04/22/my-positive-and-negative-emotion/">
+          <a href="/2019/07/28/my-career-plan/">
             <h2 class="post-title">
-              我现在的正面和负面的情绪
+              我的职业成长规划
               
             </h2>
             
@@ -521,9 +517,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2019/07/28/my-career-plan/">
+          <a href="/2020/04/22/my-positive-and-negative-emotion/">
             <h2 class="post-title">
-              我的职业成长规划
+              我现在的正面和负面的情绪
               
             </h2>
             
@@ -558,9 +554,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2019/08/31/tour-in-shanghai/">
+          <a href="/2017/10/22/two-things-about-writing-and-blog/">
             <h2 class="post-title">
-              上海一日游
+              记两件小事
               
             </h2>
             
@@ -569,9 +565,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2017/10/22/two-things-about-writing-and-blog/">
+          <a href="/2019/08/31/tour-in-shanghai/">
             <h2 class="post-title">
-              记两件小事
+              上海一日游
               
             </h2>
             
@@ -619,38 +615,20 @@
       </div>
       
       <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="计划">
-          <span class="tag-text">计划</span>
-        </span>
-        
-        <div class="post-preview">
-          <a href="/2017/11/21/11-tasks-from-now-to-graduation/">
-            <h2 class="post-title">
-              从现在到毕业的 11 项学习任务
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2020/04/21/learning-state-replay/">
-            <h2 class="post-title">
-              学习状态的复盘
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
         <span class="fa fa-tag listing-seperator" id="Android">
           <span class="tag-text">Android</span>
         </span>
+        
+        <div class="post-preview">
+          <a href="/2018/08/30/android-bottom-navigation-1-using-bottomnavigationview/">
+            <h2 class="post-title">
+              BottomNavigationView 用法：实现底部导航栏
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
         
         <div class="post-preview">
           <a href="/2018/08/30/140-execllent-android-opensource-projects/">
@@ -667,17 +645,6 @@
           <a href="/2018/07/31/android-interview-questions/">
             <h2 class="post-title">
               Android 实习面经分享
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2018/08/30/android-bottom-navigation-1-using-bottomnavigationview/">
-            <h2 class="post-title">
-              BottomNavigationView 用法：实现底部导航栏
               
             </h2>
             
@@ -977,6 +944,17 @@
         <hr>
         
         <div class="post-preview">
+          <a href="/2018/08/13/android-network-8-http-and-https/">
+            <h2 class="post-title">
+              Android 网络编程——HTTP 与 HTTPS
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
           <a href="/2017/10/21/android-network-5-httpurlconnection/">
             <h2 class="post-title">
               Android 网络编程系列（五）使用 HttpUrlConnection
@@ -1006,17 +984,6 @@
           <a href="/2018/07/02/android-network-7-customize-request/">
             <h2 class="post-title">
               Android 网络编程系列（七）Volley 自定义 Request
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2018/08/13/android-network-8-http-and-https/">
-            <h2 class="post-title">
-              Android 网络编程——HTTP 与 HTTPS
               
             </h2>
             
@@ -1077,17 +1044,6 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2017/10/22/blockly4android-5-use-custom-js-generators/">
-            <h2 class="post-title">
-              Blockly4Android 开发指南（5）使用自定义 JavaScript 生成器
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
           <a href="/2017/10/19/blockly4android-4-toolbox/">
             <h2 class="post-title">
               Blockly4Android 开发指南（4）工具箱
@@ -1097,6 +1053,17 @@
             <h3 class="post-subtitle">
               Blockly 官方文档中的 Toolbox
             </h3>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2017/10/22/blockly4android-5-use-custom-js-generators/">
+            <h2 class="post-title">
+              Blockly4Android 开发指南（5）使用自定义 JavaScript 生成器
+              
+            </h2>
             
           </a>
         </div>
@@ -1213,9 +1180,9 @@
         </span>
         
         <div class="post-preview">
-          <a href="/2018/12/03/changtou-analysis-first-million/">
+          <a href="/2018/12/03/changtou-choosing-stocks-like-choosing-girlfriend/">
             <h2 class="post-title">
-              拆读《一个普通人怎样早早赚到 100 万，每个人都可以》
+              长投晚间分享：选股票就像选对象
               
             </h2>
             
@@ -1224,9 +1191,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/12/03/changtou-choosing-stocks-like-choosing-girlfriend/">
+          <a href="/2018/12/03/changtou-analysis-first-million/">
             <h2 class="post-title">
-              长投晚间分享：选股票就像选对象
+              拆读《一个普通人怎样早早赚到 100 万，每个人都可以》
               
             </h2>
             
@@ -1319,31 +1286,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-2/">
-            <h2 class="post-title">
-              在你的 Android 程序中使用协程（2）
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
           <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-3/">
             <h2 class="post-title">
               在你的 Android 程序中使用协程（3）
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-4/">
-            <h2 class="post-title">
-              在你的 Android 程序中使用协程（4）
               
             </h2>
             
@@ -1363,9 +1308,20 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-6/">
+          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-2/">
             <h2 class="post-title">
-              在你的 Android 程序中使用协程（6）
+              在你的 Android 程序中使用协程（2）
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-4/">
+            <h2 class="post-title">
+              在你的 Android 程序中使用协程（4）
               
             </h2>
             
@@ -1385,9 +1341,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-8/">
+          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-6/">
             <h2 class="post-title">
-              在你的 Android 程序中使用协程（8）
+              在你的 Android 程序中使用协程（6）
               
             </h2>
             
@@ -1407,42 +1363,20 @@
         <hr>
         
         <div class="post-preview">
+          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-8/">
+            <h2 class="post-title">
+              在你的 Android 程序中使用协程（8）
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
           <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-9/">
             <h2 class="post-title">
               在你的 Android 程序中使用协程（9）
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2020/01/07/kotilin-learning-9-collection/">
-            <h2 class="post-title">
-              Kotlin 修炼手册（9）集合
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2019/08/26/kotlin-learning-1-function-and-variable/">
-            <h2 class="post-title">
-              Kotlin 修炼手册（1）函数和变量
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2020/07/05/kotlin-learning-10-higher-older-function-lambda/">
-            <h2 class="post-title">
-              Kotlin 修炼手册（10）高阶函数与 Lambda
               
             </h2>
             
@@ -1462,31 +1396,31 @@
         <hr>
         
         <div class="post-preview">
+          <a href="/2020/07/05/kotlin-learning-10-higher-older-function-lambda/">
+            <h2 class="post-title">
+              Kotlin 修炼手册（10）高阶函数与 Lambda
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2019/08/26/kotlin-learning-1-function-and-variable/">
+            <h2 class="post-title">
+              Kotlin 修炼手册（1）函数和变量
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
           <a href="/2020/07/15/kotlin-learning-12-data-enum-sealed/">
             <h2 class="post-title">
               Kotlin 修炼手册（12）数据类、密封类、枚举类
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2020/08/09/kotlin-learning-14-delegate/">
-            <h2 class="post-title">
-              Kotlin 修练手册（14）委托
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2021/03/02/kotlin-learning-16-generic/">
-            <h2 class="post-title">
-              Kotlin 修炼手册（16）泛型
               
             </h2>
             
@@ -1517,31 +1451,31 @@
         <hr>
         
         <div class="post-preview">
+          <a href="/2020/08/09/kotlin-learning-14-delegate/">
+            <h2 class="post-title">
+              Kotlin 修练手册（14）委托
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2021/03/02/kotlin-learning-16-generic/">
+            <h2 class="post-title">
+              Kotlin 修炼手册（16）泛型
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
           <a href="/2021/03/05/kotlin-learning-17-annotation/">
             <h2 class="post-title">
               Kotlin 修炼手册（17）注解
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2019/08/28/kotlin-learning-2-basic-type-of-data/">
-            <h2 class="post-title">
-              Kotlin 修炼手册（2）基本数据类型
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2021/04/11/kotlin-learning-19-reflection/">
-            <h2 class="post-title">
-              Kotlin 修炼手册（19）反射
               
             </h2>
             
@@ -1561,9 +1495,31 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2019/09/02/kotlin-learning-4-class-and-object/">
+          <a href="/2021/04/11/kotlin-learning-19-reflection/">
             <h2 class="post-title">
-              Kotlin 修炼手册（4）类与对象
+              Kotlin 修炼手册（19）反射
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2020/01/07/kotilin-learning-9-collection/">
+            <h2 class="post-title">
+              Kotlin 修炼手册（9）集合
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2019/08/28/kotlin-learning-2-basic-type-of-data/">
+            <h2 class="post-title">
+              Kotlin 修炼手册（2）基本数据类型
               
             </h2>
             
@@ -1583,9 +1539,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2019/09/05/kotlin-learning-6-companion-object/">
+          <a href="/2019/09/02/kotlin-learning-4-class-and-object/">
             <h2 class="post-title">
-              Kotlin 修炼手册（6）伴生对象
+              Kotlin 修炼手册（4）类与对象
               
             </h2>
             
@@ -1597,6 +1553,17 @@
           <a href="/2019/09/03/kotlin-learning-5-extends-and-interface/">
             <h2 class="post-title">
               Kotlin 修炼手册（5）继承与接口
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2019/09/05/kotlin-learning-6-companion-object/">
+            <h2 class="post-title">
+              Kotlin 修炼手册（6）伴生对象
               
             </h2>
             
@@ -1678,31 +1645,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-2/">
-            <h2 class="post-title">
-              在你的 Android 程序中使用协程（2）
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
           <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-3/">
             <h2 class="post-title">
               在你的 Android 程序中使用协程（3）
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-4/">
-            <h2 class="post-title">
-              在你的 Android 程序中使用协程（4）
               
             </h2>
             
@@ -1722,9 +1667,20 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-6/">
+          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-2/">
             <h2 class="post-title">
-              在你的 Android 程序中使用协程（6）
+              在你的 Android 程序中使用协程（2）
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-4/">
+            <h2 class="post-title">
+              在你的 Android 程序中使用协程（4）
               
             </h2>
             
@@ -1744,9 +1700,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-8/">
+          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-6/">
             <h2 class="post-title">
-              在你的 Android 程序中使用协程（8）
+              在你的 Android 程序中使用协程（6）
               
             </h2>
             
@@ -1758,6 +1714,17 @@
           <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-7/">
             <h2 class="post-title">
               在你的 Android 程序中使用协程（7）
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2021/05/24/codelab-kotlin-coroutines-in-android-8/">
+            <h2 class="post-title">
+              在你的 Android 程序中使用协程（8）
               
             </h2>
             
@@ -1817,9 +1784,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/08/15/computer-network-3-transport-layer/">
+          <a href="/2018/09/04/computer-network-12-http-version-differences/">
             <h2 class="post-title">
-              计算机网络面试（3）运输层概述
+              计算机网络面试（12）HTTP 各版本差异
               
             </h2>
             
@@ -1839,9 +1806,20 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/04/computer-network-12-http-version-differences/">
+          <a href="/2018/08/15/computer-network-3-transport-layer/">
             <h2 class="post-title">
-              计算机网络面试（12）HTTP 各版本差异
+              计算机网络面试（3）运输层概述
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2018/08/30/computer-network-6-tcp-header/">
+            <h2 class="post-title">
+              计算机网络面试（6）TCP 首部
               
             </h2>
             
@@ -1872,9 +1850,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/08/30/computer-network-6-tcp-header/">
+          <a href="/2018/08/30/computer-network-7-three-and-four-way-handshake/">
             <h2 class="post-title">
-              计算机网络面试（6）TCP 首部
+              计算机网络面试（7）TCP 三次握手与四次挥手
               
             </h2>
             
@@ -1897,17 +1875,6 @@
           <a href="/2018/09/04/computer-network-9-http/">
             <h2 class="post-title">
               计算机网络面试（9）了解HTTP 协议
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2018/08/30/computer-network-7-three-and-four-way-handshake/">
-            <h2 class="post-title">
-              计算机网络面试（7）TCP 三次握手与四次挥手
               
             </h2>
             
@@ -2018,28 +1985,6 @@
         </span>
         
         <div class="post-preview">
-          <a href="/2020/06/18/in-sky-poems-3/">
-            <h2 class="post-title">
-              云间诗集（三）打油诗五首
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2020/06/18/in-sky-poems-2/">
-            <h2 class="post-title">
-              云间诗集（二）此间的少年
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
           <a href="/2020/06/18/in-sky-poems-1/">
             <h2 class="post-title">
               云间诗集（一）诗九首
@@ -2051,9 +1996,31 @@
         <hr>
         
         <div class="post-preview">
+          <a href="/2020/06/18/in-sky-poems-3/">
+            <h2 class="post-title">
+              云间诗集（三）打油诗五首
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
           <a href="/2020/06/18/in-sky-poems-4/">
             <h2 class="post-title">
               云间诗集（四）词六首
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2020/06/18/in-sky-poems-2/">
+            <h2 class="post-title">
+              云间诗集（二）此间的少年
               
             </h2>
             
@@ -2091,9 +2058,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2017/11/17/j2ee-4-some-supplements/">
+          <a href="/2017/11/14/j2ee-3-httpservlet-api/">
             <h2 class="post-title">
-              Java EE 学习笔记（4）关于 Servlet 的一些补充
+              Java EE 学习笔记（3）HttpServlet 详解
               
             </h2>
             
@@ -2113,9 +2080,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2017/11/14/j2ee-3-httpservlet-api/">
+          <a href="/2017/11/17/j2ee-4-some-supplements/">
             <h2 class="post-title">
-              Java EE 学习笔记（3）HttpServlet 详解
+              Java EE 学习笔记（4）关于 Servlet 的一些补充
               
             </h2>
             
@@ -2129,6 +2096,28 @@
         <span class="fa fa-tag listing-seperator" id="Java">
           <span class="tag-text">Java</span>
         </span>
+        
+        <div class="post-preview">
+          <a href="/2018/06/12/java-interview-3-keywords/">
+            <h2 class="post-title">
+              Java 笔试面试（3）关键字
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2021/03/31/java-apt/">
+            <h2 class="post-title">
+              【转载】Java 注解处理器
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
         
         <div class="post-preview">
           <a href="/2018/06/08/java-interview-1-java-overiew/">
@@ -2153,42 +2142,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/06/12/java-interview-3-keywords/">
-            <h2 class="post-title">
-              Java 笔试面试（3）关键字
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
           <a href="/2018/06/12/java-interview-5-string-and-array/">
             <h2 class="post-title">
               Java 笔试面试（5）字符串与数组
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2018/06/12/java-interview-6-exception/">
-            <h2 class="post-title">
-              Java 笔试面试（6）异常处理
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2021/03/31/java-apt/">
-            <h2 class="post-title">
-              【转载】Java 注解处理器
               
             </h2>
             
@@ -2219,9 +2175,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/06/13/java-interview-8-collections/">
+          <a href="/2018/06/12/java-interview-6-exception/">
             <h2 class="post-title">
-              Java 笔试面试（8）容器
+              Java 笔试面试（6）异常处理
               
             </h2>
             
@@ -2233,6 +2189,17 @@
           <a href="/2018/06/13/java-interview-9-mutithread/">
             <h2 class="post-title">
               Java 笔试面试（9）多线程
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2018/06/13/java-interview-8-collections/">
+            <h2 class="post-title">
+              Java 笔试面试（8）容器
               
             </h2>
             
@@ -2274,20 +2241,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/06/learn-design-pattern-1-overview/">
+          <a href="/2018/11/07/learn-design-pattern-11-chain-of-responsibility/">
             <h2 class="post-title">
-              学学设计模式（1）设计模式概述与原则
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2018/11/07/learn-design-pattern-12-proxy/">
-            <h2 class="post-title">
-              学学设计模式（12）代理模式
+              学学设计模式（11）责任链模式
               
             </h2>
             
@@ -2307,9 +2263,20 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/11/07/learn-design-pattern-11-chain-of-responsibility/">
+          <a href="/2018/09/06/learn-design-pattern-1-overview/">
             <h2 class="post-title">
-              学学设计模式（11）责任链模式
+              学学设计模式（1）设计模式概述与原则
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2018/11/07/learn-design-pattern-12-proxy/">
+            <h2 class="post-title">
+              学学设计模式（12）代理模式
               
             </h2>
             
@@ -2340,9 +2307,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/06/learn-design-pattern-5-abstract-factory/">
+          <a href="/2018/09/06/learn-design-pattern-4-factory-mathod/">
             <h2 class="post-title">
-              学学设计模式（5）抽象工厂模式
+              学学设计模式（4）工厂方法模式
               
             </h2>
             
@@ -2351,9 +2318,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/06/learn-design-pattern-4-factory-mathod/">
+          <a href="/2018/09/06/learn-design-pattern-5-abstract-factory/">
             <h2 class="post-title">
-              学学设计模式（4）工厂方法模式
+              学学设计模式（5）抽象工厂模式
               
             </h2>
             
@@ -2373,9 +2340,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/20/learn-design-pattern-7-adapter/">
+          <a href="/2018/09/20/learn-design-pattern-8-decorator/">
             <h2 class="post-title">
-              学学设计模式（7）适配器模式
+              学学设计模式（8）装饰者模式
               
             </h2>
             
@@ -2384,9 +2351,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/20/learn-design-pattern-8-decorator/">
+          <a href="/2018/09/20/learn-design-pattern-7-adapter/">
             <h2 class="post-title">
-              学学设计模式（8）装饰者模式
+              学学设计模式（7）适配器模式
               
             </h2>
             
@@ -2439,20 +2406,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/06/learn-design-pattern-1-overview/">
+          <a href="/2018/11/07/learn-design-pattern-11-chain-of-responsibility/">
             <h2 class="post-title">
-              学学设计模式（1）设计模式概述与原则
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
-          <a href="/2018/11/07/learn-design-pattern-12-proxy/">
-            <h2 class="post-title">
-              学学设计模式（12）代理模式
+              学学设计模式（11）责任链模式
               
             </h2>
             
@@ -2472,9 +2428,20 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/11/07/learn-design-pattern-11-chain-of-responsibility/">
+          <a href="/2018/09/06/learn-design-pattern-1-overview/">
             <h2 class="post-title">
-              学学设计模式（11）责任链模式
+              学学设计模式（1）设计模式概述与原则
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2018/11/07/learn-design-pattern-12-proxy/">
+            <h2 class="post-title">
+              学学设计模式（12）代理模式
               
             </h2>
             
@@ -2505,9 +2472,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/06/learn-design-pattern-5-abstract-factory/">
+          <a href="/2018/09/06/learn-design-pattern-4-factory-mathod/">
             <h2 class="post-title">
-              学学设计模式（5）抽象工厂模式
+              学学设计模式（4）工厂方法模式
               
             </h2>
             
@@ -2516,9 +2483,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/06/learn-design-pattern-4-factory-mathod/">
+          <a href="/2018/09/06/learn-design-pattern-5-abstract-factory/">
             <h2 class="post-title">
-              学学设计模式（4）工厂方法模式
+              学学设计模式（5）抽象工厂模式
               
             </h2>
             
@@ -2538,9 +2505,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/20/learn-design-pattern-7-adapter/">
+          <a href="/2018/09/20/learn-design-pattern-8-decorator/">
             <h2 class="post-title">
-              学学设计模式（7）适配器模式
+              学学设计模式（8）装饰者模式
               
             </h2>
             
@@ -2549,9 +2516,9 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2018/09/20/learn-design-pattern-8-decorator/">
+          <a href="/2018/09/20/learn-design-pattern-7-adapter/">
             <h2 class="post-title">
-              学学设计模式（8）装饰者模式
+              学学设计模式（7）适配器模式
               
             </h2>
             
@@ -2701,24 +2668,6 @@
       </div>
       
       <div class="one-tag-list">
-        <span class="fa fa-tag listing-seperator" id="读书笔记">
-          <span class="tag-text">读书笔记</span>
-        </span>
-        
-        <div class="post-preview">
-          <a href="/2021/07/14/practice-on-purpose/">
-            <h2 class="post-title">
-              《刻意练习》如何从新手到大师
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-      </div>
-      
-      <div class="one-tag-list">
         <span class="fa fa-tag listing-seperator" id="Android Studio">
           <span class="tag-text">Android Studio</span>
         </span>
@@ -2753,17 +2702,6 @@
         <hr>
         
         <div class="post-preview">
-          <a href="/2021/01/03/summary-of-2020/">
-            <h2 class="post-title">
-              2020 年终总结与 2021 展望
-              
-            </h2>
-            
-          </a>
-        </div>
-        <hr>
-        
-        <div class="post-preview">
           <a href="/2019/12/29/summary-of-2019/">
             <h2 class="post-title">
               2019 年终总结与2020展望
@@ -2778,6 +2716,35 @@
           <a href="/2020/06/30/summary-of-first-year-after-graduation/">
             <h2 class="post-title">
               毕业一周年小结
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+        <div class="post-preview">
+          <a href="/2021/01/03/summary-of-2020/">
+            <h2 class="post-title">
+              2020 年终总结与 2021 展望
+              
+            </h2>
+            
+          </a>
+        </div>
+        <hr>
+        
+      </div>
+      
+      <div class="one-tag-list">
+        <span class="fa fa-tag listing-seperator" id="读书笔记">
+          <span class="tag-text">读书笔记</span>
+        </span>
+        
+        <div class="post-preview">
+          <a href="/2021/07/14/practice-on-purpose/">
+            <h2 class="post-title">
+              《刻意练习》如何从新手到大师
               
             </h2>
             
@@ -2966,21 +2933,12 @@
           
 
           
-            <li>
-              <a target="_blank" href="http://weibo.com/李大鱼呵呵哒">
-                <span class="fa-stack fa-lg">
-                  <i class="fa fa-circle fa-stack-2x"></i>
-                  <i class="fa fa-weibo fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-          
 
         </ul>
         <p class="copyright text-muted">
           Copyright &copy;
           Owen Lee
-          2021
+          2022
           <br>
           Theme by
           <a href="http://beantech.org">BeanTech</a>
