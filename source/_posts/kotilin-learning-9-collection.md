@@ -6,13 +6,13 @@ categories: 技术
 thumbnail: http://image.wufazhuce.com/Fp9GB2xdIXBbasqQvrSy6v1zOMCx
 ---
 
-#### 概述
+## 概述
 
 Kotlin 中没有真正实现任何集合类，是使用类型别名为原来 Java 的集合类指定了一个 kotlin 包下的别名。Kotlin 的集合也是派生自 Collection 和 Map 两个接口。
 
 Kotlin 中的集合分为可变集合（Mutable）和不可变集合两大类。只有可变集合才能添加、删除、修改元素，不可变集合只能读取元素。
 
-#### Kotlin 集合继承树结构
+## Kotlin 集合继承树结构
 
 Collection 集合体系的简单的继承树如下图：
 
@@ -22,7 +22,7 @@ Map 集合体系的继承树如下：
 
 ![image2](https://i.loli.net/2020/01/07/oIHk7ELpMGsFxPN.png)
 
-#### Set 的使用
+## Set 的使用
 
 **创建**
 
@@ -143,7 +143,7 @@ fun main() {
 [Java, Kotlin, Python]
 ```
 
-#### List 的使用
+## List 的使用
 
 比较简单，就随便写一下：
 
@@ -169,7 +169,7 @@ lastIndexOf(element: E)
 subList(start: Int, end: Int)
 ```
 
-#### Map的使用
+## Map的使用
 
 Map 集合用于存储键值对。
 
@@ -246,7 +246,7 @@ putAll(from: Map<out K, V>)
 
 另外，MutableMap 还提供了一个 set(key, value) 方法来放入键值对，用 operator 修饰，可以通过 `[]` 来放入键值对。
 
-#### 常见的数组、集合处理函数
+## 常见的数组、集合处理函数
 
 - all(predicate: (T) -> Boolean)
 

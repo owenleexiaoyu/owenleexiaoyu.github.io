@@ -45,7 +45,7 @@ SEOTitle: 海树
 email: owenleexiaoyu@gmail.com
 description: "做一山花易，成为海树难。"
 keyword: "haishu,海树,owenlee,Blog"
-header-img: img/header_img/newhome_bg.jpg
+header-img: img/header_img/home_bg.jpg
 archives-img: img/header_img/archive_bg2.jpg
 
 
@@ -59,7 +59,7 @@ favicon: img/avatar/fish.png
 
 
 # Wave settings
-wave: false
+wave: true
 
 
 # SNS Settings
@@ -70,7 +70,7 @@ github_username: owenleexiaoyu
 # facebook_username:  yourAccount
 # linkedin_username:  yourAccount
 # zhihu_username: yourAccount
-weibo_username: 李大鱼呵呵哒
+# weibo_username: yourAccount
 
 
 # Sidebar Settings
@@ -316,8 +316,8 @@ viewer: true
 
 # ThemeColor config
 themecolor:
-  enable: true
-  mode: dark # themecolor mode light or dark, default light
+  enable: false
+  mode: light # themecolor mode light or dark, default light
 
 
 # 鼠标点击效果设置
