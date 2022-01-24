@@ -4,7 +4,6 @@ title: Android 网络编程系列（一）写在开始之前
 date: 2017-10-11 16:40:25
 tags: ["Android 网络编程"]
 categories: 技术
-subtitle: 系列文章的第一篇，写一些其他的。（内含 Android 网络编程学习资料）
 ---
 #### 前言
 这几天给自己制定了一个短期的学习目标，深入地学习一下Android网络编程的知识，希望能够由表及里，从最基本的HTTP协议理解，到Android中原生的WebView、HttpUrlConnection的使用，再到一些著名的网络网络框架比如Volley、OkHttp、Retrofit等的基础用法，最后达到从源码角度理解上述网络框架原理和精髓的层次。我不知道自己能够做到哪一步，反正走一步算一步，毕竟坚持就是胜利。

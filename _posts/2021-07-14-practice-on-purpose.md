@@ -4,7 +4,6 @@ title: 《刻意练习》如何从新手到大师
 tags: ["读书笔记"]
 categories: 想法
 date: 2021-07-14 12:00
-cover: https://source.unsplash.com/random/1600%C3%97900/?fruit
 ---
 
 ## 序言

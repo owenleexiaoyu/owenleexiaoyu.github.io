@@ -5,7 +5,6 @@ date: 2021-05-12 08:00
 tags: ["Git"]
 categories: 技术
 subtitle: 姗姗来迟的第二篇
-cover: https://images.unsplash.com/photo-1641480873260-11ffcbeaf581?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDE2fDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60
 ---
 
 哈哈，上一篇的 [Git 介绍](https://lixiaoyu.cc/2017/09/08/git-guide-1-introduction/) 已经是 2017 年写的了，现在都已经是 2021 年 5 月，才回过头来继续整理这个系列的笔记，我实在是太过咸鱼了。OK，闲话少叙，我们进入正题，这篇文章就来简单写写如何安装 Git。
