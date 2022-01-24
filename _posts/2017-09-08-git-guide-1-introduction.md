@@ -4,7 +4,7 @@ title: Git入门（一） Git介绍
 date: 2017-09-08 13:49
 tags: ["Git"]
 categories: 技术
-cover: http://image.wufazhuce.com/FkAGR6O4QGu8P2wdfDd1qLvhIdtU
+cover: https://s2.loli.net/2022/01/24/7sH4Gyb8whlWKv3.jpg
 subtitle: 迈进版本控制大门的第一步
 ---
 

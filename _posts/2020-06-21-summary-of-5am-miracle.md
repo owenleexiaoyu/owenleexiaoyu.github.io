@@ -4,7 +4,7 @@ title: 《早起的魔法》摘要
 date: 2020-06-21 21:30
 tags: ["学习"]
 categories: 想法
-cover: http://image.wufazhuce.com/Fu2h7rlCDJxVTx7xdfbue6yIFnBP
+cover: https://s2.loli.net/2022/01/24/5sDG8cdtAjSnXgw.jpg
 ---
 
 #### 前言

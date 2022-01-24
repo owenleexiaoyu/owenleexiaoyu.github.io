@@ -4,7 +4,7 @@ title: 杂想·关于企业开发的感受
 date: 2019-07-27 23:28
 categories: 想法
 tags: ["工作杂想"]
-cover: http://image.wufazhuce.com/FqFwSWkPW_ROeBygKUDYkAoXS1cC
+cover: https://s2.loli.net/2022/01/24/5t3BVnXIdawhrNK.jpg
 ---
 
 今天是工作的第二天，也迎来了在上海的第一场雨。早上醒来时就听到窗外有淅淅沥沥的雨声，等八点多起来的时候发现愈下愈大了，不由得发起愁来。

@@ -3,7 +3,7 @@ layout: post
 title: 利用 Blockly 实现游戏场景——小蝌蚪找妈妈
 tag: ["Blockly4Android"]
 categories: 技术
-cover: http://image.wufazhuce.com/Ft_ggmIhmzOzSV92PpWRy9yoSG-A
+cover: https://s2.loli.net/2022/01/24/QMcWyzV9GOHLa3l.jpg
 date: 2018-04-03 20:23
 author: 啸宇
 ---

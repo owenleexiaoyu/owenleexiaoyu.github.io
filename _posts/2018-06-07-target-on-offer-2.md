@@ -4,7 +4,7 @@ title: 剑指Offer系列（2）
 tags: ["剑指Offer", "算法"]
 categories: 笔试面试
 date: 2018-06-07 16:57:00
-cover: http://image.wufazhuce.com/Fs0VrR0of4GpJb1LGMIP7X7xQ0_G
+cover: https://s2.loli.net/2022/01/24/1xUz2EScj7AhkOZ.jpg
 ---
  
 ##### 7. 斐波那契数列

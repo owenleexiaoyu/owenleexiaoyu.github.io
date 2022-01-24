@@ -4,7 +4,7 @@ title: 剑指Offer系列（4）
 tags: ["剑指Offer","算法"]
 categories: 笔试面试
 date: 2018-06-10 19:56:00
-cover: http://image.wufazhuce.com/FnYP0tkaMwoXPJ7UkTG3yVwRRGlk
+cover: https://s2.loli.net/2022/01/24/rZKThVoi4S3AupI.jpg
 ---
 ##### 19. 顺时针打印矩阵 
 

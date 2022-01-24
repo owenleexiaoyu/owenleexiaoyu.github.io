@@ -4,7 +4,7 @@ title: Java EE 学习笔记（1）Java EE 简介与第一个 Web 应用程序
 tags: ["J2EE"]
 categories: 技术
 date: 2017-11-08 12:46
-cover: http://image.wufazhuce.com/FkAEl2uqhA4SKUWAwiPXfZa9kQ2g
+cover: https://s2.loli.net/2022/01/24/bYlI1sQxWjHJi9V.jpg
 ---
 ### Java EE 简介
 

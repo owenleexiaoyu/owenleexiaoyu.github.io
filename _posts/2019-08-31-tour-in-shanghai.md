@@ -4,7 +4,7 @@ title: 上海一日游
 date: 2019-08-31 22:00
 tags: ["千字文计划","随笔"]
 categories: 想法
-cover: http://image.wufazhuce.com/Fo73PeXzQM8V4mKTFI_GMqubGM3N
+cover: https://s2.loli.net/2022/01/24/skozYwv8E7n6HjD.jpg
 ---
 
 2019 年 8 月 31 日 多云

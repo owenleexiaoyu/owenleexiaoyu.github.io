@@ -4,7 +4,7 @@ title: 计算机网络面试（11）HTTP 与 HTTPS
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-09-04 19:07
-cover: http://image.wufazhuce.com/FsGJ_spuDJUCWTFVgXaGqaoEft73
+cover: https://s2.loli.net/2022/01/24/A1ZUbGBtXeTa7HJ.jpg
 ---
 
 这篇文章在「Android网络编程」专题中也写过了，还是偷懒贴一下那篇文章的地址吧。

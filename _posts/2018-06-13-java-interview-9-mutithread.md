@@ -4,7 +4,7 @@ title: Java 笔试面试（9）多线程
 tags: ["Java"]
 categories: 笔试面试
 date: 2018-06-13 20:45:00
-cover: http://image.wufazhuce.com/Ft7U7DhjVg4j2Q9cbRcZOw5wOdPn 
+cover: https://s2.loli.net/2022/01/24/kxlLf1H259gBquw.jpg
 ---
 
 ### Java 笔试面试（9）多线程

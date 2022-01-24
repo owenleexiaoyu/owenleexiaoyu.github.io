@@ -3,7 +3,7 @@ layout: post
 title: 长投学堂晨读（2）不一样的第一桶金
 tag: ["理财"]
 categories: 想法
-cover: http://image.wufazhuce.com/FsxHNIAHBRZ41QBB6uxP-g_oUo13
+cover: https://s2.loli.net/2022/01/24/AiLZS6a2zYrqQCu.jpg
 date: 2018-12-03 21:02
 ---
 

@@ -4,7 +4,7 @@ title: 京东校招面经
 tags: ["面经"]
 categories: 笔试面试
 date: 2018-09-20 19:00
-cover: http://image.wufazhuce.com/FnVIfxvN2Af2m4Qaw0L1QRo4u78J
+cover: https://s2.loli.net/2022/01/24/C5KjyA4qpcehud3.jpg
 ---
 京东的校招面试是我第一次参加大型的现场面试，不管是初试还是复试，场面都是非常壮观，幸好两次面试都没有太怯场。
 

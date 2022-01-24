@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（5）继承与接口
 date: 2019-09-03 21:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/Ftysoa87DRo7bDQJ5sYXQqqhvpm9
+cover: https://s2.loli.net/2022/01/24/VG1MB8fmlsHnIwU.jpg
 ---
 
 #### 前言

@@ -4,7 +4,7 @@ title: 学学设计模式（8）装饰者模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-20 21:34
-cover: http://image.wufazhuce.com/Ft23lIu-i6SOxrMcwnU2FJEOKQDb
+cover: https://s2.loli.net/2022/01/24/I8DRUSl2gN4u6EV.jpg
 ---
 
 一般有两种方式可以实现给一个类或对象增加行为：

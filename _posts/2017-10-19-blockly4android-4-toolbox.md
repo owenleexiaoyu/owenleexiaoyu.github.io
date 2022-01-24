@@ -4,7 +4,7 @@ title: Blockly4Android 开发指南（4）工具箱
 date: 2017-10-19 22:26
 tag: ["Blockly4Android"]
 categories: 译文
-cover: http://image.wufazhuce.com/FnXUInbqgzohGsWF32O6KjTUBsW8
+cover: https://s2.loli.net/2022/01/24/SnedkTaZ3U5GC81.jpg
 subtitle: Blockly 官方文档中的 Toolbox
 ---
 ### 申明

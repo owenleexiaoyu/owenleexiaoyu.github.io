@@ -4,7 +4,6 @@ title: 学学设计模式（7）适配器模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-20 20:34
-cover: http://image.wufazhuce.com/FnPyUIutVWLtBQ_as2AGbH362HIf
 ---
 
 #### 结构型设计模式

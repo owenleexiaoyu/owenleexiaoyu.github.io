@@ -4,7 +4,7 @@ title: 和勇昊聚
 tags: ["随笔"]
 categories: 想法
 date: 2018-11-09 18:08
-cover: http://image.wufazhuce.com/Fg0hTCAPWPAoltY10cGWuAiFb_UR
+cover: https://s2.loli.net/2022/01/24/7nVfSTlvU9wAL41.jpg
 ---
 
 2018年11月4日 雨 北京

@@ -4,7 +4,7 @@ title: 学学设计模式（4）工厂方法模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-06 18:34
-cover: http://image.wufazhuce.com/Ft21X4fpJLboxmDtNsQj-DMcP_Sz
+cover: https://s2.loli.net/2022/01/24/muHgoiqjNBRW5K2.jpg
 ---
 
 #### 概念

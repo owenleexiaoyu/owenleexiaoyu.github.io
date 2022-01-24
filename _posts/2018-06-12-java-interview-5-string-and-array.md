@@ -4,7 +4,7 @@ title: Java 笔试面试（5）字符串与数组
 tags: ["Java"]
 categories: 笔试面试
 date: 2018-06-12 19:28:00
-cover: http://image.wufazhuce.com/FiLQswZdFss6oWiwwOVCOAMFG_d_
+cover: https://s2.loli.net/2022/01/24/VlWZH3cQMwLOpet.jpg
 ---
 
 ### Java 笔试面试（5）字符串与数组

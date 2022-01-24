@@ -3,7 +3,7 @@ layout: post
 title: 长投学堂晨读（1）人生是场长跑
 tag: ["理财"]
 categories: 想法
-cover: http://image.wufazhuce.com/FiflSpRA9JJqSqOThcD6U3DM94zZ
+cover: https://s2.loli.net/2022/01/24/MiGubthyE5C2F6f.jpg
 date: 2018-12-03 21:01
 ---
 

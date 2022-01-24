@@ -4,7 +4,6 @@ title: Python 学习系列（一） Python 启程
 date: 2017-09-08 13:51
 tags: ["Python"]
 categories: 技术
-cover: http://image.wufazhuce.com/FtCjSX944FE3I62c-sR0UwkfRcOw
 subtitle: 人生苦短，我用 Python
 ---
 > 写在最前：我为什么要学习 Python？

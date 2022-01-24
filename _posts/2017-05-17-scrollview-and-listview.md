@@ -4,7 +4,7 @@ title: ScrollView与ListView滚动冲突事件解决
 subtitle: 解决方法转载自他人博客
 date: 2017-05-17 23:20
 categories: 技术
-cover: http://image.wufazhuce.com/FnIWBJ64nrtBgfTRgMFgIZguVvWw
+cover: https://s2.loli.net/2022/01/24/SdEArQg5VCiKsZl.jpg
 tag: ["Android"]
 ---
 在写项目时，有这样一个需求是Scrollview中嵌套一个ListView，使得ListView不可滚动，只进行item点击事件的处理，但是发现单纯的控件嵌套是无法实现预期效果的，ListView的高度会变得只有一个item的高度大小，为了解决这个问题，在网上找到一篇博客，介绍了解决方法。本人能力有限，只能将该方法复制过来，为之后类似的情况做个备份。

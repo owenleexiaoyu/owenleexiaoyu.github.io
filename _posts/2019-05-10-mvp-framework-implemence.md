@@ -4,7 +4,7 @@ title: 实现一个 MVP 框架
 tags: ["Android"]
 categories: 技术
 date: 2019-05-10 21:00
-cover: http://image.wufazhuce.com/FmIMiZkb91qepjnqAKyekOe_ZXOi
+cover: https://s2.loli.net/2022/01/24/B6FOrdCYXtSHgue.jpg
 ---
 
 #### 前言

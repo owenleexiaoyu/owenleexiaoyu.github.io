@@ -4,7 +4,7 @@ title: BottomNavigationView 用法：实现底部导航栏
 tags: ["Android"]
 categores: 技术
 date: 2018-08-30 22:07
-cover: http://image.wufazhuce.com/FgfqsDTUlunbenRoMgQAjw0UDDx8
+cover: https://s2.loli.net/2022/01/24/xVlza1BjfwtZENo.jpg
 ---
 
 #### 前言

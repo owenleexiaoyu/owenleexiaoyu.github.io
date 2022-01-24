@@ -4,7 +4,6 @@ title: 从现在到毕业的 11 项学习任务
 tags: ["计划"]
 categories: 想法
 date: 2017-11-21 13:13
-cover: http://image.wufazhuce.com/Fk92DcSvYQkS8-p7URAV-mvShbgN
 ---
 #### 1. Blockly 项目学习和开发
 

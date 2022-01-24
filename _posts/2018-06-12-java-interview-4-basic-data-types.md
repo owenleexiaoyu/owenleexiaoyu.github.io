@@ -4,7 +4,6 @@ title: Java 笔试面试（4）基本数据类型与运算
 tags: ["Java"]
 categories: 笔试面试
 date: 2018-06-12 17:23:00
-cover: http://image.wufazhuce.com/FjOMdD_CvegIc0l5DNzFaVN3d8Vj
 ---
 
 #### 1. Java基本数据类型

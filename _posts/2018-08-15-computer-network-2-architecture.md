@@ -4,7 +4,7 @@ title: 计算机网络面试（2）计算机网络体系结构
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-08-15 22:07
-cover: http://image.wufazhuce.com/FhhYAe88vaXZjUO9Kaltjj1l9I1N
+cover: https://s2.loli.net/2022/01/24/tibKVDgWMGcun7L.jpg
 ---
 
 #### 前言

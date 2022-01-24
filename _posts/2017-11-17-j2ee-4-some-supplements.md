@@ -4,7 +4,7 @@ title: Java EE 学习笔记（4）关于 Servlet 的一些补充
 tags: ["J2EE"]
 categories: 技术
 date: 2017-11-17 15:30
-cover: http://image.wufazhuce.com/FoBEubfSGAroMoMdI_jx0nH0gh7y
+cover: https://s2.loli.net/2022/01/24/aprH6cdhVnTRXmI.jpg
 ---
 这篇笔记中，针对之前笔记中出现的一些类和接口，以及这些类的相关方法，做一个补充。涉及的类有 HttpServletRequest、HttpservletResponse、ServletConfig、ServletContext。
 

@@ -4,7 +4,7 @@ title: SpannableStringBuilder 的使用
 date: 2019-10-15 12:00
 categories: 技术
 tags: ["Android"]
-cover: http://image.wufazhuce.com/FmD7ikmfvGysRZ-P66hxqdbL3B7B
+cover: https://s2.loli.net/2022/01/24/iUrnDFseHqEzO2v.jpg
 ---
 
 #### 前言

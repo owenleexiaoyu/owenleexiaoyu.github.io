@@ -4,7 +4,7 @@ title: 记两件小事
 date: 2017-10-22 22:44
 tag: ["随笔"]
 categories: 想法
-cover: http://image.wufazhuce.com/FiBzmwDotMhGiJjSuqi1Lg5h_Zjm
+cover: https://s2.loli.net/2022/01/24/PsQyltVOSq7NaGk.jpg
 ---
 ### 一些碎碎念
 

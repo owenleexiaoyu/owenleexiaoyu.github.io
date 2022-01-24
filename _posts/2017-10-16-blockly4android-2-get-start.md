@@ -4,7 +4,6 @@ title: Blockly4Android 开发指南（2）开始使用 Blockly
 date: 2017-10-16 21:20
 tag: ["Blockly4Android"]
 categories: 译文
-cover: http://image.wufazhuce.com/FrkK_wENKb7emv-OTFGkNN0TVbYf
 subtitle: 翻译的 Google Blockly 官方文档第二篇
 ---
 ### 申明

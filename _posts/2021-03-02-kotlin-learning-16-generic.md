@@ -4,7 +4,6 @@ title: Kotlin 修炼手册（16）泛型
 tags: ["Kotlin"]
 categories: 技术
 date: 2021-03-02 10:00
-cover:
 ---
 
 这篇文章来写一下 Kotlin 中的泛型。

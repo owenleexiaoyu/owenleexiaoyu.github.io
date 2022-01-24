@@ -5,7 +5,7 @@ date: 2017-05-06 16:40:25
 subtitle: 学习设计模式就不能不先学习UML类图
 tag: ["Java","设计模式"]
 categories: 技术
-cover: http://image.wufazhuce.com/FpnzwJGT2hmWbX_vqnLLNUKJXjr8
+cover: https://s2.loli.net/2022/01/24/ulmW4EvXCgH5nkq.jpg
 author: 啸宇
 ---
 

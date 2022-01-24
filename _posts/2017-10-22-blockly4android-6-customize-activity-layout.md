@@ -4,7 +4,6 @@ title: Blockly4Android 开发指南（6）自定义 Activity 布局
 date: 2017-10-22 22:40
 tag: ["Blockly4Android"]
 categories: 译文
-cover: http://image.wufazhuce.com/FhiVdSeYEo8Pu7yS2Gu-GwnaKkvR
 ---
 ### 申明
 

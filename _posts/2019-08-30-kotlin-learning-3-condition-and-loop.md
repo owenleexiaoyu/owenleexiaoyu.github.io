@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（3）分支、循环、关键字
 date: 2019-08-30 16:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/Fihwff2hBN2dbFs52li2KFIojrwz
+cover: https://s2.loli.net/2022/01/24/k6Ymf5qQ2LMX34H.jpg
 ---
 
 #### 前言

@@ -4,7 +4,7 @@ title: 计算机网络面试（7）TCP 三次握手与四次挥手
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-08-30 16:07
-cover: http://image.wufazhuce.com/FkLM1eJH209S21sA5iMJ8fkc_0gP
+cover: https://s2.loli.net/2022/01/24/TSDMHphLjJa7tku.jpg
 ---
 
 #### 三次握手

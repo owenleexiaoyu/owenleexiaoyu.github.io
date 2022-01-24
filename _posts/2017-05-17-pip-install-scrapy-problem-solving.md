@@ -4,7 +4,7 @@ title: pip install scrapy报错解决
 subtitle: 「error：Unable to find vcvarsall.bat」的解决方法
 date: 2017-05-17 23:11
 categories: 技术
-cover: http://image.wufazhuce.com/FotCjChgljMwJkIau9A3LBhoBiyC
+cover: https://s2.loli.net/2022/01/24/EyliNzZnpOT29ut.jpg
 tag: ["Python"]
 ---
 今天在使用pip install scrapy 命令安装Scrapy爬虫框架时，出现了很让人头疼的错误，错误截图如下：

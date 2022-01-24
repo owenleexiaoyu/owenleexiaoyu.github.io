@@ -3,7 +3,7 @@ layout: post
 title: 拆读《一个普通人怎样早早赚到 100 万，每个人都可以》
 tag: ["理财"]
 categories: 想法
-cover: http://image.wufazhuce.com/Fn0UFWgsCZceM_Qz_vcLvypf8JVt
+cover: https://s2.loli.net/2022/01/24/aoefUh7lYFgzuKT.jpg
 date: 2018-12-03 21:04
 ---
 

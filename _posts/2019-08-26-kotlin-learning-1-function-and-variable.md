@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（1）函数和变量
 date: 2019-08-26 16:51
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/FiuNI4y--xwM2DGhJFArH7ajxwCe
+cover: https://s2.loli.net/2022/01/24/ZNOPH6z3QK8XeDb.jpg
 ---
 
 #### 前言

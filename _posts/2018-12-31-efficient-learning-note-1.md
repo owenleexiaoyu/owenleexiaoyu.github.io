@@ -4,7 +4,7 @@ title: 论高效学习方法
 tags: ["随笔"]
 categories: 想法
 date: 2018-12-31 21:00
-cover: http://image.wufazhuce.com/Fj9AQkobMGMs7QEBqBoqs_OTWb61
+cover: https://s2.loli.net/2022/01/24/QjyCdxghoA3cH1s.jpg
 ---
 
 

@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（4）类与对象
 date: 2019-09-02 19:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/FiZQAehJYmoY4A9ekDTPG17yI6zK
+cover: https://s2.loli.net/2022/01/24/v7p8ZrGhoELSMFe.jpg
 ---
 
 #### 前言

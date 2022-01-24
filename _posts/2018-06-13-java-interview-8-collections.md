@@ -4,7 +4,7 @@ title: Java 笔试面试（8）容器
 tags: ["Java"]
 categories: 笔试面试
 date: 2018-06-13 15:25:00
-cover: http://image.wufazhuce.com/Fi8XSRZCdEi-67YEpZAPF0KRsr6X
+cover: https://s2.loli.net/2022/01/24/wfcymGb8U63uFoY.jpg
 ---
 
 ### Java 笔试面试（8）容器

@@ -4,7 +4,6 @@ title: 计算机网络面试（8）TCP 可靠传输
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-09-04 16:07
-cover: http://image.wufazhuce.com/FqemoTo8l2qIV25XjhgBkT0R0HLw
 ---
 
 TCP 协议使用如下几种机制来保证可靠传输。

@@ -4,7 +4,7 @@ title: 140 款 Android 开源优秀项目源码
 tags: ["Android"]
 categories: 技术
 date: 2018-08-30 19:07
-cover: http://image.wufazhuce.com/FrVnC4yjwexE6iKmsH2QBmWwCgop
+cover: https://s2.loli.net/2022/01/24/mKTIXWA5p89owJN.jpg
 ---
 
 BeautifulRefreshLayout-漂亮的美食下拉刷新

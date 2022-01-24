@@ -4,7 +4,6 @@ title: 学学设计模式（6）建造者模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-20 19:34
-cover: http://image.wufazhuce.com/FpExIypm6ZcwSpZMv3RrPitIHHSI
 ---
 
 #### 背景

@@ -4,7 +4,7 @@ title: 我的职业成长规划
 date: 2019-07-28 22:24:34
 tags: ["随笔"]
 categories: 想法
-cover: http://image.wufazhuce.com/Flh6ci5MAWRkPI7RIfD8RBYefPh4
+cover: https://s2.loli.net/2022/01/24/wZ9ynT3jtsWcxG5.jpg
 ---
 
 这篇文章本来是公司里我的组长让我们新人写的一个职业规划，一开始写的比较粗糙概括，现在把它补充一下，也是对自己的一个计划。

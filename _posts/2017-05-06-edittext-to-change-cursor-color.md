@@ -4,7 +4,7 @@ title: EditText修改光标颜色
 date: 2017-05-06 16:40:25
 tags: ["Android"]
 categories: 技术
-cover: http://image.wufazhuce.com/FuIWuuh082Xm5_i0LdwJiD3zZC2Y
+cover: https://s2.loli.net/2022/01/24/wiXcECnfZ36sNjM.jpg
 subtitle: 实现Android中EditText光标颜色的自定义
 ---
 自定义EditText的光标颜色，需要在EditText的XML代码中加入如下一条属性：

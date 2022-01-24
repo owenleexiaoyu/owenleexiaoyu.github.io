@@ -4,7 +4,7 @@ title: 杂想·入职
 date: 2019-07-27 23:18
 categories: 想法
 tags: ["工作杂想"]
-cover: http://image.wufazhuce.com/FomGT9TqD22AaQGy0uQm7hceV2Sw
+cover: https://s2.loli.net/2022/01/24/f6jkKsinRx78blG.jpg
 ---
 
 入职日。

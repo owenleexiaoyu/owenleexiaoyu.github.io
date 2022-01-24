@@ -4,7 +4,7 @@ title: 学学设计模式（1）设计模式概述与原则
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-06 15:34
-cover: http://image.wufazhuce.com/Fp7-ERidzYhKu1RLG6hbB_DoPVVt
+cover: https://s2.loli.net/2022/01/24/OVav51Fls97rJpB.jpg
 ---
 
 #### 概述

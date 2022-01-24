@@ -4,7 +4,6 @@ title: Java 笔试面试（2）面向对象
 tags: ["Java"]
 categories: 笔试面试
 date: 2018-06-11 23:23:00
-cover: http://image.wufazhuce.com/FlrbgZBTmUlzeigMz8DXIsWN2MXf
 ---
 
 #### 1. 面向对象与面向过程的区别

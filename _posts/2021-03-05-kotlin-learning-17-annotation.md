@@ -4,7 +4,6 @@ title: Kotlin 修炼手册（17）注解
 date: 2021-03-05 12:00
 tags: ["Kotlin"]
 categories: 技术
-cover:
 ---
 
 ## 章节大纲

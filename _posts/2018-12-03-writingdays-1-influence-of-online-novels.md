@@ -4,7 +4,7 @@ title: 网文于我的影响
 tag: ["随笔","千字文计划"]
 categories: 想法
 date: 2018-12-03 21:21
-cover: http://image.wufazhuce.com/FqkY_ky66wQAO2utnxDZW4oXALW1
+cover: https://s2.loli.net/2022/01/24/qPSagZxOGknR3h1.jpg
 ---
 
 2018年12月3日 雨 大连

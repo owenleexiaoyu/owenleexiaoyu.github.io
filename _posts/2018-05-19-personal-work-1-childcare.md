@@ -4,7 +4,7 @@ title: 作品展示——儿童监护App
 tags: ["作品集"]
 categories: 想法
 date: 2018-05-19
-cover: http://image.wufazhuce.com/FqtYL4ML2j8FmGfOPoKhQp6Lgoa5
+cover: https://s2.loli.net/2022/01/24/s7lSKNkAVUwHiWx.jpg
 ---
 #### 项目名称
 

@@ -4,7 +4,7 @@ title: 计算机网络面试（6）TCP 首部
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-08-30 15:07
-cover: http://image.wufazhuce.com/FtT0TpGXAnUQO_-M5mF4J2lrFda8
+cover: https://s2.loli.net/2022/01/24/YytSaMEqh2fR91W.jpg
 ---
 
 TCP 的全部功能都体现在它首部中各字段的作用，因此，只有弄清TCP首部各字段的作用才能掌握 TCP 的工作原理。

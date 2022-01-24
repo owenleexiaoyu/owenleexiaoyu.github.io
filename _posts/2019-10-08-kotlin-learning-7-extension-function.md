@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（7）Kotlin的扩展
 date: 2019-10-08 21:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/FuvZooY9ju4EBqPEzS0q7SCq0JPt
+cover: https://s2.loli.net/2022/01/24/GijbxKIQNkRTH4z.jpg
 ---
 
 

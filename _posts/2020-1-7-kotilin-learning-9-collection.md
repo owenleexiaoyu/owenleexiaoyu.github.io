@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（9）集合
 date: 2020-1-7 12:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/Fp9GB2xdIXBbasqQvrSy6v1zOMCx
+cover: https://s2.loli.net/2022/01/24/T2jDz5Oim1SIwKZ.jpg
 ---
 
 ## 概述

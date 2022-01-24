@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（11）内联函数
 date: 2020-07-11 12:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/FtUNGXSiH-QMJI67gApJTELQOxZa
+cover: https://s2.loli.net/2022/01/24/w9JcKhZ2Ieazviu.jpg
 ---
 
 想理解内联函数这个概念，需要先了解下 Kotlin 高阶函数的实现原理。

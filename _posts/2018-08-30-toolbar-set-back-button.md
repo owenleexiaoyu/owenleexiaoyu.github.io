@@ -4,7 +4,7 @@ title: Toolbar设置返回按钮
 tags: ["Android"]
 categores: 技术
 date: 2018-08-30 21:07
-cover: http://image.wufazhuce.com/FmzXd1BqHxapZZz23OX4vicMXj2z
+cover: https://s2.loli.net/2022/01/24/HZq2AI6knu4NYRd.jpg
 ---
 
 #### 1. 使用系统自带的返回按钮样式

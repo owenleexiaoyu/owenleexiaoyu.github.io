@@ -4,7 +4,6 @@ title: 计算机网络面试（4）UDP 协议
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-08-30 13:07
-cover: http://image.wufazhuce.com/FlgLQDp--BARTUqmnxVRoLPBWIbQ
 ---
 #### UDP 概述
 

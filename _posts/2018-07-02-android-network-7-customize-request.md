@@ -4,7 +4,6 @@ title: Android 网络编程系列（七）Volley 自定义 Request
 tags: ["Android 网络编程"]
 categories: 技术
 date: 2018-07-02 20:31:00
-cover: http://image.wufazhuce.com/Fmm7NQEJJHG0W-3cVhAgTL5LjEpg
 ---
 
 上篇文章介绍了Volley框架的基本用法，包括StringRequest、JsonRequest、ImageRequest、ImageLoader等用法。这篇文章我们自己实现自定义Request，以适用于多样化的场景。

@@ -4,7 +4,7 @@ title: Java 笔试面试（3）关键字
 tags: ["Java"]
 categories: 笔试面试
 date: 2018-06-12 15:44:00
-cover: http://image.wufazhuce.com/FhqXuQ0uP8FqDpSB1x5NRP4J3kgi
+cover: https://s2.loli.net/2022/01/24/qtHS6jnYoNrXk8B.jpg
 ---
 
 #### 1. final、finally、finalize

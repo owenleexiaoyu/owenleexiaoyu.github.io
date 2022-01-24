@@ -4,7 +4,7 @@ title: 学学设计模式（3）简单工厂模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-06 17:34
-cover: http://image.wufazhuce.com/FpCqYzpbJ3_XHoZ4d6bwPu7qwOka
+cover: https://s2.loli.net/2022/01/24/rdexQzvZqLhRWVK.jpg
 ---
 
 #### 定义

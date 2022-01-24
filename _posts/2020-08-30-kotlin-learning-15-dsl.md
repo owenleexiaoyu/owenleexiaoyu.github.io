@@ -4,7 +4,6 @@ title: Kotlin 修炼手册（15）DSL
 date: 2020-08-30 14:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/FrAXDUDuxkcmKWiX3Fc8w0PZYeVg
 ---
 
 这篇文章来学习一下 Kotlin 中 DSL 的用法，包含以下几部分的内容：

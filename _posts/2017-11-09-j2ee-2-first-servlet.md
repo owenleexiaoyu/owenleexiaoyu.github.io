@@ -4,7 +4,7 @@ title: Java EE 学习笔记（2）第一个 Servlet 程序及 Web 应用部署
 tags: ["J2EE"]
 categories: 技术
 date: 2017-11-09 17:15
-cover: http://image.wufazhuce.com/FnnEhHOnpYCgOb4bIWpn0fK3p7j_
+cover: https://s2.loli.net/2022/01/24/Umyub2cOXxfBQWr.jpg
 ---
 ### 前言
 

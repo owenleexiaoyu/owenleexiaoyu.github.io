@@ -3,7 +3,7 @@ layout: post
 date: 2017-10-22 12:10
 tag: ["Android"]
 categories: 技术
-cover: http://image.wufazhuce.com/FqCW8TpOXYXPPWbSvx9185vjf34Y
+cover: https://s2.loli.net/2022/01/24/p5rjVWfNbAZzKiQ.jpg
 ---
 ### 前言
 

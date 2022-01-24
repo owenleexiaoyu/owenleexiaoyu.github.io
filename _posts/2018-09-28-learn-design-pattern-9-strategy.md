@@ -4,7 +4,7 @@ title: 学学设计模式（9）策略模式
 tags: ["Java","设计模式"]
 categories: 技术
 date: 2018-09-28 13:13
-cover: http://image.wufazhuce.com/Fn5jsFYaxaZIlEdB3yG8vl5RyGUs
+cover: https://s2.loli.net/2022/01/24/c1QxA2Nnz6WuPGC.jpg
 ---
 
 ##### 定义

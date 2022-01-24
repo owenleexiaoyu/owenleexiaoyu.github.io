@@ -4,7 +4,7 @@ title: 《跟钱钱学理财》读书笔记（1）
 tags: ["理财"]
 categories: 想法
 date: 2018-11-14 15:25
-cover: http://image.wufazhuce.com/FvSBslfhMZ6RXsbVMlgI2OkcNsJu
+cover: https://s2.loli.net/2022/01/24/aKf5howSiqZpgGd.jpg
 ---
 
 **1. 正确看待金钱的重要性**

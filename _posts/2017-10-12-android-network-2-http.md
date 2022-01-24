@@ -4,7 +4,7 @@ title: Android 网络编程系列（二）了解HTTP协议
 date: 2017-10-12 22:00
 tag: ["Android 网络编程"]
 categories: 技术
-cover: http://image.wufazhuce.com/FsdqCMb99EkDE180xAm0preKOKRl
+cover: https://s2.loli.net/2022/01/24/2IqPXAT3JiwGFN6.png
 subtitle: 作为一个开发者，不知道 HTTP 怎么行？
 ---
 #### 前言

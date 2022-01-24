@@ -4,7 +4,6 @@ title: Android 网络编程系列（四）WebView 详解
 date: 2017-10-19 17:36
 tag: ["Android 网络编程"]
 categories: 技术
-cover: http://image.wufazhuce.com/FlDFgAFVicIwfqO4cCeQFPB5LLSd
 subtitle: 关于 WebView 的 7 点补充知识。
 ---
 ### 前言

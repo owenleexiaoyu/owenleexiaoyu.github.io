@@ -4,7 +4,6 @@ title: Android 网络编程系列（六）Volley 网络框架入门
 date: 2017-10-25 22:46
 tag: ["Android 网络编程"]
 categories: 技术
-cover: https://i.loli.net/2019/08/29/L6nGkoHU2IheMsp.jpg
 ---
 
 ### 前言

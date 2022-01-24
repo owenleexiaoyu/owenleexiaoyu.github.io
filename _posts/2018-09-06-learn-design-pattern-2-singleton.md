@@ -4,7 +4,6 @@ title: 学学设计模式（2）单例模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-06 16:34
-cover: http://image.wufazhuce.com/FmOcq228kcWn_FARwr0qxsI4oxl0
 ---
 
 #### 前言

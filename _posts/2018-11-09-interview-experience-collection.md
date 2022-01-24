@@ -4,7 +4,7 @@ title: 秋招面试题汇总
 tags: ["面经"]
 categories: 笔试面试
 date: 2018-11-09 23:23
-cover: http://image.wufazhuce.com/Fi4MSwyXsv34xgLDYmIWfBl7m_BY
+cover: https://s2.loli.net/2022/01/24/cJUtzZaMmkwXErQ.jpg
 ---
 
 ### Bilibili（获得Offer）

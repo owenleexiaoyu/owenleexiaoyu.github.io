@@ -4,7 +4,7 @@ title: Blockly4Android 开发指南（7）自定义块概述
 date: 2017-10-23 22:59
 tag: ["Blockly4Android"]
 categories: 译文
-cover: http://image.wufazhuce.com/Fj06el5x-lNvctTaQp_DT8mDd715
+cover: https://s2.loli.net/2022/01/24/7VY6OvASDmIRcaH.jpg
 ---
 ### 申明
 

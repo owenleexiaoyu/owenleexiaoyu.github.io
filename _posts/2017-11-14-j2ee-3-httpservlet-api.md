@@ -4,7 +4,6 @@ title: Java EE 学习笔记（3）HttpServlet 详解
 date: 2017-11-14 22:34
 tags: ["J2EE"]
 categories: 技术
-cover: http://image.wufazhuce.com/FjMv0htbAPqGuWlRvSA8LQLH2BNa
 ---
 ### HttpServlet API 介绍
 

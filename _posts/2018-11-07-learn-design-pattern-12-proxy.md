@@ -4,7 +4,6 @@ title: 学学设计模式（12）代理模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-11-07 16:34
-cover: http://image.wufazhuce.com/FsLub7xi_thN-3hdPp_9by3IzUc1
 ---
 
 #### 动机

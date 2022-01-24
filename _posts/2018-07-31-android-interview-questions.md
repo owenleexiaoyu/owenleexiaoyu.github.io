@@ -4,7 +4,7 @@ title: Android 实习面经分享
 tags: ["Android", "面经"]
 categories: 笔试面试
 date: 2018-07-31 23:57
-cover: http://image.wufazhuce.com/FtNJ5eJxA_5AQMmfKsV14EtRWazv
+cover: https://s2.loli.net/2022/01/24/gsTwJ2Npqkl8jyM.jpg
 ---
  
 ### 前言

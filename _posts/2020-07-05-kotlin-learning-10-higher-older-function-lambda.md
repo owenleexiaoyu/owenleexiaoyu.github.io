@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（10）高阶函数与 Lambda
 date: 2020-07-05 20:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/Fvm_coCCgU-7FG8RmdtFA8qN3L0z
+cover: https://s2.loli.net/2022/01/24/sAWDn92G6mBHM3i.jpg
 ---
 
 这篇文章来介绍一下函数的进阶知识。

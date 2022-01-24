@@ -4,7 +4,6 @@ title: Android 网络编程系列（五）使用 HttpUrlConnection
 tag: ["Android 网络编程"]
 date: 2017-10-21 19:22
 categories: 技术
-cover: http://image.wufazhuce.com/FqcoLETqyqG2MdZ7gtryKosMGUve
 subtitle: 学习一下 Android 原生的网络访问方式。
 ---
 ### 前言

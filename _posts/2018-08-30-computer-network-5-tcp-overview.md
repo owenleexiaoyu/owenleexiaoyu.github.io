@@ -4,7 +4,7 @@ title: 计算机网络面试（5）TCP 协议概述
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-08-30 14:07
-cover: http://image.wufazhuce.com/FsnY4rvyNlS1N9B1T-yZzjFgk2Ax
+cover: https://s2.loli.net/2022/01/24/3NEvGr8ewYpM9mg.jpg
 ---
 #### TCP 的特点
 

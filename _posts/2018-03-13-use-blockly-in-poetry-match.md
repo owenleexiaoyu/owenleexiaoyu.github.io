@@ -4,7 +4,7 @@ title: 利用 Blockly 实现诗歌匹配场景
 tag: ["Blockly4Android"]
 categories: 技术
 date: 2018-03-13 17:37
-cover: http://image.wufazhuce.com/FqIXhl149Pj1AftgRFBOxiC2MXwz
+cover: https://s2.loli.net/2022/01/24/mHZwvLjDrBFhcaX.jpg
 ---
 
 ### 前言

@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（13）作用域函数
 date: 2020-07-24 18:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/FuxK9V4l-tzRH9yl9xp547U7g0-r
+cover: https://s2.loli.net/2022/01/24/5ry3FnVveMxjCwN.jpg
 ---
 
 这篇文章来介绍下 Kotlin 标准库中提供的作用域函数。它们的唯一目的是 **在对象的上下文中执行代码块**。当对一个对象调用这样的函数并提供一个 Lambda 表达式时，会形成一个临时作用域。在这个作用域中，可以不用通过对象名来访问该对象。共有以下五种：

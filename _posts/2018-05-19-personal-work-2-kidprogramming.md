@@ -4,7 +4,6 @@ title: 作品展示——Blockly儿童编程平台
 tags: ["作品集"]
 categories: 想法
 date: 2018-05-19
-cover: http://image.wufazhuce.com/FpM8s5kk5nPtNsai4VRwcuUtXyuf
 ---
 
 #### 项目名称

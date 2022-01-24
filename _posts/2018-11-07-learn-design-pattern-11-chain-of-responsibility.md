@@ -4,7 +4,6 @@ title: 学学设计模式（11）责任链模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-11-07 10:34
-cover: http://image.wufazhuce.com/Ftf0AvnBWr7WLk8oPUW-H7zBEZUf
 ---
 
 #### 定义

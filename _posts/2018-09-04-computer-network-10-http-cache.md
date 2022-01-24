@@ -4,7 +4,6 @@ title: 计算机网络面试（10）HTTP 的缓存机制
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-09-04 18:07
-cover: http://image.wufazhuce.com/FpB-vsUhfH6JMr42Uow5gRuQIJFw
 ---
 
 > 本文部分内容来自：

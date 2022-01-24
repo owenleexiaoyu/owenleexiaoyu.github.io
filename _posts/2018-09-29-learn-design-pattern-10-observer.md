@@ -4,7 +4,7 @@ title: 学学设计模式（10）观察者模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-29 10:34
-cover: http://image.wufazhuce.com/Fq_4KtiyRhwSRlRujDu9P2I1JZrJ
+cover: https://s2.loli.net/2022/01/24/tTJb5fMG7W3VKqj.jpg
 ---
 
 #### 动机

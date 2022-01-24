@@ -4,7 +4,7 @@ title: 计算机网络面试（12）HTTP 各版本差异
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-09-04 20:07
-cover: http://image.wufazhuce.com/Fo-FAjLEe5JXxxxjYQiWX33X-lA1
+cover: https://s2.loli.net/2022/01/24/KHdsLauUFz3kAIT.jpg
 ---
 
 #### 前言

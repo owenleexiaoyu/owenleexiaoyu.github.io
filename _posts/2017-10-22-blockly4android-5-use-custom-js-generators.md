@@ -4,7 +4,7 @@ title: Blockly4Android 开发指南（5）使用自定义 JavaScript 生成器
 date: 2017-10-22 12:45
 tag: ["Blockly4Android"]
 categories: 译文
-cover: http://image.wufazhuce.com/FprUVlnmAbwkEPOgYnufP2AsYXyP
+cover: https://s2.loli.net/2022/01/24/Dg7PO3U2BvXiWVa.jpg
 ---
 ### 申明
 

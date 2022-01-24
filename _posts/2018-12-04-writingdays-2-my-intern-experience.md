@@ -4,7 +4,7 @@ title: 我的实习
 date: 2018-12-04 10:00
 tags: ["千字文计划", "随笔"]
 categories: 想法
-cover: http://image.wufazhuce.com/Fj32flE0krQRj2xBpRTw8JHFyg2O
+cover: https://s2.loli.net/2022/01/24/M27dYUbtjV5yoGF.jpg
 ---
 
 2018 年 12 月 4 日 晴 大连

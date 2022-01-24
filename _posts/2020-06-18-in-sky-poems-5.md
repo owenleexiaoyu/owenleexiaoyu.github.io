@@ -4,7 +4,7 @@ title: 云间诗集（五）词三首
 date: 2020-06-18 02:37:50
 tags: ["诗歌"]
 categories: 想法
-cover: http://image.wufazhuce.com/FgN81kjd4wYcBFWcpsvjdmnNRKKr
+cover: https://s2.loli.net/2022/01/24/8LbEdGspJtflx6r.jpg
 ---
 
 题记：应从鲲鹏云间跃，莫因风雨却。

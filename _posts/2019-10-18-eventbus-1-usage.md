@@ -4,7 +4,7 @@ title: EventBus 的使用
 date: 2019-10-18 12:00
 tags: ["Android"]
 categories: 技术
-cover: http://image.wufazhuce.com/FordKXIwo_85nVFcvOn3TC8oZXXH
+cover: https://s2.loli.net/2022/01/24/WOywCo3nfJHgmjb.jpg
 ---
 
 #### 前言

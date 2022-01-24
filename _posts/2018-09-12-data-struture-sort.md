@@ -4,7 +4,7 @@ title: 数据结构与算法——用 Java 实现排序算法
 categories: 笔试面试
 tags: ["数据结构与算法"]
 date: 2018-09-12 21:06
-cover: http://image.wufazhuce.com/FlqR0LW7KiHs618Adnikw6XZQaXw
+cover: https://s2.loli.net/2022/01/24/tO3vjdk7AJSMfzl.jpg
 ---
 
 #### 1. 直接插入排序

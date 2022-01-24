@@ -4,7 +4,7 @@ title: 杂想·坐立不安，这几天摸鱼的感受
 date: 2019-08-29 00:20
 tags: ["工作杂想"]
 categories: 想法
-cover: http://image.wufazhuce.com/Fjflzycq9MpEMOd-ROiNHDNz2hQy
+cover: https://s2.loli.net/2022/01/24/FVAgmLElTWf1r7i.jpg
 ---
 
 #### 背景

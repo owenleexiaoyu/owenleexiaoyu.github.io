@@ -3,7 +3,7 @@ layout: post
 title: 长投晚间分享：选股票就像选对象
 tag: ["理财"]
 categories: 想法
-cover: http://image.wufazhuce.com/FkTj2FaQWLPgNC4HGbgZ_AUKlvA2
+cover: https://s2.loli.net/2022/01/24/FUNQa2lHAhrZ157.jpg
 date: 2018-12-03 21:00
 ---
 

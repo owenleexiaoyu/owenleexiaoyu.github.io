@@ -4,7 +4,7 @@ title: ViewStub 使用与布局优化技巧
 date: 2019-10-15 20:00
 categories: 技术
 tags: ["Android"]
-cover: http://image.wufazhuce.com/FuR1aijLdZMXfDTjVHNHQFKXnXoV
+cover: https://s2.loli.net/2022/01/24/xyHT9XPYJqWwskO.jpg
 ---
 
 #### 前言

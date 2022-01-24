@@ -4,7 +4,7 @@ title: 我现在的正面和负面的情绪
 date: 2020-04-22 01:00
 tags: ["随笔"]
 categories: 想法
-cover: http://image.wufazhuce.com/FjlILuozDa6cazh893ZlfunkV8tv
+cover: https://s2.loli.net/2022/01/24/ytoHIvGCnWBYs94.jpg
 ---
 
 最近的状态还是挺杂乱的，有正面和负面的情绪。工作忙的时候意识不到这些，但自己一个人的时候，这些纷繁的情绪又会被放大，在骚扰着我。

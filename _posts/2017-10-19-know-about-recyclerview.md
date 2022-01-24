@@ -4,7 +4,7 @@ title: 认识更强大的滚动控件—— RecyclerView
 tag: ["Android"]
 date: 2017-10-19 23:44
 categories: 技术
-cover: http://image.wufazhuce.com/Fri24Znzymu84n6uJSv3IqjiPosq
+cover: https://s2.loli.net/2022/01/24/BHRnoaCt3kjNP58.jpg
 subtitle: 对 RecyclerView 的知识进行一个整理。
 ---
 ### 前言

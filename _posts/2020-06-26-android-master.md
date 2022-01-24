@@ -4,7 +4,7 @@ title: Android Master
 date: 2020-06-26 22:00
 tags: ["知识体系","Android"]
 categories: 技术
-cover: http://image.wufazhuce.com/FqQYXAjT0E1oRXaOKBMtYrsstcui
+cover: https://s2.loli.net/2022/01/24/epr1vYEaVbSIgjo.jpg
 ---
 
 这篇文章收集自己比较成体系的文章。后续也结合Android学习路线不断补充其中的内容。

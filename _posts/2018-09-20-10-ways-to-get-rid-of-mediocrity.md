@@ -4,7 +4,7 @@ title: 告别平庸的 10 个简单方法
 tags: ["随笔"]
 categories: 想法
 date: 2018-09-20 19:00
-cover: http://image.wufazhuce.com/Fo4CB76O9hgz0pNuTO7pJEUPH44W
+cover: https://s2.loli.net/2022/01/24/B39NTqQoOKReASx.jpg
 ---
 1. 每天坚持阅读 1 小时
 2. 坚持提升专业，成为专业权威

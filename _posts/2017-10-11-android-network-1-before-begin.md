@@ -4,7 +4,6 @@ title: Android 网络编程系列（一）写在开始之前
 date: 2017-10-11 16:40:25
 tags: ["Android 网络编程"]
 categories: 技术
-cover: http://image.wufazhuce.com/FvFsnN9Ix9qVdf6Lasj6TWZd7dQZ
 subtitle: 系列文章的第一篇，写一些其他的。（内含 Android 网络编程学习资料）
 ---
 #### 前言

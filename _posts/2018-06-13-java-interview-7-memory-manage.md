@@ -4,7 +4,7 @@ title: Java 笔试面试（7）Java平台与内存管理
 tags: ["Java"]
 categories: 笔试面试
 date: 2018-06-13 14:21:00
-cover: http://image.wufazhuce.com/FnyLk2nHjYAKDF4gY9ca6hYpuJKe
+cover: https://s2.loli.net/2022/01/24/q4SweHrEWcPfGox.jpg
 ---
 ### Java 笔试面试（7）Java平台与内存管理
 

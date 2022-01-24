@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（6）伴生对象
 date: 2019-09-05 21:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/FhlqOmGFxCVM6gMHrKIK4vswcEJ2
+cover: https://s2.loli.net/2022/01/24/rLqCVYBEhdKnPHU.jpg
 ---
 
 #### 前言

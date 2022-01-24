@@ -4,7 +4,7 @@ title: 十步学习法笔记
 date: 2019-10-15 23:00
 categories: 想法
 tags: ["学习"]
-cover: http://image.wufazhuce.com/FvApNt8i9-HsFnQVuLLKC2pod6PD
+cover: https://s2.loli.net/2022/01/24/mjkU6nJLXvCR4WS.jpg
 ---
 
 来自《软技能：代码之外的生存指南》，作者：约翰·Z·森梅兹。

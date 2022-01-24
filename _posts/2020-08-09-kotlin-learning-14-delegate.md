@@ -4,7 +4,7 @@ title: Kotlin 修练手册（14）委托
 date: 2020-08-09 10:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/Fm4tlRpAT6acCsuvzitFHIYhWpF4
+cover: https://s2.loli.net/2022/01/24/E7hpQ89KdLOHawW.jpg
 ---
 
 ### 前言

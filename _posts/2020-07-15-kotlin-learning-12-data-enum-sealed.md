@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（12）数据类、密封类、枚举类
 date: 2020-07-15 20:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/Ft4ij5c2wOn2-7Z5duonFg4_ctJI
+cover: https://s2.loli.net/2022/01/24/Aibpfn2LJsEko1D.jpg
 ---
 
 ### 前言

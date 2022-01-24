@@ -4,7 +4,7 @@ title: 剑指Offer系列（3）
 tags: ["剑指Offer","算法"]
 categories: 笔试面试
 date: 2018-06-08 20:47:00
-cover: http://image.wufazhuce.com/FgL14C_rTVr1e-uEJeFPGRE1qFyp
+cover: https://s2.loli.net/2022/01/24/oyK92TbNUS3mWMf.jpg
 ---
 
 ##### 13. 调整数组顺序使奇数位于偶数前面

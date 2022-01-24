@@ -4,7 +4,7 @@ title: 学学设计模式（0）写在专题开始之前
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-06 14:34
-cover: http://image.wufazhuce.com/FqubxgNLviuJAt-P0zBdXTs9zCau
+cover: https://s2.loli.net/2022/01/24/ZBMkoxASn3Wh4Hq.jpg
 ---
 
 设计模式对于开发者来说是一项软技能，如果熟悉各类设计模式，并能够在项目中进行合理运用，那么对于我们编程技能的提升无疑是很大的。并且，当我们阅读其他开发者所写的优秀开源代码时，他们可能就在代码中运用了设计模式，如果我们不懂设计模式，那对阅读源码也会造成一定的阻碍。

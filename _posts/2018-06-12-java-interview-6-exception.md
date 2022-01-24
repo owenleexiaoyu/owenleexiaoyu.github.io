@@ -4,7 +4,7 @@ title: Java 笔试面试（6）异常处理
 tags: ["Java"]
 categories: 笔试面试
 date: 2018-06-12 22:52:00
-cover: http://image.wufazhuce.com/FhvurE6je5Hrp_JfWE_h0p7gFJpg
+cover: https://s2.loli.net/2022/01/24/T7kJvzSpnfmtwFI.jpg
 ---
 
 ### Java 笔试面试（6）异常处理

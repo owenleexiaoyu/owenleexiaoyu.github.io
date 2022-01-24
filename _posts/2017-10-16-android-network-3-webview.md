@@ -4,7 +4,7 @@ title: Android 网络编程系列（三）WebView 的使用
 date: 2017-10-16 17:32
 tag: ["Android 网络编程"]
 categories: 技术
-cover: http://image.wufazhuce.com/FpTKCypCWlsfDgMlkAG8q62aOK1l
+cover: https://s2.loli.net/2022/01/24/ijv1ykgbSOPe7qX.png
 subtitle: 介绍一下 WebView 的简单用法
 ---
 ### 前言

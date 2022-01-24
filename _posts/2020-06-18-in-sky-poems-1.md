@@ -4,7 +4,7 @@ title: 云间诗集（一）诗九首
 date: 2020-06-18 00:00
 tags: ["诗歌"]
 categories: 想法
-cover: http://image.wufazhuce.com/FtEg-yIztFzEimHbtWWqfwQJg9UP
+cover: https://s2.loli.net/2022/01/24/tcGg74fmpe1il9F.jpg
 ---
 
 心血来潮把之前写的一些东西放上来，纯当做个备份。

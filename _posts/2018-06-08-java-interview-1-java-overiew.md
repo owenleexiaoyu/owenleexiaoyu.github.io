@@ -4,7 +4,6 @@ title: Java笔试面试（1）Java基本概念
 tags: ["Java"]
 categories: 笔试面试
 date: 2018-06-08 13:34:00
-cover: http://image.wufazhuce.com/FomuanowzzuLG4FXJpQqcrQpp5YM
 ---
 
 #### 1. Java语言的优点：

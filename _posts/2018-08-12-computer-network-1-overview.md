@@ -4,7 +4,7 @@ title: 计算机网络面试（1）计算机网络基础概念
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-08-12 12:00
-cover: http://image.wufazhuce.com/FpXhraPX6RVOiEVBkxL2mJzd1Lb5
+cover: https://s2.loli.net/2022/01/24/ngyLdrSu3ftlW59.jpg
 ---
 
 #### 前言

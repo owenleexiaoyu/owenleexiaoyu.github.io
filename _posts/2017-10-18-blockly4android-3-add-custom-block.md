@@ -4,7 +4,6 @@ title: Blockly4Android 开发指南（3）添加自定义块
 date: 2017-10-18 22:40
 tag: ["Blockly4Android"]
 categories: 译文
-cover: http://image.wufazhuce.com/FlClKq2eSOZO3zvYc4uZSDYkYFTU
 subtitle: 官方文档中关于添加自定义块的描述
 ---
 

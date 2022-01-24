@@ -4,7 +4,7 @@ title: 剑指 Offer 系列（1）
 tags: ["算法","剑指Offer"]
 categories: 笔试面试
 date: 2018-06-06 23:25:23
-cover: http://image.wufazhuce.com/Fu772E2deg7UAxpWL8C2qd3T5iDu
+cover: https://s2.loli.net/2022/01/24/wYmof2rEGa4KvDx.jpg
 ---
 ##### 1.二维数组中的查找
 

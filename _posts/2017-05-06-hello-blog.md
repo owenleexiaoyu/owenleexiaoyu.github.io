@@ -5,7 +5,7 @@ date: 2017-05-06 11:40:25
 subtitle: 谈谈我搭个人博客的辛酸
 tag: ["随笔"]
 categories: 想法
-cover: http://image.wufazhuce.com/Fu1bwRKtDav7JEekZrAzdVHttezT
+cover: https://s2.loli.net/2022/01/24/ma52LrAgM9e8JTP.jpg
 ---
 大概是在上个学期时知道可以通过github+Hexo这样一个简便的方式来建立专属于自己的个人博客网站。虽然当时我还并没有写文章的习惯，但是因为这真的是一个装逼神器，便一心想要自己建一个出来。最初是想自己模仿一个博客网站把前端写出来，后来写着写着就放弃了，因为我完全是个前端小白，只有一点点的HTML的知识。于是我第一次搭建博客的伟大计划就这么夭折了。
 

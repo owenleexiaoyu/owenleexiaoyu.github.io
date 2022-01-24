@@ -4,7 +4,7 @@ title: 「转」 Activity 里 fragment 切换到其他 fragment 页面
 tags: ["Android"]
 categories: 技术
 date: 2018-11-09 18:23
-cover: http://image.wufazhuce.com/FqGCOPCuEVACXX-2lqNcuUmzcWgl
+cover: https://s2.loli.net/2022/01/24/VrfuNn2A71KqH9y.jpg
 ---
 
 作者：简单专注 

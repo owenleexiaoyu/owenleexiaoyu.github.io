@@ -4,7 +4,6 @@ title: 学学设计模式（5）抽象工厂模式
 tags: ["Java","设计模式"]
 categores: 技术
 date: 2018-09-06 19:34
-cover: http://image.wufazhuce.com/Fh7WHJw9t_0JFh8N0eM-VX076rDX
 ---
 
 #### 对工厂模式的简单回顾

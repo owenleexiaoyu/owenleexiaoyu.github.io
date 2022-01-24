@@ -4,7 +4,7 @@ title: 计算机网络面试（3）运输层概述
 tags: ["计算机网络"]
 categories: 笔试面试
 date: 2018-08-15 22:12
-cover: http://image.wufazhuce.com/Fig6cdpoYAOyrJ-y7SUq95JaRjAB
+cover: https://s2.loli.net/2022/01/24/b54uwmaBShZKpxf.jpg
 ---
 
 #### 前言

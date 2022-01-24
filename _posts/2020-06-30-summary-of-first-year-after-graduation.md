@@ -4,7 +4,7 @@ title: 毕业一周年小结
 date: 2020-06-30 20:00
 tags: ["年终总结"]
 categories: 想法
-cover: http://image.wufazhuce.com/FhxXky3U1ziPU-Hql-rC_nylfsYa
+cover: https://s2.loli.net/2022/01/24/pDAvnxT4SC3Rl2K.jpg
 ---
 
 ### 前言

@@ -4,7 +4,6 @@ title: 美团秋招面经
 tags: ["面经","Android"]
 categores: 笔试面试
 date: 2018-08-30 20:07
-cover: http://image.wufazhuce.com/FoscD3oIYvVl1q9E2Cmsrz-IqQZ0
 ---
 
 #### 前言
