@@ -4,7 +4,7 @@ title: 学习状态的复盘
 date: 2020-04-21 20:00:00
 tags: ["随笔", "计划"]
 categories: 想法
-cover: http://image.wufazhuce.com/Fo-CYfiARndoDysTnNjEADy2t19s
+cover: https://s2.loli.net/2022/01/25/PBxoCmctwOA8sp5.jpg
 ---
 
 > 在找封面时，发现题图很符合我现在状态，还是在寻找属于自己的路。

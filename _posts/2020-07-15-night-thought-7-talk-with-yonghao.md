@@ -4,7 +4,7 @@ title: 杂想·与勇昊长聊
 date: 2020-07-15 22:00
 tags: ["工作杂想"]
 categories: 想法
-cover: http://image.wufazhuce.com/FkM4QJxMrcwzWLKsqQM_5VuXzfMG
+cover: https://s2.loli.net/2022/01/25/qn5gBdQ9yDZCu3t.jpg
 ---
 
 今天，我和勇昊两个焦虑失眠患者、牙科患者时隔好几个月终于又畅聊了一次。我很喜欢和勇昊聊天，既有好朋友之间感情的联系，又有实际上想法的提炼。

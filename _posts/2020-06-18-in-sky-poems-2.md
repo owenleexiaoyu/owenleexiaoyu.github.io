@@ -4,7 +4,7 @@ title: 云间诗集（二）此间的少年
 date: 2020-06-18 00:10
 tags: ["诗歌"]
 categories: 想法
-cover: http://image.wufazhuce.com/Fudt1_HHaTCnwQ4f7UNESYZ_5wge
+cover: https://s2.loli.net/2022/01/25/XPJNZwLYjTBa2sQ.jpg
 ---
 
 题记：应从鲲鹏云间跃，莫因风雨却。

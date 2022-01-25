@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（2）基本数据类型
 date: 2019-08-28 23:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/FnqVwfSvG8kIa-xT_Q-_mEqHhVsV
+cover: https://s2.loli.net/2022/01/25/PEj4RryYOv3LlWe.jpg
 ---
 
 #### 前言

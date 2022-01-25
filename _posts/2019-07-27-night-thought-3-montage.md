@@ -4,7 +4,7 @@ title: 杂想·蒙太奇
 date: 2019-07-27 23:38
 categories: 想法
 tags: ["工作杂想"]
-cover: http://image.wufazhuce.com/FjcaGYDiXHV8DUa0lK8093XYxOrk
+cover: https://s2.loli.net/2022/01/25/tJAY2OLvmFRa91z.jpg
 ---
 
 **1. 关于开会**

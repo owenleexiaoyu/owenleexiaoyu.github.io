@@ -4,7 +4,7 @@ title: GTD 时间管理法则学习
 date: 2019-12-30 22:00
 tags: ["学习"]
 categories: 想法
-cover: http://image.wufazhuce.com/FhcDLBFmRM4BWHf6B4ls_Ln8J5o7
+cover: https://s2.loli.net/2022/01/25/8uOMdlIiVskZ16H.jpg
 ---
 
 #### 前言

@@ -4,7 +4,7 @@ title: Kotlin 修炼手册（8）杂项知识点
 date: 2019-12-28 13:00
 tags: ["Kotlin"]
 categories: 技术
-cover: http://image.wufazhuce.com/FokvnqEvbX3c-NSWxKwLIMgDG93G
+cover: https://s2.loli.net/2022/01/25/1FGgJ8xE5DZnq2z.jpg
 ---
 
 最近在看《疯狂 Kotlin 讲义》，想把 Kotlin 的知识再过一遍，巩固已经学过的，啃还没掌握的，这篇文章中就来记录下之前没注意到的几个小知识点。

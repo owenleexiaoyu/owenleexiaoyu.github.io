@@ -4,7 +4,7 @@ title: 云间诗集（三）打油诗五首
 date: 2020-06-18 00:50
 tags: ["诗歌"]
 categories: 想法
-cover: http://image.wufazhuce.com/Fgb78iIjlvc1l9g6I7NPQZDjH3Ex
+cover: https://s2.loli.net/2022/01/25/IjSvw5Be6cG8bHA.jpg
 ---
 
 题记：应从鲲鹏云间跃，莫因风雨却。

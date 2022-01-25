@@ -4,7 +4,7 @@ title: 杂想·在做了一个月需求后的复盘
 date: 2019-08-28 21:00
 tags: ["工作杂想"]
 categories: 想法
-cover: http://image.wufazhuce.com/FlgPIua1j4-NwxZ_Yqfz0yiUr2rX
+cover: https://s2.loli.net/2022/01/25/Oyzq2JgMU7TERWB.jpg
 ---
 
 #### 前言

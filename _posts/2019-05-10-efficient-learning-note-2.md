@@ -4,7 +4,7 @@ title: 论高效学习方法之二
 tags: ["随笔"]
 categories: 想法
 date: 2019-05-10 21:00
-cover: http://image.wufazhuce.com/FkdLGbFbOvp2X-MntH0MdFA2gM01
+cover: https://s2.loli.net/2022/01/25/XRotnql1NrmV825.jpg
 ---
 
 #### 正文前的碎碎念
