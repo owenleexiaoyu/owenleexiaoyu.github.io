@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"created":"2025-05-16T10:22:10.019+08:00","updated":"2025-05-18T21:19:31.998+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"created":"2025-05-16T10:22:10.019+08:00","updated":"2025-05-18T21:36:16.792+08:00"}
 ---
 
 在将 [[Inbox/Obsidian 作为主力笔记软件\|Obsidian 作为主力笔记软件]] 之后，不可避免开始想两个问题：
@@ -36,16 +36,21 @@ Flowershow 可以将 Markdown 文档发布为在线博客网站。
 我不会采用该方案作为我的发布方案，因为目前该团队是希望将 Flowershow 打造成一个收费项目，免费版的功能也受限，对于使用 Vercel 的自托管方式也不积极了。
 ## Digital Garden
 https://github.com/oleeskild/obsidian-digital-garden
+
 另一个我觉得做的挺不错的项目是 Digital Garden，它的使用姿势基本上和 Flowershow 是一样的，在 Github 上创建项目，在 Vercel 上部署，通过 Obsidian Digital Garden 插件将笔记上传到项目的特定目录下，就可以进行展示了。
 这个项目的 UI 更加接近 Obsidian 本地的 UI，并且还可以支持切换 Obsidian 的主题。功能上也不少，可以展示笔记的文件树、跳转双链、展示反向链接、支持搜索、展示 Graph 等。
+
+最让我感觉心动的是基于它的一个网站：[https://teresawatts.com/](https://teresawatts.com/)，这效果也太赞了。
+![](https://img.lixiaoyu.life/blog-res/2025/05/31b48ca76aed77dce45a87a38941bdb9.png)
+
+
 我准备采用该方案作为目前的发布方案。
-网站地址：[Jewel Notes](https://jewel.lixiaoyu.life/)
-效果如下：
+这是我的网站地址：[Jewel Notes](https://jewel.lixiaoyu.life/)，效果如下：
 ![](https://img.lixiaoyu.life/blog-res/2025/05/a3c3afc1dbe241e19ff171c40a61d83c.png)
 
 该方案包含三个角色：
-- Github Repo - digital-garden: 存放博客网站代码和文章
-- Vercel project：当 digital-garden 项目有代码提交，会触发流水线，编译并发布网站
+- Github Repo - [digital-garden](https://github.com/owenleexiaoyu/digital-garden): 存放博客网站代码和文章
+- [Vercel project](https://vercel.com/owenleexiaoyus-projects/digital-garden)：当 digital-garden 项目有代码提交，会触发流水线，编译并发布网站
 - Obsidian Digital Garden Plugin：设置网站的一些元数据（比如网站标题、ICON、主题等），将本地 Obsidian 笔记上传到 Github 项目的特定文件夹中
 
 
