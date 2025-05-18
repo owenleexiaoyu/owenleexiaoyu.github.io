@@ -1,0 +1,8 @@
+@font-face{
+    font-family:LXGWWenKaiMono;
+    src:url(./LXGWWenKaiMono-Regular.ttf)
+}
+
+body {
+    --font-interface-override: 'LXGWWenKaiMono';
+}
