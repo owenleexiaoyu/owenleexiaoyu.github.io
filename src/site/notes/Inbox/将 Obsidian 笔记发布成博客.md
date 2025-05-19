@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"created":"2025-05-16T10:22:10.019+08:00","updated":"2025-05-18T21:36:16.792+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"created":"2025-05-16T10:22:10.019+08:00","updated":"2025-05-19T10:07:23.455+08:00"}
 ---
 
 在将 [[Inbox/Obsidian 作为主力笔记软件\|Obsidian 作为主力笔记软件]] 之后，不可避免开始想两个问题：
@@ -23,13 +23,16 @@
 ## Flowershow
 https://flowershow.app/
 Flowershow 可以将 Markdown 文档发布为在线博客网站。
+
 整体流程为：
 - 使用 Vercel 在 Github 上创建一个项目，存放网站代码，其中包含一个 content 目录，这个目录里存放要发布的 Markdown 文件，Vercel 作为这个项目的部署平台，每次代码有变更，就可以自动触发网站的编译和发布，并且提供了一个能在线访问的网址。
 - 提供了一个 Flowershow 的 Obsidian 插件，配置 Github 用户名，第一步中的项目名和 Github Personal access token（用来访问和操作这个项目），插件可以将 Obsidian 中的一篇笔记上传到 Github 项目的 content 目录下，触发网站构建，这样就能将笔记展示在网站里了
+
 这个流程非常丝滑，我参考文章完成了上面两步配置，在 Obsidian 中将笔记上传到项目中，这时候出问题了，上传到了项目的根目录下，而不是 content 目录。这样网站就找不到对应的文章，也就不能展示。在我手动将文章移动到 content 目录下后，才可以正常展示。
+
 后面查看他们的文档得知，他们现在在做 Flowershow Cloud 的解决方案，代替了 Vercel 部署，最新的教程是在 Flowershow Cloud 上建立项目，插件也更新为只支持 Flowershow Cloud 方案（两者代码推送的目录不同）。Flowershow Cloud 有免费和付费两种模式，个人项目是免费的，商业项目是付费的，付费也能解锁一些高级用法，比如搜索。之前之所以没有按照最新的教程来实践，其实是有点不放心他们，相比而言，Vercel 更加能接受一些。
-我尝试卸载最新的 Obsidian Flowershow 插件，然后手动安装老版本插件，但无法上传成功，可能有一些问题存在。
-后面我借助 Obsidian 的另一个插件 [Enveloppe](https://github.com/Enveloppe/obsidian-enveloppe) ，这个插件就是负责将 Obsidian 的笔记上传到某个 Github 仓库中，它是支持配置上传的目录的。所以，这两者结合，也是挺方便地达到想要的效果。
+
+我尝试卸载最新的 Obsidian Flowershow 插件，然后手动安装老版本插件，但无法上传成功，可能有一些问题存在。后面我借助 Obsidian 的另一个插件 [Enveloppe](https://github.com/Enveloppe/obsidian-enveloppe) ，这个插件就是负责将 Obsidian 的笔记上传到某个 Github 仓库中，它是支持配置上传的目录的。所以，这两者结合，也是挺方便地达到想要的效果。
 网站地址：[https://jewel-notes.vercel.app/](https://jewel-notes.vercel.app/)
 ![](https://img.lixiaoyu.life/blog-res/2025/05/d2c26de2b0676493aea16e2cabf13187.png)
 
@@ -43,7 +46,6 @@ https://github.com/oleeskild/obsidian-digital-garden
 最让我感觉心动的是基于它的一个网站：[https://teresawatts.com/](https://teresawatts.com/)，这效果也太赞了。
 ![](https://img.lixiaoyu.life/blog-res/2025/05/31b48ca76aed77dce45a87a38941bdb9.png)
 
-
 我准备采用该方案作为目前的发布方案。
 这是我的网站地址：[Jewel Notes](https://jewel.lixiaoyu.life/)，效果如下：
 ![](https://img.lixiaoyu.life/blog-res/2025/05/a3c3afc1dbe241e19ff171c40a61d83c.png)
@@ -52,7 +54,6 @@ https://github.com/oleeskild/obsidian-digital-garden
 - Github Repo - [digital-garden](https://github.com/owenleexiaoyu/digital-garden): 存放博客网站代码和文章
 - [Vercel project](https://vercel.com/owenleexiaoyus-projects/digital-garden)：当 digital-garden 项目有代码提交，会触发流水线，编译并发布网站
 - Obsidian Digital Garden Plugin：设置网站的一些元数据（比如网站标题、ICON、主题等），将本地 Obsidian 笔记上传到 Github 项目的特定文件夹中
-
 
 除了这两个，我还看了一些其他的方案，有些很强大，但是配置稍显复杂，不太容易上手；有些已经不再维护，有些则刚刚开源。真的可以说是百花齐放，百家争鸣。
 ## 其他开源选择
