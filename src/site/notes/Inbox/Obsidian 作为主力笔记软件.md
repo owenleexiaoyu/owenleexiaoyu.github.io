@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/Obsidian 作为主力笔记软件/","tags":["Obsidian","知识管理"],"created":"2025-05-14T09:50:11.168+08:00","updated":"2025-05-19T10:05:17.944+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/Obsidian 作为主力笔记软件/","tags":["Obsidian","知识管理"],"created":"2025-05-14T09:50:11.168+08:00","updated":"2025-06-05T10:00:11.812+08:00"}
 ---
 
 ## 笔记软件变迁
@@ -7,7 +7,7 @@
 我的记笔记大概经历了以下几个阶段：
 - 笔记存储在印象笔记中，使用马克飞象（付费）书写
 - 笔记存放在个人博客网站上（Github），使用 Typera 书写
-- 笔记存放在 Github 上，使用 Obsidian 书写
+- 笔记存放在 Github 上，使用 Obsidian 书写（[[Inbox/Obsidian 初体验\|Obsidian 初体验]]）
 - 笔记存放在语雀里，直接在语雀里书写
 
 ## 为什么不用语雀了
