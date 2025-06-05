@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/Obsidian 作为主力笔记软件/","tags":["Obsidian","知识管理"],"created":"2025-05-14T09:50:11.168+08:00","updated":"2025-05-18T15:42:17.296+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/Obsidian 作为主力笔记软件/","tags":["Obsidian","知识管理"],"created":"2025-05-14T09:50:11.168+08:00","updated":"2025-05-19T10:05:17.944+08:00"}
 ---
 
 ## 笔记软件变迁

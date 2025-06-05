@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"created":"2025-05-16T10:22:10.019+08:00","updated":"2025-05-19T10:07:23.455+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"created":"2025-05-16T10:22:10.019+08:00","updated":"2025-06-05T09:26:47.645+08:00"}
 ---
 
 在将 [[Inbox/Obsidian 作为主力笔记软件\|Obsidian 作为主力笔记软件]] 之后，不可避免开始想两个问题：
@@ -21,6 +21,7 @@
 
 我先尝试了一下 Flowershow。
 ## Flowershow
+
 https://flowershow.app/
 Flowershow 可以将 Markdown 文档发布为在线博客网站。
 
@@ -38,6 +39,7 @@ Flowershow 可以将 Markdown 文档发布为在线博客网站。
 
 我不会采用该方案作为我的发布方案，因为目前该团队是希望将 Flowershow 打造成一个收费项目，免费版的功能也受限，对于使用 Vercel 的自托管方式也不积极了。
 ## Digital Garden
+
 https://github.com/oleeskild/obsidian-digital-garden
 
 另一个我觉得做的挺不错的项目是 Digital Garden，它的使用姿势基本上和 Flowershow 是一样的，在 Github 上创建项目，在 Vercel 上部署，通过 Obsidian Digital Garden 插件将笔记上传到项目的特定目录下，就可以进行展示了。
@@ -46,18 +48,27 @@ https://github.com/oleeskild/obsidian-digital-garden
 最让我感觉心动的是基于它的一个网站：[https://teresawatts.com/](https://teresawatts.com/)，这效果也太赞了。
 ![](https://img.lixiaoyu.life/blog-res/2025/05/31b48ca76aed77dce45a87a38941bdb9.png)
 
-我准备采用该方案作为目前的发布方案。
-这是我的网站地址：[Jewel Notes](https://jewel.lixiaoyu.life/)，效果如下：
-![](https://img.lixiaoyu.life/blog-res/2025/05/a3c3afc1dbe241e19ff171c40a61d83c.png)
-
-该方案包含三个角色：
+我准备采用该方案作为目前的发布方案。该方案包含三个角色：
 - Github Repo - [digital-garden](https://github.com/owenleexiaoyu/digital-garden): 存放博客网站代码和文章
 - [Vercel project](https://vercel.com/owenleexiaoyus-projects/digital-garden)：当 digital-garden 项目有代码提交，会触发流水线，编译并发布网站
 - Obsidian Digital Garden Plugin：设置网站的一些元数据（比如网站标题、ICON、主题等），将本地 Obsidian 笔记上传到 Github 项目的特定文件夹中
 
-除了这两个，我还看了一些其他的方案，有些很强大，但是配置稍显复杂，不太容易上手；有些已经不再维护，有些则刚刚开源。真的可以说是百花齐放，百家争鸣。
+配置过程如下：
+1. Digital Garden 提供了一个 Github 仓库模板（[digital-garden](https://github.com/oleeskild/digitalgarden)），打开该项目，能在 REAME 中看到一个 Vercel 的按钮，点击这个按钮就会自动帮我们创建一个 Github 仓库，可以设为私有仓库，同时会在 Vercel 上建立一个对这个仓库的项目，用于执行 CI 流程。
+2. 在 Github 设置 > Developer Settings > Personal access token，给 Digital Garden 的 Obsidian 插件申请一个 Access token，用来从 Digital Garden 插件中向 Github 仓库提交改动，比如把文章推送到仓库中，修改网站的一些配置等。推荐使用新出的 Fine-grained tokens，它可以配置这个 Token 只能访问某个特定的仓库，安全性更好。生成 Token 后，复制 Token，在下一步需要用到。
+3. 在 Obsidian 社区插件市场中下载 Digital Garden 插件，打开设置页，必须的配置有三项，Github 用户名、Github 仓库名、Access Token，依次填写好后，设置页中 Github Authentication（required）后面还会显示一个 ✅，表示配置成功，非常贴心。到此这个插件就配置成功了。设置页下面还有其他主题、功能的配置，这里不赘述了。
+![](https://img.lixiaoyu.life/blog-res/2025/06/bf5f48215ab9099694bf60fb2861dad5.png)
+
+发布笔记的流程也非常简单，在 Obsidian 中直接写，然后在笔记的 Meta Info 里添加一个 `dg-publish: true` 的信息，然后点击 Commend + P，唤出命令面板，搜索 Digital Garden，能找到一条命令是 Digital Garden: Publish Single Note，点击该命令就可以将笔记发布啦。
+![](https://img.lixiaoyu.life/blog-res/2025/06/540426a166c154b4bb2869b72d138e66.png)
+我们需要创建一个首页笔记，这样在打开博客网站时，直接看到的就是这篇笔记，设置首页笔记的方式也很简单，给一篇笔记 Meta Info 中加上 `dg-home: true` 和 `dg-publish: true` 的信息即可。首页笔记只能有一个，所以其他笔记就不要加 dg-home 信息了。
+
+此外，我还在我的域名管理平台上，申请了一个二级域名，映射到 Vercel 提供的原始域名上，这样就可以使用自己的域名来打开网站了。这是我的网站地址：[Jewel Notes](https://jewel.lixiaoyu.life/)，效果如下：
+![](https://img.lixiaoyu.life/blog-res/2025/05/a3c3afc1dbe241e19ff171c40a61d83c.png)
+
 ## 其他开源选择
 
+除了这两个，我还看了一些其他的方案，有些很强大，但是配置稍显复杂，不太容易上手；有些已经不再维护，有些则刚刚开源。真的可以说是百花齐放，百家争鸣。
 ### Quartz
 https://github.com/jackyzha0/quartz
 这个看起来功能非常强大，也不仅限于 Obsidian 使用，但感觉配置起来有点复杂，并且是需要使用 CLI 来进行发布。我目前更加希望使用 Obsidian 的插件。
