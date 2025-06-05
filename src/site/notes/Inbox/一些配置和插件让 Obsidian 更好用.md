@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/一些配置和插件让 Obsidian 更好用/","title":"一些配置和插件让 Obsidian 更好用","tags":["随笔","Obsidian"],"created":"2025-06-03T23:16:19.885+08:00","updated":"2025-06-05T08:54:25.870+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/一些配置和插件让 Obsidian 更好用/","title":"一些配置和插件让 Obsidian 更好用","tags":["随笔","Obsidian"],"created":"2025-06-03T23:16:19.885+08:00","updated":"2025-06-05T08:56:10.962+08:00"}
 ---
 
 之前提到，我目前已经将 [[Inbox/Obsidian 作为主力笔记软件\|Obsidian 作为主力笔记软件]]，这是因为在使用一些插件后，Obsidian 带给我的使用体验非常好。这里就来稍微写下我对 Obsidian 的一些配置，以及正在使用的几个非常好用的插件。
@@ -16,6 +16,9 @@
 
 Obsidian 官方的核心插件中有一个 Daily notes 插件，可以快速创建一个当前日期的日记笔记，我一般称为 Journal。
 常规的使用是通过最左侧工具栏中的点击 Daily notes Icon 或者通过「Commend + P」快捷键唤出命令面板，输入 Daily notes，可以看到一条命令：Daily notes: Open today's daily note，点击该命令，就会打开今天的日记笔记，如果没有则会直接创建。
+
+![](https://img.lixiaoyu.life/blog-res/2025/06/fec5a7dfaf5c7b5ba65bf0d45a0e6f93.png)
+
 ![](https://img.lixiaoyu.life/blog-res/2025/06/276e5fe633809a37d4e0edfd57ab0f57.png)
 
 Daily notes 插件提供了几个简单的设置，都挺实用的：
