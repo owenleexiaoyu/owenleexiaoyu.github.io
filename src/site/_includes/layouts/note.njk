@@ -32,6 +32,13 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
           <h1 data-note-icon="{% if noteIcon %}{{noteIcon}}{% else %}{{meta.noteIconsSettings.default}}{% endif %}">{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
         {% endif %}
         <div class="header-meta">
+          {% if title or page.fileSlug %}
+            <div class="header-title">
+              <p class="note-title">
+                {% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}
+              </p>
+            </div>
+          {% endif %}
           {% if settings.dgShowTags === true and tags %}
             <div class="header-tags">
               {% for tag in tags %}
