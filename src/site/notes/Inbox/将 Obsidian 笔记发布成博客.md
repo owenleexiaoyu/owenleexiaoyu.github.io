@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"created":"2025-05-16T10:22:10.019+08:00","updated":"2025-06-05T09:26:47.645+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"noteIcon":"","created":"2025-05-16T10:22:10.019+08:00","updated":"2025-06-05T09:26:47.645+08:00"}
 ---
 
 在将 [[Inbox/Obsidian 作为主力笔记软件\|Obsidian 作为主力笔记软件]] 之后，不可避免开始想两个问题：

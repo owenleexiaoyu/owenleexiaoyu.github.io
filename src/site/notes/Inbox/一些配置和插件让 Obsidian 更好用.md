@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/一些配置和插件让 Obsidian 更好用/","title":"一些配置和插件让 Obsidian 更好用","tags":["随笔","Obsidian"],"created":"2025-06-03T23:16:19.885+08:00","updated":"2025-06-05T08:56:10.962+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/一些配置和插件让 Obsidian 更好用/","title":"一些配置和插件让 Obsidian 更好用","tags":["随笔","Obsidian"],"noteIcon":"","created":"2025-06-03T23:16:19.885+08:00","updated":"2025-06-05T08:56:10.962+08:00"}
 ---
 
 之前提到，我目前已经将 [[Inbox/Obsidian 作为主力笔记软件\|Obsidian 作为主力笔记软件]]，这是因为在使用一些插件后，Obsidian 带给我的使用体验非常好。这里就来稍微写下我对 Obsidian 的一些配置，以及正在使用的几个非常好用的插件。

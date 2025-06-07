@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/Obsidian 初体验/","title":"Obsidian 初体验","tags":["随笔","知识管理","Obsidian"],"created":"2025-06-05T09:53:06.700+08:00","updated":"2025-06-05T09:57:56.079+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/Obsidian 初体验/","tags":["随笔","知识管理","Obsidian"],"noteIcon":"","created":"2025-06-05T09:53:06.700+08:00","updated":"2025-06-07T12:10:26.248+08:00"}
 ---
 
 

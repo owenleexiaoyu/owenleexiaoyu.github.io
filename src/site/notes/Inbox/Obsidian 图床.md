@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/Obsidian 图床/","title":"Obsidian 图床","tags":["随笔","图床","Obsidian"],"created":"2025-06-05T09:53:37.624+08:00","updated":"2025-06-05T10:02:23.770+08:00"}
+{"dg-publish":true,"permalink":"/Inbox/Obsidian 图床/","tags":["随笔","图床","Obsidian"],"noteIcon":"","created":"2025-06-05T09:53:37.624+08:00","updated":"2025-06-07T12:10:32.330+08:00"}
 ---
 
 ![](https://s2.loli.net/2022/05/23/RbwjYPrGOfqdAs9.png)
