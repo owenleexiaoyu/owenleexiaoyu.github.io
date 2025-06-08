@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 应用界面 Activity/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-11T23:21:15.798+08:00","updated":"2025-06-08T11:42:33.680+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 应用界面 Activity/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-11T23:21:15.798+08:00","updated":"2025-06-08T17:27:11.356+08:00"}
 ---
 
 
@@ -412,9 +412,9 @@ Intent 中支持的数据类型有：
 
 - 基本数据类型（boolean、char、byte、short、int、long、float、double）
 - 基本数据类型的数组（boolean[]、char[]、byte[]、short[]、int[]、long[]、float[]、double[]）
-- String、CharSequence 及 String、CharSequence  的数组和 List（String[]、CharSequence[]、ArraryList<String>、ArraryList<CharSequence>）
+- String、CharSequence 及 String、CharSequence  的数组和 List（String[]、CharSequence[]、`ArraryList<String>`、 `ArraryList<CharSequence>`）
 - Serializable（序列化） 类型
-- Parcelable（包裹化）类型和 Parcelable 的数组（Parcelable[]）和 List（ArrayList<Parcelable>）
+- Parcelable（包裹化）类型和 Parcelable 的数组（Parcelable[]）和 List（`ArrayList<Parcelable>`）
 
 每种数据类型都有对应的 putExtra 和 getXXXExtra 方法。
 ### 返回数据给上一个 Activity
