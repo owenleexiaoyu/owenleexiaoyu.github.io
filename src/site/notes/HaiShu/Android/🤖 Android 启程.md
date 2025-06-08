@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T17:18:26.352+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T17:20:19.017+08:00"}
 ---
 
 
@@ -275,7 +275,128 @@ drawable、mipmap、layout 的引用方式和字符串类似，比如 drawable �
 
 其中，项目的应用图标是通过 `android:icon` 属性指定，应用名称是通过 `android:label` 属性指定，应用的主题通过 `android:theme` 属性指定。可以看到这里对资源的引用方式正是第二种在 XML 中引用资源的语法。
 
+### 详解 build.gradle 文件
 
+Android Studio 采用 Gradle 来构建 Android 项目。Gradle 是一个优秀的项目构建工具，基于 Groovy 的领域特定语言（DSL）来声明项目设置，摒弃了传统基于 XML（如 Maven）的各种繁琐配置。
+前面提到，项目中有两个 `build.gradle` 文件，一个在项目根目录下，一个在 app 目录下，这两个文件对构建 Android 项目都起到至关重要的作用，下面来对这两个文件的内容进行详细分析。
+
+**项目根目录下的 build.gradle**
+
+先来看项目根目录下的 build.gradle 文件。
+
+```groovy
+buildscript {
+    ext.kotlin_version = '1.3.61'
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+```
+
+
+
+**app 目录下的 build.gradle**
+
+下面再来分析一下 app 目录下的 build.gradle 文件。
+
+```groovy
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.example.helloworld"
+        minSdkVersion 21
+    	targetSdkVersion 29
+    	versionCode 1
+    	versionName "1.0"
+    	testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.core:core-ktx:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
+```
+
+第一行应用了一个插件，有两种值可选：
+
+- `com.android.application`：表示这是一个应用程序模块
+- `com.android.library`：表示这是一个库模块
+
+这两个的区别是：应用程序可以直接运行，库模块只能作为代码库依附于别的应用程序模块来运行。这两个插件就来自于项目根目录下 通过 classpath 引入的 `com.android.tools.build:gradle`
+接下来两行应用了 `kotlin-android` 和 `kotlin-android-extensions` 两个插件，都来自于项目根目录下通过 classpath 引入的 `org.jetbrains.kotlin:kotlin-gradle-plugin`。如果要用 Kotlin 开发 Android 项目，第一个插件是必须的，第二个插件实现了一些非常好用的 Kotlin 扩展功能。
+接下来是一个大的 `android` 闭包，用于配置项目构建的各种属性：
+
+| **配置** | **说明** |
+| --- | --- |
+| `compileSdkVersion` | 用于指定项目的编译版本，这里指定成 29 表示使用 Android 10.0 系统 SDK 编译 |
+| `buildToolsVersion` | 用于指定项目构建工具的版本 |
+
+然后，在 andorid 闭包中嵌套了一个 defaultConfig 闭包，可以看到对项目更多细节的配置。
+
+| **配置**                      | **说明**                                                                                                                                                                                                     |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `applicaitonId`             | 应用的唯一标识符，绝对不能重复，默认会使用创建项目时指定的包名                                                                                                                                                                            |
+| `minSdkVersion`             | 指定项目最低兼容的 Android 系统版本。这里指定成 21 表示最低兼容到 Android 5.0 系统                                                                                                                                                     |
+| `tartgetSdkVersion`         | 指定的值表示在该目标版本上已经做了充分的测试，系统将会为应用程序启动一些最新的功能和特性。比如 Android 6.0 引入了运行时权限，如果将 targetSdkVersion 设为 23 或更高，那么系统就会为应用启用运行时权限，如果将 targetSdkVersion 设为 22，说明程序最高只在 Android 5.1 系统上做过充分测试，Android 6.0 系统引入的新功能不会对应用启用 |
+| `versionCode`               | 指定项目的版本号                                                                                                                                                                                                   |
+| `versionName`               | 指定项目的版本名                                                                                                                                                                                                   |
+| `testInstrumentationRunner` | 用于在当前项目中启用 JUnit 测试，可以为当前项目编写测试用例，以保证功能的正确性和稳定性                                                                                                                                                            |
+
+接下来，看下 `buildTypes` 闭包，buildTypes 闭包中用于指定应用打包时的配置。通常只有两个子闭包：`debug` 和 `release`。
+
+- debug 子闭包：指定生成测试版安装包的配置，一般是忽略不写
+- release 子闭包：指定生成正式版安装文件的配置
+
+在 release 子闭包中，会指定如下配置：
+
+| **配置** | **说明** |
+| --- | --- |
+| `minifyEnabled` | 指定是否对项目的代码进行混淆，true 表示混淆，false 表示不混淆 |
+| `proguardFiles` | 指定混淆时使用的规则文件。这里指定了两个文件：`proguard-android-optimize.txt`：在<Android SDK>/tools/proguard 目录下，是所有项目通用的混淆规则；`proguard-rules.pro`：在当前项目的根目录下，用于编写当前项目特有的混淆规则 |
+
+整个 android 闭包中的内容分析完了，还剩一个 `dependencies` 闭包，它用于指定当前项目所有的依赖关系。通常有 3 种依赖方式：
+
+- 本地依赖：第一行的 `implementation fileTree` 就是一个本地依赖声明，表示将 libs 目录下的所有 .jar 后缀的文件都添加到项目的构建路径当中。
+- 远程依赖：第二行的 implementation 则是远程依赖声明，`androidx.appcompat:appcompat:1.1.0` 是一个标准的远程依赖库格式，其中：
+   - 第一个分号前面的 androidx.appcompat 被称为 groupId，表示域名，用于和其他公司的库做区分；
+   - 第一个分号和第二个分号中间部分的 appcompat 被称为 artifactId，表示工程（产物）名，用于和同一公司不同库工程做区分；
+   - 第二个分号后面的 1.1.0 是版本号，用于和同一个库中不同的版本做区分。
+
+加上这个声明后，Gradle 会在构建项目时会首先检查一下本地是否已经有这个库的缓存，如果没有则会自动联网下载，然后在添加到项目的构建目录当中。
+
+- 库依赖：上面代码里没有用到，它的基本格式是 `implementation project` 后面加上依赖的库的名称，比如创建了一个和 app 模块的同级的模块/库叫 helper，那么添加这个库的依赖只需要添加 `implementation project(':helper')` 这句声明即可。
+
+剩下的 testImplementation 和 androidTestImplementation 都是用于声明测试用例库的，暂时用不到，可以先忽略。
 
 ## 总结
 
