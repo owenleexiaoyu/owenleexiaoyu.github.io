@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T17:14:35.882+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T17:15:56.139+08:00"}
 ---
 
 
@@ -44,6 +44,99 @@ Android 系统的整体架构如图所示：
 2008 年 9 月，Google 正式发布了 Android 1.0 系统。随后几年，Android 系统更新速度惊人，相继推出了 2.1、2.2、2.3 版本系统，让 Android 占领大量市场。2011 年 2 月，Google 发布了 Android 3.0 系统，这个系统是专门为平板电脑设计的，但也是 Android 为数不多的比较失败的版本，同年 10 月，Google 又发布了 Android 4.0 系统，不再对手机和平板进行差异化区分。2014 年 Google I/O大会上，Google 推出了号称史上版本改动最大的 Android 5.0 系统，其中使用了 ART 虚拟机替代了 Dalvik 虚拟机，大大提升了应用的运行速度，还提出了 Material Design 的概念来优化应用的界面设计。除此之外，还推出了 Android Wear、Android Auto、Android TV 系统，从而进军可穿戴设备、汽车、电视等全新领域。之后，Android 系统基本上保持每年一个新版本的发布节奏。2015 年 Google I/O大 会推出了 Android 6.0 系统，加入运行时权限功能。2016 年 Google I/O 大会上推出了 Android 7.0 系统，加入多窗口模式功能。
 
 > 参考 [Android 系统版本大全](https://www.yuque.com/owenlee/android/nfwrhgt6nlrskmis?view=doc_embed) 文章查看所有 Android 版本的主要特性。
+
+## 搭建 Android 开发环境
+
+在了解一些 Android 系统的背景知识后，接下来就正式进入实践环节了，学习 Android 开发的第一步就是搭建开发环境，并且编写出第一个最简单 Android 应用程序。
+
+### 需要的工具
+
+- JDK：JDK 是 Java 语言的软件开发工具包，它包含了 Java 的运行环境、工具集合、基础类库等内容。
+- Android SDK：Android SDK 是谷歌提供的 Android 开发工具包，在开发 Android 程序时，需引入它使用 Android 相关API。
+- Android Studio：它是谷歌在 2013 年推出的官方 IDE 工具，比起在 Eclipse 上安装 ADT 插件来开发 Android 程序，Android Studio 则是专业的 Android 开发 IDE。
+### 搭建开发环境
+
+上面这些工具不需要单独下载，为了简化搭建开发环境的过程，Google 将所有需要的工具都集成在了 Android Studio 中，只需要下载一个 Android Studio 即可。下载地址在 Android 官网：[https://developer.android.google.cn/studio](https://developer.android.google.cn/studio)。
+下载下来的是一个安装包，安装过程也很简单，基本上一直点击「Next」即可。安装成功后，Android Studio 会自动下载一些工具，比如 Android SDK 等，之后就进入到 Android Studio 的欢迎界面，此时 Android 开发环境就搭建完成。
+## 第一个 Android 应用
+
+第一个程序毫无疑问是 Hello World，下面就来创建一个 Android 的 HelloWorld 程序。
+### 创建 HelloWorld 项目
+
+在 Android Studio 欢迎界面点击「Start a new Android Studio project」，会打开一个创建新项目的界面。首先需要选择一个项目类型，不仅可以选择手机或平板类的项目，还可以选择可穿戴设备、电视等类型，这里就选择手机类型。Android Studio 还提供了很多内置模版，这里选择最简单的 「Empty Activity」，创建一个空的 Activity 就可以。
+
+![image.png](https://s2.loli.net/2024/01/10/1IQS7gejuP5dnqv.png)
+
+点击「Next」进入项目配置界面。
+这个界面上需要的填写的信息如下：
+
+![image.png](https://s2.loli.net/2024/01/10/Wa67KCyeZDRXAIk.png)
+
+- Name：应用名称，例如 HelloWorld。
+- Package Name：项目的包名。Android系统通过包名来区分程序，需保证其唯一性。Android Studio 会根据应用名称来自动生成默认的包名，也可以自行修改。
+- Save location：项目代码存放的位置。
+- Language：表示使用哪种语言开发 Android 应用，目前默认选项是 Kotlin。在过去，Android 应用程序是使用 Java 进行开发，2017 Google I/O 大会上，Google 宣布将 Kotlin 作为 Android 开发的 First-Class（一等公民）语言。在 2019 Google I/O 大会上，Google 宣布，Kotlin 成为 Android 应用程序开发者的首选语言（Kotlin-First）。
+- Minimum SDK：设置项目最低的兼容版本。从上图可以看到，截至 2023 年，Android 5.0 以上系统已经超过 99.5%，所以通常选择 API 21 即可。
+- 最下面还有个复选框「Use legacy android.support libraries」，这个选项新项目不用勾选，会默认使用 AndroidX 来代替 Android Support Library。
+
+最后，点击Finish，项目创建成功。
+
+### 运行项目
+
+前面创建项目时，选择了模板，Android Studio 会根据模板自动生成一些初始代码，因此现在可以不用编写任何代码，HelloWorld 程序就已经可以运行了。一般有两种方式来运行 Android 项目。一种是 Android Studio 提供的 Android 模拟器，另一种是真实的 Android 手机。
+
+**创建模拟器**
+
+在 Android Studio 中选择「**Device Manager**」，进入模拟器管理界面，这里可以创建和启动模拟器。点击「Create device」，选择一款设备（如 Pixel），点击「Next」，再选择模拟器所使用的操作系统版本，可以选择目前最新的系统，并下载对应的镜像，下载完成后点击「Next」，可以对模拟器的名字、分辨率等进行配置，这里没有特殊需求可以保持默认，直接跳过。点击「Finish」完成模拟器的创建。
+创建好后，模拟器列表中会多出一个模拟器设备，点击右侧 Actions 栏目中的三角形按钮，可以启动模拟器。
+
+**在真机上运行程序**
+
+模拟器上运行程序有时可能会比较卡，所以一般更常见的是在真实的 Android 设备（真机）上运行和调试 Android 程序。
+
+首先需要在设备上，打开**设置**应用，选择**开发者选项**，然后启用 **USB 调试。**
+针对不同操作系统的电脑，可能需要进行一些额外的配置。可以通过 USB 和 WIFI 两种方式在真实的 Android 设备上运行和调试程序，具体可以参考 [在硬件设备上运行应用](https://developer.android.com/studio/run/device?hl=zh-cn#connect)。 当设备连接到电脑上时，状态栏上会显示当前连接的设备，可以据此判断连接是否正常。
+
+**运行 HelloWorld**
+
+当启动了模拟器或者连接上真机后，就可以点击模拟器或真机旁边的三角形按钮来编译并安装项目到设备上。
+
+运行结果如图所示：
+
+![image.png](https://s2.loli.net/2024/01/10/GUoF9t6pw2DIWTN.png)
+
+## 分析 Android 程序
+
+项目的结构列表位于最左边，刚创建的新项目默认使用 Android 模式的项目结构，但这并不是真实的目录结构，是为了快速开发而设置的，点击结构列表上面的下拉列表，选择「Proejct」，即看到真实的目录结构。
+
+![image.png](https://s2.loli.net/2024/01/10/ZasFfTXnrldKSRe.png)
+![image.png](https://s2.loli.net/2024/01/10/WdwTYB1XmHLkc2N.png)
+
+### 项目根目录内容
+
+下面从项目根目录开始，介绍下根目录下的各个文件及文件夹的作用。
+
+- `.gradle/` 和 `.idea/`：这两个目录下放置的都是 Android Studio 自动生成的文件，不用管它们。
+- `app/`：项目的代码、资源等内容都放在这个目录。开发工作基本在此目录下进行。待会还会对这个目录单独展开讲解。
+- `build/`：这个目录主要包含了一些在编译时自动生成的文件。
+- `gradle/`：这个目录下有个 wrapper 文件夹，其中包含两个文件：`gradle-wrapper.jar` 和 `gradle-wrapper.properties`。gradle-wrapper.jar 是用来下载 gradle 的工具，gradle-wrapper.properties 是 gradle wrapper 的配置文件，其中主要是指定了 gradle 的版本。使用 gradle wrapper 的方式可以保证项目的 gradle 版本一致性，并且不需要提前将 gradle 下载好，而是会自动根据本地的缓存情况决定是否需要联网下载 gradle。gradle-wrapper.properties 中的内容如下：
+
+```java
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+// gradle 版本的下载地址
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip
+```
+
+- `.gitignore`：这个文件用来将指定的目录或文件排除在 Git 的版本控制之外。
+- `build.gradle`：项目全局的 gradle 构建脚本。后面还会介绍。
+- `gradle.properties`：全局的 gradle 配置文件，在这里配置的属性会影响项目所有的 gradle 编译脚本。
+- `gradlew` 和 `gradlew.bat`：用来在命令行中执行 gradle 命令，其中 gradlew 是在 Linux 或 Mac 系统中使用的，gradlew.bat 是在 Windows 系统中使用的。
+- `HelloWorld.iml`：iml 文件是所有 IntelliJ IDEA 项目都会自动生成的一个文件（Android Studio 基于 IntelliJ IDEA），用于标识这是一个 IntelliJ IDEA 项目。
+`local.properties`：和 gradle.properties 作用类似，但不会被提交到 Git 中，适用于本地的编译配置。比如默认会在这个文件中生成本机中的 Android SDK 和 NDK 路径。
+`settings.gradle`：用于指定项目中所有引入的模块。一般都是自动引入。
 
 
 
