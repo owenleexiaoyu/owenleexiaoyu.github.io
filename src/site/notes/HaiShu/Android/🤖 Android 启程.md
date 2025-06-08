@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T17:20:19.017+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T17:22:42.085+08:00"}
 ---
 
 
@@ -305,7 +305,10 @@ allprojects {
 }
 ```
 
-
+`buildscript` 闭包表示项目构建脚本，定义了项目构建过程中的依赖。
+`allprojects` 闭包表示这里面的配置会应用到项目的所有模块中。
+buildscript 和 allprojects 两处都有一个 `repositories` 闭包，其中都声明了 `google()` 和 `mavenCentral()` 这两行配置，它们分别对应一个代码托管仓库，google 仓库中包含的主要是 Google 自己扩展依赖库，如 AndroidX；而 mavenCentral 仓库中包含的大多是第三方开源库，声明这两行配置，就可以在项目中轻松引用任何 google 和 mavenCentral 上的依赖库了。
+`dependencies` 闭包使用了 classpath 声明了两个插件：一个 Gradle 插件和一个 Kotlin 插件。Gradle 并不是专门为构建 Android 项目而开发的，Java、C++ 等很多项目也可以使用 Gradle 来构建，因此需要一个专门用于构建 Android 项目的 Gradle 插件 `com.android.tools.build:gradle`，也被称为 AGP（Android Gradle Plugin）。另一个 Kotlin 插件是当项目用 Kotlin 开发时，需要这个插件，它将 Kotlin 源码编译成 JVM 的字节码。
 
 **app 目录下的 build.gradle**
 
@@ -378,11 +381,6 @@ dependencies {
 - release 子闭包：指定生成正式版安装文件的配置
 
 在 release 子闭包中，会指定如下配置：
-
-| **配置** | **说明** |
-| --- | --- |
-| `minifyEnabled` | 指定是否对项目的代码进行混淆，true 表示混淆，false 表示不混淆 |
-| `proguardFiles` | 指定混淆时使用的规则文件。这里指定了两个文件：`proguard-android-optimize.txt`：在<Android SDK>/tools/proguard 目录下，是所有项目通用的混淆规则；`proguard-rules.pro`：在当前项目的根目录下，用于编写当前项目特有的混淆规则 |
 
 整个 android 闭包中的内容分析完了，还剩一个 `dependencies` 闭包，它用于指定当前项目所有的依赖关系。通常有 3 种依赖方式：
 
