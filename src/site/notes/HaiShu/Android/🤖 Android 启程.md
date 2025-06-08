@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T17:15:56.139+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T17:18:26.352+08:00"}
 ---
 
 
@@ -137,6 +137,143 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip
 - `HelloWorld.iml`：iml 文件是所有 IntelliJ IDEA 项目都会自动生成的一个文件（Android Studio 基于 IntelliJ IDEA），用于标识这是一个 IntelliJ IDEA 项目。
 `local.properties`：和 gradle.properties 作用类似，但不会被提交到 Git 中，适用于本地的编译配置。比如默认会在这个文件中生成本机中的 Android SDK 和 NDK 路径。
 `settings.gradle`：用于指定项目中所有引入的模块。一般都是自动引入。
+
+### app 目录内容
+
+因为大部分的开发工作在此目录下，所以接下来详细分析一下 app 目录。
+
+| **文件或目录**             | **说明**                                                                               |
+| --------------------- | ------------------------------------------------------------------------------------ |
+| `build/`              | 与项目根目录下的 build 目录类似，包含编译时自动生成的文件。                                                    |
+| `libs/`               | 如果项目中用到了第三方 jar 包，就需要把它们放在这个 libs 目录下。这个目录下的 jar 包会被自动添加到构建路径中去。                     |
+| `androidTest/`        | 用来编写 Android Test 测试用例的，可以对项目进行一些自动化测试。                                              |
+| `java/`               | 放置 Java 和 Kotlin 代码的文件夹。Android Studio 自动在这个目录下生成了一个 MainActivity.kt 文件。             |
+| `res/`                | 用于存放项目中使用的图片、布局、字符串等资源。包含很多子目录，比如图片放在 drawable 目录下，布局放在 layout 目录下，字符串放在 values 目录下。 |
+| `AndroidManifest.xml` | 整个 Android 项目的配置文件，可以在这个文件里定义四大组件和添加静态权限声明。后面会详细说明。                                  |
+| `test/`               | 在这个文件夹下编写 Unit Test 测试用例。                                                            |
+| `.gitignore`          | 和项目根目录下 .gitignore 文件作用类似，用于将 app 目录范围内指定的目录或文件排除在 Git 版本控制之外。                       |
+| `app.iml`             | IntelliJ IDEA 项目自动生成的文件，无需关心。                                                        |
+| `build.gradle`        | app 模块的 gradle 构建脚本，其中会指定很多项目构建相关的配置。后面会详细说明。                                        |
+| `proguard-rules.pro`  | 这个文件用于指定代码的混淆规则，混淆会使破解者难以阅读反编译的代码。                                                   |
+
+### 详解项目初始代码
+
+接下来通过分析项目初始代码，介绍 Android 项目如何运行起来，如何在界面上显示出 Hello World! 的内容。
+首先打开 `AndroidManifest.xml` 文件，从中可以找到如下代码：
+
+```xml
+<activity
+  android:name=".MainActivity"
+  android:exported="true">
+  <intent-filter>
+    <action android:name="android.intent.action.MAIN" />
+    <category android:name="android.intent.category.LAUNCHER" />
+  </intent-filter>
+</activity>
+```
+
+这段代码表示对 MainActivity 进行注册，没有在 AndroidManifest.xml 里注册的 Activity 是不能使用的。其中 intent-filter 里的两行代码非常重要:
+
+```xml
+<action android:name="android.intent.action.MAIN" />
+<category android:name="android.intent.category.LAUNCHER" />
+```
+
+这表示了 MainActivity 是这个项目的主 Activity，在手机上点击应用图标，首先启动的就是这个 Activity，也就是应用程序的入口。
+MainActivity 是一个 Activity，Activity 是 Android 的四大组件之一，表示应用的界面，应用所能看到的 UI，基本上都是承载在 Activity 里。看下 MainActivity 的代码： 
+
+```kotlin
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+}
+```
+
+MainActivity 继承自 AppCompatActivity，AppCompatActivity 是 AndroidX 提供的一种向下兼容的 Acitivity，可以使 Activity 在不同系统版本中的功能保持一致性。Activity 是系统提供的一个基类，必须继承它或者它的子类才能拥有 Activity 的特性（AppCompatActivity 是 Activity 的子类）。
+MainActivity 中有个 onCreate 方法，这是 Activity 创建时的生命周期回调方法。这个方法里第二行调用 `setContentView` 方法，给当前 Activity 引入一个 activity_main 的布局，在 activity_main 布局中编写 UI 相关的代码。
+布局文件定义在 res/layout 目录下，来看下 activity_main.xml 的内容：
+
+```kotlin
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hello World!"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+```
+
+可以看到 XML 文件中有个 `TextView`，这是 Android 系统提供的一个控件，用来在界面上展示文字，其中有行代码是 `android:text="Hello World!"`，正是这行代码将 Hello World! 展示到界面上。
+
+### 详解项目中的资源
+
+接下来再来介绍下 Android 项目中的各种资源。
+
+![image.png](https://s2.loli.net/2024/01/10/efnmtcA6OPU8uqr.png)
+
+res 目录下各类子目录的作用见下表：
+
+- `drawable`：所有以 drawable 开头的文件夹用来存放图片
+    - drawable
+    - drawable-v24
+    - drawable-hdpi
+    - drawable-xhdpi
+    - drawable-xxhdpi
+- `mipmap`：所有 mipmap 开头的文件夹用来存放应用图标
+    - mipmap-anydpi-v26
+    - mipmap-hdpi
+    - mipmap-xhdpi
+    - mipmap-xxhdpi
+    - mipmap-xxxhdpi
+
+> drawable 和 mipmap 有很多以 hdpi、xhdpi、xxhdpi 为后缀的文件夹，这是为了让程序更好地兼容各种设备。在开发时，最好能够给同一张照片提供几个不同分辨率的版本，分别放在这些目录下，然后程序运行时会自动根据当前设备分辨率的高低选择加载哪个目录下的图片。如果只有一种分辨率的图片的话，可以把它放在 `drawable-xxhdpi` 目录下，这是最主流的设备分辨率目录，mipmap 也是同理。
+
+- `layout`：所有 layout 开头的文件夹用来存放布局文件
+- `values`：所有 values 开头的文件夹用来存放字符串、颜色、样式等配置
+
+再来看看如何使用这个目录下的资源，以字符串资源为例，打开 `res/values/strings.xml` 文件，内容如下所示：
+
+```xml
+<resources>
+  <string name="app_name">HelloWorld</string>
+</resources>
+```
+
+可以看到这里定义了一个应用程序名的字符串，引用该字符串有两种方式：
+
+- 代码中使用 `R.string.app_name`
+- XML 中使用 `@string/app_name`
+
+drawable、mipmap、layout 的引用方式和字符串类似，比如 drawable 资源是将上面 string 换成 drawable，布局文件是将 string 换成 layout，比如前面 MainActivity 中的 `setContentView(R.layout.activity_main)`。
+再举一个例子来帮助理解，打开 AndroidManifest.xml：
+
+```xml
+<application
+  android:allowBackup="true"
+  android:icon="@mipmap/ic_launcher"
+  android:label="@string/app_name"
+  android:roundIcon="@mipmap/ic_launcher_round"
+  android:supportRtl="true"
+  android:theme="@style/AppTheme">
+</application>
+```
+
+其中，项目的应用图标是通过 `android:icon` 属性指定，应用名称是通过 `android:label` 属性指定，应用的主题通过 `android:theme` 属性指定。可以看到这里对资源的引用方式正是第二种在 XML 中引用资源的语法。
 
 
 
