@@ -1,17 +1,21 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T11:42:38.437+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 Android 启程/","tags":["编程","Android"],"noteIcon":"","created":"2024-01-10T23:06:26.664+08:00","updated":"2025-06-08T11:46:30.375+08:00"}
 ---
 
 
 
 欢迎来到 Android 开发的世界。目前 Android 是目前世界上市场占有率最高的移动操作系统，和苹果的 iOS 系统占据了移动操作系统的绝大部分市场份额。随着移动互联网的兴起，移动端开发正在变得如火如荼。
 ## Android 的历史
+
 2003 年 10 月，Andy Rubin 等人创办了 Android 公司，开发 Android 操作系统。2005 年 8 月谷歌收购了这家仅仅成立了 22 个月的公司，并让 Andy Rubin 继续负责 Android 项目。2008 年，谷歌推出了 Android 系统的第一个版本。
+
 和 iOS 的封闭相反，Android 系统是开源的，Google 允许任何手机厂商和个人免费获取 Android 的源码，并可以自由地使用和定制。三星、HTC、摩托罗拉等手机厂商相继推出了搭载 Android 系统的手机，Android 市场百花齐放，迅速崛起，将诺基亚塞班系统拉下马来。国内小米、华为、vivo、oppo 等品牌的手机，也都是基于 Android 操作系统的。
+
 > 关于 Android 系统诞生的幕后故事，可以阅读[《安卓传奇：Android缔造团队回忆录》](https://book.douban.com/subject/36149272/)这本书，它由 Android 核心团队成员书写，详细记录了 Android 系统 1.0 版本推出前后的各个精彩故事。
 
 下面，让我们一起踏上激动人心的 Android 开发学习之旅，成为一名 Android 开发者。
 ## Android 系统架构
+
 为了更好地理解 Android 系统如何工作，先来了解下它的系统架构。Android 大致可以分为四层，从下到上依次是：Linux 内核层、系统运行时层、应用框架层和应用层。
 
 1. **Linux 内核层**
@@ -32,25 +36,33 @@ Android 系统基于 Linux 内核，这一层为 Android 设备的各种硬件�
 所有安装在手机上的应用程序都属于应用层，比如系统自带的联系人、短信等应用，或者从 Google Play 等应用商店下载的第三方应用，当然也包括我们自己开发的应用程序。
 Android 系统的整体架构如图所示：
 
+
 ![Android 系统架构图](https://s2.loli.net/2024/01/10/BKUtyLaOjqT9F7x.png)
 
 ## Android 已发布版本
+
 2008 年 9 月，Google 正式发布了 Android 1.0 系统。随后几年，Android 系统更新速度惊人，相继推出了 2.1、2.2、2.3 版本系统，让 Android 占领大量市场。2011 年 2 月，Google 发布了 Android 3.0 系统，这个系统是专门为平板电脑设计的，但也是 Android 为数不多的比较失败的版本，同年 10 月，Google 又发布了 Android 4.0 系统，不再对手机和平板进行差异化区分。2014 年 Google I/O大会上，Google 推出了号称史上版本改动最大的 Android 5.0 系统，其中使用了 ART 虚拟机替代了 Dalvik 虚拟机，大大提升了应用的运行速度，还提出了 Material Design 的概念来优化应用的界面设计。除此之外，还推出了 Android Wear、Android Auto、Android TV 系统，从而进军可穿戴设备、汽车、电视等全新领域。之后，Android 系统基本上保持每年一个新版本的发布节奏。2015 年 Google I/O大 会推出了 Android 6.0 系统，加入运行时权限功能。2016 年 Google I/O 大会上推出了 Android 7.0 系统，加入多窗口模式功能。
+
 > 参考 [Android 系统版本大全](https://www.yuque.com/owenlee/android/nfwrhgt6nlrskmis?view=doc_embed) 文章查看所有 Android 版本的主要特性。
 
 ## 搭建 Android 开发环境
+
 在了解一些 Android 系统的背景知识后，接下来就正式进入实践环节了，学习 Android 开发的第一步就是搭建开发环境，并且编写出第一个最简单 Android 应用程序。
+
 ### 需要的工具
 
 - JDK：JDK 是 Java 语言的软件开发工具包，它包含了 Java 的运行环境、工具集合、基础类库等内容。
 - Android SDK：Android SDK 是谷歌提供的 Android 开发工具包，在开发 Android 程序时，需引入它使用 Android 相关API。
 - Android Studio：它是谷歌在 2013 年推出的官方 IDE 工具，比起在 Eclipse 上安装 ADT 插件来开发 Android 程序，Android Studio 则是专业的 Android 开发 IDE。
 ### 搭建开发环境
+
 上面这些工具不需要单独下载，为了简化搭建开发环境的过程，Google 将所有需要的工具都集成在了 Android Studio 中，只需要下载一个 Android Studio 即可。下载地址在 Android 官网：[https://developer.android.google.cn/studio](https://developer.android.google.cn/studio)。
 下载下来的是一个安装包，安装过程也很简单，基本上一直点击「Next」即可。安装成功后，Android Studio 会自动下载一些工具，比如 Android SDK 等，之后就进入到 Android Studio 的欢迎界面，此时 Android 开发环境就搭建完成。
 ## 第一个 Android 应用
+
 第一个程序毫无疑问是 Hello World，下面就来创建一个 Android 的 HelloWorld 程序。
 ### 创建 HelloWorld 项目
+
 在 Android Studio 欢迎界面点击「Start a new Android Studio project」，会打开一个创建新项目的界面。首先需要选择一个项目类型，不仅可以选择手机或平板类的项目，还可以选择可穿戴设备、电视等类型，这里就选择手机类型。Android Studio 还提供了很多内置模版，这里选择最简单的 「Empty Activity」，创建一个空的 Activity 就可以。
 
 ![image.png](https://s2.loli.net/2024/01/10/1IQS7gejuP5dnqv.png)
@@ -68,28 +80,40 @@ Android 系统的整体架构如图所示：
 - 最下面还有个复选框「Use legacy android.support libraries」，这个选项新项目不用勾选，会默认使用 AndroidX 来代替 Android Support Library。
 
 最后，点击Finish，项目创建成功。
+
 ### 运行项目
+
 前面创建项目时，选择了模板，Android Studio 会根据模板自动生成一些初始代码，因此现在可以不用编写任何代码，HelloWorld 程序就已经可以运行了。一般有两种方式来运行 Android 项目。一种是 Android Studio 提供的 Android 模拟器，另一种是真实的 Android 手机。
+
 **创建模拟器**
+
 在 Android Studio 中选择「**Device Manager**」，进入模拟器管理界面，这里可以创建和启动模拟器。点击「Create device」，选择一款设备（如 Pixel），点击「Next」，再选择模拟器所使用的操作系统版本，可以选择目前最新的系统，并下载对应的镜像，下载完成后点击「Next」，可以对模拟器的名字、分辨率等进行配置，这里没有特殊需求可以保持默认，直接跳过。点击「Finish」完成模拟器的创建。
 创建好后，模拟器列表中会多出一个模拟器设备，点击右侧 Actions 栏目中的三角形按钮，可以启动模拟器。
+
 **在真机上运行程序**
+
 模拟器上运行程序有时可能会比较卡，所以一般更常见的是在真实的 Android 设备（真机）上运行和调试 Android 程序。
+
 首先需要在设备上，打开**设置**应用，选择**开发者选项**，然后启用 **USB 调试。**
 针对不同操作系统的电脑，可能需要进行一些额外的配置。可以通过 USB 和 WIFI 两种方式在真实的 Android 设备上运行和调试程序，具体可以参考 [在硬件设备上运行应用](https://developer.android.com/studio/run/device?hl=zh-cn#connect)。 当设备连接到电脑上时，状态栏上会显示当前连接的设备，可以据此判断连接是否正常。
+
 **运行 HelloWorld**
+
 当启动了模拟器或者连接上真机后，就可以点击模拟器或真机旁边的三角形按钮来编译并安装项目到设备上。
+
 运行结果如图所示：
 
 ![image.png](https://s2.loli.net/2024/01/10/GUoF9t6pw2DIWTN.png)
 
 ## 分析 Android 程序
+
 项目的结构列表位于最左边，刚创建的新项目默认使用 Android 模式的项目结构，但这并不是真实的目录结构，是为了快速开发而设置的，点击结构列表上面的下拉列表，选择「Proejct」，即看到真实的目录结构。
 
 ![image.png](https://s2.loli.net/2024/01/10/ZasFfTXnrldKSRe.png)
 ![image.png](https://s2.loli.net/2024/01/10/WdwTYB1XmHLkc2N.png)
 
 ### 项目根目录内容
+
 下面从项目根目录开始，介绍下根目录下的各个文件及文件夹的作用。
 
 - `.gradle/` 和 `.idea/`：这两个目录下放置的都是 Android Studio 自动生成的文件，不用管它们。
@@ -115,6 +139,7 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip
 `settings.gradle`：用于指定项目中所有引入的模块。一般都是自动引入。
 
 ### app 目录内容
+
 因为大部分的开发工作在此目录下，所以接下来详细分析一下 app 目录。
 
 | **文件或目录**             | **说明**                                                                               |
@@ -132,6 +157,7 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip
 | `proguard-rules.pro`  | 这个文件用于指定代码的混淆规则，混淆会使破解者难以阅读反编译的代码。                                                   |
 
 ### 详解项目初始代码
+
 接下来通过分析项目初始代码，介绍 Android 项目如何运行起来，如何在界面上显示出 Hello World! 的内容。
 首先打开 `AndroidManifest.xml` 文件，从中可以找到如下代码：
 
@@ -195,6 +221,7 @@ MainActivity 中有个 onCreate 方法，这是 Activity 创建时的生命周�
 可以看到 XML 文件中有个 `TextView`，这是 Android 系统提供的一个控件，用来在界面上展示文字，其中有行代码是 `android:text="Hello World!"`，正是这行代码将 Hello World! 展示到界面上。
 
 ### 详解项目中的资源
+
 接下来再来介绍下 Android 项目中的各种资源。
 
 ![image.png](https://s2.loli.net/2024/01/10/efnmtcA6OPU8uqr.png)
@@ -249,9 +276,12 @@ drawable、mipmap、layout 的引用方式和字符串类似，比如 drawable �
 其中，项目的应用图标是通过 `android:icon` 属性指定，应用名称是通过 `android:label` 属性指定，应用的主题通过 `android:theme` 属性指定。可以看到这里对资源的引用方式正是第二种在 XML 中引用资源的语法。
 
 ### 详解 build.gradle 文件
+
 Android Studio 采用 Gradle 来构建 Android 项目。Gradle 是一个优秀的项目构建工具，基于 Groovy 的领域特定语言（DSL）来声明项目设置，摒弃了传统基于 XML（如 Maven）的各种繁琐配置。
 前面提到，项目中有两个 `build.gradle` 文件，一个在项目根目录下，一个在 app 目录下，这两个文件对构建 Android 项目都起到至关重要的作用，下面来对这两个文件的内容进行详细分析。
+
 **项目根目录下的 build.gradle**
+
 先来看项目根目录下的 build.gradle 文件。
 
 ```groovy
@@ -281,6 +311,7 @@ buildscript 和 allprojects 两处都有一个 `repositories` 闭包，其中都
 `dependencies` 闭包使用了 classpath 声明了两个插件：一个 Gradle 插件和一个 Kotlin 插件。Gradle 并不是专门为构建 Android 项目而开发的，Java、C++ 等很多项目也可以使用 Gradle 来构建，因此需要一个专门用于构建 Android 项目的 Gradle 插件 `com.android.tools.build:gradle`，也被称为 AGP（Android Gradle Plugin）。另一个 Kotlin 插件是当项目用 Kotlin 开发时，需要这个插件，它将 Kotlin 源码编译成 JVM 的字节码。
 
 **app 目录下的 build.gradle**
+
 下面再来分析一下 app 目录下的 build.gradle 文件。
 
 ```groovy
@@ -371,6 +402,7 @@ dependencies {
 剩下的 testImplementation 和 androidTestImplementation 都是用于声明测试用例库的，暂时用不到，可以先忽略。
 
 ## 总结
+
 这篇文章是以《Android 第一行代码（第三版）》第一章内容为基底，总结 Android 入门基础知识。
 首先简要介绍了 Android 系统的历史、系统架构及已发布的一些版本。接着是介绍如何搭建 Android 开发环境，并运行第一个 HelloWorld 程序。最后是详细分析了 Android 项目的组成元素及项目代码。
 相信看完这篇文章，读者可以对 Android 开发有个粗略的认识。下一篇将介绍 Android 四大组件之一的 Activity。
