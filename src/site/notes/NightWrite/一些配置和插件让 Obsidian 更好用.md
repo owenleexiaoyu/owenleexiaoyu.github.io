@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/一些配置和插件让 Obsidian 更好用/","title":"一些配置和插件让 Obsidian 更好用","tags":["随笔","Obsidian"],"noteIcon":"","created":"2025-06-03T23:16:19.885+08:00","updated":"2025-06-05T08:56:10.962+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/一些配置和插件让 Obsidian 更好用/","title":"一些配置和插件让 Obsidian 更好用","tags":["随笔","Obsidian"],"noteIcon":"","created":"2025-06-03T23:16:19.885+08:00","updated":"2025-06-10T09:45:26.977+08:00"}
 ---
 
 之前提到，我目前已经将 [[NightWrite/Obsidian 作为主力笔记软件\|Obsidian 作为主力笔记软件]]，这是因为在使用一些插件后，Obsidian 带给我的使用体验非常好。这里就来稍微写下我对 Obsidian 的一些配置，以及正在使用的几个非常好用的插件。
@@ -28,7 +28,57 @@ Daily notes 插件提供了几个简单的设置，都挺实用的：
 ## Calendar
 
 日历插件可以和官方的 Daily notes 插件完美结合，日历插件会在右侧展示一个日历视图，上面会显示该月的日期，高亮当前的日期，如果某一天创建了日记笔记， 还会在日期下显示一个小圆点，点击日期可以快速跳转到这天的日记，非常丝滑。日历视图左侧还可以显示当前处于第几周，点击某一周，可以创建一个周记笔记（Weekly Notes）。如果我们觉得每天记日记笔记没啥可写的话，每周创建一个周记笔记来记录这一周的发生的事也是个不错的选择。
+
 ![](https://img.lixiaoyu.life/blog-res/2025/06/26e3a6532783d3aeb4f9f2a499fdd1da.png)
+
+创建周记时，我进行了两个配置，让整体体验更上一层楼。一个是配置周记的标题。
+
+![image.png](https://img.lixiaoyu.life/blog-res/2025/06/48e5e7b90437911bee41d27f14e81f34.png)
+
+配置为 `[Weekly]-gggg-[W]ww` ，生成的标题是 `Weekly-2025-W24`， 24 是指今年的第几周。
+
+第二个是配置周记的模板。
+
+![image.png](https://img.lixiaoyu.life/blog-res/2025/06/73433d4b5202dae1386a5e9d9cac9516.png)
+
+我希望模板中自动添加 周一~周日的大纲标题，并且跟上具体的时间，这样能清晰地知道这周是几月几号到几月几号，因为像 W24，W25 的第几周还是不太清晰。
+
+模板的内容如下，用形如 `{{monday:YYYY-MM-DD}}` 的模板标记来生成这周某一天的日期。
+```
+// WeeklyNote.md
+
+# 周一 {{monday:YYYY-MM-DD}}
+
+
+
+# 周二 {{tuesday:YYYY-MM-DD}}
+
+
+
+# 周三 {{wednesday:YYYY-MM-DD}}
+
+
+
+# 周四 {{thursday:YYYY-MM-DD}}
+
+
+
+# 周五 {{friday:YYYY-MM-DD}}
+
+
+
+# 周六 {{saturday:YYYY-MM-DD}}
+
+
+
+# 周日 {{sunday:YYYY-MM-DD}}
+```
+
+创建出来的周记内容是这样的：
+
+![image.png](https://img.lixiaoyu.life/blog-res/2025/06/1c8df69617a77adcd90c12f33a3c51ec.png)
+
+
 ## Kanban
 
 看板插件可以用来管理自己的任务。我们可以添加多个列表，来代表任务的不同状态，然后在列表里添加任务卡片。当一个任务做完时，可以将这个卡片从「进行中」拖到「已完成」。
