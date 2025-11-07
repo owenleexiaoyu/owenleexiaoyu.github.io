@@ -1,10 +1,10 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W44/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-10-27T22:57:31.980+08:00","updated":"2025-11-03T10:15:51.809+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W44/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-10-27T22:57:31.980+08:00","updated":"2025-11-07T08:57:53.916+08:00"}
 ---
 
 # 本周任务
 
-- [ ] 
+- [x] 记录本周生活
 
 ---
 
