@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W27/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-07-01T22:35:01.217+08:00","updated":"2026-01-26T10:06:17.817+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W27/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-07-01T22:35:01.217+08:00","updated":"2026-01-26T10:27:23.624+08:00"}
 ---
 
 
@@ -46,10 +46,6 @@
 - 小姨生啦，生了个女宝宝，太可爱啦，又多了一个妹妹！
 
 ![](https://img.lixiaoyu.life/blog-res/2025/07/678f914bf7d5f0a273b86aa5adb6258b.png)
-
-# 周六 2025-07-05
-
-
 
 # 周日 2025-07-06
 
