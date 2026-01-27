@@ -1,7 +1,6 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W34/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-08-19T09:33:54.341+08:00","updated":"2025-08-26T09:56:03.766+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W34/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-08-19T09:33:54.341+08:00","updated":"2026-01-27T23:47:43.314+08:00"}
 ---
-
 
 
 # 本周任务
@@ -25,13 +24,13 @@
 - 最近羽毛球券太难抢了，我连着抢了 3，4 次，都没有抢到 40 - 20 的券。
 - 收到了六周年纪念相框和徽章。
 
-![image.png](https://img.lixiaoyu.life/blog-res/2025/08/8d1fa278a47115a0936724e36cc30173.png)
+![image.png | 400](https://img.lixiaoyu.life/blog-res/2025/08/8d1fa278a47115a0936724e36cc30173.png)
 
 
 # 周三 2025-08-20
 
 - 将《iOS 编程》第一章基本学完，写了一个 Quiz App。[[DevBits/iOS Programming E7：C1 快速上手构建 Quiz App\|iOS Programming E7：C1 快速上手构建 Quiz App]]
-- 参加活动日的羽毛球活动
+- 参加了活动日的羽毛球活动
 
 # 周四 2025-08-21
 
