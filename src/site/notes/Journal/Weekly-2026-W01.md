@@ -1,11 +1,16 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W01/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-01-13T08:24:43.230+08:00","updated":"2026-02-27T20:35:27.567+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W01/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-01-13T08:24:43.230+08:00","updated":"2026-02-28T08:25:55.128+08:00"}
 ---
 
 
 # 周四 2026-01-01
 
 元旦假期。新年第一天还和小萌去参加林晨组的球局。我们太爱运动了，哈哈。
+
+晚上去附近新的一家牛肉面馆，点了一个牛肉煲仔，牛肉的量非常大，好吃。
+
+![image.png | 500](https://img.lixiaoyu.life/blog-res/2026/02/bf8b0658f53a7931a379bc4c17168cd7.png)
+
 
 # 周五 2026-01-02
 
