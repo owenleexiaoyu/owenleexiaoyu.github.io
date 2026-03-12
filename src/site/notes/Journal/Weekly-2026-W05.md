@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W05/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-01-28T22:35:47.945+08:00","updated":"2026-02-27T10:18:21.135+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W05/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-01-28T22:35:47.945+08:00","updated":"2026-03-12T10:27:50.051+08:00"}
 ---
 
 
@@ -42,4 +42,4 @@
 
 # 周日 2026-02-01
 
-周五、周六、周日在老家办 [[NightWrite/婚礼！婚礼！\|婚礼！婚礼！]]周日下午返回上海。
+周五、周六、周日在老家办 [[NightWrite/250131 婚礼！婚礼！\|250131 婚礼！婚礼！]]周日下午返回上海。
