@@ -69,7 +69,7 @@ function getPermalinkMeta(note, key) {
       permalink = note.data.permalink;
     }
     if (note.data.tags && note.data.tags.indexOf("gardenEntry") != -1) {
-      permalink = "/";
+      permalink = "/garden/";
     }    
     if (note.data.title) {
       name = note.data.title;

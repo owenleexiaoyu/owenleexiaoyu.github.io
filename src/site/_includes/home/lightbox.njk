@@ -1,0 +1,14 @@
+    <dialog id="photoLightbox" class="photo-lightbox" aria-labelledby="photoLightboxTitle">
+      <div class="photo-lightbox__panel" role="document">
+        <h2 id="photoLightboxTitle" class="visually-hidden">放大查看照片</h2>
+        <button type="button" class="photo-lightbox__icon photo-lightbox__close" aria-label="关闭">×</button>
+        <button type="button" class="photo-lightbox__icon photo-lightbox__prev" id="photoLightboxPrev" aria-label="上一张">‹</button>
+        <button type="button" class="photo-lightbox__icon photo-lightbox__next" id="photoLightboxNext" aria-label="下一张">›</button>
+        <div class="photo-lightbox__viewport" id="photoLightboxViewport">
+          <div class="photo-lightbox__rail" id="photoLightboxRail"></div>
+        </div>
+        <p class="photo-lightbox__counter" aria-live="polite">
+          <span id="photoLightboxIndex">1</span> / <span id="photoLightboxTotal">0</span>
+        </p>
+      </div>
+    </dialog>

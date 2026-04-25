@@ -1,0 +1,31 @@
+      <section class="section section--tint" id="stack" aria-labelledby="stack-heading">
+        <div class="wrap">
+          <header class="section-head reveal" data-reveal>
+            <p class="section-eyebrow">{{ home.stack.eyebrow }}</p>
+            <h2 id="stack-heading" class="section-title">{{ home.stack.title }}</h2>
+            <p class="section-lead">{{ home.stack.lead }}</p>
+            <span class="section-glowline" aria-hidden="true"></span>
+          </header>
+          <ul class="stack-list">
+            {% for item in home.stack.items %}
+              <li class="stack-item glass-tile tilt" data-tilt data-reveal data-reveal-delay="{{ item.delay }}">
+                <span class="stack-item__glow" aria-hidden="true"></span>
+                <div class="stack-item__row">
+                  <img
+                    class="stack-item__logo"
+                    src="{{ item.icon }}"
+                    width="48"
+                    height="48"
+                    alt=""
+                    loading="lazy"
+                  />
+                  <div class="stack-item__body">
+                    <span class="stack-item__name">{{ item.name }}</span>
+                    <span class="stack-item__meta">{{ item.meta }}</span>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </section>

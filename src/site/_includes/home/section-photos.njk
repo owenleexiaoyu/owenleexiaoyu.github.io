@@ -1,0 +1,66 @@
+      <section class="section section--tint" id="photos" aria-labelledby="photos-heading">
+        <div class="wrap">
+          <header class="section-head reveal" data-reveal>
+            <p class="section-eyebrow">{{ home.photos.eyebrow }}</p>
+            <h2 id="photos-heading" class="section-title">{{ home.photos.title }}</h2>
+            <p class="section-lead section-lead--verse">
+              {{ home.photos.lead }}
+            </p>
+            <span class="section-glowline" aria-hidden="true"></span>
+          </header>
+          <!--
+            原 Pollinations 直链易裂图：旧域名 image.pollinations.ai 失效；
+            新接口 gen.pollinations.ai 需 API Key，不适合无后端的纯静态 img。
+          -->
+          <div class="wf-scroller reveal" data-reveal data-reveal-delay="60" aria-label="摄影作品展示">
+            <div class="wf-scroller__edge wf-scroller__edge--left" aria-hidden="true"></div>
+            <div class="wf-scroller__edge wf-scroller__edge--right" aria-hidden="true"></div>
+            <div class="wf-scroller__viewport">
+              <div class="wf-scroller__track">
+                <div class="wf-scroller__strip">
+                  {% for row in home.photos.rows %}
+                    <div class="wf__row" role="list">
+                      {% for img in row %}
+                        <figure class="wf__item glass-tile wf__item--pop">
+                          <div class="wf__frame">
+                            <img
+                              class="wf__img"
+                              src="{{ img.src }}"
+                              alt="{{ img.alt }}"
+                              width="{{ img.w }}"
+                              height="{{ img.h }}"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </div>
+                        </figure>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+                <div class="wf-scroller__strip" aria-hidden="true">
+                  {% for row in home.photos.duplicateRows %}
+                    <div class="wf__row">
+                      {% for img in row %}
+                        <figure class="wf__item glass-tile wf__item--pop">
+                          <div class="wf__frame">
+                            <img
+                              class="wf__img"
+                              src="{{ img.src }}"
+                              alt=""
+                              width="{{ img.w }}"
+                              height="{{ img.h }}"
+                              loading="lazy"
+                              decoding="async"
+                            />
+                          </div>
+                        </figure>
+                      {% endfor %}
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>

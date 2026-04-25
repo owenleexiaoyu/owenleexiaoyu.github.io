@@ -1,0 +1,13 @@
+    <footer class="site-footer">
+      <div class="wrap site-footer__inner">
+        <p class="site-footer__copy">© <span id="year"></span> {{ home.footer.copyName }}</p>
+        <p class="site-footer__links">
+          {% for link in home.footer.links %}
+            {% if not loop.first %}
+              <span class="site-footer__dot" aria-hidden="true">·</span>
+            {% endif %}
+            <a href="{{ link.href }}" target="_blank" rel="noreferrer">{{ link.label }}</a>
+          {% endfor %}
+        </p>
+      </div>
+    </footer>

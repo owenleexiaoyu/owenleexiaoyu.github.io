@@ -1,0 +1,17 @@
+      <section class="section" id="intro" aria-labelledby="intro-heading">
+        <div class="wrap">
+          <header class="section-head reveal" data-reveal>
+            <p class="section-eyebrow">{{ home.intro.eyebrow }}</p>
+            <h2 id="intro-heading" class="section-title">{{ home.intro.title }}</h2>
+            <p class="section-lead">{{ home.intro.lead }}</p>
+            <span class="section-glowline" aria-hidden="true"></span>
+          </header>
+          <div class="glass-panel prose-panel reveal" data-reveal data-reveal-delay="80">
+            <div class="prose">
+              {% for p in home.intro.paragraphs %}
+                <p>{{ p | safe }}</p>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </section>

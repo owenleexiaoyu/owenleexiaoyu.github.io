@@ -1,0 +1,32 @@
+      <section class="section" id="garden" aria-labelledby="garden-heading">
+        <div class="wrap">
+          <header class="section-head reveal" data-reveal>
+            <p class="section-eyebrow">{{ home.garden.eyebrow }}</p>
+            <h2 id="garden-heading" class="section-title">{{ home.garden.title }}</h2>
+            <p class="section-lead">{{ home.garden.lead }}</p>
+            <span class="section-glowline" aria-hidden="true"></span>
+          </header>
+          <div class="prose glass-panel prose-panel prose--tight reveal" data-reveal data-reveal-delay="40">
+            {{ home.garden.proseHtml | safe }}
+          </div>
+          <div class="garden-grid">
+            {% for node in home.garden.nodes %}
+              <a
+                class="garden-node glass-tile tilt"
+                data-tilt
+                href="{{ node.href }}"
+                {% if node.external %}
+                  target="_blank"
+                  rel="noreferrer"
+                {% endif %}
+                data-reveal
+                data-reveal-delay="{{ node.delay }}"
+              >
+                <span class="garden-node__type">{{ node.type }}</span>
+                <span class="garden-node__title">{{ node.title }}</span>
+                <span class="garden-node__hint">{{ node.hint }}</span>
+              </a>
+            {% endfor %}
+          </div>
+        </div>
+      </section>

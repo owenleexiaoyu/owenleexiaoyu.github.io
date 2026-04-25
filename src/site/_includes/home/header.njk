@@ -1,0 +1,15 @@
+    <header class="site-header" id="siteHeader">
+      <div class="site-header__inner glass-bar">
+        <a class="brand" href="{{ home.brand.href }}">{{ home.brand.text }}</a>
+        <nav class="nav" aria-label="页面内导航">
+          {% for item in home.nav %}
+            <a class="nav__a" href="{{ item.href }}">{{ item.label }}</a>
+          {% endfor %}
+        </nav>
+        <button type="button" class="theme-toggle" id="themeToggle" aria-pressed="false" title="日间 / 夜间">
+          <span class="visually-hidden">切换日间与夜间主题</span>
+          <span class="theme-toggle__sun" aria-hidden="true">☀</span>
+          <span class="theme-toggle__moon" aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </header>

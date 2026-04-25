@@ -61,7 +61,7 @@ function getAnchorAttributes(filePath, linkTitle) {
       frontMatter.data.tags &&
       frontMatter.data.tags.indexOf("gardenEntry") != -1
     ) {
-      permalink = "/";
+      permalink = "/garden/";
     }
     if (frontMatter.data.noteIcon) {
       noteIcon = frontMatter.data.noteIcon;
@@ -522,6 +522,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("src/site/img");
+  eleventyConfig.addPassthroughCopy("src/site/assets");
   eleventyConfig.addPassthroughCopy("src/site/fonts");
   eleventyConfig.addPassthroughCopy("src/site/scripts");
   eleventyConfig.addPassthroughCopy("src/site/styles/_theme.*.css");
@@ -568,7 +569,7 @@ module.exports = function (eleventyConfig) {
       output: "dist",
       data: `_data`,
     },
-    templateFormats: ["njk", "md", "11ty.js"],
+    templateFormats: ["njk", "md", "11ty.js", "html"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: false,
     passthroughFileCopy: true,

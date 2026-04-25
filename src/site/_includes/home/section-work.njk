@@ -1,0 +1,20 @@
+      <section class="section" id="work" aria-labelledby="work-heading">
+        <div class="wrap">
+          <header class="section-head reveal" data-reveal>
+            <p class="section-eyebrow">{{ home.work.eyebrow }}</p>
+            <h2 id="work-heading" class="section-title">{{ home.work.title }}</h2>
+            <p class="section-lead">{{ home.work.lead }}</p>
+            <span class="section-glowline" aria-hidden="true"></span>
+          </header>
+          <div class="card-grid card-grid--3">
+            {% for card in home.work.cards %}
+              <article class="card glass-tile tilt card--shine" data-tilt data-reveal data-reveal-delay="{{ card.delay }}">
+                <div class="card__shine" aria-hidden="true"></div>
+                <h3 class="card__title">{{ card.title }}</h3>
+                <p class="card__text">{{ card.text }}</p>
+                <span class="card__tag">{{ card.tag }}</span>
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>

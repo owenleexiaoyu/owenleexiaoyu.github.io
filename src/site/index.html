@@ -1,0 +1,38 @@
+---
+permalink: /
+eleventyExcludeFromCollections: true
+layout: false
+---
+<!DOCTYPE html>
+<html lang="{{ home.lang }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="{{ home.meta.description }}" />
+    <title>{{ home.meta.title }}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="{{ home.fontsCss }}" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/home.css" />
+    <script src="/assets/js/home.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#intro">跳到主要内容</a>
+
+    {% include "home/ambient.njk" %}
+    {% include "home/header.njk" %}
+
+    <main id="main">
+      {% include "home/hero.njk" %}
+      {% include "home/section-intro.njk" %}
+      {% include "home/section-stack.njk" %}
+      {% include "home/section-work.njk" %}
+      {% include "home/section-blog.njk" %}
+      {% include "home/section-garden.njk" %}
+      {% include "home/section-photos.njk" %}
+    </main>
+
+    {% include "home/lightbox.njk" %}
+    {% include "home/footer.njk" %}
+  </body>
+</html>
