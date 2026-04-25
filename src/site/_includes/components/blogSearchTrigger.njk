@@ -1,0 +1,33 @@
+{#
+  与文件树中 search 入口类似的「输入框 + 搜索」外观；点击后打开全屏 #globalsearch。
+  showSearchButton: 为 false 时仅展示输入框（博客顶栏用，避免双按钮视觉）。
+#}
+{% macro blogSearchTrigger(modifier, showSearchButton) %}
+  <div
+    class="blog-search-trigger {{ modifier }}{% if showSearchButton|default(true) == false %} blog-search-trigger--no-button{% endif %}"
+    role="search"
+  >
+    <input
+      type="search"
+      class="blog-search-trigger__input"
+      placeholder="搜索…"
+      aria-label="打开搜索"
+      readonly
+      autocomplete="off"
+      onclick="event.preventDefault(); if (typeof toggleSearch === 'function') toggleSearch();"
+      onfocus="if (typeof toggleSearch === 'function') toggleSearch();"
+    />
+    {% if showSearchButton|default(true) != false %}
+    <button
+      type="button"
+      class="blog-search-trigger__btn"
+      aria-label="打开搜索"
+      onclick="if (typeof toggleSearch === 'function') toggleSearch();"
+    >
+      <span class="blog-search-trigger__icon" aria-hidden="true">
+        <i icon-name="search"></i>
+      </span>
+    </button>
+    {% endif %}
+  </div>
+{% endmacro %}

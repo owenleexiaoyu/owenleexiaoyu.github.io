@@ -1,0 +1,13 @@
+{%- from "components/blogSearchTrigger.njk" import blogSearchTrigger -%}
+<header class="blog-nav">
+  <div class="blog-nav__inner">
+    <a class="blog-nav__brand" href="/blog/">{{ meta.siteName }} · 博客</a>
+    <nav class="blog-nav__links" aria-label="博客导航">
+      {% if settings.dgEnableSearch === true %}
+        {{ blogSearchTrigger("", false) }}
+      {% endif %}
+      <a href="/blog/tags/">标签</a>
+      <a href="/blog/timeline/">时间线</a>
+    </nav>
+  </div>
+</header>

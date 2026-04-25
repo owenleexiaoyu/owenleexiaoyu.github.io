@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="{{ meta.mainLanguage | default('zh-CN') }}">
+  <head>
+    <title>
+      {% if title %}{{ title }} · {{ meta.siteName }}{% else %}{{ meta.siteName }} 博客{% endif %}
+    </title>
+    {% include "components/blog-head.njk" %}
+  </head>
+  <body class="theme-{{ meta.baseTheme }} blog-page">
+    {% include "components/blog-nav.njk" %}
+    <div class="blog-shell">
+      {{ content | safe }}
+    </div>
+    {% if settings.dgEnableSearch === true %}
+      {% include "components/searchContainer.njk" %}
+    {% endif %}
+    {% include "components/dgViewBlogContextInit.njk" %}
+    {% include "components/lucideIcons.njk" %}
+  </body>
+</html>

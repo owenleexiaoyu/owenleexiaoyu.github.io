@@ -1,0 +1,28 @@
+---
+pagination:
+  data: collections.blogTags
+  size: 1
+  alias: tag
+permalink: "blog/tags/{{ tag | blogTagSlug }}/index.html"
+---
+
+<div class="blog-narrow">
+  <h1 class="blog-page-title">#{{ tag }}</h1>
+  <ul class="blog-tag-feed" role="list">
+    {% for post in collections.blogPosts %}
+      {% if tag in post.data.tags %}
+        <li class="blog-feed__item">
+          <article class="blog-card">
+            <h2 class="blog-card__title">
+              <a href="{{ post.url | withBlogContext }}">{{ post.data.title | default(post.fileSlug) }}</a>
+            </h2>
+            <p class="blog-card__meta">
+              <time datetime="{{ post.data.created | default(post.data.updated) }}">{{ post | blogDateFormat }}</time>
+            </p>
+            <p class="blog-card__excerpt">{{ post.templateContent | blogExcerpt(200) }}</p>
+          </article>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

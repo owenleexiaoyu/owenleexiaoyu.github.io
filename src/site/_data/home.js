@@ -51,7 +51,7 @@ module.exports = {
     { label: "介绍", href: "#intro" },
     { label: "技术", href: "#stack" },
     { label: "作品", href: "#work" },
-    { label: "博客", href: "#blog" },
+    { label: "博客", href: "/blog/" },
     { label: "花园", href: GARDEN_ENTRY },
     { label: "摄影", href: "#photos" },
   ],
@@ -152,11 +152,10 @@ module.exports = {
     eyebrow: "Blog",
     title: "博客",
     lead: "长文、教程与复盘。",
-    callout:
-      "将按钮链接改为你正在使用的博客地址（自建、Medium、掘金专栏或 GitHub Pages 等均可）。",
+    callout: "与数字花园同级数据源：时间线、标签、全文搜索入口均在站内博客页。",
     cta: {
       label: "前往博客",
-      href: process.env.HOME_BLOG_URL || "https://example.com/blog",
+      href: process.env.HOME_BLOG_URL || "/blog/",
     },
   },
 

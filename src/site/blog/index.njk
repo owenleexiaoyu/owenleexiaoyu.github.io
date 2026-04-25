@@ -1,0 +1,49 @@
+---
+title: 博客
+pagination:
+  data: collections.blogPosts
+  size: 10
+  alias: posts
+permalink: "{% if pagination.pageNumber == 0 %}blog/index.html{% else %}blog/{{ pagination.pageNumber + 1 }}/index.html{% endif %}"
+---
+
+<div class="blog-layout">
+  <div class="blog-layout__main">
+    <h1 class="blog-page-title">文章</h1>
+    <ul class="blog-feed" role="list">
+      {% for post in posts %}
+        <li class="blog-feed__item">
+          <article class="blog-card">
+            <h2 class="blog-card__title">
+              <a href="{{ post.url | withBlogContext }}">{{ post.data.title | default(post.fileSlug) }}</a>
+            </h2>
+            <p class="blog-card__meta">
+              <time datetime="{{ post.data.created | default(post.data.updated) }}">{{ post | blogDateFormat }}</time>
+            </p>
+            <p class="blog-card__excerpt">{{ post.templateContent | blogExcerpt(220) }}</p>
+            <a class="blog-card__read" href="{{ post.url | withBlogContext }}" aria-hidden="true">继续阅读</a>
+          </article>
+        </li>
+      {% endfor %}
+    </ul>
+    <nav class="blog-pagination" aria-label="分页">
+      {% if pagination.href.previous %}
+        <a class="blog-pagination__link" href="{{ pagination.href.previous }}">← 较新的文章</a>
+      {% endif %}
+      {% if pagination.href.next %}
+        <a class="blog-pagination__link" href="{{ pagination.href.next }}">较旧的文章 →</a>
+      {% endif %}
+    </nav>
+  </div>
+  <aside class="blog-layout__aside" aria-label="最近修改">
+    <h2 class="blog-aside__title">最近修改</h2>
+    <ul class="blog-aside__list" role="list">
+      {% for post in collections.blogRecentUpdated %}
+        <li>
+          <a class="blog-aside__link" href="{{ post.url | withBlogContext }}">{{ post.data.title | default(post.fileSlug) }}</a>
+          <time class="blog-aside__time" datetime="{{ post.data.updated | default(post.data.created) }}">{{ post.data.updated | default(post.data.created) | blogDateFormat }}</time>
+        </li>
+      {% endfor %}
+    </ul>
+  </aside>
+</div>

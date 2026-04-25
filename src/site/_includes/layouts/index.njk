@@ -11,6 +11,11 @@
     {% endfor %}
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section {{meta.bodyClasses}}">
+    <script>
+      try {
+        sessionStorage.removeItem("dgViewBlog");
+      } catch (e) {}
+    </script>
     {%include "components/notegrowthhistory.njk"%}
     {% if settings.dgShowFileTree !== true %}
       {%include "components/navbar.njk"%}
@@ -74,6 +79,7 @@
     {% for imp in dynamics.index.footer %}
       {% include imp %}
     {% endfor %}
+    {% include "components/dgViewBlogContextInit.njk" %}
     {%include "components/lucideIcons.njk"%}
     {%include "components/articleTopHeading.njk"%}
     </body>

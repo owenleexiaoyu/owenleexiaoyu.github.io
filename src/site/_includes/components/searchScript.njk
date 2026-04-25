@@ -295,12 +295,19 @@
             return;
         }
         resultsHTML += '<div style="max-width:100%;">';
-        // we need to add title, url from ref
+        // we need to add title, url from ref; ?view=blog in blog / session context
         results.forEach(r => {
+            const noteUrl =
+                typeof window.dgAppendViewBlogToUrl === "function" &&
+                window.dgShouldUseBlogViewForNoteLinks &&
+                window.dgShouldUseBlogViewForNoteLinks()
+                    ? window.dgAppendViewBlogToUrl(r.url)
+                    : r.url;
+            const locJs = "window.location=" + JSON.stringify(noteUrl);
             if(r.tags && r.tags.length > 0){
                 resultsHTML += `<div class="searchresult">
-                    <a class="search-link" href="${r.url}">${r.title}</a>
-                    <div onclick="window.location='${r.url}'">
+                    <a class="search-link" href="${noteUrl}">${r.title}</a>
+                    <div onclick='${locJs}'>
                         <div class="header-meta">
                             <div class="header-tags">
                                 ${r.tags.map(tag=>'<a class="tag" href="JavaScript:Void(0);">#'+tag+'</a>').join("")}
@@ -311,8 +318,8 @@
                 </div>`;
             } else {
                 resultsHTML += `<div class="searchresult">
-                    <a class="search-link" href="${r.url}">${r.title}</a>
-                    <div onclick="window.location='${r.url}'">
+                    <a class="search-link" href="${noteUrl}">${r.title}</a>
+                    <div onclick='${locJs}'>
                         ${r.content}
                     </div>
                 </div>`;

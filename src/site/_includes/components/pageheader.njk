@@ -24,6 +24,7 @@
 {%endif%}
 
 <link href="/styles/custom-style.css" rel="stylesheet">
+<link href="/styles/blog.css" rel="stylesheet">
 {%- for style in dynamics.styles -%}
 <link href="{{style}}" rel="stylesheet">
 {%- endfor -%}
@@ -41,5 +42,6 @@
         {{ meta.styleSettingsCss | safe }}
     </style>
 {% endif %}
+{% include "components/dgViewBlogContextFunctions.njk" %}
 <style>
 </style>

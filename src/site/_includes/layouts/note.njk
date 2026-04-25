@@ -14,6 +14,19 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     {% endfor %}
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section {{meta.bodyClasses}}">
+    <script>
+      (function () {
+        try {
+          if (new URLSearchParams(location.search).get("view") === "blog") {
+            sessionStorage.setItem("dgViewBlog", "1");
+            document.body.classList.add("view-context--blog");
+          } else if (sessionStorage.getItem("dgViewBlog") === "1") {
+            document.body.classList.add("view-context--blog");
+          }
+        } catch (e) {}
+      })();
+    </script>
+    {% include "components/blog-nav.njk" %}
     {%include "components/notegrowthhistory.njk"%}
     
     {% if settings.dgShowFileTree !== true %}
@@ -98,6 +111,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     {% for imp in dynamics.notes.footer %}
       {% include imp %}
     {% endfor %}
+    {% include "components/dgViewBlogContextInit.njk" %}
     {%include "components/lucideIcons.njk"%}
     {%include "components/articleTopHeading.njk"%}
   </body>

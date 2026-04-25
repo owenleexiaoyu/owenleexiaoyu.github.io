@@ -1,0 +1,33 @@
+<script>
+(function () {
+  var KEY = "dgViewBlog";
+  function isNotePath(pathname) {
+    return pathname.indexOf("/notes/") === 0;
+  }
+  window.dgViewBlogSessionKey = KEY;
+  window.dgShouldUseBlogViewForNoteLinks = function () {
+    try {
+      if (sessionStorage.getItem(KEY) === "1") return true;
+    } catch (e) {}
+    var p = location.pathname || "";
+    if (p === "/blog" || p === "/blog/" || p.indexOf("/blog/") === 0) return true;
+    if (document.body && document.body.classList.contains("blog-page")) return true;
+    if (document.body && document.body.classList.contains("view-context--blog")) return true;
+    return false;
+  };
+  window.dgAppendViewBlogToUrl = function (href) {
+    if (!href || href.indexOf("javascript:") === 0 || href === "#") return href;
+    var u;
+    try {
+      u = new URL(href, location.origin);
+    } catch (e) {
+      return href;
+    }
+    if (u.origin !== location.origin) return href;
+    if (!isNotePath(u.pathname)) return href;
+    if (u.searchParams.get("view") === "blog") return href;
+    u.searchParams.set("view", "blog");
+    return u.pathname + u.search + (u.hash || "");
+  };
+})();
+</script>

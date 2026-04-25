@@ -1,0 +1,24 @@
+<script>
+(function () {
+  function run() {
+    if (!window.dgAppendViewBlogToUrl || !window.dgShouldUseBlogViewForNoteLinks) return;
+    if (!window.dgShouldUseBlogViewForNoteLinks()) return;
+    document
+      .querySelectorAll('a[href*="/notes/"], a[href^="notes/"]')
+      .forEach(function (a) {
+      var raw = a.getAttribute("href");
+      if (!raw || raw.indexOf("javascript:") === 0) return;
+      try {
+        var next = window.dgAppendViewBlogToUrl(raw);
+        if (next && next !== raw) a.setAttribute("href", next);
+      } catch (e) {}
+    });
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", run);
+  } else {
+    run();
+  }
+  setTimeout(run, 0);
+})();
+</script>

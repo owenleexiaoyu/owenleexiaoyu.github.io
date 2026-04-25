@@ -1,0 +1,16 @@
+---
+title: 所有标签
+permalink: blog/tags/index.html
+---
+
+<div class="blog-narrow">
+  <h1 class="blog-page-title">所有标签</h1>
+  <p class="blog-lead">按字母顺序排列；点选可查看同标签文章（含 blog 阅读上下文链接）。</p>
+  <ul class="blog-tags-list" role="list">
+    {% for tag in collections.blogTags %}
+      <li class="blog-tags-list__item">
+        <a href="/blog/tags/{{ tag | blogTagSlug }}/">#{{ tag }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

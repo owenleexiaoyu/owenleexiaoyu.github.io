@@ -357,10 +357,16 @@ html[data-theme="light"] .glass-tile:hover {
   max-width: 960px;
   margin: 0 auto;
   padding: 0.55rem 1rem 0.55rem 1.15rem;
+  min-height: 2.85rem;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   gap: 0.75rem 1rem;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+
+.site-header__inner .brand {
+  flex-shrink: 0;
 }
 
 .brand {
@@ -382,10 +388,18 @@ html[data-theme="light"] .glass-tile:hover {
 
 .nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 0.25rem 0.85rem;
-  flex: 1;
+  flex: 1 1 auto;
+  min-width: 0;
   justify-content: center;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.nav::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 720px) {
