@@ -52,7 +52,7 @@ module.exports = {
     { label: "技术", href: "#stack" },
     { label: "作品", href: "#work" },
     { label: "博客", href: "#blog" },
-    { label: "花园", href: "#garden" },
+    { label: "花园", href: GARDEN_ENTRY },
     { label: "摄影", href: "#photos" },
   ],
 

@@ -26,33 +26,34 @@
                   {%endif%}
 
                         {%if settings.dgShowBacklinks === true %}
-                              {%if settings.dgShowBacklinks === true %}
                               <div class="backlinks">
-                                    <div class="backlink-title" style="margin: 4px 0 !important;">Pages mentioning this page</div>
-                                          <div class="backlink-list">
-                                          {%- if page.url == "/" -%}
+                                    <div class="toc-title-container">
+                                          <div class="toc-title">Backlinks</div>
+                                    </div>
+                                    <div class="backlink-list">
+                                          {%- if page.url == graph.homeAlias -%}
                                                 {%- if graph.nodes[graph.homeAlias].backLinks.length === 0 -%}
-                                                      <div class="backlink-card">
-                                                            <span class="no-backlinks-message">No other pages mentions this page</span>
+                                                      <div class="backlink-row">
+                                                            <span class="no-backlinks-message">No other pages mention this page</span>
                                                       </div>
                                                 {%- endif -%}
                                           {%- for backlink in graph.nodes[graph.homeAlias].backLinks -%}
                                                 {%- if graph.nodes[backlink].url != graph.homeAlias -%}
-                                                <div class="backlink-card">
-                                                      {%- if not meta.noteIconsSettings.backlinks -%}<i  icon-name="link"></i> {%- endif -%}<a href="{{graph.nodes[backlink].url}}" data-note-icon="{{graph.nodes[backlink].noteIcon}}" class="backlink">{{graph.nodes[backlink].title}}</a>
+                                                <div class="backlink-row">
+                                                      <a href="{{graph.nodes[backlink].url}}" data-note-icon="{{graph.nodes[backlink].noteIcon}}" class="backlink">{{graph.nodes[backlink].title}}</a>
                                                 </div>
                                                 {%- endif -%}
                                           {%- endfor -%}
                                           {%- else -%}
                                                 {%- if graph.nodes[page.url].backLinks.length === 0 -%}
-                                                      <div class="backlink-card">
-                                                            <span class="no-backlinks-message">No other pages mentions this page</span>
+                                                      <div class="backlink-row">
+                                                            <span class="no-backlinks-message">No other pages mention this page</span>
                                                       </div>
                                                 {%- endif -%}
                                           {%- for backlink in graph.nodes[page.url].backLinks -%}
                                                 {%- if graph.nodes[backlink].url != page.url -%}
-                                                <div class="backlink-card">
-                                                      {%- if not meta.noteIconsSettings.backlinks -%}<i  icon-name="link"></i> {%- endif -%}<a href="{{graph.nodes[backlink].url}}" data-note-icon="{{graph.nodes[backlink].noteIcon}}" class="backlink">{{graph.nodes[backlink].title}}</a>
+                                                <div class="backlink-row">
+                                                      <a href="{{graph.nodes[backlink].url}}" data-note-icon="{{graph.nodes[backlink].noteIcon}}" class="backlink">{{graph.nodes[backlink].title}}</a>
                                                 </div>
                                                 {%- endif -%}
                                           {%- endfor -%}
@@ -60,7 +61,6 @@
                                     </div>
                               </div>
                         {%endif%}
-                  {%endif%}
                   {% for imp in dynamics.sidebar.bottom %}
                         {% include imp %}
                   {% endfor %}

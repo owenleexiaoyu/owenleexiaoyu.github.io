@@ -1,0 +1,28 @@
+<script>
+  (function () {
+    const main = document.querySelector("main.content.cm-s-obsidian");
+    if (!main) return;
+    const header = main.querySelector(":scope > header");
+    const all = main.querySelectorAll("h1, h2, h3, h4, h5, h6");
+    const inBody = [];
+    for (var i = 0; i < all.length; i++) {
+      var h = all[i];
+      if (header && header.contains(h)) continue;
+      inBody.push(h);
+    }
+    if (!inBody.length) return;
+    const level = function (tag) {
+      return { H1: 1, H2: 2, H3: 3, H4: 4, H5: 5, H6: 6 }[tag] || 6;
+    };
+    var minLev = 6;
+    for (var j = 0; j < inBody.length; j++) {
+      var l = level(inBody[j].tagName);
+      if (l < minLev) minLev = l;
+    }
+    for (var k = 0; k < inBody.length; k++) {
+      if (level(inBody[k].tagName) === minLev) {
+        inBody[k].classList.add("dg-article-top-heading");
+      }
+    }
+  })();
+</script>

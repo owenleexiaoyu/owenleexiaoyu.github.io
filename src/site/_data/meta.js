@@ -58,6 +58,9 @@ module.exports = async (data) => {
     showCreated: process.env.SHOW_CREATED_TIMESTAMP == "true",
     showUpdated: process.env.SHOW_UPDATED_TIMESTAMP == "true",
   };
+  const gardenHomeUrl =
+    (process.env.HOME_GARDEN_URL || "/garden/").replace(/\/?$/, "/");
+
   const meta = {
     env: process.env.ELEVENTY_ENV,
     theme: process.env.THEME,
@@ -71,6 +74,7 @@ module.exports = async (data) => {
     siteBaseUrl: baseUrl,
     styleSettingsCss,
     buildDate: new Date(),
+    gardenHomeUrl,
   };
 
   return meta;
