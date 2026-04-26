@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W01/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-01-07T08:24:01.905+08:00","updated":"2026-01-28T10:50:15.848+08:00"}
+{"date":"2025-01-05","tags":["随笔","WeeklyNotes"],"dg-publish":true,"permalink":"/Journal/Weekly-2025-W01/","dgPassFrontmatter":true,"noteIcon":"","created":"2025-01-07T08:24:01.905+08:00","updated":"2026-01-28T10:50:15.848+08:00"}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W05/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-01-28T22:35:47.945+08:00","updated":"2026-04-10T22:26:44.888+08:00"}
+{"date":"2026-02-01","tags":["随笔","WeeklyNotes"],"dg-publish":true,"permalink":"/Journal/Weekly-2026-W05/","dgPassFrontmatter":true,"noteIcon":"","created":"2026-01-28T22:35:47.945+08:00","updated":"2026-04-10T22:26:44.888+08:00"}
 ---
 
 # 周一 2026-01-26

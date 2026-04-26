@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/我与 Gitee 开源审核事件/","tags":["随笔","图床"],"noteIcon":"","created":"2025-06-05T23:11:56.853+08:00","updated":"2025-06-05T23:14:20.934+08:00"}
+{"date":"2022-05-25","tags":["随笔","图床"],"dg-publish":true,"permalink":"/NightWrite/我与 Gitee 开源审核事件/","dgPassFrontmatter":true,"noteIcon":"","created":"2025-06-05T23:11:56.853+08:00","updated":"2025-06-05T23:14:20.934+08:00"}
 ---
 
 

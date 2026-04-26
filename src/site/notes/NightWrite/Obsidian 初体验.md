@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/Obsidian 初体验/","tags":["随笔","知识管理","Obsidian"],"noteIcon":"","created":"2025-06-05T09:53:06.700+08:00","updated":"2025-06-07T12:10:26.248+08:00"}
+{"tags":["随笔","知识管理","Obsidian"],"date":"2021-01-01","dg-publish":true,"permalink":"/NightWrite/Obsidian 初体验/","dgPassFrontmatter":true,"noteIcon":"","created":"2025-06-05T09:53:06.700+08:00","updated":"2025-06-07T12:10:26.248+08:00"}
 ---
 
 
