@@ -1,5 +1,5 @@
 ---
-{"tags":["随笔","Obsidian"],"dg-publish":true,"title":"一些配置和插件让 Obsidian 更好用","date":"2025-06-03","permalink":"/NightWrite/一些配置和插件让 Obsidian 更好用/","dgPassFrontmatter":true,"noteIcon":"","created":"2025-06-03T23:16:19.885+08:00","updated":"2025-06-10T09:45:26.977+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/一些配置和插件让 Obsidian 更好用/","title":"一些配置和插件让 Obsidian 更好用","tags":["随笔","Obsidian"],"noteIcon":"","created":"2025-06-03","updated":"2025-06-10T09:45:26.977+08:00"}
 ---
 
 之前提到，我目前已经将 [[NightWrite/Obsidian 作为主力笔记软件\|Obsidian 作为主力笔记软件]]，这是因为在使用一些插件后，Obsidian 带给我的使用体验非常好。这里就来稍微写下我对 Obsidian 的一些配置，以及正在使用的几个非常好用的插件。

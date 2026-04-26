@@ -1,5 +1,5 @@
 ---
-{"date":"2026-02-06","tags":["随笔","Obsidian"],"dg-publish":true,"permalink":"/NightWrite/使用 Obsidian Douban 插件制作图书馆和影视库/","dgPassFrontmatter":true,"noteIcon":"","created":"2026-02-06T00:42:58.249+08:00","updated":"2026-02-06T10:16:24.380+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/使用 Obsidian Douban 插件制作图书馆和影视库/","tags":["随笔","Obsidian"],"noteIcon":"","created":"2026-02-06","updated":"2026-02-06T10:16:24.380+08:00"}
 ---
 
 

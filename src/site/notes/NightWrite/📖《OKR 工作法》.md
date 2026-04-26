@@ -1,5 +1,5 @@
 ---
-{"date":"2022-05-31","tags":["读书笔记","随笔"],"dg-publish":true,"permalink":"/NightWrite/📖《OKR 工作法》/","dgPassFrontmatter":true,"noteIcon":"","created":"2022-06-05T12:10:05.139+08:00","updated":"2025-06-08T22:47:17.887+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/📖《OKR 工作法》/","tags":["读书笔记","随笔"],"noteIcon":"","created":"2022-05-31","updated":"2025-06-08T22:47:17.887+08:00"}
 ---
 
 
