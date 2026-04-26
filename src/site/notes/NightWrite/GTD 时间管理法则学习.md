@@ -1,5 +1,5 @@
 ---
-{"date":"2019-12-30 22:00","tags":["时间管理"],"cover":"https://s2.loli.net/2022/01/25/8uOMdlIiVskZ16H.jpg","dg-publish":true,"permalink":"/NightWrite/GTD 时间管理法则学习/","dgPassFrontmatter":true,"noteIcon":"","created":"2022-01-24T23:13:07.009+08:00","updated":"2025-06-08T22:02:01.914+08:00"}
+{"date":"2019-12-30","tags":["时间管理"],"cover":"https://s2.loli.net/2022/01/25/8uOMdlIiVskZ16H.jpg","dg-publish":true,"permalink":"/NightWrite/GTD 时间管理法则学习/","dgPassFrontmatter":true,"noteIcon":"","created":"2022-01-24T23:13:07.009+08:00","updated":"2026-04-26T16:14:07.943+08:00"}
 ---
 
 
