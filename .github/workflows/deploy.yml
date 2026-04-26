@@ -1,0 +1,70 @@
+# 推送至默认分支时执行 `npm run build`，并将 `dist/` 部署到 GitHub Pages。
+#
+# 仓库设置（一次性）：
+# 1. Settings → Pages → Build and deployment → Source 选「GitHub Actions」。
+# 2. 若使用 Obsidian 远程主题：Settings → Secrets and variables → Actions → Variables
+#    新增 `THEME`（或 Secrets 里同名），值为 theme.css / obsidian.css 的完整 URL。
+#    也可在下方 env 中按需加入其它构建变量（与本地 .env 对应）。
+#
+# 若站点发布在子路径（如 https://user.github.io/repo-name/），需在项目中配置
+# 正确的资源根路径；当前工作流假定部署在仓库默认 Pages 域名下。
+
+name: Build and deploy
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          # 可选：与本地 .env 中同名变量一致（在仓库 Variables / Secrets 中配置）
+          THEME: ${{ vars.THEME }}
+          ELEVENTY_ENV: prod
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
