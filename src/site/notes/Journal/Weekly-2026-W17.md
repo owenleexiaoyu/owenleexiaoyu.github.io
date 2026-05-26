@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W17/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-04-20","updated":"2026-04-29T10:08:23.690+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W17/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-04-20","updated":"2026-04-30T09:55:34.423+08:00"}
 ---
 
 
@@ -43,13 +43,13 @@
 # 周三 2026-04-22
 
 现在学习进度太慢了，定一下 Q2 的 OKR，按每周拆下任务：
-- 协程（包含 Flow）学完
-- Android 应用架构学完
-- WanAndroid 3.0 已有功能（除了 TODO 外）全部迁移完
-- 深入使用 Cursor，写使用报告
-- Claude Code 的使用、AI 的一些基础概念扫盲记录
-- 用 Cursor 开发：把 Obsidian Jewel 和自己之前「海树」博客融合，参考 Flowershow 能力，开发一个博客发布工具。
-- 用 Cursor Agent 来管理 Obsidian 知识库，完成1 到 6 月每月总结，Q1 Q2 每季度总结。尝试自己写 Skill
+- [ ] 协程（包含 Flow）学完
+- [ ] Android 应用架构学完
+- [ ] WanAndroid 3.0 已有功能（除了 TODO 外）全部迁移完
+- [ ] 深入使用 Cursor，写使用报告
+- [ ] Claude Code 的使用、AI 的一些基础概念扫盲记录
+- [x] 用 Cursor 开发：把 Obsidian Jewel 和自己之前「海树」博客融合，参考 Flowershow 能力，开发一个博客发布工具。
+- [ ] 用 Cursor Agent 来管理 Obsidian 知识库，完成1 到 6 月每月总结，Q1 Q2 每季度总结。尝试自己写 Skill
 
 往恒生香港卡汇款 3000 元人民币，共计汇款 5625.8 元。申购了商米科技 打新。
 
