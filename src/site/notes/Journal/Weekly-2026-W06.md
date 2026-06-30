@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W06/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-02-08","updated":"2026-04-10T22:27:01.638+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W06/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-02-08","updated":"2026-06-30T10:02:07.647+08:00"}
 ---
 
 
@@ -27,7 +27,7 @@
 
 # 周四 2026-02-05
 
-[[NightWrite/使用 Obsidian Douban 插件制作图书馆和影视库\|使用 Obsidian Douban 插件制作图书馆和影视库]]
+[[NightWrite/260206 使用 Obsidian Douban 插件制作图书馆和影视库\|260206 使用 Obsidian Douban 插件制作图书馆和影视库]]
 
 今天晚上参加了 HIIT 团课，消耗了 600 多大卡。 华为运动健康分享的照片还可以自定义背景，挺有趣。
 
@@ -39,4 +39,4 @@
 
 # 周末 2026-02-07/08
 
-周六前往阳原，10 号要在小萌家举办我们的回门宴。[[NightWrite/回门！回门！\|回门！回门！]]
+周六前往阳原，10 号要在小萌家举办我们的回门宴。[[NightWrite/260211 回门！回门！\|260211 回门！回门！]]

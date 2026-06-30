@@ -1,11 +1,11 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W07/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-02-15","updated":"2026-03-09T09:55:01.150+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W07/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-02-15","updated":"2026-06-30T10:02:07.672+08:00"}
 ---
 
 
 # 周一至周三 2026-02-09~11
 
-在阳原举办我们的 [[NightWrite/回门！回门！\| 回门宴]]，9 号是小席，10 号是正式的日子，11 号我们就返回上海了，这几天也是马不停蹄的。
+在阳原举办我们的 [[NightWrite/260211 回门！回门！\| 回门宴]]，9 号是小席，10 号是正式的日子，11 号我们就返回上海了，这几天也是马不停蹄的。
 
 # 周四 2026-02-12
 
