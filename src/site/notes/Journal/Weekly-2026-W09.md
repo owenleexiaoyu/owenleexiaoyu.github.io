@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W09/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-02-28","updated":"2026-06-30T10:02:21.298+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W09/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-02-28","updated":"2026-07-02T12:43:15.158+08:00"}
 ---
 
 
@@ -12,7 +12,7 @@
 
 # 周一 2026-02-23
 
-今天是 [[NightWrite/2026 年春节\|2026 年春节]] 假期最后一天，像是个平常的周末。
+今天是 [[NightWrite/260223 2026 年春节\|260223 2026 年春节]] 假期最后一天，像是个平常的周末。
 
 # 周二 2026-02-24
 

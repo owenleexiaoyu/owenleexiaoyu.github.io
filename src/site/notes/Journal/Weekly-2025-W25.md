@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W25/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-06-22","updated":"2026-01-26T09:59:42.513+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W25/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-06-22","updated":"2026-07-02T12:28:04.369+08:00"}
 ---
 
 
@@ -19,7 +19,7 @@
 
 今天和 Bob 聊了晋升文档的初稿，还有好多要改的，最近得忙飞了。
 
-- 团建啦，出发安吉。[[NightWrite/安吉莫干山团建\|安吉莫干山团建]]
+- 团建啦，出发安吉。[[NightWrite/250628 安吉莫干山团建\|250628 安吉莫干山团建]]
 
 # 周五 2025-06-20
 

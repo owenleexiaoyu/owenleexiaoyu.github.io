@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W48/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-11-30","updated":"2026-03-02T23:25:34.785+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W48/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-11-30","updated":"2026-07-02T12:34:52.112+08:00"}
 ---
 
 
@@ -29,5 +29,5 @@
 
 # 周四~周日 2025-11-27~30
 
-11 月 27 日至 12 月 1 日，前往日本关西旅游，历神户、大阪、京都等城市。[[NightWrite/日本关西旅游日记\|日本关西旅游日记]]
+11 月 27 日至 12 月 1 日，前往日本关西旅游，历神户、大阪、京都等城市。[[NightWrite/251201 日本关西旅游日记\|251201 日本关西旅游日记]]
 

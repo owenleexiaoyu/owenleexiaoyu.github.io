@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W24/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-06-15","updated":"2026-01-26T09:55:45.215+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W24/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-06-15","updated":"2026-07-02T12:33:23.229+08:00"}
 ---
 
 
@@ -13,12 +13,12 @@
 
 # 周一 2025-06-09
 
-- 写完了 [[NightWrite/今天，李慧琳高考！\|今天，李慧琳高考！]] 这篇随笔
+- 写完了 [[NightWrite/250607 今天，李慧琳高考！\|250607 今天，李慧琳高考！]] 这篇随笔
 - 整理了一些从语雀迁移过来的随笔，并发布到 Jewel 中
 
 # 周二 2025-06-10
 
-本来想使用 Templer 这类更高级的模板插件，但后面发现其实 Calendar 已经支持了我希望的生成周中某天日期的模板语法。配置了 Calendar 周记的模板，并记录到 [[NightWrite/一些配置和插件让 Obsidian 更好用\|一些配置和插件让 Obsidian 更好用]] 中
+本来想使用 Templer 这类更高级的模板插件，但后面发现其实 Calendar 已经支持了我希望的生成周中某天日期的模板语法。配置了 Calendar 周记的模板，并记录到 [[NightWrite/250603 一些配置和插件让 Obsidian 更好用\|250603 一些配置和插件让 Obsidian 更好用]] 中
 
 # 周三 2025-06-11
 

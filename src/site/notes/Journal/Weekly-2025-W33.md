@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W33/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-08-17","updated":"2026-01-27T23:46:28.728+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W33/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-08-17","updated":"2026-07-02T12:31:17.964+08:00"}
 ---
 
 
@@ -36,7 +36,7 @@
 
 # 周六 2025-08-16
 
-- 去徐雷家 [[NightWrite/和徐雷一聚\|和徐雷一聚]]
+- 去徐雷家 [[NightWrite/250816 和徐雷一聚\|250816 和徐雷一聚]]
 - 《凡人修仙传》韩立终于结婴了，有 40 万人同时在线围观，把 B 站都干崩了。不愧是 B 站第一年番。
 
 # 周日 2025-08-17

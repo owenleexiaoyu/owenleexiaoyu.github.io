@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W49/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-12-07","updated":"2026-02-28T10:35:42.588+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W49/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-12-07","updated":"2026-07-02T12:34:52.143+08:00"}
 ---
 
 
@@ -15,7 +15,7 @@
 
 # 周一 2025-12-01
 
-[[NightWrite/日本关西旅游日记\|日本关西旅游日记]] 的最后一天。
+[[NightWrite/251201 日本关西旅游日记\|251201 日本关西旅游日记]] 的最后一天。
 
 # 周二 2025-12-02
 
@@ -41,4 +41,4 @@
 
 # 周日 2025-12-07
 
-周五从上海前往 [[NightWrite/千岛湖团建\|千岛湖团建]]，周日中午返回上海。
+周五从上海前往 [[NightWrite/251207 千岛湖团建\|251207 千岛湖团建]]，周日中午返回上海。

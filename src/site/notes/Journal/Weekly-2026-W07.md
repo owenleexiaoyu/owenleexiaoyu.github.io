@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W07/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-02-15","updated":"2026-06-30T10:02:07.672+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W07/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-02-15","updated":"2026-07-02T12:43:15.106+08:00"}
 ---
 
 
@@ -37,5 +37,5 @@
 
 # 周日 2026-02-15
 
-今天是春节假期第一天，我和小萌、琳琳坐顺风车回玉山过年。[[NightWrite/2026 年春节\|2026 年春节]]
+今天是春节假期第一天，我和小萌、琳琳坐顺风车回玉山过年。[[NightWrite/260223 2026 年春节\|260223 2026 年春节]]
 

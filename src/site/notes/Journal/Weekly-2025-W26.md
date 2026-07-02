@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W26/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-06-29","updated":"2026-01-26T10:15:24.532+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W26/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-06-29","updated":"2026-07-02T12:31:51.217+08:00"}
 ---
 
 
@@ -17,9 +17,9 @@
 # 周一 2025-06-23
 
 从 Flomo 中整理了一些博客到 Obsidian 中：
-- [[NightWrite/爬佘山\|爬佘山]]
-- [[NightWrite/关于工作和成长\|关于工作和成长]]
-- [[NightWrite/胡鑫宇案发布会\|胡鑫宇案发布会]]
+- [[NightWrite/230225 和小萌爬佘山\|230225 和小萌爬佘山]]
+- [[NightWrite/230313 关于工作和成长\|230313 关于工作和成长]]
+- [[NightWrite/230202 胡鑫宇案发布会\|230202 胡鑫宇案发布会]]
 
 # 周二 2025-06-24
 
@@ -54,4 +54,4 @@
 
 # 周六 2025-06-28
 
-- 写 [[NightWrite/安吉莫干山团建\|安吉莫干山团建]]
+- 写 [[NightWrite/250628 安吉莫干山团建\|250628 安吉莫干山团建]]

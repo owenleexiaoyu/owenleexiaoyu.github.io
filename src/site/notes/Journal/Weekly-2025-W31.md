@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W31/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-08-03","updated":"2026-01-28T09:39:21.108+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W31/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-08-03","updated":"2026-07-02T12:33:36.256+08:00"}
 ---
 
 
@@ -47,4 +47,4 @@
 
 # 周日 2025-08-03
 
-- 这个周末，在老家参加 [[NightWrite/李慧琳升学宴\|李慧琳升学宴]]，热闹与鸡毛齐飞，欢笑与无语并存。
+- 这个周末，在老家参加 [[NightWrite/250803 李慧琳升学宴\|250803 李慧琳升学宴]]，热闹与鸡毛齐飞，欢笑与无语并存。

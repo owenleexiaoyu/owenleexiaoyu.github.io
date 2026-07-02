@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W35/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-08-31","updated":"2026-01-27T23:54:04.597+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W35/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-08-31","updated":"2026-07-02T12:34:19.328+08:00"}
 ---
 
 
@@ -47,7 +47,7 @@
 
 # 周五 2025-08-29
 
-- 今天是七夕节，和小萌下班后去万达 [[NightWrite/看《浪浪山小妖怪》\|看《浪浪山小妖怪》]]
+- 今天是七夕节，和小萌下班后去万达 [[NightWrite/250829 看《浪浪山小妖怪》\|250829 看《浪浪山小妖怪》]]
 # 周六 2025-08-30
 
 - 最近开始复习《凡人修仙传》动漫，目前已经看到魔道争锋了。
