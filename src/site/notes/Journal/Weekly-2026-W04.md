@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W04/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-01-25","updated":"2026-07-02T12:43:56.102+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W04/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-01-25","updated":"2026-07-06T18:54:35.166+08:00"}
 ---
 
 
@@ -7,7 +7,7 @@
 
 - [ ] 把 2025 总结的生活篇写完，去年 OKR 打分写完，整篇总结发布
 - [ ] 再看一遍 Obsidian CEO 如何使用 Obsidian 的视频和博客，选取有用的部分进行实践
-- [ ] 学完EventBus 原理，并写完博客
+- [ ] 学完 EventBus 原理，并写完博客
 
 ---
 
@@ -43,10 +43,9 @@
 
 今天慧淇来给小萌试妆，在这吃午饭和晚饭。今年车厘子不贵，我们买了一大盒 2J 的车厘子，足足有 5 斤，终于实现了车厘子自由。午饭我做了排骨炖玉米胡萝卜，红烧昂刺鱼，辣椒炒花甲，清炒豌豆四个菜。下午我给妈妈打电话确认了婚礼流程，找待定的同学确认了是否出席，把回家要带的物品盘点好，感觉准备的差不多了，就是不知道装饰够不够，明天再盘一盘。
 
-![image.png | 400](https://img.lixiaoyu.life/blog-res/2026/01/b3a76ccddbcae3c85c8c8f073693e93e.png)
+![image.png | 500](https://img.lixiaoyu.life/blog-res/2026/01/b3a76ccddbcae3c85c8c8f073693e93e.png)
 
-
-![image.png | 400](https://img.lixiaoyu.life/blog-res/2026/01/24629dc136cf1183b36a86309f197e39.png)
+![image.png | 500](https://img.lixiaoyu.life/blog-res/2026/01/24629dc136cf1183b36a86309f197e39.png)
 
 # 周日 2026-01-25
 
