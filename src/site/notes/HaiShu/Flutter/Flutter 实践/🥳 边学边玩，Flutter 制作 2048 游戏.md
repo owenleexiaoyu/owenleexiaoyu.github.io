@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/🥳 边学边玩，Flutter 制作 2048 游戏/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-05-24","updated":"2026-07-02T10:33:23.225+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/🥳 边学边玩，Flutter 制作 2048 游戏/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-05-24","updated":"2026-07-02T10:33:23.225+08:00","dg-note-properties":{"date":"2022-05-24","tags":["编程","Flutter"]}}
 ---
 
 ## 前言

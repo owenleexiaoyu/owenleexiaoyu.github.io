@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2022-W31/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2022-08-01","updated":"2026-06-03T23:37:13.395+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2022-W31/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2022-08-01","updated":"2026-06-03T23:37:13.395+08:00","dg-note-properties":{"date":"2022-08-01","tags":["随笔","WeeklyNotes"]}}
 ---
 
 # 周一 2022-08-01

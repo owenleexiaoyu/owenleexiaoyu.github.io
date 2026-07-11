@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Git/🍇 Git 入门(1) Git 介绍/","tags":["编程","Git"],"noteIcon":"","created":"2023-07-24","updated":"2026-07-02T11:15:21.877+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Git/🍇 Git 入门(1) Git 介绍/","tags":["编程","Git"],"noteIcon":"","created":"2023-07-24","updated":"2026-07-02T11:15:21.877+08:00","dg-note-properties":{"date":"2023-07-24","tags":["编程","Git"]}}
 ---
 
 作为一个后知后觉的程序猿，在学习 Android 开发一年多后才逐渐意识到对代码进行版本控制的重要性。之前几个人一块进行项目开发的时候，都必须要手动把别人的代码 CtrlC CtrlV 一点点地贴到最终的代码中，如果对方有个什么改动，又需要在贴一遍，实在是费时费力。所以，学习 Git 就相当有必要啦。

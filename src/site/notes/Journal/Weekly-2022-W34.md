@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2022-W34/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2022-08-22","updated":"2026-06-03T23:37:38.493+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2022-W34/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2022-08-22","updated":"2026-06-03T23:37:38.493+08:00","dg-note-properties":{"date":"2022-08-22","tags":["随笔","WeeklyNotes"]}}
 ---
 
 

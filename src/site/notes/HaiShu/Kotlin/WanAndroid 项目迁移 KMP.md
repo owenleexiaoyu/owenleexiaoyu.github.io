@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Kotlin/WanAndroid 项目迁移 KMP/","tags":["Kotlin","KMP","编程"],"noteIcon":"","created":"2025-03-28","updated":"2025-06-08T10:37:28.702+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Kotlin/WanAndroid 项目迁移 KMP/","tags":["Kotlin","KMP","编程"],"noteIcon":"","created":"2025-03-28","updated":"2025-06-08T10:37:28.702+08:00","dg-note-properties":{"tags":["Kotlin","KMP","编程"],"date":"2025-03-28"}}
 ---
 
 

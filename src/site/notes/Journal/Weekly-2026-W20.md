@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W20/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-05-11","updated":"2026-07-06T18:48:39.619+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W20/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-05-11","updated":"2026-07-06T18:48:39.619+08:00","dg-note-properties":{"date":"2026-05-11","tags":["随笔","WeeklyNotes"]}}
 ---
 
 # 周一至周五 2026-05-11/15

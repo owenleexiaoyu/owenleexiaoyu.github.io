@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/260206 使用 Obsidian Douban 插件制作图书馆和影视库/","tags":["随笔","Obsidian"],"noteIcon":"","created":"2026-02-06","updated":"2026-06-30T10:00:07.047+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/260206 使用 Obsidian Douban 插件制作图书馆和影视库/","tags":["随笔","Obsidian"],"noteIcon":"","created":"2026-02-06","updated":"2026-06-30T10:00:07.047+08:00","dg-note-properties":{"date":"2026-02-06","tags":["随笔","Obsidian"]}}
 ---
 
 今天，试用了一下 Obsidian Douban 插件，来制作自己的图书馆和影视库，记录自己看过的书、电影、电视剧等。之前我在语雀中维护了一个 Watch And Read 的文档，但所有信息都需要自己录入，还挺费劲的，久而久之也就漏了很多。

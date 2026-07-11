@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2022-W22/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2022-05-30","updated":"2026-06-03T23:39:14.236+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2022-W22/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2022-05-30","updated":"2026-06-03T23:39:14.236+08:00","dg-note-properties":{"date":"2022-05-30","tags":["随笔","WeeklyNotes"]}}
 ---
 
 # 周一 2022-05-30

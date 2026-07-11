@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Kotlin/Kotlin Conf 2024/","tags":["Kotlin"],"noteIcon":"","created":"2024-05-24","updated":"2025-06-08T11:12:03.524+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Kotlin/Kotlin Conf 2024/","tags":["Kotlin"],"noteIcon":"","created":"2024-05-24","updated":"2025-06-08T11:12:03.524+08:00","dg-note-properties":{"tags":["Kotlin"],"date":"2024-05-24"}}
 ---
 
 

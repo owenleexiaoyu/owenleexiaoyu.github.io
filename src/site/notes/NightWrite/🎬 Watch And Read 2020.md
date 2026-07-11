@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/🎬 Watch And Read 2020/","tags":["阅读","读书笔记","观影"],"noteIcon":"","created":"2020-12-31","updated":"2026-07-08T05:23:51.060+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/🎬 Watch And Read 2020/","tags":["阅读","读书笔记","观影"],"noteIcon":"","created":"2020-12-31","updated":"2026-07-08T05:23:51.060+08:00","dg-note-properties":{"date":"2020-12-31","tags":["阅读","读书笔记","观影"]}}
 ---
 
 

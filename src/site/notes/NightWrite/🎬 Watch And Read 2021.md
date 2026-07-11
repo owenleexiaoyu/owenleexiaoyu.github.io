@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/🎬 Watch And Read 2021/","tags":["读书笔记","阅读","观影"],"noteIcon":"","created":"2021-12-31","updated":"2026-07-08T05:41:09.470+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/🎬 Watch And Read 2021/","tags":["读书笔记","阅读","观影"],"noteIcon":"","created":"2021-12-31","updated":"2026-07-08T05:41:09.470+08:00","dg-note-properties":{"date":"2021-12-31","tags":["读书笔记","阅读","观影"]}}
 ---
 
 ## 一月

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/❤️ Flutter 制作爱心小动画并部署 Github Page/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-06-04","updated":"2026-07-02T10:26:54.674+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/❤️ Flutter 制作爱心小动画并部署 Github Page/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-06-04","updated":"2026-07-02T10:26:54.674+08:00","dg-note-properties":{"date":"2022-06-04","tags":["编程","Flutter"]}}
 ---
 
 ## 前言

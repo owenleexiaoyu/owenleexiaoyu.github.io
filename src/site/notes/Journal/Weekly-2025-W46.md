@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W46/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-11-16","updated":"2026-02-28T08:43:21.899+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W46/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-11-16","updated":"2026-02-28T08:43:21.899+08:00","dg-note-properties":{"date":"2025-11-16","tags":["随笔","WeeklyNotes"]}}
 ---
 
 # 周一 2025-11-10

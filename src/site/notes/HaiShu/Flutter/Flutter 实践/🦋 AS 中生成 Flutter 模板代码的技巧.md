@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/🦋 AS 中生成 Flutter 模板代码的技巧/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-10-10","updated":"2026-07-02T10:37:12.168+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/🦋 AS 中生成 Flutter 模板代码的技巧/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-10-10","updated":"2026-07-02T10:37:12.168+08:00","dg-note-properties":{"date":"2022-10-10","tags":["编程","Flutter"]}}
 ---
 
 在开发 Flutter 时，常常需要创建新的页面或新的 Widget，每次都重新手写总是很麻烦，这篇文章介绍一些减少手写样板代码的方式。

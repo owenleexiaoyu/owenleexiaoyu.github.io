@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/250514 Obsidian 作为主力笔记软件/","tags":["Obsidian","知识管理"],"noteIcon":"","created":"2025-05-14","updated":"2026-07-02T12:01:50.778+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/250514 Obsidian 作为主力笔记软件/","tags":["Obsidian","知识管理"],"noteIcon":"","created":"2025-05-14","updated":"2026-07-02T12:01:50.778+08:00","dg-note-properties":{"tags":["Obsidian","知识管理"],"date":"2025-05-14"}}
 ---
 
 ## 笔记软件变迁

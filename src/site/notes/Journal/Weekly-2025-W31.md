@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W31/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-08-03","updated":"2026-07-02T12:33:36.256+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W31/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-08-03","updated":"2026-07-02T12:33:36.256+08:00","dg-note-properties":{"tags":["WeeklyNotes","随笔"],"date":"2025-08-03"}}
 ---
 
 

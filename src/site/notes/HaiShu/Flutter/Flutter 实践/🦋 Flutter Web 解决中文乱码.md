@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/🦋 Flutter Web 解决中文乱码/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-10-19","updated":"2026-07-02T10:45:17.110+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/🦋 Flutter Web 解决中文乱码/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-10-19","updated":"2026-07-02T10:45:17.110+08:00","dg-note-properties":{"date":"2022-10-19","tags":["编程","Flutter"]}}
 ---
 
 ## 现象

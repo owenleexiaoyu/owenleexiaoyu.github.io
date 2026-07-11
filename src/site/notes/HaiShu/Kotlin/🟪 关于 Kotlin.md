@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Kotlin/🟪 关于 Kotlin/","tags":["编程","Kotlin"],"noteIcon":"","created":"2023-09-25","updated":"2025-06-08T11:12:47.045+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Kotlin/🟪 关于 Kotlin/","tags":["编程","Kotlin"],"noteIcon":"","created":"2023-09-25","updated":"2025-06-08T11:12:47.045+08:00","dg-note-properties":{"tags":["编程","Kotlin"],"date":"2023-09-25"}}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W23/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-06-01","updated":"2026-07-07T23:01:49.797+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W23/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-06-01","updated":"2026-07-07T23:01:49.797+08:00","dg-note-properties":{"date":"2026-06-01","tags":["随笔","WeeklyNotes"]}}
 ---
 
 # 周一 2026-06-01

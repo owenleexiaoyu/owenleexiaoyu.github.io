@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W15/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-04-08","updated":"2026-07-09T21:16:50.698+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W15/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-04-08","updated":"2026-07-09T21:16:50.698+08:00","dg-note-properties":{"date":"2026-04-08","tags":["随笔","WeeklyNotes"]}}
 ---
 
 # 本周任务

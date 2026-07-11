@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/170506 Hello Blog/","tags":["随笔","知识管理","博客"],"noteIcon":"","created":"2017-05-06","updated":"2026-04-27T22:50:54.769+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/170506 Hello Blog/","tags":["随笔","知识管理","博客"],"noteIcon":"","created":"2017-05-06","updated":"2026-04-27T22:50:54.769+08:00","dg-note-properties":{"date":"2017-05-06","subtitle":"谈谈我搭个人博客的辛酸","cover":"https://s2.loli.net/2022/01/24/ma52LrAgM9e8JTP.jpg","tags":["随笔","知识管理","博客"]}}
 ---
 
 

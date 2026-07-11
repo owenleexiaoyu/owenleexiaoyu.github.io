@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Dart/🥞 Hello Dart!/","tags":["Dart"],"noteIcon":"","created":"2022-09-29","updated":"2026-07-02T10:22:37.768+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Dart/🥞 Hello Dart!/","tags":["Dart"],"noteIcon":"","created":"2022-09-29","updated":"2026-07-02T10:22:37.768+08:00","dg-note-properties":{"date":"2022-09-29","tags":["Dart"]}}
 ---
 
 ## Dart 简介

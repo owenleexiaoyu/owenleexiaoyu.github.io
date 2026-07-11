@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/🦋 Flutter Plugin shared_preferences 使用/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-02-15","updated":"2026-07-02T10:43:24.471+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Flutter/Flutter 实践/🦋 Flutter Plugin shared_preferences 使用/","tags":["编程","Flutter"],"noteIcon":"","created":"2022-02-15","updated":"2026-07-02T10:43:24.471+08:00","dg-note-properties":{"date":"2022-02-15","tags":["编程","Flutter"]}}
 ---
 
 在 Flutter 中如果想保存一些简单的数据，我们需要使用 [shared_preferences](https://pub.dev/packages/shared_preferences) 插件，它可以用来持久化 key-value 格式的数据。

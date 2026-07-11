@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/210102 Obsidian 图床/","tags":["随笔","图床","Obsidian"],"noteIcon":"","created":"2021-01-02","updated":"2026-07-02T12:02:42.055+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/210102 Obsidian 图床/","tags":["随笔","图床","Obsidian"],"noteIcon":"","created":"2021-01-02","updated":"2026-07-02T12:02:42.055+08:00","dg-note-properties":{"tags":["随笔","图床","Obsidian"],"date":"2021-01-02"}}
 ---
 
 ![](https://s2.loli.net/2022/05/23/RbwjYPrGOfqdAs9.png)

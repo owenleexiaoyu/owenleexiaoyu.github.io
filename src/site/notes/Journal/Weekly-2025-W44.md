@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W44/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-11-02","updated":"2026-07-02T12:30:24.546+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W44/","tags":["WeeklyNotes","随笔"],"noteIcon":"","created":"2025-11-02","updated":"2026-07-02T12:30:24.546+08:00","dg-note-properties":{"tags":["WeeklyNotes","随笔"],"date":"2025-11-02"}}
 ---
 
 # 本周任务

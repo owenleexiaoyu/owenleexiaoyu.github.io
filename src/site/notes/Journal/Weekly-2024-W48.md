@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2024-W48/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2024-11-29","updated":"2026-05-19T10:48:09.155+08:00"}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2024-W48/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2024-11-29","updated":"2026-05-19T10:48:09.155+08:00","dg-note-properties":{"date":"2024-11-29","tags":["随笔","WeeklyNotes"]}}
 ---
 
 

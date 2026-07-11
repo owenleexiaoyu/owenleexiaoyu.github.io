@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Kotlin/🟪 Kotlin 变量和常量/","tags":["编程","Kotlin"],"noteIcon":"","created":"2022-02-15","updated":"2025-06-08T11:12:37.781+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Kotlin/🟪 Kotlin 变量和常量/","tags":["编程","Kotlin"],"noteIcon":"","created":"2022-02-15","updated":"2025-06-08T11:12:37.781+08:00","dg-note-properties":{"tags":["编程","Kotlin"],"date":"2022-02-15"}}
 ---
 
 

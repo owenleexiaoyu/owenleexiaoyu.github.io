@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/250516 将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"noteIcon":"","created":"2025-05-16","updated":"2026-07-02T12:27:01.603+08:00"}
+{"dg-publish":true,"permalink":"/NightWrite/250516 将 Obsidian 笔记发布成博客/","title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"noteIcon":"","created":"2025-05-16","updated":"2026-07-02T12:27:01.603+08:00","dg-note-properties":{"title":"将 Obsidian 笔记发布成博客","tags":["随笔","知识管理","Obsidian"],"date":"2025-05-16","image":"https://img.lixiaoyu.life/blog-res/2025/05/4cdebdf57597a75d9e44e4e5191b2ad6.jpg"}}
 ---
 
 在将 [[NightWrite/250514 Obsidian 作为主力笔记软件\|250514 Obsidian 作为主力笔记软件]] 之后，不可避免开始想两个问题：

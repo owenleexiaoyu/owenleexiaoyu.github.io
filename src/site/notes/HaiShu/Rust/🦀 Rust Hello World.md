@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Rust/🦀 Rust Hello World/","tags":["Rust"],"noteIcon":"","created":"2024-01-10","updated":"2026-07-02T10:14:03.667+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Rust/🦀 Rust Hello World/","tags":["Rust"],"noteIcon":"","created":"2024-01-10","updated":"2026-07-02T10:14:03.667+08:00","dg-note-properties":{"date":"2024-01-10","tags":["Rust"]}}
 ---
 
 主要内容：

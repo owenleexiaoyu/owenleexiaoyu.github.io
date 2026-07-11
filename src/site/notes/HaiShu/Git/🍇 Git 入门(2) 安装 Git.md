@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Git/🍇 Git 入门(2) 安装 Git/","tags":["编程","Git"],"noteIcon":"","created":"2023-07-24","updated":"2026-07-02T11:16:46.135+08:00"}
+{"dg-publish":true,"permalink":"/HaiShu/Git/🍇 Git 入门(2) 安装 Git/","tags":["编程","Git"],"noteIcon":"","created":"2023-07-24","updated":"2026-07-02T11:16:46.135+08:00","dg-note-properties":{"date":"2023-07-24","tags":["编程","Git"]}}
 ---
 
 哈哈，上一篇的 [[HaiShu/Git/🍇 Git 入门(1) Git 介绍\|🍇 Git 入门(1) Git 介绍]] 已经是 2017 年写的了，现在都已经是 2021 年 5 月，才回过头来继续整理这个系列的笔记，我实在是太过咸鱼了。OK，闲话少叙，我们进入正题，这篇文章就来简单写写如何安装 Git。
