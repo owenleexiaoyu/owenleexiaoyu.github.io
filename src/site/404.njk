@@ -1,31 +1,27 @@
+
 <!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex" />
-    <title>404 · {{ meta.siteName }}</title>
-    <link href="/styles/digital-garden-base.css" rel="stylesheet" />
-    {%- if meta.themeStyle -%}
-    <link href="/styles/obsidian-base.css" rel="stylesheet" />
-    <link href="{{ meta.themeStyle }}" rel="stylesheet" />
-    {%- else -%}
-    <link href="/styles/style.css" rel="stylesheet" />
-    {%- endif -%}
-    <link href="/styles/custom-style.css" rel="stylesheet" />
-  </head>
-  <body class="theme-{{ meta.baseTheme }} not-found-page">
-    <div class="not-found-page__glow" aria-hidden="true"></div>
-    <main class="not-found-page__inner">
-      <p class="not-found-page__code" aria-label="错误 404">404</p>
-      <h1 class="not-found-page__title">未找到此页面</h1>
-      <p class="not-found-page__lead">
-        链接可能已过期、笔记未公开，或地址输入有误。你可以从下面返回主站首页或进入数字花园。
-      </p>
-      <nav class="not-found-page__actions" aria-label="页面导航">
-        <a class="not-found-page__btn not-found-page__btn--primary" href="/">主站首页</a>
-        <a class="not-found-page__btn" href="{{ meta.gardenHomeUrl }}">数字花园</a>
-      </nav>
-    </main>
-  </body>
+<html lang="{{ meta.mainLanguage }}">
+    <head>
+        <title>Nothing here</title>
+        <link href="/styles/digital-garden-base.css" rel="stylesheet">
+        {%-if meta.themeStyle%}
+            <link href="/styles/obsidian-base.css" rel="stylesheet">
+    	    <link href="{{meta.themeStyle}}" rel="stylesheet">
+        {% else %}
+            <link href="/styles/style.css" rel="stylesheet">
+        {%endif%}
+
+        <link href="/styles/custom-style.css" rel="stylesheet">
+    </head>
+    <body class="theme-{{meta.baseTheme}} markdown-preview-view">
+        <div class="content centered">
+
+            {%-if not meta.themeStyle%}
+                <div class="font-bg"> &#x1F60E; </div>
+            {%endif%}
+            <h1>There is nothing here</h1>
+            <p>If you got here from a link, this note is probably not made public</p>
+            <a href="/">Go back home</a>
+        </div>
+    </body>
 </html>
