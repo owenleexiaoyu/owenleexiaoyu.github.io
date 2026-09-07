@@ -26,7 +26,7 @@
 
 # 周三 2026-08-12
 
-[[Inbox/260812 修理罗技 Master 2S 鼠标\|260812 修理罗技 Master 2S 鼠标]]
+[[NightWrite/260812 修理罗技 Master 2S 鼠标\|260812 修理罗技 Master 2S 鼠标]]
 
 发现一个很有潜力的 Obsidian 插件 [UNmemos](https://github.com/uncore-gh/UNmemos)，这个插件是使用 Obsidian 的 Canvas 作为内容存储来实现类似 Flomo 笔记的效果，可以用来记录一些碎片笔记。有了这个插件，我的那个 BlockX 的插件似乎没有必要了，这个插件实现的效果更好。
 
