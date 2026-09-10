@@ -37,7 +37,7 @@
 [[DevBits/Project：学会使用 Kotlin 协程\|Project：学会使用 Kotlin 协程]]
 [[Inbox/Project：iOS 开发入门\|Project：iOS 开发入门]]
 [[Inbox/Project：开发 WanAndroid 3.0\|Project：开发 WanAndroid 3.0]]
-[[Inbox/Project：打造一个 Awesome 的个人网站\|Project：打造一个 Awesome 的个人网站]] 
+[[DevBits/Project：打造一个 Awesome 的个人网站\|Project：打造一个 Awesome 的个人网站]] 
 
 - [Cursor Router]([https://cursor.com/cn/blog/router](https://cursor.com/cn/blog/router))：一个任务分类器，不同类型/难度的任务在用不同的模型来完成，避免使用单一前沿模型，能够在保持输出质量的同时节约成本。
 > 我们会了解每个模型最擅长的场景，并将请求路由到最合适的选项。简单任务会交给性价比最高的模型，UI 更新会交给审美最佳的模型，而更复杂的长周期问题则会交给前沿推理模型。
