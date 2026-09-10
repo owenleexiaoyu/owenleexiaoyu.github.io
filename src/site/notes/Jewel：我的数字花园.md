@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-permalink":"garden","permalink":"/garden/","noteIcon":"","updated":"2026-09-10T08:28:31.389+08:00","dg-note-properties":{}}
+{"dg-publish":true,"dg-permalink":"garden","permalink":"/garden/","noteIcon":"","updated":"2026-09-10T09:43:48.120+08:00","dg-note-properties":{}}
 ---
 
 ![obsidian-second-brain |488](https://img.lixiaoyu.life/blog-res/2026/07/39df5744c78630a1d5d6d8a23ab6f644.png)
@@ -9,37 +9,17 @@ Hi，我是 Owen，这里是我的数字花园，我在这里播种我的想法�
 我把它起名为 Jewel（宝石），是希望我写下的文字都是一颗颗宝石，字字珠玑。
 
 ---
-## 进行中项目
+## 进行中的项目
 
 
 ```base
 views:
   - type: table
-    name: 进行中项目
+    name: WIP Projects
     filters:
       and:
         - file.tags.contains("Project")
         - wip == true
-  - type: table
-    name: 最近 Weekly
-    filters:
-      and:
-        - file.inFolder("Journal")
-        - file.name.startsWith("Weekly")
-    sort:
-      - property: file.name
-        direction: DESC
-    limit: 3
-  - type: table
-    name: WIP Notes
-    filters:
-      and:
-        - wip == true
-        - '!file.name.startsWith("Project")'
-        - file.folder != "Template"
-    sort:
-      - property: file.mtime
-        direction: DESC
 
 ```
 
@@ -50,22 +30,6 @@ views:
 ```base
 views:
   - type: table
-    name: 进行中项目
-    filters:
-      and:
-        - file.tags.contains("Project")
-        - wip == true
-  - type: table
-    name: 最近 Weekly
-    filters:
-      and:
-        - file.inFolder("Journal")
-        - file.name.startsWith("Weekly")
-    sort:
-      - property: file.name
-        direction: DESC
-    limit: 3
-  - type: table
     name: WIP Notes
     filters:
       and:
@@ -79,19 +43,13 @@ views:
 ```
 
 
-## 最新 Weekly
+## 最近的 Weekly
 
 
 ```base
 views:
   - type: table
-    name: 进行中项目
-    filters:
-      and:
-        - file.tags.contains("Project")
-        - wip == true
-  - type: table
-    name: 最近 Weekly
+    name: Latest Weekly
     filters:
       and:
         - file.inFolder("Journal")
@@ -100,16 +58,6 @@ views:
       - property: file.name
         direction: DESC
     limit: 3
-  - type: table
-    name: WIP Notes
-    filters:
-      and:
-        - wip == true
-        - '!file.name.startsWith("Project")'
-        - file.folder != "Template"
-    sort:
-      - property: file.mtime
-        direction: DESC
 
 ```
 
