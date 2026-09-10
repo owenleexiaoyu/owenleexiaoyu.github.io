@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/garden/","tags":[],"noteIcon":"","updated":"2026-08-12T10:04:21.620+08:00","dg-note-properties":{}}
+{"dg-publish":true,"dg-permalink":"garden","permalink":"/garden/","noteIcon":"","updated":"2026-09-10T08:28:31.389+08:00","dg-note-properties":{}}
 ---
 
 ![obsidian-second-brain |488](https://img.lixiaoyu.life/blog-res/2026/07/39df5744c78630a1d5d6d8a23ab6f644.png)
@@ -112,3 +112,4 @@ views:
         direction: DESC
 
 ```
+
