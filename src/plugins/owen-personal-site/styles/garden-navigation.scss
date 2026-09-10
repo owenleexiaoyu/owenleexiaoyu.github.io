@@ -1,0 +1,67 @@
+.owen-garden-links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.owen-garden-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.owen-garden-links a:hover,
+.owen-garden-links a:focus-visible {
+  color: var(--text-accent);
+}
+
+.owen-garden-links svg {
+  width: 15px;
+  height: 15px;
+}
+
+.filetree-sidebar > .owen-garden-links {
+  order: 1;
+  justify-content: center;
+  margin: 0 0 8px;
+  padding: 0 4px;
+}
+
+.filetree-sidebar > .search-button {
+  order: 2;
+}
+
+.filetree-sidebar > .folder {
+  order: 3;
+}
+
+.navbar:has(> .owen-garden-links) {
+  justify-content: flex-start;
+}
+
+.navbar > .navbar-inner {
+  order: 0;
+}
+
+.navbar > .owen-garden-links {
+  order: 1;
+  margin-left: auto;
+}
+
+.navbar > .search-button {
+  order: 2;
+}
+
+@media (max-width: 600px) {
+  .navbar > .owen-garden-links {
+    gap: 12px;
+  }
+
+  .navbar > .owen-garden-links a {
+    font-size: 12px;
+  }
+}

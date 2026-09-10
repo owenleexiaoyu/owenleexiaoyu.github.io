@@ -1,0 +1,20 @@
+<div class="owen-blog-directory">
+  <div class="owen-blog-heading">
+    <h1>&#35;{{ blogTag }}</h1>
+    <span>这个主题下的全部文章。</span>
+  </div>
+  <ol class="owen-post-list">
+    {% for post in collections.owenBlogPosts %}
+      {% set postTags = post | owenBlogVisibleTags %}
+      {% if blogTag in postTags %}
+        <li>
+          <article class="owen-post-card">
+            <h2><a href="{{ post.url }}">{{ post.data.title or post.fileSlug }}</a></h2>
+            <p>{{ post.templateContent | owenBlogExcerpt(200) }}</p>
+            <time>{{ post | owenBlogDate }}</time>
+          </article>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ol>
+</div>

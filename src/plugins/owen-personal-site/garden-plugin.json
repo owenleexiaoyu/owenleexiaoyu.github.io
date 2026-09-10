@@ -1,0 +1,28 @@
+{
+  "id": "owen-personal-site",
+  "name": "Owen Personal Site",
+  "version": "1.0.0",
+  "description": "Adds a personal homepage and a themed blog view over published garden notes.",
+  "author": "Owen Lee",
+  "hooks": "index.js",
+  "slots": {
+    "common.head": "templates/context-head.njk",
+    "notes.header": "templates/blog-nav.njk",
+    "index.header": "templates/blog-nav.njk",
+    "filetree.actions": "templates/garden-links.njk",
+    "navbar.actions": "templates/garden-links.njk"
+  },
+  "styles": [
+    "styles/home.scss",
+    "styles/blog.scss",
+    "styles/garden-navigation.scss"
+  ],
+  "scripts": [
+    "assets/blog-context.js",
+    "assets/garden-navigation.js"
+  ],
+  "assets": [
+    "assets/github.svg",
+    "assets/juejin.svg"
+  ]
+}

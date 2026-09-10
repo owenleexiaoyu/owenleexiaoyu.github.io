@@ -1,0 +1,18 @@
+<nav class="owen-blog-nav" aria-label="博客导航">
+  <div class="owen-blog-nav-primary">
+    <a class="owen-blog-home" href="/" title="主页" aria-label="主页">
+      <i data-lucide="house" aria-hidden="true"></i>
+    </a>
+    <a href="/blog/">博客</a>
+    <a href="/garden/">花园</a>
+  </div>
+  <div class="owen-blog-nav-secondary">
+    {% if "dg-search" in plugins.enabled and settings.dgEnableSearch === true %}
+      <button class="owen-blog-search" type="button" onclick="window.toggleSearch && window.toggleSearch()" title="搜索" aria-label="搜索">
+        <i data-lucide="search" aria-hidden="true"></i>
+      </button>
+    {% endif %}
+    <a href="/blog/tags/">标签</a>
+    <a href="/blog/timeline/">时间线</a>
+  </div>
+</nav>

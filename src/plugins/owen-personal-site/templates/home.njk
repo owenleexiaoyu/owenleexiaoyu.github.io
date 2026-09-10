@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ home.meta.description }}">
+    <title>{{ home.meta.title }}</title>
+    <link rel="stylesheet" href="/plugins/owen-personal-site/styles/home.css">
+  </head>
+  <body class="owen-home">
+    <header class="home-header">
+      <a class="home-brand" href="#top" aria-label="返回顶部">海树</a>
+      <nav class="home-nav" aria-label="主页导航">
+        <a href="#about">关于</a>
+        <a href="#work">项目</a>
+        <a href="#writing">写作</a>
+        <a href="/blog/">博客</a>
+        <a href="/garden/">花园</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="home-hero" aria-labelledby="home-title">
+        <div class="home-hero-copy">
+          <p class="home-eyebrow">{{ home.profile.eyebrow }}</p>
+          <h1 id="home-title">{{ home.profile.name }}<span>{{ home.profile.role }}</span></h1>
+          <p class="home-hero-intro">{{ home.profile.intro }}</p>
+          <nav class="home-profile-links" aria-label="个人链接">
+            {% for social in home.socials %}
+              {% if social.href %}
+                <a href="{{ social.href }}" rel="me" aria-label="{{ social.label }}" title="{{ social.label }}">
+                  <img src="{{ social.icon }}" alt="">
+                </a>
+              {% endif %}
+            {% endfor %}
+          </nav>
+          <div class="home-actions">
+            <a class="home-button home-button-primary" href="/blog/">阅读博客</a>
+            <a class="home-button" href="/garden/">走进花园</a>
+          </div>
+        </div>
+        <aside class="home-note" aria-label="关于这个网站">
+          <span>Blog × Garden</span>
+          <p>{{ home.profile.note }}</p>
+        </aside>
+      </section>
+
+      <section class="home-section home-about" id="about" aria-labelledby="about-title">
+        <div class="home-section-heading">
+          <p class="home-eyebrow">What I build with</p>
+          <h2 id="about-title">技术领域</h2>
+        </div>
+        <div class="home-skills">
+          {% for skill in home.skills %}
+            <article class="home-skill home-skill-{{ skill.tone }}">
+              <span class="home-skill-mark" aria-hidden="true"></span>
+              <h3>{{ skill.name }}</h3>
+              <p>{{ skill.detail }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      {% if home.projects.length %}
+        <section class="home-section" id="work" aria-labelledby="work-title">
+          <div class="home-section-heading">
+            <p class="home-eyebrow">What I have done</p>
+            <h2 id="work-title">我的项目</h2>
+          </div>
+          <div class="home-projects">
+            {% for project in home.projects %}
+              <a class="home-project" href="{{ project.href }}">
+                <span>{{ project.label }}</span>
+                <h3>{{ project.title }}</h3>
+                <p>{{ project.description }}</p>
+                <strong aria-hidden="true">查看项目 →</strong>
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+      {% if home.series.length %}
+        <section class="home-section" id="writing" aria-labelledby="writing-title">
+          <div class="home-section-heading home-section-heading-row">
+            <div>
+              <p class="home-eyebrow">Writing series</p>
+              <h2 id="writing-title">我的专栏</h2>
+            </div>
+            <a href="/blog/">全部文章 →</a>
+          </div>
+          <div class="home-series">
+            {% for series in home.series %}
+              <a class="home-series-card" href="{{ series.href }}">
+                {% if series.image %}<img src="{{ series.image }}" alt="" loading="lazy">{% endif %}
+                <div>
+                  <h3>{{ series.title }}</h3>
+                  <p>{{ series.description }}</p>
+                </div>
+              </a>
+            {% endfor %}
+          </div>
+        </section>
+      {% endif %}
+
+    </main>
+
+    <footer class="home-footer">
+      <span>© {{ home.year }} {{ home.profile.name }}</span>
+    </footer>
+  </body>
+</html>

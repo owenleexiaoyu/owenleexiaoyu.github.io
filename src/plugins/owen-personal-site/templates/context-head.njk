@@ -1,0 +1,36 @@
+<script>
+  (function () {
+    var key = "owen:blog-view";
+    var path = window.location.pathname.replace(/\/+$/, "") || "/";
+    var params = new URLSearchParams(window.location.search);
+    var requested = params.get("view") === "blog";
+    var isBlog = path === "/blog" || path.indexOf("/blog/") === 0;
+    var isGarden = path === "/garden";
+    var active = false;
+
+    try {
+      if (isGarden) {
+        sessionStorage.removeItem(key);
+      } else if (isBlog || requested) {
+        sessionStorage.setItem(key, "1");
+        active = true;
+      } else {
+        active = sessionStorage.getItem(key) === "1";
+      }
+    } catch (error) {
+      active = !isGarden && (isBlog || requested);
+    }
+
+    if (active) document.documentElement.classList.add("dg-blog-view");
+
+    if (requested) {
+      params.delete("view");
+      var query = params.toString();
+      history.replaceState(
+        null,
+        "",
+        window.location.pathname + (query ? "?" + query : "") + window.location.hash
+      );
+    }
+  })();
+</script>

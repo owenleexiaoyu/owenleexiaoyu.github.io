@@ -1,0 +1,20 @@
+<div class="owen-blog-directory">
+  <div class="owen-blog-heading">
+    <h1>标签</h1>
+    <span>沿着主题重新发现文章之间的联系。</span>
+  </div>
+  {% if collections.owenBlogTags.length %}
+    <ul class="owen-tag-cloud">
+      {% for tag in collections.owenBlogTags %}
+        <li>
+          <a href="/blog/tags/{{ tag | owenBlogTagSlug }}/">
+            <span>&#35;{{ tag }}</span>
+            <strong>{{ collections.owenBlogPosts | owenBlogTagCount(tag) }}</strong>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="owen-blog-empty"><p>还没有可展示的标签。</p></div>
+  {% endif %}
+</div>

@@ -1,0 +1,57 @@
+<div class="owen-blog-listing">
+  <div class="owen-blog-main">
+    {% if posts.length %}
+      <ol class="owen-post-list">
+        {% for post in posts %}
+          <li>
+            <article class="owen-post-card">
+              <h2><a href="{{ post.url }}">{{ post.data.title or post.fileSlug }}</a></h2>
+              <p>{{ post.templateContent | owenBlogExcerpt(220) }}</p>
+              {% set postTags = post | owenBlogVisibleTags %}
+              <div class="owen-post-meta">
+                <time datetime="{{ post.data.created or post.data.updated }}">{{ post | owenBlogDate }}</time>
+                {% if postTags.length %}
+                  <div class="owen-post-tags">
+                    {% for tag in postTags %}
+                      <a href="/blog/tags/{{ tag | owenBlogTagSlug }}/">&#35;{{ tag }}</a>
+                    {% endfor %}
+                  </div>
+                {% endif %}
+              </div>
+            </article>
+          </li>
+        {% endfor %}
+      </ol>
+      <nav class="owen-pagination" aria-label="文章分页">
+        <span class="owen-pagination-newer">
+          {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">← 较新文章</a>{% endif %}
+        </span>
+        <span class="owen-pagination-status">第 {{ pagination.pageNumber + 1 }} / {{ pagination.pages.length }} 页</span>
+        <span class="owen-pagination-older">
+          {% if pagination.href.next %}<a href="{{ pagination.href.next }}">较早文章 →</a>{% endif %}
+        </span>
+      </nav>
+    {% else %}
+      <div class="owen-blog-empty">
+        <h2>文章正在路上</h2>
+        <p>发布到数字花园的笔记会自动出现在这里。</p>
+        <a href="/garden/">先逛逛数字花园</a>
+      </div>
+    {% endif %}
+  </div>
+
+  {% if collections.owenBlogRecentUpdated.length %}
+    <aside class="owen-blog-recent">
+      <h2>最近更新</h2>
+      <ol>
+        {% for post in collections.owenBlogRecentUpdated %}
+          <li>
+            <a href="{{ post.url }}">{{ post.data.title or post.fileSlug }}</a>
+            {% set recentDate = post.data.updated or post.data.created %}
+            <time>{{ recentDate | owenBlogDate }}</time>
+          </li>
+        {% endfor %}
+      </ol>
+    </aside>
+  {% endif %}
+</div>
