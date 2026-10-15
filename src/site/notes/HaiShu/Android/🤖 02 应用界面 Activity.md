@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 02 应用界面 Activity/","tags":["编程","Android"],"noteIcon":"","created":"2023-07-09","updated":"2026-07-14T08:03:56.194+08:00","dg-note-properties":{"tags":["编程","Android"],"date":"2023-07-09"}}
+{"dg-publish":true,"permalink":"/HaiShu/Android/🤖 02 应用界面 Activity/","tags":["编程","Android"],"noteIcon":"","created":"2023-07-09","updated":"2026-07-14T08:03:56.000+08:00","dg-note-properties":{"tags":["编程","Android"],"date":"2023-07-09"}}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevBits/Vibe Coding 数字花园和博客融合低侵入方案/","tags":["随笔","AI生成"],"noteIcon":"","created":"2026-09-09","updated":"2026-09-10T09:52:47.093+08:00","dg-note-properties":{"date":"2026-09-09","tags":["随笔","AI生成"]}}
+{"dg-publish":true,"permalink":"/DevBits/Vibe Coding 数字花园和博客融合低侵入方案/","tags":["随笔","AI生成"],"noteIcon":"","created":"2026-09-09","updated":"2026-09-10T09:52:47.000+08:00","dg-note-properties":{"date":"2026-09-09","tags":["随笔","AI生成"]}}
 ---
 
 > 本文档由 Codex Plan 模式生成

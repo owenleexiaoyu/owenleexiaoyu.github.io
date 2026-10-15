@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-permalink":"garden","permalink":"/garden/","noteIcon":"","updated":"2026-09-10T09:43:48.120+08:00","dg-note-properties":{}}
+{"dg-publish":true,"dg-permalink":"garden","permalink":"/garden/","noteIcon":"","updated":"2026-09-15T11:52:39.830+08:00","dg-note-properties":{}}
 ---
 
 ![obsidian-second-brain |488](https://img.lixiaoyu.life/blog-res/2026/07/39df5744c78630a1d5d6d8a23ab6f644.png)

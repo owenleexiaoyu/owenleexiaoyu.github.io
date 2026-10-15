@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/NightWrite/251030 TikTok US 时间线/","tags":["公司","资讯"],"noteIcon":"","created":"2025-10-30","updated":"2026-07-10T22:48:04.902+08:00","dg-note-properties":{"date":"2025-10-30","tags":["公司","资讯"]}}
+{"dg-publish":true,"permalink":"/NightWrite/251030 TikTok US 时间线/","tags":["公司","资讯"],"noteIcon":"","created":"2025-10-30","updated":"2026-07-10T22:48:04.000+08:00","dg-note-properties":{"date":"2025-10-30","tags":["公司","资讯"]}}
 ---
 
 > 作为一位在 TikTok 工作的相关方，美国封禁 TikTok 一直是我们很关心的一个事件。因此整理 了 TikTok 美国封禁的重要事件。

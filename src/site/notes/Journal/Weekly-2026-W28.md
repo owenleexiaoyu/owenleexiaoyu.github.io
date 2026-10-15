@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W28/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-07-06","updated":"2026-07-12T23:38:06.708+08:00","dg-note-properties":{"date":"2026-07-06","tags":["随笔","WeeklyNotes"]}}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W28/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-07-06","updated":"2026-07-12T23:38:06.000+08:00","dg-note-properties":{"date":"2026-07-06","tags":["随笔","WeeklyNotes"]}}
 ---
 
 # 周一 2026-07-06
