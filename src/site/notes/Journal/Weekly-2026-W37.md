@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W37/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-09-14","updated":"2026-09-16T09:32:24.513+08:00","dg-note-properties":{"date":"2026-09-14","tags":["随笔","WeeklyNotes"]}}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W37/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-09-07","updated":"2026-10-20T18:25:35.618+08:00","dg-note-properties":{"date":"2026-09-07","tags":["随笔","WeeklyNotes"]}}
 ---
 
 
