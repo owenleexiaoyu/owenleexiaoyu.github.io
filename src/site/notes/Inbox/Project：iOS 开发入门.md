@@ -47,9 +47,9 @@
 [[DevBits/iOS Programming E7：C4 View Controller\|iOS Programming E7：C4 View Controller]]
 [[DevBits/iOS Programming E7：C5 代码方式画 UI\|iOS Programming E7：C5 代码方式画 UI]]
 [[DevBits/iOS Programming E7：C6 Text Input\|iOS Programming E7：C6 Text Input]]
-[[Inbox/iOS Programming E7：C7 i18n & L10n\|iOS Programming E7：C7 i18n & L10n]]
-[[Inbox/iOS Programming E7：C8 Debug\|iOS Programming E7：C8 Debug]]
-[[Inbox/iOS Programming E7：C9 TableView\|iOS Programming E7：C9 TableView]]
+[[DevBits/iOS Programming E7：C7 i18n & L10n\|iOS Programming E7：C7 i18n & L10n]]
+[[DevBits/iOS Programming E7：C8 Debug\|iOS Programming E7：C8 Debug]]
+[[DevBits/iOS Programming E7：C9 TableView\|iOS Programming E7：C9 TableView]]
 
 
 

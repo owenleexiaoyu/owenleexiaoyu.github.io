@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Inbox/Project：开发 WanAndroid 3.0/","tags":["Project"],"noteIcon":"","created":"2026-07-23","updated":"2026-09-07T10:39:16.000+08:00","dg-note-properties":{"date":"2026-07-23","tags":["Project"],"wip":true}}
+{"dg-publish":true,"permalink":"/Inbox/Project：开发 WanAndroid 3.0/","tags":["Project"],"noteIcon":"","created":"2026-07-23","updated":"2026-10-23T08:16:57.179+08:00","dg-note-properties":{"date":"2026-07-23","tags":["Project"],"wip":true}}
 ---
 
 ## 目标
@@ -14,11 +14,12 @@
 ## 安排
 
 Week34(8/17~8/23)
-- 首页迁移
-- 体系 Tab 迁移
+- 首页迁移（2026-10-21 ✅）
+- 体系 Tab 迁移（2026-10-23 ✅）
 Week35(8/24~8/30)
 - 搜索页的迁移，主要是 UI 风格的变化
-- 把登录功能迁移
+- 把登录注册功能迁移
+- Lynx 接入项目中，实现积分排行页面
 
 ## 过程记录
 
@@ -27,4 +28,5 @@ Week35(8/24~8/30)
 [[DevBits/Wan3 03 新的个人页\|Wan3 03 新的个人页]]
 [[DevBits/Wan3 04 设置页和深色模式\|Wan3 04 设置页和深色模式]]
 [[DevBits/Wan3 05 新的发现页\|Wan3 05 新的发现页]]
+[[DevBits/Wan3 06 新的主页\|Wan3 06 新的主页]]
 
