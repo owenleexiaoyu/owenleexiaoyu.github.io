@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W36/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-09-07","updated":"2026-01-28T10:17:21.000+08:00","dg-note-properties":{"date":"2025-09-07","tags":["随笔","WeeklyNotes"]}}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2025-W36/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2025-09-07","updated":"2026-11-14T09:34:10.014+08:00","dg-note-properties":{"date":"2025-09-07","tags":["随笔","WeeklyNotes"]}}
 ---
 
 
@@ -46,5 +46,5 @@
 # 周日 2025-09-07
 
 - 妈妈这两天在这给我们做了好几顿饭。中午吃完饭，我们开车送妈妈去虹桥火车站，差不多时间刚刚好，提前了 20 分钟到站。小轿车送客能直接送到出发层，下来进了安检就是候车室了，所以很快。
-- 送完妈妈，我们去了 17 号线徐盈路附近万科天空之城三期星之屿看房。
+- 送完妈妈，我们去了 17 号线徐盈路附近万科天空之城三期星之屿看房。 #主题/买房 
 - 看完房子，我和小萌还在附近练了会车。

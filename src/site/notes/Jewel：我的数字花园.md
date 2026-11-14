@@ -1,8 +1,8 @@
 ---
-{"dg-publish":true,"dg-permalink":"garden","permalink":"/garden/","noteIcon":"","updated":"2026-09-15T11:52:39.830+08:00","dg-note-properties":{}}
+{"dg-publish":true,"dg-permalink":"garden","permalink":"/garden/","noteIcon":"","updated":"2026-11-04T23:51:55.512+08:00","dg-note-properties":{}}
 ---
 
-![obsidian-second-brain |488](https://img.lixiaoyu.life/blog-res/2026/07/39df5744c78630a1d5d6d8a23ab6f644.png)
+![obsidian-second-brain](https://img.lixiaoyu.life/blog-res/2026/07/39df5744c78630a1d5d6d8a23ab6f644.png)
 
 Hi，我是 Owen，这里是我的数字花园，我在这里播种我的想法，希望未来有一天，能够收获满满的创意和成果。
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevBits/Project：打造一个 Awesome 的个人网站/","tags":["Project"],"noteIcon":"","created":"2026-07-23","updated":"2026-09-10T09:51:19.000+08:00","dg-note-properties":{"date":"2026-07-23","tags":["Project"]}}
+{"dg-publish":true,"permalink":"/DevBits/Project：打造一个 Awesome 的个人网站/","tags":["项目"],"noteIcon":"","created":"2026-07-23","updated":"2026-11-14T09:41:25.872+08:00","dg-note-properties":{"date":"2026-07-23","tags":["项目"]}}
 ---
 
 ## 目标
@@ -11,7 +11,7 @@
 
 ##  过程记录
 
-[[NightWrite/260909 博客花园融合第二期\|260909 博客花园融合第二期]]
+[[NightWrite/260909 博客与数字花园融合第二期\|260909 博客与数字花园融合第二期]]
 [[DevBits/Vibe Coding 数字花园和博客融合低侵入方案\|Vibe Coding 数字花园和博客融合低侵入方案]]
 [[NightWrite/260906 数字花园同步上游模版\|260906 数字花园同步上游模版]]
 [[DevBits/Vibe Coding 数字花园和博客融合\|Vibe Coding 数字花园和博客融合]]

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevBits/iOS Programming E7：C1 快速上手构建 Quiz App/","tags":["编程笔记","iOS"],"noteIcon":"","created":"2025-08-20","updated":"2026-09-16T23:16:58.955+08:00","dg-note-properties":{"date":"2025-08-20","tags":["编程笔记","iOS"]}}
+{"dg-publish":true,"permalink":"/DevBits/iOS Programming E7：C1 快速上手构建 Quiz App/","tags":["主题/编程","主题/iOS开发"],"noteIcon":"","created":"2025-08-20","updated":"2026-11-14T09:38:30.986+08:00","dg-note-properties":{"date":"2025-08-20","tags":["主题/编程","主题/iOS开发"]}}
 ---
 
 创建视图

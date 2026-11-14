@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W37/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-09-07","updated":"2026-10-20T18:25:35.618+08:00","dg-note-properties":{"date":"2026-09-07","tags":["随笔","WeeklyNotes"]}}
+{"dg-publish":true,"permalink":"/Journal/Weekly-2026-W37/","tags":["随笔","WeeklyNotes"],"noteIcon":"","created":"2026-09-07","updated":"2026-10-29T07:55:51.368+08:00","dg-note-properties":{"date":"2026-09-07","tags":["随笔","WeeklyNotes"]}}
 ---
 
 
@@ -25,7 +25,7 @@
 
 # 周三 2026-09-09
 
-[[NightWrite/260909 博客花园融合第二期\|260909 博客花园融合第二期]]
+[[NightWrite/260909 博客与数字花园融合第二期\|260909 博客与数字花园融合第二期]]
 
 今天参加了活动日羽毛球活动，两个小时，燃烧了 1600 卡路里，一下子还了 1000 卡的债。
 
